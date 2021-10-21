@@ -12,7 +12,7 @@ import { AnyJson } from '@salesforce/ts-types';
 import * as fs from 'fs-extra';
 import { Logger, Listr } from 'listr2';
 import * as kit from '@salesforce/kit';
-import { ComponentSet, VirtualTreeContainer } from '@salesforce/source-deploy-retrieve';
+import { ComponentSet, VirtualTreeContainer, DestructiveChangesType } from '@salesforce/source-deploy-retrieve';
 import {
   getGitResults,
   createVirtualTreeContainer,
@@ -198,7 +198,9 @@ uses the diff of what is unique in branchB (REF2)`,
                       ctx.gitResults.destructiveChanges,
                       true
                     );
-                    if (!ctx.destructiveChangesComponentSet.getObject(true).Package.types.length) {
+                    if (
+                      !ctx.destructiveChangesComponentSet.getObject(DestructiveChangesType.POST).Package.types.length
+                    ) {
                       task.skip();
                       return;
                     }
@@ -211,7 +213,7 @@ uses the diff of what is unique in branchB (REF2)`,
                     await fs.ensureDir(dirname(ctx.destructiveChanges.files[0]));
                     await fs.writeFile(
                       ctx.destructiveChanges.files[0],
-                      ctx.destructiveChangesComponentSet.getPackageXml(undefined, true)
+                      ctx.destructiveChangesComponentSet.getPackageXml(undefined, DestructiveChangesType.POST)
                     );
 
                     await fs.writeFile(
@@ -260,7 +262,7 @@ uses the diff of what is unique in branchB (REF2)`,
               if (value instanceof ComponentSet && value !== null) {
                 let types = value.getObject().Package.types;
                 if (types.length === 0) {
-                  types = value.getObject(true).Package.types;
+                  types = value.getObject(DestructiveChangesType.POST).Package.types;
                 }
                 return types;
               }
@@ -275,7 +277,7 @@ uses the diff of what is unique in branchB (REF2)`,
         );
       }
       return {
-        destructiveChanges: context.destructiveChangesComponentSet?.getObject(true),
+        destructiveChanges: context.destructiveChangesComponentSet?.getObject(DestructiveChangesType.POST),
         manifest: context.manifestComponentSet?.getObject(),
       } as unknown as AnyJson;
     } catch (e) {

@@ -18,6 +18,7 @@ import {
   NodeFSTreeContainer as FSTreeContainer,
   MetadataResolver,
   VirtualFile,
+  DestructiveChangesType,
 } from '@salesforce/source-deploy-retrieve';
 import { parseMetadataXml } from '@salesforce/source-deploy-retrieve/lib/src/utils';
 import { debug as Debug } from 'debug';
@@ -287,7 +288,7 @@ export async function getGitResults(
     if (status === 'D') {
       for (const c of ref1Resolver.getComponentsFromPath(path)) {
         if (c.xml === path || gitLines.find((x) => x.path === c.xml)) {
-          results.destructiveChanges.add(c, true);
+          results.destructiveChanges.add(c, DestructiveChangesType.POST);
           results.counts.deleted++;
         } else {
           try {
@@ -318,7 +319,7 @@ export async function getGitResults(
       } else {
         results.counts.modified++;
         for (const c of check.toDestructiveChanges) {
-          results.destructiveChanges.add(c, true);
+          results.destructiveChanges.add(c, DestructiveChangesType.POST);
         }
         for (const c of check.toManifest) {
           results.manifest.add(c);
