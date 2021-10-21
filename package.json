@@ -11,7 +11,7 @@
     "@salesforce/command": "^4.1.4",
     "@salesforce/core": "^2.28.2",
     "@salesforce/kit": "^1.5.17",
-    "@salesforce/source-deploy-retrieve": "^4.5.11",
+    "@salesforce/source-deploy-retrieve": "^5.0.0",
     "@salesforce/ts-types": "^1.5.20",
     "cli-ux": "^5.6.3",
     "debug": "^4.3.2",
