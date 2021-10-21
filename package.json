@@ -1,7 +1,7 @@
 {
   "name": "@jayree/sfdx-plugin-manifest",
   "description": "jayree sfdx manifest commands",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "jayree",
   "bugs": "https://github.com/jayree/sfdx-plugin-manifest/issues",
   "dependencies": {

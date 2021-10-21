@@ -19,7 +19,7 @@ $ sfdx plugins:install @jayree/sfdx-plugin-manifest
 $ sfdx jayree:COMMAND
 running command...
 $ sfdx plugins
-@jayree/sfdx-plugin-manifest 1.0.0
+@jayree/sfdx-plugin-manifest 1.0.1
 $ sfdx help jayree:COMMAND
 USAGE
   $ sfdx jayree:COMMAND
@@ -52,7 +52,7 @@ OPTIONS
                                                                                     this command invocation
 ```
 
-_See code: [commands/jayree/manifest/cleanup.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v1.0.0/commands/jayree/manifest/cleanup.ts)_
+_See code: [commands/jayree/manifest/cleanup.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v1.0.1/commands/jayree/manifest/cleanup.ts)_
 
 ### `sfdx jayree:manifest:generate`
 
@@ -100,7 +100,7 @@ EXAMPLES
   <Package xmlns='http://soap.sforce.com/2006/04/metadata'>...</Package>
 ```
 
-_See code: [commands/jayree/manifest/generate.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v1.0.0/commands/jayree/manifest/generate.ts)_
+_See code: [commands/jayree/manifest/generate.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v1.0.1/commands/jayree/manifest/generate.ts)_
 
 ### `sfdx jayree:manifest:git:diff`
 
@@ -143,5 +143,5 @@ EXAMPLES
   uses the diff of what is unique in branchB (REF2)
 ```
 
-_See code: [commands/jayree/manifest/git/diff.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v1.0.0/commands/jayree/manifest/git/diff.ts)_
+_See code: [commands/jayree/manifest/git/diff.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v1.0.1/commands/jayree/manifest/git/diff.ts)_
 <!-- commandsstop -->
