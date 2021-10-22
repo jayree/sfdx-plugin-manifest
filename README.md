@@ -1,11 +1,10 @@
-@jayree/sfdx-plugin-manifest
-==========================
+# @jayree/sfdx-plugin-manifest
 
 jayree sfdx manifest commands
 
 [![sfdx](https://img.shields.io/badge/cli-sfdx-brightgreen.svg)](https://developer.salesforce.com/tools/sfdxcli)
 [![Version](https://img.shields.io/npm/v/@jayree/sfdx-plugin-manifest.svg)](https://npmjs.org/package/@jayree/sfdx-plugin-manifest)
-[![CircleCI](https://circleci.com/gh/jayree/sfdx-plugin-manifest/tree/main.svg?style=shield)](https://circleci.com/gh/jayree/sfdx-plugin-manifest/tree/main)
+[![test-and-release](https://github.com/jayree/sfdx-plugin-manifest/actions/workflows/release.yml/badge.svg)](https://github.com/jayree/sfdx-plugin-manifest/actions/workflows/release.yml)
 [![Downloads/week](https://img.shields.io/npm/dw/@jayree/sfdx-plugin-manifest.svg)](https://npmjs.org/package/@jayree/sfdx-plugin-manifest)
 [![License](https://img.shields.io/npm/l/@jayree/sfdx-plugin-manifest.svg)](https://github.com/jayree-plugins/sfdx-plugin-manifest/blob/main/package.json)
 
