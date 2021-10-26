@@ -338,27 +338,28 @@ export async function getGitResults(
 }
 
 export function buildManifestComponentSet(cs: ComponentSet, forDestructiveChanges = false): ComponentSet {
+  let csArray = cs.toArray();
   // SDR library is more strict and avoids fixes like this
   if (!forDestructiveChanges) {
-    // const missingParents = cs.find((c) => ['CustomFieldTranslation'].includes(c.type.name))?.parent;
-    // if (missingParents) {
-    //   debug({ missingParents });
-    //   cs.add(missingParents);
-    // }
     const childsTobeReplacedByParent = [
       ...Object.keys(registry.types.workflow.children.types),
       ...Object.keys(registry.types.sharingrules.children.types),
     ];
-    return new ComponentSet(
-      cs.map((component) => {
-        if (childsTobeReplacedByParent.includes(component.type.id)) {
-          return component.parent;
-        }
-        return component;
-      }),
-      registryAccess
-    );
+    csArray = csArray.map((component) => {
+      if (childsTobeReplacedByParent.includes(component.type.id)) {
+        return component.parent;
+      }
+      return component;
+    });
   }
 
-  return cs;
+  return new ComponentSet(
+    csArray.sort((a, b) => {
+      if (a.type.name === b.type.name) {
+        return a.fullName.toLowerCase() > b.fullName.toLowerCase() ? 1 : -1;
+      }
+      return a.type.name.toLowerCase() > b.type.name.toLowerCase() ? 1 : -1;
+    }),
+    registryAccess
+  );
 }
