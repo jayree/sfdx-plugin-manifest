@@ -25,7 +25,7 @@ const registryAccess = new RegistryAccess();
 
 Messages.importMessagesDirectory(__dirname);
 
-const messages = Messages.loadMessages('@jayree/sfdx-plugin-manifest', 'packagexml');
+const messages = Messages.loadMessages('@jayree/sfdx-plugin-manifest', 'manifestgenerate');
 
 type FilePropertiesLike = {
   fullName: string;

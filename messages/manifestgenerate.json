@@ -1,5 +1,5 @@
 {
-  "commandDescription": "generate a complete package xml form the specified org",
+  "commandDescription": "generate a complete manifest file form the specified org\nUse this command to generate a manifest file based on an existing org.",
   "configFlagDescription": "path to config file",
   "quickfilterFlagDescription": "csv separated list of metadata type, member or file names to filter on",
   "matchCaseFlagDescription": "enable 'match case' for the quickfilter",
