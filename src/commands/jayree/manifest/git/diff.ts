@@ -192,6 +192,7 @@ export default class GitDiff extends SfdxCommand {
                       task.skip();
                       return;
                     }
+                    ctx.destructiveChangesComponentSet.sourceApiVersion = ctx.sourceApiVersion;
                     ctx.destructiveChanges = {
                       files: [
                         join(ctx.projectRoot, 'destructiveChanges', 'destructiveChanges.xml'),
@@ -222,6 +223,7 @@ export default class GitDiff extends SfdxCommand {
                       task.skip();
                       return;
                     }
+                    ctx.manifestComponentSet.sourceApiVersion = ctx.sourceApiVersion;
                     ctx.manifest = { file: join(ctx.projectRoot, 'package', 'package.xml') };
                     await fs.ensureDir(dirname(ctx.manifest.file));
                     await fs.writeFile(ctx.manifest.file, ctx.manifestComponentSet.getPackageXml());
