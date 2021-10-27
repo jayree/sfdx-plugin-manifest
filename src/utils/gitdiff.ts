@@ -17,7 +17,6 @@ import {
   SourceComponent,
   NodeFSTreeContainer as FSTreeContainer,
   MetadataResolver,
-  VirtualFile,
   DestructiveChangesType,
 } from '@salesforce/source-deploy-retrieve';
 import { parseMetadataXml } from '@salesforce/source-deploy-retrieve/lib/src/utils';
@@ -74,41 +73,33 @@ export async function createVirtualTreeContainer(
   modifiedFiles: string[]
 ): Promise<VirtualTreeContainer> {
   const paths = (await git.listFiles({ fs, dir, ref })).map((p) => ensureOSPath(p));
-  const virtualFsSet = new Map<string, Set<VirtualFile | string>>();
+  const oid = await git.resolveRef({ fs, dir, ref });
   debug({ modifiedFiles });
-  for (const path of paths) {
-    let dirOrFilePath = path;
-    while (dirOrFilePath !== dirname(dirOrFilePath)) {
-      const fileOrFolderName = basename(dirOrFilePath);
-      dirOrFilePath = dirname(dirOrFilePath);
-      if (!virtualFsSet.has(dirOrFilePath)) {
-        virtualFsSet.set(dirOrFilePath, new Set());
-      }
-      if (path.endsWith(fileOrFolderName)) {
-        const data =
-          parseMetadataXml(path) && modifiedFiles.includes(path)
-            ? Buffer.from(
-                (
-                  await git.readBlob({
-                    fs,
-                    dir,
-                    oid: await git.resolveRef({ fs, dir, ref }),
-                    filepath: ensureGitPath(path),
-                  })
-                ).blob
-              )
-            : Buffer.from('');
-        virtualFsSet.get(dirOrFilePath).add({ name: fileOrFolderName, data });
-      } else {
-        virtualFsSet.get(dirOrFilePath).add(fileOrFolderName);
-      }
+  const virtualDirectoryByFullPath = new Map<string, VirtualDirectory>();
+  for (const filename of paths) {
+    let dirPath = dirname(filename);
+    virtualDirectoryByFullPath.set(dirPath, {
+      dirPath,
+      children: Array.from(
+        new Set(virtualDirectoryByFullPath.get(dirPath)?.children ?? []).add({
+          name: basename(filename),
+          data:
+            parseMetadataXml(filename) && modifiedFiles.includes(filename)
+              ? Buffer.from((await git.readBlob({ fs, dir, oid, filepath: ensureGitPath(filename) })).blob)
+              : Buffer.from(''),
+        })
+      ),
+    });
+    const splits = filename.split(sep);
+    for (let i = 0; i < splits.length - 2; i++) {
+      dirPath = splits.slice(0, i + 1).join(sep);
+      virtualDirectoryByFullPath.set(dirPath, {
+        dirPath,
+        children: Array.from(new Set(virtualDirectoryByFullPath.get(dirPath)?.children ?? []).add(splits[i + 1])),
+      });
     }
   }
-  const virtualFs: VirtualDirectory[] = [];
-  for (const [dirPath, childSet] of virtualFsSet) {
-    virtualFs.push({ dirPath, children: [...childSet] });
-  }
-  return new VirtualTreeContainer(virtualFs);
+  return new VirtualTreeContainer(Array.from(virtualDirectoryByFullPath.values()));
 }
 
 export async function analyzeFile(
@@ -338,27 +329,28 @@ export async function getGitResults(
 }
 
 export function buildManifestComponentSet(cs: ComponentSet, forDestructiveChanges = false): ComponentSet {
+  let csArray = cs.toArray();
   // SDR library is more strict and avoids fixes like this
   if (!forDestructiveChanges) {
-    // const missingParents = cs.find((c) => ['CustomFieldTranslation'].includes(c.type.name))?.parent;
-    // if (missingParents) {
-    //   debug({ missingParents });
-    //   cs.add(missingParents);
-    // }
     const childsTobeReplacedByParent = [
       ...Object.keys(registry.types.workflow.children.types),
       ...Object.keys(registry.types.sharingrules.children.types),
     ];
-    return new ComponentSet(
-      cs.map((component) => {
-        if (childsTobeReplacedByParent.includes(component.type.id)) {
-          return component.parent;
-        }
-        return component;
-      }),
-      registryAccess
-    );
+    csArray = csArray.map((component) => {
+      if (childsTobeReplacedByParent.includes(component.type.id)) {
+        return component.parent;
+      }
+      return component;
+    });
   }
 
-  return cs;
+  return new ComponentSet(
+    csArray.sort((a, b) => {
+      if (a.type.name === b.type.name) {
+        return a.fullName.toLowerCase() > b.fullName.toLowerCase() ? 1 : -1;
+      }
+      return a.type.name.toLowerCase() > b.type.name.toLowerCase() ? 1 : -1;
+    }),
+    registryAccess
+  );
 }

@@ -4,6 +4,7 @@
  * Licensed under the BSD 3-Clause license.
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
+import * as os from 'os';
 import { join, dirname } from 'path';
 import * as util from 'util';
 import { SfdxCommand } from '@salesforce/command';
@@ -51,20 +52,7 @@ const unexpectedArgument = (input: string): string => {
 export default class GitDiff extends SfdxCommand {
   public static description = messages.getMessage('commandDescription');
 
-  public static examples = [
-    `$ sfdx jayree:manifest:git:diff <commit> <commit>
-$ sfdx jayree:manifest:git:diff <commit>..<commit>
-uses the changes between two arbitrary <commit>
-`,
-    `$ sfdx jayree:manifest:git:diff <commit>...<commit>
-uses the changes on the branch containing and up to the second <commit>, starting at a common ancestor of both <commit>.
-    `,
-    `$ sfdx jayree:manifest:git:diff branchA..branchB
-uses the diff of what is unique in branchB (REF2) and unique in branchA (REF1)
-`,
-    `$ sfdx jayree:manifest:git:diff branchA...branchB
-uses the diff of what is unique in branchB (REF2)`,
-  ];
+  public static examples = messages.getMessage('examples').split(os.EOL);
 
   public static args = [
     {
@@ -204,6 +192,7 @@ uses the diff of what is unique in branchB (REF2)`,
                       task.skip();
                       return;
                     }
+                    ctx.destructiveChangesComponentSet.sourceApiVersion = ctx.sourceApiVersion;
                     ctx.destructiveChanges = {
                       files: [
                         join(ctx.projectRoot, 'destructiveChanges', 'destructiveChanges.xml'),
@@ -234,6 +223,7 @@ uses the diff of what is unique in branchB (REF2)`,
                       task.skip();
                       return;
                     }
+                    ctx.manifestComponentSet.sourceApiVersion = ctx.sourceApiVersion;
                     ctx.manifest = { file: join(ctx.projectRoot, 'package', 'package.xml') };
                     await fs.ensureDir(dirname(ctx.manifest.file));
                     await fs.writeFile(ctx.manifest.file, ctx.manifestComponentSet.getPackageXml());

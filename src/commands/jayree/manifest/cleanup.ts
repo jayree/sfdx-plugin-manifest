@@ -4,6 +4,7 @@
  * Licensed under the BSD 3-Clause license.
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
+import * as os from 'os';
 import { flags, FlagsConfig } from '@salesforce/command';
 import { Messages } from '@salesforce/core';
 import { AnyJson } from '@salesforce/ts-types';
@@ -18,13 +19,7 @@ const messages = Messages.loadMessages('@jayree/sfdx-plugin-manifest', 'manifest
 export default class CleanupManifest extends JayreeSfdxCommand {
   public static description = messages.getMessage('commandDescription');
 
-  /*   public static examples = [
-    `$ sfdx jayree:flowtestcoverage
-=== Flow Test Coverage
-Coverage: 82%
-...
-`
-  ]; */
+  public static examples = messages.getMessage('examples').split(os.EOL);
 
   protected static flagsConfig: FlagsConfig = {
     manifest: flags.filepath({

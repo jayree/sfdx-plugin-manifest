@@ -1,5 +1,6 @@
 {
-  "commandDescription": "removes those tags from a manifest file that are present in a second manifest file",
+  "commandDescription": "removes those tags from a manifest file that are present in a second manifest file\nUse this command to remove components or metadata types from a manifes file.\nIf the 'cleanup' manifest file (--file) doesn't exist, a template file is created, which can then be modified.",
   "manifestFlagDescription": "path to the manifest file",
-  "fileFlagDescription": "path to the second 'cleanup' manifest file"
+  "fileFlagDescription": "path to the second 'cleanup' manifest file",
+  "examples": ["$ sfdx jayree:manifest:cleanup --manifest=package.xml --file=packageignore.xml"]
 }
