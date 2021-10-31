@@ -1,3 +1,11 @@
+## [1.0.3](https://github.com/jayree/sfdx-plugin-manifest/compare/v1.0.2...v1.0.3) (2021-10-31)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve from 5.1.1 to 5.1.2 ([3f061e8](https://github.com/jayree/sfdx-plugin-manifest/commit/3f061e80f3ee66e9af306baaa8c0dd640694d52c))
+* **deps:** bump fast-xml-parser from 3.21.0 to 3.21.1 ([ea4c7b6](https://github.com/jayree/sfdx-plugin-manifest/commit/ea4c7b696381e3a9b9bf656e71332b58fec71d66))
+
 ## [1.0.2](https://github.com/jayree/sfdx-plugin-manifest/compare/v1.0.1...v1.0.2) (2021-10-29)
 
 
