@@ -243,10 +243,10 @@ export default class GeneratePackageXML extends JayreeSfdxCommand {
     if (query.type === registry.types.standardvalueset.name && members.length === 0) {
       const standardValueSetPromises = stdValueSets.fullNames.map(async (standardValueSetFullName) => {
         try {
-          const queryResult = (await this.cacheConnection.tooling.query(
-            `SELECT Id, MasterLabel, Metadata FROM StandardValueSet WHERE MasterLabel = '${standardValueSetFullName}'`
-          )) as QueryResult;
-          const standardValueSetRecord = queryResult.records[0] as StdValueSetRecord;
+          const standardValueSetRecord: StdValueSetRecord = await this.cacheConnection.singleRecordQuery(
+            `SELECT Id, MasterLabel, Metadata FROM StandardValueSet WHERE MasterLabel = '${standardValueSetFullName}'`,
+            { tooling: true }
+          );
           return (
             standardValueSetRecord.Metadata.standardValue.length && {
               fullName: standardValueSetRecord.MasterLabel,
