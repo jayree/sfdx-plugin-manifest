@@ -10,7 +10,7 @@ import * as fs from 'fs-extra';
 import { Hook } from '@oclif/config';
 import { debug as Debug } from 'debug';
 import terminalRenderer = require('marked-terminal');
-import marked = require('marked');
+import { marked } from 'marked';
 
 const debug = Debug('jayree:hooks');
 
