@@ -1,3 +1,15 @@
+## [1.0.4](https://github.com/jayree/sfdx-plugin-manifest/compare/v1.0.3...v1.0.4) (2021-11-08)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 2.28.2 to 2.28.3 ([da85585](https://github.com/jayree/sfdx-plugin-manifest/commit/da85585fbec455f20d6f785709e93f9167d8db92))
+* **deps:** bump @salesforce/source-deploy-retrieve from 5.1.2 to 5.4.1 ([45ab5ce](https://github.com/jayree/sfdx-plugin-manifest/commit/45ab5ce975692b9fbd41496e0cc3c922eb01fb6a))
+* **deps:** bump listr2 from 3.13.1 to 3.13.3 ([a20b53e](https://github.com/jayree/sfdx-plugin-manifest/commit/a20b53ee87376e53c9cdd185420e4cf4ee4010c4))
+* **deps:** bump marked from 3.0.8 to 4.0.0 ([36f8f55](https://github.com/jayree/sfdx-plugin-manifest/commit/36f8f55b5968a794e9e00e4b795abd6b9e648723))
+* **gitdiff:** optimize the comparison of childComponents ([0dfe979](https://github.com/jayree/sfdx-plugin-manifest/commit/0dfe979cba37ea5ab5eba8d6ecdb2acb64358938))
+* **manifestgenerate:** optimize StandardValueSet query ([3d98d83](https://github.com/jayree/sfdx-plugin-manifest/commit/3d98d83e3ef8112b15c188c59b2138ae79b9a720))
+
 ## [1.0.3](https://github.com/jayree/sfdx-plugin-manifest/compare/v1.0.2...v1.0.3) (2021-10-31)
 
 
