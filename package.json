@@ -21,7 +21,7 @@
     "isomorphic-git": "^1.10.1",
     "jsforce": "^1.10.1",
     "listr2": "^3.13.1",
-    "marked": "^3.0.8",
+    "marked": "^4.0.0",
     "marked-terminal": "^4.2.0",
     "tslib": "^2.3.1"
   },
