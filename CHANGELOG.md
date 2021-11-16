@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/jayree/sfdx-plugin-manifest/compare/v1.0.5...v1.0.6) (2021-11-16)
+
+
+### Bug Fixes
+
+* **gitdiff:** restore support for caret and tilde in refs ([50ea6b6](https://github.com/jayree/sfdx-plugin-manifest/commit/50ea6b6f3cebe7af4d46d3cbfd1e5d3807009d59))
+
 ## [1.0.5](https://github.com/jayree/sfdx-plugin-manifest/compare/v1.0.4...v1.0.5) (2021-11-13)
 
 
