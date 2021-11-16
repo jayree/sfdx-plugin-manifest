@@ -15,5 +15,6 @@ export default class GitDiff extends SfdxCommand {
     protected static requiresProject: boolean;
     private isOutputEnabled;
     run(): Promise<AnyJson>;
+    private resolveRef;
     private getGitArgsFromArgv;
 }

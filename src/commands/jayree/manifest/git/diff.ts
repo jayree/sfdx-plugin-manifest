@@ -14,6 +14,7 @@ import * as fs from 'fs-extra';
 import { Logger, Listr } from 'listr2';
 import * as kit from '@salesforce/kit';
 import { ComponentSet, VirtualTreeContainer, DestructiveChangesType } from '@salesforce/source-deploy-retrieve';
+import git from 'isomorphic-git';
 import {
   getGitResults,
   createVirtualTreeContainer,
@@ -80,8 +81,8 @@ export default class GitDiff extends SfdxCommand {
   public async run(): Promise<AnyJson> {
     const isContentTypeJSON = kit.env.getString('SFDX_CONTENT_TYPE', '').toUpperCase() === 'JSON';
     this.isOutputEnabled = !(process.argv.find((arg) => arg === '--json') || isContentTypeJSON);
-    const gitArgs = this.getGitArgsFromArgv();
-
+    const gitArgs = await this.getGitArgsFromArgv();
+    debug(gitArgs);
     const tasks = new Listr<Ctx>(
       [
         {
@@ -158,7 +159,7 @@ export default class GitDiff extends SfdxCommand {
         },
         {
           // title: 'Error output',
-          skip: (ctx): boolean => !ctx.gitResults.errors.length,
+          skip: (ctx): boolean => !ctx.gitResults?.errors.length,
           task: (ctx, task): void => {
             const errors = [...ctx.gitResults.errors];
             const moreErrors = errors.splice(5);
@@ -278,7 +279,63 @@ export default class GitDiff extends SfdxCommand {
     }
   }
 
-  private getGitArgsFromArgv(): Ctx['git'] {
+  private async resolveRef(refOrig: string): Promise<string> {
+    if (refOrig === '') {
+      return '';
+    }
+
+    const getCommitLog = async (ref: string): Promise<{ oid: string; parents: string[] }> => {
+      try {
+        const [log] = await git.log({
+          fs,
+          dir: this.project.getPath(),
+          ref,
+          depth: 1,
+        });
+        return { oid: log.oid, parents: log.commit.parent };
+      } catch (error) {
+        throw new Error(
+          `ambiguous argument '${ref}': unknown revision or path not in the working tree.
+See more help with --help`
+        );
+      }
+    };
+
+    if (!['~', '^'].some((el) => refOrig.includes(el))) {
+      return (await getCommitLog(refOrig)).oid;
+    }
+
+    const firstIndex = [refOrig.indexOf('^'), refOrig.indexOf('~')]
+      .filter((a) => a >= 0)
+      .reduce((a, b) => Math.min(a, b));
+    let path = refOrig.substring(firstIndex);
+    let ref = refOrig.substring(0, firstIndex);
+    while (path.length && ref !== undefined) {
+      if (path.substring(0, 1) === '^') {
+        path = path.substring(1);
+        let next = Number(path.substring(0, 1));
+        path = next ? path.substring(1) : path;
+        next = next ? next : 1;
+        ref = (await getCommitLog(ref)).parents[next - 1];
+      } else if (path.substring(0, 1) === '~') {
+        path = path.substring(1);
+        let next = Number(path.substring(0, 1));
+        path = next ? path.substring(1) : path;
+        next = next ? next : 1;
+        for (let index = 0; index <= next - 1; index++) {
+          ref = (await getCommitLog(ref)).parents[0];
+        }
+      } else {
+        ref = undefined;
+      }
+    }
+    if (ref === undefined) {
+      throw new Error(`ambiguous argument '${refOrig}': unknown revision or path not in the working tree.`);
+    }
+    return ref;
+  }
+
+  private async getGitArgsFromArgv(): Promise<Ctx['git']> {
     const argv = this.argv.filter((v) => !v.includes('-'));
     let ref1ref2 = this.args.ref1 as string;
     const a = argv.join('.').split('.');
@@ -293,6 +350,19 @@ export default class GitDiff extends SfdxCommand {
     } else {
       throw new Error(`Ambiguous ${util.format('argument%s', argv.length === 1 ? '' : 's')}: ${argv.join(', ')}
 See more help with --help`);
+    }
+
+    this.args.ref1 = await this.resolveRef(this.args.ref1 as string);
+    this.args.ref2 = await this.resolveRef(this.args.ref2 as string);
+
+    if (a.length === 4) {
+      this.args.ref1 = (
+        await git.findMergeBase({
+          fs,
+          dir: this.project.getPath(),
+          oids: [this.args.ref2 as string, this.args.ref1 as string],
+        })
+      )[0] as string;
     }
 
     return { ref1: this.args.ref1 as string, ref2: this.args.ref2 as string, ref1ref2 };
