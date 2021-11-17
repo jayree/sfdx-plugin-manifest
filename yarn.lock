@@ -871,9 +871,9 @@
   integrity sha512-6D7DvE6nFxpLyyTnrOIbbAeCJw2r/EpinFAcMh6gU0gA/CGfSbwV/8uR3uHLYL2zCyCZLH8jJ4dZ3BzCMqc+Eg==
 
 "@salesforce/source-deploy-retrieve@^5.5.0":
-  version "5.5.0"
-  resolved "https://registry.yarnpkg.com/@salesforce/source-deploy-retrieve/-/source-deploy-retrieve-5.5.0.tgz#1612c1e2c971a51040f9e53fab37a65a63e9feca"
-  integrity sha512-3TaSKRDWx5IZsxQdRueRW2El8YiZaGuMPujcIqEbSCKaF/21uVGb49ASXE0vpwY6SlzHy4kExTGhmXbO3zeLLw==
+  version "5.6.1"
+  resolved "https://registry.yarnpkg.com/@salesforce/source-deploy-retrieve/-/source-deploy-retrieve-5.6.1.tgz#e287d12d3714b592e7388ae72da73cf0c1c1a59c"
+  integrity sha512-tlMaxuOEPIL1ScUooif/w7FlTVmZTCmaw7le11cDIkaFIzZv9y3SZI4RiEVUSB+FBsRMcOO9DrBP84MmlwmJRA==
   dependencies:
     "@salesforce/core" "2.28.0"
     "@salesforce/kit" "^1.5.0"
