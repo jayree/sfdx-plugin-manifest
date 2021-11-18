@@ -785,9 +785,9 @@
     ts-retry-promise "^0.6.0"
 
 "@salesforce/core@^2.28.0", "@salesforce/core@^2.28.4":
-  version "2.28.4"
-  resolved "https://registry.yarnpkg.com/@salesforce/core/-/core-2.28.4.tgz#8c04f7e1a490d75d8e14715952329a7ea2d2dcab"
-  integrity sha512-6dMpOrX81Y5iCQ9icgYlpuyZT/58KsB6w6xX6si9JQGBZ0wZeISml3QOk15vruLRjmREnBGALegJlE4rkGqEHw==
+  version "2.29.0"
+  resolved "https://registry.yarnpkg.com/@salesforce/core/-/core-2.29.0.tgz#abc941e1c018c3d622f708e09803436175e34caa"
+  integrity sha512-b34bR68Mbvm2ASMTItY2HdVmstVFv/Lj4sK1ddhi/aqYNWTF3wfaqGg8nB6+iIVeBQ4iVlw4x5sQvp3GS48Hhg==
   dependencies:
     "@salesforce/bunyan" "^2.0.0"
     "@salesforce/kit" "^1.5.0"
@@ -802,6 +802,7 @@
     jsforce "^1.10.1"
     jsonwebtoken "8.5.0"
     mkdirp "1.0.4"
+    semver "^7.3.5"
     sfdx-faye "^1.0.9"
     ts-retry-promise "^0.6.0"
 
