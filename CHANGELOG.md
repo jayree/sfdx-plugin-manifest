@@ -1,3 +1,28 @@
+# [2.0.0](https://github.com/jayree/sfdx-plugin-manifest/compare/v1.0.6...v2.0.0) (2021-11-21)
+
+
+### Bug Fixes
+
+* catch more MetadataResolver errors ([cd82847](https://github.com/jayree/sfdx-plugin-manifest/commit/cd82847e58efa2ca95e425f2a1719a48af144d53))
+* **deps:** bump @oclif/command from 1.8.0 to 1.8.3 ([6f9e532](https://github.com/jayree/sfdx-plugin-manifest/commit/6f9e5324f249bf9ff30d82fd22983046cde7680a))
+* **deps:** bump @oclif/config from 1.17.0 to 1.17.1 ([4f89c92](https://github.com/jayree/sfdx-plugin-manifest/commit/4f89c929ff9d2c06ca81f349531b2e6bca36ca6e))
+* **deps:** bump @salesforce/command from 4.1.4 to 4.1.5 ([21c6572](https://github.com/jayree/sfdx-plugin-manifest/commit/21c657228e47f2984b017e01af81a12d5f7a0ae9))
+* **deps:** bump @salesforce/source-deploy-retrieve from 5.5.0 to 5.6.3 ([e4f92f9](https://github.com/jayree/sfdx-plugin-manifest/commit/e4f92f9fbdb6b34e868ee1c1061f73f6697ba9c8))
+* **deps:** bump listr2 from 3.13.3 to 3.13.4 ([3f3c9c3](https://github.com/jayree/sfdx-plugin-manifest/commit/3f3c9c357abe85bbb378c005923608285350e2d6))
+* **deps:** bump marked from 4.0.3 to 4.0.4 ([95c2ba2](https://github.com/jayree/sfdx-plugin-manifest/commit/95c2ba2e079ad9542c03d7b694ba9eeed8bd6b74))
+* **gitdiff:** make debugging easier ([cf18cca](https://github.com/jayree/sfdx-plugin-manifest/commit/cf18ccac20c018e721c6913b7c976d4628845941))
+* **manifestgenerate:** metadata api not returning valid metadata type ([909bf7e](https://github.com/jayree/sfdx-plugin-manifest/commit/909bf7e5d680c56c3a6ed123e3d6ee798ac8dacd))
+
+
+### Features
+
+* **gitdiff:** add outputdir parameter ([fe95206](https://github.com/jayree/sfdx-plugin-manifest/commit/fe9520637b9b9370470d37d1dde54f7c769c31ac))
+
+
+### BREAKING CHANGES
+
+* **gitdiff:** To support the destructivechanges parameters of the source:deploy command all files are written to outputdir (defaults to '')
+
 ## [1.0.6](https://github.com/jayree/sfdx-plugin-manifest/compare/v1.0.5...v1.0.6) (2021-11-16)
 
 
