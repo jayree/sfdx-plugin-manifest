@@ -117,7 +117,7 @@ create a manifest and destructiveChanges manifest using 'git diff' data
 
 ```
 USAGE
-  $ sfdx jayree:manifest:git:diff [--json] [--loglevel 
+  $ sfdx jayree:manifest:git:diff [-o <string>] [--json] [--loglevel 
   trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 ARGUMENTS
@@ -125,6 +125,9 @@ ARGUMENTS
   REF2  commit or branch to compare to the base commit
 
 OPTIONS
+  -o, --outputdir=outputdir                                                         directory to save the created
+                                                                                    manifest files
+
   --json                                                                            format output as json
 
   --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for

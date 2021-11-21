@@ -44,6 +44,7 @@ export interface Ctx {
         file: string;
     };
 }
+export declare function getGitArgsFromArgv(ref1: string, ref2: string, argv: string[], dir: string): Promise<Ctx['git']>;
 export declare function ensureOSPath(path: string): string;
 export declare function ensureGitPath(path: string): string;
 export declare function createVirtualTreeContainer(ref: string, dir: string, modifiedFiles: string[]): Promise<VirtualTreeContainer>;

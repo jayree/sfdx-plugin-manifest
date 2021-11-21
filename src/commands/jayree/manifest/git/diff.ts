@@ -6,15 +6,14 @@
  */
 import * as os from 'os';
 import { join, dirname } from 'path';
-import * as util from 'util';
-import { SfdxCommand } from '@salesforce/command';
+import { FlagsConfig, flags } from '@salesforce/command';
 import { Messages } from '@salesforce/core';
 import { AnyJson } from '@salesforce/ts-types';
 import * as fs from 'fs-extra';
 import { Logger, Listr } from 'listr2';
 import * as kit from '@salesforce/kit';
 import { ComponentSet, VirtualTreeContainer, DestructiveChangesType } from '@salesforce/source-deploy-retrieve';
-import git from 'isomorphic-git';
+import { JayreeSfdxCommand } from '../../../../jayreeSfdxCommand';
 import {
   getGitResults,
   createVirtualTreeContainer,
@@ -24,6 +23,7 @@ import {
   Ctx,
   debug,
   ensureOSPath,
+  getGitArgsFromArgv,
 } from '../../../../utils/gitdiff';
 
 Messages.importMessagesDirectory(__dirname);
@@ -50,7 +50,7 @@ const unexpectedArgument = (input: string): string => {
   return input;
 };
 
-export default class GitDiff extends SfdxCommand {
+export default class GitDiff extends JayreeSfdxCommand {
   public static description = messages.getMessage('commandDescription');
 
   public static examples = messages.getMessage('examples').split(os.EOL);
@@ -72,16 +72,30 @@ export default class GitDiff extends SfdxCommand {
     },
   ];
 
+  protected static flagsConfig: FlagsConfig = {
+    outputdir: flags.string({
+      char: 'o',
+      description: messages.getMessage('outputdir'),
+    }),
+  };
+
   protected static requiresUsername = false;
   protected static supportsDevhubUsername = false;
   protected static requiresProject = true;
 
   private isOutputEnabled;
+  private outputDir: string;
 
   public async run(): Promise<AnyJson> {
+    this.outputDir = this.getFlag<string>('outputdir');
     const isContentTypeJSON = kit.env.getString('SFDX_CONTENT_TYPE', '').toUpperCase() === 'JSON';
     this.isOutputEnabled = !(process.argv.find((arg) => arg === '--json') || isContentTypeJSON);
-    const gitArgs = await this.getGitArgsFromArgv();
+    const gitArgs = await getGitArgsFromArgv(
+      this.args.ref1 as string,
+      this.args.ref2 as string,
+      this.argv,
+      this.project.getPath()
+    );
     debug(gitArgs);
     const tasks = new Listr<Ctx>(
       [
@@ -178,7 +192,7 @@ export default class GitDiff extends SfdxCommand {
             task.newListr(
               [
                 {
-                  title: join('destructiveChanges', 'destructiveChanges.xml'),
+                  title: join(this.outputDir, 'destructiveChanges.xml'),
                   // eslint-disable-next-line @typescript-eslint/no-shadow
                   skip: (ctx): boolean => !ctx.gitResults.destructiveChanges.size,
                   // eslint-disable-next-line @typescript-eslint/no-shadow
@@ -196,8 +210,8 @@ export default class GitDiff extends SfdxCommand {
                     ctx.destructiveChangesComponentSet.sourceApiVersion = ctx.sourceApiVersion;
                     ctx.destructiveChanges = {
                       files: [
-                        join(ctx.projectRoot, 'destructiveChanges', 'destructiveChanges.xml'),
-                        join(ctx.projectRoot, 'destructiveChanges', 'package.xml'),
+                        join(ctx.projectRoot, this.outputDir, 'destructiveChanges.xml'),
+                        join(ctx.projectRoot, this.outputDir, 'package.xml'),
                       ],
                     };
                     await fs.ensureDir(dirname(ctx.destructiveChanges.files[0]));
@@ -214,7 +228,7 @@ export default class GitDiff extends SfdxCommand {
                   options: { persistentOutput: true },
                 },
                 {
-                  title: join('package', 'package.xml'),
+                  title: join(this.outputDir, 'package.xml'),
                   // eslint-disable-next-line @typescript-eslint/no-shadow
                   skip: (ctx): boolean => !ctx.gitResults.manifest.size,
                   // eslint-disable-next-line @typescript-eslint/no-shadow
@@ -225,7 +239,7 @@ export default class GitDiff extends SfdxCommand {
                       return;
                     }
                     ctx.manifestComponentSet.sourceApiVersion = ctx.sourceApiVersion;
-                    ctx.manifest = { file: join(ctx.projectRoot, 'package', 'package.xml') };
+                    ctx.manifest = { file: join(ctx.projectRoot, this.outputDir, 'package.xml') };
                     await fs.ensureDir(dirname(ctx.manifest.file));
                     await fs.writeFile(ctx.manifest.file, ctx.manifestComponentSet.getPackageXml());
                   },
@@ -277,94 +291,5 @@ export default class GitDiff extends SfdxCommand {
       }
       throw e;
     }
-  }
-
-  private async resolveRef(refOrig: string): Promise<string> {
-    if (refOrig === '') {
-      return '';
-    }
-
-    const getCommitLog = async (ref: string): Promise<{ oid: string; parents: string[] }> => {
-      try {
-        const [log] = await git.log({
-          fs,
-          dir: this.project.getPath(),
-          ref,
-          depth: 1,
-        });
-        return { oid: log.oid, parents: log.commit.parent };
-      } catch (error) {
-        throw new Error(
-          `ambiguous argument '${ref}': unknown revision or path not in the working tree.
-See more help with --help`
-        );
-      }
-    };
-
-    if (!['~', '^'].some((el) => refOrig.includes(el))) {
-      return (await getCommitLog(refOrig)).oid;
-    }
-
-    const firstIndex = [refOrig.indexOf('^'), refOrig.indexOf('~')]
-      .filter((a) => a >= 0)
-      .reduce((a, b) => Math.min(a, b));
-    let path = refOrig.substring(firstIndex);
-    let ref = refOrig.substring(0, firstIndex);
-    while (path.length && ref !== undefined) {
-      if (path.substring(0, 1) === '^') {
-        path = path.substring(1);
-        let next = Number(path.substring(0, 1));
-        path = next ? path.substring(1) : path;
-        next = next ? next : 1;
-        ref = (await getCommitLog(ref)).parents[next - 1];
-      } else if (path.substring(0, 1) === '~') {
-        path = path.substring(1);
-        let next = Number(path.substring(0, 1));
-        path = next ? path.substring(1) : path;
-        next = next ? next : 1;
-        for (let index = 0; index <= next - 1; index++) {
-          ref = (await getCommitLog(ref)).parents[0];
-        }
-      } else {
-        ref = undefined;
-      }
-    }
-    if (ref === undefined) {
-      throw new Error(`ambiguous argument '${refOrig}': unknown revision or path not in the working tree.`);
-    }
-    return ref;
-  }
-
-  private async getGitArgsFromArgv(): Promise<Ctx['git']> {
-    const argv = this.argv.filter((v) => !v.includes('-'));
-    let ref1ref2 = this.args.ref1 as string;
-    const a = argv.join('.').split('.');
-
-    if ((a.length === 3 || a.length === 4) && typeof this.args.ref2 === 'undefined') {
-      this.args.ref1 = a[0];
-      this.args.ref2 = a[a.length - 1];
-    } else if (a.length === 2 && typeof this.args.ref2 !== 'undefined') {
-      ref1ref2 = `${this.args.ref1 as string}..${this.args.ref2 as string}`;
-    } else if (a.length === 1) {
-      this.args.ref2 = '';
-    } else {
-      throw new Error(`Ambiguous ${util.format('argument%s', argv.length === 1 ? '' : 's')}: ${argv.join(', ')}
-See more help with --help`);
-    }
-
-    this.args.ref1 = await this.resolveRef(this.args.ref1 as string);
-    this.args.ref2 = await this.resolveRef(this.args.ref2 as string);
-
-    if (a.length === 4) {
-      this.args.ref1 = (
-        await git.findMergeBase({
-          fs,
-          dir: this.project.getPath(),
-          oids: [this.args.ref2 as string, this.args.ref1 as string],
-        })
-      )[0] as string;
-    }
-
-    return { ref1: this.args.ref1 as string, ref2: this.args.ref2 as string, ref1ref2 };
   }
 }

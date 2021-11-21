@@ -1,6 +1,7 @@
-import { SfdxCommand } from '@salesforce/command';
+import { FlagsConfig } from '@salesforce/command';
 import { AnyJson } from '@salesforce/ts-types';
-export default class GitDiff extends SfdxCommand {
+import { JayreeSfdxCommand } from '../../../../jayreeSfdxCommand';
+export default class GitDiff extends JayreeSfdxCommand {
     static description: string;
     static examples: string[];
     static args: {
@@ -10,11 +11,11 @@ export default class GitDiff extends SfdxCommand {
         parse: (input: string) => string;
         hidden: boolean;
     }[];
+    protected static flagsConfig: FlagsConfig;
     protected static requiresUsername: boolean;
     protected static supportsDevhubUsername: boolean;
     protected static requiresProject: boolean;
     private isOutputEnabled;
+    private outputDir;
     run(): Promise<AnyJson>;
-    private resolveRef;
-    private getGitArgsFromArgv;
 }

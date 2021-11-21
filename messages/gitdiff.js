@@ -18,4 +18,5 @@ uses the diff of what is unique in branchB (REF2) and unique in branchA (REF1)
     `$ sfdx jayree:manifest:git:diff branchA...branchB
 uses the diff of what is unique in branchB (REF2)`,
   ],
+  outputdir: 'directory to save the created manifest files',
 };

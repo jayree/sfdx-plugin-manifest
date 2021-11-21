@@ -6,6 +6,7 @@
  */
 
 import { join, basename, sep, posix, dirname } from 'path';
+import * as util from 'util';
 import * as fs from 'fs-extra';
 import * as equal from 'fast-deep-equal';
 import {
@@ -57,6 +58,108 @@ export interface Ctx {
   manifest: {
     file: string;
   };
+}
+
+async function resolveRef(refOrig: string, dir: string): Promise<string> {
+  if (refOrig === '') {
+    return '';
+  }
+
+  const getCommitLog = async (ref: string): Promise<{ oid: string; parents: string[] }> => {
+    try {
+      const [log] = await git.log({
+        fs,
+        dir,
+        ref,
+        depth: 1,
+      });
+      return { oid: log.oid, parents: log.commit.parent };
+    } catch (error) {
+      throw new Error(
+        `ambiguous argument '${ref}': unknown revision or path not in the working tree.
+See more help with --help`
+      );
+    }
+  };
+
+  if (!['~', '^'].some((el) => refOrig.includes(el))) {
+    return (await getCommitLog(refOrig)).oid;
+  }
+
+  const firstIndex = [refOrig.indexOf('^'), refOrig.indexOf('~')]
+    .filter((a) => a >= 0)
+    .reduce((a, b) => Math.min(a, b));
+  let path = refOrig.substring(firstIndex);
+  let ref = refOrig.substring(0, firstIndex);
+  while (path.length && ref !== undefined) {
+    if (path.substring(0, 1) === '^') {
+      path = path.substring(1);
+      let next = Number(path.substring(0, 1));
+      path = next ? path.substring(1) : path;
+      next = next ? next : 1;
+      ref = (await getCommitLog(ref)).parents[next - 1];
+    } else if (path.substring(0, 1) === '~') {
+      path = path.substring(1);
+      let next = Number(path.substring(0, 1));
+      path = next ? path.substring(1) : path;
+      next = next ? next : 1;
+      for (let index = 0; index <= next - 1; index++) {
+        ref = (await getCommitLog(ref)).parents[0];
+      }
+    } else {
+      ref = undefined;
+    }
+  }
+  if (ref === undefined) {
+    throw new Error(`ambiguous argument '${refOrig}': unknown revision or path not in the working tree.`);
+  }
+  return ref;
+}
+
+export async function getGitArgsFromArgv(ref1: string, ref2: string, argv: string[], dir: string): Promise<Ctx['git']> {
+  const newArgv: string[] = [];
+  while (argv.length) {
+    let [e] = argv.splice(0, 1);
+    if (e.includes('=')) {
+      // skip parameter=value
+    } else if (e.includes('-')) {
+      // remove value
+      [e] = argv.splice(0, 1);
+    } else {
+      newArgv.push(e);
+    }
+  }
+  argv = newArgv;
+
+  let ref1ref2 = ref1;
+  const a = argv.join('.').split('.');
+
+  if ((a.length === 3 || a.length === 4) && typeof ref2 === 'undefined') {
+    ref1 = a[0];
+    ref2 = a[a.length - 1];
+  } else if (a.length === 2 && typeof ref2 !== 'undefined') {
+    ref1ref2 = `${ref1}..${ref2}`;
+  } else if (a.length === 1) {
+    ref2 = '';
+  } else {
+    throw new Error(`Ambiguous ${util.format('argument%s', argv.length === 1 ? '' : 's')}: ${argv.join(', ')}
+See more help with --help`);
+  }
+
+  ref1 = await resolveRef(ref1, dir);
+  ref2 = await resolveRef(ref2, dir);
+
+  if (a.length === 4) {
+    ref1 = (
+      await git.findMergeBase({
+        fs,
+        dir,
+        oids: [ref2, ref1],
+      })
+    )[0] as string;
+  }
+
+  return { ref1, ref2, ref1ref2 };
 }
 
 export function ensureOSPath(path: string): string {
