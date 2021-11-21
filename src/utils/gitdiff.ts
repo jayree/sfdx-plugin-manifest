@@ -355,9 +355,20 @@ export async function getGitResults(
   const ref1Resolver = new MetadataResolver(registryAccess, ref1VirtualTreeContainer);
   const ref2Resolver = new MetadataResolver(registryAccess, ref2VirtualTreeContainer);
 
+  const getComponentsFromPath = (resolver: MetadataResolver, path: string): SourceComponent[] => {
+    let result: SourceComponent[] = [];
+    try {
+      result = resolver.getComponentsFromPath(path);
+    } catch (error) {
+      results.output.counts.error++;
+      results.output.errors.push(error);
+    }
+    return result;
+  };
+
   for (const [, { status, path }] of gitLines.entries()) {
     if (status === 'D') {
-      for (const c of ref1Resolver.getComponentsFromPath(path)) {
+      for (const c of getComponentsFromPath(ref1Resolver, path)) {
         if (c.xml === path || gitLines.find((x) => x.path === c.xml)) {
           results.manifest.add(c, DestructiveChangesType.POST);
           results.output.counts.deleted++;
@@ -374,14 +385,14 @@ export async function getGitResults(
         }
       }
     } else if (status === 'A') {
-      for (const c of ref2Resolver.getComponentsFromPath(path)) {
+      for (const c of getComponentsFromPath(ref2Resolver, path)) {
         results.manifest.add(c);
         results.output.counts.added++;
       }
     } else {
       const check = await analyzeFile(path, ref1VirtualTreeContainer, ref2VirtualTreeContainer);
       if (check.status === 0) {
-        for (const c of ref2Resolver.getComponentsFromPath(path)) {
+        for (const c of getComponentsFromPath(ref2Resolver, path)) {
           results.manifest.add(c);
           results.output.counts.added++;
         }
