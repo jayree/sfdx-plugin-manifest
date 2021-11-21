@@ -15,7 +15,7 @@ import {
   PackageManifestObject,
   MetadataType,
 } from '@salesforce/source-deploy-retrieve';
-import { normalizeToArray, deepFreeze } from '@salesforce/source-deploy-retrieve/lib/src/utils';
+import { normalizeToArray, deepFreeze, extName } from '@salesforce/source-deploy-retrieve/lib/src/utils';
 import * as fs from 'fs-extra';
 import * as standardValueSetData from '../../../metadata/standardvalueset.json';
 import { JayreeSfdxCommand } from '../../../jayreeSfdxCommand';
@@ -112,9 +112,16 @@ export default class GeneratePackageXML extends JayreeSfdxCommand {
     const componentTypes: Set<MetadataType> = new Set();
 
     for await (const componentResult of componentPromises) {
-      Aggregator.push(...componentResult);
       for (const component of componentResult) {
-        const componentType = registryAccess.getTypeByName(component.type.toLowerCase());
+        let componentType: MetadataType;
+        if (typeof component.type === 'string') {
+          componentType = registryAccess.getTypeByName(component.type);
+        } else {
+          // fix { type: { "$": { "xsi:nil": "true" } } }
+          componentType = registryAccess.getTypeBySuffix(extName(component.fileName));
+          component.type = componentType.name;
+        }
+        Aggregator.push(component);
         componentTypes.add(componentType);
         const folderContentType = componentType.folderContentType;
         if (folderContentType) {
