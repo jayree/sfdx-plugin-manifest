@@ -17,5 +17,15 @@ export default class GitDiff extends JayreeSfdxCommand {
     protected static requiresProject: boolean;
     private isOutputEnabled;
     private outputDir;
+    private projectRoot;
+    private sfdxProjectFolders;
+    private sourceApiVersion;
+    private destructiveChanges;
+    private manifest;
+    private gitLines;
+    private ref1VirtualTreeContainer;
+    private ref2VirtualTreeContainer;
+    private componentSet;
+    private outputErrors;
     run(): Promise<AnyJson>;
 }

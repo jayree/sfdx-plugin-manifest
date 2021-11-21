@@ -24,41 +24,27 @@ import { parseMetadataXml } from '@salesforce/source-deploy-retrieve/lib/src/uti
 import { debug as Debug } from 'debug';
 import git from 'isomorphic-git';
 
-export const NodeFSTreeContainer = FSTreeContainer;
-
 export const debug = Debug('jayree:manifest:git:diff');
 
 const registryAccess = new RegistryAccess();
 
-export interface Ctx {
-  projectRoot: string;
-  sfdxProjectFolders: string[];
-  sourceApiVersion: string;
-  gitLines: Array<{ path: string; status: string }>;
-  gitResults: {
-    manifest: ComponentSet;
-    destructiveChanges: ComponentSet;
+type gitResults = {
+  manifest: ComponentSet;
+  output: {
     unchanged: string[];
     ignored: { ref1: string[]; ref2: string[] };
     counts: { added: number; deleted: number; modified: number; unchanged: number; ignored: number; error: number };
     errors: string[];
   };
-  ref1VirtualTreeContainer: VirtualTreeContainer;
-  ref2VirtualTreeContainer: VirtualTreeContainer | FSTreeContainer;
-  destructiveChangesComponentSet: ComponentSet;
-  manifestComponentSet: ComponentSet;
-  git: {
-    ref1: string;
-    ref2: string;
-    ref1ref2: string;
-  };
-  destructiveChanges: {
-    files: string[];
-  };
-  manifest: {
-    file: string;
-  };
-}
+};
+
+type git = {
+  ref1: string;
+  ref2: string;
+  refString: string;
+};
+
+export type gitLines = Array<{ path: string; status: string }>;
 
 async function resolveRef(refOrig: string, dir: string): Promise<string> {
   if (refOrig === '') {
@@ -116,7 +102,7 @@ See more help with --help`
   return ref;
 }
 
-export async function getGitArgsFromArgv(ref1: string, ref2: string, argv: string[], dir: string): Promise<Ctx['git']> {
+export async function getGitArgsFromArgv(ref1: string, ref2: string, argv: string[], dir: string): Promise<git> {
   const newArgv: string[] = [];
   while (argv.length) {
     let [e] = argv.splice(0, 1);
@@ -131,14 +117,14 @@ export async function getGitArgsFromArgv(ref1: string, ref2: string, argv: strin
   }
   argv = newArgv;
 
-  let ref1ref2 = ref1;
+  let refString = ref1;
   const a = argv.join('.').split('.');
 
   if ((a.length === 3 || a.length === 4) && typeof ref2 === 'undefined') {
     ref1 = a[0];
     ref2 = a[a.length - 1];
   } else if (a.length === 2 && typeof ref2 !== 'undefined') {
-    ref1ref2 = `${ref1}..${ref2}`;
+    refString = `${ref1}..${ref2}`;
   } else if (a.length === 1) {
     ref2 = '';
   } else {
@@ -159,7 +145,7 @@ See more help with --help`);
     )[0] as string;
   }
 
-  return { ref1, ref2, ref1ref2 };
+  return { ref1, ref2, refString };
 }
 
 export function ensureOSPath(path: string): string {
@@ -177,7 +163,6 @@ export async function createVirtualTreeContainer(
 ): Promise<VirtualTreeContainer> {
   const paths = (await git.listFiles({ fs, dir, ref })).map((p) => ensureOSPath(p));
   const oid = await git.resolveRef({ fs, dir, ref });
-  debug({ modifiedFiles });
   const virtualDirectoryByFullPath = new Map<string, VirtualDirectory>();
   for (const filename of paths) {
     let dirPath = dirname(filename);
@@ -324,7 +309,7 @@ export async function getGitDiff(
   ref1: string,
   ref2: string,
   dir: string
-): Promise<Ctx['gitLines']> {
+): Promise<gitLines> {
   let gitLines = (await getFileStateChanges(ref1, ref2, dir))
     .map((line) => {
       return { path: ensureOSPath(line.path), status: line.status };
@@ -335,7 +320,6 @@ export async function getGitDiff(
       })
     );
 
-  const renames = [];
   gitLines = gitLines.filter((line) => {
     if (line.status === 'D') {
       for (const sfdxFolder of sfdxProjectFolders) {
@@ -343,29 +327,30 @@ export async function getGitDiff(
         const filePath = line.path.replace(line.path.startsWith(defaultFolder) ? defaultFolder : sfdxFolder, '');
         const target = gitLines.find((t) => t.path.endsWith(filePath) && t.status === 'A');
         if (target) {
-          renames.push({ from: line.path, to: target.path });
+          debug(`rename: ${line.path} -> ${target.path}`);
           return false;
         }
       }
     }
     return true;
   });
-  debug({ gitLines, renames, sfdxProjectFolders });
+  debug({ gitLines });
   return gitLines;
 }
 
 export async function getGitResults(
-  gitLines: Ctx['gitLines'],
+  gitLines: gitLines,
   ref1VirtualTreeContainer: VirtualTreeContainer,
   ref2VirtualTreeContainer: VirtualTreeContainer | FSTreeContainer
-): Promise<Ctx['gitResults']> {
+): Promise<gitResults> {
   const results = {
     manifest: new ComponentSet(undefined, registryAccess),
-    destructiveChanges: new ComponentSet(undefined, registryAccess),
-    unchanged: [],
-    ignored: { ref1: [], ref2: [] },
-    counts: { added: 0, deleted: 0, modified: 0, unchanged: 0, ignored: 0, error: 0 },
-    errors: [],
+    output: {
+      unchanged: [],
+      ignored: { ref1: [], ref2: [] },
+      counts: { added: 0, deleted: 0, modified: 0, unchanged: 0, ignored: 0, error: 0 },
+      errors: [],
+    },
   };
   const ref1Resolver = new MetadataResolver(registryAccess, ref1VirtualTreeContainer);
   const ref2Resolver = new MetadataResolver(registryAccess, ref2VirtualTreeContainer);
@@ -374,38 +359,39 @@ export async function getGitResults(
     if (status === 'D') {
       for (const c of ref1Resolver.getComponentsFromPath(path)) {
         if (c.xml === path || gitLines.find((x) => x.path === c.xml)) {
-          results.destructiveChanges.add(c, DestructiveChangesType.POST);
-          results.counts.deleted++;
+          results.manifest.add(c, DestructiveChangesType.POST);
+          results.output.counts.deleted++;
         } else {
           try {
+            // in case a binary source file of a bundle was deleted, check if the bundle ist still valid and update instead of delete
             ref2Resolver.getComponentsFromPath(c.xml);
             results.manifest.add(c);
-            results.counts.added++;
+            results.output.counts.added++;
           } catch (error) {
-            results.counts.error++;
-            results.errors.push(error);
+            results.output.counts.error++;
+            results.output.errors.push(error);
           }
         }
       }
     } else if (status === 'A') {
       for (const c of ref2Resolver.getComponentsFromPath(path)) {
         results.manifest.add(c);
-        results.counts.added++;
+        results.output.counts.added++;
       }
     } else {
       const check = await analyzeFile(path, ref1VirtualTreeContainer, ref2VirtualTreeContainer);
       if (check.status === 0) {
         for (const c of ref2Resolver.getComponentsFromPath(path)) {
           results.manifest.add(c);
-          results.counts.added++;
+          results.output.counts.added++;
         }
       } else if (check.status === -1) {
-        results.unchanged.push(path);
-        results.counts.unchanged++;
+        results.output.unchanged.push(path);
+        results.output.counts.unchanged++;
       } else {
-        results.counts.modified++;
+        results.output.counts.modified++;
         for (const c of check.toDestructiveChanges) {
-          results.destructiveChanges.add(c, DestructiveChangesType.POST);
+          results.manifest.add(c, DestructiveChangesType.POST);
         }
         for (const c of check.toManifest) {
           results.manifest.add(c);
@@ -414,33 +400,34 @@ export async function getGitResults(
     }
   }
 
-  results.ignored = {
+  results.output.ignored = {
     ref1: Array.from(ref1Resolver.forceIgnoredPaths),
     ref2: Array.from(ref2Resolver.forceIgnoredPaths),
   };
-  results.counts.ignored = ref1Resolver.forceIgnoredPaths.size + ref2Resolver.forceIgnoredPaths.size;
+  results.output.counts.ignored = ref1Resolver.forceIgnoredPaths.size + ref2Resolver.forceIgnoredPaths.size;
 
   return results;
 }
 
-export function buildManifestComponentSet(cs: ComponentSet, forDestructiveChanges = false): ComponentSet {
-  let csArray = cs.toArray();
+export function fixComponentSetChilds(cs: ComponentSet): ComponentSet {
+  let sourceComponents = cs.getSourceComponents();
   // SDR library is more strict and avoids fixes like this
-  if (!forDestructiveChanges) {
-    const childsTobeReplacedByParent = [
-      ...Object.keys(registry.types.workflow.children.types),
-      ...Object.keys(registry.types.sharingrules.children.types),
-    ];
-    csArray = csArray.map((component) => {
-      if (childsTobeReplacedByParent.includes(component.type.id)) {
-        return component.parent;
-      }
-      return component;
-    });
-  }
+  const childsTobeReplacedByParent = [
+    ...Object.keys(registry.types.workflow.children.types),
+    ...Object.keys(registry.types.sharingrules.children.types),
+  ];
+  sourceComponents = sourceComponents.map((component) => {
+    if (!component.isMarkedForDelete() && childsTobeReplacedByParent.includes(component.type.id)) {
+      debug(
+        `replace: ${component.type.name}:${component.fullName} -> ${component.parent.type.name}:${component.parent.fullName}`
+      );
+      return component.parent;
+    }
+    return component;
+  });
 
   return new ComponentSet(
-    csArray.sort((a, b) => {
+    sourceComponents.toArray().sort((a, b) => {
       if (a.type.name === b.type.name) {
         return a.fullName.toLowerCase() > b.fullName.toLowerCase() ? 1 : -1;
       }

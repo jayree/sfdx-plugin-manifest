@@ -5,25 +5,29 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 import * as os from 'os';
-import { join, dirname } from 'path';
+import { join, dirname, relative } from 'path';
 import { FlagsConfig, flags } from '@salesforce/command';
 import { Messages } from '@salesforce/core';
 import { AnyJson } from '@salesforce/ts-types';
 import * as fs from 'fs-extra';
 import { Logger, Listr } from 'listr2';
 import * as kit from '@salesforce/kit';
-import { ComponentSet, VirtualTreeContainer, DestructiveChangesType } from '@salesforce/source-deploy-retrieve';
+import {
+  ComponentSet,
+  VirtualTreeContainer,
+  NodeFSTreeContainer,
+  DestructiveChangesType,
+} from '@salesforce/source-deploy-retrieve';
 import { JayreeSfdxCommand } from '../../../../jayreeSfdxCommand';
 import {
   getGitResults,
   createVirtualTreeContainer,
-  NodeFSTreeContainer,
-  buildManifestComponentSet,
+  fixComponentSetChilds,
   getGitDiff,
-  Ctx,
   debug,
   ensureOSPath,
   getGitArgsFromArgv,
+  gitLines,
 } from '../../../../utils/gitdiff';
 
 Messages.importMessagesDirectory(__dirname);
@@ -76,6 +80,7 @@ export default class GitDiff extends JayreeSfdxCommand {
     outputdir: flags.string({
       char: 'o',
       description: messages.getMessage('outputdir'),
+      default: '',
     }),
   };
 
@@ -85,67 +90,83 @@ export default class GitDiff extends JayreeSfdxCommand {
 
   private isOutputEnabled;
   private outputDir: string;
+  private projectRoot: string;
+  private sfdxProjectFolders: string[];
+  private sourceApiVersion: string;
+  private destructiveChanges: string;
+  private manifest: string;
+
+  private gitLines: gitLines;
+  private ref1VirtualTreeContainer: VirtualTreeContainer;
+  private ref2VirtualTreeContainer: VirtualTreeContainer | NodeFSTreeContainer;
+  private componentSet: ComponentSet;
+  private outputErrors: string[];
 
   public async run(): Promise<AnyJson> {
     this.outputDir = this.getFlag<string>('outputdir');
+    this.projectRoot = this.project.getPath();
+    this.sfdxProjectFolders = this.project.getPackageDirectories().map((p) => ensureOSPath(p.path));
+    this.sourceApiVersion = (await this.project.retrieveSfdxProjectJson()).getContents().sourceApiVersion;
+    this.destructiveChanges = join(this.projectRoot, this.outputDir, 'destructiveChanges.xml');
+    this.manifest = join(this.projectRoot, this.outputDir, 'package.xml');
+
+    debug({
+      outputDir: this.outputDir,
+      projectRoot: this.projectRoot,
+      sfdxProjectFolders: this.sfdxProjectFolders,
+    });
+
     const isContentTypeJSON = kit.env.getString('SFDX_CONTENT_TYPE', '').toUpperCase() === 'JSON';
     this.isOutputEnabled = !(process.argv.find((arg) => arg === '--json') || isContentTypeJSON);
     const gitArgs = await getGitArgsFromArgv(
       this.args.ref1 as string,
       this.args.ref2 as string,
       this.argv,
-      this.project.getPath()
+      this.projectRoot
     );
-    debug(gitArgs);
-    const tasks = new Listr<Ctx>(
+    debug({ gitArgs });
+    const tasks = new Listr(
       [
         {
           title: 'Analyze sfdx-project',
-          task: async (ctx, task): Promise<void> => {
-            ctx.projectRoot = this.project.getPath();
-            ctx.sfdxProjectFolders = this.project.getPackageDirectories().map((p) => ensureOSPath(p.path));
-            ctx.sourceApiVersion = (await this.project.retrieveSfdxProjectJson()).getContents().sourceApiVersion;
-            task.output = `packageDirectories: ${ctx.sfdxProjectFolders.length} sourceApiVersion: ${ctx.sourceApiVersion}`;
+          task: (ctx, task): void => {
+            task.output = `packageDirectories: ${this.sfdxProjectFolders.length} sourceApiVersion: ${this.sourceApiVersion}`;
           },
           options: { persistentOutput: true },
         },
         {
-          title: "Execute 'git --no-pager diff --name-status --no-renames <pending>'",
+          title: `Execute 'git --no-pager diff --name-status --no-renames ${gitArgs.refString}'`,
           task: async (ctx, task): Promise<void> => {
-            ctx.git = gitArgs;
-            task.title = `Execute 'git --no-pager diff --name-status --no-renames ${ctx.git.ref1ref2}'`;
-            ctx.gitLines = await getGitDiff(ctx.sfdxProjectFolders, ctx.git.ref1, ctx.git.ref2, ctx.projectRoot);
-            task.output = `Changed files: ${ctx.gitLines.length}`;
+            this.gitLines = await getGitDiff(this.sfdxProjectFolders, gitArgs.ref1, gitArgs.ref2, this.projectRoot);
+            task.output = `Changed files: ${this.gitLines.length}`;
           },
           options: { persistentOutput: true },
         },
         {
           title: 'Create virtual tree container',
-          skip: (ctx): boolean => ctx.gitLines.length === 0,
+          skip: (): boolean => !this.gitLines.length,
           task: (ctx, task): Listr =>
             task.newListr(
               [
                 {
-                  title: `ref1: ${ctx.git.ref1}`,
-                  // eslint-disable-next-line @typescript-eslint/no-shadow
-                  task: async (ctx): Promise<void> => {
-                    ctx.ref1VirtualTreeContainer = await createVirtualTreeContainer(
-                      ctx.git.ref1,
-                      ctx.projectRoot,
-                      ctx.gitLines.filter((l) => l.status === 'M').map((l) => l.path)
+                  title: `ref1: ${gitArgs.ref1}`,
+                  task: async (): Promise<void> => {
+                    this.ref1VirtualTreeContainer = await createVirtualTreeContainer(
+                      gitArgs.ref1,
+                      this.projectRoot,
+                      this.gitLines.filter((l) => l.status === 'M').map((l) => l.path)
                     );
                   },
                 },
                 {
-                  title: ctx.git.ref2 !== '' ? `ref2: ${ctx.git.ref2}` : undefined,
-                  // eslint-disable-next-line @typescript-eslint/no-shadow
-                  task: async (ctx): Promise<void> => {
-                    ctx.ref2VirtualTreeContainer =
-                      ctx.git.ref2 !== ''
+                  title: gitArgs.ref2 !== '' ? `ref2: ${gitArgs.ref2}` : undefined,
+                  task: async (): Promise<void> => {
+                    this.ref2VirtualTreeContainer =
+                      gitArgs.ref2 !== ''
                         ? await createVirtualTreeContainer(
-                            ctx.git.ref2,
-                            ctx.projectRoot,
-                            ctx.gitLines.filter((l) => l.status === 'M').map((l) => l.path)
+                            gitArgs.ref2,
+                            this.projectRoot,
+                            this.gitLines.filter((l) => l.status === 'M').map((l) => l.path)
                           )
                         : new NodeFSTreeContainer();
                   },
@@ -156,28 +177,33 @@ export default class GitDiff extends JayreeSfdxCommand {
         },
         {
           title: 'Analyze git diff results',
-          skip: (ctx): boolean => ctx.gitLines.length === 0,
+          skip: (): boolean => !this.gitLines.length,
           task: async (ctx, task): Promise<void> => {
-            ctx.gitResults = await getGitResults(
-              ctx.gitLines,
-              ctx.ref1VirtualTreeContainer,
-              ctx.ref2VirtualTreeContainer
+            const { manifest, output } = await getGitResults(
+              this.gitLines,
+              this.ref1VirtualTreeContainer,
+              this.ref2VirtualTreeContainer
             );
-            task.output = `Added: ${ctx.gitResults.counts.added}, Deleted: ${
-              ctx.gitResults.counts.deleted
-            }, Modified: ${ctx.gitResults.counts.modified}, Unchanged: ${ctx.gitResults.counts.unchanged}, Ignored: ${
-              ctx.gitResults.counts.ignored
-            }${ctx.gitResults.counts.error ? `, Errors: ${ctx.gitResults.counts.error}` : ''}`;
+            task.output = `Added: ${output.counts.added}, Deleted: ${output.counts.deleted}, Modified: ${
+              output.counts.modified
+            }, Unchanged: ${output.counts.unchanged}, Ignored: ${output.counts.ignored}${
+              output.counts.error ? `, Errors: ${output.counts.error}` : ''
+            }`;
+            this.outputErrors = output.errors;
+
+            debug({ manifest });
+            this.componentSet = fixComponentSetChilds(manifest);
+            this.componentSet.sourceApiVersion = this.sourceApiVersion;
           },
           options: { persistentOutput: true },
         },
         {
           // title: 'Error output',
-          skip: (ctx): boolean => !ctx.gitResults?.errors.length,
+          skip: (): boolean => !(this.outputErrors && this.outputErrors.length),
           task: (ctx, task): void => {
-            const errors = [...ctx.gitResults.errors];
-            const moreErrors = errors.splice(5);
-            for (const message of errors) {
+            debug({ errors: this.outputErrors });
+            const moreErrors = this.outputErrors.splice(5);
+            for (const message of this.outputErrors) {
               task.output = `Error: ${message}`;
             }
             task.output = moreErrors.length ? `... ${moreErrors.length} more errors` : '';
@@ -186,67 +212,32 @@ export default class GitDiff extends JayreeSfdxCommand {
         },
         {
           title: 'Generate manifests',
-          skip: (ctx): boolean =>
-            !ctx.gitResults || (!ctx.gitResults.manifest.size && !ctx.gitResults.destructiveChanges.size),
+          skip: (): boolean => !(this.componentSet && this.componentSet.size),
           task: (ctx, task): Listr =>
             task.newListr(
               [
                 {
-                  title: join(this.outputDir, 'destructiveChanges.xml'),
-                  // eslint-disable-next-line @typescript-eslint/no-shadow
-                  skip: (ctx): boolean => !ctx.gitResults.destructiveChanges.size,
-                  // eslint-disable-next-line @typescript-eslint/no-shadow
-                  task: async (ctx, task): Promise<void> => {
-                    ctx.destructiveChangesComponentSet = buildManifestComponentSet(
-                      ctx.gitResults.destructiveChanges,
-                      true
-                    );
-                    if (
-                      !ctx.destructiveChangesComponentSet.getObject(DestructiveChangesType.POST).Package.types.length
-                    ) {
-                      task.skip();
-                      return;
-                    }
-                    ctx.destructiveChangesComponentSet.sourceApiVersion = ctx.sourceApiVersion;
-                    ctx.destructiveChanges = {
-                      files: [
-                        join(ctx.projectRoot, this.outputDir, 'destructiveChanges.xml'),
-                        join(ctx.projectRoot, this.outputDir, 'package.xml'),
-                      ],
-                    };
-                    await fs.ensureDir(dirname(ctx.destructiveChanges.files[0]));
-                    await fs.writeFile(
-                      ctx.destructiveChanges.files[0],
-                      ctx.destructiveChangesComponentSet.getPackageXml(undefined, DestructiveChangesType.POST)
-                    );
-
-                    await fs.writeFile(
-                      ctx.destructiveChanges.files[1],
-                      ctx.destructiveChangesComponentSet.getPackageXml()
-                    );
+                  title: relative(this.projectRoot, this.manifest),
+                  task: async (): Promise<void> => {
+                    await fs.ensureDir(dirname(this.manifest));
+                    await fs.writeFile(this.manifest, this.componentSet.getPackageXml());
                   },
                   options: { persistentOutput: true },
                 },
                 {
-                  title: join(this.outputDir, 'package.xml'),
-                  // eslint-disable-next-line @typescript-eslint/no-shadow
-                  skip: (ctx): boolean => !ctx.gitResults.manifest.size,
-                  // eslint-disable-next-line @typescript-eslint/no-shadow
-                  task: async (ctx, task): Promise<void> => {
-                    ctx.manifestComponentSet = buildManifestComponentSet(ctx.gitResults.manifest);
-                    if (!ctx.manifestComponentSet.getObject().Package.types.length) {
-                      task.skip();
-                      return;
-                    }
-                    ctx.manifestComponentSet.sourceApiVersion = ctx.sourceApiVersion;
-                    ctx.manifest = { file: join(ctx.projectRoot, this.outputDir, 'package.xml') };
-                    await fs.ensureDir(dirname(ctx.manifest.file));
-                    await fs.writeFile(ctx.manifest.file, ctx.manifestComponentSet.getPackageXml());
+                  title: relative(this.projectRoot, this.destructiveChanges),
+                  skip: (): boolean => !this.componentSet.getTypesOfDestructiveChanges().length,
+                  task: async (): Promise<void> => {
+                    await fs.ensureDir(dirname(this.destructiveChanges));
+                    await fs.writeFile(
+                      this.destructiveChanges,
+                      this.componentSet.getPackageXml(undefined, DestructiveChangesType.POST)
+                    );
                   },
                   options: { persistentOutput: true },
                 },
               ],
-              { concurrent: true, exitOnError: false }
+              { concurrent: true }
             ) as Listr,
         },
       ],
@@ -258,32 +249,10 @@ export default class GitDiff extends JayreeSfdxCommand {
     );
 
     try {
-      const context = await tasks.run();
-      if (debug.enabled && this.isOutputEnabled) {
-        logger.success(
-          `Context: ${JSON.stringify(
-            context,
-            (key, value) => {
-              if (value instanceof ComponentSet && value !== null) {
-                let types = value.getObject().Package.types;
-                if (types.length === 0) {
-                  types = value.getObject(DestructiveChangesType.POST).Package.types;
-                }
-                return types;
-              }
-              if (value instanceof VirtualTreeContainer) {
-                return typeof value;
-              }
-              // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-              return value;
-            },
-            2
-          )}`
-        );
-      }
+      await tasks.run();
       return {
-        destructiveChanges: context.destructiveChangesComponentSet?.getObject(DestructiveChangesType.POST),
-        manifest: context.manifestComponentSet?.getObject(),
+        destructiveChanges: this.componentSet?.getObject(DestructiveChangesType.POST),
+        manifest: this.componentSet?.getObject(),
       } as unknown as AnyJson;
     } catch (e) {
       if (debug.enabled && this.isOutputEnabled) {

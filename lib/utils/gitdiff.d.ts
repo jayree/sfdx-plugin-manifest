@@ -1,18 +1,10 @@
 /// <reference types="debug" />
 import { ComponentSet, VirtualTreeContainer, SourceComponent, NodeFSTreeContainer as FSTreeContainer } from '@salesforce/source-deploy-retrieve';
-export declare const NodeFSTreeContainer: typeof FSTreeContainer;
+import git from 'isomorphic-git';
 export declare const debug: import("debug").Debugger;
-export interface Ctx {
-    projectRoot: string;
-    sfdxProjectFolders: string[];
-    sourceApiVersion: string;
-    gitLines: Array<{
-        path: string;
-        status: string;
-    }>;
-    gitResults: {
-        manifest: ComponentSet;
-        destructiveChanges: ComponentSet;
+declare type gitResults = {
+    manifest: ComponentSet;
+    output: {
         unchanged: string[];
         ignored: {
             ref1: string[];
@@ -28,23 +20,17 @@ export interface Ctx {
         };
         errors: string[];
     };
-    ref1VirtualTreeContainer: VirtualTreeContainer;
-    ref2VirtualTreeContainer: VirtualTreeContainer | FSTreeContainer;
-    destructiveChangesComponentSet: ComponentSet;
-    manifestComponentSet: ComponentSet;
-    git: {
-        ref1: string;
-        ref2: string;
-        ref1ref2: string;
-    };
-    destructiveChanges: {
-        files: string[];
-    };
-    manifest: {
-        file: string;
-    };
-}
-export declare function getGitArgsFromArgv(ref1: string, ref2: string, argv: string[], dir: string): Promise<Ctx['git']>;
+};
+declare type git = {
+    ref1: string;
+    ref2: string;
+    refString: string;
+};
+export declare type gitLines = Array<{
+    path: string;
+    status: string;
+}>;
+export declare function getGitArgsFromArgv(ref1: string, ref2: string, argv: string[], dir: string): Promise<git>;
 export declare function ensureOSPath(path: string): string;
 export declare function ensureGitPath(path: string): string;
 export declare function createVirtualTreeContainer(ref: string, dir: string, modifiedFiles: string[]): Promise<VirtualTreeContainer>;
@@ -53,6 +39,7 @@ export declare function analyzeFile(path: string, ref1VirtualTreeContainer: Virt
     toManifest?: SourceComponent[];
     toDestructiveChanges?: SourceComponent[];
 }>;
-export declare function getGitDiff(sfdxProjectFolders: string[], ref1: string, ref2: string, dir: string): Promise<Ctx['gitLines']>;
-export declare function getGitResults(gitLines: Ctx['gitLines'], ref1VirtualTreeContainer: VirtualTreeContainer, ref2VirtualTreeContainer: VirtualTreeContainer | FSTreeContainer): Promise<Ctx['gitResults']>;
-export declare function buildManifestComponentSet(cs: ComponentSet, forDestructiveChanges?: boolean): ComponentSet;
+export declare function getGitDiff(sfdxProjectFolders: string[], ref1: string, ref2: string, dir: string): Promise<gitLines>;
+export declare function getGitResults(gitLines: gitLines, ref1VirtualTreeContainer: VirtualTreeContainer, ref2VirtualTreeContainer: VirtualTreeContainer | FSTreeContainer): Promise<gitResults>;
+export declare function fixComponentSetChilds(cs: ComponentSet): ComponentSet;
+export {};
