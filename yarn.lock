@@ -763,28 +763,7 @@
     chalk "^2.4.2"
     cli-ux "^4.9.3"
 
-"@salesforce/core@2.28.0":
-  version "2.28.0"
-  resolved "https://registry.yarnpkg.com/@salesforce/core/-/core-2.28.0.tgz#2fb3d7be0dfac8505332f558b7dd4274afd34901"
-  integrity sha512-CFw2xloL3UwuvLm+0nK588kFVGPRZFmUzeUBYFCIz+34CJShc1B7yN+anPlZcHWgT12Ih9yzKYaki0BjCeIgKQ==
-  dependencies:
-    "@salesforce/bunyan" "^2.0.0"
-    "@salesforce/kit" "^1.5.0"
-    "@salesforce/schemas" "^1.0.1"
-    "@salesforce/ts-types" "^1.5.13"
-    "@types/graceful-fs" "^4.1.5"
-    "@types/jsforce" "^1.9.29"
-    "@types/mkdirp" "^1.0.1"
-    debug "^3.1.0"
-    graceful-fs "^4.2.4"
-    jsen "0.6.6"
-    jsforce "^1.10.1"
-    jsonwebtoken "8.5.0"
-    mkdirp "1.0.4"
-    sfdx-faye "^1.0.9"
-    ts-retry-promise "^0.6.0"
-
-"@salesforce/core@^2.28.4", "@salesforce/core@^2.29.0":
+"@salesforce/core@2.29.0", "@salesforce/core@^2.28.0", "@salesforce/core@^2.28.4":
   version "2.29.0"
   resolved "https://registry.yarnpkg.com/@salesforce/core/-/core-2.29.0.tgz#abc941e1c018c3d622f708e09803436175e34caa"
   integrity sha512-b34bR68Mbvm2ASMTItY2HdVmstVFv/Lj4sK1ddhi/aqYNWTF3wfaqGg8nB6+iIVeBQ4iVlw4x5sQvp3GS48Hhg==
@@ -872,11 +851,11 @@
   integrity sha512-6D7DvE6nFxpLyyTnrOIbbAeCJw2r/EpinFAcMh6gU0gA/CGfSbwV/8uR3uHLYL2zCyCZLH8jJ4dZ3BzCMqc+Eg==
 
 "@salesforce/source-deploy-retrieve@^5.5.0":
-  version "5.5.0"
-  resolved "https://registry.yarnpkg.com/@salesforce/source-deploy-retrieve/-/source-deploy-retrieve-5.5.0.tgz#1612c1e2c971a51040f9e53fab37a65a63e9feca"
-  integrity sha512-3TaSKRDWx5IZsxQdRueRW2El8YiZaGuMPujcIqEbSCKaF/21uVGb49ASXE0vpwY6SlzHy4kExTGhmXbO3zeLLw==
+  version "5.6.3"
+  resolved "https://registry.yarnpkg.com/@salesforce/source-deploy-retrieve/-/source-deploy-retrieve-5.6.3.tgz#7df19162e5ef94498763edc039586e29fbd48875"
+  integrity sha512-jzi77ZHsp1p6Xyn7kxAUVyyGfDM4dtZ6ps4fGAOpiCvh5VOQb/tDBuOKCvKWFg5r+SOFUuLUyoUyD+UdkEvE+A==
   dependencies:
-    "@salesforce/core" "2.28.0"
+    "@salesforce/core" "2.29.0"
     "@salesforce/kit" "^1.5.0"
     "@salesforce/ts-types" "^1.4.2"
     archiver "^5.3.0"
@@ -1032,7 +1011,7 @@
   dependencies:
     "@types/node" "*"
 
-"@types/jsforce@^1.9.29", "@types/jsforce@^1.9.35":
+"@types/jsforce@^1.9.35":
   version "1.9.35"
   resolved "https://registry.yarnpkg.com/@types/jsforce/-/jsforce-1.9.35.tgz#abda87c796910d286420b07a97382c782b576ca8"
   integrity sha512-GEb1iMAK8raElbBbozR7aVEuMl47jrPYLNkeh+3h2vLJIG21uQ/kOk4kPgMiMFwCmgfX4/tPDugnjb7qrMav4A==
@@ -4208,9 +4187,9 @@ listenercount@~1.0.1:
   integrity sha1-hMinKrWcRyUyFIDJdeZQg0LnCTc=
 
 listr2@^3.13.3:
-  version "3.13.3"
-  resolved "https://registry.yarnpkg.com/listr2/-/listr2-3.13.3.tgz#d8f6095c9371b382c9b1c2bc33c5941d8e177f11"
-  integrity sha512-VqAgN+XVfyaEjSaFewGPcDs5/3hBbWVaX1VgWv2f52MF7US45JuARlArULctiB44IIcEk3JF7GtoFCLqEdeuPA==
+  version "3.13.4"
+  resolved "https://registry.yarnpkg.com/listr2/-/listr2-3.13.4.tgz#34101fc0184545597e00d1e7915ccfbfb17332e6"
+  integrity sha512-lZ1Rut1DSIRwbxQbI8qaUBfOWJ1jEYRgltIM97j6kKOCI2pHVWMyxZvkU/JKmRBWcIYgDS2PK+yDgVqm7u3crw==
   dependencies:
     cli-truncate "^2.1.0"
     clone "^2.1.2"
@@ -4476,9 +4455,9 @@ marked@^1.1.1:
   integrity sha512-H8lIX2SvyitGX+TRdtS06m1jHMijKN/XjfH6Ooii9fvxMlh8QdqBfBDkGUpMWH2kQNrtixjzYUa3SH8ROTgRRw==
 
 marked@^4.0.3:
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/marked/-/marked-4.0.3.tgz#986760a428d8fd666251ec578429bf9a239a34bc"
-  integrity sha512-vSwKKtw+lCA0uFK/02JT4tBfNxEREpoTg21NoXqcmX0ySBIEyLMYWmt8WPsM61QNFaDBZkggupyNXLsV7uPuRg==
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-4.0.4.tgz#d7cb16adaa474291307c521824c5716d32b95c36"
+  integrity sha512-d8v7SensuOj+gxi0TGbqb2WtS60ycZfZuqtmAB9yz0JLotKerTob/47Qk9oLCDmn5G1dcdn3d5ydR+ih9dvS0A==
 
 meow@^3.3.0:
   version "3.7.0"
