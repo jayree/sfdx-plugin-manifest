@@ -763,7 +763,7 @@
     chalk "^2.4.2"
     cli-ux "^4.9.3"
 
-"@salesforce/core@2.29.0", "@salesforce/core@^2.28.0", "@salesforce/core@^2.28.4":
+"@salesforce/core@2.29.0", "@salesforce/core@^2.28.4", "@salesforce/core@^2.29.0":
   version "2.29.0"
   resolved "https://registry.yarnpkg.com/@salesforce/core/-/core-2.29.0.tgz#abc941e1c018c3d622f708e09803436175e34caa"
   integrity sha512-b34bR68Mbvm2ASMTItY2HdVmstVFv/Lj4sK1ddhi/aqYNWTF3wfaqGg8nB6+iIVeBQ4iVlw4x5sQvp3GS48Hhg==
@@ -1071,9 +1071,9 @@
   integrity sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==
 
 "@types/node@*", "@types/node@^16.11.7":
-  version "16.11.7"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.7.tgz#36820945061326978c42a01e56b61cd223dfdc42"
-  integrity sha512-QB5D2sqfSjCmTuWcBWyJ+/44bcjO7VbjSbOE0ucoVbAsSNQc4Lt6QkgkVXkTDwkL4z/beecZNDvVX15D4P8Jbw==
+  version "16.11.9"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.9.tgz#879be3ad7af29f4c1a5c433421bf99fab7047185"
+  integrity sha512-MKmdASMf3LtPzwLyRrFjtFFZ48cMf8jmX5VRYrDQiJa8Ybu5VAmkqBWqKU8fdCwD8ysw4mQ9nrEHvzg6gunR7A==
 
 "@types/node@^15.6.1":
   version "15.14.9"
