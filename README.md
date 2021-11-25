@@ -13,6 +13,7 @@ jayree sfdx manifest commands
 <!-- tocstop -->
 <!-- install -->
 <!-- usage -->
+
 ```sh-session
 $ sfdx plugins:install @jayree/sfdx-plugin-manifest
 $ sfdx jayree:COMMAND
@@ -24,11 +25,13 @@ USAGE
   $ sfdx jayree:COMMAND
 ...
 ```
+
 <!-- usagestop -->
 <!-- commands -->
-* [`sfdx jayree:manifest:cleanup`](#sfdx-jayreemanifestcleanup)
-* [`sfdx jayree:manifest:generate`](#sfdx-jayreemanifestgenerate)
-* [`sfdx jayree:manifest:git:diff`](#sfdx-jayreemanifestgitdiff)
+
+- [`sfdx jayree:manifest:cleanup`](#sfdx-jayreemanifestcleanup)
+- [`sfdx jayree:manifest:generate`](#sfdx-jayreemanifestgenerate)
+- [`sfdx jayree:manifest:git:diff`](#sfdx-jayreemanifestgitdiff)
 
 ### `sfdx jayree:manifest:cleanup`
 
@@ -36,7 +39,7 @@ removes those tags from a manifest file that are present in a second manifest fi
 
 ```
 USAGE
-  $ sfdx jayree:manifest:cleanup [-x <filepath>] [-f <filepath>] [--json] [--loglevel 
+  $ sfdx jayree:manifest:cleanup [-x <filepath>] [-f <filepath>] [--json] [--loglevel
   trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 OPTIONS
@@ -66,7 +69,7 @@ generate a complete manifest file form the specified org
 
 ```
 USAGE
-  $ sfdx jayree:manifest:generate [-q <array>] [-c] [-w] [--includeflowversions] [-f <string>] [-x] [-u <string>] 
+  $ sfdx jayree:manifest:generate [-q <array>] [-c] [-w] [--includeflowversions] [-f <string>] [-x] [-u <string>]
   [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 OPTIONS
@@ -117,7 +120,7 @@ create a manifest and destructiveChanges manifest using 'git diff' data
 
 ```
 USAGE
-  $ sfdx jayree:manifest:git:diff [-o <string>] [--json] [--loglevel 
+  $ sfdx jayree:manifest:git:diff [-o <string>] [-d] [--json] [--loglevel
   trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 ARGUMENTS
@@ -125,6 +128,9 @@ ARGUMENTS
   REF2  commit or branch to compare to the base commit
 
 OPTIONS
+  -d, --destructivechangesonly                                                      create a destructiveChanges manifest
+                                                                                    only (package.xml will be empty)
+
   -o, --outputdir=outputdir                                                         directory to save the created
                                                                                     manifest files
 
@@ -134,7 +140,7 @@ OPTIONS
                                                                                     this command invocation
 
 DESCRIPTION
-  Use this command to create a manifest and destructiveChanges manifest file based on the difference (git diff) of two 
+  Use this command to create a manifest and destructiveChanges manifest file based on the difference (git diff) of two
   git refs.
 
   You can use all ways to spell <commit> which are valid for 'git diff'.
@@ -146,9 +152,9 @@ EXAMPLES
   uses the changes between two arbitrary <commit>
 
   $ sfdx jayree:manifest:git:diff <commit>...<commit>
-  uses the changes on the branch containing and up to the second <commit>, starting at a common ancestor of both 
+  uses the changes on the branch containing and up to the second <commit>, starting at a common ancestor of both
   <commit>.
-    
+
   $ sfdx jayree:manifest:git:diff branchA..branchB
   uses the diff of what is unique in branchB (REF2) and unique in branchA (REF1)
 
@@ -157,4 +163,5 @@ EXAMPLES
 ```
 
 _See code: [commands/jayree/manifest/git/diff.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v2.0.0/commands/jayree/manifest/git/diff.ts)_
+
 <!-- commandsstop -->

@@ -82,6 +82,11 @@ export default class GitDiff extends JayreeSfdxCommand {
       description: messages.getMessage('outputdir'),
       default: '',
     }),
+    destructivechangesonly: flags.boolean({
+      char: 'd',
+      description: messages.getMessage('destructivechangesonly'),
+      default: false,
+    }),
   };
 
   protected static requiresUsername = false;
@@ -90,6 +95,7 @@ export default class GitDiff extends JayreeSfdxCommand {
 
   private isOutputEnabled;
   private outputDir: string;
+  private destructiveChangesOnly: boolean;
   private projectRoot: string;
   private sfdxProjectFolders: string[];
   private sourceApiVersion: string;
@@ -103,6 +109,7 @@ export default class GitDiff extends JayreeSfdxCommand {
   private outputErrors: string[];
 
   public async run(): Promise<AnyJson> {
+    this.destructiveChangesOnly = this.getFlag<boolean>('destructivechangesonly');
     this.outputDir = this.getFlag<string>('outputdir');
     this.projectRoot = this.project.getPath();
     this.sfdxProjectFolders = this.project.getPackageDirectories().map((p) => ensureOSPath(p.path));
@@ -182,7 +189,8 @@ export default class GitDiff extends JayreeSfdxCommand {
             const { manifest, output } = await getGitResults(
               this.gitLines,
               this.ref1VirtualTreeContainer,
-              this.ref2VirtualTreeContainer
+              this.ref2VirtualTreeContainer,
+              this.destructiveChangesOnly
             );
             task.output = `Added: ${output.counts.added}, Deleted: ${output.counts.deleted}, Modified: ${
               output.counts.modified
