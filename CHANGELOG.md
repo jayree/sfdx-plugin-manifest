@@ -1,3 +1,22 @@
+# [2.1.0](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.0.0...v2.1.0) (2021-11-25)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve from 5.6.3 to 5.6.4 ([2c2ae66](https://github.com/jayree/sfdx-plugin-manifest/commit/2c2ae66ab3a911a4c0a32d78345cfd5995c6b1fe))
+* **deps:** bump @salesforce/source-deploy-retrieve from 5.6.4 to 5.7.0 ([72100de](https://github.com/jayree/sfdx-plugin-manifest/commit/72100deb19b5fdd3dd0a0d50dea6c7060e0abba6))
+* **deps:** bump cli-ux from 5.6.3 to 5.6.4 ([f4326df](https://github.com/jayree/sfdx-plugin-manifest/commit/f4326df1a4f22b914133c3075bdaa4b49c1ea330))
+* **deps:** bump cli-ux from 5.6.3 to 5.6.4 ([76a603f](https://github.com/jayree/sfdx-plugin-manifest/commit/76a603fca3ceba0b556ca4814bfedca1f5259ab9))
+* **deps:** bump listr2 from 3.13.4 to 3.13.5 ([c8f72a5](https://github.com/jayree/sfdx-plugin-manifest/commit/c8f72a5508c024d58ae732cb33d13245b3cfcc98))
+* **deps:** bump listr2 from 3.13.4 to 3.13.5 ([f271782](https://github.com/jayree/sfdx-plugin-manifest/commit/f271782ea470012ecd1bef3acaa116fd41a37fce))
+* **deps:** bump marked from 4.0.4 to 4.0.5 ([df74dae](https://github.com/jayree/sfdx-plugin-manifest/commit/df74dae17353e466b02871c9525d93d48482cd51))
+
+
+### Features
+
+* **gitdiff:** add parameter to generate a destructiveChanges manifest with empty package.xml for mdapi:deploy ([e2e05c6](https://github.com/jayree/sfdx-plugin-manifest/commit/e2e05c65d22a345d2d6cdfb898070e41888b62c1))
+* **gitdiff:** add parameter to generate a destructiveChanges manifest with empty package.xml for mdapi:deploy ([dbd3f6e](https://github.com/jayree/sfdx-plugin-manifest/commit/dbd3f6ed6881147960220903269b4095c386ca1a))
+
 # [2.0.0](https://github.com/jayree/sfdx-plugin-manifest/compare/v1.0.6...v2.0.0) (2021-11-21)
 
 
