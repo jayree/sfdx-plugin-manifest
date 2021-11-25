@@ -19,4 +19,5 @@ uses the diff of what is unique in branchB (REF2) and unique in branchA (REF1)
 uses the diff of what is unique in branchB (REF2)`,
   ],
   outputdir: 'directory to save the created manifest files',
+  destructivechangesonly: 'create a destructiveChanges manifest only (package.xml will be empty)',
 };

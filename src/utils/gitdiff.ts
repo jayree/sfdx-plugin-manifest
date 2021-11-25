@@ -338,10 +338,12 @@ export async function getGitDiff(
   return gitLines;
 }
 
+// eslint-disable-next-line complexity
 export async function getGitResults(
   gitLines: gitLines,
   ref1VirtualTreeContainer: VirtualTreeContainer,
-  ref2VirtualTreeContainer: VirtualTreeContainer | FSTreeContainer
+  ref2VirtualTreeContainer: VirtualTreeContainer | FSTreeContainer,
+  destructiveChangesOnly: boolean
 ): Promise<gitResults> {
   const results = {
     manifest: new ComponentSet(undefined, registryAccess),
@@ -376,8 +378,10 @@ export async function getGitResults(
           try {
             // in case a binary source file of a bundle was deleted, check if the bundle ist still valid and update instead of delete
             ref2Resolver.getComponentsFromPath(c.xml);
-            results.manifest.add(c);
-            results.output.counts.added++;
+            if (!destructiveChangesOnly) {
+              results.manifest.add(c);
+              results.output.counts.added++;
+            }
           } catch (error) {
             results.output.counts.error++;
             results.output.errors.push(error);
@@ -385,27 +389,35 @@ export async function getGitResults(
         }
       }
     } else if (status === 'A') {
-      for (const c of getComponentsFromPath(ref2Resolver, path)) {
-        results.manifest.add(c);
-        results.output.counts.added++;
+      if (!destructiveChangesOnly) {
+        for (const c of getComponentsFromPath(ref2Resolver, path)) {
+          results.manifest.add(c);
+          results.output.counts.added++;
+        }
       }
     } else {
       const check = await analyzeFile(path, ref1VirtualTreeContainer, ref2VirtualTreeContainer);
       if (check.status === 0) {
-        for (const c of getComponentsFromPath(ref2Resolver, path)) {
-          results.manifest.add(c);
-          results.output.counts.added++;
+        if (!destructiveChangesOnly) {
+          for (const c of getComponentsFromPath(ref2Resolver, path)) {
+            results.manifest.add(c);
+            results.output.counts.added++;
+          }
         }
       } else if (check.status === -1) {
         results.output.unchanged.push(path);
         results.output.counts.unchanged++;
       } else {
-        results.output.counts.modified++;
+        if (check.toDestructiveChanges.length > 0 || (check.toManifest.length > 0 && !destructiveChangesOnly)) {
+          results.output.counts.modified++;
+        }
         for (const c of check.toDestructiveChanges) {
           results.manifest.add(c, DestructiveChangesType.POST);
         }
-        for (const c of check.toManifest) {
-          results.manifest.add(c);
+        if (!destructiveChangesOnly) {
+          for (const c of check.toManifest) {
+            results.manifest.add(c);
+          }
         }
       }
     }
