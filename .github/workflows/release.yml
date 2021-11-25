@@ -26,5 +26,4 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           npm install -global semantic-release https://github.com/jayree/semantic-release
-          npm install -global https://github.com/jayree/semantic-release
           semantic-release -e @oclif/semantic-release
