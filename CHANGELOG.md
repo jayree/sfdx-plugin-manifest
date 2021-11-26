@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.1.0...v2.1.1) (2021-11-26)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 2.29.0 to 2.30.0 ([d8bc5ae](https://github.com/jayree/sfdx-plugin-manifest/commit/d8bc5aedd267d576a6f50e8d880faaf8de1f57eb))
+
 # [2.1.0](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.0.0...v2.1.0) (2021-11-25)
 
 ### Bug Fixes
