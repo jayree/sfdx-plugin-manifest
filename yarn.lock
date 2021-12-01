@@ -624,19 +624,7 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@oclif/command@^1.5.13", "@oclif/command@^1.8.1", "@oclif/command@^1.8.4":
-  version "1.8.4"
-  resolved "https://registry.yarnpkg.com/@oclif/command/-/command-1.8.4.tgz#176a4c2e9db5eac99dddb5f480ffd577e20e91ed"
-  integrity sha512-fZVzaIzC0CSj5KCgAp84Z+LHqSwElA6G2lCRiQW4UfDaOx1CrHXbUCqGDBpV6lG1sobuJzKlsS6mh5fmJWeEyw==
-  dependencies:
-    "@oclif/config" "^1.17.1"
-    "@oclif/errors" "^1.3.5"
-    "@oclif/parser" "^3.8.6"
-    "@oclif/plugin-help" "^3.2.6"
-    debug "^4.1.1"
-    semver "^7.3.2"
-
-"@oclif/command@^1.8.6":
+"@oclif/command@^1.5.13", "@oclif/command@^1.8.1", "@oclif/command@^1.8.4", "@oclif/command@^1.8.6":
   version "1.8.7"
   resolved "https://registry.yarnpkg.com/@oclif/command/-/command-1.8.7.tgz#825d34bea8e93cecfaf0cb9bf327f4ab87cd0714"
   integrity sha512-5DRLd2WHppuKsudHe8rCZnjgEpA2/6P4zxrLwWBXrGz+/kzA/RWcPJgkcdfm1uBCEgHMSWZP4MX21d4lAB1vYA==
@@ -750,7 +738,7 @@
     widest-line "^2.0.1"
     wrap-ansi "^4.0.0"
 
-"@oclif/plugin-help@^3.2.10":
+"@oclif/plugin-help@^3.2.10", "@oclif/plugin-help@^3.2.7":
   version "3.2.10"
   resolved "https://registry.yarnpkg.com/@oclif/plugin-help/-/plugin-help-3.2.10.tgz#1843ac05f8cd139b575ee8b1dfc34bb500110e68"
   integrity sha512-U3Jk01MTnqnd9druulNSn6nTjPEE1Rr6PWhD4rJ6Z+NjLFTKhp3S1kutWDXJQd7CQ6m8tHd1AYgsIjiR+36bSw==
@@ -765,22 +753,6 @@
     strip-ansi "^6.0.0"
     widest-line "^3.1.0"
     wrap-ansi "^6.2.0"
-
-"@oclif/plugin-help@^3.2.6", "@oclif/plugin-help@^3.2.7":
-  version "3.2.7"
-  resolved "https://registry.yarnpkg.com/@oclif/plugin-help/-/plugin-help-3.2.7.tgz#df78de78a84194d566d7725bdd58c468bf0c2273"
-  integrity sha512-X6ErYHwsKGZTtfmY64nwx13lHrVHhJJMKhcvBv4KxO170yvu+vw38DirLVibJKrF70A42QjGd9vgiyFTpyeULQ==
-  dependencies:
-    "@oclif/command" "^1.8.4"
-    "@oclif/config" "^1.17.1"
-    "@oclif/errors" "^1.3.5"
-    chalk "^4.1.2"
-    indent-string "^4.0.0"
-    lodash "^4.17.21"
-    string-width "^4.2.0"
-    strip-ansi "^6.0.0"
-    widest-line "^3.1.0"
-    wrap-ansi "^4.0.0"
 
 "@oclif/screen@^1.0.3":
   version "1.0.4"
@@ -807,22 +779,22 @@
     safe-json-stringify "~1"
 
 "@salesforce/command@^4.1.5":
-  version "4.1.5"
-  resolved "https://registry.yarnpkg.com/@salesforce/command/-/command-4.1.5.tgz#3f9ddd991acc57a8149787e8794498b5966e35fe"
-  integrity sha512-AQ81TC+8C/KSr4PoOBVX0ozxhpgRES3xusgzuej5WZk7TVfueStxP5LwJj11Sy9ZnBhJp5/6VWfvNzWqgRoaNw==
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@salesforce/command/-/command-4.2.0.tgz#e2a1a620e6a0f1f1e25747bd651a749cf29ad9e6"
+  integrity sha512-KxvzBHqJHLR5WMP/Gh4TpSjCSfIveZEVRA8+zS+ZFXXLILuZzCPi/kHwZnKwOedO3EyjC8HFnFDgKt62vqgw8w==
   dependencies:
     "@oclif/command" "^1.8.1"
     "@oclif/errors" "^1.2.2"
     "@oclif/parser" "3.8.6"
     "@oclif/plugin-help" "^2.2.0"
     "@oclif/test" "^1.2.4"
-    "@salesforce/core" "^2.29.0"
+    "@salesforce/core" "^2.31.0"
     "@salesforce/kit" "^1.5.17"
     "@salesforce/ts-types" "^1.5.20"
     chalk "^2.4.2"
     cli-ux "^4.9.3"
 
-"@salesforce/core@2.31.0", "@salesforce/core@^2.29.0", "@salesforce/core@^2.30.0":
+"@salesforce/core@2.31.0", "@salesforce/core@^2.30.0", "@salesforce/core@^2.31.0":
   version "2.31.0"
   resolved "https://registry.yarnpkg.com/@salesforce/core/-/core-2.31.0.tgz#cdeaa9968060afb52f40c12bf5a4f9844a2a1909"
   integrity sha512-ROEjX/M0ZHpGlmRfNUoDKsE4ppOZUU5Hcl3XHr2pCO7F505imAmhKg8I+XfGSxXyj4bL/kftkNTK5xFffJ+6mw==
