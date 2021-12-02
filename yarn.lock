@@ -832,9 +832,9 @@
     xunit-file "^1.0.0"
 
 "@salesforce/kit@^1.5.0", "@salesforce/kit@^1.5.17", "@salesforce/kit@^1.5.18":
-  version "1.5.18"
-  resolved "https://registry.yarnpkg.com/@salesforce/kit/-/kit-1.5.18.tgz#77c30e3351d71dbe37444e6741c80e0ce7e233f3"
-  integrity sha512-SntvHmzzxc6vY4MpyWw6xB/vYKPoGiJG9SLzbAaRgSd+F2j6TX1na2HabrxQo8ppxGLjIou2gfezkiyuO+Ru6w==
+  version "1.5.20"
+  resolved "https://registry.yarnpkg.com/@salesforce/kit/-/kit-1.5.20.tgz#bf5ee4b277a6b041190df88bdbafc10f194f49fa"
+  integrity sha512-3UTxMd4dpLNVvkV6UvOKyTvim09pQz4c1Wv9rx1PqJMJvIG33WSAAhVd+BVv/9Hy8pLDsM8+OwyMXqEY02/wUQ==
   dependencies:
     "@salesforce/ts-types" "^1.5.20"
     shx "^0.3.3"
