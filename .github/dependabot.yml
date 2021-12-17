@@ -13,3 +13,5 @@ updates:
       prefix: "fix"
       prefix-development: "chore"
       include: "scope"
+    allow:
+      - dependency-type: "production"
