@@ -60,7 +60,7 @@ index d3870e6..4585630 100644
    },
  };
 diff --git a/node_modules/@salesforce/dev-scripts/utils/write-dependencies.js b/node_modules/@salesforce/dev-scripts/utils/write-dependencies.js
-index 4c55a79..90c4579 100644
+index 7b838be..0a328f5 100644
 --- a/node_modules/@salesforce/dev-scripts/utils/write-dependencies.js
 +++ b/node_modules/@salesforce/dev-scripts/utils/write-dependencies.js
 @@ -94,15 +94,15 @@ module.exports = (projectPath, inLernaProject) => {
@@ -75,7 +75,7 @@ index 4c55a79..90c4579 100644
 -  remove('@types/node');
 -  remove('@types/sinon');
 -  remove('typedoc');
--  remove('typedoc-plugin-external-module-name');
+-  remove('typedoc-plugin-missing-exports');
 +  add('@commitlint/cli');
 +  add('@commitlint/config-conventional');
 +  add('source-map-support');
@@ -84,7 +84,7 @@ index 4c55a79..90c4579 100644
 +  add('@types/node');
 +  add('@types/sinon');
 +  // remove('typedoc');
-+  // remove('typedoc-plugin-external-module-name');
++  // remove('typedoc-plugin-missing-exports');
  
    // We use eslint now
    remove('tslint');
