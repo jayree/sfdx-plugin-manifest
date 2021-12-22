@@ -1,3 +1,10 @@
+## [2.1.5](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.1.4...v2.1.5) (2021-12-22)
+
+
+### Bug Fixes
+
+* update dependencies ([8f40458](https://github.com/jayree/sfdx-plugin-manifest/commit/8f4045871e8ad89982b7c788ce688ce1af01fd69))
+
 ## [2.1.4](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.1.3...v2.1.4) (2021-12-19)
 
 
