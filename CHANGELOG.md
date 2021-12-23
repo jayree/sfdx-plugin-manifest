@@ -1,3 +1,10 @@
+## [2.1.6](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.1.5...v2.1.6) (2021-12-23)
+
+
+### Bug Fixes
+
+* set node version to 14.17.1 ([e6bf30c](https://github.com/jayree/sfdx-plugin-manifest/commit/e6bf30c1de943b085a379db5cc83e06e12f2a2bb))
+
 ## [2.1.5](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.1.4...v2.1.5) (2021-12-22)
 
 
