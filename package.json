@@ -18,7 +18,7 @@
     "fs-extra": "^10.0.0",
     "isomorphic-git": "^1.10.3",
     "jsforce": "^1.11.0",
-    "listr2": "^3.13.5",
+    "listr2": "^4.0.0",
     "marked": "^4.0.8",
     "marked-terminal": "^4.2.0",
     "tslib": "^2.3.1"
