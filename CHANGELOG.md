@@ -1,3 +1,10 @@
+## [2.1.7](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.1.6...v2.1.7) (2022-01-06)
+
+
+### Bug Fixes
+
+* downgrade cli-ux ([a0a27a8](https://github.com/jayree/sfdx-plugin-manifest/commit/a0a27a8623558f739264c1c8eb380227970dc93e))
+
 ## [2.1.6](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.1.5...v2.1.6) (2021-12-23)
 
 
