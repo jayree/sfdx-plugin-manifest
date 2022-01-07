@@ -1,3 +1,12 @@
+## [2.1.8](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.1.7...v2.1.8) (2022-01-07)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/kit from 1.5.25 to 1.5.26 ([860f606](https://github.com/jayree/sfdx-plugin-manifest/commit/860f606e9d91ee43ce6ea1956caf401197098c24))
+* **deps:** bump fast-xml-parser from 3.21.1 to 4.0.0 ([7feaf6f](https://github.com/jayree/sfdx-plugin-manifest/commit/7feaf6ffc410da4dd6a8f2e03370b3f507faf561))
+* **deps:** bump listr2 from 3.14.0 to 4.0.0 ([cee5f4e](https://github.com/jayree/sfdx-plugin-manifest/commit/cee5f4eac31c57b3f79a3197eb065623f25ca80b))
+
 ## [2.1.7](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.1.6...v2.1.7) (2022-01-06)
 
 
