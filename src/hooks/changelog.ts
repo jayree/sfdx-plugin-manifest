@@ -9,42 +9,97 @@ import { join } from 'path';
 import * as fs from 'fs-extra';
 import { Hook } from '@oclif/config';
 import { debug as Debug } from 'debug';
-import terminalRenderer = require('marked-terminal');
+import TerminalRenderer = require('marked-terminal');
 import { marked } from 'marked';
+import * as semver from 'semver';
+import { cli } from 'cli-ux';
 
 const debug = Debug('jayree:hooks');
 
+// original from https://github.com/salesforcecli/plugin-info/blob/main/src/shared/parseReleaseNotes.ts
+const parseReleaseNotes = (notes: string, version: string): marked.Token[] => {
+  let found = false;
+  let closestVersion: string;
+  let versions: string[];
+
+  const parsed = marked.lexer(notes);
+
+  let tokens: marked.Token[];
+
+  const findVersion = (desiredVersion: string): void => {
+    versions = [];
+
+    tokens = parsed.filter((token) => {
+      // TODO: Could make header depth (2) a setting in oclif.info.releasenotes
+      if (token.type === 'heading' && token.depth <= 2) {
+        const coercedVersion = semver.coerce(token.text).version;
+
+        // We will use this to find the closest patch if passed version is not found
+        versions.push(coercedVersion);
+
+        if (coercedVersion === desiredVersion) {
+          found = true;
+
+          return token;
+        }
+
+        found = false;
+      } else if (found === true) {
+        return token;
+      }
+    });
+  };
+
+  findVersion(version);
+
+  if (!tokens.length) {
+    // If version was not found, try again with the closest patch version
+    const semverRange = `${semver.major(version)}.${semver.minor(version)}.x`;
+
+    closestVersion = semver.maxSatisfying<string>(versions, semverRange);
+
+    findVersion(closestVersion);
+  }
+
+  if (closestVersion !== undefined) {
+    const warning = marked.lexer(
+      `# ATTENTION: Version ${version} was not found. Showing notes for closest patch version ${closestVersion}.`
+    )[0];
+
+    tokens.unshift(warning);
+  }
+
+  return tokens;
+};
+
 export const changelog: Hook<'changelog'> = function () {
   process.once('exit', () => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
-    marked.setOptions({ renderer: new terminalRenderer() });
     try {
-      const moduleRootPath = join(__dirname, '..', '..');
-      const changelogFile = fs.readFileSync(join(moduleRootPath, 'CHANGELOG.md'), 'utf8');
-      const packageJson = fs.readJSONSync(join(moduleRootPath, 'package.json')) as { name: string; version: string };
-      const cacheDir = join(this.config.cacheDir, packageJson.name);
+      const pluginRootPath = join(__dirname, '..', '..');
+      const { name, version } = fs.readJsonSync(join(pluginRootPath, 'package.json')) as {
+        name: string;
+        version: string;
+      };
+      const changelogFile = fs.readFileSync(join(pluginRootPath, 'CHANGELOG.md'), 'utf8');
+      const cacheDir = join(this.config.cacheDir, name);
       fs.ensureDirSync(cacheDir);
       const versionFile = join(cacheDir, 'version');
-      let changelogText: string;
-      try {
-        const latestVersion = fs.readJSONSync(versionFile) as { version: string };
-        changelogText = changelogFile.substring(0, changelogFile.indexOf(`[${latestVersion.version}]`));
-        if (changelogText.length === 0) {
-          throw new Error('version not found');
-        }
-      } catch (err) {
-        changelogText = changelogFile.substring(0, changelogFile.indexOf('# [', 2));
-      } finally {
-        changelogText = changelogText.substring(0, changelogText.lastIndexOf('\n'));
-        if (changelogText.length > 0) {
-          // eslint-disable-next-line no-console
-          console.log(marked(`# CHANGELOG (${packageJson.name})`));
-          // eslint-disable-next-line no-console
-          console.log(marked(changelogText));
+      const latestVersion = fs.readJSONSync(versionFile) as { version: string };
+      debug({ latestVersion: latestVersion.version, version });
+      if (latestVersion.version !== version) {
+        const tokens = parseReleaseNotes(changelogFile, version);
+        if (!tokens.length) {
+          debug(`${name} - didn't find version '${version}'.`);
         } else {
-          debug(`${packageJson.name} - no update`);
+          marked.setOptions({
+            renderer: new TerminalRenderer({ emoji: false }),
+          });
+          tokens.unshift(marked.lexer(`# Changelog for '${name}':`)[0]);
+          cli.log(marked.parser(tokens));
+          fs.writeJsonSync(versionFile, { version });
         }
-        fs.writeJsonSync(versionFile, { version: packageJson.version });
+      } else {
+        debug(`${name} - no update`);
       }
     } catch (error) {
       debug(error);
