@@ -8,7 +8,7 @@ import { cli } from 'cli-ux';
 import * as fs from 'fs-extra';
 import { normalizeToArray } from '@salesforce/source-deploy-retrieve/lib/src/utils';
 import { PackageTypeMembers } from '@salesforce/source-deploy-retrieve';
-import { parse as parseXml, j2xParser } from 'fast-xml-parser';
+import { XMLParser, XMLBuilder } from 'fast-xml-parser';
 import { XML_DECL, XML_NS_KEY, XML_NS_URL } from '@salesforce/source-deploy-retrieve/lib/src/common';
 
 interface PackageManifestObject {
@@ -20,18 +20,20 @@ interface PackageManifestObject {
 }
 
 function parseManifest(xmlData: string): { packageTypeMembers: PackageTypeMembers[]; version: string } {
+  const parser = new XMLParser({ stopNodes: ['version'], parseTagValue: false });
+
   const {
     Package: { types, version },
-  } = parseXml(xmlData, { stopNodes: ['version'] }) as PackageManifestObject;
+  } = parser.parse(xmlData) as PackageManifestObject;
 
   const packageTypeMembers = normalizeToArray(types);
   return { packageTypeMembers, version };
 }
 
 function js2Manifest(jsData: PackageManifestObject): string {
-  const js2Xml = new j2xParser({ format: true, indentBy: '    ', ignoreAttributes: false });
+  const js2Xml = new XMLBuilder({ format: true, indentBy: '    ', ignoreAttributes: false });
   jsData.Package[XML_NS_KEY] = XML_NS_URL;
-  return XML_DECL.concat(js2Xml.parse(jsData) as string);
+  return XML_DECL.concat(js2Xml.build(jsData) as string);
 }
 
 export async function cleanupManifestFile(manifest: string, ignoreManifest: string): Promise<void> {
