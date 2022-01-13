@@ -867,9 +867,9 @@
     typescript "^4.1.3"
 
 "@salesforce/kit@^1.5.0", "@salesforce/kit@^1.5.17", "@salesforce/kit@^1.5.26":
-  version "1.5.26"
-  resolved "https://registry.yarnpkg.com/@salesforce/kit/-/kit-1.5.26.tgz#0ccac5bf90ce88b66fed7df96cf15bacbd368713"
-  integrity sha512-yirtNbNHQJ8QHgBufRPgDqpviSR5yyF2mm0UtyhGvg3ZbomzxynSawODYipAv52JdmyuMgRIekCngbzqYeJEwQ==
+  version "1.5.28"
+  resolved "https://registry.yarnpkg.com/@salesforce/kit/-/kit-1.5.28.tgz#698b3b088d853b23832115a75f1c80effda850a4"
+  integrity sha512-Gv/tKTh+X5r5IrAOQoa3g/ZLw8+YQ/Za1DnVAF11bc4tUIBvaHgMB4JaGOdieYIhaU7MCEqmDPb9sSuIhKfmlg==
   dependencies:
     "@salesforce/ts-types" "^1.5.20"
     shx "^0.3.3"
