@@ -449,13 +449,5 @@ export function fixComponentSetChilds(cs: ComponentSet): ComponentSet {
     return component;
   });
 
-  return new ComponentSet(
-    sourceComponents.toArray().sort((a, b) => {
-      if (a.type.name === b.type.name) {
-        return a.fullName.toLowerCase() > b.fullName.toLowerCase() ? 1 : -1;
-      }
-      return a.type.name.toLowerCase() > b.type.name.toLowerCase() ? 1 : -1;
-    }),
-    registryAccess
-  );
+  return new ComponentSet(sourceComponents, registryAccess);
 }
