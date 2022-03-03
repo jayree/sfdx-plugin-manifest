@@ -1,3 +1,25 @@
+# [2.2.0](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.1.9...v2.2.0) (2022-03-03)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/config from 1.18.2 to 1.18.3 ([9709aa3](https://github.com/jayree/sfdx-plugin-manifest/commit/9709aa36b5faf551fc79edd2a170b3718854488e))
+* **deps:** bump @salesforce/command from 4.2.1 to 4.2.2 ([ba50496](https://github.com/jayree/sfdx-plugin-manifest/commit/ba50496e38744a10d749a60751b1d7f2b8e0420e))
+* **deps:** bump @salesforce/core from 2.33.1 to 2.35.3 ([1d0e655](https://github.com/jayree/sfdx-plugin-manifest/commit/1d0e65560e6fa8b15a4201181a1a71d42fe0c3d7))
+* **deps:** bump @salesforce/kit from 1.5.30 to 1.5.34 ([4c4822a](https://github.com/jayree/sfdx-plugin-manifest/commit/4c4822a9fe5a19e9ff9063950034ef48f54274cc))
+* **deps:** bump @salesforce/source-deploy-retrieve from 5.9.2 to 5.12.3 ([5b07ec3](https://github.com/jayree/sfdx-plugin-manifest/commit/5b07ec3b2fde338b6a519daed112e1e2102cdd75))
+* **deps:** bump fast-xml-parser from 4.0.1 to 4.0.4 ([7048e7d](https://github.com/jayree/sfdx-plugin-manifest/commit/7048e7db139fb07b84cc1a7d54fdf718b9f0421e))
+* **deps:** bump fs-extra from 10.0.0 to 10.0.1 ([2fa0396](https://github.com/jayree/sfdx-plugin-manifest/commit/2fa0396e22b8f7e3f073184187dc71cada96ee0c))
+* **deps:** bump isomorphic-git from 1.10.4 to 1.13.0 ([2872b09](https://github.com/jayree/sfdx-plugin-manifest/commit/2872b09db46f376700b762c1bb371b2f82d419fb))
+* **deps:** bump listr2 from 4.0.1 to 4.0.4 ([ed1e01e](https://github.com/jayree/sfdx-plugin-manifest/commit/ed1e01e8ad9ed00ec3bbcd59949148d8d5fdad98))
+* **deps:** bump marked from 4.0.10 to 4.0.12 ([d7314d0](https://github.com/jayree/sfdx-plugin-manifest/commit/d7314d053302fca98afb184d350a22b497073a33))
+* fix changelog hook ([2883fbd](https://github.com/jayree/sfdx-plugin-manifest/commit/2883fbd045fca98a65636d1d5b29f5fe81bb27a7))
+
+
+### Features
+
+* **manifestgenerate:** add --excludeall flag to exclude managed and unlocked packages ([396a76f](https://github.com/jayree/sfdx-plugin-manifest/commit/396a76f91ab5b6da8630c9faff0621296c7c3944))
+
 ## [2.1.9](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.1.8...v2.1.9) (2022-01-15)
 
 
