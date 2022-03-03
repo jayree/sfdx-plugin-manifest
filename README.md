@@ -66,10 +66,12 @@ generate a complete manifest file form the specified org
 
 ```
 USAGE
-  $ sfdx jayree:manifest:generate [-q <array>] [-c] [-w] [--includeflowversions] [-f <string>] [-x] [-u <string>] 
+  $ sfdx jayree:manifest:generate [-q <array>] [-c] [-w] [--includeflowversions] [-f <string>] [-x | -a] [-u <string>] 
   [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 OPTIONS
+  -a, --excludeall                                                                  exclude all packages from output
+
   -c, --matchcase                                                                   enable 'match case' for the
                                                                                     quickfilter
 

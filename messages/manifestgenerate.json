@@ -6,6 +6,7 @@
   "matchWholeWordFlagDescription": "enable 'match whole word' for the quickfilter",
   "fileFlagDescription": "write to 'file' instead of stdout",
   "excludeManagedFlagDescription": "exclude managed packages from output",
+  "excludeAllFlagDescription": "exclude all packages from output",
   "includeflowversionsDescription": "include flow versions as with api version 43.0",
   "examples": [
     "$ sfdx jayree:manifest:generate --targetusername myOrg@example.com",

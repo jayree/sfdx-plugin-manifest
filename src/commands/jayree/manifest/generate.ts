@@ -8,31 +8,16 @@ import * as os from 'os';
 import { flags, FlagsConfig } from '@salesforce/command';
 import { FileProperties, ListMetadataQuery } from 'jsforce';
 import { Messages, Connection } from '@salesforce/core';
-import {
-  RegistryAccess,
-  registry,
-  ComponentSet,
-  PackageManifestObject,
-  MetadataType,
-} from '@salesforce/source-deploy-retrieve';
-import { normalizeToArray, deepFreeze, extName } from '@salesforce/source-deploy-retrieve/lib/src/utils';
+import { RegistryAccess, ComponentSet, PackageManifestObject } from '@salesforce/source-deploy-retrieve';
+import { normalizeToArray } from '@salesforce/source-deploy-retrieve/lib/src/utils';
 import * as fs from 'fs-extra';
-import * as standardValueSetData from '../../../metadata/standardvalueset.json';
 import { JayreeSfdxCommand } from '../../../jayreeSfdxCommand';
 
-const stdValueSets = deepFreeze(standardValueSetData);
 const registryAccess = new RegistryAccess();
 
 Messages.importMessagesDirectory(__dirname);
 
 const messages = Messages.loadMessages('@jayree/sfdx-plugin-manifest', 'manifestgenerate');
-
-type FilePropertiesLike = {
-  fullName: string;
-  type: string;
-  namespacePrefix?: string;
-  manageableState?: string;
-};
 
 export interface QueryResult {
   size: number;
@@ -84,6 +69,12 @@ export default class GeneratePackageXML extends JayreeSfdxCommand {
     excludemanaged: flags.boolean({
       char: 'x',
       description: messages.getMessage('excludeManagedFlagDescription'),
+      exclusive: ['excludeall'],
+    }),
+    excludeall: flags.boolean({
+      char: 'a',
+      description: messages.getMessage('excludeAllFlagDescription'),
+      exclusive: ['excludemanaged'],
     }),
   };
 
@@ -101,82 +92,45 @@ export default class GeneratePackageXML extends JayreeSfdxCommand {
     const file = this.getFlag<string>('file');
     this.ux.startSpinner(`Generating ${file || 'package.xml'}`);
     this.cacheConnection = this.org.getConnection();
-    let Aggregator: FilePropertiesLike[] = [];
 
-    const componentPromises: Array<Promise<FileProperties[]>> = [];
-    for (const type of Object.values(registry.types)) {
-      componentPromises.push(this.listMembers({ type: type.name }));
-    }
+    const managed = ['beta', 'deleted', 'deprecated', 'installed', 'released'];
+    const all = ['beta', 'deleted', 'deprecated', 'installed', 'released', 'installedEditable', 'deprecatedEditable'];
 
-    const childrenPromises: Array<Promise<FileProperties[]>> = [];
-    const componentTypes: Set<MetadataType> = new Set();
-
-    for await (const componentResult of componentPromises) {
-      for (const component of componentResult) {
-        let componentType: MetadataType;
-        if (typeof component.type === 'string') {
-          componentType = registryAccess.getTypeByName(component.type);
-        } else {
-          // fix { type: { "$": { "xsi:nil": "true" } } }
-          componentType = registryAccess.getTypeBySuffix(extName(component.fileName));
-          component.type = componentType.name;
-        }
-        Aggregator.push(component);
-        componentTypes.add(componentType);
-        const folderContentType = componentType.folderContentType;
-        if (folderContentType) {
-          childrenPromises.push(
-            this.listMembers({
-              type: registryAccess.getTypeByName(componentType.folderContentType).name,
-              folder: component.fullName,
-            })
-          );
-        }
-      }
-    }
-
-    for (const componentType of componentTypes) {
-      const childTypes = componentType.children?.types;
-      if (childTypes) {
-        Object.values(childTypes).map((childType) => {
-          childrenPromises.push(this.listMembers({ type: childType.name }));
-        });
-      }
-    }
-
-    for await (const childrenResult of childrenPromises) {
-      Aggregator.push(...childrenResult);
-    }
-
-    if (this.getFlag<boolean>('excludemanaged')) {
-      Aggregator = Aggregator.filter(
-        (component) =>
-          !(
-            (component.namespacePrefix && component.manageableState !== 'unmanaged') ||
-            component.manageableState === 'installed'
-          )
+    const componentFilter = (component: Partial<FileProperties>): boolean =>
+      !(
+        (this.getFlag<boolean>('excludemanaged') &&
+          ((component.namespacePrefix &&
+            (managed.includes(component.manageableState) || component.manageableState === undefined)) ||
+            managed.includes(component.manageableState))) ||
+        (this.getFlag<boolean>('excludeall') &&
+          ((component.namespacePrefix &&
+            (all.includes(component.manageableState) || component.manageableState === undefined)) ||
+            all.includes(component.manageableState)))
       );
-    }
+
+    let componentSet = await ComponentSet.fromConnection({
+      usernameOrConnection: this.cacheConnection,
+      componentFilter,
+    });
 
     if (this.getFlag<boolean>('includeflowversions')) {
       const flowPromises: Array<Promise<FileProperties[]>> = [];
       flowPromises.push(this.listMembers({ type: 'Flow' }, '43.0'));
       for await (const flowResult of flowPromises) {
-        for (const component of flowResult) {
-          Aggregator.push(component);
+        for (const component of flowResult.filter(componentFilter)) {
+          componentSet.add({ fullName: component.fullName, type: registryAccess.getTypeByName(component.type) });
         }
       }
     }
     const quickFilter = this.getFlag<string[]>('quickfilter');
     if (quickFilter) {
-      Aggregator = Aggregator.filter((component) => {
+      componentSet = componentSet.filter((component) => {
         let filter = quickFilter;
-        let comp = component;
+        const comp: { fullName: string; type: string } = { fullName: component.fullName, type: component.type.name };
         if (!this.getFlag<boolean>('matchcase')) {
           filter = quickFilter.join('~').toLowerCase().split('~');
-          comp = Object.fromEntries(
-            Object.entries(component).map(([k, v]) => [k, v?.toLowerCase()])
-          ) as FilePropertiesLike;
+          comp.fullName = component.fullName.toLocaleLowerCase();
+          comp.type = component.type.name.toLowerCase();
         }
         if (this.getFlag<boolean>('matchwholeword')) {
           return filter.includes(comp.fullName) || filter.includes(comp.type);
@@ -188,7 +142,7 @@ export default class GeneratePackageXML extends JayreeSfdxCommand {
       });
     }
 
-    const hasFlows = Aggregator.filter((component) => component.type === 'Flow');
+    const hasFlows = componentSet.toArray().filter((component) => component.type.name === 'Flow');
 
     if (hasFlows.length) {
       try {
@@ -201,7 +155,7 @@ export default class GeneratePackageXML extends JayreeSfdxCommand {
         for (const record of flowDefinitionRecods) {
           if (record.LatestVersion?.VersionNumber !== record.ActiveVersion?.VersionNumber) {
             this.ux.log(
-              `Developername: ${record.DeveloperName}, ActiveVersion: ${record.ActiveVersion?.VersionNumber}, LatestVersion: ${record.LatestVersion?.VersionNumber}`
+              `DeveloperName: ${record.DeveloperName}, ActiveVersion: ${record.ActiveVersion?.VersionNumber}, LatestVersion: ${record.LatestVersion?.VersionNumber}`
             );
           }
         }
@@ -210,29 +164,19 @@ export default class GeneratePackageXML extends JayreeSfdxCommand {
       }
     }
 
-    Aggregator = Aggregator.filter((component) => component.type !== 'FlowDefinition');
+    componentSet = componentSet.filter((component) => component.type.name !== 'FlowDefinition');
 
-    const MetadataComponentAggregator = Aggregator.map((component) => {
-      return { fullName: component.fullName, type: registryAccess.getTypeByName(component.type) };
-    }).sort((a, b) => {
-      if (a.type.name === b.type.name) {
-        return a.fullName.toLowerCase() > b.fullName.toLowerCase() ? 1 : -1;
-      }
-      return a.type.name.toLowerCase() > b.type.name.toLowerCase() ? 1 : -1;
-    });
-
-    const pkg = new ComponentSet(MetadataComponentAggregator, registryAccess);
-    pkg.apiVersion = this.cacheConnection.getApiVersion();
+    componentSet.apiVersion = this.cacheConnection.getApiVersion();
 
     if (file) {
       await fs.ensureFile(file);
-      await fs.writeFile(file, pkg.getPackageXml());
+      await fs.writeFile(file, componentSet.getPackageXml());
     } else {
-      this.ux.log(pkg.getPackageXml());
+      this.ux.log(componentSet.getPackageXml());
     }
 
     this.ux.stopSpinner();
-    return pkg.getObject();
+    return componentSet.getObject();
   }
 
   protected async listMembers(query: ListMetadataQuery, apiVersion?: string): Promise<FileProperties[]> {
@@ -246,39 +190,6 @@ export default class GeneratePackageXML extends JayreeSfdxCommand {
       members = [];
       this.logger.debug((error as Error).message);
     }
-
-    if (query.type === registry.types.standardvalueset.name && members.length === 0) {
-      const standardValueSetPromises = stdValueSets.fullNames.map(async (standardValueSetFullName) => {
-        try {
-          const standardValueSetRecord: StdValueSetRecord = await this.cacheConnection.singleRecordQuery(
-            `SELECT Id, MasterLabel, Metadata FROM StandardValueSet WHERE MasterLabel = '${standardValueSetFullName}'`,
-            { tooling: true }
-          );
-          return (
-            standardValueSetRecord.Metadata.standardValue.length && {
-              fullName: standardValueSetRecord.MasterLabel,
-              fileName: `${registry.types.standardvalueset.directoryName}/${standardValueSetRecord.MasterLabel}.${registry.types.standardvalueset.suffix}`,
-              type: registry.types.standardvalueset.name,
-              createdById: '',
-              createdByName: '',
-              createdDate: '',
-              id: '',
-              lastModifiedById: '',
-              lastModifiedByName: '',
-              lastModifiedDate: '',
-            }
-          );
-        } catch (error) {
-          this.logger.debug((error as Error).message);
-        }
-      });
-      for await (const standardValueSetResult of standardValueSetPromises) {
-        if (standardValueSetResult) {
-          members.push(standardValueSetResult);
-        }
-      }
-    }
-
     return members;
   }
 }
