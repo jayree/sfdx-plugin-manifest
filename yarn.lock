@@ -2956,9 +2956,9 @@ fast-xml-parser@^3.17.4:
     strnum "^1.0.4"
 
 fast-xml-parser@^4.0.4:
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/fast-xml-parser/-/fast-xml-parser-4.0.4.tgz#a7a74546d4d1213d0a8e31a8b3aa54570affab6d"
-  integrity sha512-3drDiRcLD22vJ95YH9yhPQaHA8JAWwfJDZhXIFxKYp32EuhACgnOdS5cQIGVtaCH2VvygmYFDk79QEaeskGlaA==
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/fast-xml-parser/-/fast-xml-parser-4.0.5.tgz#583bdca78e99d29b46a4f88fb560d8fa240964c3"
+  integrity sha512-B3eG9unGn4SqG6Fdwhc4eaIFBSN/0CdqUKG1nzjLuojhMyq4qMxNShzng0QjOW3swE3MhERMf70u7C/XnzmshA==
   dependencies:
     strnum "^1.0.5"
 
