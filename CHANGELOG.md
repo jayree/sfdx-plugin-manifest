@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.2.0...v2.2.1) (2022-05-06)
+
+
+### Bug Fixes
+
+* **gitdiff:** support customobjecttranslation and bot again after SDR fix ([99d650d](https://github.com/jayree/sfdx-plugin-manifest/commit/99d650de4bf04647ea0b11a3317e4d8a2c2e89dc))
+
 # [2.2.0](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.1.9...v2.2.0) (2022-03-03)
 
 
