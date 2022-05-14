@@ -1,3 +1,11 @@
+## [2.2.2](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.2.1...v2.2.2) (2022-05-14)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([960f5c6](https://github.com/jayree/sfdx-plugin-manifest/commit/960f5c6bcfebcfde4e61eee354d866e357d8c247))
+* **deps:** bump isomorphic-git from 1.17.1 to 1.17.2 ([527e6a1](https://github.com/jayree/sfdx-plugin-manifest/commit/527e6a16632453ca2260025e516714fbdf5f7c0f))
+
 ## [2.2.1](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.2.0...v2.2.1) (2022-05-06)
 
 
