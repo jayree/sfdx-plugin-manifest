@@ -1,0 +1,32 @@
+[
+  {
+    "command": "jayree:manifest:cleanup",
+    "plugin": "@jayree/sfdx-plugin-manifest",
+    "flags": ["file", "json", "loglevel", "manifest"],
+    "alias": []
+  },
+  {
+    "command": "jayree:manifest:generate",
+    "plugin": "@jayree/sfdx-plugin-manifest",
+    "flags": [
+      "apiversion",
+      "excludeall",
+      "excludemanaged",
+      "file",
+      "includeflowversions",
+      "json",
+      "loglevel",
+      "matchcase",
+      "matchwholeword",
+      "quickfilter",
+      "targetusername"
+    ],
+    "alias": ["jayree:packagexml"]
+  },
+  {
+    "command": "jayree:manifest:git:diff",
+    "plugin": "@jayree/sfdx-plugin-manifest",
+    "flags": ["destructivechangesonly", "json", "loglevel", "outputdir"],
+    "alias": []
+  }
+]
