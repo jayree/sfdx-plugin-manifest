@@ -1,16 +1,11 @@
+import { ArgInput } from '@oclif/core/lib/interfaces';
 import { FlagsConfig } from '@salesforce/command';
 import { AnyJson } from '@salesforce/ts-types';
 import { JayreeSfdxCommand } from '../../../../jayreeSfdxCommand';
 export default class GitDiff extends JayreeSfdxCommand {
     static description: string;
     static examples: string[];
-    static args: {
-        name: string;
-        required: boolean;
-        description: string;
-        parse: (input: string) => string;
-        hidden: boolean;
-    }[];
+    static args: ArgInput;
     protected static flagsConfig: FlagsConfig;
     protected static requiresUsername: boolean;
     protected static supportsDevhubUsername: boolean;

@@ -15,11 +15,11 @@ jayree sfdx manifest commands
 <!-- usage -->
 ```sh-session
 $ sfdx plugins:install @jayree/sfdx-plugin-manifest
-$ sfdx jayree:COMMAND
+$ sfdx jayree:[COMMAND]
 running command...
 $ sfdx plugins
 @jayree/sfdx-plugin-manifest 2.2.2
-$ sfdx help jayree:COMMAND
+$ sfdx help jayree:[COMMAND]
 USAGE
   $ sfdx jayree:COMMAND
 ...
@@ -36,29 +36,29 @@ removes those tags from a manifest file that are present in a second manifest fi
 
 ```
 USAGE
-  $ sfdx jayree:manifest:cleanup [-x <filepath>] [-f <filepath>] [--json] [--loglevel 
-  trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+  $ sfdx jayree:manifest:cleanup [-x <filepath>] [-f <filepath>] [--json] [--loglevel
+    trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
-OPTIONS
-  -f, --file=file                                                                   path to the second 'cleanup'
+FLAGS
+  -f, --file=<value>                                                                path to the second 'cleanup'
                                                                                     manifest file
-
-  -x, --manifest=manifest                                                           path to the manifest file
-
+  -x, --manifest=<value>                                                            path to the manifest file
   --json                                                                            format output as json
-
   --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
                                                                                     this command invocation
 
 DESCRIPTION
+  removes those tags from a manifest file that are present in a second manifest file
+
   Use this command to remove components or metadata types from a manifes file.
+
   If the 'cleanup' manifest file (--file) doesn't exist, a template file is created, which can then be modified.
 
-EXAMPLE
+EXAMPLES
   $ sfdx jayree:manifest:cleanup --manifest=package.xml --file=packageignore.xml
 ```
 
-_See code: [commands/jayree/manifest/cleanup.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v2.2.2/commands/jayree/manifest/cleanup.ts)_
+_See code: [src/commands/jayree/manifest/cleanup.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v2.2.2/src/commands/jayree/manifest/cleanup.ts)_
 
 ### `sfdx jayree:manifest:generate`
 
@@ -66,52 +66,43 @@ generate a complete manifest file form the specified org
 
 ```
 USAGE
-  $ sfdx jayree:manifest:generate [-q <array>] [-c] [-w] [--includeflowversions] [-f <string>] [-x | -a] [-u <string>] 
-  [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+  $ sfdx jayree:manifest:generate [-q <array>] [-c] [-w] [--includeflowversions] [-f <string>] [-x | -a] [-u <string>]
+    [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
-OPTIONS
+FLAGS
   -a, --excludeall                                                                  exclude all packages from output
-
   -c, --matchcase                                                                   enable 'match case' for the
                                                                                     quickfilter
-
-  -f, --file=file                                                                   write to 'file' instead of stdout
-
-  -q, --quickfilter=quickfilter                                                     csv separated list of metadata type,
+  -f, --file=<value>                                                                write to 'file' instead of stdout
+  -q, --quickfilter=<value>                                                         csv separated list of metadata type,
                                                                                     member or file names to filter on
-
-  -u, --targetusername=targetusername                                               username or alias for the target
+  -u, --targetusername=<value>                                                      username or alias for the target
                                                                                     org; overrides default target org
-
   -w, --matchwholeword                                                              enable 'match whole word' for the
                                                                                     quickfilter
-
   -x, --excludemanaged                                                              exclude managed packages from output
-
-  --apiversion=apiversion                                                           override the api version used for
+  --apiversion=<value>                                                              override the api version used for
                                                                                     api requests made by this command
-
   --includeflowversions                                                             include flow versions as with api
                                                                                     version 43.0
-
   --json                                                                            format output as json
-
   --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
                                                                                     this command invocation
 
 DESCRIPTION
-  Use this command to generate a manifest file based on an existing org.
+  generate a complete manifest file form the specified org
 
-ALIASES
-  $ sfdx jayree:packagexml
+  Use this command to generate a manifest file based on an existing org.
 
 EXAMPLES
   $ sfdx jayree:manifest:generate --targetusername myOrg@example.com
+
   <?xml version='1.0' encoding='UTF-8'?>
+
   <Package xmlns='http://soap.sforce.com/2006/04/metadata'>...</Package>
 ```
 
-_See code: [commands/jayree/manifest/generate.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v2.2.2/commands/jayree/manifest/generate.ts)_
+_See code: [src/commands/jayree/manifest/generate.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v2.2.2/src/commands/jayree/manifest/generate.ts)_
 
 ### `sfdx jayree:manifest:git:diff`
 
@@ -119,47 +110,57 @@ create a manifest and destructiveChanges manifest using 'git diff' data
 
 ```
 USAGE
-  $ sfdx jayree:manifest:git:diff [-o <string>] [-d] [--json] [--loglevel 
-  trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+  $ sfdx jayree:manifest:git:diff [-o <string>] [-d] [--json] [--loglevel
+    trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 ARGUMENTS
   REF1  base commit or branch
   REF2  commit or branch to compare to the base commit
 
-OPTIONS
+FLAGS
   -d, --destructivechangesonly                                                      create a destructiveChanges manifest
                                                                                     only (package.xml will be empty)
-
-  -o, --outputdir=outputdir                                                         directory to save the created
+  -o, --outputdir=<value>                                                           directory to save the created
                                                                                     manifest files
-
   --json                                                                            format output as json
-
   --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
                                                                                     this command invocation
 
 DESCRIPTION
-  Use this command to create a manifest and destructiveChanges manifest file based on the difference (git diff) of two 
+  create a manifest and destructiveChanges manifest using 'git diff' data
+
+  Use this command to create a manifest and destructiveChanges manifest file based on the difference (git diff) of two
   git refs.
 
   You can use all ways to spell <commit> which are valid for 'git diff'.
+
   (See https://git-scm.com/docs/git-diff)
 
 EXAMPLES
   $ sfdx jayree:manifest:git:diff <commit> <commit>
+
   $ sfdx jayree:manifest:git:diff <commit>..<commit>
+
   uses the changes between two arbitrary <commit>
 
+
+
   $ sfdx jayree:manifest:git:diff <commit>...<commit>
-  uses the changes on the branch containing and up to the second <commit>, starting at a common ancestor of both 
-  <commit>.
+
+  uses the changes on the branch containing and up to the second <commit>, starting at a common ancestor of both <commit>.
+
     
+
   $ sfdx jayree:manifest:git:diff branchA..branchB
+
   uses the diff of what is unique in branchB (REF2) and unique in branchA (REF1)
 
+
+
   $ sfdx jayree:manifest:git:diff branchA...branchB
+
   uses the diff of what is unique in branchB (REF2)
 ```
 
-_See code: [commands/jayree/manifest/git/diff.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v2.2.2/commands/jayree/manifest/git/diff.ts)_
+_See code: [src/commands/jayree/manifest/git/diff.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v2.2.2/src/commands/jayree/manifest/git/diff.ts)_
 <!-- commandsstop -->

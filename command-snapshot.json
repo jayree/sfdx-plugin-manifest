@@ -21,7 +21,7 @@
       "quickfilter",
       "targetusername"
     ],
-    "alias": ["jayree:packagexml"]
+    "alias": []
   },
   {
     "command": "jayree:manifest:git:diff",

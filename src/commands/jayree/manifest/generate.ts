@@ -6,7 +6,7 @@
  */
 import * as os from 'os';
 import { flags, FlagsConfig } from '@salesforce/command';
-import { FileProperties, ListMetadataQuery } from 'jsforce';
+import { FileProperties, ListMetadataQuery } from '@salesforce/source-deploy-retrieve/lib/src/client/types';
 import { Messages, Connection } from '@salesforce/core';
 import { RegistryAccess, ComponentSet, PackageManifestObject } from '@salesforce/source-deploy-retrieve';
 import { normalizeToArray } from '@salesforce/source-deploy-retrieve/lib/src/utils';
@@ -40,8 +40,6 @@ export interface FlowDefinitionRecord {
   LatestVersion: { VersionNumber: string };
 }
 export default class GeneratePackageXML extends JayreeSfdxCommand {
-  public static aliases = ['jayree:packagexml'];
-
   public static description = messages.getMessage('commandDescription');
 
   public static examples = messages.getMessage('examples').split(os.EOL);
@@ -86,7 +84,6 @@ export default class GeneratePackageXML extends JayreeSfdxCommand {
 
   // eslint-disable-next-line complexity
   public async run(): Promise<PackageManifestObject> {
-    this.warnIfRunByAlias(GeneratePackageXML.aliases, GeneratePackageXML.id);
     await this.org.refreshAuth();
 
     const file = this.getFlag<string>('file');
@@ -172,7 +169,7 @@ export default class GeneratePackageXML extends JayreeSfdxCommand {
       await fs.ensureFile(file);
       await fs.writeFile(file, componentSet.getPackageXml());
     } else {
-      this.ux.log(componentSet.getPackageXml());
+      this.ux.log(await componentSet.getPackageXml());
     }
 
     this.ux.stopSpinner();
@@ -185,7 +182,7 @@ export default class GeneratePackageXML extends JayreeSfdxCommand {
       if (!apiVersion) {
         apiVersion = this.cacheConnection.getApiVersion();
       }
-      members = normalizeToArray(await this.cacheConnection.metadata.list(query, apiVersion));
+      members = normalizeToArray((await this.cacheConnection.metadata.list(query, apiVersion)) as FileProperties[]);
     } catch (error) {
       members = [];
       this.logger.debug((error as Error).message);

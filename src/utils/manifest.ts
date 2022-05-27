@@ -4,7 +4,7 @@
  * Licensed under the BSD 3-Clause license.
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
-import { cli } from 'cli-ux';
+import { CliUx } from '@oclif/core';
 import * as fs from 'fs-extra';
 import { normalizeToArray } from '@salesforce/source-deploy-retrieve/lib/src/utils';
 import { PackageTypeMembers } from '@salesforce/source-deploy-retrieve';
@@ -38,7 +38,7 @@ function js2Manifest(jsData: PackageManifestObject): string {
 
 export async function cleanupManifestFile(manifest: string, ignoreManifest: string): Promise<void> {
   const { packageTypeMembers: manifestTypeMembers, version } = parseManifest(fs.readFileSync(manifest, 'utf8'));
-  cli.log(`apply '${ignoreManifest}' to '${manifest}'`);
+  CliUx.ux.log(`apply '${ignoreManifest}' to '${manifest}'`);
 
   const typeMap = new Map<string, string[]>();
 
@@ -58,13 +58,13 @@ export async function cleanupManifestFile(manifest: string, ignoreManifest: stri
           return includemembers.includes(value);
         });
         if (includedmembers.length) {
-          cli.log('include only members ' + includedmembers.toString() + ' for type ' + types.name);
+          CliUx.ux.log('include only members ' + includedmembers.toString() + ' for type ' + types.name);
           typeMap.set(types.name, includedmembers);
         }
       }
 
       if (packageTypeMembers.includes('*') && packageTypeMembers.length === 1) {
-        cli.log('exclude all members for type ' + types.name);
+        CliUx.ux.log('exclude all members for type ' + types.name);
         typeMap.delete(types.name);
       }
 

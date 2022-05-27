@@ -7,12 +7,11 @@
 /* istanbul ignore file */
 import { join } from 'path';
 import * as fs from 'fs-extra';
-import { Hook } from '@oclif/config';
+import { Hook } from '@oclif/core';
 import { debug as Debug } from 'debug';
 import TerminalRenderer = require('marked-terminal');
 import { marked } from 'marked';
 import * as semver from 'semver';
-import { cli } from 'cli-ux';
 
 const debug = Debug('jayree:hooks');
 
@@ -72,7 +71,8 @@ const parseReleaseNotes = (notes: string, version: string): marked.Token[] => {
   return tokens;
 };
 
-export const changelog: Hook<'changelog'> = function () {
+// eslint-disable-next-line @typescript-eslint/require-await
+export const changelog: Hook<'changelog'> = async function () {
   process.once('exit', () => {
     try {
       const pluginRootPath = join(__dirname, '..', '..');
@@ -100,7 +100,7 @@ export const changelog: Hook<'changelog'> = function () {
             renderer: new TerminalRenderer({ emoji: false }),
           });
           tokens.unshift(marked.lexer(`# Changelog for '${name}':`)[0]);
-          cli.log(marked.parser(tokens));
+          this.log(marked.parser(tokens));
           fs.writeJsonSync(versionFile, { version });
         }
       } else {

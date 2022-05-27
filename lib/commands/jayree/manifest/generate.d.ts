@@ -1,5 +1,5 @@
 import { FlagsConfig } from '@salesforce/command';
-import { FileProperties, ListMetadataQuery } from 'jsforce';
+import { FileProperties, ListMetadataQuery } from '@salesforce/source-deploy-retrieve/lib/src/client/types';
 import { Connection } from '@salesforce/core';
 import { PackageManifestObject } from '@salesforce/source-deploy-retrieve';
 import { JayreeSfdxCommand } from '../../../jayreeSfdxCommand';
@@ -28,7 +28,6 @@ export interface FlowDefinitionRecord {
     };
 }
 export default class GeneratePackageXML extends JayreeSfdxCommand {
-    static aliases: string[];
     static description: string;
     static examples: string[];
     protected static flagsConfig: FlagsConfig;

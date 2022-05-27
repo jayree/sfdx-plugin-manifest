@@ -6,6 +6,7 @@
  */
 import * as os from 'os';
 import { join, dirname, relative } from 'path';
+import { ArgInput } from '@oclif/core/lib/interfaces';
 import { FlagsConfig, flags } from '@salesforce/command';
 import { Messages } from '@salesforce/core';
 import { AnyJson } from '@salesforce/ts-types';
@@ -46,7 +47,8 @@ process.emitWarning = (warning: string): void => {
   });
 };
 
-const unexpectedArgument = (input: string): string => {
+// eslint-disable-next-line @typescript-eslint/require-await
+const unexpectedArgument = async (input: string): Promise<string> => {
   if (input.includes('-')) {
     throw new Error(`Unexpected argument: ${input}
   See more help with --help`);
@@ -59,7 +61,7 @@ export default class GitDiff extends JayreeSfdxCommand {
 
   public static examples = messages.getMessage('examples').split(os.EOL);
 
-  public static args = [
+  public static args: ArgInput = [
     {
       name: 'ref1',
       required: true,
@@ -113,7 +115,7 @@ export default class GitDiff extends JayreeSfdxCommand {
     this.outputDir = this.getFlag<string>('outputdir');
     this.projectRoot = this.project.getPath();
     this.sfdxProjectFolders = this.project.getPackageDirectories().map((p) => ensureOSPath(p.path));
-    this.sourceApiVersion = (await this.project.retrieveSfdxProjectJson()).getContents().sourceApiVersion;
+    this.sourceApiVersion = (await this.project.retrieveSfProjectJson()).getContents().sourceApiVersion;
     this.destructiveChanges = join(this.projectRoot, this.outputDir, 'destructiveChanges.xml');
     this.manifest = join(this.projectRoot, this.outputDir, 'package.xml');
 
