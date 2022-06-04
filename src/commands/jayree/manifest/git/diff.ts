@@ -230,7 +230,7 @@ export default class GitDiff extends JayreeSfdxCommand {
                   title: relative(this.projectRoot, this.manifest),
                   task: async (): Promise<void> => {
                     await fs.ensureDir(dirname(this.manifest));
-                    await fs.writeFile(this.manifest, this.componentSet.getPackageXml());
+                    await fs.writeFile(this.manifest, await this.componentSet.getPackageXml());
                   },
                   options: { persistentOutput: true },
                 },
@@ -241,7 +241,7 @@ export default class GitDiff extends JayreeSfdxCommand {
                     await fs.ensureDir(dirname(this.destructiveChanges));
                     await fs.writeFile(
                       this.destructiveChanges,
-                      this.componentSet.getPackageXml(undefined, DestructiveChangesType.POST)
+                      await this.componentSet.getPackageXml(undefined, DestructiveChangesType.POST)
                     );
                   },
                   options: { persistentOutput: true },

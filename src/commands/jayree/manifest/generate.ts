@@ -167,7 +167,7 @@ export default class GeneratePackageXML extends JayreeSfdxCommand {
 
     if (file) {
       await fs.ensureFile(file);
-      await fs.writeFile(file, componentSet.getPackageXml());
+      await fs.writeFile(file, await componentSet.getPackageXml());
     } else {
       this.ux.log(await componentSet.getPackageXml());
     }
