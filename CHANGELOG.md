@@ -1,3 +1,11 @@
+## [2.2.5](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.2.4...v2.2.5) (2022-06-04)
+
+
+### Bug Fixes
+
+* fix getPackageXml ([84236f3](https://github.com/jayree/sfdx-plugin-manifest/commit/84236f34bc1656adb6d6de2158b0039ce07e54c3))
+* resolve components hotfix where type string is empty ([8e2a504](https://github.com/jayree/sfdx-plugin-manifest/commit/8e2a5043e4f5d028af4a57ee99ce78911da77c30))
+
 ## [2.2.4](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.2.3...v2.2.4) (2022-05-29)
 
 
