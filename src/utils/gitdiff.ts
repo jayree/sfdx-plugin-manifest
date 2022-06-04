@@ -8,7 +8,7 @@
 import { join, basename, sep, posix, dirname } from 'path';
 import * as util from 'util';
 import * as fs from 'fs-extra';
-import * as equal from 'fast-deep-equal';
+import equal = require('fast-deep-equal');
 import {
   ComponentSet,
   RegistryAccess,
