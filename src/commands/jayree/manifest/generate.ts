@@ -11,7 +11,80 @@ import { Messages, Connection } from '@salesforce/core';
 import { RegistryAccess, ComponentSet, PackageManifestObject } from '@salesforce/source-deploy-retrieve';
 import { normalizeToArray } from '@salesforce/source-deploy-retrieve/lib/src/utils';
 import * as fs from 'fs-extra';
+import {
+  ConnectionResolver,
+  MetadataComponent,
+  MetadataType,
+  registry as defaultRegistry,
+} from '@salesforce/source-deploy-retrieve';
+import { extName } from '@salesforce/source-deploy-retrieve/lib/src/utils';
 import { JayreeSfdxCommand } from '../../../jayreeSfdxCommand';
+
+ConnectionResolver.prototype.resolve = async function (
+  componentFilter = (component: Partial<FileProperties>): boolean => !!component
+): Promise<{
+  components: MetadataComponent[];
+  apiVersion: string;
+}> {
+  const Aggregator: Array<Partial<FileProperties>> = [];
+  const childrenPromises: Array<Promise<FileProperties[]>> = [];
+  const componentTypes: Set<MetadataType> = new Set();
+
+  const componentPromises: Array<Promise<FileProperties[]>> = [];
+  for (const type of Object.values(defaultRegistry.types)) {
+    // eslint-disable-next-line
+    componentPromises.push(this.listMembers({ type: type.name }));
+  }
+  for await (const componentResult of componentPromises) {
+    for (const component of componentResult) {
+      let componentType: MetadataType;
+      if (typeof component.type === 'string' && component.type.length) {
+        // eslint-disable-next-line
+        componentType = this.registry.getTypeByName(component.type);
+      } else {
+        // eslint-disable-next-line
+        componentType = this.registry.getTypeBySuffix(extName(component.fileName));
+        component.type = componentType.name;
+      }
+      Aggregator.push(component);
+      componentTypes.add(componentType);
+      const folderContentType = componentType.folderContentType;
+      if (folderContentType) {
+        childrenPromises.push(
+          // eslint-disable-next-line
+          this.listMembers({
+            // eslint-disable-next-line
+            type: this.registry.getTypeByName(folderContentType).name,
+            folder: component.fullName,
+          })
+        );
+      }
+    }
+  }
+
+  for (const componentType of componentTypes) {
+    const childTypes = componentType.children?.types;
+    if (childTypes) {
+      Object.values(childTypes).map((childType) => {
+        // eslint-disable-next-line
+        childrenPromises.push(this.listMembers({ type: childType.name }));
+      });
+    }
+  }
+
+  for await (const childrenResult of childrenPromises) {
+    Aggregator.push(...childrenResult);
+  }
+
+  return {
+    components: Aggregator.filter(componentFilter).map((component) => {
+      // eslint-disable-next-line
+      return { fullName: component.fullName, type: this.registry.getTypeByName(component.type) };
+    }),
+    // eslint-disable-next-line
+    apiVersion: this.connection.getApiVersion(),
+  };
+};
 
 const registryAccess = new RegistryAccess();
 
