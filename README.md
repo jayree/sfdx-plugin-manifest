@@ -1,6 +1,6 @@
 # @jayree/sfdx-plugin-manifest
 
-jayree sfdx manifest commands
+A Salesforce CLI plugin containing commands for creating manifest files from Salesforce orgs or git commits of sfdx projects.
 
 [![sfdx](https://img.shields.io/badge/cli-sfdx-brightgreen.svg)](https://developer.salesforce.com/tools/sfdxcli)
 [![Version](https://img.shields.io/npm/v/@jayree/sfdx-plugin-manifest.svg)](https://npmjs.org/package/@jayree/sfdx-plugin-manifest)
