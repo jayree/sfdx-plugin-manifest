@@ -7,7 +7,7 @@
 
 module.exports = {
   plugins: ['eslint-plugin-header'],
-  extends: ['eslint-config-salesforce-typescript'],
+  extends: ['eslint-config-salesforce-typescript', 'plugin:sf-plugin/recommended'],
   parser: '@typescript-eslint/parser',
   rules: {
     'header/header': [
