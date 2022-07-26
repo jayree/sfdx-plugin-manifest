@@ -1,3 +1,17 @@
+## [2.2.7](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.2.6...v2.2.7) (2022-07-26)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 1.9.3 to 1.12.1 ([d319ac7](https://github.com/jayree/sfdx-plugin-manifest/commit/d319ac7a14695d5ab0fc843f5c1ade2089f95378))
+* **deps:** bump @salesforce/kit from 1.5.42 to 1.5.44 ([1cb9ce7](https://github.com/jayree/sfdx-plugin-manifest/commit/1cb9ce7755690ab62ac5983ab548d36c4a148d27))
+* **deps:** bump @salesforce/source-deploy-retrieve from 6.0.4 to 6.2.6 ([b1bc5b6](https://github.com/jayree/sfdx-plugin-manifest/commit/b1bc5b6db5457329336b35cef197ca3f660043a9))
+* **deps:** bump fast-xml-parser from 4.0.8 to 4.0.9 ([e067348](https://github.com/jayree/sfdx-plugin-manifest/commit/e067348a74b54425a5c76a8a578865b6e8901e5d))
+* **deps:** bump isomorphic-git from 1.18.3 to 1.19.0 ([cdd7253](https://github.com/jayree/sfdx-plugin-manifest/commit/cdd725337544cd1b7697a30927410658a8c777d4))
+* **deps:** bump isomorphic-git from 1.19.0 to 1.19.1 ([6b7a8aa](https://github.com/jayree/sfdx-plugin-manifest/commit/6b7a8aaf68d3bcfe3173b5bdcd23490a3d3b3dec))
+* **deps:** bump listr2 from 4.0.5 to 5.0.1 ([72b2adb](https://github.com/jayree/sfdx-plugin-manifest/commit/72b2adb71a01ce4e13d74dfed2faf01a417bc1c9))
+* **deps:** bump marked from 4.0.17 to 4.0.18 ([70efd50](https://github.com/jayree/sfdx-plugin-manifest/commit/70efd506113d58a8df877c5860ace146eb5e8bc2))
+
 ## [2.2.6](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.2.5...v2.2.6) (2022-06-19)
 
 
