@@ -209,7 +209,7 @@ export default class GitDiff extends JayreeSfdxCommand {
         },
         {
           // title: 'Error output',
-          skip: (): boolean => !(this.outputErrors && this.outputErrors.length),
+          skip: (): boolean => !this.outputErrors?.length,
           task: (ctx, task): void => {
             debug({ errors: this.outputErrors });
             const moreErrors = this.outputErrors.splice(5);
@@ -222,7 +222,7 @@ export default class GitDiff extends JayreeSfdxCommand {
         },
         {
           title: 'Generate manifests',
-          skip: (): boolean => !(this.componentSet && this.componentSet.size),
+          skip: (): boolean => !this.componentSet?.size,
           task: (ctx, task): Listr =>
             task.newListr(
               [

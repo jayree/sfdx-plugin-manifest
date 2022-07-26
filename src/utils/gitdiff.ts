@@ -78,18 +78,20 @@ See more help with --help`
   let path = refOrig.substring(firstIndex);
   let ref = refOrig.substring(0, firstIndex);
   while (path.length && ref !== undefined) {
-    if (path.substring(0, 1) === '^') {
+    if (path.startsWith('^')) {
       path = path.substring(1);
       let next = Number(path.substring(0, 1));
       path = next ? path.substring(1) : path;
       next = next ? next : 1;
+      // eslint-disable-next-line no-await-in-loop
       ref = (await getCommitLog(ref)).parents[next - 1];
-    } else if (path.substring(0, 1) === '~') {
+    } else if (path.startsWith('~')) {
       path = path.substring(1);
       let next = Number(path.substring(0, 1));
       path = next ? path.substring(1) : path;
       next = next ? next : 1;
       for (let index = 0; index <= next - 1; index++) {
+        // eslint-disable-next-line no-await-in-loop
         ref = (await getCommitLog(ref)).parents[0];
       }
     } else {
@@ -164,7 +166,7 @@ export async function createVirtualTreeContainer(
   const paths = (await git.listFiles({ fs, dir, ref })).map((p) => ensureOSPath(p));
   const oid = await git.resolveRef({ fs, dir, ref });
   const virtualDirectoryByFullPath = new Map<string, VirtualDirectory>();
-  for (const filename of paths) {
+  for await (const filename of paths) {
     let dirPath = dirname(filename);
     virtualDirectoryByFullPath.set(dirPath, {
       dirPath,
@@ -195,12 +197,13 @@ export async function analyzeFile(
   ref1VirtualTreeContainer: VirtualTreeContainer,
   ref2VirtualTreeContainer: VirtualTreeContainer | FSTreeContainer
 ): Promise<{
+  path: string;
   status: number;
   toManifest?: SourceComponent[];
   toDestructiveChanges?: SourceComponent[];
 }> {
   if (!parseMetadataXml(path)) {
-    return { status: 0 };
+    return { path, status: 0 };
   }
 
   const ref2resolver = new MetadataResolver(registryAccess, ref2VirtualTreeContainer);
@@ -210,11 +213,11 @@ export async function analyzeFile(
   const [ref1Component] = ref1resolver.getComponentsFromPath(path); // git path only conaints files
 
   if (equal(await ref1Component.parseXml(), await ref2Component.parseXml())) {
-    return { status: -1 };
+    return { path, status: -1 };
   }
 
   if (ref1Component.type.strictDirectoryName === true || !ref1Component.type.children) {
-    return { status: 0 };
+    return { path, status: 0 };
   }
 
   const ref2ChildUniqueIdArray = ref2Component.getChildren().map((childComponent) => {
@@ -236,7 +239,7 @@ export async function analyzeFile(
 
   debug({ childComponentsNotInRef2, childComponentsNotInRef1, childComponentsInRef1AndRef2 });
 
-  for (const childComponentRef1 of childComponentsInRef1AndRef2) {
+  for await (const childComponentRef1 of childComponentsInRef1AndRef2) {
     const [childComponentRef2] = ref2Component
       .getChildren()
       .filter((childComponent) => getUniqueIdentifier(childComponentRef1) === getUniqueIdentifier(childComponent));
@@ -248,6 +251,7 @@ export async function analyzeFile(
   debug({ childComponentsNotInRef1 });
 
   return {
+    path,
     status: childComponentsNotInRef2.length + childComponentsNotInRef1.length,
     toManifest: childComponentsNotInRef1,
     toDestructiveChanges: childComponentsNotInRef2,
@@ -368,6 +372,15 @@ export async function getGitResults(
     return result;
   };
 
+  const analyzedFilesPromises: Array<
+    Promise<{
+      path: string;
+      status: number;
+      toManifest?: SourceComponent[];
+      toDestructiveChanges?: SourceComponent[];
+    }>
+  > = [];
+
   for (const [, { status, path }] of gitLines.entries()) {
     if (status === 'D') {
       for (const c of getComponentsFromPath(ref1Resolver, path)) {
@@ -396,28 +409,31 @@ export async function getGitResults(
         }
       }
     } else {
-      const check = await analyzeFile(path, ref1VirtualTreeContainer, ref2VirtualTreeContainer);
-      if (check.status === 0) {
-        if (!destructiveChangesOnly) {
-          for (const c of getComponentsFromPath(ref2Resolver, path)) {
-            results.manifest.add(c);
-            results.output.counts.added++;
-          }
+      analyzedFilesPromises.push(analyzeFile(path, ref1VirtualTreeContainer, ref2VirtualTreeContainer));
+    }
+  }
+
+  for await (const check of analyzedFilesPromises) {
+    if (check.status === 0) {
+      if (!destructiveChangesOnly) {
+        for (const c of getComponentsFromPath(ref2Resolver, check.path)) {
+          results.manifest.add(c);
+          results.output.counts.added++;
         }
-      } else if (check.status === -1) {
-        results.output.unchanged.push(path);
-        results.output.counts.unchanged++;
-      } else {
-        if (check.toDestructiveChanges.length > 0 || (check.toManifest.length > 0 && !destructiveChangesOnly)) {
-          results.output.counts.modified++;
-        }
-        for (const c of check.toDestructiveChanges) {
-          results.manifest.add(c, DestructiveChangesType.POST);
-        }
-        if (!destructiveChangesOnly) {
-          for (const c of check.toManifest) {
-            results.manifest.add(c);
-          }
+      }
+    } else if (check.status === -1) {
+      results.output.unchanged.push(check.path);
+      results.output.counts.unchanged++;
+    } else {
+      if (check.toDestructiveChanges.length > 0 || (check.toManifest.length > 0 && !destructiveChangesOnly)) {
+        results.output.counts.modified++;
+      }
+      for (const c of check.toDestructiveChanges) {
+        results.manifest.add(c, DestructiveChangesType.POST);
+      }
+      if (!destructiveChangesOnly) {
+        for (const c of check.toManifest) {
+          results.manifest.add(c);
         }
       }
     }

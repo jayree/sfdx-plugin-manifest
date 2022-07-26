@@ -7,14 +7,11 @@ You can use all ways to spell <commit> which are valid for 'git diff'.
   examples: [
     `$ sfdx jayree:manifest:git:diff <commit> <commit>
 $ sfdx jayree:manifest:git:diff <commit>..<commit>
-uses the changes between two arbitrary <commit>
-`,
+uses the changes between two arbitrary <commit>`,
     `$ sfdx jayree:manifest:git:diff <commit>...<commit>
-uses the changes on the branch containing and up to the second <commit>, starting at a common ancestor of both <commit>.
-    `,
+uses the changes on the branch containing and up to the second <commit>, starting at a common ancestor of both <commit>.`,
     `$ sfdx jayree:manifest:git:diff branchA..branchB
-uses the diff of what is unique in branchB (REF2) and unique in branchA (REF1)
-`,
+uses the diff of what is unique in branchB (REF2) and unique in branchA (REF1)`,
     `$ sfdx jayree:manifest:git:diff branchA...branchB
 uses the diff of what is unique in branchB (REF2)`,
   ],

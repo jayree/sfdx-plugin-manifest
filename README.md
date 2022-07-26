@@ -9,9 +9,13 @@ A Salesforce CLI plugin containing commands for creating manifest files from Sal
 [![License](https://img.shields.io/npm/l/@jayree/sfdx-plugin-manifest.svg)](https://github.com/jayree-plugins/sfdx-plugin-manifest/blob/main/package.json)
 
 <!-- toc -->
-
+* [Usage](#usage)
+* [Commands](#commands)
 <!-- tocstop -->
-<!-- install -->
+      <!-- install -->
+
+## Usage
+
 <!-- usage -->
 ```sh-session
 $ sfdx plugins:install @jayree/sfdx-plugin-manifest
@@ -25,6 +29,9 @@ USAGE
 ...
 ```
 <!-- usagestop -->
+
+## Commands
+
 <!-- commands -->
 * [`sfdx jayree:manifest:cleanup`](#sfdx-jayreemanifestcleanup)
 * [`sfdx jayree:manifest:generate`](#sfdx-jayreemanifestgenerate)
@@ -143,19 +150,13 @@ EXAMPLES
 
   uses the changes between two arbitrary <commit>
 
-
-
   $ sfdx jayree:manifest:git:diff <commit>...<commit>
 
   uses the changes on the branch containing and up to the second <commit>, starting at a common ancestor of both <commit>.
 
-    
-
   $ sfdx jayree:manifest:git:diff branchA..branchB
 
   uses the diff of what is unique in branchB (REF2) and unique in branchA (REF1)
-
-
 
   $ sfdx jayree:manifest:git:diff branchA...branchB
 

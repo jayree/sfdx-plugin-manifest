@@ -35,6 +35,7 @@ export declare function ensureOSPath(path: string): string;
 export declare function ensureGitPath(path: string): string;
 export declare function createVirtualTreeContainer(ref: string, dir: string, modifiedFiles: string[]): Promise<VirtualTreeContainer>;
 export declare function analyzeFile(path: string, ref1VirtualTreeContainer: VirtualTreeContainer, ref2VirtualTreeContainer: VirtualTreeContainer | FSTreeContainer): Promise<{
+    path: string;
     status: number;
     toManifest?: SourceComponent[];
     toDestructiveChanges?: SourceComponent[];
