@@ -12,7 +12,7 @@ A Salesforce CLI plugin containing commands for creating manifest files from Sal
 * [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->
-      <!-- install -->
+<!-- install -->
 
 ## Usage
 
