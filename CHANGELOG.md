@@ -1,3 +1,13 @@
+## [2.2.9](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.2.8...v2.2.9) (2022-08-10)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 1.13.0 to 1.13.10 ([22b579e](https://github.com/jayree/sfdx-plugin-manifest/commit/22b579e242ba6ee240f851dfb519ca6f7f71bd8f))
+* **deps:** bump @salesforce/source-deploy-retrieve from 6.2.6 to 6.2.9 ([8d0c93d](https://github.com/jayree/sfdx-plugin-manifest/commit/8d0c93daa2f177f51970f838e116d209f492826f))
+* **deps:** bump listr2 from 5.0.1 to 5.0.2 ([d00b56d](https://github.com/jayree/sfdx-plugin-manifest/commit/d00b56d7b3c49fa78589f83665a2a31197dc8230))
+* remove datamappingobjectdefinition ([95c1e02](https://github.com/jayree/sfdx-plugin-manifest/commit/95c1e026209b0eeb60b9ebd802f8a278f45a3139))
+
 ## [2.2.8](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.2.7...v2.2.8) (2022-08-02)
 
 
