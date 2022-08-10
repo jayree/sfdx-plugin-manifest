@@ -456,7 +456,6 @@ export function fixComponentSetChilds(cs: ComponentSet): ComponentSet {
     ...Object.keys(registry.types.sharingrules.children.types),
     ...Object.keys(registry.types.customobjecttranslation.children.types),
     ...Object.keys(registry.types.bot.children.types),
-    ...Object.keys(registry.types.datamappingobjectdefinition.children.types),
   ];
   sourceComponents = sourceComponents.map((component) => {
     if (!component.isMarkedForDelete() && childsTobeReplacedByParent.includes(component.type.id)) {
