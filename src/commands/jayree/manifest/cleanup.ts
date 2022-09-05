@@ -1,18 +1,18 @@
 /*
- * Copyright (c) 2021, jayree
+ * Copyright (c) 2022, jayree
  * All rights reserved.
  * Licensed under the BSD 3-Clause license.
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
-import * as os from 'os';
+import os from 'os';
 import { flags, FlagsConfig } from '@salesforce/command';
 import { Messages } from '@salesforce/core';
 import { AnyJson } from '@salesforce/ts-types';
-import * as fs from 'fs-extra';
-import { JayreeSfdxCommand } from '../../../jayreeSfdxCommand';
-import { cleanupManifestFile } from '../../../utils/manifest';
+import fs from 'fs-extra';
+import { JayreeSfdxCommand } from '../../../jayreeSfdxCommand.js';
+import { cleanupManifestFile } from '../../../utils/manifest.js';
 
-Messages.importMessagesDirectory(__dirname);
+Messages.importMessagesDirectory(new URL('./', import.meta.url).pathname);
 
 const messages = Messages.loadMessages('@jayree/sfdx-plugin-manifest', 'manifestcleanup');
 

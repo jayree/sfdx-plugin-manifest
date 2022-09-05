@@ -1,21 +1,21 @@
 /*
- * Copyright (c) 2021, jayree
+ * Copyright (c) 2022, jayree
  * All rights reserved.
  * Licensed under the BSD 3-Clause license.
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
-import * as os from 'os';
+import os from 'os';
 import { flags, FlagsConfig } from '@salesforce/command';
-import { FileProperties, ListMetadataQuery } from '@salesforce/source-deploy-retrieve/lib/src/client/types';
+import { FileProperties, ListMetadataQuery } from '@salesforce/source-deploy-retrieve/lib/src/client/types.js';
 import { Messages, Connection } from '@salesforce/core';
 import { RegistryAccess, ComponentSet, PackageManifestObject } from '@salesforce/source-deploy-retrieve';
 import { ensureArray } from '@salesforce/kit';
-import * as fs from 'fs-extra';
-import { JayreeSfdxCommand } from '../../../jayreeSfdxCommand';
+import fs from 'fs-extra';
+import { JayreeSfdxCommand } from '../../../jayreeSfdxCommand.js';
 
 const registryAccess = new RegistryAccess();
 
-Messages.importMessagesDirectory(__dirname);
+Messages.importMessagesDirectory(new URL('./', import.meta.url).pathname);
 
 const messages = Messages.loadMessages('@jayree/sfdx-plugin-manifest', 'manifestgenerate');
 

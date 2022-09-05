@@ -1,14 +1,14 @@
 /*
- * Copyright (c) 2021, jayree
+ * Copyright (c) 2022, jayree
  * All rights reserved.
  * Licensed under the BSD 3-Clause license.
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
 import { join, basename, sep, posix, dirname } from 'path';
-import * as util from 'util';
-import * as fs from 'fs-extra';
-import equal = require('fast-deep-equal');
+import util from 'util';
+import fs from 'fs-extra';
+import equal from 'fast-deep-equal';
 import {
   ComponentSet,
   RegistryAccess,
@@ -20,8 +20,8 @@ import {
   MetadataResolver,
   DestructiveChangesType,
 } from '@salesforce/source-deploy-retrieve';
-import { parseMetadataXml } from '@salesforce/source-deploy-retrieve/lib/src/utils';
-import { debug as Debug } from 'debug';
+import { parseMetadataXml } from '@salesforce/source-deploy-retrieve/lib/src/utils/index.js';
+import Debug from 'debug';
 import git from 'isomorphic-git';
 
 export const debug = Debug('jayree:manifest:git:diff');
@@ -220,12 +220,12 @@ export async function analyzeFile(
     return { path, status: 0 };
   }
 
-  const ref2ChildUniqueIdArray = ref2Component.getChildren().map((childComponent) => {
-    return getUniqueIdentifier(childComponent);
-  });
-  const ref1ChildUniqueIdArray = ref1Component.getChildren().map((childComponent) => {
-    return getUniqueIdentifier(childComponent);
-  });
+  const ref2ChildUniqueIdArray = ref2Component
+    .getChildren()
+    .map((childComponent) => getUniqueIdentifier(childComponent));
+  const ref1ChildUniqueIdArray = ref1Component
+    .getChildren()
+    .map((childComponent) => getUniqueIdentifier(childComponent));
 
   const childComponentsNotInRef2 = ref1Component
     .getChildren()
@@ -315,14 +315,8 @@ export async function getGitDiff(
   dir: string
 ): Promise<gitLines> {
   let gitLines = (await getFileStateChanges(ref1, ref2, dir))
-    .map((line) => {
-      return { path: ensureOSPath(line.path), status: line.status };
-    })
-    .filter((l) =>
-      sfdxProjectFolders.some((f) => {
-        return l.path.startsWith(f);
-      })
-    );
+    .map((line) => ({ path: ensureOSPath(line.path), status: line.status }))
+    .filter((l) => sfdxProjectFolders.some((f) => l.path.startsWith(f)));
 
   gitLines = gitLines.filter((line) => {
     if (line.status === 'D') {

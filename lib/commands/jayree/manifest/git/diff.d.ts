@@ -1,7 +1,7 @@
 import { ArgInput } from '@oclif/core/lib/interfaces';
 import { FlagsConfig } from '@salesforce/command';
 import { AnyJson } from '@salesforce/ts-types';
-import { JayreeSfdxCommand } from '../../../../jayreeSfdxCommand';
+import { JayreeSfdxCommand } from '../../../../jayreeSfdxCommand.js';
 export default class GitDiff extends JayreeSfdxCommand {
     static description: string;
     static examples: string[];

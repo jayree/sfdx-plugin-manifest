@@ -1,15 +1,15 @@
 /*
- * Copyright (c) 2021, jayree
+ * Copyright (c) 2022, jayree
  * All rights reserved.
  * Licensed under the BSD 3-Clause license.
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 import { CliUx } from '@oclif/core';
-import * as fs from 'fs-extra';
+import fs from 'fs-extra';
 import { ensureArray } from '@salesforce/kit';
 import { PackageTypeMembers } from '@salesforce/source-deploy-retrieve';
 import { XMLParser, XMLBuilder } from 'fast-xml-parser';
-import { XML_DECL, XML_NS_KEY, XML_NS_URL } from '@salesforce/source-deploy-retrieve/lib/src/common';
+import { XML_DECL, XML_NS_KEY, XML_NS_URL } from '@salesforce/source-deploy-retrieve/lib/src/common/index.js';
 
 interface PackageManifestObject {
   Package: {
@@ -54,9 +54,7 @@ export async function cleanupManifestFile(manifest: string, ignoreManifest: stri
       if (packageTypeMembers.includes('*') && packageTypeMembers.length > 1) {
         const includemembers = packageTypeMembers.slice();
         includemembers.splice(includemembers.indexOf('*'), 1);
-        const includedmembers = typeMap.get(types.name).filter((value) => {
-          return includemembers.includes(value);
-        });
+        const includedmembers = typeMap.get(types.name).filter((value) => includemembers.includes(value));
         if (includedmembers.length) {
           CliUx.ux.log('include only members ' + includedmembers.toString() + ' for type ' + types.name);
           typeMap.set(types.name, includedmembers);
@@ -69,9 +67,7 @@ export async function cleanupManifestFile(manifest: string, ignoreManifest: stri
       }
 
       if (!packageTypeMembers.includes('*')) {
-        const includedmembers = typeMap.get(types.name).filter((value) => {
-          return !packageTypeMembers.includes(value);
-        });
+        const includedmembers = typeMap.get(types.name).filter((value) => !packageTypeMembers.includes(value));
         typeMap.set(types.name, includedmembers);
       }
 

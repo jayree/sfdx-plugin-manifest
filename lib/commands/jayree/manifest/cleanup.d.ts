@@ -1,6 +1,6 @@
 import { FlagsConfig } from '@salesforce/command';
 import { AnyJson } from '@salesforce/ts-types';
-import { JayreeSfdxCommand } from '../../../jayreeSfdxCommand';
+import { JayreeSfdxCommand } from '../../../jayreeSfdxCommand.js';
 export default class CleanupManifest extends JayreeSfdxCommand {
     static description: string;
     static examples: string[];

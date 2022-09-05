@@ -1,25 +1,25 @@
 /*
- * Copyright (c) 2021, jayree
+ * Copyright (c) 2022, jayree
  * All rights reserved.
  * Licensed under the BSD 3-Clause license.
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
-import * as os from 'os';
+import os from 'os';
 import { join, dirname, relative } from 'path';
 import { ArgInput } from '@oclif/core/lib/interfaces';
 import { FlagsConfig, flags } from '@salesforce/command';
 import { Messages } from '@salesforce/core';
 import { AnyJson } from '@salesforce/ts-types';
-import * as fs from 'fs-extra';
+import fs from 'fs-extra';
 import { Logger, Listr } from 'listr2';
-import * as kit from '@salesforce/kit';
+import kit from '@salesforce/kit';
 import {
   ComponentSet,
   VirtualTreeContainer,
   NodeFSTreeContainer,
   DestructiveChangesType,
 } from '@salesforce/source-deploy-retrieve';
-import { JayreeSfdxCommand } from '../../../../jayreeSfdxCommand';
+import { JayreeSfdxCommand } from '../../../../jayreeSfdxCommand.js';
 import {
   getGitResults,
   createVirtualTreeContainer,
@@ -29,23 +29,13 @@ import {
   ensureOSPath,
   getGitArgsFromArgv,
   gitLines,
-} from '../../../../utils/gitdiff';
+} from '../../../../utils/gitdiff.js';
 
-Messages.importMessagesDirectory(__dirname);
+Messages.importMessagesDirectory(new URL('./', import.meta.url).pathname);
 
 const messages = Messages.loadMessages('@jayree/sfdx-plugin-manifest', 'gitdiff');
 
 const logger = new Logger({ useIcons: false });
-
-// workaround until listr2 can catch emitWarnings with v4.0
-// eslint-disable-next-line @typescript-eslint/unbound-method
-const original = process.emitWarning;
-
-process.emitWarning = (warning: string): void => {
-  process.once('beforeExit', () => {
-    return original(warning);
-  });
-};
 
 // eslint-disable-next-line @typescript-eslint/require-await
 const unexpectedArgument = async (input: string): Promise<string> => {

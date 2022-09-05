@@ -2,8 +2,9 @@
   "extends": "@salesforce/dev-config/tsconfig",
   "compilerOptions": {
     "outDir": "lib",
-    "rootDir": "src",
-    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "module": "node16",
+    "moduleResolution": "node16",
     "skipLibCheck": true
   },
   "include": ["./src/**/*.ts"]

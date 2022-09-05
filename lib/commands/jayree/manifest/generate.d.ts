@@ -1,8 +1,8 @@
 import { FlagsConfig } from '@salesforce/command';
-import { FileProperties, ListMetadataQuery } from '@salesforce/source-deploy-retrieve/lib/src/client/types';
+import { FileProperties, ListMetadataQuery } from '@salesforce/source-deploy-retrieve/lib/src/client/types.js';
 import { Connection } from '@salesforce/core';
 import { PackageManifestObject } from '@salesforce/source-deploy-retrieve';
-import { JayreeSfdxCommand } from '../../../jayreeSfdxCommand';
+import { JayreeSfdxCommand } from '../../../jayreeSfdxCommand.js';
 export interface QueryResult {
     size: number;
     totalSize: number;

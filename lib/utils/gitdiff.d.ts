@@ -1,7 +1,7 @@
-/// <reference types="debug" />
 import { ComponentSet, VirtualTreeContainer, SourceComponent, NodeFSTreeContainer as FSTreeContainer } from '@salesforce/source-deploy-retrieve';
+import Debug from 'debug';
 import git from 'isomorphic-git';
-export declare const debug: import("debug").Debugger;
+export declare const debug: Debug.Debugger;
 declare type gitResults = {
     manifest: ComponentSet;
     output: {
