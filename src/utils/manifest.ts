@@ -6,7 +6,7 @@
  */
 import { CliUx } from '@oclif/core';
 import * as fs from 'fs-extra';
-import { normalizeToArray } from '@salesforce/source-deploy-retrieve/lib/src/utils';
+import { ensureArray } from '@salesforce/kit';
 import { PackageTypeMembers } from '@salesforce/source-deploy-retrieve';
 import { XMLParser, XMLBuilder } from 'fast-xml-parser';
 import { XML_DECL, XML_NS_KEY, XML_NS_URL } from '@salesforce/source-deploy-retrieve/lib/src/common';
@@ -26,7 +26,7 @@ function parseManifest(xmlData: string): { packageTypeMembers: PackageTypeMember
     Package: { types, version },
   } = parser.parse(xmlData) as PackageManifestObject;
 
-  const packageTypeMembers = normalizeToArray(types);
+  const packageTypeMembers = ensureArray(types);
   return { packageTypeMembers, version };
 }
 
@@ -43,14 +43,14 @@ export async function cleanupManifestFile(manifest: string, ignoreManifest: stri
   const typeMap = new Map<string, string[]>();
 
   manifestTypeMembers.forEach((value) => {
-    typeMap.set(value.name, normalizeToArray(value.members));
+    typeMap.set(value.name, ensureArray(value.members));
   });
 
   const { packageTypeMembers: ignoreTypeMembers } = parseManifest(fs.readFileSync(ignoreManifest, 'utf8'));
 
   ignoreTypeMembers.forEach((types) => {
     if (typeMap.get(types.name)) {
-      const packageTypeMembers = normalizeToArray(types.members);
+      const packageTypeMembers = ensureArray(types.members);
       if (packageTypeMembers.includes('*') && packageTypeMembers.length > 1) {
         const includemembers = packageTypeMembers.slice();
         includemembers.splice(includemembers.indexOf('*'), 1);

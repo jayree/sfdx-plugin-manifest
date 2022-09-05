@@ -9,7 +9,7 @@ import { flags, FlagsConfig } from '@salesforce/command';
 import { FileProperties, ListMetadataQuery } from '@salesforce/source-deploy-retrieve/lib/src/client/types';
 import { Messages, Connection } from '@salesforce/core';
 import { RegistryAccess, ComponentSet, PackageManifestObject } from '@salesforce/source-deploy-retrieve';
-import { normalizeToArray } from '@salesforce/source-deploy-retrieve/lib/src/utils';
+import { ensureArray } from '@salesforce/kit';
 import * as fs from 'fs-extra';
 import { JayreeSfdxCommand } from '../../../jayreeSfdxCommand';
 
@@ -179,7 +179,7 @@ export default class GeneratePackageXML extends JayreeSfdxCommand {
       if (!apiVersion) {
         apiVersion = this.cacheConnection.getApiVersion();
       }
-      members = normalizeToArray((await this.cacheConnection.metadata.list(query, apiVersion)) as FileProperties[]);
+      members = ensureArray((await this.cacheConnection.metadata.list(query, apiVersion)) as FileProperties[]);
     } catch (error) {
       members = [];
       this.logger.debug((error as Error).message);
