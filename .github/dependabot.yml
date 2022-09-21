@@ -3,15 +3,16 @@ updates:
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
-      interval: "daily"
+      interval: 'daily'
+    versioning-strategy: 'increase'
     labels:
       - 'dependencies'
     open-pull-requests-limit: 100
     pull-request-branch-name:
       separator: '-'
     commit-message:
-      prefix: "fix"
-      prefix-development: "chore"
-      include: "scope"
+      prefix: 'fix'
+      prefix-development: 'chore'
+      include: 'scope'
     allow:
-      - dependency-type: "production"
+      - dependency-type: 'production'

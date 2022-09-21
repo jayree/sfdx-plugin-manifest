@@ -5,15 +5,13 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 /* istanbul ignore file */
-import { join } from 'path';
+import { join } from 'node:path';
 import fs from 'fs-extra';
 import Debug from 'debug';
 import TerminalRenderer from 'marked-terminal';
 import { marked } from 'marked';
 import semver from 'semver';
 import { Hook } from '@oclif/core';
-
-const debug = Debug('jayree:hooks');
 
 // original from https://github.com/salesforcecli/plugin-info/blob/main/src/shared/parseReleaseNotes.ts
 const parseReleaseNotes = (notes: string, version: string): marked.Token[] => {
@@ -73,6 +71,7 @@ const parseReleaseNotes = (notes: string, version: string): marked.Token[] => {
 
 // eslint-disable-next-line @typescript-eslint/require-await
 export const changelog: Hook<'changelog'> = async function () {
+  const debug = Debug(`${this.config.bin}:jayree-sfdx-plugin-manifest:hooks:changelog`);
   process.once('exit', () => {
     try {
       const pluginRootPath = join(new URL('./', import.meta.url).pathname, '..', '..');
