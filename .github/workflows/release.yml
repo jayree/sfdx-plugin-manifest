@@ -1,6 +1,9 @@
 name: test-and-release
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0 6/4 * * *'
+
 jobs:
   release:
     name: test-and-release
