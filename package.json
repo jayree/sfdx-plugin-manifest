@@ -41,7 +41,7 @@
     "@types/semver": "^7.3.12",
     "@types/sinon": "10.0.13",
     "@typescript-eslint/eslint-plugin": "^5.38.1",
-    "@typescript-eslint/parser": "^5.38.0",
+    "@typescript-eslint/parser": "^5.38.1",
     "chai": "^4.3.6",
     "eslint": "^8.24.0",
     "eslint-config-oclif": "^4.0",
