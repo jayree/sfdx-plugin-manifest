@@ -887,10 +887,10 @@
     widest-line "^3.1.0"
     wrap-ansi "^6.2.0"
 
-"@oclif/plugin-help@^5.1.11", "@oclif/plugin-help@^5.1.12", "@oclif/plugin-help@^5.1.13":
-  version "5.1.13"
-  resolved "https://registry.yarnpkg.com/@oclif/plugin-help/-/plugin-help-5.1.13.tgz#2af62e2f6fd600316d5bd7c7cce18ac4680e15b7"
-  integrity sha512-tdW2FYu608OUsIZmz9rf/XIBviLYzLzEL98XckIOXhZutnAmnqdzKeXUJp9PvYAx5tCOLAptj5ibfPREZ0eHLw==
+"@oclif/plugin-help@^5.1.11", "@oclif/plugin-help@^5.1.12", "@oclif/plugin-help@^5.1.14":
+  version "5.1.14"
+  resolved "https://registry.yarnpkg.com/@oclif/plugin-help/-/plugin-help-5.1.14.tgz#641e6f2c7effb4a21573d50c649af662a919bcf9"
+  integrity sha512-jhpD0a2bEp3YW93sQcUM3b15DH+svQqC9pMXNp1m1VyAPoskdaELgt5P/5SjmNuFwqws8scxpbYKlr2/lvvkGQ==
   dependencies:
     "@oclif/core" "^1.16.4"
 
