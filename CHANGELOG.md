@@ -1,3 +1,10 @@
+## [2.3.3](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.3.2...v2.3.3) (2022-10-01)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/command from 5.2.10 to 5.2.11 ([#322](https://github.com/jayree/sfdx-plugin-manifest/issues/322)) ([c89bf60](https://github.com/jayree/sfdx-plugin-manifest/commit/c89bf608097a4a42934c83dc4bc89962302f3615))
+
 ## [2.3.2](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.3.1...v2.3.2) (2022-09-25)
 
 
