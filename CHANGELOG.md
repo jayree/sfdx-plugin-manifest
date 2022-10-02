@@ -1,3 +1,10 @@
+## [2.3.4](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.3.3...v2.3.4) (2022-10-02)
+
+
+### Bug Fixes
+
+* **deps:** bump marked from 4.1.0 to 4.1.1 ([#325](https://github.com/jayree/sfdx-plugin-manifest/issues/325)) ([1d051d3](https://github.com/jayree/sfdx-plugin-manifest/commit/1d051d3b84f3465d963dc67972069fc0885d883a))
+
 ## [2.3.3](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.3.2...v2.3.3) (2022-10-01)
 
 
