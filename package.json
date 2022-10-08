@@ -75,8 +75,7 @@
     "/lib",
     "/messages",
     "/oclif.manifest.json",
-    "/CHANGELOG.md",
-    "/yarn.lock"
+    "/CHANGELOG.md"
   ],
   "homepage": "https://github.com/jayree/sfdx-plugin-manifest",
   "keywords": [
