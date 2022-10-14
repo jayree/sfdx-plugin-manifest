@@ -22,7 +22,7 @@ $ sfdx plugins:install @jayree/sfdx-plugin-manifest
 $ sfdx jayree:[COMMAND]
 running command...
 $ sfdx plugins
-@jayree/sfdx-plugin-manifest 2.3.5
+@jayree/sfdx-plugin-manifest 2.3.6
 $ sfdx help jayree:[COMMAND]
 USAGE
   $ sfdx jayree:COMMAND
@@ -56,16 +56,14 @@ FLAGS
 
 DESCRIPTION
   removes those tags from a manifest file that are present in a second manifest file
-
   Use this command to remove components or metadata types from a manifes file.
-
   If the 'cleanup' manifest file (--file) doesn't exist, a template file is created, which can then be modified.
 
 EXAMPLES
   $ sfdx jayree:manifest:cleanup --manifest=package.xml --file=packageignore.xml
 ```
 
-_See code: [src/commands/jayree/manifest/cleanup.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v2.3.5/src/commands/jayree/manifest/cleanup.ts)_
+_See code: [src/commands/jayree/manifest/cleanup.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v2.3.6/src/commands/jayree/manifest/cleanup.ts)_
 
 ### `sfdx jayree:manifest:generate`
 
@@ -98,7 +96,6 @@ FLAGS
 
 DESCRIPTION
   generate a complete manifest file form the specified org
-
   Use this command to generate a manifest file based on an existing org.
 
 EXAMPLES
@@ -109,7 +106,7 @@ EXAMPLES
   <Package xmlns='http://soap.sforce.com/2006/04/metadata'>...</Package>
 ```
 
-_See code: [src/commands/jayree/manifest/generate.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v2.3.5/src/commands/jayree/manifest/generate.ts)_
+_See code: [src/commands/jayree/manifest/generate.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v2.3.6/src/commands/jayree/manifest/generate.ts)_
 
 ### `sfdx jayree:manifest:git:diff`
 
@@ -135,12 +132,10 @@ FLAGS
 
 DESCRIPTION
   create a manifest and destructiveChanges manifest using 'git diff' data
-
   Use this command to create a manifest and destructiveChanges manifest file based on the difference (git diff) of two
   git refs.
 
   You can use all ways to spell <commit> which are valid for 'git diff'.
-
   (See https://git-scm.com/docs/git-diff)
 
 EXAMPLES
@@ -163,5 +158,5 @@ EXAMPLES
   uses the diff of what is unique in branchB (REF2)
 ```
 
-_See code: [src/commands/jayree/manifest/git/diff.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v2.3.5/src/commands/jayree/manifest/git/diff.ts)_
+_See code: [src/commands/jayree/manifest/git/diff.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v2.3.6/src/commands/jayree/manifest/git/diff.ts)_
 <!-- commandsstop -->

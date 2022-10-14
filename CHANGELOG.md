@@ -1,3 +1,11 @@
+## [2.3.6](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.3.5...v2.3.6) (2022-10-14)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/command from 5.2.11 to 5.2.12 ([#339](https://github.com/jayree/sfdx-plugin-manifest/issues/339)) ([ebec171](https://github.com/jayree/sfdx-plugin-manifest/commit/ebec171d2e5fbdca940dcdf7ad4176f24f99ea69))
+* **deps:** bump @salesforce/source-deploy-retrieve from 6.9.0 to 6.9.1 ([#341](https://github.com/jayree/sfdx-plugin-manifest/issues/341)) ([313d7c2](https://github.com/jayree/sfdx-plugin-manifest/commit/313d7c2c11d435157eee366963209123d002ab18))
+
 ## [2.3.5](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.3.4...v2.3.5) (2022-10-07)
 
 
