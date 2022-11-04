@@ -20,7 +20,7 @@
     "marked": "^4.1.1",
     "marked-terminal": "^5.1.1",
     "semver": "^7.3.8",
-    "tslib": "^2.4.0"
+    "tslib": "^2.4.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
