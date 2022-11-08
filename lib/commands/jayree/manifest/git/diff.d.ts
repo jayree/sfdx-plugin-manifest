@@ -23,5 +23,6 @@ export default class GitDiff extends JayreeSfdxCommand {
     private ref2VirtualTreeContainer;
     private componentSet;
     private outputErrors;
+    private fsPaths;
     run(): Promise<AnyJson>;
 }

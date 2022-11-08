@@ -41,6 +41,6 @@ export declare function analyzeFile(path: string, ref1VirtualTreeContainer: Virt
     toDestructiveChanges?: SourceComponent[];
 }>;
 export declare function getGitDiff(sfdxProjectFolders: string[], ref1: string, ref2: string, dir: string): Promise<gitLines>;
-export declare function getGitResults(gitLines: gitLines, ref1VirtualTreeContainer: VirtualTreeContainer, ref2VirtualTreeContainer: VirtualTreeContainer | FSTreeContainer, destructiveChangesOnly: boolean): Promise<gitResults>;
+export declare function getGitResults(gitLines: gitLines, ref1VirtualTreeContainer: VirtualTreeContainer, ref2VirtualTreeContainer: VirtualTreeContainer | FSTreeContainer, destructiveChangesOnly: boolean, fsPaths: string[]): Promise<gitResults>;
 export declare function fixComponentSetChilds(cs: ComponentSet): ComponentSet;
 export {};
