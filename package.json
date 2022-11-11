@@ -17,7 +17,7 @@
     "fs-extra": "^10.1.0",
     "isomorphic-git": "^1.21.0",
     "listr2": "^5.0.5",
-    "marked": "^4.2.1",
+    "marked": "^4.2.2",
     "marked-terminal": "^5.1.1",
     "semver": "^7.3.8",
     "tslib": "^2.4.1"
