@@ -7,5 +7,6 @@
     "$ sfdx jayree:manifest:git:diff branchA...branchB\nuses the diff of what is unique in branchB (REF2)"
   ],
   "outputdir": "directory to save the created manifest files",
+  "sourcepath": "comma-separated list of source file paths to limit the diff",
   "destructivechangesonly": "create a destructiveChanges manifest only (package.xml will be empty)"
 }

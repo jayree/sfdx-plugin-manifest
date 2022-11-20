@@ -114,7 +114,7 @@ create a manifest and destructiveChanges manifest using 'git diff' data
 
 ```
 USAGE
-  $ sfdx jayree:manifest:git:diff [-o <string>] [-d] [--json] [--loglevel
+  $ sfdx jayree:manifest:git:diff [-p <array>] [-o <string>] [-d] [--json] [--loglevel
     trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 ARGUMENTS
@@ -126,6 +126,8 @@ FLAGS
                                                                                     only (package.xml will be empty)
   -o, --outputdir=<value>                                                           directory to save the created
                                                                                     manifest files
+  -p, --sourcepath=<value>                                                          comma-separated list of source file
+                                                                                    paths to limit the diff
   --json                                                                            format output as json
   --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
                                                                                     this command invocation

@@ -6,9 +6,10 @@
  */
 import os from 'os';
 import { join, dirname, relative } from 'path';
+import path from 'path';
 import { ArgInput } from '@oclif/core/lib/interfaces';
 import { FlagsConfig, flags } from '@salesforce/command';
-import { Messages } from '@salesforce/core';
+import { Messages, SfError } from '@salesforce/core';
 import { AnyJson } from '@salesforce/ts-types';
 import fs from 'fs-extra';
 import { Logger, Listr } from 'listr2';
@@ -69,6 +70,10 @@ export default class GitDiff extends JayreeSfdxCommand {
   ];
 
   protected static flagsConfig: FlagsConfig = {
+    sourcepath: flags.array({
+      char: 'p',
+      description: messages.getMessage('sourcepath'),
+    }),
     outputdir: flags.string({
       char: 'o',
       description: messages.getMessage('outputdir'),
@@ -99,8 +104,10 @@ export default class GitDiff extends JayreeSfdxCommand {
   private ref2VirtualTreeContainer: VirtualTreeContainer | NodeFSTreeContainer;
   private componentSet: ComponentSet;
   private outputErrors: string[];
+  private fsPaths: string[];
 
   public async run(): Promise<AnyJson> {
+    const sourcepath = this.getFlag<string[]>('sourcepath');
     this.destructiveChangesOnly = this.getFlag<boolean>('destructivechangesonly');
     this.outputDir = this.getFlag<string>('outputdir');
     this.projectRoot = this.project.getPath();
@@ -178,11 +185,25 @@ export default class GitDiff extends JayreeSfdxCommand {
           title: 'Analyze git diff results',
           skip: (): boolean => !this.gitLines.length,
           task: async (ctx, task): Promise<void> => {
+            if (sourcepath) {
+              this.fsPaths = sourcepath.map((filepath) => {
+                if (
+                  !this.ref1VirtualTreeContainer.exists(filepath) &&
+                  !this.ref2VirtualTreeContainer.exists(filepath)
+                ) {
+                  throw new SfError(`The sourcepath "${filepath}" is not a valid source file path.`);
+                }
+                return path.resolve(filepath);
+              });
+              debug(`fsPaths: ${this.fsPaths.join(', ')}`);
+            }
+
             const { manifest, output } = await getGitResults(
               this.gitLines,
               this.ref1VirtualTreeContainer,
               this.ref2VirtualTreeContainer,
-              this.destructiveChangesOnly
+              this.destructiveChangesOnly,
+              this.fsPaths
             );
             task.output = `Added: ${output.counts.added}, Deleted: ${output.counts.deleted}, Modified: ${
               output.counts.modified
