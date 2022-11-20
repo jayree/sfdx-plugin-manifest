@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.3.12...v2.4.0) (2022-11-20)
+
+
+### Features
+
+* **manifest:git:diff:** add sourcepath to limit the diff ([f50feee](https://github.com/jayree/sfdx-plugin-manifest/commit/f50feee58df4842419a84bd810cca0b2c88e481c))
+
 ## [2.3.12](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.3.11...v2.3.12) (2022-11-18)
 
 
