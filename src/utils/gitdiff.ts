@@ -165,7 +165,7 @@ export async function createVirtualTreeContainer(
   modifiedFiles: string[]
 ): Promise<VirtualTreeContainer> {
   const paths = (await git.listFiles({ fs, dir, ref })).map((p) => ensureOSPath(p));
-  const oid = await git.resolveRef({ fs, dir, ref });
+  const oid = ref ? await git.resolveRef({ fs, dir, ref }) : '';
   const virtualDirectoryByFullPath = new Map<string, VirtualDirectory>();
   for await (const filename of paths) {
     let dirPath = dirname(filename);
@@ -176,7 +176,9 @@ export async function createVirtualTreeContainer(
           name: basename(filename),
           data:
             parseMetadataXml(filename) && modifiedFiles.includes(filename)
-              ? Buffer.from((await git.readBlob({ fs, dir, oid, filepath: ensureGitPath(filename) })).blob)
+              ? oid
+                ? Buffer.from((await git.readBlob({ fs, dir, oid, filepath: ensureGitPath(filename) })).blob)
+                : await fs.readFile(join(dir, ensureOSPath(filename)))
               : Buffer.from(''),
         })
       ),

@@ -14,12 +14,7 @@ import { AnyJson } from '@salesforce/ts-types';
 import fs from 'fs-extra';
 import { Logger, Listr } from 'listr2';
 import kit from '@salesforce/kit';
-import {
-  ComponentSet,
-  VirtualTreeContainer,
-  NodeFSTreeContainer,
-  DestructiveChangesType,
-} from '@salesforce/source-deploy-retrieve';
+import { ComponentSet, VirtualTreeContainer, DestructiveChangesType } from '@salesforce/source-deploy-retrieve';
 import { JayreeSfdxCommand } from '../../../../jayreeSfdxCommand.js';
 import {
   getGitResults,
@@ -101,7 +96,7 @@ export default class GitDiff extends JayreeSfdxCommand {
 
   private gitLines: gitLines;
   private ref1VirtualTreeContainer: VirtualTreeContainer;
-  private ref2VirtualTreeContainer: VirtualTreeContainer | NodeFSTreeContainer;
+  private ref2VirtualTreeContainer: VirtualTreeContainer;
   private componentSet: ComponentSet;
   private outputErrors: string[];
   private fsPaths: string[];
@@ -113,8 +108,8 @@ export default class GitDiff extends JayreeSfdxCommand {
     this.projectRoot = this.project.getPath();
     this.sfdxProjectFolders = this.project.getPackageDirectories().map((p) => ensureOSPath(p.path));
     this.sourceApiVersion = (await this.project.retrieveSfProjectJson()).getContents().sourceApiVersion;
-    this.destructiveChanges = join(this.projectRoot, this.outputDir, 'destructiveChanges.xml');
-    this.manifest = join(this.projectRoot, this.outputDir, 'package.xml');
+    this.destructiveChanges = join(this.outputDir, 'destructiveChanges.xml');
+    this.manifest = join(this.outputDir, 'package.xml');
 
     debug({
       outputDir: this.outputDir,
@@ -165,16 +160,13 @@ export default class GitDiff extends JayreeSfdxCommand {
                   },
                 },
                 {
-                  title: gitArgs.ref2 !== '' ? `ref2: ${gitArgs.ref2}` : undefined,
+                  title: gitArgs.ref2 !== '' ? `ref2: ${gitArgs.ref2}` : `ref2: (staging area)`,
                   task: async (): Promise<void> => {
-                    this.ref2VirtualTreeContainer =
-                      gitArgs.ref2 !== ''
-                        ? await createVirtualTreeContainer(
-                            gitArgs.ref2,
-                            this.projectRoot,
-                            this.gitLines.filter((l) => l.status === 'M').map((l) => l.path)
-                          )
-                        : new NodeFSTreeContainer();
+                    this.ref2VirtualTreeContainer = await createVirtualTreeContainer(
+                      gitArgs.ref2,
+                      this.projectRoot,
+                      this.gitLines.filter((l) => l.status === 'M').map((l) => l.path)
+                    );
                   },
                 },
               ],
