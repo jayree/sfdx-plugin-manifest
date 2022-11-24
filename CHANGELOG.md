@@ -1,3 +1,10 @@
+## [2.4.1](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.4.0...v2.4.1) (2022-11-24)
+
+
+### Bug Fixes
+
+* **manifest:git:diff:** run the command from anywhere in your sfdx project ([1835b4c](https://github.com/jayree/sfdx-plugin-manifest/commit/1835b4cba7bc062686eb5e67d0508be734179c36))
+
 # [2.4.0](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.3.12...v2.4.0) (2022-11-20)
 
 
