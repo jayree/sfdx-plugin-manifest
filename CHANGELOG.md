@@ -1,3 +1,11 @@
+## [2.4.3](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.4.2...v2.4.3) (2022-12-02)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/command from 5.2.26 to 5.2.27 ([#431](https://github.com/jayree/sfdx-plugin-manifest/issues/431)) ([d1d6836](https://github.com/jayree/sfdx-plugin-manifest/commit/d1d6836aa25a1afcb8ed00526e13af7d8de94386))
+* **deps:** bump listr2 from 5.0.5 to 5.0.6 ([#429](https://github.com/jayree/sfdx-plugin-manifest/issues/429)) ([2e5db7e](https://github.com/jayree/sfdx-plugin-manifest/commit/2e5db7e1ceb27a55ecf49e343b68e37ca1e889ef))
+
 ## [2.4.2](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.4.1...v2.4.2) (2022-11-25)
 
 
