@@ -16,7 +16,7 @@
     "fast-xml-parser": "^4.0.12",
     "fs-extra": "^10.1.0",
     "isomorphic-git": "^1.21.0",
-    "listr2": "^5.0.5",
+    "listr2": "^5.0.6",
     "marked": "^4.2.3",
     "marked-terminal": "^5.1.1",
     "semver": "^7.3.8",
