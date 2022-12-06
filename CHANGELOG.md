@@ -1,3 +1,10 @@
+## [2.4.4](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.4.3...v2.4.4) (2022-12-06)
+
+
+### Bug Fixes
+
+* fix --json output ([80ed6a6](https://github.com/jayree/sfdx-plugin-manifest/commit/80ed6a66e4003ab05c1447c019ca85d7482c9eaa))
+
 ## [2.4.3](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.4.2...v2.4.3) (2022-12-02)
 
 
