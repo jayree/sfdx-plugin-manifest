@@ -47,7 +47,7 @@ type git = {
 
 export type gitLines = Array<{ path: string; status: string }>;
 
-async function resolveRef(refOrig: string, dir: string): Promise<string> {
+export async function resolveRef(refOrig: string, dir: string): Promise<string> {
   if (refOrig === '') {
     return '';
   }
@@ -261,11 +261,11 @@ export async function analyzeFile(
   };
 }
 
-function getUniqueIdentifier(component: SourceComponent): string {
+export function getUniqueIdentifier(component: SourceComponent): string {
   return `${component.type.name}#${component[component.type.uniqueIdElement] as string}`;
 }
 
-async function getFileStateChanges(
+export async function getFileStateChanges(
   commitHash1: string,
   commitHash2: string,
   dir: string

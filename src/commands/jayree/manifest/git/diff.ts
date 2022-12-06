@@ -118,7 +118,7 @@ export default class GitDiff extends JayreeSfdxCommand {
     });
 
     const isContentTypeJSON = kit.env.getString('SFDX_CONTENT_TYPE', '').toUpperCase() === 'JSON';
-    this.isOutputEnabled = !(process.argv.find((arg) => arg === '--json') || isContentTypeJSON);
+    this.isOutputEnabled = !(this.argv.find((arg) => arg === '--json') || isContentTypeJSON);
     const gitArgs = await getGitArgsFromArgv(
       this.args.ref1 as string,
       this.args.ref2 as string,
@@ -231,6 +231,8 @@ export default class GitDiff extends JayreeSfdxCommand {
               [
                 {
                   title: relative(this.projectRoot, this.manifest),
+                  skip: (): boolean =>
+                    !this.componentSet.getTypesOfDestructiveChanges().length || !this.isOutputEnabled,
                   task: async (): Promise<void> => {
                     await fs.ensureDir(dirname(this.manifest));
                     await fs.writeFile(this.manifest, await this.componentSet.getPackageXml());
@@ -239,7 +241,8 @@ export default class GitDiff extends JayreeSfdxCommand {
                 },
                 {
                   title: relative(this.projectRoot, this.destructiveChanges),
-                  skip: (): boolean => !this.componentSet.getTypesOfDestructiveChanges().length,
+                  skip: (): boolean =>
+                    !this.componentSet.getTypesOfDestructiveChanges().length || !this.isOutputEnabled,
                   task: async (): Promise<void> => {
                     await fs.ensureDir(dirname(this.destructiveChanges));
                     await fs.writeFile(
@@ -264,8 +267,8 @@ export default class GitDiff extends JayreeSfdxCommand {
     try {
       await tasks.run();
       return {
-        destructiveChanges: this.componentSet?.getObject(DestructiveChangesType.POST),
-        manifest: this.componentSet?.getObject(),
+        destructiveChanges: await this.componentSet?.getObject(DestructiveChangesType.POST),
+        manifest: await this.componentSet?.getObject(),
       } as unknown as AnyJson;
     } catch (e) {
       if (debug.enabled && this.isOutputEnabled) {
