@@ -1,3 +1,10 @@
+## [2.4.5](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.4.4...v2.4.5) (2022-12-08)
+
+
+### Bug Fixes
+
+* fix manifest output ([a7527da](https://github.com/jayree/sfdx-plugin-manifest/commit/a7527da33e19f83ad344afbe6d7c8d5f186c933b))
+
 ## [2.4.4](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.4.3...v2.4.4) (2022-12-06)
 
 
