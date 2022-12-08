@@ -231,8 +231,7 @@ export default class GitDiff extends JayreeSfdxCommand {
               [
                 {
                   title: relative(this.projectRoot, this.manifest),
-                  skip: (): boolean =>
-                    !this.componentSet.getTypesOfDestructiveChanges().length || !this.isOutputEnabled,
+                  skip: (): boolean => !this.isOutputEnabled,
                   task: async (): Promise<void> => {
                     await fs.ensureDir(dirname(this.manifest));
                     await fs.writeFile(this.manifest, await this.componentSet.getPackageXml());
