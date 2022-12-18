@@ -22,7 +22,6 @@ import {
   fixComponentSetChilds,
   getGitDiff,
   debug,
-  ensureOSPath,
   getGitArgsFromArgv,
   gitLines,
 } from '../../../../utils/gitdiff.js';
@@ -99,6 +98,7 @@ export default class GitDiff extends JayreeSfdxCommand {
   private ref2VirtualTreeContainer: VirtualTreeContainer;
   private componentSet: ComponentSet;
   private outputErrors: string[];
+  private outputWarnings: string[];
   private fsPaths: string[];
 
   public async run(): Promise<AnyJson> {
@@ -106,7 +106,7 @@ export default class GitDiff extends JayreeSfdxCommand {
     this.destructiveChangesOnly = this.getFlag<boolean>('destructivechangesonly');
     this.outputDir = this.getFlag<string>('outputdir');
     this.projectRoot = this.project.getPath();
-    this.sfdxProjectFolders = this.project.getPackageDirectories().map((p) => ensureOSPath(p.path));
+    this.sfdxProjectFolders = this.project.getUniquePackageDirectories().map((p) => p.path);
     this.sourceApiVersion = (await this.project.retrieveSfProjectJson()).getContents().sourceApiVersion;
     this.destructiveChanges = join(this.outputDir, 'destructiveChanges.xml');
     this.manifest = join(this.outputDir, 'package.xml');
@@ -138,10 +138,30 @@ export default class GitDiff extends JayreeSfdxCommand {
         {
           title: `Execute 'git --no-pager diff --name-status --no-renames ${gitArgs.refString}'`,
           task: async (ctx, task): Promise<void> => {
-            this.gitLines = await getGitDiff(this.sfdxProjectFolders, gitArgs.ref1, gitArgs.ref2, this.projectRoot);
+            const { gitlines, warnings } = await getGitDiff(
+              this.sfdxProjectFolders,
+              gitArgs.ref1,
+              gitArgs.ref2,
+              this.projectRoot
+            );
+            this.gitLines = gitlines;
+            this.outputWarnings = warnings;
             task.output = `Changed files: ${this.gitLines.length}`;
           },
           options: { persistentOutput: true },
+        },
+        {
+          // title: 'Warning output',
+          skip: (): boolean => !this.outputWarnings?.length,
+          task: (ctx, task): void => {
+            debug({ warnings: this.outputWarnings });
+            const moreWarnings = this.outputWarnings.splice(5);
+            for (const message of this.outputWarnings) {
+              task.output = `Warning: unstaged file ${message}`;
+            }
+            task.output = moreWarnings.length ? `... ${moreWarnings.length} more warnings` : '';
+          },
+          options: { persistentOutput: true, bottomBar: 6 },
         },
         {
           title: 'Create virtual tree container',

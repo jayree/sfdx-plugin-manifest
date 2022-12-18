@@ -281,7 +281,7 @@ export async function getFileStateChanges(
   return git.walk({
     fs,
     dir,
-    trees: [git.TREE({ ref: commitHash1 }), commitHash2 ? git.TREE({ ref: commitHash2 }) : git.STAGE()],
+    trees: [git.TREE({ ref: commitHash1 }), git.TREE({ ref: commitHash2 })],
     async map(filepath, [A, B]) {
       if (filepath === '.' || (await A?.type()) === 'tree' || (await B?.type()) === 'tree') {
         return;
@@ -303,7 +303,7 @@ export async function getFileStateChanges(
 
       if (type !== 'EQ') {
         return {
-          path: filepath,
+          path: ensureOSPath(filepath),
           status: type,
         };
       }
@@ -311,22 +311,104 @@ export async function getFileStateChanges(
   });
 }
 
+async function getStatusMatrix(
+  dir: string,
+  ref: string
+): Promise<{ warnings: string[]; lines: Array<{ path: string; status: string }> }> {
+  const getStatus = (row: number[]): 'A' | 'D' | 'M' => {
+    if (
+      [
+        [0, 2, 2], // added, staged
+        [0, 2, 3], // added, staged, with unstaged changes
+      ].some((a) => a.every((val, index) => val === row[index]))
+    ) {
+      return 'A';
+    }
+    if (
+      [
+        [1, 0, 0], // deleted, staged
+        [1, 0, 1], // deleted, unstaged
+        [1, 1, 0], // deleted, staged, with unstaged original file
+        [1, 2, 0], // deleted, staged, with unstaged changes
+        [1, 0, 3], // modified, staged, with unstaged deletion
+      ].some((a) => a.every((val, index) => val === row[index]))
+    ) {
+      return 'D';
+    }
+    if (
+      [
+        [1, 2, 1], // modified, unstaged
+        [1, 2, 2], // modified, staged
+        [1, 2, 3], // modified, staged, with unstaged changes
+      ].some((a) => a.every((val, index) => val === row[index]))
+    ) {
+      return 'M';
+    }
+  };
+  const statusMatrix = await git.statusMatrix({ fs, dir, ref });
+  const warnings = statusMatrix
+    .filter((row) =>
+      [
+        [0, 2, 0], // new, untracked
+        [0, 0, 3], // added, staged, with unstaged deletion
+        [0, 2, 3], // added, staged, with unstaged changes
+        [1, 2, 1], // modified, unstaged
+        [1, 0, 3], // modified, staged, with unstaged deletion
+        [1, 1, 3], // modified, staged, with unstaged original file
+        [1, 2, 3], // modified, staged, with unstaged changes
+        [1, 1, 0], // deleted, staged, with unstaged original file
+        [1, 2, 0], // deleted, staged, with unstaged changes
+        [1, 0, 1], // deleted, unstaged
+      ].some((a) => a.every((val, index) => val === row.slice(1)[index]))
+    )
+    .map((row) => row[0]);
+
+  const gitlines = statusMatrix
+    .filter(
+      (row) =>
+        ![
+          [0, 0, 0], // undefined
+          [1, 1, 1], // unmodified
+          [0, 0, 3], // added, staged, with unstaged deletion
+          [0, 2, 0], // new, untracked
+          [1, 1, 3], // modified, staged, with unstaged original file
+        ].some((a) => a.every((val, index) => val === row.slice(1)[index]))
+    )
+    .map((row) => ({
+      path: ensureOSPath(row[0]),
+      status: getStatus(row.slice(1) as number[]),
+    }));
+
+  return { warnings, lines: gitlines };
+}
+
 export async function getGitDiff(
   sfdxProjectFolders: string[],
   ref1: string,
   ref2: string,
   dir: string
-): Promise<gitLines> {
-  let gitLines = (await getFileStateChanges(ref1, ref2, dir))
-    .map((line) => ({ path: ensureOSPath(line.path), status: line.status }))
-    .filter((l) => sfdxProjectFolders.some((f) => l.path.startsWith(f)));
+): Promise<{ gitlines: gitLines; warnings: string[] }> {
+  let gitlines: gitLines;
+  let warnings: string[];
 
-  gitLines = gitLines.filter((line) => {
+  sfdxProjectFolders = sfdxProjectFolders.map((p) => ensureOSPath(p));
+
+  if (ref2) {
+    gitlines = (await getFileStateChanges(ref1, ref2, dir)).filter((l) =>
+      sfdxProjectFolders.some((f) => l.path.startsWith(f))
+    );
+  } else {
+    const { warnings: warn, lines } = await getStatusMatrix(dir, ref1);
+    warnings = warn.filter((l) => sfdxProjectFolders.some((f) => l.startsWith(f)));
+    gitlines = lines.filter((l) => sfdxProjectFolders.some((f) => l.path.startsWith(f)));
+  }
+
+  gitlines = gitlines.filter((line) => {
     if (line.status === 'D') {
       for (const sfdxFolder of sfdxProjectFolders) {
         const defaultFolder = join(sfdxFolder, 'main', 'default');
         const filePath = line.path.replace(line.path.startsWith(defaultFolder) ? defaultFolder : sfdxFolder, '');
-        const target = gitLines.find((t) => t.path.endsWith(filePath) && t.status === 'A');
+        const target = gitlines.find((t) => t.path.endsWith(filePath) && t.status === 'A');
         if (target) {
           debug(`rename: ${line.path} -> ${target.path}`);
           return false;
@@ -335,8 +417,8 @@ export async function getGitDiff(
     }
     return true;
   });
-  debug({ gitLines });
-  return gitLines;
+  debug({ gitlines, warnings });
+  return { gitlines, warnings };
 }
 
 // eslint-disable-next-line complexity
@@ -420,7 +502,7 @@ export async function getGitResults(
       if (!destructiveChangesOnly) {
         for (const c of getComponentsFromPath(ref2Resolver, check.path)) {
           results.manifest.add(c);
-          results.output.counts.added++;
+          results.output.counts.modified++;
         }
       }
     } else if (check.status === -1) {
