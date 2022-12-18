@@ -33,7 +33,7 @@ export type gitLines = Array<{
 export declare function resolveRef(refOrig: string, dir: string): Promise<string>;
 export declare function getGitArgsFromArgv(ref1: string, ref2: string, argv: string[], dir: string): Promise<git>;
 export declare function ensureOSPath(path: string): string;
-export declare function ensureGitPath(path: string): string;
+export declare function ensureGitRelPath(dir: string, path: string): string;
 export declare function createVirtualTreeContainer(ref: string, dir: string, modifiedFiles: string[]): Promise<VirtualTreeContainer>;
 export declare function analyzeFile(path: string, ref1VirtualTreeContainer: VirtualTreeContainer, ref2VirtualTreeContainer: VirtualTreeContainer | FSTreeContainer): Promise<{
     path: string;
@@ -48,7 +48,7 @@ export declare function getFileStateChanges(commitHash1: string, commitHash2: st
         status: string;
     }
 ]>;
-export declare function getGitDiff(sfdxProjectFolders: string[], ref1: string, ref2: string, dir: string): Promise<{
+export declare function getGitDiff(resolveSourcePaths: string[], ref1: string, ref2: string, dir: string): Promise<{
     gitlines: gitLines;
     warnings: string[];
 }>;

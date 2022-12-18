@@ -5,7 +5,7 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
-import { join, basename, sep, posix, dirname } from 'path';
+import { join, basename, sep, posix, dirname, relative } from 'path';
 import util from 'util';
 import { resolve } from 'path';
 import fs from 'fs-extra';
@@ -155,8 +155,8 @@ export function ensureOSPath(path: string): string {
   return path.split(posix.sep).join(sep);
 }
 
-export function ensureGitPath(path: string): string {
-  return path.split(sep).join(posix.sep);
+export function ensureGitRelPath(dir: string, path: string): string {
+  return relative(dir, path).split(sep).join(posix.sep);
 }
 
 export async function createVirtualTreeContainer(
@@ -164,7 +164,7 @@ export async function createVirtualTreeContainer(
   dir: string,
   modifiedFiles: string[]
 ): Promise<VirtualTreeContainer> {
-  const paths = (await git.listFiles({ fs, dir, ref })).map((p) => ensureOSPath(p));
+  const paths = (await git.listFiles({ fs, dir, ref })).map((p) => join(dir, ensureOSPath(p)));
   const oid = ref ? await git.resolveRef({ fs, dir, ref }) : '';
   const virtualDirectoryByFullPath = new Map<string, VirtualDirectory>();
   for await (const filename of paths) {
@@ -177,14 +177,14 @@ export async function createVirtualTreeContainer(
           data:
             parseMetadataXml(filename) && modifiedFiles.includes(filename)
               ? oid
-                ? Buffer.from((await git.readBlob({ fs, dir, oid, filepath: ensureGitPath(filename) })).blob)
-                : await fs.readFile(join(dir, ensureOSPath(filename)))
+                ? Buffer.from((await git.readBlob({ fs, dir, oid, filepath: ensureGitRelPath(dir, filename) })).blob)
+                : await fs.readFile(ensureOSPath(filename))
               : Buffer.from(''),
         })
       ),
     });
     const splits = filename.split(sep);
-    for (let i = 0; i < splits.length - 2; i++) {
+    for (let i = 1; i < splits.length - 1; i++) {
       dirPath = splits.slice(0, i + 1).join(sep);
       virtualDirectoryByFullPath.set(dirPath, {
         dirPath,
@@ -303,7 +303,7 @@ export async function getFileStateChanges(
 
       if (type !== 'EQ') {
         return {
-          path: ensureOSPath(filepath),
+          path: join(dir, ensureOSPath(filepath)),
           status: type,
         };
       }
@@ -375,7 +375,7 @@ async function getStatusMatrix(
         ].some((a) => a.every((val, index) => val === row.slice(1)[index]))
     )
     .map((row) => ({
-      path: ensureOSPath(row[0]),
+      path: join(dir, ensureOSPath(row[0])),
       status: getStatus(row.slice(1) as number[]),
     }));
 
@@ -383,7 +383,7 @@ async function getStatusMatrix(
 }
 
 export async function getGitDiff(
-  sfdxProjectFolders: string[],
+  resolveSourcePaths: string[],
   ref1: string,
   ref2: string,
   dir: string
@@ -391,23 +391,21 @@ export async function getGitDiff(
   let gitlines: gitLines;
   let warnings: string[];
 
-  sfdxProjectFolders = sfdxProjectFolders.map((p) => ensureOSPath(p));
-
   if (ref2) {
     gitlines = (await getFileStateChanges(ref1, ref2, dir)).filter((l) =>
-      sfdxProjectFolders.some((f) => l.path.startsWith(f))
+      resolveSourcePaths.some((f) => l.path.startsWith(f))
     );
   } else {
     const { warnings: warn, lines } = await getStatusMatrix(dir, ref1);
-    warnings = warn.filter((l) => sfdxProjectFolders.some((f) => l.startsWith(f)));
-    gitlines = lines.filter((l) => sfdxProjectFolders.some((f) => l.path.startsWith(f)));
+    warnings = warn.filter((l) => resolveSourcePaths.some((f) => l.startsWith(f)));
+    gitlines = lines.filter((l) => resolveSourcePaths.some((f) => l.path.startsWith(f)));
   }
 
   gitlines = gitlines.filter((line) => {
     if (line.status === 'D') {
-      for (const sfdxFolder of sfdxProjectFolders) {
-        const defaultFolder = join(sfdxFolder, 'main', 'default');
-        const filePath = line.path.replace(line.path.startsWith(defaultFolder) ? defaultFolder : sfdxFolder, '');
+      for (const sourcePath of resolveSourcePaths) {
+        const defaultFolder = join(sourcePath, 'main', 'default');
+        const filePath = line.path.replace(line.path.startsWith(defaultFolder) ? defaultFolder : sourcePath, '');
         const target = gitlines.find((t) => t.path.endsWith(filePath) && t.status === 'A');
         if (target) {
           debug(`rename: ${line.path} -> ${target.path}`);
