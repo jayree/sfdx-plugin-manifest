@@ -48,7 +48,10 @@ export declare function getFileStateChanges(commitHash1: string, commitHash2: st
         status: string;
     }
 ]>;
-export declare function getGitDiff(sfdxProjectFolders: string[], ref1: string, ref2: string, dir: string): Promise<gitLines>;
+export declare function getGitDiff(sfdxProjectFolders: string[], ref1: string, ref2: string, dir: string): Promise<{
+    gitlines: gitLines;
+    warnings: string[];
+}>;
 export declare function getGitResults(gitLines: gitLines, ref1VirtualTreeContainer: VirtualTreeContainer, ref2VirtualTreeContainer: VirtualTreeContainer | FSTreeContainer, destructiveChangesOnly: boolean, fsPaths: string[]): Promise<gitResults>;
 export declare function fixComponentSetChilds(cs: ComponentSet): ComponentSet;
 export {};
