@@ -14,7 +14,7 @@ export default class GitDiff extends JayreeSfdxCommand {
     private outputDir;
     private destructiveChangesOnly;
     private projectRoot;
-    private sfdxProjectFolders;
+    private resolveSourcePaths;
     private sourceApiVersion;
     private destructiveChanges;
     private manifest;

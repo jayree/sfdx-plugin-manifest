@@ -88,7 +88,7 @@ export default class GitDiff extends JayreeSfdxCommand {
   private outputDir: string;
   private destructiveChangesOnly: boolean;
   private projectRoot: string;
-  private sfdxProjectFolders: string[];
+  private resolveSourcePaths: string[];
   private sourceApiVersion: string;
   private destructiveChanges: string;
   private manifest: string;
@@ -106,7 +106,7 @@ export default class GitDiff extends JayreeSfdxCommand {
     this.destructiveChangesOnly = this.getFlag<boolean>('destructivechangesonly');
     this.outputDir = this.getFlag<string>('outputdir');
     this.projectRoot = this.project.getPath();
-    this.sfdxProjectFolders = this.project.getUniquePackageDirectories().map((p) => p.path);
+    this.resolveSourcePaths = this.project.getUniquePackageDirectories().map((p) => p.fullPath);
     this.sourceApiVersion = (await this.project.retrieveSfProjectJson()).getContents().sourceApiVersion;
     this.destructiveChanges = join(this.outputDir, 'destructiveChanges.xml');
     this.manifest = join(this.outputDir, 'package.xml');
@@ -114,7 +114,7 @@ export default class GitDiff extends JayreeSfdxCommand {
     debug({
       outputDir: this.outputDir,
       projectRoot: this.projectRoot,
-      sfdxProjectFolders: this.sfdxProjectFolders,
+      resolveSourcePaths: this.resolveSourcePaths,
     });
 
     const isContentTypeJSON = kit.env.getString('SFDX_CONTENT_TYPE', '').toUpperCase() === 'JSON';
@@ -131,7 +131,7 @@ export default class GitDiff extends JayreeSfdxCommand {
         {
           title: 'Analyze sfdx-project',
           task: (ctx, task): void => {
-            task.output = `packageDirectories: ${this.sfdxProjectFolders.length} sourceApiVersion: ${this.sourceApiVersion}`;
+            task.output = `packageDirectories: ${this.resolveSourcePaths.length} sourceApiVersion: ${this.sourceApiVersion}`;
           },
           options: { persistentOutput: true },
         },
@@ -139,7 +139,7 @@ export default class GitDiff extends JayreeSfdxCommand {
           title: `Execute 'git --no-pager diff --name-status --no-renames ${gitArgs.refString}'`,
           task: async (ctx, task): Promise<void> => {
             const { gitlines, warnings } = await getGitDiff(
-              this.sfdxProjectFolders,
+              this.resolveSourcePaths,
               gitArgs.ref1,
               gitArgs.ref2,
               this.projectRoot
@@ -199,13 +199,14 @@ export default class GitDiff extends JayreeSfdxCommand {
           task: async (ctx, task): Promise<void> => {
             if (sourcepath) {
               this.fsPaths = sourcepath.map((filepath) => {
+                filepath = path.resolve(filepath);
                 if (
                   !this.ref1VirtualTreeContainer.exists(filepath) &&
                   !this.ref2VirtualTreeContainer.exists(filepath)
                 ) {
                   throw new SfError(`The sourcepath "${filepath}" is not a valid source file path.`);
                 }
-                return path.resolve(filepath);
+                return filepath;
               });
               debug(`fsPaths: ${this.fsPaths.join(', ')}`);
             }
