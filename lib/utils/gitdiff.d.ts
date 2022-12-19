@@ -48,7 +48,7 @@ export declare function getFileStateChanges(commitHash1: string, commitHash2: st
         status: string;
     }
 ]>;
-export declare function getGitDiff(resolveSourcePaths: string[], ref1: string, ref2: string, dir: string): Promise<{
+export declare function getGitDiff(ref1: string, ref2: string, dir: string): Promise<{
     gitlines: gitLines;
     warnings: string[];
 }>;
