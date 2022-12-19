@@ -24,6 +24,7 @@ import {
 import { parseMetadataXml } from '@salesforce/source-deploy-retrieve/lib/src/utils/index.js';
 import Debug from 'debug';
 import git from 'isomorphic-git';
+import { SfProject } from '@salesforce/core';
 
 export const debug = Debug('jayree:manifest:git:diff');
 
@@ -385,13 +386,15 @@ async function getStatusMatrix(
 }
 
 export async function getGitDiff(
-  resolveSourcePaths: string[],
   ref1: string,
   ref2: string,
   dir: string
 ): Promise<{ gitlines: gitLines; warnings: string[] }> {
   let gitlines: gitLines;
   let warnings: string[];
+
+  const proj = await SfProject.resolve();
+  const resolveSourcePaths = proj.getUniquePackageDirectories().map((pDir) => pDir.fullPath);
 
   if (ref2) {
     gitlines = (await getFileStateChanges(ref1, ref2, dir)).filter((l) =>

@@ -88,7 +88,6 @@ export default class GitDiff extends JayreeSfdxCommand {
   private outputDir: string;
   private destructiveChangesOnly: boolean;
   private projectRoot: string;
-  private resolveSourcePaths: string[];
   private sourceApiVersion: string;
   private destructiveChanges: string;
   private manifest: string;
@@ -106,7 +105,6 @@ export default class GitDiff extends JayreeSfdxCommand {
     this.destructiveChangesOnly = this.getFlag<boolean>('destructivechangesonly');
     this.outputDir = this.getFlag<string>('outputdir');
     this.projectRoot = this.project.getPath();
-    this.resolveSourcePaths = this.project.getUniquePackageDirectories().map((p) => p.fullPath);
     this.sourceApiVersion = (await this.project.retrieveSfProjectJson()).getContents().sourceApiVersion;
     this.destructiveChanges = join(this.outputDir, 'destructiveChanges.xml');
     this.manifest = join(this.outputDir, 'package.xml');
@@ -114,7 +112,6 @@ export default class GitDiff extends JayreeSfdxCommand {
     debug({
       outputDir: this.outputDir,
       projectRoot: this.projectRoot,
-      resolveSourcePaths: this.resolveSourcePaths,
     });
 
     const isContentTypeJSON = kit.env.getString('SFDX_CONTENT_TYPE', '').toUpperCase() === 'JSON';
@@ -129,21 +126,9 @@ export default class GitDiff extends JayreeSfdxCommand {
     const tasks = new Listr(
       [
         {
-          title: 'Analyze sfdx-project',
-          task: (ctx, task): void => {
-            task.output = `packageDirectories: ${this.resolveSourcePaths.length} sourceApiVersion: ${this.sourceApiVersion}`;
-          },
-          options: { persistentOutput: true },
-        },
-        {
           title: `Execute 'git --no-pager diff --name-status --no-renames ${gitArgs.refString}'`,
           task: async (ctx, task): Promise<void> => {
-            const { gitlines, warnings } = await getGitDiff(
-              this.resolveSourcePaths,
-              gitArgs.ref1,
-              gitArgs.ref2,
-              this.projectRoot
-            );
+            const { gitlines, warnings } = await getGitDiff(gitArgs.ref1, gitArgs.ref2, this.projectRoot);
             this.gitLines = gitlines;
             this.outputWarnings = warnings;
             task.output = `Changed files: ${this.gitLines.length}`;
