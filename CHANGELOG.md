@@ -1,3 +1,12 @@
+## [2.4.8](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.4.7...v2.4.8) (2022-12-23)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 1.21.0 to 1.22.0 ([#464](https://github.com/jayree/sfdx-plugin-manifest/issues/464)) ([3346c2f](https://github.com/jayree/sfdx-plugin-manifest/commit/3346c2fc5b8c8b191f9a5df4b6c1964712e6cba4))
+* **deps:** bump @salesforce/command from 5.2.30 to 5.2.33 ([#462](https://github.com/jayree/sfdx-plugin-manifest/issues/462)) ([6cc78ed](https://github.com/jayree/sfdx-plugin-manifest/commit/6cc78ed5ae348aefab535d72c33bfc8c851a9308))
+* **deps:** bump @salesforce/source-deploy-retrieve from 7.5.17 to 7.5.18 ([#457](https://github.com/jayree/sfdx-plugin-manifest/issues/457)) ([5ea35fa](https://github.com/jayree/sfdx-plugin-manifest/commit/5ea35fa4c3fc25d2bf2ed0b388960f1dc0db1762))
+
 ## [2.4.7](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.4.6...v2.4.7) (2022-12-16)
 
 
