@@ -1,3 +1,10 @@
+# [2.5.0](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.4.8...v2.5.0) (2022-12-23)
+
+
+### Features
+
+* uses isomorphic-git statusMatrix to match the behavior for unstaged files with the git diff output ([9dd515f](https://github.com/jayree/sfdx-plugin-manifest/commit/9dd515fdc9e90602da8d7a78dd2d30cc41155b37))
+
 ## [2.4.8](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.4.7...v2.4.8) (2022-12-23)
 
 
