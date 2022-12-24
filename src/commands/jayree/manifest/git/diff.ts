@@ -5,8 +5,7 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 import os from 'os';
-import { join, dirname, relative } from 'path';
-import path from 'path';
+import { join, dirname, resolve } from 'path';
 import { ArgInput } from '@oclif/core/lib/interfaces';
 import { FlagsConfig, flags } from '@salesforce/command';
 import { Messages, SfError } from '@salesforce/core';
@@ -184,7 +183,7 @@ export default class GitDiff extends JayreeSfdxCommand {
           task: async (ctx, task): Promise<void> => {
             if (sourcepath) {
               this.fsPaths = sourcepath.map((filepath) => {
-                filepath = path.resolve(filepath);
+                filepath = resolve(filepath);
                 if (
                   !this.ref1VirtualTreeContainer.exists(filepath) &&
                   !this.ref2VirtualTreeContainer.exists(filepath)
@@ -236,7 +235,7 @@ export default class GitDiff extends JayreeSfdxCommand {
             task.newListr(
               [
                 {
-                  title: relative(this.projectRoot, this.manifest),
+                  title: this.manifest,
                   skip: (): boolean => !this.isOutputEnabled,
                   task: async (): Promise<void> => {
                     await fs.ensureDir(dirname(this.manifest));
@@ -245,7 +244,7 @@ export default class GitDiff extends JayreeSfdxCommand {
                   options: { persistentOutput: true },
                 },
                 {
-                  title: relative(this.projectRoot, this.destructiveChanges),
+                  title: this.destructiveChanges,
                   skip: (): boolean =>
                     !this.componentSet.getTypesOfDestructiveChanges().length || !this.isOutputEnabled,
                   task: async (): Promise<void> => {
