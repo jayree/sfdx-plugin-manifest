@@ -1,3 +1,11 @@
+## [2.5.1](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.5.0...v2.5.1) (2022-12-27)
+
+
+### Bug Fixes
+
+* fix parameter order ([2b5b244](https://github.com/jayree/sfdx-plugin-manifest/commit/2b5b24435725e3095895b2efa8a23ee1b05a6e78))
+* use fullPath to align with SDR ([f5c1de1](https://github.com/jayree/sfdx-plugin-manifest/commit/f5c1de1285ba68515de92c9e4ff8cf7603825810))
+
 # [2.5.0](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.4.8...v2.5.0) (2022-12-23)
 
 
