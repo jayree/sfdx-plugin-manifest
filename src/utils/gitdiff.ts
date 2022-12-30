@@ -364,7 +364,7 @@ async function getStatusMatrix(
         [1, 0, 1], // deleted, unstaged
       ].some((a) => a.every((val, index) => val === row.slice(1)[index]))
     )
-    .map((row) => row[0]);
+    .map((row) => join(dir, ensureOSPath(row[0])));
 
   const gitlines = statusMatrix
     .filter(
