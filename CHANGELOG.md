@@ -10,6 +10,9 @@
 
 * **manifest:beta:git:diff:** added new beta command manifest:beta:git:diff ([f4b6242](https://github.com/jayree/sfdx-plugin-manifest/commit/f4b6242e52a4a04d1279e2090dcf1fe37aca2ff2))
 
+I recommend that you try the new manifest:beta:git:diff command.\
+I plan to make the beta command generally available in the near future.
+
 ## [2.5.3](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.5.2...v2.5.3) (2022-12-31)
 
 
