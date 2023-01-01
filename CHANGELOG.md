@@ -1,3 +1,15 @@
+# [2.6.0](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.5.3...v2.6.0) (2023-01-01)
+
+
+### Bug Fixes
+
+* **gitdiff:** fix diff status of childComponents ([ef13e60](https://github.com/jayree/sfdx-plugin-manifest/commit/ef13e600df02bf23aa764084686c0eb789055c20))
+
+
+### Features
+
+* **manifest:beta:git:diff:** added new beta command manifest:beta:git:diff ([f4b6242](https://github.com/jayree/sfdx-plugin-manifest/commit/f4b6242e52a4a04d1279e2090dcf1fe37aca2ff2))
+
 ## [2.5.3](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.5.2...v2.5.3) (2022-12-31)
 
 
