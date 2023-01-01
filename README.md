@@ -33,9 +33,68 @@ USAGE
 ## Commands
 
 <!-- commands -->
+* [`sfdx jayree:manifest:beta:git:diff`](#sfdx-jayreemanifestbetagitdiff)
 * [`sfdx jayree:manifest:cleanup`](#sfdx-jayreemanifestcleanup)
 * [`sfdx jayree:manifest:generate`](#sfdx-jayreemanifestgenerate)
 * [`sfdx jayree:manifest:git:diff`](#sfdx-jayreemanifestgitdiff)
+
+### `sfdx jayree:manifest:beta:git:diff`
+
+create a project manifest and destructiveChanges manifest that lists the metadata components you want to deploy or delete based on changes in your git history
+
+```
+USAGE
+  $ sfdx jayree:manifest:beta:git:diff [-p <array>] [-o <string>] [-d] [--apiversion <string>] [--json] [--loglevel
+    trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+
+ARGUMENTS
+  REF1  base commit or branch
+  REF2  commit or branch to compare to the base commit
+
+FLAGS
+  -d, --destructivechangesonly                                                      create a destructiveChanges manifest
+                                                                                    only (package.xml will be empty)
+  -o, --outputdir=<value>                                                           directory to save the created
+                                                                                    manifest files
+  -p, --sourcepath=<value>                                                          comma-separated list of paths to the
+                                                                                    local source files to include in the
+                                                                                    manifest
+  --apiversion=<value>                                                              override the api version used for
+                                                                                    api requests made by this command
+  --json                                                                            format output as json
+  --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
+                                                                                    this command invocation
+
+DESCRIPTION
+  create a project manifest and destructiveChanges manifest that lists the metadata components you want to deploy or
+  delete based on changes in your git history
+  Use this command to create a manifest and destructiveChanges manifest file based on the difference (git diff) of two
+  git refs.
+
+  You can use all ways to spell <commit> which are valid for 'git diff'.
+  (See https://git-scm.com/docs/git-diff)
+
+EXAMPLES
+  $ sfdx jayree:manifest:beta:git:diff <commit> <commit>
+
+  $ sfdx jayree:manifest:git:diff <commit>..<commit>
+
+  uses the changes between two arbitrary <commit>
+
+  $ sfdx jayree:manifest:beta:git:diff <commit>...<commit>
+
+  uses the changes on the branch containing and up to the second <commit>, starting at a common ancestor of both <commit>.
+
+  $ sfdx jayree:manifest:beta:git:diff branchA..branchB
+
+  uses the diff of what is unique in branchB (REF2) and unique in branchA (REF1)
+
+  $ sfdx jayree:manifest:beta:git:diff branchA...branchB
+
+  uses the diff of what is unique in branchB (REF2)
+```
+
+_See code: [src/commands/jayree/manifest/beta/git/diff.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v2.5.3/src/commands/jayree/manifest/beta/git/diff.ts)_
 
 ### `sfdx jayree:manifest:cleanup`
 
