@@ -1,3 +1,10 @@
+## [2.6.2](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.6.1...v2.6.2) (2023-01-01)
+
+
+### Bug Fixes
+
+* update changelog hook ([535c4ac](https://github.com/jayree/sfdx-plugin-manifest/commit/535c4ac86b0afca880b40ccf6687452a516a5033))
+
 ## [2.6.1](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.6.0...v2.6.1) (2023-01-01)
 
 
