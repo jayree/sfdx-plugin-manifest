@@ -1,5 +1,11 @@
 [
   {
+    "command": "jayree:manifest:beta:git:diff",
+    "plugin": "@jayree/sfdx-plugin-manifest",
+    "flags": ["apiversion", "destructivechangesonly", "json", "loglevel", "outputdir", "sourcepath"],
+    "alias": []
+  },
+  {
     "command": "jayree:manifest:cleanup",
     "plugin": "@jayree/sfdx-plugin-manifest",
     "flags": ["file", "json", "loglevel", "manifest"],
