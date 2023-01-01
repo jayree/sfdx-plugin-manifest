@@ -258,7 +258,7 @@ export async function analyzeFile(
 
   return {
     path,
-    status: childComponentsNotInRef2.length + childComponentsNotInRef1.length,
+    status: 1 + childComponentsNotInRef2.length + childComponentsNotInRef1.length,
     toManifest: childComponentsNotInRef1,
     toDestructiveChanges: childComponentsNotInRef2,
   };
