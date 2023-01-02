@@ -17,7 +17,7 @@
 
 ### Bug Fixes
 
-* **gitdiff:** fix diff status of childComponents ([ef13e60](https://github.com/jayree/sfdx-plugin-manifest/commit/ef13e600df02bf23aa764084686c0eb789055c20))
+* **manifest:git:diff:** fix diff status of childComponents ([ef13e60](https://github.com/jayree/sfdx-plugin-manifest/commit/ef13e600df02bf23aa764084686c0eb789055c20))
 
 
 ### Features
@@ -32,7 +32,7 @@ I plan to make the beta command generally available in the near future.
 
 ### Bug Fixes
 
-* **gitdiff:** fix warnings ([b28f12e](https://github.com/jayree/sfdx-plugin-manifest/commit/b28f12eff17c206204c4f5d00b2b5de7f7f6b2f3))
+* **manifest:git:diff:** fix warnings ([b28f12e](https://github.com/jayree/sfdx-plugin-manifest/commit/b28f12eff17c206204c4f5d00b2b5de7f7f6b2f3))
 
 ## [2.5.2](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.5.1...v2.5.2) (2022-12-30)
 
