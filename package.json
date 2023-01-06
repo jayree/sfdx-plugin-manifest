@@ -8,7 +8,7 @@
   "dependencies": {
     "@oclif/core": "^1.23.0",
     "@salesforce/command": "^5.2.37",
-    "@salesforce/kit": "^1.8.0",
+    "@salesforce/kit": "^1.8.2",
     "@salesforce/source-deploy-retrieve": "^7.5.22",
     "@salesforce/ts-types": "^1.7.1",
     "debug": "^4.3.4",
