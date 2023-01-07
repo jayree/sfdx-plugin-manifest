@@ -9,7 +9,6 @@ import { join, dirname, resolve } from 'path';
 import { ArgInput } from '@oclif/core/lib/interfaces';
 import { FlagsConfig, flags } from '@salesforce/command';
 import { Messages, SfError } from '@salesforce/core';
-import { AnyJson } from '@salesforce/ts-types';
 import fs from 'fs-extra';
 import { Logger, Listr } from 'listr2';
 import kit from '@salesforce/kit';
@@ -39,6 +38,11 @@ const unexpectedArgument = async (input: string): Promise<string> => {
   }
   return input;
 };
+
+export interface GitDiffCommandResult {
+  destructiveChanges: object;
+  manifest: object;
+}
 
 export default class GitDiff extends JayreeSfdxCommand {
   public static description = messages.getMessage('commandDescription');
@@ -99,7 +103,7 @@ export default class GitDiff extends JayreeSfdxCommand {
   private outputWarnings: string[];
   private fsPaths: string[];
 
-  public async run(): Promise<AnyJson> {
+  public async run(): Promise<GitDiffCommandResult> {
     const sourcepath = this.getFlag<string[]>('sourcepath');
     this.destructiveChangesOnly = this.getFlag<boolean>('destructivechangesonly');
     this.outputDir = this.getFlag<string>('outputdir');
@@ -273,7 +277,7 @@ export default class GitDiff extends JayreeSfdxCommand {
       return {
         destructiveChanges: await this.componentSet?.getObject(DestructiveChangesType.POST),
         manifest: await this.componentSet?.getObject(),
-      } as unknown as AnyJson;
+      };
     } catch (e) {
       if (debug.enabled && this.isOutputEnabled) {
         logger.fail((e as Error).message);

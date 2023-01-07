@@ -18,12 +18,12 @@ Messages.importMessagesDirectory(new URL('./', import.meta.url).pathname);
 
 const messages = Messages.loadMessages('@jayree/sfdx-plugin-manifest', 'gitdiffbeta');
 
-interface CreateCommandResult {
+export interface GitDiffCommandResult {
   manifest?: { path: string; name: string };
   destructiveChanges?: { path: string; name: string };
 }
 
-export default class gitDiff extends JayreeSfdxCommand {
+export default class GitDiffCommand extends JayreeSfdxCommand {
   public static description = messages.getMessage('description');
 
   public static examples = messages.getMessage('examples').split(os.EOL);
@@ -69,7 +69,7 @@ export default class gitDiff extends JayreeSfdxCommand {
   private componentSet: ComponentSetExtra;
   private destructiveChangesOnly: boolean;
 
-  public async run(): Promise<CreateCommandResult> {
+  public async run(): Promise<GitDiffCommandResult> {
     await this.createManifest();
     return this.formatResult();
   }
@@ -112,7 +112,7 @@ export default class gitDiff extends JayreeSfdxCommand {
     }
   }
 
-  protected formatResult(): CreateCommandResult {
+  protected formatResult(): GitDiffCommandResult {
     if (!this.isJsonOutput()) {
       if (this.componentSet.size) {
         if (this.destructiveChangesOnly && !this.componentSet.getTypesOfDestructiveChanges().length) {

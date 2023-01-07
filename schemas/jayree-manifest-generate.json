@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/PackageManifestObject",
+  "definitions": {
+    "PackageManifestObject": {
+      "type": "object",
+      "properties": {
+        "Package": {
+          "type": "object",
+          "properties": {
+            "types": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PackageTypeMembers"
+              }
+            },
+            "version": {
+              "type": "string"
+            },
+            "fullName": {
+              "type": "string"
+            },
+            "@_xmlns": {
+              "type": "string"
+            }
+          },
+          "required": ["types", "version"],
+          "additionalProperties": false
+        }
+      },
+      "required": ["Package"],
+      "additionalProperties": false
+    },
+    "PackageTypeMembers": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["name", "members"],
+      "additionalProperties": false
+    }
+  }
+}

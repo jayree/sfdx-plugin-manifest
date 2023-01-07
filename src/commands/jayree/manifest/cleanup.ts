@@ -7,7 +7,6 @@
 import os from 'os';
 import { flags, FlagsConfig } from '@salesforce/command';
 import { Messages } from '@salesforce/core';
-import { AnyJson } from '@salesforce/ts-types';
 import fs from 'fs-extra';
 import { JayreeSfdxCommand } from '../../../jayreeSfdxCommand.js';
 import { cleanupManifestFile } from '../../../utils/manifest.js';
@@ -36,7 +35,7 @@ export default class CleanupManifest extends JayreeSfdxCommand {
   protected static supportsDevhubUsername = false;
   protected static requiresProject = true;
 
-  public async run(): Promise<AnyJson> {
+  public async run(): Promise<void> {
     const file = this.getFlag<string>('file');
     if (!(await fs.pathExists(file))) {
       await fs.ensureFile(file);
@@ -75,6 +74,6 @@ export default class CleanupManifest extends JayreeSfdxCommand {
     } else {
       await cleanupManifestFile(this.getFlag<string>('manifest'), file);
     }
-    return {};
+    return;
   }
 }

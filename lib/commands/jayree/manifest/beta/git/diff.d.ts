@@ -1,7 +1,7 @@
 import { ArgInput } from '@oclif/core/lib/interfaces';
 import { FlagsConfig } from '@salesforce/command';
 import { JayreeSfdxCommand } from '../../../../../jayreeSfdxCommand.js';
-interface CreateCommandResult {
+export interface GitDiffCommandResult {
     manifest?: {
         path: string;
         name: string;
@@ -11,7 +11,7 @@ interface CreateCommandResult {
         name: string;
     };
 }
-export default class gitDiff extends JayreeSfdxCommand {
+export default class GitDiffCommand extends JayreeSfdxCommand {
     static description: string;
     static examples: string[];
     static args: ArgInput;
@@ -25,8 +25,7 @@ export default class gitDiff extends JayreeSfdxCommand {
     private outputPath;
     private componentSet;
     private destructiveChangesOnly;
-    run(): Promise<CreateCommandResult>;
+    run(): Promise<GitDiffCommandResult>;
     protected createManifest(): Promise<void>;
-    protected formatResult(): CreateCommandResult;
+    protected formatResult(): GitDiffCommandResult;
 }
-export {};

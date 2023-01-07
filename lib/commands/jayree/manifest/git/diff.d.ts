@@ -1,7 +1,10 @@
 import { ArgInput } from '@oclif/core/lib/interfaces';
 import { FlagsConfig } from '@salesforce/command';
-import { AnyJson } from '@salesforce/ts-types';
 import { JayreeSfdxCommand } from '../../../../jayreeSfdxCommand.js';
+export interface GitDiffCommandResult {
+    destructiveChanges: object;
+    manifest: object;
+}
 export default class GitDiff extends JayreeSfdxCommand {
     static description: string;
     static examples: string[];
@@ -24,5 +27,5 @@ export default class GitDiff extends JayreeSfdxCommand {
     private outputErrors;
     private outputWarnings;
     private fsPaths;
-    run(): Promise<AnyJson>;
+    run(): Promise<GitDiffCommandResult>;
 }
