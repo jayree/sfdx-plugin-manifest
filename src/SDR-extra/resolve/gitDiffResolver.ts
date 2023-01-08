@@ -13,12 +13,17 @@ import {
   DestructiveChangesType,
 } from '@salesforce/source-deploy-retrieve';
 import { SfProject, SfError } from '@salesforce/core';
-import fs from 'fs-extra';
-import { parseMetadataXml } from '@salesforce/source-deploy-retrieve/lib/src/utils/index.js';
 import equal from 'fast-deep-equal';
 import Debug from 'debug';
-import { resolveMultiRefString, resolveSingleRefString, getFileState, getStatus } from '../utils/git-extra.js';
-import { VirtualTreeContainerExtra } from './treeContainersExtra.js';
+import {
+  resolveMultiRefString,
+  resolveSingleRefString,
+  getFileState,
+  getStatus,
+  CallbackFsClient,
+  PromiseFsClient,
+} from '../utils/git-extra.js';
+import { VirtualTreeContainerExtra, parseMetadataXml } from './treeContainersExtra.js';
 
 export const debug = Debug('sf:gitDiff:resolver');
 
@@ -30,32 +35,84 @@ const registryAccess = new RegistryAccess();
  * @internal
  */
 export class GitDiffResolver {
-  private ref1VirtualTreeContainer: VirtualTreeContainerExtra;
   private ref2VirtualTreeContainer: VirtualTreeContainerExtra;
   private ref1Resolver: MetadataResolver;
   private ref2Resolver: MetadataResolver;
+  private dir: string;
+  private uniquePackageDirectories: string[];
 
-  private static async getFileStatus(
-    ref1: string,
-    ref2: string,
-    dir: string,
-    resolveSourcePaths: string[]
-  ): Promise<Array<{ path: string; status: string }>> {
+  /**
+   * @param dir SFDX project directory
+   */
+  public constructor(project: SfProject, private fs: CallbackFsClient | PromiseFsClient) {
+    this.dir = project.getPath();
+    this.uniquePackageDirectories = project.getUniquePackageDirectories().map((pDir) => pDir.fullPath);
+  }
+
+  public async resolve(ref1: string, ref2: string, fsPaths: string[]): Promise<ComponentSet> {
+    if (ref2 === undefined) {
+      const { ref1: r1, ref2: r2 } = await resolveMultiRefString({ ref: ref1, dir: this.dir, fs: this.fs });
+      ref1 = r1;
+      ref2 = r2;
+    } else {
+      const [r1, r2] = await Promise.all([
+        resolveSingleRefString({ ref: ref1, dir: this.dir, fs: this.fs }),
+        resolveSingleRefString({ ref: ref2, dir: this.dir, fs: this.fs }),
+      ]);
+      ref1 = r1;
+      ref2 = r2;
+    }
+
+    debug({ ref1, ref2 });
+
+    const fileStatus = await this.getFileStatus(ref1, ref2);
+    debug({ fileStatus });
+
+    const [ref1VirtualTreeContainer, ref2VirtualTreeContainer] = await Promise.all([
+      VirtualTreeContainerExtra.fromGitRef(
+        ref1,
+        this.dir,
+        fileStatus.filter((l) => l.status === 'M').map((l) => l.path)
+      ),
+      VirtualTreeContainerExtra.fromGitRef(
+        ref2,
+        this.dir,
+        fileStatus.filter((l) => l.status === 'M').map((l) => l.path)
+      ),
+    ]);
+
+    if (fsPaths) {
+      fsPaths.map((filepath) => {
+        filepath = path.resolve(filepath);
+        if (!ref1VirtualTreeContainer.exists(filepath) && !ref2VirtualTreeContainer.exists(filepath)) {
+          throw new SfError(`The sourcepath "${filepath}" is not a valid source file path.`);
+        }
+      });
+    }
+
+    this.ref2VirtualTreeContainer = ref2VirtualTreeContainer;
+    this.ref1Resolver = new MetadataResolver(registryAccess, ref1VirtualTreeContainer);
+    this.ref2Resolver = new MetadataResolver(registryAccess, this.ref2VirtualTreeContainer);
+
+    return this.getComponentSet(fileStatus);
+  }
+
+  private async getFileStatus(ref1: string, ref2: string): Promise<Array<{ path: string; status: string }>> {
     let files: Array<{ path: string; status: string }>;
 
     if (ref2) {
-      files = (await getFileState(ref1, ref2, dir)).filter((l) => resolveSourcePaths.some((f) => l.path.startsWith(f)));
+      files = await getFileState({ ref1, ref2, dir: this.dir, fs: this.fs });
     } else {
-      files = await getStatus(dir, ref1);
-      files = files.filter((l) => resolveSourcePaths.some((f) => l.path.startsWith(f)));
+      files = await getStatus({ dir: this.dir, ref: ref1, fs: this.fs });
     }
 
     files = files.filter((file) => {
       if (file.status === 'D') {
-        for (const sourcePath of resolveSourcePaths) {
+        for (const sourcePath of this.uniquePackageDirectories) {
           const defaultFolder = path.join(sourcePath, 'main', 'default');
           const filePath = file.path.replace(file.path.startsWith(defaultFolder) ? defaultFolder : sourcePath, '');
           const target = files.find((t) => t.path.endsWith(filePath) && t.status === 'A');
+          // debug({ target, file, sourcePath, filePath });
           if (target) {
             return false;
           }
@@ -66,64 +123,7 @@ export class GitDiffResolver {
     return files;
   }
 
-  public async resolve(ref1: string, ref2: string, fsPaths: string[]): Promise<ComponentSet> {
-    const proj = await SfProject.resolve();
-
-    if (ref2 === undefined) {
-      const { ref1: r1, ref2: r2 } = await resolveMultiRefString({ ref: ref1, dir: proj.getPath(), fs });
-      ref1 = r1;
-      ref2 = r2;
-    } else {
-      const [r1, r2] = await Promise.all([
-        resolveSingleRefString({ ref: ref1, dir: proj.getPath(), fs }),
-        resolveSingleRefString({ ref: ref2, dir: proj.getPath(), fs }),
-      ]);
-      ref1 = r1;
-      ref2 = r2;
-    }
-
-    debug({ ref1, ref2 });
-
-    const fileStatus = await GitDiffResolver.getFileStatus(ref1, ref2, proj.getPath(), fsPaths);
-    debug({ fileStatus });
-
-    const [ref1VirtualTreeContainer, ref2VirtualTreeContainer] = await Promise.all([
-      VirtualTreeContainerExtra.fromGitRef(
-        ref1,
-        proj.getPath(),
-        fileStatus.filter((l) => l.status === 'M').map((l) => l.path)
-      ),
-      VirtualTreeContainerExtra.fromGitRef(
-        ref2,
-        proj.getPath(),
-        fileStatus.filter((l) => l.status === 'M').map((l) => l.path)
-      ),
-    ]);
-
-    this.ref1VirtualTreeContainer = ref1VirtualTreeContainer;
-
-    this.ref2VirtualTreeContainer = ref2VirtualTreeContainer;
-
-    fsPaths = fsPaths.map((filepath) => {
-      filepath = path.resolve(filepath);
-      if (!this.ref1VirtualTreeContainer.exists(filepath) && !this.ref2VirtualTreeContainer.exists(filepath)) {
-        throw new SfError(`The sourcepath "${filepath}" is not a valid source file path.`);
-      }
-      return filepath;
-    });
-
-    debug({ fsPaths });
-
-    this.ref1Resolver = new MetadataResolver(registryAccess, this.ref1VirtualTreeContainer);
-    this.ref2Resolver = new MetadataResolver(registryAccess, this.ref2VirtualTreeContainer);
-
-    return this.getComponentSet(fileStatus, fsPaths);
-  }
-
-  private async getComponentSet(
-    gitLines: Array<{ path: string; status: string }>,
-    fsPaths: string[]
-  ): Promise<ComponentSet> {
+  private async getComponentSet(gitLines: Array<{ path: string; status: string }>): Promise<ComponentSet> {
     const results = new ComponentSet(undefined, registryAccess);
 
     const childComponentPromises: Array<
@@ -136,37 +136,35 @@ export class GitDiffResolver {
     > = [];
 
     for (const [, { status, path: fpath }] of gitLines.entries()) {
-      if (!fsPaths || fsPaths.some((fsPath) => path.resolve(fpath).startsWith(fsPath))) {
-        if (status === 'D') {
-          for (const c of this.ref1Resolver.getComponentsFromPath(fpath)) {
-            // if the component supports partial delete AND there are files that are not deleted,
-            // set the component for deploy, not for delete.
-            // https://github.com/forcedotcom/source-tracking/blob/5cb32bef2e5860c0f8fc2afa3ea65432fe511a99/src/shared/localComponentSetArray.ts#L81
-            if (!!c.type.supportsPartialDelete && c.content && this.ref2VirtualTreeContainer.exists(c.content)) {
-              // all bundle types have a directory name
-              try {
-                this.ref2Resolver
-                  .getComponentsFromPath(path.resolve(c.content))
-                  .filter(
-                    (input: SourceComponent | undefined): input is SourceComponent => input instanceof SourceComponent
-                  )
-                  .map((nonDeletedComponent) => {
-                    results.add(nonDeletedComponent);
-                  });
-              } catch (e) {
-                debug(`unable to find component at ${c.content}.  That's ok if it was supposed to be deleted`);
-              }
-            } else {
-              results.add(c, DestructiveChangesType.POST);
+      if (status === 'D') {
+        for (const c of this.ref1Resolver.getComponentsFromPath(fpath)) {
+          // if the component supports partial delete AND there are files that are not deleted,
+          // set the component for deploy, not for delete.
+          // https://github.com/forcedotcom/source-tracking/blob/5cb32bef2e5860c0f8fc2afa3ea65432fe511a99/src/shared/localComponentSetArray.ts#L81
+          if (!!c.type.supportsPartialDelete && c.content && this.ref2VirtualTreeContainer.exists(c.content)) {
+            // all bundle types have a directory name
+            try {
+              this.ref2Resolver
+                .getComponentsFromPath(path.resolve(c.content))
+                .filter(
+                  (input: SourceComponent | undefined): input is SourceComponent => input instanceof SourceComponent
+                )
+                .map((nonDeletedComponent) => {
+                  results.add(nonDeletedComponent);
+                });
+            } catch (e) {
+              debug(`unable to find component at ${c.content}.  That's ok if it was supposed to be deleted`);
             }
+          } else {
+            results.add(c, DestructiveChangesType.POST);
           }
-        } else if (status === 'A') {
-          for (const c of this.ref2Resolver.getComponentsFromPath(fpath)) {
-            results.add(c);
-          }
-        } else {
-          childComponentPromises.push(this.getChildComponentStatus(fpath));
         }
+      } else if (status === 'A') {
+        for (const c of this.ref2Resolver.getComponentsFromPath(fpath)) {
+          results.add(c);
+        }
+      } else {
+        childComponentPromises.push(this.getChildComponentStatus(fpath));
       }
     }
 

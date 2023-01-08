@@ -7,12 +7,13 @@
 import util from 'util';
 import path from 'path';
 import git, { CallbackFsClient, PromiseFsClient } from 'isomorphic-git';
-import fs from 'fs-extra';
 import Debug from 'debug';
 
-export const debug = Debug('sf:gitDiff:extra');
+const debug = Debug('sf:gitDiff:extra');
 
-export interface GetCommitLogOptions {
+export { CallbackFsClient, PromiseFsClient } from 'isomorphic-git';
+
+interface RefOptions {
   /**
    * File paths or directory paths to resolve components against
    */
@@ -27,7 +28,7 @@ export interface GetCommitLogOptions {
   fs: CallbackFsClient | PromiseFsClient;
 }
 
-async function getCommitLog(options: GetCommitLogOptions): Promise<{ oid: string; parents: string[] }> {
+async function getCommitLog(options: RefOptions): Promise<{ oid: string; parents: string[] }> {
   try {
     const [log] = await git.log({
       fs: options.fs,
@@ -44,22 +45,7 @@ See more help with --help`
   }
 }
 
-interface MultiRefStringOptions {
-  /**
-   * File paths or directory paths to resolve components against
-   */
-  ref: string;
-  /**
-   * File paths or directory paths to resolve components against
-   */
-  dir: string;
-  /**
-   * File paths or directory paths to resolve components against
-   */
-  fs: CallbackFsClient | PromiseFsClient;
-}
-
-export async function resolveMultiRefString(options: MultiRefStringOptions): Promise<{
+export async function resolveMultiRefString(options: RefOptions): Promise<{
   ref1: string;
   ref2: string;
 }> {
@@ -94,22 +80,7 @@ See more help with --help`);
   return { ref1, ref2 };
 }
 
-interface SingleRefStringOptions {
-  /**
-   * File paths or directory paths to resolve components against
-   */
-  ref: string;
-  /**
-   * File paths or directory paths to resolve components against
-   */
-  dir: string;
-  /**
-   * File paths or directory paths to resolve components against
-   */
-  fs: CallbackFsClient | PromiseFsClient;
-}
-
-export async function resolveSingleRefString(options: SingleRefStringOptions): Promise<string> {
+export async function resolveSingleRefString(options: RefOptions): Promise<string> {
   if (options.ref === undefined) {
     return '';
   }
@@ -150,11 +121,26 @@ export async function resolveSingleRefString(options: SingleRefStringOptions): P
   return resolvedRef;
 }
 
-export async function getFileState(
-  commitHash1: string,
-  commitHash2: string,
-  dir: string
-): Promise<
+interface FileStateOptions {
+  /**
+   * File paths or directory paths to resolve components against
+   */
+  ref1: string;
+  /**
+   * File paths or directory paths to resolve components against
+   */
+  ref2: string;
+  /**
+   * File paths or directory paths to resolve components against
+   */
+  dir: string;
+  /**
+   * File paths or directory paths to resolve components against
+   */
+  fs: CallbackFsClient | PromiseFsClient;
+}
+
+export async function getFileState(options: FileStateOptions): Promise<
   [
     {
       path: string;
@@ -164,9 +150,9 @@ export async function getFileState(
 > {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   return git.walk({
-    fs,
-    dir,
-    trees: [git.TREE({ ref: commitHash1 }), git.TREE({ ref: commitHash2 })],
+    fs: options.fs,
+    dir: options.dir,
+    trees: [git.TREE({ ref: options.ref1 }), git.TREE({ ref: options.ref2 })],
     async map(filepath, [A, B]) {
       if (filepath === '.' || (await A?.type()) === 'tree' || (await B?.type()) === 'tree') {
         return;
@@ -188,7 +174,7 @@ export async function getFileState(
 
       if (type !== 'EQ') {
         return {
-          path: path.join(dir, ensureOSPath(filepath)),
+          path: path.join(options.dir, ensureOSPath(filepath)),
           status: type,
         };
       }
@@ -196,7 +182,7 @@ export async function getFileState(
   });
 }
 
-export async function getStatus(dir: string, ref: string): Promise<Array<{ path: string; status: string }>> {
+export async function getStatus(options: RefOptions): Promise<Array<{ path: string; status: string }>> {
   const getStatusText = (row: number[]): 'A' | 'D' | 'M' => {
     if (
       [
@@ -227,7 +213,7 @@ export async function getStatus(dir: string, ref: string): Promise<Array<{ path:
       return 'M';
     }
   };
-  const statusMatrix = await git.statusMatrix({ fs, dir, ref });
+  const statusMatrix = await git.statusMatrix({ fs: options.fs, dir: options.dir, ref: options.ref });
   const unstaged = statusMatrix
     .filter((row) =>
       [
@@ -243,7 +229,7 @@ export async function getStatus(dir: string, ref: string): Promise<Array<{ path:
         [1, 0, 1], // deleted, unstaged
       ].some((a) => a.every((val, index) => val === row.slice(1)[index]))
     )
-    .map((row) => path.join(dir, ensureOSPath(row[0])));
+    .map((row) => path.join(options.dir, ensureOSPath(row[0])));
 
   debug({ unstaged });
 
@@ -259,7 +245,7 @@ export async function getStatus(dir: string, ref: string): Promise<Array<{ path:
         ].some((a) => a.every((val, index) => val === row.slice(1)[index]))
     )
     .map((row) => ({
-      path: path.join(dir, ensureOSPath(row[0])),
+      path: path.join(options.dir, ensureOSPath(row[0])),
       status: getStatusText(row.slice(1) as number[]),
     }));
 
@@ -274,14 +260,44 @@ function ensureGitRelPath(dir: string, fpath: string): string {
   return path.relative(dir, fpath).split(path.sep).join(path.posix.sep);
 }
 
-export async function listFullPathFiles(dir: string, ref: string): Promise<string[]> {
-  return (await git.listFiles({ fs, dir, ref })).map((p) => path.join(dir, ensureOSPath(p)));
+export async function listFullPathFiles(options: RefOptions): Promise<string[]> {
+  return (await git.listFiles({ fs: options.fs, dir: options.dir, ref: options.ref })).map((p) =>
+    path.join(options.dir, ensureOSPath(p))
+  );
 }
 
-export async function getOid(dir: string, ref: string): Promise<string> {
-  return ref ? git.resolveRef({ fs, dir, ref }) : '';
+export async function getOid(options: RefOptions): Promise<string> {
+  return options.ref ? git.resolveRef({ fs: options.fs, dir: options.dir, ref: options.ref }) : '';
 }
 
-export async function readBlobAsBuffer(dir: string, oid: string, filename: string): Promise<Buffer> {
-  return Buffer.from((await git.readBlob({ fs, dir, oid, filepath: ensureGitRelPath(dir, filename) })).blob);
+interface BlobOptions {
+  /**
+   * File paths or directory paths to resolve components against
+   */
+  oid: string;
+  /**
+   * File paths or directory paths to resolve components against
+   */
+  filename: string;
+  /**
+   * File paths or directory paths to resolve components against
+   */
+  dir: string;
+  /**
+   * File paths or directory paths to resolve components against
+   */
+  fs: CallbackFsClient | PromiseFsClient;
+}
+
+export async function readBlobAsBuffer(options: BlobOptions): Promise<Buffer> {
+  return Buffer.from(
+    (
+      await git.readBlob({
+        fs: options.fs,
+        dir: options.dir,
+        oid: options.oid,
+        filepath: ensureGitRelPath(options.dir, options.filename),
+      })
+    ).blob
+  );
 }

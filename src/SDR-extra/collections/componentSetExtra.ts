@@ -4,6 +4,7 @@
  * Licensed under the BSD 3-Clause license.
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
+import path from 'path';
 import {
   ComponentSet,
   OptionalTreeRegistryOptions,
@@ -14,6 +15,7 @@ import {
 } from '@salesforce/source-deploy-retrieve';
 import { SfProject } from '@salesforce/core';
 import Debug from 'debug';
+import fs from 'fs-extra';
 import { GitDiffResolver } from '../resolve/gitDiffResolver.js';
 
 export const debug = Debug('sf:gitDiff:ComponentSetExtra');
@@ -79,11 +81,16 @@ export class ComponentSetExtra extends ComponentSet {
       ref1 = input;
     }
 
-    const proj = await SfProject.resolve();
-    fsPaths = fsPaths || proj.getUniquePackageDirectories().map((pDir) => pDir.fullPath);
+    const project = await SfProject.resolve();
 
-    const gitDiffResolver = new GitDiffResolver();
+    const gitDiffResolver = new GitDiffResolver(project, fs);
     const inclusiveFilter = await gitDiffResolver.resolve(ref1, ref2, fsPaths);
+
+    fsPaths =
+      fsPaths?.map((filepath) => path.resolve(filepath)).filter((filepath) => fs.existsSync(filepath)) ||
+      project.getUniquePackageDirectories().map((pDir) => pDir.fullPath);
+
+    debug({ fsPaths });
 
     const components = ComponentSet.fromSource({
       fsPaths,
@@ -99,7 +106,9 @@ export class ComponentSetExtra extends ComponentSet {
       ...Object.keys(untypedRegistry.types.bot.children.types),
     ];
 
-    for (const component of inclusiveFilter.getSourceComponents()) {
+    for (const component of inclusiveFilter
+      .getSourceComponents()
+      .filter((comp) => fsPaths.some((fsPath) => path.resolve(comp.xml).startsWith(fsPath)))) {
       if (component.isMarkedForDelete()) {
         components.add(component, DestructiveChangesType.POST);
       } else if (childsTobeReplacedByParent.includes(component.type.id)) {

@@ -10,6 +10,8 @@ import { parseMetadataXml } from '@salesforce/source-deploy-retrieve/lib/src/uti
 import fs from 'fs-extra';
 import { listFullPathFiles, getOid, readBlobAsBuffer } from '../utils/git-extra.js';
 
+export { parseMetadataXml } from '@salesforce/source-deploy-retrieve/lib/src/utils/index.js';
+
 export class VirtualTreeContainerExtra extends VirtualTreeContainer {
   /**
    * Designed for recreating virtual files from a git ref
@@ -25,8 +27,8 @@ export class VirtualTreeContainerExtra extends VirtualTreeContainer {
     dir: string,
     includeBufferForFiles: string[]
   ): Promise<VirtualTreeContainer> {
-    const paths = await listFullPathFiles(dir, ref);
-    const oid = await getOid(dir, ref);
+    const paths = await listFullPathFiles({ dir, ref, fs });
+    const oid = await getOid({ dir, ref, fs });
     const virtualDirectoryByFullPath = new Map<string, VirtualDirectory>();
     for await (const filename of paths) {
       let dirPath = path.dirname(filename);
@@ -38,7 +40,7 @@ export class VirtualTreeContainerExtra extends VirtualTreeContainer {
             data:
               parseMetadataXml(filename) && includeBufferForFiles.includes(filename)
                 ? oid
-                  ? await readBlobAsBuffer(dir, oid, filename)
+                  ? await readBlobAsBuffer({ dir, oid, filename, fs })
                   : await fs.readFile(filename)
                 : Buffer.from(''),
           })
