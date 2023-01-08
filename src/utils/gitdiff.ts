@@ -218,6 +218,10 @@ export async function analyzeFile(
   const ref1resolver = new MetadataResolver(registryAccess, ref1VirtualTreeContainer);
   const [ref1Component] = ref1resolver.getComponentsFromPath(path); // git path only conaints files
 
+  if (ref1resolver.forceIgnoredPaths.has(path) || ref2resolver.forceIgnoredPaths.has(path)) {
+    return { path, status: -2 };
+  }
+
   if (equal(await ref1Component.parseXml(), await ref2Component.parseXml())) {
     return { path, status: -1 };
   }
@@ -511,6 +515,9 @@ export async function getGitResults(
     } else if (check.status === -1) {
       results.output.unchanged.push(check.path);
       results.output.counts.unchanged++;
+    } else if (check.status === -2) {
+      results.output.counts.ignored++;
+      results.output.ignored.ref2.push(check.path);
     } else {
       if (check.toDestructiveChanges.length > 0 || (check.toManifest.length > 0 && !destructiveChangesOnly)) {
         results.output.counts.modified++;
@@ -528,9 +535,10 @@ export async function getGitResults(
 
   results.output.ignored = {
     ref1: Array.from(ref1Resolver.forceIgnoredPaths),
-    ref2: Array.from(ref2Resolver.forceIgnoredPaths),
+    ref2: results.output.ignored.ref2.concat(Array.from(ref2Resolver.forceIgnoredPaths)),
   };
-  results.output.counts.ignored = ref1Resolver.forceIgnoredPaths.size + ref2Resolver.forceIgnoredPaths.size;
+  results.output.counts.ignored =
+    results.output.counts.ignored + ref1Resolver.forceIgnoredPaths.size + ref2Resolver.forceIgnoredPaths.size;
 
   return results;
 }
