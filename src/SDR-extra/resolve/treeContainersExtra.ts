@@ -7,8 +7,8 @@
 import path from 'path';
 import { VirtualTreeContainer, VirtualDirectory } from '@salesforce/source-deploy-retrieve';
 import { parseMetadataXml } from '@salesforce/source-deploy-retrieve/lib/src/utils/index.js';
-import fs from 'fs-extra';
-import { listFullPathFiles, getOid, readBlobAsBuffer } from '../utils/git-extra.js';
+import fs from 'graceful-fs';
+import { GitRepo } from '../utils/index.js';
 
 export { parseMetadataXml } from '@salesforce/source-deploy-retrieve/lib/src/utils/index.js';
 
@@ -24,11 +24,13 @@ export class VirtualTreeContainerExtra extends VirtualTreeContainer {
    */
   public static async fromGitRef(
     ref: string,
-    dir: string,
+    gitDir: string,
     includeBufferForFiles: string[]
   ): Promise<VirtualTreeContainer> {
-    const paths = await listFullPathFiles({ dir, ref, fs });
-    const oid = await getOid({ dir, ref, fs });
+    const localRepo = GitRepo.getInstance({ gitDir });
+
+    const paths = await localRepo.listFullPathFiles(ref);
+    const oid = await localRepo.getOid(ref);
     const virtualDirectoryByFullPath = new Map<string, VirtualDirectory>();
     for await (const filename of paths) {
       let dirPath = path.dirname(filename);
@@ -40,8 +42,8 @@ export class VirtualTreeContainerExtra extends VirtualTreeContainer {
             data:
               parseMetadataXml(filename) && includeBufferForFiles.includes(filename)
                 ? oid
-                  ? await readBlobAsBuffer({ dir, oid, filename, fs })
-                  : await fs.readFile(filename)
+                  ? await localRepo.readBlobAsBuffer({ oid, filename })
+                  : await fs.promises.readFile(filename)
                 : Buffer.from(''),
           })
         ),

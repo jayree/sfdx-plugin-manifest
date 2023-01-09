@@ -2,7 +2,7 @@
   {
     "command": "jayree:manifest:beta:git:diff",
     "plugin": "@jayree/sfdx-plugin-manifest",
-    "flags": ["apiversion", "destructivechangesonly", "json", "loglevel", "outputdir", "sourcepath"],
+    "flags": ["api-version", "destructive-changes-only", "json", "output-dir", "source-dir"],
     "alias": []
   },
   {

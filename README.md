@@ -3,32 +3,16 @@
 A Salesforce CLI plugin containing commands for creating manifest files from Salesforce orgs or git commits of sfdx projects.
 
 [![sfdx](https://img.shields.io/badge/cli-sfdx-brightgreen.svg)](https://developer.salesforce.com/tools/sfdxcli)
-[![Version](https://img.shields.io/npm/v/@jayree/sfdx-plugin-manifest.svg)](https://npmjs.org/package/@jayree/sfdx-plugin-manifest)
+[![NPM](https://img.shields.io/npm/v/@jayree/sfdx-plugin-manifest.svg?label=@jayree/sfdx-plugin-manifest)](https://npmjs.org/package/@jayree/sfdx-plugin-manifest)
 [![test-and-release](https://github.com/jayree/sfdx-plugin-manifest/actions/workflows/release.yml/badge.svg)](https://github.com/jayree/sfdx-plugin-manifest/actions/workflows/release.yml)
 [![Downloads/week](https://img.shields.io/npm/dw/@jayree/sfdx-plugin-manifest.svg)](https://npmjs.org/package/@jayree/sfdx-plugin-manifest)
 [![License](https://img.shields.io/npm/l/@jayree/sfdx-plugin-manifest.svg)](https://github.com/jayree-plugins/sfdx-plugin-manifest/blob/main/package.json)
 
-<!-- toc -->
-* [Usage](#usage)
-* [Commands](#commands)
-<!-- tocstop -->
-<!-- install -->
+## Install
 
-## Usage
-
-<!-- usage -->
-```sh-session
-$ sfdx plugins:install @jayree/sfdx-plugin-manifest
-$ sfdx jayree:[COMMAND]
-running command...
-$ sfdx plugins
-@jayree/sfdx-plugin-manifest 2.6.4
-$ sfdx help jayree:[COMMAND]
-USAGE
-  $ sfdx jayree:COMMAND
-...
+```bash
+sfdx plugins:install @jayree/sfdx-plugin-manifest
 ```
-<!-- usagestop -->
 
 ## Commands
 
@@ -40,58 +24,69 @@ USAGE
 
 ### `sfdx jayree:manifest:beta:git:diff`
 
-create a project manifest and destructiveChanges manifest that lists the metadata components you want to deploy or delete based on changes in your git history
+Create a project manifest and destructiveChanges manifest that lists the metadata components you want to deploy or delete based on changes in your git history.
 
 ```
 USAGE
-  $ sfdx jayree:manifest:beta:git:diff [-p <array>] [-o <string>] [-d] [--apiversion <string>] [--json] [--loglevel
-    trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+  $ sfdx jayree:manifest:beta:git:diff [REF1] [REF2] [--json] [--api-version <value>] [-d <value>] [--output-dir <value>]
+    [--destructive-changes-only]
 
 ARGUMENTS
   REF1  base commit or branch
   REF2  commit or branch to compare to the base commit
 
 FLAGS
-  -d, --destructivechangesonly                                                      create a destructiveChanges manifest
-                                                                                    only (package.xml will be empty)
-  -o, --outputdir=<value>                                                           directory to save the created
-                                                                                    manifest files
-  -p, --sourcepath=<value>                                                          comma-separated list of paths to the
-                                                                                    local source files to include in the
-                                                                                    manifest
-  --apiversion=<value>                                                              override the api version used for
-                                                                                    api requests made by this command
-  --json                                                                            format output as json
-  --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
-                                                                                    this command invocation
+  -d, --source-dir=<value>...  Path to the local source files to include in the manifest.
+  --api-version=<value>        Override the api version used for api requests made by this command
+  --destructive-changes-only   Create a destructiveChanges manifest only.
+  --output-dir=<value>         Directory to save the created manifest files.
+
+GLOBAL FLAGS
+  --json  Format output as json.
 
 DESCRIPTION
-  create a project manifest and destructiveChanges manifest that lists the metadata components you want to deploy or
-  delete based on changes in your git history
+  Create a project manifest and destructiveChanges manifest that lists the metadata components you want to deploy or
+  delete based on changes in your git history.
+
   Use this command to create a manifest and destructiveChanges manifest file based on the difference (git diff) of two
   git refs.
 
-  You can use all ways to spell <commit> which are valid for 'git diff'.
-  (See https://git-scm.com/docs/git-diff)
+  You can use all ways to spell <commit> which are valid for 'git diff' (See https://git-scm.com/docs/git-diff).
 
 EXAMPLES
-  $ sfdx jayree:manifest:beta:git:diff <commit> <commit>
+  Uses the changes between two arbitrary <commit>.
 
-  $ sfdx jayree:manifest:git:diff <commit>..<commit>
+    $ sfdx jayree:manifest:beta:git:diff <commit> <commit>
+    $ sfdx jayree:manifest:beta:git:diff <commit>..<commit>
 
-  uses the changes between two arbitrary <commit>
+  Uses the changes on the branch containing and up to the second <commit>, starting at a common ancestor of both
+  <commit>.
 
-  $ sfdx jayree:manifest:beta:git:diff <commit>...<commit>
+    $ sfdx jayree:manifest:beta:git:diff <commit>...<commit>
 
-  uses the changes on the branch containing and up to the second <commit>, starting at a common ancestor of both <commit>.
+  Uses the diff of what is unique in branchB (REF2) and unique in branchA (REF1).
 
-  $ sfdx jayree:manifest:beta:git:diff branchA..branchB
+    $ sfdx jayree:manifest:beta:git:diff branchA..branchB
 
-  uses the diff of what is unique in branchB (REF2) and unique in branchA (REF1)
+  Uses the diff of what is unique in branchB (REF2).
 
-  $ sfdx jayree:manifest:beta:git:diff branchA...branchB
+    $ sfdx jayree:manifest:beta:git:diff branchA...branchB
 
-  uses the diff of what is unique in branchB (REF2)
+FLAG DESCRIPTIONS
+  -d, --source-dir=<value>...  Path to the local source files to include in the manifest.
+
+    The supplied path can be to a single file (in which case the operation is applied to only one file) or to a folder
+    (in which case the operation is applied to all metadata types in the directory and its subdirectories).
+
+    You can specify this flag more than once.
+
+  --destructive-changes-only  Create a destructiveChanges manifest only.
+
+    Use this flag to create a 'destructiveChanges.xml' and a blank 'package.xml'.
+
+  --output-dir=<value>  Directory to save the created manifest files.
+
+    The location can be an absolute path or relative to the current working directory.
 ```
 
 _See code: [src/commands/jayree/manifest/beta/git/diff.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v2.6.4/src/commands/jayree/manifest/beta/git/diff.ts)_

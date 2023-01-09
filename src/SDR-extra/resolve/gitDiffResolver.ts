@@ -12,20 +12,13 @@ import {
   SourceComponent,
   DestructiveChangesType,
 } from '@salesforce/source-deploy-retrieve';
-import { SfProject, SfError } from '@salesforce/core';
+import { SfProject, SfError, Lifecycle } from '@salesforce/core';
 import equal from 'fast-deep-equal';
 import Debug from 'debug';
-import {
-  resolveMultiRefString,
-  resolveSingleRefString,
-  getFileState,
-  getStatus,
-  CallbackFsClient,
-  PromiseFsClient,
-} from '../utils/git-extra.js';
-import { VirtualTreeContainerExtra, parseMetadataXml } from './treeContainersExtra.js';
+import { GitRepo } from '../utils/localGitRepo.js';
+import { VirtualTreeContainerExtra, parseMetadataXml } from './index.js';
 
-export const debug = Debug('sf:gitDiff:resolver');
+const debug = Debug('sf:gitDiff:resolver');
 
 const registryAccess = new RegistryAccess();
 
@@ -38,26 +31,31 @@ export class GitDiffResolver {
   private ref2VirtualTreeContainer: VirtualTreeContainerExtra;
   private ref1Resolver: MetadataResolver;
   private ref2Resolver: MetadataResolver;
-  private dir: string;
+  private gitDir: string;
   private uniquePackageDirectories: string[];
+  private localRepo: GitRepo;
 
   /**
    * @param dir SFDX project directory
    */
-  public constructor(project: SfProject, private fs: CallbackFsClient | PromiseFsClient) {
-    this.dir = project.getPath();
+  public constructor(project: SfProject) {
+    this.gitDir = project.getPath();
     this.uniquePackageDirectories = project.getUniquePackageDirectories().map((pDir) => pDir.fullPath);
+    this.localRepo = GitRepo.getInstance({
+      gitDir: this.gitDir,
+      packageDirs: this.uniquePackageDirectories,
+    });
   }
 
   public async resolve(ref1: string, ref2: string, fsPaths: string[]): Promise<ComponentSet> {
     if (ref2 === undefined) {
-      const { ref1: r1, ref2: r2 } = await resolveMultiRefString({ ref: ref1, dir: this.dir, fs: this.fs });
+      const { ref1: r1, ref2: r2 } = await this.localRepo.resolveMultiRefString(ref1);
       ref1 = r1;
       ref2 = r2;
     } else {
       const [r1, r2] = await Promise.all([
-        resolveSingleRefString({ ref: ref1, dir: this.dir, fs: this.fs }),
-        resolveSingleRefString({ ref: ref2, dir: this.dir, fs: this.fs }),
+        this.localRepo.resolveSingleRefString(ref1),
+        this.localRepo.resolveSingleRefString(ref2),
       ]);
       ref1 = r1;
       ref2 = r2;
@@ -71,12 +69,12 @@ export class GitDiffResolver {
     const [ref1VirtualTreeContainer, ref2VirtualTreeContainer] = await Promise.all([
       VirtualTreeContainerExtra.fromGitRef(
         ref1,
-        this.dir,
+        this.gitDir,
         fileStatus.filter((l) => l.status === 'M').map((l) => l.path)
       ),
       VirtualTreeContainerExtra.fromGitRef(
         ref2,
-        this.dir,
+        this.gitDir,
         fileStatus.filter((l) => l.status === 'M').map((l) => l.path)
       ),
     ]);
@@ -101,11 +99,11 @@ export class GitDiffResolver {
     let files: Array<{ path: string; status: string }>;
 
     if (ref2) {
-      files = (await getFileState({ ref1, ref2, dir: this.dir, fs: this.fs })).filter((l) =>
+      files = (await this.localRepo.getFileState({ ref1, ref2 })).filter((l) =>
         this.uniquePackageDirectories.some((f) => l.path.startsWith(f))
       );
     } else {
-      files = await getStatus({ dir: this.dir, ref: ref1, fs: this.fs });
+      files = await this.localRepo.getStatus(ref1);
     }
 
     files = files.filter((file) => {
@@ -189,11 +187,13 @@ export class GitDiffResolver {
       }
     }
 
-    debug({
-      forceIgnoredPaths: Array.from(
-        new Set([...this.ref1Resolver.forceIgnoredPaths, ...this.ref2Resolver.forceIgnoredPaths])
-      ),
-    });
+    const forceIgnored = Array.from(
+      new Set([...this.ref1Resolver.forceIgnoredPaths, ...this.ref2Resolver.forceIgnoredPaths])
+    );
+
+    for await (const file of forceIgnored) {
+      await Lifecycle.getInstance().emitWarning(`The forceignored file "${file}" was ignored.`);
+    }
 
     return results;
   }

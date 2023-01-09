@@ -1,7 +1,5 @@
 import { ComponentSet, OptionalTreeRegistryOptions } from '@salesforce/source-deploy-retrieve';
-import Debug from 'debug';
-export declare const debug: Debug.Debugger;
-export interface FromGitDiffOptions extends OptionalTreeRegistryOptions {
+interface FromGitDiffOptions extends OptionalTreeRegistryOptions {
     /**
      * Git ref to resolve components against
      */
@@ -36,3 +34,4 @@ export declare class ComponentSetExtra extends ComponentSet {
      */
     static fromGitDiff(options: FromGitDiffOptions): Promise<ComponentSet>;
 }
+export {};

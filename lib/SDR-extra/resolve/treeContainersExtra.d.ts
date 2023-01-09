@@ -10,5 +10,5 @@ export declare class VirtualTreeContainerExtra extends VirtualTreeContainer {
      * @param includeBufferForFiles full paths to modified files
      * @returns VirtualTreeContainer
      */
-    static fromGitRef(ref: string, dir: string, includeBufferForFiles: string[]): Promise<VirtualTreeContainer>;
+    static fromGitRef(ref: string, gitDir: string, includeBufferForFiles: string[]): Promise<VirtualTreeContainer>;
 }

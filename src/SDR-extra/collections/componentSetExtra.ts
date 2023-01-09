@@ -13,14 +13,14 @@ import {
   RegistryAccess,
   registry as untypedRegistry,
 } from '@salesforce/source-deploy-retrieve';
-import { SfProject } from '@salesforce/core';
+import { SfProject, Lifecycle } from '@salesforce/core';
 import Debug from 'debug';
-import fs from 'fs-extra';
-import { GitDiffResolver } from '../resolve/gitDiffResolver.js';
+import fs from 'graceful-fs';
+import { GitDiffResolver } from '../resolve/index.js';
 
-export const debug = Debug('sf:gitDiff:ComponentSetExtra');
+const debug = Debug('sf:gitDiff:ComponentSetExtra');
 
-export interface FromGitDiffOptions extends OptionalTreeRegistryOptions {
+interface FromGitDiffOptions extends OptionalTreeRegistryOptions {
   /**
    * Git ref to resolve components against
    */
@@ -83,7 +83,7 @@ export class ComponentSetExtra extends ComponentSet {
 
     const project = await SfProject.resolve();
 
-    const gitDiffResolver = new GitDiffResolver(project, fs);
+    const gitDiffResolver = new GitDiffResolver(project);
     const inclusiveFilter = await gitDiffResolver.resolve(ref1, ref2, fsPaths);
 
     const childsTobeReplacedByParent = [
@@ -121,7 +121,7 @@ export class ComponentSetExtra extends ComponentSet {
       }
     }
 
-    for (const component of inclusiveFilter.getSourceComponents()) {
+    for await (const component of inclusiveFilter.getSourceComponents()) {
       if (
         !components
           .getSourceComponents()
@@ -131,13 +131,14 @@ export class ComponentSetExtra extends ComponentSet {
                 .getChildren()
                 .find(
                   (localChild) =>
-                    `${component.type.name}:${component.fullName}` === `${localChild.type.name}:${localChild.fullName}`
+                    component.type.name === localChild.type.name && component.fullName === localChild.fullName
                 ) ||
-              `${component.type.name}:${component.fullName}` ===
-                `${localComponent.type.name}:${localComponent.fullName}`
+              (component.type.name === localComponent.type.name && component.fullName === localComponent.fullName)
           )
       ) {
-        debug(`${component.type.name}:${component.fullName} is missing locally`);
+        await Lifecycle.getInstance().emitWarning(
+          `The component "${component.type.name}:${component.fullName}" was not found locally.`
+        );
       }
     }
 
