@@ -101,7 +101,9 @@ export class GitDiffResolver {
     let files: Array<{ path: string; status: string }>;
 
     if (ref2) {
-      files = await getFileState({ ref1, ref2, dir: this.dir, fs: this.fs });
+      files = (await getFileState({ ref1, ref2, dir: this.dir, fs: this.fs })).filter((l) =>
+        this.uniquePackageDirectories.some((f) => l.path.startsWith(f))
+      );
     } else {
       files = await getStatus({ dir: this.dir, ref: ref1, fs: this.fs });
     }
