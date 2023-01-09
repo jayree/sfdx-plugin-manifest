@@ -4,15 +4,14 @@
  * Licensed under the BSD 3-Clause license.
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
-import os from 'os';
 import { join } from 'path';
 import { ArgInput } from '@oclif/core/lib/interfaces';
-import { FlagsConfig, flags } from '@salesforce/command';
 import { Messages } from '@salesforce/core';
 import fs from 'fs-extra';
 import { DestructiveChangesType } from '@salesforce/source-deploy-retrieve';
-import { JayreeSfdxCommand } from '../../../../../jayreeSfdxCommand.js';
-import { ComponentSetExtra } from '../../../../../SDR-extra/collections/componentSetExtra.js';
+import { SfCommand, Flags, orgApiVersionFlagWithDeprecations, arrayWithDeprecation } from '@salesforce/sf-plugins-core';
+import { getString, Optional } from '@salesforce/ts-types';
+import { ComponentSetExtra } from '../../../../../SDR-extra/index.js';
 
 Messages.importMessagesDirectory(new URL('./', import.meta.url).pathname);
 
@@ -23,12 +22,13 @@ export interface GitDiffCommandResult {
   destructiveChanges?: { path: string; name: string };
 }
 
-export default class GitDiffCommand extends JayreeSfdxCommand {
-  public static description = messages.getMessage('description');
+export default class GitDiffCommand extends SfCommand<GitDiffCommandResult> {
+  public static readonly summary = messages.getMessage('summary');
+  public static readonly description = messages.getMessage('description');
 
-  public static examples = messages.getMessage('examples').split(os.EOL);
+  public static readonly examples = messages.getMessages('examples');
 
-  public static args: ArgInput = [
+  public static readonly args: ArgInput = [
     {
       name: 'ref1',
       required: true,
@@ -40,27 +40,31 @@ export default class GitDiffCommand extends JayreeSfdxCommand {
     },
   ];
 
-  protected static flagsConfig: FlagsConfig = {
-    apiversion: flags.builtin({}),
-    sourcepath: flags.array({
-      char: 'p',
-      description: messages.getMessage('flags.sourcepath'),
-    }),
-    outputdir: flags.string({
-      char: 'o',
-      description: messages.getMessage('flags.outputdir'),
-      default: '',
-    }),
-    destructivechangesonly: flags.boolean({
+  public static readonly requiresProject = true;
+
+  public static readonly flags = {
+    'api-version': orgApiVersionFlagWithDeprecations,
+    'source-dir': arrayWithDeprecation({
       char: 'd',
-      description: messages.getMessage('flags.destructivechangesonly'),
-      default: false,
+      summary: messages.getMessage('flags.source-dir.summary'),
+      description: messages.getMessage('flags.source-dir.description'),
+      deprecateAliases: true,
+      aliases: ['sourcepath', 'p'],
+    }),
+    'output-dir': Flags.directory({
+      summary: messages.getMessage('flags.output-dir.summary'),
+      description: messages.getMessage('flags.output-dir.description'),
+      default: '',
+      deprecateAliases: true,
+      aliases: ['outputdir', 'o'],
+    }),
+    'destructive-changes-only': Flags.boolean({
+      summary: messages.getMessage('flags.destructive-changes-only.summary'),
+      description: messages.getMessage('flags.destructive-changes-only.description'),
+      deprecateAliases: true,
+      aliases: ['destructivechangesonly'],
     }),
   };
-
-  protected static requiresUsername = false;
-  protected static supportsDevhubUsername = false;
-  protected static requiresProject = true;
 
   private outputDir: string;
   private manifestName: string;
@@ -74,17 +78,23 @@ export default class GitDiffCommand extends JayreeSfdxCommand {
     return this.formatResult();
   }
 
+  protected async getSourceApiVersion(): Promise<Optional<string>> {
+    const projectConfig = await this.project.resolveProjectConfig();
+    return getString(projectConfig, 'sourceApiVersion');
+  }
+
   protected async createManifest(): Promise<void> {
+    const { flags, args } = await this.parse(GitDiffCommand);
+
     this.manifestName = 'package.xml';
     this.destructiveChangesName = 'destructiveChanges.xml';
-    this.outputDir = this.getFlag<string>('outputdir');
-    this.destructiveChangesOnly = this.getFlag<boolean>('destructivechangesonly');
-
+    this.outputDir = flags['output-dir'];
+    this.destructiveChangesOnly = flags['destructive-changes-only'];
     this.componentSet = await ComponentSetExtra.fromGitDiff({
-      ref: [this.args.ref1, this.args.ref2],
-      fsPaths: this.getFlag<string[]>('sourcepath'),
+      ref: [args.ref1, args.ref2],
+      fsPaths: flags['source-dir'],
     });
-    this.componentSet.sourceApiVersion = this.getFlag('apiversion') ?? (await this.getSourceApiVersion());
+    this.componentSet.sourceApiVersion = flags['api-version'] ?? (await this.getSourceApiVersion());
 
     if (this.outputDir) {
       await fs.ensureDir(this.outputDir);
@@ -113,23 +123,23 @@ export default class GitDiffCommand extends JayreeSfdxCommand {
   }
 
   protected formatResult(): GitDiffCommandResult {
-    if (!this.isJsonOutput()) {
+    if (!this.jsonEnabled()) {
       if (this.componentSet.size) {
         if (this.destructiveChangesOnly && !this.componentSet.getTypesOfDestructiveChanges().length) {
-          this.ux.log(messages.getMessage('nocomponents'));
+          this.log(messages.getMessage('noComponents'));
         } else if (this.outputDir) {
-          this.ux.log(messages.getMessage('successOutputDir', [this.manifestName, this.outputDir]));
+          this.log(messages.getMessage('successOutputDir', [this.manifestName, this.outputDir]));
           if (this.componentSet.getTypesOfDestructiveChanges().length) {
-            this.ux.log(messages.getMessage('successOutputDir', [this.destructiveChangesName, this.outputDir]));
+            this.log(messages.getMessage('successOutputDir', [this.destructiveChangesName, this.outputDir]));
           }
         } else {
-          this.ux.log(messages.getMessage('success', [this.manifestName]));
+          this.log(messages.getMessage('success', [this.manifestName]));
           if (this.componentSet.getTypesOfDestructiveChanges().length) {
-            this.ux.log(messages.getMessage('success', [this.destructiveChangesName]));
+            this.log(messages.getMessage('success', [this.destructiveChangesName]));
           }
         }
       } else {
-        this.ux.log(messages.getMessage('nocomponents'));
+        this.log(messages.getMessage('noComponents'));
       }
     }
     if (this.componentSet.getTypesOfDestructiveChanges().length) {
