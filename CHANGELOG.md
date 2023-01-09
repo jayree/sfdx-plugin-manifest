@@ -1,3 +1,15 @@
+# [2.7.0](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.6.4...v2.7.0) (2023-01-09)
+
+
+### Bug Fixes
+
+* **manifest:beta:git:diff:** fix output if ref2 is set ([9886831](https://github.com/jayree/sfdx-plugin-manifest/commit/9886831f7533d2b9d2bfdba2f1da5f94f2eb3caa))
+
+
+### Features
+
+* **manifest:beta:git:diff:** more enhancements and new sf flags. -d is now used for --source-dir ([1c6be65](https://github.com/jayree/sfdx-plugin-manifest/commit/1c6be65967f6c1fd0afa6ae590466563347d80aa))
+
 ## [2.6.4](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.6.3...v2.6.4) (2023-01-09)
 
 
