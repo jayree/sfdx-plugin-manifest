@@ -1,3 +1,11 @@
+## [2.6.4](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.6.3...v2.6.4) (2023-01-09)
+
+
+### Bug Fixes
+
+* **manifest:beta:git:diff:** fix sourcepath parameter ([0cc68bf](https://github.com/jayree/sfdx-plugin-manifest/commit/0cc68bf9547cc3ea67c0b6b591c2166f2debc852))
+* **manifest:git:diff:** ignore modified forceignored metadata ([a264829](https://github.com/jayree/sfdx-plugin-manifest/commit/a26482954f18cb316b71e79d53191f2e6307b4c6))
+
 ## [2.6.3](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.6.2...v2.6.3) (2023-01-06)
 
 
