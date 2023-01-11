@@ -28,6 +28,17 @@ You can use all ways to spell <commit> which are valid for 'git diff' (See https
 
   <%= config.bin %> <%= command.id %> branchA...branchB
 
+- Specify the flags before or after the REF args
+
+  <%= config.bin %> <%= command.id %> --output-dir package <commit> <commit> 
+
+  <%= config.bin %> <%= command.id %> <commit> <commit> --output-dir package
+
+- If you specify the 'source-dir' flag before the REF args, use '--' to separate the args from the 'source-dir' values.
+
+  <%= config.bin %> <%= command.id %> --source-dir force-app -- <commit> <commit>
+
+
 # flags.output-dir.summary
 
 Directory to save the created manifest files.

@@ -4,7 +4,8 @@
  * Licensed under the BSD 3-Clause license.
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
-import { join } from 'path';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { ArgInput } from '@oclif/core/lib/interfaces';
 import { Messages } from '@salesforce/core';
 import fs from 'fs-extra';
@@ -13,8 +14,12 @@ import { SfCommand, Flags, orgApiVersionFlagWithDeprecations, arrayWithDeprecati
 import { getString, Optional } from '@salesforce/ts-types';
 import { ComponentSetExtra } from '../../../../../SDR-extra/index.js';
 
-Messages.importMessagesDirectory(new URL('./', import.meta.url).pathname);
+// eslint-disable-next-line no-underscore-dangle
+const __filename = fileURLToPath(import.meta.url);
+// eslint-disable-next-line no-underscore-dangle
+const __dirname = dirname(__filename);
 
+Messages.importMessagesDirectory(__dirname);
 const messages = Messages.loadMessages('@jayree/sfdx-plugin-manifest', 'gitdiffbeta');
 
 export interface GitDiffCommandResult {

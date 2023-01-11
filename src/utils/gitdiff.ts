@@ -5,9 +5,9 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
-import { join, basename, sep, posix, dirname, relative } from 'path';
+import { join, basename, sep, posix, dirname, relative } from 'node:path';
 import util from 'util';
-import { resolve } from 'path';
+import { resolve } from 'node:path';
 import fs from 'fs-extra';
 import equal from 'fast-deep-equal';
 import {

@@ -5,13 +5,20 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 import os from 'os';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { flags, FlagsConfig } from '@salesforce/command';
 import { Messages } from '@salesforce/core';
 import fs from 'fs-extra';
 import { JayreeSfdxCommand } from '../../../jayreeSfdxCommand.js';
 import { cleanupManifestFile } from '../../../utils/manifest.js';
 
-Messages.importMessagesDirectory(new URL('./', import.meta.url).pathname);
+// eslint-disable-next-line no-underscore-dangle
+const __filename = fileURLToPath(import.meta.url);
+// eslint-disable-next-line no-underscore-dangle
+const __dirname = dirname(__filename);
+
+Messages.importMessagesDirectory(__dirname);
 
 const messages = Messages.loadMessages('@jayree/sfdx-plugin-manifest', 'manifestcleanup');
 

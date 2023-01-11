@@ -72,6 +72,16 @@ EXAMPLES
 
     $ sfdx jayree:manifest:beta:git:diff branchA...branchB
 
+  Specify the flags before or after the REF args
+
+    $ sfdx jayree:manifest:beta:git:diff --output-dir package <commit> <commit>
+    $ sfdx jayree:manifest:beta:git:diff <commit> <commit> --output-dir package
+
+  If you specify the 'source-dir' flag before the REF args, use '--' to separate the args from the 'source-dir'
+  values.
+
+    $ sfdx jayree:manifest:beta:git:diff --source-dir force-app -- <commit> <commit>
+
 FLAG DESCRIPTIONS
   -d, --source-dir=<value>...  Path to the local source files to include in the manifest.
 

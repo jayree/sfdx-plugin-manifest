@@ -5,7 +5,7 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 import util from 'util';
-import path from 'path';
+import path from 'node:path';
 import git from 'isomorphic-git';
 import { Lifecycle } from '@salesforce/core';
 import fs from 'graceful-fs';

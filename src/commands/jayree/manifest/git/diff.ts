@@ -5,7 +5,8 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 import os from 'os';
-import { join, dirname, resolve } from 'path';
+import { join, dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { ArgInput } from '@oclif/core/lib/interfaces';
 import { FlagsConfig, flags } from '@salesforce/command';
 import { Messages, SfError } from '@salesforce/core';
@@ -24,7 +25,12 @@ import {
   gitLines,
 } from '../../../../utils/gitdiff.js';
 
-Messages.importMessagesDirectory(new URL('./', import.meta.url).pathname);
+// eslint-disable-next-line no-underscore-dangle
+const __filename = fileURLToPath(import.meta.url);
+// eslint-disable-next-line no-underscore-dangle
+const __dirname = dirname(__filename);
+
+Messages.importMessagesDirectory(__dirname);
 
 const messages = Messages.loadMessages('@jayree/sfdx-plugin-manifest', 'gitdiff');
 
