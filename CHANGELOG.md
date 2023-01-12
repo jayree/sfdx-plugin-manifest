@@ -1,3 +1,10 @@
+## [2.7.1](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.7.0...v2.7.1) (2023-01-12)
+
+
+### Bug Fixes
+
+* restore windows compatibility ([8846d18](https://github.com/jayree/sfdx-plugin-manifest/commit/8846d1889418ecf4284c89aba15ff10104f44922))
+
 # [2.7.0](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.6.4...v2.7.0) (2023-01-09)
 
 
