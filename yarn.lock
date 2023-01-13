@@ -1157,10 +1157,10 @@
   resolved "https://registry.yarnpkg.com/@salesforce/schemas/-/schemas-1.4.0.tgz#7dff427c8059895d8108176047aee600703c82d6"
   integrity sha512-BJ25uphssN42Zy6kksheFHMTLiR98AAHe/Wxnv0T4dYxtrEbUjSXVAGKZqfewJPFXA4xB5gxC+rQZtfz6xKCFg==
 
-"@salesforce/sf-plugins-core@^1.21.5":
-  version "1.21.5"
-  resolved "https://registry.yarnpkg.com/@salesforce/sf-plugins-core/-/sf-plugins-core-1.21.5.tgz#2731bdbcf817eaa104daa35b3f6b677742e571b9"
-  integrity sha512-UZm0/53EmFFCz9uva1WwnbBYslnqgR3XNdk5zf/GlAKr8VmRHPkE0JPa0X2yVfgonxCA95WxUk1jPdAfhjyUsg==
+"@salesforce/sf-plugins-core@^1.22.0":
+  version "1.22.0"
+  resolved "https://registry.yarnpkg.com/@salesforce/sf-plugins-core/-/sf-plugins-core-1.22.0.tgz#1f59c147616fb3e26c22219a8c4539a6816bf6e5"
+  integrity sha512-oi2IAo1wYNR3wSvzx0c5MOdGVI5qS947FPhZFH8Gk2FlUz4V4dsMC80VeqLtP3TsAWOO78nLzlIBfXBpIogJzQ==
   dependencies:
     "@oclif/core" "^1.23.1"
     "@salesforce/core" "^3.32.12"
@@ -4586,28 +4586,7 @@ inquirer@^7.0.0:
     strip-ansi "^6.0.0"
     through "^2.3.6"
 
-inquirer@^8.0.0:
-  version "8.2.4"
-  resolved "https://registry.yarnpkg.com/inquirer/-/inquirer-8.2.4.tgz#ddbfe86ca2f67649a67daa6f1051c128f684f0b4"
-  integrity sha512-nn4F01dxU8VeKfq192IjLsxu0/OmMZ4Lg3xKAns148rCaXP6ntAoEkVYZThWjwON8AlzdZZi6oqnhNbxUG9hVg==
-  dependencies:
-    ansi-escapes "^4.2.1"
-    chalk "^4.1.1"
-    cli-cursor "^3.1.0"
-    cli-width "^3.0.0"
-    external-editor "^3.0.3"
-    figures "^3.0.0"
-    lodash "^4.17.21"
-    mute-stream "0.0.8"
-    ora "^5.4.1"
-    run-async "^2.4.0"
-    rxjs "^7.5.5"
-    string-width "^4.1.0"
-    strip-ansi "^6.0.0"
-    through "^2.3.6"
-    wrap-ansi "^7.0.0"
-
-inquirer@^8.2.5:
+inquirer@^8.0.0, inquirer@^8.2.5:
   version "8.2.5"
   resolved "https://registry.yarnpkg.com/inquirer/-/inquirer-8.2.5.tgz#d8654a7542c35a9b9e069d27e2df4858784d54f8"
   integrity sha512-QAgPDQMEgrDssk1XiwwHoOGYF9BAbUcc1+j+FhEvaOt8/cKRqyLn0U5qA6F74fGhTMGxf92pOvPBeh29jQJDTQ==
