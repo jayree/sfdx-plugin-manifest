@@ -1,8 +1,13 @@
-#!/usr/bin/env node
+#!/usr/bin/env -S node --loader ts-node/esm
 
 import oclif from '@oclif/core';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
 
-const project = new URL('../tsconfig.json', import.meta.url).pathname;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const project = path.join(__dirname, '..', 'tsconfig.json');
 
 // In dev mode -> use ts-node and dev plugins
 process.env.NODE_ENV = 'development';
@@ -14,7 +19,4 @@ tsnode.register({ project });
 oclif.settings.debug = true;
 
 // Start the CLI
-oclif
-  .run(process.argv.slice(2), { root: new URL('../', import.meta.url).pathname })
-  .then(oclif.flush)
-  .catch(oclif.Errors.handle);
+oclif.run(undefined, __filename).then(oclif.flush).catch(oclif.Errors.handle);
