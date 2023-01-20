@@ -10,7 +10,7 @@
     "@salesforce/command": "^5.2.41",
     "@salesforce/kit": "^1.8.3",
     "@salesforce/sf-plugins-core": "^1.22.0",
-    "@salesforce/source-deploy-retrieve": "^7.7.0",
+    "@salesforce/source-deploy-retrieve": "^7.7.3",
     "@salesforce/ts-types": "^1.7.2",
     "debug": "^4.3.4",
     "fast-deep-equal": "^3.1.3",
