@@ -18,7 +18,7 @@
     "fs-extra": "^11.1.0",
     "graceful-fs": "^4.2.10",
     "isomorphic-git": "^1.21.0",
-    "listr2": "^5.0.6",
+    "listr2": "^5.0.7",
     "marked": "^4.2.5",
     "marked-terminal": "^5.1.1",
     "semver": "^7.3.8",
