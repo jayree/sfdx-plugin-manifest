@@ -19,7 +19,7 @@
     "graceful-fs": "^4.2.10",
     "isomorphic-git": "^1.21.0",
     "listr2": "^5.0.7",
-    "marked": "^4.2.5",
+    "marked": "^4.2.12",
     "marked-terminal": "^5.1.1",
     "semver": "^7.3.8",
     "tslib": "^2.4.1"
