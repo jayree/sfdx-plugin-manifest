@@ -32,8 +32,8 @@ USAGE
     [--destructive-changes-only]
 
 ARGUMENTS
-  REF1  base commit or branch
-  REF2  commit or branch to compare to the base commit
+  REF1  Base commit or branch.
+  REF2  Commit or branch to compare to the base commit.
 
 FLAGS
   -d, --source-dir=<value>...  Path to the local source files to include in the manifest.
@@ -175,8 +175,8 @@ USAGE
   [--destructive-changes-only]
 
 ARGUMENTS
-  REF1  base commit or branch
-  REF2  commit or branch to compare to the base commit
+  REF1  Base commit or branch.
+  REF2  Commit or branch to compare to the base commit.
 
 FLAGS
   -d, --source-dir=<value>...  Path to the local source files to include in the manifest.

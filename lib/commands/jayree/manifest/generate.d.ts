@@ -30,13 +30,13 @@ export default class GeneratePackageXML extends SfCommand<PackageManifestObject>
     static readonly description: string;
     static readonly examples: string[];
     static readonly flags: {
-        'target-org': import("@oclif/core/lib/interfaces/parser.js").OptionFlag<import("@salesforce/core").Org>;
-        'api-version': import("@oclif/core/lib/interfaces/parser.js").OptionFlag<string>;
-        'quick-filter': import("@oclif/core/lib/interfaces/parser.js").OptionFlag<string[]>;
+        'target-org': import("@oclif/core/lib/interfaces/parser.js").OptionFlag<import("@salesforce/core").Org, import("@oclif/core/lib/interfaces/parser.js").CustomOptions>;
+        'api-version': import("@oclif/core/lib/interfaces/parser.js").OptionFlag<string, import("@oclif/core/lib/interfaces/parser.js").CustomOptions>;
+        'quick-filter': import("@oclif/core/lib/interfaces/parser.js").OptionFlag<string[], import("@oclif/core/lib/interfaces/parser.js").CustomOptions>;
         'match-case': import("@oclif/core/lib/interfaces/parser.js").BooleanFlag<boolean>;
         'match-whole-word': import("@oclif/core/lib/interfaces/parser.js").BooleanFlag<boolean>;
         'include-flow-versions': import("@oclif/core/lib/interfaces/parser.js").BooleanFlag<boolean>;
-        file: import("@oclif/core/lib/interfaces/parser.js").OptionFlag<string>;
+        file: import("@oclif/core/lib/interfaces/parser.js").OptionFlag<string, import("@oclif/core/lib/interfaces/parser.js").CustomOptions>;
         'exclude-managed': import("@oclif/core/lib/interfaces/parser.js").BooleanFlag<boolean>;
         'exclude-all': import("@oclif/core/lib/interfaces/parser.js").BooleanFlag<boolean>;
     };

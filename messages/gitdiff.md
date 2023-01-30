@@ -38,6 +38,13 @@ You can use all ways to spell <commit> which are valid for 'git diff' (See https
 
   <%= config.bin %> <%= command.id %> --source-dir force-app -- <commit> <commit>
 
+# args.ref1.description
+
+Base commit or branch.
+
+# args.ref2.description
+
+Commit or branch to compare to the base commit.
 
 # flags.output-dir.summary
 

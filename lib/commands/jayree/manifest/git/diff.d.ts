@@ -8,17 +8,14 @@ export default class GitDiff extends SfCommand<GitDiffCommandResult> {
     static readonly summary: string;
     static readonly description: string;
     static readonly examples: string[];
-    static args: {
-        name: string;
-        required: boolean;
-        description: string;
-        parse: (input: string) => Promise<string>;
-        hidden: boolean;
-    }[];
+    static readonly args: {
+        ref1: import("@oclif/core/lib/interfaces/parser.js").Arg<string, Record<string, unknown>>;
+        ref2: import("@oclif/core/lib/interfaces/parser.js").Arg<string, Record<string, unknown>>;
+    };
     static readonly requiresProject = true;
     static readonly flags: {
-        'source-dir': import("@oclif/core/lib/interfaces/parser.js").OptionFlag<string[]>;
-        'output-dir': import("@oclif/core/lib/interfaces/parser.js").OptionFlag<string>;
+        'source-dir': import("@oclif/core/lib/interfaces/parser.js").OptionFlag<string[], import("@oclif/core/lib/interfaces/parser.js").CustomOptions>;
+        'output-dir': import("@oclif/core/lib/interfaces/parser.js").OptionFlag<string, import("@oclif/core/lib/interfaces/parser.js").CustomOptions>;
         'destructive-changes-only': import("@oclif/core/lib/interfaces/parser.js").BooleanFlag<boolean>;
     };
     private isOutputEnabled;

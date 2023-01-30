@@ -9,6 +9,7 @@ import { fileURLToPath } from 'node:url';
 import { format } from 'node:util';
 import { SfCommand, Flags, arrayWithDeprecation } from '@salesforce/sf-plugins-core';
 import { Messages, SfError, SfProject } from '@salesforce/core';
+import { Args } from '@oclif/core';
 import fs from 'fs-extra';
 import { Logger, Listr } from 'listr2';
 import { env } from '@salesforce/kit';
@@ -44,15 +45,6 @@ const debug = Debug('jayree:manifest:git:diff');
 
 const registryAccess = new RegistryAccess();
 
-// eslint-disable-next-line @typescript-eslint/require-await
-const unexpectedArgument = async (input: string): Promise<string> => {
-  if (input.includes('-')) {
-    throw new Error(`Unexpected argument: ${input}
-  See more help with --help`);
-  }
-  return input;
-};
-
 export interface GitDiffCommandResult {
   destructiveChanges: object;
   manifest: object;
@@ -82,23 +74,15 @@ export default class GitDiff extends SfCommand<GitDiffCommandResult> {
 
   public static readonly examples = messages.getMessages('examples');
 
-  // eslint-disable-next-line sf-plugin/no-deprecated-properties
-  public static args = [
-    {
-      name: 'ref1',
+  public static readonly args = {
+    ref1: Args.string({
       required: true,
-      description: 'base commit or branch',
-      parse: unexpectedArgument,
-      hidden: false,
-    },
-    {
-      name: 'ref2',
-      required: false,
-      description: 'commit or branch to compare to the base commit',
-      parse: unexpectedArgument,
-      hidden: false,
-    },
-  ];
+      description: messages.getMessage('args.ref1.description'),
+    }),
+    ref2: Args.string({
+      description: messages.getMessage('args.ref2.description'),
+    }),
+  };
 
   public static readonly requiresProject = true;
 
@@ -159,7 +143,7 @@ export default class GitDiff extends SfCommand<GitDiffCommandResult> {
 
     const isContentTypeJSON = env.getString('SFDX_CONTENT_TYPE', '').toUpperCase() === 'JSON';
     this.isOutputEnabled = !(this.argv.find((arg) => arg === '--json') || isContentTypeJSON);
-    const gitArgs = await getGitArgsFromArgv(args.ref1 as string, args.ref2 as string, this.argv, this.projectRoot);
+    const gitArgs = await getGitArgsFromArgv(args.ref1, args.ref2, this.argv, this.projectRoot);
     debug({ gitArgs });
     const tasks = new Listr(
       [

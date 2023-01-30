@@ -10,6 +10,7 @@ import { Messages } from '@salesforce/core';
 import fs from 'fs-extra';
 import { DestructiveChangesType } from '@salesforce/source-deploy-retrieve';
 import { SfCommand, Flags, orgApiVersionFlagWithDeprecations, arrayWithDeprecation } from '@salesforce/sf-plugins-core';
+import { Args } from '@oclif/core';
 import { getString, Optional } from '@salesforce/ts-types';
 import { ComponentSetExtra } from '../../../../../SDR-extra/index.js';
 
@@ -32,18 +33,15 @@ export default class GitDiffCommand extends SfCommand<GitDiffCommandResult> {
 
   public static readonly examples = messages.getMessages('examples');
 
-  // eslint-disable-next-line sf-plugin/no-deprecated-properties
-  public static readonly args = [
-    {
-      name: 'ref1',
+  public static readonly args = {
+    ref1: Args.string({
       required: true,
-      description: 'base commit or branch',
-    },
-    {
-      name: 'ref2',
-      description: 'commit or branch to compare to the base commit',
-    },
-  ];
+      description: messages.getMessage('args.ref1.description'),
+    }),
+    ref2: Args.string({
+      description: messages.getMessage('args.ref2.description'),
+    }),
+  };
 
   public static readonly requiresProject = true;
 
