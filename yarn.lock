@@ -1184,13 +1184,13 @@
     chalk "^4"
     inquirer "^8.2.5"
 
-"@salesforce/source-deploy-retrieve@^7.7.5":
-  version "7.7.5"
-  resolved "https://registry.yarnpkg.com/@salesforce/source-deploy-retrieve/-/source-deploy-retrieve-7.7.5.tgz#4eb64f02d4759f98e1e64187a081c472ebe8a2ae"
-  integrity sha512-zkGpbvTVr2nBJfbTxShFfaa4DAOvbXiaaWjZg0oVLUDoAQh+uQKX4aPdsXqJR4pKdQR8u1JwEV7TlR1f5gMCrg==
+"@salesforce/source-deploy-retrieve@^7.7.6":
+  version "7.7.6"
+  resolved "https://registry.yarnpkg.com/@salesforce/source-deploy-retrieve/-/source-deploy-retrieve-7.7.6.tgz#57fc93ca4f14bf27e7db5fd3759cc290bc0d4eed"
+  integrity sha512-AIMMxGXnzFmuoUnnM0Kum6Av9vMtX9Yq7qkBMVaFFubjAj29vU4pv+JJ1CIsITVrqNNd9Hi09TVQtw3rQvsqyQ==
   dependencies:
     "@salesforce/core" "^3.32.13"
-    "@salesforce/kit" "^1.8.0"
+    "@salesforce/kit" "^1.8.3"
     "@salesforce/ts-types" "^1.7.2"
     archiver "^5.3.1"
     fast-xml-parser "^3.21.1"
