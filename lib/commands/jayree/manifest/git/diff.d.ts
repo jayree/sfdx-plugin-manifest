@@ -1,18 +1,26 @@
-import { ArgInput } from '@oclif/core/lib/interfaces';
-import { FlagsConfig } from '@salesforce/command';
-import { JayreeSfdxCommand } from '../../../../jayreeSfdxCommand.js';
+import { SfCommand } from '@salesforce/sf-plugins-core';
+import { Optional } from '@salesforce/ts-types';
 export interface GitDiffCommandResult {
     destructiveChanges: object;
     manifest: object;
 }
-export default class GitDiff extends JayreeSfdxCommand {
-    static description: string;
-    static examples: string[];
-    static args: ArgInput;
-    protected static flagsConfig: FlagsConfig;
-    protected static requiresUsername: boolean;
-    protected static supportsDevhubUsername: boolean;
-    protected static requiresProject: boolean;
+export default class GitDiff extends SfCommand<GitDiffCommandResult> {
+    static readonly summary: string;
+    static readonly description: string;
+    static readonly examples: string[];
+    static args: {
+        name: string;
+        required: boolean;
+        description: string;
+        parse: (input: string) => Promise<string>;
+        hidden: boolean;
+    }[];
+    static readonly requiresProject = true;
+    static readonly flags: {
+        'source-dir': import("@oclif/core/lib/interfaces/parser.js").OptionFlag<string[]>;
+        'output-dir': import("@oclif/core/lib/interfaces/parser.js").OptionFlag<string>;
+        'destructive-changes-only': import("@oclif/core/lib/interfaces/parser.js").BooleanFlag<boolean>;
+    };
     private isOutputEnabled;
     private outputDir;
     private destructiveChangesOnly;
@@ -28,4 +36,5 @@ export default class GitDiff extends JayreeSfdxCommand {
     private outputWarnings;
     private fsPaths;
     run(): Promise<GitDiffCommandResult>;
+    protected getSourceApiVersion(): Promise<Optional<string>>;
 }

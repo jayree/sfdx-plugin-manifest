@@ -19,7 +19,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 Messages.importMessagesDirectory(__dirname);
-const messages = Messages.loadMessages('@jayree/sfdx-plugin-manifest', 'gitdiffbeta');
+const messages = Messages.loadMessages('@jayree/sfdx-plugin-manifest', 'gitdiff');
 
 export interface GitDiffCommandResult {
   manifest?: { path: string; name: string };
