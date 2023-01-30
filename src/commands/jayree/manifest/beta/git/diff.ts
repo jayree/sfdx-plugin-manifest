@@ -6,7 +6,6 @@
  */
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { ArgInput } from '@oclif/core/lib/interfaces';
 import { Messages } from '@salesforce/core';
 import fs from 'fs-extra';
 import { DestructiveChangesType } from '@salesforce/source-deploy-retrieve';
@@ -33,7 +32,8 @@ export default class GitDiffCommand extends SfCommand<GitDiffCommandResult> {
 
   public static readonly examples = messages.getMessages('examples');
 
-  public static readonly args: ArgInput = [
+  // eslint-disable-next-line sf-plugin/no-deprecated-properties
+  public static readonly args = [
     {
       name: 'ref1',
       required: true,
@@ -78,6 +78,7 @@ export default class GitDiffCommand extends SfCommand<GitDiffCommandResult> {
   private componentSet: ComponentSetExtra;
   private destructiveChangesOnly: boolean;
 
+  // eslint-disable-next-line sf-plugin/should-parse-flags
   public async run(): Promise<GitDiffCommandResult> {
     await this.createManifest();
     return this.formatResult();
