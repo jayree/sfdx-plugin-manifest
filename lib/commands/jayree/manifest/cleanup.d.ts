@@ -1,11 +1,13 @@
-import { FlagsConfig } from '@salesforce/command';
-import { JayreeSfdxCommand } from '../../../jayreeSfdxCommand.js';
-export default class CleanupManifest extends JayreeSfdxCommand {
-    static description: string;
-    static examples: string[];
-    protected static flagsConfig: FlagsConfig;
-    protected static requiresUsername: boolean;
-    protected static supportsDevhubUsername: boolean;
-    protected static requiresProject: boolean;
+import { SfCommand } from '@salesforce/sf-plugins-core';
+export default class CleanupManifest extends SfCommand<void> {
+    static readonly summary: string;
+    static readonly description: string;
+    static readonly examples: string[];
+    static readonly requiresProject = true;
+    static readonly flags: {
+        manifest: import("@oclif/core/lib/interfaces/parser.js").OptionFlag<string>;
+        file: import("@oclif/core/lib/interfaces/parser.js").OptionFlag<string>;
+    };
     run(): Promise<void>;
+    private cleanupManifestFile;
 }

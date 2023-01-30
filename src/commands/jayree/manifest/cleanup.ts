@@ -4,14 +4,17 @@
  * Licensed under the BSD 3-Clause license.
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
-import os from 'os';
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { flags, FlagsConfig } from '@salesforce/command';
 import { Messages } from '@salesforce/core';
+import { CLIError } from '@oclif/core/lib/parser/errors.js';
+import chalk from 'chalk';
 import fs from 'fs-extra';
-import { JayreeSfdxCommand } from '../../../jayreeSfdxCommand.js';
-import { cleanupManifestFile } from '../../../utils/manifest.js';
+import { SfCommand, Flags } from '@salesforce/sf-plugins-core';
+import { ensureArray } from '@salesforce/kit';
+import { PackageTypeMembers } from '@salesforce/source-deploy-retrieve';
+import { XMLParser, XMLBuilder } from 'fast-xml-parser';
+import { XML_DECL, XML_NS_KEY, XML_NS_URL } from '@salesforce/source-deploy-retrieve/lib/src/common/index.js';
 
 // eslint-disable-next-line no-underscore-dangle
 const __filename = fileURLToPath(import.meta.url);
@@ -22,28 +25,38 @@ Messages.importMessagesDirectory(__dirname);
 
 const messages = Messages.loadMessages('@jayree/sfdx-plugin-manifest', 'manifestcleanup');
 
-export default class CleanupManifest extends JayreeSfdxCommand {
-  public static description = messages.getMessage('commandDescription');
+interface PackageManifestObject {
+  Package: {
+    types: PackageTypeMembers[];
+    version: string;
+    [XML_NS_KEY]?: string;
+  };
+}
 
-  public static examples = messages.getMessage('examples').split(os.EOL);
+export default class CleanupManifest extends SfCommand<void> {
+  public static readonly summary = messages.getMessage('summary');
+  public static readonly description = messages.getMessage('description');
 
-  protected static flagsConfig: FlagsConfig = {
-    manifest: flags.filepath({
+  public static readonly examples = messages.getMessages('examples');
+
+  public static readonly requiresProject = true;
+
+  public static readonly flags = {
+    manifest: Flags.file({
       char: 'x',
-      description: messages.getMessage('manifestFlagDescription'),
+      summary: messages.getMessage('flags.manifest.summary'),
     }),
-    file: flags.filepath({
+    file: Flags.file({
       char: 'f',
-      description: messages.getMessage('fileFlagDescription'),
+      required: true,
+      summary: messages.getMessage('flags.file.summary'),
     }),
   };
 
-  protected static requiresUsername = false;
-  protected static supportsDevhubUsername = false;
-  protected static requiresProject = true;
-
   public async run(): Promise<void> {
-    const file = this.getFlag<string>('file');
+    const { flags } = await this.parse(CleanupManifest);
+
+    const file = flags['file'];
     if (!(await fs.pathExists(file))) {
       await fs.ensureFile(file);
       await fs.writeFile(
@@ -77,10 +90,83 @@ export default class CleanupManifest extends JayreeSfdxCommand {
 </Package>
 `
       );
-      this.ux.log(`Cleanup manifest file template '${file}' was created`);
+      this.log(`Cleanup manifest file template '${file}' was created`);
     } else {
-      await cleanupManifestFile(this.getFlag<string>('manifest'), file);
+      if (!(await fs.pathExists(flags['manifest']))) {
+        throw new CLIError(`The following error occurred:\n  ${chalk.dim('Missing required flag manifest')}`);
+      }
+      await this.cleanupManifestFile(flags['manifest'], file);
     }
     return;
   }
+
+  private async cleanupManifestFile(manifest: string, ignoreManifest: string): Promise<void> {
+    const { packageTypeMembers: manifestTypeMembers, version } = parseManifest(fs.readFileSync(manifest, 'utf8'));
+    this.log(`apply '${ignoreManifest}' to '${manifest}'`);
+
+    const typeMap = new Map<string, string[]>();
+
+    manifestTypeMembers.forEach((value) => {
+      typeMap.set(value.name, ensureArray(value.members));
+    });
+
+    const { packageTypeMembers: ignoreTypeMembers } = parseManifest(fs.readFileSync(ignoreManifest, 'utf8'));
+
+    ignoreTypeMembers.forEach((types) => {
+      if (typeMap.get(types.name)) {
+        const packageTypeMembers = ensureArray(types.members);
+        if (packageTypeMembers.includes('*') && packageTypeMembers.length > 1) {
+          const includemembers = packageTypeMembers.slice();
+          includemembers.splice(includemembers.indexOf('*'), 1);
+          const includedmembers = typeMap.get(types.name).filter((value) => includemembers.includes(value));
+          if (includedmembers.length) {
+            this.log('include only members ' + includedmembers.toString() + ' for type ' + types.name);
+            typeMap.set(types.name, includedmembers);
+          }
+        }
+
+        if (packageTypeMembers.includes('*') && packageTypeMembers.length === 1) {
+          this.log('exclude all members for type ' + types.name);
+          typeMap.delete(types.name);
+        }
+
+        if (!packageTypeMembers.includes('*')) {
+          const includedmembers = typeMap.get(types.name).filter((value) => !packageTypeMembers.includes(value));
+          typeMap.set(types.name, includedmembers);
+        }
+
+        packageTypeMembers.forEach((member) => {
+          if (member.startsWith('!')) {
+            typeMap.get(types.name).push(member.substring(1));
+          }
+        });
+      }
+    });
+
+    const typeMembers: PackageTypeMembers[] = [];
+    for (const [typeName, members] of typeMap.entries()) {
+      if (members.length) {
+        typeMembers.push({ name: typeName, members });
+      }
+    }
+
+    await fs.writeFile(manifest, js2Manifest({ Package: { types: typeMembers, version } }));
+  }
+}
+
+function parseManifest(xmlData: string): { packageTypeMembers: PackageTypeMembers[]; version: string } {
+  const parser = new XMLParser({ stopNodes: ['version'], parseTagValue: false });
+
+  const {
+    Package: { types, version },
+  } = parser.parse(xmlData) as PackageManifestObject;
+
+  const packageTypeMembers = ensureArray(types);
+  return { packageTypeMembers, version };
+}
+
+function js2Manifest(jsData: PackageManifestObject): string {
+  const js2Xml = new XMLBuilder({ format: true, indentBy: '    ', ignoreAttributes: false });
+  jsData.Package[XML_NS_KEY] = XML_NS_URL;
+  return XML_DECL.concat(js2Xml.build(jsData) as string);
 }
