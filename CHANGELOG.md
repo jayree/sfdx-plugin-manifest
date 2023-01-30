@@ -1,3 +1,22 @@
+# [2.8.0](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.7.4...v2.8.0) (2023-01-30)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 1.25.0 to 2.0.7 ([6c3fae2](https://github.com/jayree/sfdx-plugin-manifest/commit/6c3fae296a8f4249f6f928e628f1883d27ea9303))
+* **deps:** bump @salesforce/kit from 1.8.3 to 1.8.4 ([#543](https://github.com/jayree/sfdx-plugin-manifest/issues/543)) ([a42453b](https://github.com/jayree/sfdx-plugin-manifest/commit/a42453b0227c4dc1e4af87acd26df2ba734fa8d3))
+* **deps:** bump @salesforce/sf-plugins-core from 1.22.2 to 1.22.3 ([#540](https://github.com/jayree/sfdx-plugin-manifest/issues/540)) ([da26f45](https://github.com/jayree/sfdx-plugin-manifest/commit/da26f4573c2794ba38145245e72c4519db925937))
+* **deps:** bump @salesforce/sf-plugins-core from 1.22.3 to 2.0.1 ([980797c](https://github.com/jayree/sfdx-plugin-manifest/commit/980797cdea9406f57ff218b0959f5e79e324e703))
+* **deps:** bump @salesforce/source-deploy-retrieve from 7.7.5 to 7.7.6 ([#544](https://github.com/jayree/sfdx-plugin-manifest/issues/544)) ([eb9db65](https://github.com/jayree/sfdx-plugin-manifest/commit/eb9db651efece7cf6db317ec280c9468fe539933))
+* **deps:** bump @salesforce/ts-types from 1.7.2 to 1.7.3 ([#547](https://github.com/jayree/sfdx-plugin-manifest/issues/547)) ([cf5e568](https://github.com/jayree/sfdx-plugin-manifest/commit/cf5e56832450117553f5e75fcc8c7e950f0c34e1))
+
+
+### Features
+
+* **manifest:cleanup:** convert to new SfCommand ([9ecabda](https://github.com/jayree/sfdx-plugin-manifest/commit/9ecabda4ebcf30b3a5279e404f1190b2c20d3e38))
+* **manifest:generate:** convert to new SfCommand ([8bfcc2a](https://github.com/jayree/sfdx-plugin-manifest/commit/8bfcc2ac7a5e3dcbe8258b7b73023ffb73ce14eb))
+* **manifest:git:diff:** convert to new SfCommand ([fe7f913](https://github.com/jayree/sfdx-plugin-manifest/commit/fe7f9137c2fa01cd3308da179bcf3d2d6e5ab7a2))
+
 ## [2.7.4](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.7.3...v2.7.4) (2023-01-27)
 
 
