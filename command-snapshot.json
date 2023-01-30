@@ -8,31 +8,30 @@
   {
     "command": "jayree:manifest:cleanup",
     "plugin": "@jayree/sfdx-plugin-manifest",
-    "flags": ["file", "json", "loglevel", "manifest"],
+    "flags": ["file", "json", "manifest"],
     "alias": []
   },
   {
     "command": "jayree:manifest:generate",
     "plugin": "@jayree/sfdx-plugin-manifest",
     "flags": [
-      "apiversion",
-      "excludeall",
-      "excludemanaged",
+      "api-version",
+      "exclude-all",
+      "exclude-managed",
       "file",
-      "includeflowversions",
+      "include-flow-versions",
       "json",
-      "loglevel",
-      "matchcase",
-      "matchwholeword",
-      "quickfilter",
-      "targetusername"
+      "match-case",
+      "match-whole-word",
+      "quick-filter",
+      "target-org"
     ],
     "alias": []
   },
   {
     "command": "jayree:manifest:git:diff",
     "plugin": "@jayree/sfdx-plugin-manifest",
-    "flags": ["destructivechangesonly", "json", "loglevel", "outputdir", "sourcepath"],
+    "flags": ["destructive-changes-only", "json", "output-dir", "source-dir"],
     "alias": []
   }
 ]
