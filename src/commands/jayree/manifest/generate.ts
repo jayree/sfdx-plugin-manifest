@@ -4,16 +4,21 @@
  * Licensed under the BSD 3-Clause license.
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
-import os from 'os';
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { flags, FlagsConfig } from '@salesforce/command';
+import {
+  SfCommand,
+  Flags,
+  arrayWithDeprecation,
+  orgApiVersionFlagWithDeprecations,
+  requiredOrgFlagWithDeprecations,
+  Ux,
+} from '@salesforce/sf-plugins-core';
 import { FileProperties, ListMetadataQuery } from '@salesforce/source-deploy-retrieve/lib/src/client/types.js';
-import { Messages, Connection } from '@salesforce/core';
+import { Messages, Logger, Connection } from '@salesforce/core';
 import { RegistryAccess, ComponentSet, PackageManifestObject } from '@salesforce/source-deploy-retrieve';
 import { ensureArray } from '@salesforce/kit';
 import fs from 'fs-extra';
-import { JayreeSfdxCommand } from '../../../jayreeSfdxCommand.js';
 
 // eslint-disable-next-line no-underscore-dangle
 const __filename = fileURLToPath(import.meta.url);
@@ -46,94 +51,106 @@ export interface FlowDefinitionRecord {
   ActiveVersion: { VersionNumber: string };
   LatestVersion: { VersionNumber: string };
 }
-export default class GeneratePackageXML extends JayreeSfdxCommand {
-  public static description = messages.getMessage('commandDescription');
+export default class GeneratePackageXML extends SfCommand<PackageManifestObject> {
+  public static readonly summary = messages.getMessage('summary');
+  public static readonly description = messages.getMessage('description');
 
-  public static examples = messages.getMessage('examples').split(os.EOL);
+  public static readonly examples = messages.getMessages('examples');
 
-  protected static flagsConfig: FlagsConfig = {
-    quickfilter: flags.array({
+  public static readonly flags = {
+    'target-org': requiredOrgFlagWithDeprecations,
+    'api-version': orgApiVersionFlagWithDeprecations,
+    'quick-filter': arrayWithDeprecation({
       char: 'q',
-      description: messages.getMessage('quickfilterFlagDescription'),
+      description: messages.getMessage('flags.quick-filter.summary'),
+      deprecateAliases: true,
+      aliases: ['quickfilter'],
     }),
-    matchcase: flags.boolean({
+    'match-case': Flags.boolean({
       char: 'c',
-      description: messages.getMessage('matchCaseFlagDescription'),
+      summary: messages.getMessage('flags.match-case.summary'),
+      deprecateAliases: true,
+      aliases: ['matchcase'],
     }),
-    matchwholeword: flags.boolean({
+    'match-whole-word': Flags.boolean({
       char: 'w',
-      description: messages.getMessage('matchWholeWordFlagDescription'),
+      summary: messages.getMessage('flags.match-whole-word.summary'),
+      deprecateAliases: true,
+      aliases: ['matchwholeword'],
     }),
-    includeflowversions: flags.boolean({
-      description: messages.getMessage('includeflowversionsDescription'),
+    'include-flow-versions': Flags.boolean({
+      summary: messages.getMessage('flags.include-flow-versions.summary'),
+      deprecateAliases: true,
+      aliases: ['includeflowversions'],
     }),
-    file: flags.string({
+    file: Flags.string({
       char: 'f',
-      description: messages.getMessage('fileFlagDescription'),
+      summary: messages.getMessage('flags.file.summary'),
     }),
-    excludemanaged: flags.boolean({
-      char: 'x',
-      description: messages.getMessage('excludeManagedFlagDescription'),
-      exclusive: ['excludeall'],
+    'exclude-managed': Flags.boolean({
+      summary: messages.getMessage('flags.exclude-managed.summary'),
+      exclusive: ['exclude-all'],
+      deprecateAliases: true,
+      aliases: ['excludemanaged', 'x'],
     }),
-    excludeall: flags.boolean({
-      char: 'a',
-      description: messages.getMessage('excludeAllFlagDescription'),
-      exclusive: ['excludemanaged'],
+    'exclude-all': Flags.boolean({
+      summary: messages.getMessage('flags.exclude-all.summary'),
+      exclusive: ['exclude-managed'],
+      deprecateAliases: true,
+      aliases: ['excludeall', 'a'],
     }),
   };
 
-  protected static requiresUsername = true;
-  protected static supportsDevhubUsername = false;
-  protected static requiresProject = false;
+  private logger!: Logger;
+  private conn: Connection;
 
-  protected cacheConnection: Connection;
-
-  // eslint-disable-next-line complexity
   public async run(): Promise<PackageManifestObject> {
-    await this.org.refreshAuth();
+    this.logger = await Logger.child('jayree:manifest:generate');
+    const { flags } = await this.parse(GeneratePackageXML);
 
-    const file = this.getFlag<string>('file');
-    this.ux.startSpinner(`Generating ${file || 'package.xml'}`);
-    this.cacheConnection = this.org.getConnection();
+    this.conn = flags['target-org'].getConnection(flags['api-version']);
+    const ux = new Ux({ jsonEnabled: this.jsonEnabled() });
+
+    const file = flags['file'];
+    ux.spinner.start(`Generating ${file || 'package.xml'}`);
 
     const managed = ['beta', 'deleted', 'deprecated', 'installed', 'released'];
     const all = ['beta', 'deleted', 'deprecated', 'installed', 'released', 'installedEditable', 'deprecatedEditable'];
 
     const componentFilter = (component: Partial<FileProperties>): boolean =>
       !(
-        (this.getFlag<boolean>('excludemanaged') &&
+        (flags['exclude-managed'] &&
           ((component.namespacePrefix &&
             (managed.includes(component.manageableState) || component.manageableState === undefined)) ||
             managed.includes(component.manageableState))) ||
-        (this.getFlag<boolean>('excludeall') &&
+        (flags['exclude-all'] &&
           ((component.namespacePrefix &&
             (all.includes(component.manageableState) || component.manageableState === undefined)) ||
             all.includes(component.manageableState)))
       );
 
     let componentSet = await ComponentSet.fromConnection({
-      usernameOrConnection: this.cacheConnection,
+      usernameOrConnection: this.conn,
       componentFilter,
     });
 
-    if (this.getFlag<boolean>('includeflowversions')) {
+    if (flags['include-flow-versions']) {
       const flowResult = await this.listMembers({ type: 'Flow' }, '43.0');
       for (const component of flowResult.filter(componentFilter)) {
         componentSet.add({ fullName: component.fullName, type: registryAccess.getTypeByName(component.type) });
       }
     }
-    const quickFilter = this.getFlag<string[]>('quickfilter');
+    const quickFilter = flags['quick-filter'];
     if (quickFilter) {
       componentSet = componentSet.filter((component) => {
         let filter = quickFilter;
         const comp: { fullName: string; type: string } = { fullName: component.fullName, type: component.type.name };
-        if (!this.getFlag<boolean>('matchcase')) {
+        if (!flags['match-case']) {
           filter = quickFilter.join('~').toLowerCase().split('~');
           comp.fullName = component.fullName.toLocaleLowerCase();
           comp.type = component.type.name.toLowerCase();
         }
-        if (this.getFlag<boolean>('matchwholeword')) {
+        if (flags['match-whole-word']) {
           return filter.includes(comp.fullName) || filter.includes(comp.type);
         } else {
           for (const f of filter) {
@@ -147,7 +164,7 @@ export default class GeneratePackageXML extends JayreeSfdxCommand {
 
     if (hasFlows.length) {
       try {
-        const flowDefinitionQuery = (await this.cacheConnection.tooling.query(
+        const flowDefinitionQuery = (await this.conn.tooling.query(
           `SELECT DeveloperName, ActiveVersion.VersionNumber, LatestVersion.VersionNumber FROM FlowDefinition where DeveloperName in (${hasFlows
             .map((component) => `'${component.fullName}'`)
             .toString()})`
@@ -155,7 +172,7 @@ export default class GeneratePackageXML extends JayreeSfdxCommand {
         const flowDefinitionRecods = flowDefinitionQuery.records as FlowDefinitionRecord[];
         for (const record of flowDefinitionRecods) {
           if (record.LatestVersion?.VersionNumber !== record.ActiveVersion?.VersionNumber) {
-            this.ux.log(
+            this.log(
               `DeveloperName: ${record.DeveloperName}, ActiveVersion: ${record.ActiveVersion?.VersionNumber}, LatestVersion: ${record.LatestVersion?.VersionNumber}`
             );
           }
@@ -167,16 +184,16 @@ export default class GeneratePackageXML extends JayreeSfdxCommand {
 
     componentSet = componentSet.filter((component) => component.type.name !== 'FlowDefinition');
 
-    componentSet.apiVersion = this.cacheConnection.getApiVersion();
+    componentSet.apiVersion = this.conn.getApiVersion();
 
     if (file) {
       await fs.ensureFile(file);
       await fs.writeFile(file, await componentSet.getPackageXml());
     } else {
-      this.ux.log(await componentSet.getPackageXml());
+      this.log(await componentSet.getPackageXml());
     }
 
-    this.ux.stopSpinner();
+    ux.spinner.stop();
     return componentSet.getObject();
   }
 
@@ -184,9 +201,9 @@ export default class GeneratePackageXML extends JayreeSfdxCommand {
     let members: FileProperties[];
     try {
       if (!apiVersion) {
-        apiVersion = this.cacheConnection.getApiVersion();
+        apiVersion = this.conn.getApiVersion();
       }
-      members = ensureArray((await this.cacheConnection.metadata.list(query, apiVersion)) as FileProperties[]);
+      members = ensureArray((await this.conn.metadata.list(query, apiVersion)) as FileProperties[]);
     } catch (error) {
       members = [];
       this.logger.debug((error as Error).message);

@@ -1,8 +1,6 @@
-import { FlagsConfig } from '@salesforce/command';
+import { SfCommand } from '@salesforce/sf-plugins-core';
 import { FileProperties, ListMetadataQuery } from '@salesforce/source-deploy-retrieve/lib/src/client/types.js';
-import { Connection } from '@salesforce/core';
 import { PackageManifestObject } from '@salesforce/source-deploy-retrieve';
-import { JayreeSfdxCommand } from '../../../jayreeSfdxCommand.js';
 export interface QueryResult {
     size: number;
     totalSize: number;
@@ -27,14 +25,23 @@ export interface FlowDefinitionRecord {
         VersionNumber: string;
     };
 }
-export default class GeneratePackageXML extends JayreeSfdxCommand {
-    static description: string;
-    static examples: string[];
-    protected static flagsConfig: FlagsConfig;
-    protected static requiresUsername: boolean;
-    protected static supportsDevhubUsername: boolean;
-    protected static requiresProject: boolean;
-    protected cacheConnection: Connection;
+export default class GeneratePackageXML extends SfCommand<PackageManifestObject> {
+    static readonly summary: string;
+    static readonly description: string;
+    static readonly examples: string[];
+    static readonly flags: {
+        'target-org': import("@oclif/core/lib/interfaces/parser.js").OptionFlag<import("@salesforce/core").Org>;
+        'api-version': import("@oclif/core/lib/interfaces/parser.js").OptionFlag<string>;
+        'quick-filter': import("@oclif/core/lib/interfaces/parser.js").OptionFlag<string[]>;
+        'match-case': import("@oclif/core/lib/interfaces/parser.js").BooleanFlag<boolean>;
+        'match-whole-word': import("@oclif/core/lib/interfaces/parser.js").BooleanFlag<boolean>;
+        'include-flow-versions': import("@oclif/core/lib/interfaces/parser.js").BooleanFlag<boolean>;
+        file: import("@oclif/core/lib/interfaces/parser.js").OptionFlag<string>;
+        'exclude-managed': import("@oclif/core/lib/interfaces/parser.js").BooleanFlag<boolean>;
+        'exclude-all': import("@oclif/core/lib/interfaces/parser.js").BooleanFlag<boolean>;
+    };
+    private logger;
+    private conn;
     run(): Promise<PackageManifestObject>;
     protected listMembers(query: ListMetadataQuery, apiVersion?: string): Promise<FileProperties[]>;
 }
