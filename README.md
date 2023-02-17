@@ -28,7 +28,7 @@ Create a project manifest and destructiveChanges manifest that lists the metadat
 
 ```
 USAGE
-  $ sfdx jayree:manifest:beta:git:diff [REF1] [REF2] [--json] [--api-version <value>] [-d <value>] [--output-dir <value>]
+  $ sfdx jayree:manifest:beta:git:diff REF1 [REF2] [--json] [--api-version <value>] [-d <value>] [--output-dir <value>]
     [--destructive-changes-only]
 
 ARGUMENTS
@@ -99,7 +99,7 @@ FLAG DESCRIPTIONS
     The location can be an absolute path or relative to the current working directory.
 ```
 
-_See code: [src/commands/jayree/manifest/beta/git/diff.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v2.8.2/src/commands/jayree/manifest/beta/git/diff.ts)_
+_See code: [src/commands/jayree/manifest/beta/git/diff.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v2.8.3/src/commands/jayree/manifest/beta/git/diff.ts)_
 
 ### `sfdx jayree:manifest:cleanup`
 
@@ -127,7 +127,7 @@ EXAMPLES
   $ sfdx jayree:manifest:cleanup --manifest=package.xml --file=packageignore.xml
 ```
 
-_See code: [src/commands/jayree/manifest/cleanup.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v2.8.2/src/commands/jayree/manifest/cleanup.ts)_
+_See code: [src/commands/jayree/manifest/cleanup.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v2.8.3/src/commands/jayree/manifest/cleanup.ts)_
 
 ### `sfdx jayree:manifest:generate`
 
@@ -163,7 +163,7 @@ EXAMPLES
   <Package xmlns='http://soap.sforce.com/2006/04/metadata'>...</Package>
 ```
 
-_See code: [src/commands/jayree/manifest/generate.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v2.8.2/src/commands/jayree/manifest/generate.ts)_
+_See code: [src/commands/jayree/manifest/generate.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v2.8.3/src/commands/jayree/manifest/generate.ts)_
 
 ### `sfdx jayree:manifest:git:diff`
 
@@ -171,8 +171,7 @@ Create a project manifest and destructiveChanges manifest that lists the metadat
 
 ```
 USAGE
-  $ sfdx jayree:manifest:git:diff [REF1] [REF2] [--json] [-d <value>] [--output-dir <value>]
-  [--destructive-changes-only]
+  $ sfdx jayree:manifest:git:diff REF1 [REF2] [--json] [-d <value>] [--output-dir <value>] [--destructive-changes-only]
 
 ARGUMENTS
   REF1  Base commit or branch.
@@ -241,5 +240,5 @@ FLAG DESCRIPTIONS
     The location can be an absolute path or relative to the current working directory.
 ```
 
-_See code: [src/commands/jayree/manifest/git/diff.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v2.8.2/src/commands/jayree/manifest/git/diff.ts)_
+_See code: [src/commands/jayree/manifest/git/diff.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v2.8.3/src/commands/jayree/manifest/git/diff.ts)_
 <!-- commandsstop -->
