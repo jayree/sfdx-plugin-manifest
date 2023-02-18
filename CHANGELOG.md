@@ -1,3 +1,10 @@
+## [2.8.4](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.8.3...v2.8.4) (2023-02-18)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/kit from 1.8.4 to 1.8.5 ([#569](https://github.com/jayree/sfdx-plugin-manifest/issues/569)) ([dd0d368](https://github.com/jayree/sfdx-plugin-manifest/commit/dd0d36800bff09ebea16ae8935ca80fdc7a152af))
+
 ## [2.8.3](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.8.2...v2.8.3) (2023-02-17)
 
 
