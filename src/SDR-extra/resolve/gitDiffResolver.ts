@@ -15,6 +15,7 @@ import {
 import { SfProject, SfError, Lifecycle } from '@salesforce/core';
 import equal from 'fast-deep-equal';
 import Debug from 'debug';
+import { getString } from '@salesforce/ts-types';
 import { GitRepo } from '../utils/localGitRepo.js';
 import { VirtualTreeContainerExtra, parseMetadataXml } from './index.js';
 
@@ -28,9 +29,9 @@ const registryAccess = new RegistryAccess();
  * @internal
  */
 export class GitDiffResolver {
-  private ref2VirtualTreeContainer: VirtualTreeContainerExtra;
-  private ref1Resolver: MetadataResolver;
-  private ref2Resolver: MetadataResolver;
+  private ref2VirtualTreeContainer!: VirtualTreeContainerExtra;
+  private ref1Resolver!: MetadataResolver;
+  private ref2Resolver!: MetadataResolver;
   private gitDir: string;
   private uniquePackageDirectories: string[];
   private localRepo: GitRepo;
@@ -47,7 +48,7 @@ export class GitDiffResolver {
     });
   }
 
-  public async resolve(ref1: string, ref2: string, fsPaths: string[]): Promise<ComponentSet> {
+  public async resolve(ref1: string, ref2: string | undefined, fsPaths: string[] | undefined): Promise<ComponentSet> {
     if (ref2 === undefined) {
       const { ref1: r1, ref2: r2 } = await this.localRepo.resolveMultiRefString(ref1);
       ref1 = r1;
@@ -95,8 +96,11 @@ export class GitDiffResolver {
     return this.getComponentSet(fileStatus);
   }
 
-  private async getFileStatus(ref1: string, ref2: string): Promise<Array<{ path: string; status: string }>> {
-    let files: Array<{ path: string; status: string }>;
+  private async getFileStatus(
+    ref1: string,
+    ref2: string
+  ): Promise<Array<{ path: string; status: string | undefined }>> {
+    let files: Array<{ path: string; status: string | undefined }>;
 
     if (ref2) {
       files = (await this.localRepo.getFileState({ ref1, ref2 })).filter((l) =>
@@ -123,7 +127,7 @@ export class GitDiffResolver {
     return files;
   }
 
-  private async getComponentSet(gitLines: Array<{ path: string; status: string }>): Promise<ComponentSet> {
+  private async getComponentSet(gitLines: Array<{ path: string; status: string | undefined }>): Promise<ComponentSet> {
     const results = new ComponentSet(undefined, registryAccess);
 
     const childComponentPromises: Array<
@@ -178,11 +182,15 @@ export class GitDiffResolver {
       } else if (check.status === -2) {
         // forceignored file
       } else {
-        for (const c of check.toDestructiveChanges) {
-          results.add(c, DestructiveChangesType.POST);
+        if (check.toDestructiveChanges) {
+          for (const c of check.toDestructiveChanges) {
+            results.add(c, DestructiveChangesType.POST);
+          }
         }
-        for (const c of check.toManifest) {
-          results.add(c);
+        if (check.toManifest) {
+          for (const c of check.toManifest) {
+            results.add(c);
+          }
         }
       }
     }
@@ -224,7 +232,7 @@ export class GitDiffResolver {
     }
 
     const getUniqueIdentifier = (component: SourceComponent): string =>
-      `${component.type.name}#${component[component.type.uniqueIdElement] as string}`;
+      `${component.type.name}#${getString(component, component.type.uniqueIdElement as string)}`;
 
     const ref2ChildUniqueIdArray = ref2Component
       .getChildren()

@@ -1,4 +1,4 @@
-/// <reference types="node" resolution-mode="require"/>
+/// <reference types="node" />
 interface GitRepoOptions {
     gitDir: string;
     packageDirs?: string[];
@@ -13,10 +13,10 @@ export declare class GitRepo {
         ref1: string;
         ref2: string;
     }>;
-    resolveSingleRefString(ref: string): Promise<string>;
+    resolveSingleRefString(ref: string | undefined): Promise<string>;
     getStatus(ref: string): Promise<Array<{
         path: string;
-        status: string;
+        status: string | undefined;
     }>>;
     getFileState(options: {
         ref1: string;

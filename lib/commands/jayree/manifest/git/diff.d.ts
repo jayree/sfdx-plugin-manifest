@@ -9,14 +9,14 @@ export default class GitDiff extends SfCommand<GitDiffCommandResult> {
     static readonly description: string;
     static readonly examples: string[];
     static readonly args: {
-        ref1: import("@oclif/core/lib/interfaces/parser.js").Arg<string, Record<string, unknown>>;
-        ref2: import("@oclif/core/lib/interfaces/parser.js").Arg<string, Record<string, unknown>>;
+        ref1: import("@oclif/core/lib/interfaces/parser").Arg<string, Record<string, unknown>>;
+        ref2: import("@oclif/core/lib/interfaces/parser").Arg<string | undefined, Record<string, unknown>>;
     };
     static readonly requiresProject = true;
     static readonly flags: {
-        'source-dir': import("@oclif/core/lib/interfaces/parser.js").OptionFlag<string[], import("@oclif/core/lib/interfaces/parser.js").CustomOptions>;
-        'output-dir': import("@oclif/core/lib/interfaces/parser.js").OptionFlag<string, import("@oclif/core/lib/interfaces/parser.js").CustomOptions>;
-        'destructive-changes-only': import("@oclif/core/lib/interfaces/parser.js").BooleanFlag<boolean>;
+        'source-dir': import("@oclif/core/lib/interfaces").OptionFlag<string[] | undefined, import("@oclif/core/lib/interfaces/parser").CustomOptions>;
+        'output-dir': import("@oclif/core/lib/interfaces").OptionFlag<string, import("@oclif/core/lib/interfaces/parser").CustomOptions>;
+        'destructive-changes-only': import("@oclif/core/lib/interfaces").BooleanFlag<boolean>;
     };
     private isOutputEnabled;
     private outputDir;

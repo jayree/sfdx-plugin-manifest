@@ -69,12 +69,12 @@ export default class GitDiffCommand extends SfCommand<GitDiffCommandResult> {
     }),
   };
 
-  private outputDir: string;
-  private manifestName: string;
-  private destructiveChangesName: string;
-  private outputPath: string;
-  private componentSet: ComponentSetExtra;
-  private destructiveChangesOnly: boolean;
+  private outputDir!: string;
+  private manifestName!: string;
+  private destructiveChangesName!: string;
+  private outputPath!: string;
+  private componentSet!: ComponentSetExtra;
+  private destructiveChangesOnly!: boolean;
 
   // eslint-disable-next-line sf-plugin/should-parse-flags
   public async run(): Promise<GitDiffCommandResult> {
@@ -84,7 +84,7 @@ export default class GitDiffCommand extends SfCommand<GitDiffCommandResult> {
 
   protected async getSourceApiVersion(): Promise<Optional<string>> {
     const projectConfig = await this.project.resolveProjectConfig();
-    return getString(projectConfig, 'sourceApiVersion');
+    return getString(projectConfig, 'sourceApiVersion') ?? undefined;
   }
 
   protected async createManifest(): Promise<void> {
@@ -95,10 +95,10 @@ export default class GitDiffCommand extends SfCommand<GitDiffCommandResult> {
     this.outputDir = flags['output-dir'];
     this.destructiveChangesOnly = flags['destructive-changes-only'];
     this.componentSet = await ComponentSetExtra.fromGitDiff({
-      ref: [args.ref1, args.ref2],
+      ref: [args.ref1, args.ref2 as string],
       fsPaths: flags['source-dir'],
     });
-    this.componentSet.sourceApiVersion = flags['api-version'] ?? (await this.getSourceApiVersion());
+    this.componentSet.sourceApiVersion = flags['api-version'] ?? ((await this.getSourceApiVersion()) as string);
 
     if (this.outputDir) {
       await fs.ensureDir(this.outputDir);

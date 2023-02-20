@@ -102,7 +102,7 @@ export default class GeneratePackageXML extends SfCommand<PackageManifestObject>
   };
 
   private logger!: Logger;
-  private conn: Connection;
+  private conn!: Connection;
 
   public async run(): Promise<PackageManifestObject> {
     this.logger = await Logger.child('jayree:manifest:generate');
@@ -112,7 +112,7 @@ export default class GeneratePackageXML extends SfCommand<PackageManifestObject>
     const ux = new Ux({ jsonEnabled: this.jsonEnabled() });
 
     const file = flags['file'];
-    ux.spinner.start(`Generating ${file || 'package.xml'}`);
+    ux.spinner.start(`Generating ${file ?? 'package.xml'}`);
 
     const managed = ['beta', 'deleted', 'deprecated', 'installed', 'released'];
     const all = ['beta', 'deleted', 'deprecated', 'installed', 'released', 'installedEditable', 'deprecatedEditable'];
@@ -120,13 +120,11 @@ export default class GeneratePackageXML extends SfCommand<PackageManifestObject>
     const componentFilter = (component: Partial<FileProperties>): boolean =>
       !(
         (flags['exclude-managed'] &&
-          ((component.namespacePrefix &&
-            (managed.includes(component.manageableState) || component.manageableState === undefined)) ||
-            managed.includes(component.manageableState))) ||
+          ((component.namespacePrefix && component.manageableState === undefined) ||
+            (component.manageableState && managed.includes(component.manageableState)))) ||
         (flags['exclude-all'] &&
-          ((component.namespacePrefix &&
-            (all.includes(component.manageableState) || component.manageableState === undefined)) ||
-            all.includes(component.manageableState)))
+          ((component.namespacePrefix && component.manageableState === undefined) ||
+            (component.manageableState && all.includes(component.manageableState))))
       );
 
     let componentSet = await ComponentSet.fromConnection({
@@ -153,9 +151,7 @@ export default class GeneratePackageXML extends SfCommand<PackageManifestObject>
         if (flags['match-whole-word']) {
           return filter.includes(comp.fullName) || filter.includes(comp.type);
         } else {
-          for (const f of filter) {
-            return comp.fullName.includes(f) || comp.type.includes(f);
-          }
+          return filter.some((str) => comp.fullName.includes(str));
         }
       });
     }

@@ -92,7 +92,7 @@ export default class CleanupManifest extends SfCommand<void> {
       );
       this.log(`Cleanup manifest file template '${file}' was created`);
     } else {
-      if (!(await fs.pathExists(flags['manifest']))) {
+      if (!flags['manifest'] || !(await fs.pathExists(flags['manifest']))) {
         throw new CLIError(`The following error occurred:\n  ${chalk.dim('Missing required flag manifest')}`);
       }
       await this.cleanupManifestFile(flags['manifest'], file);
@@ -118,8 +118,8 @@ export default class CleanupManifest extends SfCommand<void> {
         if (packageTypeMembers.includes('*') && packageTypeMembers.length > 1) {
           const includemembers = packageTypeMembers.slice();
           includemembers.splice(includemembers.indexOf('*'), 1);
-          const includedmembers = typeMap.get(types.name).filter((value) => includemembers.includes(value));
-          if (includedmembers.length) {
+          const includedmembers = typeMap.get(types.name)?.filter((value) => includemembers.includes(value));
+          if (includedmembers?.length) {
             this.log('include only members ' + includedmembers.toString() + ' for type ' + types.name);
             typeMap.set(types.name, includedmembers);
           }
@@ -131,13 +131,15 @@ export default class CleanupManifest extends SfCommand<void> {
         }
 
         if (!packageTypeMembers.includes('*')) {
-          const includedmembers = typeMap.get(types.name).filter((value) => !packageTypeMembers.includes(value));
-          typeMap.set(types.name, includedmembers);
+          const includedmembers = typeMap.get(types.name)?.filter((value) => !packageTypeMembers.includes(value));
+          if (includedmembers) {
+            typeMap.set(types.name, includedmembers);
+          }
         }
 
         packageTypeMembers.forEach((member) => {
           if (member.startsWith('!')) {
-            typeMap.get(types.name).push(member.substring(1));
+            typeMap.get(types.name)?.push(member.substring(1));
           }
         });
       }

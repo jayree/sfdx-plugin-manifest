@@ -16,7 +16,7 @@ export declare class GitDiffResolver {
      * @param dir SFDX project directory
      */
     constructor(project: SfProject);
-    resolve(ref1: string, ref2: string, fsPaths: string[]): Promise<ComponentSet>;
+    resolve(ref1: string, ref2: string | undefined, fsPaths: string[] | undefined): Promise<ComponentSet>;
     private getFileStatus;
     private getComponentSet;
     private getChildComponentStatus;

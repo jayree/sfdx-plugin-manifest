@@ -66,7 +66,7 @@ type git = {
   refString: string;
 };
 
-type gitLines = Array<{ path: string; status: string }>;
+type gitLines = Array<{ path: string; status: string | undefined }>;
 
 export default class GitDiff extends SfCommand<GitDiffCommandResult> {
   public static readonly summary = messages.getMessage('summary');
@@ -109,21 +109,21 @@ export default class GitDiff extends SfCommand<GitDiffCommandResult> {
     }),
   };
 
-  private isOutputEnabled;
-  private outputDir: string;
-  private destructiveChangesOnly: boolean;
-  private projectRoot: string;
-  private sourceApiVersion: string;
-  private destructiveChanges: string;
-  private manifest: string;
+  private isOutputEnabled!: boolean;
+  private outputDir!: string;
+  private destructiveChangesOnly!: boolean;
+  private projectRoot!: string;
+  private sourceApiVersion!: string;
+  private destructiveChanges!: string;
+  private manifest!: string;
 
-  private gitLines: gitLines;
-  private ref1VirtualTreeContainer: VirtualTreeContainer;
-  private ref2VirtualTreeContainer: VirtualTreeContainer;
-  private componentSet: ComponentSet;
-  private outputErrors: string[];
-  private outputWarnings: string[];
-  private fsPaths: string[];
+  private gitLines!: gitLines;
+  private ref1VirtualTreeContainer!: VirtualTreeContainer;
+  private ref2VirtualTreeContainer!: VirtualTreeContainer;
+  private componentSet!: ComponentSet;
+  private outputErrors!: string[];
+  private outputWarnings!: string[];
+  private fsPaths!: string[];
 
   public async run(): Promise<GitDiffCommandResult> {
     const { flags, args } = await this.parse(GitDiff);
@@ -132,7 +132,7 @@ export default class GitDiff extends SfCommand<GitDiffCommandResult> {
     this.destructiveChangesOnly = flags['destructive-changes-only'];
     this.outputDir = flags['output-dir'];
     this.projectRoot = this.project.getPath();
-    this.sourceApiVersion = await this.getSourceApiVersion();
+    this.sourceApiVersion = (await this.getSourceApiVersion()) as string;
     this.destructiveChanges = join(this.outputDir, 'destructiveChanges.xml');
     this.manifest = join(this.outputDir, 'package.xml');
 
@@ -142,7 +142,7 @@ export default class GitDiff extends SfCommand<GitDiffCommandResult> {
     });
 
     const isContentTypeJSON = env.getString('SFDX_CONTENT_TYPE', '').toUpperCase() === 'JSON';
-    this.isOutputEnabled = !(this.argv.find((arg) => arg === '--json') || isContentTypeJSON);
+    this.isOutputEnabled = !(this.argv.find((arg) => arg === '--json') ?? isContentTypeJSON);
     const gitArgs = await getGitArgsFromArgv(args.ref1, args.ref2, this.argv, this.projectRoot);
     debug({ gitArgs });
     const tasks = new Listr(
@@ -307,7 +307,7 @@ export default class GitDiff extends SfCommand<GitDiffCommandResult> {
 
   protected async getSourceApiVersion(): Promise<Optional<string>> {
     const projectConfig = await this.project.resolveProjectConfig();
-    return getString(projectConfig, 'sourceApiVersion');
+    return getString(projectConfig, 'sourceApiVersion') ?? undefined;
   }
 }
 
@@ -341,7 +341,7 @@ See more help with --help`
     .filter((a) => a >= 0)
     .reduce((a, b) => Math.min(a, b));
   let path = refOrig.substring(firstIndex);
-  let ref = refOrig.substring(0, firstIndex);
+  let ref: string | undefined = refOrig.substring(0, firstIndex);
   while (path.length && ref !== undefined) {
     if (path.startsWith('^')) {
       path = path.substring(1);
@@ -369,7 +369,7 @@ See more help with --help`
   return ref;
 }
 
-async function getGitArgsFromArgv(ref1: string, ref2: string, argv: string[], dir: string): Promise<git> {
+async function getGitArgsFromArgv(ref1: string, ref2: string | undefined, argv: string[], dir: string): Promise<git> {
   const newArgv: string[] = [];
   while (argv.length) {
     let [e] = argv.splice(0, 1);
@@ -532,7 +532,7 @@ async function analyzeFile(
 }
 
 function getUniqueIdentifier(component: SourceComponent): string {
-  return `${component.type.name}#${component[component.type.uniqueIdElement] as string}`;
+  return `${component.type.name}#${getString(component, component.type.uniqueIdElement as string)}`;
 }
 
 async function getFileStateChanges(
@@ -584,8 +584,8 @@ async function getFileStateChanges(
 async function getStatusMatrix(
   dir: string,
   ref: string
-): Promise<{ warnings: string[]; lines: Array<{ path: string; status: string }> }> {
-  const getStatus = (row: number[]): 'A' | 'D' | 'M' => {
+): Promise<{ warnings: string[]; lines: Array<{ path: string; status: string | undefined }> }> {
+  const getStatus = (row: number[]): 'A' | 'D' | 'M' | undefined => {
     if (
       [
         [0, 2, 2], // added, staged
@@ -614,6 +614,7 @@ async function getStatusMatrix(
     ) {
       return 'M';
     }
+    return undefined;
   };
   const statusMatrix = await git.statusMatrix({ fs, dir, ref });
   const warnings = statusMatrix
@@ -658,7 +659,7 @@ async function getGitDiff(
   dir: string
 ): Promise<{ gitlines: gitLines; warnings: string[] }> {
   let gitlines: gitLines;
-  let warnings: string[];
+  let warnings: string[] = [];
 
   const proj = await SfProject.resolve();
   const resolveSourcePaths = proj.getUniquePackageDirectories().map((pDir) => pDir.fullPath);
@@ -699,7 +700,7 @@ async function getGitResults(
   destructiveChangesOnly: boolean,
   fsPaths: string[]
 ): Promise<gitResults> {
-  const results = {
+  const results: gitResults = {
     manifest: new ComponentSet(undefined, registryAccess),
     output: {
       unchanged: [],
@@ -717,7 +718,7 @@ async function getGitResults(
       result = resolver.getComponentsFromPath(path);
     } catch (error) {
       results.output.counts.error++;
-      results.output.errors.push(error);
+      results.output.errors.push((error as Error).message);
     }
     return result;
   };
@@ -740,15 +741,17 @@ async function getGitResults(
             results.output.counts.deleted++;
           } else {
             try {
-              // in case a binary source file of a bundle was deleted, check if the bundle ist still valid and update instead of delete
-              ref2Resolver.getComponentsFromPath(c.xml);
+              if (c.xml) {
+                // in case a binary source file of a bundle was deleted, check if the bundle ist still valid and update instead of delete
+                ref2Resolver.getComponentsFromPath(c.xml);
+              }
               if (!destructiveChangesOnly) {
                 results.manifest.add(c);
                 results.output.counts.added++;
               }
             } catch (error) {
               results.output.counts.error++;
-              results.output.errors.push(error);
+              results.output.errors.push((error as Error).message);
             }
           }
         }
@@ -782,13 +785,18 @@ async function getGitResults(
       results.output.counts.ignored++;
       results.output.ignored.ref2.push(check.path);
     } else {
-      if (check.toDestructiveChanges.length > 0 || (check.toManifest.length > 0 && !destructiveChangesOnly)) {
+      if (
+        (check.toDestructiveChanges && check.toDestructiveChanges.length > 0) ||
+        (check.toManifest && check.toManifest.length > 0 && !destructiveChangesOnly)
+      ) {
         results.output.counts.modified++;
       }
-      for (const c of check.toDestructiveChanges) {
-        results.manifest.add(c, DestructiveChangesType.POST);
+      if (check.toDestructiveChanges) {
+        for (const c of check.toDestructiveChanges) {
+          results.manifest.add(c, DestructiveChangesType.POST);
+        }
       }
-      if (!destructiveChangesOnly) {
+      if (!destructiveChangesOnly && check.toManifest) {
         for (const c of check.toManifest) {
           results.manifest.add(c);
         }
@@ -810,13 +818,13 @@ function fixComponentSetChilds(cs: ComponentSet): ComponentSet {
   let sourceComponents = cs.getSourceComponents();
   // SDR library is more strict and avoids fixes like this
   const childsTobeReplacedByParent = [
-    ...Object.keys(registry.types.workflow.children.types),
-    ...Object.keys(registry.types.sharingrules.children.types),
-    ...Object.keys(registry.types.customobjecttranslation.children.types),
-    ...Object.keys(registry.types.bot.children.types),
+    ...Object.keys(registry.types.workflow.children?.types ?? {}),
+    ...Object.keys(registry.types.sharingrules.children?.types ?? {}),
+    ...Object.keys(registry.types.customobjecttranslation.children?.types ?? {}),
+    ...Object.keys(registry.types.bot.children?.types ?? {}),
   ];
   sourceComponents = sourceComponents.map((component) => {
-    if (!component.isMarkedForDelete() && childsTobeReplacedByParent.includes(component.type.id)) {
+    if (!component.isMarkedForDelete() && childsTobeReplacedByParent.includes(component.type.id) && component.parent) {
       debug(
         `replace: ${component.type.name}:${component.fullName} -> ${component.parent.type.name}:${component.parent.fullName}`
       );

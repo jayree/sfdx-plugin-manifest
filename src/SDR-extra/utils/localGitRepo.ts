@@ -20,7 +20,7 @@ export class GitRepo {
 
   public gitDir: string;
 
-  private packageDirs: string[];
+  private packageDirs: string[] | undefined;
 
   private constructor(options: GitRepoOptions) {
     this.gitDir = options.gitDir;
@@ -32,7 +32,7 @@ export class GitRepo {
       const newInstance = new GitRepo(options);
       GitRepo.instanceMap.set(options.gitDir, newInstance);
     }
-    return GitRepo.instanceMap.get(options.gitDir);
+    return GitRepo.instanceMap.get(options.gitDir) as GitRepo;
   }
 
   public async resolveMultiRefString(ref: string): Promise<{
@@ -41,20 +41,19 @@ export class GitRepo {
   }> {
     const a = ref.split('.');
     let ref1: string;
-    let ref2: string;
+    let ref2: string | undefined;
 
     if (a.length === 3 || a.length === 4) {
       ref1 = a[0];
       ref2 = a[a.length - 1];
     } else if (a.length === 1) {
       ref1 = a[0];
-      ref2 = undefined;
     } else {
       throw new Error(`Ambiguous ${util.format('argument%s', ref.length === 1 ? '' : 's')}: ${ref}
   See more help with --help`);
     }
 
-    if (a.length === 4) {
+    if (a.length === 4 && ref2) {
       ref1 = (
         await git.findMergeBase({
           fs,
@@ -70,7 +69,7 @@ export class GitRepo {
     return { ref1, ref2 };
   }
 
-  public async resolveSingleRefString(ref: string): Promise<string> {
+  public async resolveSingleRefString(ref: string | undefined): Promise<string> {
     if (ref === undefined) {
       return '';
     }
@@ -81,7 +80,7 @@ export class GitRepo {
 
     const firstIndex = [ref.indexOf('^'), ref.indexOf('~')].filter((a) => a >= 0).reduce((a, b) => Math.min(a, b));
     let ipath = ref.substring(firstIndex);
-    let resolvedRef = ref.substring(0, firstIndex);
+    let resolvedRef: string | undefined = ref.substring(0, firstIndex);
     while (ipath.length && resolvedRef !== undefined) {
       if (ipath.startsWith('^')) {
         ipath = ipath.substring(1);
@@ -109,8 +108,8 @@ export class GitRepo {
     return resolvedRef;
   }
 
-  public async getStatus(ref: string): Promise<Array<{ path: string; status: string }>> {
-    const getStatusText = (row: number[]): 'A' | 'D' | 'M' => {
+  public async getStatus(ref: string): Promise<Array<{ path: string; status: string | undefined }>> {
+    const getStatusText = (row: number[]): 'A' | 'D' | 'M' | undefined => {
       if (
         [
           [0, 2, 2], // added, staged
@@ -139,6 +138,7 @@ export class GitRepo {
       ) {
         return 'M';
       }
+      return undefined;
     };
 
     const statusMatrix = await git.statusMatrix({

@@ -1,3 +1,4 @@
 {
-  "exclude-scripts": ["docs"]
+  "exclude-scripts": ["docs"],
+  "strict": true
 }

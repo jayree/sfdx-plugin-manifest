@@ -58,11 +58,11 @@ export class ComponentSetExtra extends ComponentSet {
   // eslint-disable-next-line @typescript-eslint/unified-signatures
   public static async fromGitDiff(options: FromGitDiffOptions): Promise<ComponentSet>;
   public static async fromGitDiff(input: string | string[] | FromGitDiffOptions): Promise<ComponentSet> {
-    let fsPaths: string[];
-    let registry: RegistryAccess;
-    let tree: TreeContainer;
+    let fsPaths: string[] | undefined;
+    let registry = new RegistryAccess();
+    let tree: TreeContainer | undefined;
     let ref1: string | string[];
-    let ref2: string;
+    let ref2: string | undefined;
 
     if (Array.isArray(input)) {
       ref1 = input[0];
@@ -87,14 +87,18 @@ export class ComponentSetExtra extends ComponentSet {
     const inclusiveFilter = await gitDiffResolver.resolve(ref1, ref2, fsPaths);
 
     const childsTobeReplacedByParent = [
-      ...Object.keys(untypedRegistry.types.workflow.children.types),
-      ...Object.keys(untypedRegistry.types.sharingrules.children.types),
-      ...Object.keys(untypedRegistry.types.customobjecttranslation.children.types),
-      ...Object.keys(untypedRegistry.types.bot.children.types),
+      ...Object.keys(untypedRegistry.types.workflow.children?.types ?? {}),
+      ...Object.keys(untypedRegistry.types.sharingrules.children?.types ?? {}),
+      ...Object.keys(untypedRegistry.types.customobjecttranslation.children?.types ?? {}),
+      ...Object.keys(untypedRegistry.types.bot.children?.types ?? {}),
     ];
 
     for (const component of inclusiveFilter.getSourceComponents()) {
-      if (childsTobeReplacedByParent.includes(component.type.id)) {
+      if (
+        !component.isMarkedForDelete() &&
+        component.parent &&
+        childsTobeReplacedByParent.includes(component.type.id)
+      ) {
         debug(
           `add parent ${component.parent.type.name}:${component.parent.fullName} of ${component.type.name}:${component.fullName} to manifest`
         );
@@ -103,7 +107,7 @@ export class ComponentSetExtra extends ComponentSet {
     }
 
     fsPaths =
-      fsPaths?.map((filepath) => path.resolve(filepath)).filter((filepath) => fs.existsSync(filepath)) ||
+      fsPaths?.map((filepath) => path.resolve(filepath)).filter((filepath) => fs.existsSync(filepath)) ??
       project.getUniquePackageDirectories().map((pDir) => pDir.fullPath);
 
     debug({ fsPaths });
