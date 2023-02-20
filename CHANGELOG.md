@@ -1,3 +1,10 @@
+## [2.8.5](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.8.4...v2.8.5) (2023-02-20)
+
+
+### Bug Fixes
+
+* use strict ([4517df0](https://github.com/jayree/sfdx-plugin-manifest/commit/4517df09eac5aac945aaf9e8741d440101b0e8aa))
+
 ## [2.8.4](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.8.3...v2.8.4) (2023-02-18)
 
 
