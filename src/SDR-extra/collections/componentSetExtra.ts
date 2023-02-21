@@ -12,6 +12,7 @@ import {
   DestructiveChangesType,
   RegistryAccess,
   registry as untypedRegistry,
+  SourceComponent,
 } from '@salesforce/source-deploy-retrieve';
 import { SfProject, Lifecycle } from '@salesforce/core';
 import Debug from 'debug';
@@ -125,20 +126,19 @@ export class ComponentSetExtra extends ComponentSet {
       }
     }
 
+    let localSourceComponents: SourceComponent[] = [];
+
+    for (const localComponent of components.getSourceComponents()) {
+      localSourceComponents = localSourceComponents.concat(localComponent.getChildren());
+      localSourceComponents = localSourceComponents.concat(localComponent);
+    }
+
     for await (const component of inclusiveFilter.getSourceComponents()) {
       if (
-        !components
-          .getSourceComponents()
-          .find(
-            (localComponent) =>
-              !!localComponent
-                .getChildren()
-                .find(
-                  (localChild) =>
-                    component.type.name === localChild.type.name && component.fullName === localChild.fullName
-                ) ||
-              (component.type.name === localComponent.type.name && component.fullName === localComponent.fullName)
-          )
+        !localSourceComponents.find(
+          (localComponent) =>
+            component.type.name === localComponent.type.name && component.fullName === localComponent.fullName
+        )
       ) {
         await Lifecycle.getInstance().emitWarning(
           `The component "${component.type.name}:${component.fullName}" was not found locally.`
