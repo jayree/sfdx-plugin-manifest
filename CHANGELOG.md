@@ -1,3 +1,10 @@
+## [2.8.6](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.8.5...v2.8.6) (2023-02-22)
+
+
+### Bug Fixes
+
+* **manifest:beta:git:diff:** fix final ComponentSet validation ([9295a35](https://github.com/jayree/sfdx-plugin-manifest/commit/9295a359ba8086fc37f3dd1c13f8d20e9f0fa55c))
+
 ## [2.8.5](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.8.4...v2.8.5) (2023-02-20)
 
 
