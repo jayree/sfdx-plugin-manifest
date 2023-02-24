@@ -9,7 +9,7 @@
     "@oclif/core": "^2.1.5",
     "@salesforce/kit": "^1.9.0",
     "@salesforce/sf-plugins-core": "^2.2.2",
-    "@salesforce/source-deploy-retrieve": "^7.9.3",
+    "@salesforce/source-deploy-retrieve": "^7.10.1",
     "@salesforce/ts-types": "^1.7.3",
     "debug": "^4.3.4",
     "fast-deep-equal": "^3.1.3",
