@@ -148,7 +148,7 @@ export default class CleanupManifest extends SfCommand<void> {
     const typeMembers: PackageTypeMembers[] = [];
     for (const [typeName, members] of typeMap.entries()) {
       if (members.length) {
-        typeMembers.push({ name: typeName, members });
+        typeMembers.push({ members, name: typeName });
       }
     }
 
