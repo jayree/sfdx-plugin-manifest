@@ -6,7 +6,10 @@
   "compilerOptions": {
     "outDir": "lib",
     "module": "ES2020",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "incremental": true,
+    "tsBuildInfoFile": ".tsbuildinfo"
   },
   "ts-node": {
     "esm": true
