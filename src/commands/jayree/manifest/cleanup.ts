@@ -70,19 +70,27 @@ export default class CleanupManifest extends SfCommand<void> {
   </types>
   <types>
     <name>SharingRules</name>
-    <!--Remove specified members from type E.g. VideoCall-->
+    <!--Remove specified members from type-->
     <members>VideoCall</members>
+    <!--Remove all members starting with Video from type-->
+    <members>Video*</members>
   </types>
   <types>
     <name>Report</name>
-    <!--Remove all members from type, but keep members: MyFolder, MyFolder/MyReport. E.g. if you don't need all your reports in your repository-->
+    <!--Remove all members from type, but keep members: MyFolder, MyFolder/MyReport. If you don't need all your reports in your repository-->
     <members>*</members>
     <members>MyFolder</members>
     <members>MyFolder/MyReport</members>
   </types>
   <types>
+    <name>CustomObjectTranslation</name>
+    <!--Remove all members from type, but keep members ending with -de. If you don't want to store all CustomObjectTranslation in your repository-->
+    <members>*</members>
+    <members>*-de</members>
+  </types>
+  <types>
     <name>CustomObject</name>
-    <!--Add members. E.g. if you have used 'excludemanaged' with 'jayree:manifest:generate' to re-add required managed components-->
+    <!--Add members ObjectName1, ObjectName2. If you have used 'excludemanaged' with 'jayree:manifest:generate' to re-add required managed components-->
     <members>!ObjectName1</members>
     <members>!ObjectName2</members>
   </types>
@@ -114,7 +122,32 @@ export default class CleanupManifest extends SfCommand<void> {
 
     ignoreTypeMembers.forEach((types) => {
       if (typeMap.get(types.name)) {
-        const packageTypeMembers = ensureArray(types.members);
+        const resolveWildCard = (members: string[]): string[] => {
+          members
+            .filter((m) => m.includes('*') && m.length > 1)
+            .forEach((i) => {
+              members.splice(members.indexOf(i), 1);
+              const wildCard = i.split('*');
+
+              members = members.concat(
+                typeMap.get(types.name)?.filter((m) => {
+                  if (wildCard.length === 2) {
+                    if (i.startsWith('*')) {
+                      return m.endsWith(wildCard[1]);
+                    } else if (i.endsWith('*')) {
+                      return m.startsWith(wildCard[0]);
+                    } else {
+                      return m.startsWith(wildCard[0]) && m.endsWith(wildCard[1]);
+                    }
+                  }
+                }) as string[]
+              );
+            });
+          return members;
+        };
+
+        const packageTypeMembers = resolveWildCard(ensureArray(types.members));
+
         if (packageTypeMembers.includes('*') && packageTypeMembers.length > 1) {
           const includemembers = packageTypeMembers.slice();
           includemembers.splice(includemembers.indexOf('*'), 1);
