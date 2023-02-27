@@ -1,3 +1,15 @@
+# [2.9.0](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.8.7...v2.9.0) (2023-02-27)
+
+
+### Bug Fixes
+
+* **manifest:cleanup:** align members, name order with SDR ([0ecf0e6](https://github.com/jayree/sfdx-plugin-manifest/commit/0ecf0e6e3301e14313ffd27a380ac9d2edbb0bf2))
+
+
+### Features
+
+* **manifest:cleanup:** add wildcards option to filter members ([42b288b](https://github.com/jayree/sfdx-plugin-manifest/commit/42b288bd1f110b5bd02b3bf4abee0b9ef676b4ff))
+
 ## [2.8.7](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.8.6...v2.8.7) (2023-02-24)
 
 
