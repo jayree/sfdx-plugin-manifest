@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/GitDiffCommandResult",
+  "definitions": {
+    "GitDiffCommandResult": {
+      "type": "object",
+      "properties": {
+        "destructiveChanges": {
+          "type": "object"
+        },
+        "manifest": {
+          "type": "object"
+        }
+      },
+      "required": ["destructiveChanges", "manifest"],
+      "additionalProperties": false
+    }
+  }
+}

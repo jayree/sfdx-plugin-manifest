@@ -1,11 +1,5 @@
 [
   {
-    "command": "jayree:manifest:beta:git:diff",
-    "plugin": "@jayree/sfdx-plugin-manifest",
-    "flags": ["api-version", "destructive-changes-only", "json", "output-dir", "source-dir"],
-    "alias": []
-  },
-  {
     "command": "jayree:manifest:cleanup",
     "plugin": "@jayree/sfdx-plugin-manifest",
     "flags": ["file", "json", "manifest"],
@@ -30,6 +24,12 @@
   },
   {
     "command": "jayree:manifest:git:diff",
+    "plugin": "@jayree/sfdx-plugin-manifest",
+    "flags": ["api-version", "destructive-changes-only", "json", "output-dir", "source-dir"],
+    "alias": ["jayree:manifest:beta:git:diff"]
+  },
+  {
+    "command": "jayree:manifest:legacy:git:diff",
     "plugin": "@jayree/sfdx-plugin-manifest",
     "flags": ["destructive-changes-only", "json", "output-dir", "source-dir"],
     "alias": []

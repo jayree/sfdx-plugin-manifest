@@ -5,14 +5,33 @@
     "GitDiffCommandResult": {
       "type": "object",
       "properties": {
-        "destructiveChanges": {
-          "type": "object"
-        },
         "manifest": {
-          "type": "object"
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": ["path", "name"],
+          "additionalProperties": false
+        },
+        "destructiveChanges": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": ["path", "name"],
+          "additionalProperties": false
         }
       },
-      "required": ["destructiveChanges", "manifest"],
       "additionalProperties": false
     }
   }

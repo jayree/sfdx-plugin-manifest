@@ -1,37 +1,40 @@
 import { SfCommand } from '@salesforce/sf-plugins-core';
 import { Optional } from '@salesforce/ts-types';
 export interface GitDiffCommandResult {
-    destructiveChanges: object;
-    manifest: object;
+    manifest?: {
+        path: string;
+        name: string;
+    };
+    destructiveChanges?: {
+        path: string;
+        name: string;
+    };
 }
-export default class GitDiff extends SfCommand<GitDiffCommandResult> {
+export default class GitDiffCommand extends SfCommand<GitDiffCommandResult> {
     static readonly summary: string;
     static readonly description: string;
     static readonly examples: string[];
     static readonly args: {
-        ref1: import("@oclif/core/lib/interfaces/parser").Arg<string, Record<string, unknown>>;
-        ref2: import("@oclif/core/lib/interfaces/parser").Arg<string | undefined, Record<string, unknown>>;
+        ref1: import("@oclif/core/lib/interfaces/parser.js").Arg<string, Record<string, unknown>>;
+        ref2: import("@oclif/core/lib/interfaces/parser.js").Arg<string | undefined, Record<string, unknown>>;
     };
     static readonly requiresProject = true;
+    static readonly deprecateAliases = true;
+    static readonly aliases: string[];
     static readonly flags: {
-        'source-dir': import("@oclif/core/lib/interfaces").OptionFlag<string[] | undefined, import("@oclif/core/lib/interfaces/parser").CustomOptions>;
-        'output-dir': import("@oclif/core/lib/interfaces").OptionFlag<string, import("@oclif/core/lib/interfaces/parser").CustomOptions>;
-        'destructive-changes-only': import("@oclif/core/lib/interfaces").BooleanFlag<boolean>;
+        'api-version': import("@oclif/core/lib/interfaces/parser.js").OptionFlag<string | undefined, import("@oclif/core/lib/interfaces/parser.js").CustomOptions>;
+        'source-dir': import("@oclif/core/lib/interfaces/parser.js").OptionFlag<string[] | undefined, import("@oclif/core/lib/interfaces/parser.js").CustomOptions>;
+        'output-dir': import("@oclif/core/lib/interfaces/parser.js").OptionFlag<string, import("@oclif/core/lib/interfaces/parser.js").CustomOptions>;
+        'destructive-changes-only': import("@oclif/core/lib/interfaces/parser.js").BooleanFlag<boolean>;
     };
-    private isOutputEnabled;
     private outputDir;
-    private destructiveChangesOnly;
-    private projectRoot;
-    private sourceApiVersion;
-    private destructiveChanges;
-    private manifest;
-    private gitLines;
-    private ref1VirtualTreeContainer;
-    private ref2VirtualTreeContainer;
+    private manifestName;
+    private destructiveChangesName;
+    private outputPath;
     private componentSet;
-    private outputErrors;
-    private outputWarnings;
-    private fsPaths;
+    private destructiveChangesOnly;
     run(): Promise<GitDiffCommandResult>;
     protected getSourceApiVersion(): Promise<Optional<string>>;
+    protected createManifest(): Promise<void>;
+    protected formatResult(): GitDiffCommandResult;
 }
