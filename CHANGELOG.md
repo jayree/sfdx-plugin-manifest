@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.9.1...v3.0.0) (2023-03-03)
+
+
+### Features
+
+* **manifest:git:diff:** make :beta:git:diff the default command. The old command is available as :legacy:git:diff ([2f4b9dc](https://github.com/jayree/sfdx-plugin-manifest/commit/2f4b9dc80dd3a4e6241c44907a88c5f00bcade63))
+
+
+### BREAKING CHANGES
+
+* **manifest:git:diff:** This change makes :beta:git:diff the default command.
+
 ## [2.9.1](https://github.com/jayree/sfdx-plugin-manifest/compare/v2.9.0...v2.9.1) (2023-03-03)
 
 
