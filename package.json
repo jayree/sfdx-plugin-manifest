@@ -142,7 +142,7 @@
     "prepack": "sf-prepack",
     "prepare": "patch-package && sf-install",
     "test": "wireit",
-    "version": "oclif readme"
+    "version": "oclif readme --no-aliases"
   },
   "publishConfig": {
     "access": "public"
