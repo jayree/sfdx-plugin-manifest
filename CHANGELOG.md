@@ -1,3 +1,10 @@
+## [3.0.2](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.0.1...v3.0.2) (2023-03-15)
+
+
+### Bug Fixes
+
+* use new changelog ([48c4f91](https://github.com/jayree/sfdx-plugin-manifest/commit/48c4f91e096fc11407ca08180c9241caedde4afb))
+
 ## [3.0.1](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.0.0...v3.0.1) (2023-03-10)
 
 
