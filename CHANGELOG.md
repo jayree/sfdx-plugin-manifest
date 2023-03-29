@@ -1,3 +1,10 @@
+## [3.0.5](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.0.4...v3.0.5) (2023-03-29)
+
+
+### Bug Fixes
+
+* **manifest:git:diff:** implement workaround for CustomObjectTranslation ([01e1d56](https://github.com/jayree/sfdx-plugin-manifest/commit/01e1d56e6cacf021b11476832425558abe25ec4f))
+
 ## [3.0.4](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.0.3...v3.0.4) (2023-03-24)
 
 
