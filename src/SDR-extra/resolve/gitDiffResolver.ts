@@ -127,6 +127,7 @@ export class GitDiffResolver {
     return files;
   }
 
+  // eslint-disable-next-line complexity
   private async getComponentSet(gitLines: Array<{ path: string; status: string | undefined }>): Promise<ComponentSet> {
     const results = new ComponentSet(undefined, registryAccess);
 
@@ -145,7 +146,11 @@ export class GitDiffResolver {
           // if the component supports partial delete AND there are files that are not deleted,
           // set the component for deploy, not for delete.
           // https://github.com/forcedotcom/source-tracking/blob/5cb32bef2e5860c0f8fc2afa3ea65432fe511a99/src/shared/localComponentSetArray.ts#L81
-          if (!!c.type.supportsPartialDelete && c.content && this.ref2VirtualTreeContainer.exists(c.content)) {
+          if (
+            (!!c.type.supportsPartialDelete || c.type.name === 'CustomObjectTranslation') &&
+            c.content &&
+            this.ref2VirtualTreeContainer.exists(c.content)
+          ) {
             // all bundle types have a directory name
             try {
               this.ref2Resolver
