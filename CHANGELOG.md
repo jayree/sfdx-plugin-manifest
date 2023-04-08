@@ -1,3 +1,10 @@
+## [3.0.8](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.0.7...v3.0.8) (2023-04-08)
+
+
+### Bug Fixes
+
+* **deps:** bump vm2 from 3.9.14 to 3.9.15 ([#655](https://github.com/jayree/sfdx-plugin-manifest/issues/655)) ([a5610e2](https://github.com/jayree/sfdx-plugin-manifest/commit/a5610e24fb95fdf97e0af45d0e881985b4e32266))
+
 ## [3.0.7](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.0.6...v3.0.7) (2023-04-07)
 
 
