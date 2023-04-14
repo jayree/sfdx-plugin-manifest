@@ -57,7 +57,7 @@
     "shx": "^0.3.4",
     "sinon": "15.0.3",
     "ts-node": "^10.9.1",
-    "typescript": "^5.0.3",
+    "typescript": "^5.0.4",
     "wireit": "^0.9.5"
   },
   "engines": {
