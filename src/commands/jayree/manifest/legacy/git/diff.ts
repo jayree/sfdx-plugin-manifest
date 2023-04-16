@@ -11,7 +11,7 @@ import { SfCommand, Flags, arrayWithDeprecation } from '@salesforce/sf-plugins-c
 import { Messages, SfError, SfProject } from '@salesforce/core';
 import { Args } from '@oclif/core';
 import fs from 'fs-extra';
-import { Logger, Listr } from 'listr2';
+import { ListrLogger, Listr, PRESET_TIMER } from 'listr2';
 import { env } from '@salesforce/kit';
 import { getString, Optional } from '@salesforce/ts-types';
 import equal from 'fast-deep-equal';
@@ -39,7 +39,7 @@ Messages.importMessagesDirectory(__dirname);
 
 const messages = Messages.loadMessages('@jayree/sfdx-plugin-manifest', 'gitdiff');
 
-const logger = new Logger({ useIcons: false });
+const logger = new ListrLogger({ useIcons: false });
 
 const debug = Debug('jayree:manifest:git:diff');
 
@@ -285,9 +285,16 @@ export default class GitDiff extends SfCommand<GitDiffCommandResult> {
         },
       ],
       {
-        rendererOptions: { showTimer: true, collapse: false, lazy: true, collapseErrors: false },
-        rendererSilent: !this.isOutputEnabled,
-        rendererFallback: debug.enabled,
+        rendererOptions: {
+          timer: {
+            ...PRESET_TIMER,
+            condition: (duration): boolean => duration > 250,
+          },
+          lazy: true,
+          collapseErrors: false,
+        },
+        silentRendererCondition: !this.isOutputEnabled,
+        fallbackRendererCondition: debug.enabled,
       }
     );
 
@@ -299,7 +306,7 @@ export default class GitDiff extends SfCommand<GitDiffCommandResult> {
       };
     } catch (e) {
       if (debug.enabled && this.isOutputEnabled) {
-        logger.fail((e as Error).message);
+        logger.toStderr((e as Error).message);
       }
       throw e;
     }
