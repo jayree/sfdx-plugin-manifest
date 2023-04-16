@@ -1,3 +1,11 @@
+## [3.0.11](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.0.10...v3.0.11) (2023-04-16)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve from 7.15.1 to 8.0.1 ([59f2070](https://github.com/jayree/sfdx-plugin-manifest/commit/59f2070e2a5d23337f2854d08bf536d79bbffc61))
+* **deps:** bump listr2 from 5.0.8 to 6.2.0 ([643b814](https://github.com/jayree/sfdx-plugin-manifest/commit/643b814f2d0325b75721b10b2d4d872e6bcc541c))
+
 ## [3.0.10](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.0.9...v3.0.10) (2023-04-14)
 
 
