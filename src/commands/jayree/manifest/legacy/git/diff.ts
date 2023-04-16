@@ -292,6 +292,7 @@ export default class GitDiff extends SfCommand<GitDiffCommandResult> {
           },
           lazy: true,
           collapseErrors: false,
+          collapseSubtasks: false,
         },
         silentRendererCondition: !this.isOutputEnabled,
         fallbackRendererCondition: debug.enabled,
