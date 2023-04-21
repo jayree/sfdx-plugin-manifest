@@ -5049,10 +5049,10 @@ listenercount@~1.0.1:
   resolved "https://registry.yarnpkg.com/listenercount/-/listenercount-1.0.1.tgz#84c8a72ab59c4725321480c975e6508342e70937"
   integrity sha512-3mk/Zag0+IJxeDrxSgaDPy4zZ3w05PRZeJNnlWhzFz5OkX49J4krc+A8X2d2M69vGMBEX0uyl8M+W+8gH+kBqQ==
 
-listr2@^6.2.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/listr2/-/listr2-6.2.0.tgz#0d75704d85960a56c28e9346b8673aed8f549716"
-  integrity sha512-LUVZzvu5Mf6HQOneRp/ej3BO9TK2ZHh7krjbR2KDBUM/rOb5IrGj+RDEUOEbD3h3k8P9C06p7F5rGa3VUsWy9Q==
+listr2@^6.3.1:
+  version "6.3.1"
+  resolved "https://registry.yarnpkg.com/listr2/-/listr2-6.3.1.tgz#35e123ec57834f7538da19f5482d36e62176aa33"
+  integrity sha512-FOTLAjWKYpfONygQ4DQiOFxQRD+YV9fzW7MKcHBSa9E6QD4POnrEkfGMNy4ND0KiUDO/mQcHzxmuZKlbrkOpiw==
   dependencies:
     cli-truncate "^3.1.0"
     colorette "^2.0.19"
