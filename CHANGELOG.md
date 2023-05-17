@@ -1,3 +1,11 @@
+## [3.0.18](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.0.17...v3.0.18) (2023-05-17)
+
+
+### Bug Fixes
+
+* **manifest:cleanup:** add missing types if specified in cleanup file ([98c9787](https://github.com/jayree/sfdx-plugin-manifest/commit/98c9787c80b11a5221d7f10b0d9a5071c1b98991))
+* **manifest:generate:** keep translations with manageableState=beta ([c3db3e0](https://github.com/jayree/sfdx-plugin-manifest/commit/c3db3e0f4160f7aa4e0bba592be0f417ff9f35b3))
+
 ## [3.0.17](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.0.16...v3.0.17) (2023-05-16)
 
 
