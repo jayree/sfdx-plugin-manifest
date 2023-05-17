@@ -120,62 +120,64 @@ export default class CleanupManifest extends SfCommand<void> {
 
     const { packageTypeMembers: ignoreTypeMembers } = parseManifest(fs.readFileSync(ignoreManifest, 'utf8'));
 
-    ignoreTypeMembers.forEach((types) => {
-      if (typeMap.get(types.name)) {
-        const resolveWildCard = (members: string[]): string[] => {
-          members
-            .filter((m) => m.includes('*') && m.length > 1)
-            .forEach((i) => {
-              members.splice(members.indexOf(i), 1);
-              const wildCard = i.split('*');
+    const resolveWildCard = (name: string, members: string[]): string[] => {
+      members
+        .filter((m) => m.includes('*') && m.length > 1)
+        .forEach((i) => {
+          members.splice(members.indexOf(i), 1);
+          const wildCard = i.split('*');
 
-              members = members.concat(
-                typeMap.get(types.name)?.filter((m) => {
-                  if (wildCard.length === 2) {
-                    if (i.startsWith('*')) {
-                      return m.endsWith(wildCard[1]);
-                    } else if (i.endsWith('*')) {
-                      return m.startsWith(wildCard[0]);
-                    } else {
-                      return m.startsWith(wildCard[0]) && m.endsWith(wildCard[1]);
-                    }
-                  }
-                }) as string[]
-              );
-            });
-          return members;
-        };
-
-        const packageTypeMembers = resolveWildCard(ensureArray(types.members));
-
-        if (packageTypeMembers.includes('*') && packageTypeMembers.length > 1) {
-          const includemembers = packageTypeMembers.slice();
-          includemembers.splice(includemembers.indexOf('*'), 1);
-          const includedmembers = typeMap.get(types.name)?.filter((value) => includemembers.includes(value));
-          if (includedmembers?.length) {
-            this.log('include only members ' + includedmembers.toString() + ' for type ' + types.name);
-            typeMap.set(types.name, includedmembers);
-          }
-        }
-
-        if (packageTypeMembers.includes('*') && packageTypeMembers.length === 1) {
-          this.log('exclude all members for type ' + types.name);
-          typeMap.delete(types.name);
-        }
-
-        if (!packageTypeMembers.includes('*')) {
-          const includedmembers = typeMap.get(types.name)?.filter((value) => !packageTypeMembers.includes(value));
-          if (includedmembers) {
-            typeMap.set(types.name, includedmembers);
-          }
-        }
-
-        packageTypeMembers.forEach((member) => {
-          if (member.startsWith('!')) {
-            typeMap.get(types.name)?.push(member.substring(1));
-          }
+          members = members.concat(
+            typeMap.get(name)?.filter((m) => {
+              if (wildCard.length === 2) {
+                if (i.startsWith('*')) {
+                  return m.endsWith(wildCard[1]);
+                } else if (i.endsWith('*')) {
+                  return m.startsWith(wildCard[0]);
+                } else {
+                  return m.startsWith(wildCard[0]) && m.endsWith(wildCard[1]);
+                }
+              }
+            }) as string[]
+          );
         });
+      return members;
+    };
+
+    ignoreTypeMembers.forEach((types) => {
+      if (!typeMap.get(types.name)) {
+        typeMap.set(types.name, []);
       }
+
+      const packageTypeMembers = resolveWildCard(types.name, ensureArray(types.members));
+
+      if (packageTypeMembers.includes('*') && packageTypeMembers.length > 1) {
+        const includemembers = packageTypeMembers.slice();
+        includemembers.splice(includemembers.indexOf('*'), 1);
+        const includedmembers = typeMap.get(types.name)?.filter((value) => includemembers.includes(value));
+        if (includedmembers?.length) {
+          this.log('include only members ' + includedmembers.toString() + ' for type ' + types.name);
+          typeMap.set(types.name, includedmembers);
+        }
+      }
+
+      if (packageTypeMembers.includes('*') && packageTypeMembers.length === 1) {
+        this.log('exclude all members for type ' + types.name);
+        typeMap.delete(types.name);
+      }
+
+      if (!packageTypeMembers.includes('*')) {
+        const includedmembers = typeMap.get(types.name)?.filter((value) => !packageTypeMembers.includes(value));
+        if (includedmembers) {
+          typeMap.set(types.name, includedmembers);
+        }
+      }
+
+      packageTypeMembers.forEach((member) => {
+        if (member.startsWith('!') && !typeMap.get(types.name)?.includes(member.substring(1))) {
+          typeMap.get(types.name)?.push(member.substring(1));
+        }
+      });
     });
 
     const typeMembers: PackageTypeMembers[] = [];
