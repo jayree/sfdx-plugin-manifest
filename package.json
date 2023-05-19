@@ -16,7 +16,7 @@
     "graceful-fs": "^4.2.11",
     "isomorphic-git": "^1.23.0",
     "listr2": "^6.6.0",
-    "tslib": "^2.5.0"
+    "tslib": "^2.5.2"
   },
   "devDependencies": {
     "@oclif/plugin-command-snapshot": "^3.3.15",
