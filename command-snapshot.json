@@ -3,7 +3,9 @@
     "command": "jayree:manifest:cleanup",
     "plugin": "@jayree/sfdx-plugin-manifest",
     "flags": ["file", "json", "manifest"],
-    "alias": []
+    "alias": [],
+    "flagChars": ["f", "x"],
+    "flagAliases": []
   },
   {
     "command": "jayree:manifest:generate",
@@ -20,12 +22,28 @@
       "quick-filter",
       "target-org"
     ],
-    "alias": []
+    "alias": [],
+    "flagChars": ["c", "f", "o", "q", "w"],
+    "flagAliases": [
+      "a",
+      "apiversion",
+      "excludeall",
+      "excludemanaged",
+      "includeflowversions",
+      "matchcase",
+      "matchwholeword",
+      "quickfilter",
+      "targetusername",
+      "u",
+      "x"
+    ]
   },
   {
     "command": "jayree:manifest:git:diff",
     "plugin": "@jayree/sfdx-plugin-manifest",
     "flags": ["api-version", "destructive-changes-only", "json", "output-dir", "source-dir"],
-    "alias": ["jayree:manifest:beta:git:diff"]
+    "alias": ["jayree:manifest:beta:git:diff"],
+    "flagChars": ["d"],
+    "flagAliases": ["apiversion", "destructivechangesonly", "o", "outputdir", "p", "sourcepath"]
   }
 ]
