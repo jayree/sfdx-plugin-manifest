@@ -5,6 +5,7 @@ on: pull_request_target
 permissions:
   pull-requests: write
   contents: write
+  repository-projects: read
 
 jobs:
   review-dependabot-pr:
