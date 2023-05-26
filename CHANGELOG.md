@@ -1,3 +1,11 @@
+## [3.1.1](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.1.0...v3.1.1) (2023-05-26)
+
+
+### Bug Fixes
+
+* **deps:** bump @jayree/changelog from 1.1.1 to 1.1.2 ([#722](https://github.com/jayree/sfdx-plugin-manifest/issues/722)) ([458dcae](https://github.com/jayree/sfdx-plugin-manifest/commit/458dcaef6d13267f57fdd8dbb6a9e683f02a8b51))
+* **deps:** bump @salesforce/source-deploy-retrieve from 8.5.3 to 8.6.0 ([#723](https://github.com/jayree/sfdx-plugin-manifest/issues/723)) ([0e551a5](https://github.com/jayree/sfdx-plugin-manifest/commit/0e551a53e0a56de100a6ee2cc00a922431a2faa7))
+
 # [3.1.0](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.0.19...v3.1.0) (2023-05-23)
 
 
