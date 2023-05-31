@@ -30,15 +30,15 @@ export default class GeneratePackageXML extends SfCommand<PackageManifestObject>
     static readonly description: string;
     static readonly examples: string[];
     static readonly flags: {
-        'target-org': import("@oclif/core/lib/interfaces").OptionFlag<import("@salesforce/core").Org, import("@oclif/core/lib/interfaces/parser").CustomOptions>;
-        'api-version': import("@oclif/core/lib/interfaces").OptionFlag<string | undefined, import("@oclif/core/lib/interfaces/parser").CustomOptions>;
-        'quick-filter': import("@oclif/core/lib/interfaces").OptionFlag<string[] | undefined, import("@oclif/core/lib/interfaces/parser").CustomOptions>;
-        'match-case': import("@oclif/core/lib/interfaces").BooleanFlag<boolean>;
-        'match-whole-word': import("@oclif/core/lib/interfaces").BooleanFlag<boolean>;
-        'include-flow-versions': import("@oclif/core/lib/interfaces").BooleanFlag<boolean>;
-        file: import("@oclif/core/lib/interfaces").OptionFlag<string | undefined, import("@oclif/core/lib/interfaces/parser").CustomOptions>;
-        'exclude-managed': import("@oclif/core/lib/interfaces").BooleanFlag<boolean>;
-        'exclude-all': import("@oclif/core/lib/interfaces").BooleanFlag<boolean>;
+        'target-org': import("@oclif/core/lib/interfaces/parser.js").OptionFlag<import("@salesforce/core").Org, import("@oclif/core/lib/interfaces/parser.js").CustomOptions>;
+        'api-version': import("@oclif/core/lib/interfaces/parser.js").OptionFlag<string | undefined, import("@oclif/core/lib/interfaces/parser.js").CustomOptions>;
+        'quick-filter': import("@oclif/core/lib/interfaces/parser.js").OptionFlag<string[] | undefined, import("@oclif/core/lib/interfaces/parser.js").CustomOptions>;
+        'match-case': import("@oclif/core/lib/interfaces/parser.js").BooleanFlag<boolean>;
+        'match-whole-word': import("@oclif/core/lib/interfaces/parser.js").BooleanFlag<boolean>;
+        'include-flow-versions': import("@oclif/core/lib/interfaces/parser.js").BooleanFlag<boolean>;
+        file: import("@oclif/core/lib/interfaces/parser.js").OptionFlag<string | undefined, import("@oclif/core/lib/interfaces/parser.js").CustomOptions>;
+        'exclude-managed': import("@oclif/core/lib/interfaces/parser.js").BooleanFlag<boolean>;
+        'exclude-all': import("@oclif/core/lib/interfaces/parser.js").BooleanFlag<boolean>;
     };
     private logger;
     private conn;
