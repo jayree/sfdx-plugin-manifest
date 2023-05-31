@@ -5,8 +5,8 @@ export default class CleanupManifest extends SfCommand<void> {
     static readonly examples: string[];
     static readonly requiresProject = true;
     static readonly flags: {
-        manifest: import("@oclif/core/lib/interfaces").OptionFlag<string | undefined, import("@oclif/core/lib/interfaces/parser").CustomOptions>;
-        file: import("@oclif/core/lib/interfaces").OptionFlag<string, import("@oclif/core/lib/interfaces/parser").CustomOptions>;
+        manifest: import("@oclif/core/lib/interfaces/parser.js").OptionFlag<string | undefined, import("@oclif/core/lib/interfaces/parser.js").CustomOptions>;
+        file: import("@oclif/core/lib/interfaces/parser.js").OptionFlag<string, import("@oclif/core/lib/interfaces/parser.js").CustomOptions>;
     };
     run(): Promise<void>;
     private cleanupManifestFile;
