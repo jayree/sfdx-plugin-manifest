@@ -23,4 +23,6 @@ jobs:
       - name: Building
         run: yarn build
       - name: Testing
-        run: yarn test
+        run: |
+          yarn test
+          yarn test:nuts

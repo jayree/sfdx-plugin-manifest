@@ -20,6 +20,7 @@
   "devDependencies": {
     "@oclif/plugin-command-snapshot": "^4.0.2",
     "@oclif/plugin-help": "^5.2.9",
+    "@salesforce/cli-plugins-testkit": "^4.0.1",
     "@salesforce/dev-config": "^4.0.1",
     "@salesforce/dev-scripts": "^5.4.2",
     "@salesforce/prettier-config": "^0.0.3",
@@ -126,6 +127,8 @@
     "prepack": "sf-prepack",
     "prepare": "patch-package && sf-install",
     "test": "wireit",
+    "test:nuts": "c8 mocha \"**/*.nut.ts\" --slow 4500 --timeout 600000 --parallel",
+    "test:nuts:local": "mocha \"**/local/*.nut.ts\" --slow 4500 --timeout 600000 --parallel",
     "version": "oclif readme --no-aliases"
   },
   "publishConfig": {
