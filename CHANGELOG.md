@@ -1,3 +1,10 @@
+## [3.1.3](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.1.2...v3.1.3) (2023-06-02)
+
+
+### Bug Fixes
+
+* pin isomorphic-git to v1.23.0 ([d7126e3](https://github.com/jayree/sfdx-plugin-manifest/commit/d7126e34ea093ed45f3f294ebeb1b75baf05421a))
+
 ## [3.1.2](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.1.1...v3.1.2) (2023-05-31)
 
 
