@@ -21,7 +21,7 @@ import { GitDiffResolver } from '../resolve/index.js';
 
 const debug = Debug('sf:gitDiff:ComponentSetExtra');
 
-interface FromGitDiffOptions extends OptionalTreeRegistryOptions {
+export interface FromGitDiffOptions extends OptionalTreeRegistryOptions {
   /**
    * Git ref to resolve components against
    */

@@ -1611,6 +1611,11 @@ ansi-regex@^5.0.1:
   resolved "https://registry.yarnpkg.com/ansi-regex/-/ansi-regex-5.0.1.tgz#082cb2c89c9fe8659a311a53bd6a4dc5301db304"
   integrity sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==
 
+ansi-sequence-parser@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/ansi-sequence-parser/-/ansi-sequence-parser-1.1.0.tgz#4d790f31236ac20366b23b3916b789e1bde39aed"
+  integrity sha512-lEm8mt52to2fT8GhciPCGeCXACSz2UwIN4X2e2LJSnZ5uAbn2/dsYdOmUXq0AtWS5cpAupysIneExOgH0Vd2TQ==
+
 ansi-styles@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-2.2.1.tgz#b432dd3358b634cf75e1e4664368240533c1ddbe"
@@ -3197,10 +3202,10 @@ eslint-plugin-jsdoc@^43.0.5:
     semver "^7.5.0"
     spdx-expression-parse "^3.0.1"
 
-eslint-plugin-jsdoc@^46.1.0:
-  version "46.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jsdoc/-/eslint-plugin-jsdoc-46.1.0.tgz#3ff932b70bc25f3745049f525a789faed7c948da"
-  integrity sha512-NpjpSuWR+Wwxzmssji7AVty1Vu0JvI7v+cTj+Rw1nKVjGv2eMvLGM/SI4VpgTXp82JbLtFOsA2QYLHT3YSmASA==
+eslint-plugin-jsdoc@^46.2.4:
+  version "46.2.4"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jsdoc/-/eslint-plugin-jsdoc-46.2.4.tgz#90734a47cd746863e40d0e57e5f273672d50f94e"
+  integrity sha512-QVURyOFEqkUswFOou0w1rfHshRfah7EeTd9laVllO6tb/+ymjPY1IkP16e24yX0BB7jRy8krJi99jHG2UWAPog==
   dependencies:
     "@es-joy/jsdoccomment" "~0.39.4"
     are-docs-informative "^0.0.2"
@@ -4864,7 +4869,7 @@ json5@^2.2.1, json5@^2.2.2:
   resolved "https://registry.yarnpkg.com/json5/-/json5-2.2.3.tgz#78cd6f1a19bdc12b73db5ad0c61efd66c1e29283"
   integrity sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==
 
-jsonc-parser@^3.0.0:
+jsonc-parser@^3.0.0, jsonc-parser@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/jsonc-parser/-/jsonc-parser-3.2.0.tgz#31ff3f4c2b9793f89c67212627c51c6394f88e76"
   integrity sha512-gfFQZrcTc8CnKXp6Y4/CBT3fTc0OVuDofpre4aEeEpSBPV5X5v4+Vmx+8snU7RLPrNHPKSgLxGo9YuQzz20o+w==
@@ -5386,6 +5391,13 @@ minimatch@^7.2.0:
   version "7.4.6"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-7.4.6.tgz#845d6f254d8f4a5e4fd6baf44d5f10c8448365fb"
   integrity sha512-sBz8G/YjVniEz6lKPNpKxXwazJe4c19fEfV2GDMX6AjFz+MX9uDWIZW8XreVhkFW3fkIdTv/gxWr/Kks5FFAVw==
+  dependencies:
+    brace-expansion "^2.0.1"
+
+minimatch@^9.0.0:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-9.0.1.tgz#8a555f541cf976c622daf078bb28f29fb927c253"
+  integrity sha512-0jWhJpD/MdhPXwPuiRkCbfYfSKp2qnn2eOc279qI7f+osl/l+prKSrvhg157zSYvx/1nmgn2NqdT6k2Z7zSH9w==
   dependencies:
     brace-expansion "^2.0.1"
 
@@ -7016,6 +7028,16 @@ shiki@^0.11.1:
     vscode-oniguruma "^1.6.1"
     vscode-textmate "^6.0.0"
 
+shiki@^0.14.1:
+  version "0.14.2"
+  resolved "https://registry.yarnpkg.com/shiki/-/shiki-0.14.2.tgz#d51440800b701392b31ce2336036058e338247a1"
+  integrity sha512-ltSZlSLOuSY0M0Y75KA+ieRaZ0Trf5Wl3gutE7jzLuIcWxLp5i/uEnLoQWNvgKXQ5OMpGkJnVMRLAuzjc0LJ2A==
+  dependencies:
+    ansi-sequence-parser "^1.1.0"
+    jsonc-parser "^3.2.0"
+    vscode-oniguruma "^1.7.0"
+    vscode-textmate "^8.0.0"
+
 shx@^0.3.4:
   version "0.3.4"
   resolved "https://registry.yarnpkg.com/shx/-/shx-0.3.4.tgz#74289230b4b663979167f94e1935901406e40f02"
@@ -7694,6 +7716,11 @@ typedoc-plugin-missing-exports@0.23.0:
   resolved "https://registry.yarnpkg.com/typedoc-plugin-missing-exports/-/typedoc-plugin-missing-exports-0.23.0.tgz#076df6ffce4d84e8097be009b7c62a17d58477a5"
   integrity sha512-9smahDSsFRno9ZwoEshQDuIYMHWGB1E6LUud5qMxR2wNZ0T4DlZz0QjoK3HzXtX34mUpTH0dYtt7NQUK4D6B6Q==
 
+typedoc-plugin-missing-exports@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/typedoc-plugin-missing-exports/-/typedoc-plugin-missing-exports-2.0.0.tgz#9bdc4e30b0c7f24e9f1cb8890db4d01f608717c5"
+  integrity sha512-t0QlKCm27/8DaheJkLo/gInSNjzBXgSciGhoLpL6sLyXZibm7SuwJtHvg4qXI2IjJfFBgW9mJvvszpoxMyB0TA==
+
 typedoc@0.23.16:
   version "0.23.16"
   resolved "https://registry.yarnpkg.com/typedoc/-/typedoc-0.23.16.tgz#09881ada725c2190ac5d3bb0edadcc5bfeda4bfe"
@@ -7703,6 +7730,16 @@ typedoc@0.23.16:
     marked "^4.0.19"
     minimatch "^5.1.0"
     shiki "^0.11.1"
+
+typedoc@0.24.8:
+  version "0.24.8"
+  resolved "https://registry.yarnpkg.com/typedoc/-/typedoc-0.24.8.tgz#cce9f47ba6a8d52389f5e583716a2b3b4335b63e"
+  integrity sha512-ahJ6Cpcvxwaxfu4KtjA8qZNqS43wYt6JL27wYiIgl1vd38WW/KWX11YuAeZhuz9v+ttrutSsgK+XO1CjL1kA3w==
+  dependencies:
+    lunr "^2.3.9"
+    marked "^4.3.0"
+    minimatch "^9.0.0"
+    shiki "^0.14.1"
 
 "typescript@^4.6.4 || ^5.0.0", typescript@^5.1.3:
   version "5.1.3"
@@ -7929,7 +7966,7 @@ vm2@^3.9.11:
     acorn "^8.7.0"
     acorn-walk "^8.2.0"
 
-vscode-oniguruma@^1.6.1:
+vscode-oniguruma@^1.6.1, vscode-oniguruma@^1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/vscode-oniguruma/-/vscode-oniguruma-1.7.0.tgz#439bfad8fe71abd7798338d1cd3dc53a8beea94b"
   integrity sha512-L9WMGRfrjOhgHSdOYgCt/yRMsXzLDJSL7BPrOZt73gU0iWO4mpqzqQzOz5srxqTvMBaR0XZTSrVWo4j55Rc6cA==
@@ -7938,6 +7975,11 @@ vscode-textmate@^6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/vscode-textmate/-/vscode-textmate-6.0.0.tgz#a3777197235036814ac9a92451492f2748589210"
   integrity sha512-gu73tuZfJgu+mvCSy4UZwd2JXykjK9zAZsfmDeut5dx/1a7FeTk0XwJsSuqQn+cuMCGVbIBfl+s53X4T19DnzQ==
+
+vscode-textmate@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/vscode-textmate/-/vscode-textmate-8.0.0.tgz#2c7a3b1163ef0441097e0b5d6389cd5504b59e5d"
+  integrity sha512-AFbieoL7a5LMqcnOF04ji+rpXadgOXnZsxQr//r83kLPr7biP7am3g9zbaZIaBGwBRWeSvoMD4mgPdX3e4NWBg==
 
 walk-up-path@^1.0.0:
   version "1.0.0"

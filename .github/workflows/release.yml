@@ -12,8 +12,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
+          persist-credentials: true
           fetch-depth: 0
-          persist-credentials: false
+          token: ${{ secrets.GH_TOKEN }}
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -31,3 +32,8 @@ jobs:
         run: |
           npm install -global semantic-release https://github.com/jayree/semantic-release/raw/master/oclif-semantic-release-v3.1.5.tgz
           semantic-release -e @oclif/semantic-release
+      - name: Docs
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          yarn ci-docs

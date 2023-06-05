@@ -10,7 +10,7 @@ import git from 'isomorphic-git';
 import { Lifecycle } from '@salesforce/core';
 import fs from 'graceful-fs';
 
-interface GitRepoOptions {
+export interface GitRepoOptions {
   gitDir: string;
   packageDirs?: string[];
 }

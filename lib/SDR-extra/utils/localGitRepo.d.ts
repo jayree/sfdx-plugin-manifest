@@ -1,5 +1,5 @@
 /// <reference types="node" resolution-mode="require"/>
-interface GitRepoOptions {
+export interface GitRepoOptions {
     gitDir: string;
     packageDirs?: string[];
 }
@@ -36,4 +36,3 @@ export declare class GitRepo {
     private getCommitLog;
     private ensureGitRelPath;
 }
-export {};
