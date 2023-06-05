@@ -42,7 +42,7 @@ index 2e1a739..67d15b0 100755
    }
  }
 diff --git a/node_modules/@salesforce/dev-scripts/files/mocharc.json b/node_modules/@salesforce/dev-scripts/files/mocharc.json
-index 2e6bae4..4253f30 100644
+index 2e6bae4..6725c65 100644
 --- a/node_modules/@salesforce/dev-scripts/files/mocharc.json
 +++ b/node_modules/@salesforce/dev-scripts/files/mocharc.json
 @@ -3,5 +3,6 @@
@@ -51,7 +51,7 @@ index 2e6bae4..4253f30 100644
    "reporter": "spec",
 -  "timeout": 5000
 +  "timeout": 5000,
-+  "node-option": ["experimental-specifier-resolution=node", "loader=ts-node/esm"]
++  "node-option": ["experimental-specifier-resolution=node", "loader=ts-node/esm", "no-warnings"]
  }
 diff --git a/node_modules/@salesforce/dev-scripts/files/tsconfig-strict.json b/node_modules/@salesforce/dev-scripts/files/tsconfig-strict.json
 index d4f6ee8..73ad6fa 100644
