@@ -13,11 +13,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
+          persist-credentials: true
           fetch-depth: 0
+          token: ${{ secrets.GH_TOKEN }}
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 'lts/*'
+      - name: Update patch files
+        id: patch
+        uses: jayree/update-patch-files@main
+        with:
+          packages: |-
+            @salesforce+dev-scripts
+            oclif
+          token: ${{secrets.GH_TOKEN}}
       - name: Install dependencies
         run: yarn
       - name: Building
@@ -26,3 +36,11 @@ jobs:
         run: |
           yarn test
           yarn test:nuts
+      - name: Commit patch files
+        if: ${{ steps.patch.outputs.update == 'true' }}
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add patches
+          git commit -m "chore: update patch files"
+          git push
