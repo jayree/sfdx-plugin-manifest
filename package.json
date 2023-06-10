@@ -37,7 +37,6 @@
     "eslint-config-oclif": "^4.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-config-salesforce": "^2.0.1",
-    "eslint-config-salesforce-license": "^0.2.0",
     "eslint-config-salesforce-typescript": "^1.1.1",
     "eslint-plugin-header": "^3.1.1",
     "eslint-plugin-import": "2.27.5",
@@ -131,8 +130,10 @@
     "prepack": "sf-prepack",
     "prepare": "patch-package && sf-install",
     "test": "wireit",
+    "test:compile": "wireit",
     "test:nuts": "c8 mocha \"**/*.nut.ts\" --slow 4500 --timeout 600000 --parallel",
     "test:nuts:local": "mocha \"**/local/*.nut.ts\" --slow 4500 --timeout 600000 --parallel",
+    "test:only": "wireit",
     "version": "oclif readme --no-aliases"
   },
   "publishConfig": {
@@ -188,6 +189,8 @@
     },
     "test": {
       "dependencies": [
+        "test:compile",
+        "test:only",
         "test:deprecation-policy",
         "lint",
         "test:json-schema"
@@ -208,6 +211,29 @@
       "files": [
         "src/**/*.ts",
         "schemas"
+      ],
+      "output": []
+    },
+    "test:compile": {
+      "command": "tsc -p \"./test\" --pretty",
+      "files": [
+        "test/**/*.ts",
+        "**/tsconfig.json"
+      ],
+      "output": []
+    },
+    "test:only": {
+      "command": "c8 mocha \"test/**/*.test.ts\"",
+      "env": {
+        "FORCE_COLOR": "2"
+      },
+      "files": [
+        "test/**/*.ts",
+        "src/**/*.ts",
+        "**/tsconfig.json",
+        ".mocha*",
+        "!*.nut.ts",
+        ".nycrc"
       ],
       "output": []
     }
