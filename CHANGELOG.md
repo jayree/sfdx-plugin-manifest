@@ -1,3 +1,10 @@
+## [3.1.6](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.1.5...v3.1.6) (2023-06-10)
+
+
+### Bug Fixes
+
+* **deps:** bump @jayree/changelog from 1.1.2 to 1.1.3 ([#760](https://github.com/jayree/sfdx-plugin-manifest/issues/760)) ([d819f70](https://github.com/jayree/sfdx-plugin-manifest/commit/d819f70ab1403c934665773c89f308f1ad73a94b))
+
 ## [3.1.5](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.1.4...v3.1.5) (2023-06-09)
 
 
