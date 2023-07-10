@@ -1,3 +1,10 @@
+## [3.1.11](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.1.10...v3.1.11) (2023-07-10)
+
+
+### Bug Fixes
+
+* **deps:** bump tough-cookie from 4.1.2 to 4.1.3 ([#800](https://github.com/jayree/sfdx-plugin-manifest/issues/800)) ([f2423bc](https://github.com/jayree/sfdx-plugin-manifest/commit/f2423bc9c6d197118103af923d25500cdf19f523))
+
 ## [3.1.10](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.1.9...v3.1.10) (2023-07-07)
 
 
