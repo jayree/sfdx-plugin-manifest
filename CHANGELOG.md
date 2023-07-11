@@ -1,3 +1,10 @@
+## [3.1.12](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.1.11...v3.1.12) (2023-07-11)
+
+
+### Bug Fixes
+
+* **deps:** bump semver from 5.7.1 to 5.7.2 ([#801](https://github.com/jayree/sfdx-plugin-manifest/issues/801)) ([20e25d3](https://github.com/jayree/sfdx-plugin-manifest/commit/20e25d3f424bbbd9d8ac040204230ae226e35378))
+
 ## [3.1.11](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.1.10...v3.1.11) (2023-07-10)
 
 
