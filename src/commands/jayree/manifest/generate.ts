@@ -119,16 +119,17 @@ export default class GeneratePackageXML extends SfCommand<PackageManifestObject>
 
     const componentFilter = (component: Partial<FileProperties>): boolean => {
       const isNamespaceUndefined = component.namespacePrefix && component.manageableState === undefined;
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-enum-comparison
       const isTranslationsBeta = component.type === 'Translations' && component.manageableState === 'beta';
 
       const isExcludedManaged =
         flags['exclude-managed'] &&
-        (isNamespaceUndefined ||
+        (isNamespaceUndefined ??
           (component.manageableState && managed.includes(component.manageableState) && !isTranslationsBeta));
 
       const isExcludedAll =
         flags['exclude-all'] &&
-        (isNamespaceUndefined ||
+        (isNamespaceUndefined ??
           (component.manageableState && all.includes(component.manageableState) && !isTranslationsBeta));
 
       return !(isExcludedManaged ?? isExcludedAll);
