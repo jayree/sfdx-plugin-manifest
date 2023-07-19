@@ -1,3 +1,10 @@
+## [3.1.14](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.1.13...v3.1.14) (2023-07-19)
+
+
+### Bug Fixes
+
+* **deps:** bump word-wrap from 1.2.3 to 1.2.4 ([#816](https://github.com/jayree/sfdx-plugin-manifest/issues/816)) ([833f6db](https://github.com/jayree/sfdx-plugin-manifest/commit/833f6dbae1374bf9feec7530f6c54f0b02268834))
+
 ## [3.1.13](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.1.12...v3.1.13) (2023-07-14)
 
 
