@@ -31,7 +31,7 @@
     "@types/inquirer": "^9.0.3",
     "@typescript-eslint/eslint-plugin": "^6.1.0",
     "@typescript-eslint/parser": "^6.1.0",
-    "c8": "^8.0.0",
+    "c8": "^8.0.1",
     "chai": "^4.3.7",
     "eslint": "^8.45.0",
     "eslint-config-oclif": "^4.0",
