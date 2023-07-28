@@ -1042,13 +1042,13 @@
     chalk "^4"
     inquirer "^8.2.5"
 
-"@salesforce/source-deploy-retrieve@^9.4.2":
-  version "9.4.2"
-  resolved "https://registry.yarnpkg.com/@salesforce/source-deploy-retrieve/-/source-deploy-retrieve-9.4.2.tgz#11f259cb716626e80f9e94689c5453f36c3262eb"
-  integrity sha512-uGgdMOhgzvD1Ga+ADAvkOF1beKmuf/2Er3GQQBuzy7ULY5OD+z6l+yQPZZTQqiveJrdrJkMjIpNtUwWDc+4e8A==
+"@salesforce/source-deploy-retrieve@^9.5.0":
+  version "9.5.0"
+  resolved "https://registry.yarnpkg.com/@salesforce/source-deploy-retrieve/-/source-deploy-retrieve-9.5.0.tgz#e9079263f53671bf6ed6276a0245d49b6d6e5410"
+  integrity sha512-yjISk/euy77OOGyPxchUJt9jvc99Ia+tSXj3TJpaK552AqNq8WlT4Wnay+IKBa24SWFV57nvUtqaI8bcgkmm/Q==
   dependencies:
     "@salesforce/core" "^4.3.1"
-    "@salesforce/kit" "^3.0.4"
+    "@salesforce/kit" "^3.0.6"
     "@salesforce/ts-types" "^2.0.5"
     fast-levenshtein "^3.0.0"
     fast-xml-parser "^4.2.5"
@@ -1058,7 +1058,7 @@
     jszip "^3.10.1"
     mime "2.6.0"
     minimatch "^5.1.6"
-    proxy-agent "^6.2.2"
+    proxy-agent "^6.3.0"
     unzipper "0.10.14"
 
 "@salesforce/ts-sinon@^1.4.12":
@@ -6456,7 +6456,7 @@ proper-lockfile@^4.1.2:
     retry "^0.12.0"
     signal-exit "^3.0.2"
 
-proxy-agent@^6.2.2:
+proxy-agent@^6.3.0:
   version "6.3.0"
   resolved "https://registry.yarnpkg.com/proxy-agent/-/proxy-agent-6.3.0.tgz#72f7bb20eb06049db79f7f86c49342c34f9ba08d"
   integrity sha512-0LdR757eTj/JfuU7TL2YCuAZnxWXu3tkJbg4Oq3geW/qFNT/32T0sp2HnZ9O0lMR4q3vwAt0+xCA8SR0WAD0og==
