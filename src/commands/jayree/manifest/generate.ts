@@ -124,12 +124,14 @@ export default class GeneratePackageXML extends SfCommand<PackageManifestObject>
 
       const isExcludedManaged =
         flags['exclude-managed'] &&
-        (isNamespaceUndefined ??
+        // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+        (isNamespaceUndefined ||
           (component.manageableState && managed.includes(component.manageableState) && !isTranslationsBeta));
 
       const isExcludedAll =
         flags['exclude-all'] &&
-        (isNamespaceUndefined ??
+        // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+        (isNamespaceUndefined ||
           (component.manageableState && all.includes(component.manageableState) && !isTranslationsBeta));
 
       return !(isExcludedManaged ?? isExcludedAll);
