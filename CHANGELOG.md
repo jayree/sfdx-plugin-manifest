@@ -1,3 +1,10 @@
+## [3.1.17](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.1.16...v3.1.17) (2023-08-01)
+
+
+### Bug Fixes
+
+* **manifestgenerate:** fix exclude-managed and exclude-all flag ([3410080](https://github.com/jayree/sfdx-plugin-manifest/commit/3410080ca63fd7c4d9c1d58ba08a086edc5a94a4))
+
 ## [3.1.16](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.1.15...v3.1.16) (2023-07-28)
 
 
