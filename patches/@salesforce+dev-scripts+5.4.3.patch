@@ -42,7 +42,7 @@ index 2e1a739..67d15b0 100755
    }
  }
 diff --git a/node_modules/@salesforce/dev-scripts/files/eslintrc-strict.js b/node_modules/@salesforce/dev-scripts/files/eslintrc-strict.js
-index 33b19f5..60f35c1 100644
+index 33b19f5..eac972b 100644
 --- a/node_modules/@salesforce/dev-scripts/files/eslintrc-strict.js
 +++ b/node_modules/@salesforce/dev-scripts/files/eslintrc-strict.js
 @@ -9,5 +9,24 @@
@@ -146,7 +146,7 @@ index 44147cc..87197ec 100644
    "include": ["./**/*.ts"]
  }
 diff --git a/node_modules/@salesforce/dev-scripts/utils/husky-init.js b/node_modules/@salesforce/dev-scripts/utils/husky-init.js
-index df35b6e..b9197ce 100644
+index a0f6ff0..52a94c2 100644
 --- a/node_modules/@salesforce/dev-scripts/utils/husky-init.js
 +++ b/node_modules/@salesforce/dev-scripts/utils/husky-init.js
 @@ -21,9 +21,9 @@ function initializeHusky() {
@@ -155,10 +155,10 @@ index df35b6e..b9197ce 100644
      if (localGitHooks.length === 0) {
 -      shell.exec("yarn husky add .husky/commit-msg 'yarn commitlint --edit'");
 -      shell.exec("yarn husky add .husky/pre-commit 'yarn lint && yarn pretty-quick --staged'");
--      shell.exec("yarn husky add .husky/pre-push 'yarn build && yarn test --forbid-only'");
+-      shell.exec("yarn husky add .husky/pre-push 'yarn build && yarn run test:only -- --forbid-only'");
 +      shell.exec("yarn husky add .husky/commit-msg 'npx commitlint --edit'");
 +      shell.exec("yarn husky add .husky/pre-commit 'npm run lint && npx pretty-quick --staged'");
-+      shell.exec("yarn husky add .husky/pre-push 'npm run build && npm run test --forbid-only'");
++      shell.exec("yarn husky add .husky/pre-push 'npm run build && npm run test:only -- --forbid-only'");
      }
    } catch (err) {
      if (err.code === 'ENOENT') {
