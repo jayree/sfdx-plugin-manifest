@@ -101,7 +101,7 @@ export class ComponentSetExtra extends ComponentSet {
         childsTobeReplacedByParent.includes(component.type.id)
       ) {
         debug(
-          `add parent ${component.parent.type.name}:${component.parent.fullName} of ${component.type.name}:${component.fullName} to manifest`
+          `add parent ${component.parent.type.name}:${component.parent.fullName} of ${component.type.name}:${component.fullName} to manifest`,
         );
         inclusiveFilter.add(component.parent);
       }
@@ -137,11 +137,11 @@ export class ComponentSetExtra extends ComponentSet {
       if (
         !localSourceComponents.find(
           (localComponent) =>
-            component.type.name === localComponent.type.name && component.fullName === localComponent.fullName
+            component.type.name === localComponent.type.name && component.fullName === localComponent.fullName,
         )
       ) {
         await Lifecycle.getInstance().emitWarning(
-          `The component "${component.type.name}:${component.fullName}" was not found locally.`
+          `The component "${component.type.name}:${component.fullName}" was not found locally.`,
         );
       }
     }

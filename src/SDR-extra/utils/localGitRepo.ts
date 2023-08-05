@@ -161,7 +161,7 @@ export class GitRepo {
         [1, 2, 1], // modified, unstaged
         [1, 0, 1], // deleted, unstaged
         [0, 2, 0], // new, untracked
-      ].some((a) => a.every((val, index) => val === row.slice(1)[index]))
+      ].some((a) => a.every((val, index) => val === row.slice(1)[index])),
     );
 
     if (warningMatrix.length) {
@@ -197,7 +197,7 @@ export class GitRepo {
             [0, 0, 3], // added, staged, with unstaged deletion
             [0, 2, 0], // new, untracked
             [1, 1, 3], // modified, staged, with unstaged original file
-          ].some((a) => a.every((val, index) => val === row.slice(1)[index]))
+          ].some((a) => a.every((val, index) => val === row.slice(1)[index])),
       )
       .map((row) => ({
         path: path.join(this.gitDir, ensureOSPath(row[0])),
@@ -212,7 +212,7 @@ export class GitRepo {
       {
         path: string;
         status: string;
-      }
+      },
     ]
   > {
     const gitDir = this.gitDir;
@@ -267,7 +267,7 @@ export class GitRepo {
           oid: options.oid,
           filepath: this.ensureGitRelPath(options.filename),
         })
-      ).blob
+      ).blob,
     );
   }
 
@@ -283,7 +283,7 @@ export class GitRepo {
     } catch (error) {
       throw new Error(
         `ambiguous argument '${ref}': unknown revision or path not in the working tree.
-  See more help with --help`
+  See more help with --help`,
       );
     }
   }
