@@ -96,7 +96,7 @@ export default class CleanupManifest extends SfCommand<void> {
   </types>
   <version>52.0</version>
 </Package>
-`
+`,
       );
       this.log(`Cleanup manifest file template '${file}' was created`);
     } else {
@@ -138,7 +138,7 @@ export default class CleanupManifest extends SfCommand<void> {
                   return m.startsWith(wildCard[0]) && m.endsWith(wildCard[1]);
                 }
               }
-            }) as string[]
+            }) as string[],
           );
         });
       return members;

@@ -71,12 +71,12 @@ export class GitDiffResolver {
       VirtualTreeContainerExtra.fromGitRef(
         ref1,
         this.gitDir,
-        fileStatus.filter((l) => l.status === 'M').map((l) => l.path)
+        fileStatus.filter((l) => l.status === 'M').map((l) => l.path),
       ),
       VirtualTreeContainerExtra.fromGitRef(
         ref2,
         this.gitDir,
-        fileStatus.filter((l) => l.status === 'M').map((l) => l.path)
+        fileStatus.filter((l) => l.status === 'M').map((l) => l.path),
       ),
     ]);
 
@@ -98,13 +98,13 @@ export class GitDiffResolver {
 
   private async getFileStatus(
     ref1: string,
-    ref2: string
+    ref2: string,
   ): Promise<Array<{ path: string; status: string | undefined }>> {
     let files: Array<{ path: string; status: string | undefined }>;
 
     if (ref2) {
       files = (await this.localRepo.getFileState({ ref1, ref2 })).filter((l) =>
-        this.uniquePackageDirectories.some((f) => l.path.startsWith(f))
+        this.uniquePackageDirectories.some((f) => l.path.startsWith(f)),
       );
     } else {
       files = await this.localRepo.getStatus(ref1);
@@ -156,7 +156,7 @@ export class GitDiffResolver {
               this.ref2Resolver
                 .getComponentsFromPath(path.resolve(c.content))
                 .filter(
-                  (input: SourceComponent | undefined): input is SourceComponent => input instanceof SourceComponent
+                  (input: SourceComponent | undefined): input is SourceComponent => input instanceof SourceComponent,
                 )
                 .map((nonDeletedComponent) => {
                   results.add(nonDeletedComponent);
@@ -201,7 +201,7 @@ export class GitDiffResolver {
     }
 
     const forceIgnored = Array.from(
-      new Set([...this.ref1Resolver.forceIgnoredPaths, ...this.ref2Resolver.forceIgnoredPaths])
+      new Set([...this.ref1Resolver.forceIgnoredPaths, ...this.ref2Resolver.forceIgnoredPaths]),
     );
 
     for await (const file of forceIgnored) {

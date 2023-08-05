@@ -113,7 +113,7 @@ export default class GitDiffCommand extends SfCommand<GitDiffCommandResult> {
       if (this.componentSet.getTypesOfDestructiveChanges().length) {
         await fs.writeFile(
           join(this.outputDir, this.destructiveChangesName),
-          await this.componentSet.getPackageXml(undefined, DestructiveChangesType.POST)
+          await this.componentSet.getPackageXml(undefined, DestructiveChangesType.POST),
         );
       }
       if (this.destructiveChangesOnly) {

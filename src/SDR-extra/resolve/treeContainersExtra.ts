@@ -25,7 +25,7 @@ export class VirtualTreeContainerExtra extends VirtualTreeContainer {
   public static async fromGitRef(
     ref: string,
     gitDir: string,
-    includeBufferForFiles: string[]
+    includeBufferForFiles: string[],
   ): Promise<VirtualTreeContainer> {
     const localRepo = GitRepo.getInstance({ gitDir });
 
@@ -45,7 +45,7 @@ export class VirtualTreeContainerExtra extends VirtualTreeContainer {
                   ? await localRepo.readBlobAsBuffer({ oid, filename })
                   : await fs.promises.readFile(filename)
                 : Buffer.from(''),
-          })
+          }),
         ),
       });
       const splits = filename.split(path.sep);
