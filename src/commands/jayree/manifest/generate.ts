@@ -124,12 +124,14 @@ export default class GeneratePackageXML extends SfCommand<PackageManifestObject>
 
       const isExcludedManaged =
         flags['exclude-managed'] &&
-        (isNamespaceUndefined ??
+        // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+        (isNamespaceUndefined ||
           (component.manageableState && managed.includes(component.manageableState) && !isTranslationsBeta));
 
       const isExcludedAll =
         flags['exclude-all'] &&
-        (isNamespaceUndefined ??
+        // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+        (isNamespaceUndefined ||
           (component.manageableState && all.includes(component.manageableState) && !isTranslationsBeta));
 
       return !(isExcludedManaged ?? isExcludedAll);
@@ -171,13 +173,13 @@ export default class GeneratePackageXML extends SfCommand<PackageManifestObject>
         const flowDefinitionQuery = (await this.conn.tooling.query(
           `SELECT DeveloperName, ActiveVersion.VersionNumber, LatestVersion.VersionNumber FROM FlowDefinition where DeveloperName in (${hasFlows
             .map((component) => `'${component.fullName}'`)
-            .toString()})`
+            .toString()})`,
         )) as QueryResult;
         const flowDefinitionRecods = flowDefinitionQuery.records as FlowDefinitionRecord[];
         for (const record of flowDefinitionRecods) {
           if (record.LatestVersion?.VersionNumber !== record.ActiveVersion?.VersionNumber) {
             this.log(
-              `DeveloperName: ${record.DeveloperName}, ActiveVersion: ${record.ActiveVersion?.VersionNumber}, LatestVersion: ${record.LatestVersion?.VersionNumber}`
+              `DeveloperName: ${record.DeveloperName}, ActiveVersion: ${record.ActiveVersion?.VersionNumber}, LatestVersion: ${record.LatestVersion?.VersionNumber}`,
             );
           }
         }
