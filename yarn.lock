@@ -1096,21 +1096,21 @@
     proxy-agent "^6.3.0"
     unzipper "0.10.14"
 
-"@salesforce/ts-sinon@^1.4.13":
-  version "1.4.13"
-  resolved "https://registry.yarnpkg.com/@salesforce/ts-sinon/-/ts-sinon-1.4.13.tgz#918d0bf7764932dabbb5cb078f34a42dcf28a677"
-  integrity sha512-1eFEzZIoA72XRqwr693i4emfKfZroKaxv2kLXgi9iSzeANALv8SaXrYhH1qoQKiSZKAN9AhwwZzgPEUsgW2cgQ==
+"@salesforce/ts-sinon@^1.4.14":
+  version "1.4.14"
+  resolved "https://registry.yarnpkg.com/@salesforce/ts-sinon/-/ts-sinon-1.4.14.tgz#f36ff049f39f8f712b51e1b655e03cf2988d8a6b"
+  integrity sha512-Le8gueZW8opoJ7PeCS9C4lKad1bUKoBYaArGhBPUDaK+ZItcIeOMT8IXtjP0ajVBHk5wbqGgoxXyThTnTu8jRA==
   dependencies:
-    "@salesforce/ts-types" "^2.0.5"
+    "@salesforce/ts-types" "^2.0.6"
     sinon "^5.1.1"
     tslib "^2.6.1"
 
-"@salesforce/ts-types@^2.0.2", "@salesforce/ts-types@^2.0.5":
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/@salesforce/ts-types/-/ts-types-2.0.5.tgz#5471236522588e08c094fc3fda27761e6ec935fa"
-  integrity sha512-X91De9ZK/X86lYcFAzoAt/pPeY6Lf+G7LyAJRx3FuYpdc+nocvniUnnJGXwSmyKMMxW2NifvQgST7FTZLZ5REA==
+"@salesforce/ts-types@^2.0.2", "@salesforce/ts-types@^2.0.5", "@salesforce/ts-types@^2.0.6":
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/@salesforce/ts-types/-/ts-types-2.0.6.tgz#659590ee6ece45213bbdb23c9e244d206a2f912e"
+  integrity sha512-hGSU3pwZKItAw567cD2hf+nwe4yPVANonb1E28bLVaRjYAI6FmdxjjTxA+wZRrTpTCpjd5TY67Lq2X1X1lY8bA==
   dependencies:
-    tslib "^2.6.0"
+    tslib "^2.6.1"
 
 "@sindresorhus/is@^4.0.0":
   version "4.6.0"
