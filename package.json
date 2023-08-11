@@ -30,7 +30,7 @@
     "@types/graceful-fs": "^4.1.6",
     "@types/inquirer": "^9.0.3",
     "@typescript-eslint/eslint-plugin": "^6.3.0",
-    "@typescript-eslint/parser": "^6.2.1",
+    "@typescript-eslint/parser": "^6.3.0",
     "c8": "^8.0.1",
     "chai": "^4.3.7",
     "eslint": "^8.46.0",
