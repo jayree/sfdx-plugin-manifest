@@ -1,3 +1,10 @@
+## [3.1.24](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.1.23...v3.1.24) (2023-09-04)
+
+
+### Bug Fixes
+
+* pin SDR to 9.7.6 as workaround for DecodeableMap issue ([b6493b9](https://github.com/jayree/sfdx-plugin-manifest/commit/b6493b9ea37315a3fe2f42ed067b25da7a19b08f))
+
 ## [3.1.23](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.1.22...v3.1.23) (2023-09-01)
 
 
