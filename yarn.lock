@@ -1042,7 +1042,7 @@
     chalk "^4"
     inquirer "^8.2.5"
 
-"@salesforce/source-deploy-retrieve@9.7.9":
+"@salesforce/source-deploy-retrieve@^9.7.9":
   version "9.7.9"
   resolved "https://registry.yarnpkg.com/@salesforce/source-deploy-retrieve/-/source-deploy-retrieve-9.7.9.tgz#ec24124950ec1365ad48b38bc0b8898b9eceb524"
   integrity sha512-lp166IZX3Me8I2YUIZS4uAgKLnbGp1MdbAUlpUL5VhAQBh7dNuPcjDFSueTEVG/4vfGPkM4s+65WMi2sJfx8pg==
@@ -6179,10 +6179,10 @@ object.values@^1.1.6:
     define-properties "^1.1.4"
     es-abstract "^1.20.4"
 
-oclif@^3.13.1:
-  version "3.13.1"
-  resolved "https://registry.yarnpkg.com/oclif/-/oclif-3.13.1.tgz#b597df882dd3c42c30ba560f5066d6abd564d0ed"
-  integrity sha512-t4OqJjLK/xP3J1BlmQgkQVDn99F3CnN/RY/X6QbJXn7GfCdZ0LdJXt2zjYP+rQ1cxy9ejbNiwdo/TxVfXSYa6A==
+oclif@^3.14.0:
+  version "3.14.0"
+  resolved "https://registry.yarnpkg.com/oclif/-/oclif-3.14.0.tgz#d0a0cd2f4c3e6135aff6de1733ff0704000a95b3"
+  integrity sha512-IlTb6WcbL7DxKSBp/TlC+wj7FhelIVu5AHBoW5+ABJ9GjXMv27sAY6F+RfEXqQaMu8OwRP9t/1sAKR+3wMlX8w==
   dependencies:
     "@oclif/core" "^2.11.4"
     "@oclif/plugin-help" "^5.2.14"
