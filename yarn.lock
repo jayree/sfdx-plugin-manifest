@@ -929,12 +929,12 @@
     picocolors "^1.0.0"
     tslib "^2.6.0"
 
-"@salesforce/cli-plugins-testkit@^4.3.4":
-  version "4.3.4"
-  resolved "https://registry.yarnpkg.com/@salesforce/cli-plugins-testkit/-/cli-plugins-testkit-4.3.4.tgz#c79df959261d9b7c6360869ba937158d75d31934"
-  integrity sha512-QcUV83trR9O/uWZApNdPBtBjAWAU4o23FKHpapvfChfqd+1ldgVTFSzipLy3k2eMD8tsOziBQ1Fw0xuiRM+HOQ==
+"@salesforce/cli-plugins-testkit@^4.3.5":
+  version "4.3.5"
+  resolved "https://registry.yarnpkg.com/@salesforce/cli-plugins-testkit/-/cli-plugins-testkit-4.3.5.tgz#3efd4433c57f51dcf0acbcda4337cf530c5b3b33"
+  integrity sha512-pP9PpyLtwXKj3jvkdVGpuxOAgqML+JcTVmyjuORyiOg4BLTQVGnju/e1GXirasNrIA3Wh1DLVymFDqN4HAc32w==
   dependencies:
-    "@salesforce/core" "^5.2.5"
+    "@salesforce/core" "^5.2.7"
     "@salesforce/kit" "^3.0.11"
     "@salesforce/ts-types" "^2.0.6"
     "@types/shelljs" "^0.8.12"
@@ -944,7 +944,7 @@
     strip-ansi "6.0.1"
     ts-retry-promise "^0.7.1"
 
-"@salesforce/core@^5.2.5", "@salesforce/core@^5.2.6", "@salesforce/core@^5.2.7":
+"@salesforce/core@^5.2.6", "@salesforce/core@^5.2.7":
   version "5.2.9"
   resolved "https://registry.yarnpkg.com/@salesforce/core/-/core-5.2.9.tgz#812478061d766cdff28f7a0e8abefc9de562465a"
   integrity sha512-ZWNxHnCPGT1pcJe1bjeRjd8VAeHELK4fftt/2WO+ZsPFHZnzmdowz2Th407v04et+uIzL0Z6+qOaRY/bZr5tLA==
