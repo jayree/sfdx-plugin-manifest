@@ -1,3 +1,11 @@
+## [3.1.28](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.1.27...v3.1.28) (2023-09-28)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-xml-parser from 4.2.7 to 4.3.1 ([#951](https://github.com/jayree/sfdx-plugin-manifest/issues/951)) ([476827d](https://github.com/jayree/sfdx-plugin-manifest/commit/476827d0199cf991b17a53f070c1f1318bbc4aef))
+* **deps:** bump get-func-name from 2.0.0 to 2.0.2 ([#950](https://github.com/jayree/sfdx-plugin-manifest/issues/950)) ([d4776da](https://github.com/jayree/sfdx-plugin-manifest/commit/d4776da819f52bba8336d87dd4ec6db269ce8408))
+
 ## [3.1.27](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.1.26...v3.1.27) (2023-09-22)
 
 
