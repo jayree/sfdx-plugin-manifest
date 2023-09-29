@@ -25,7 +25,7 @@
     "@salesforce/dev-scripts": "^5.10.0",
     "@salesforce/prettier-config": "^0.0.3",
     "@salesforce/ts-sinon": "^1.4.15",
-    "@types/debug": "^4.1.8",
+    "@types/debug": "^4.1.9",
     "@types/fs-extra": "^11.0.2",
     "@types/graceful-fs": "^4.1.7",
     "@types/inquirer": "^9.0.3",
