@@ -918,12 +918,12 @@
     picocolors "^1.0.0"
     tslib "^2.6.0"
 
-"@salesforce/cli-plugins-testkit@^4.3.6":
-  version "4.3.6"
-  resolved "https://registry.yarnpkg.com/@salesforce/cli-plugins-testkit/-/cli-plugins-testkit-4.3.6.tgz#7d2258d34b1033af81e9531bd4613d2683327eb1"
-  integrity sha512-gcwXoMA6PtxzXL/Gd5XxlCpiV6Mbb8MehdAWWlmTb7ExfElHqvSPAwZEbim32ACcfJeqVVK0Y1CbRdbmNMNUYw==
+"@salesforce/cli-plugins-testkit@^4.4.2":
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/@salesforce/cli-plugins-testkit/-/cli-plugins-testkit-4.4.2.tgz#5b3a70906a032698303c220d768dec3608cfff9d"
+  integrity sha512-1KRhBKAT+3aAChlhvFenmfgsrhphpA9bzvg/J/gAB3O113iwLCuH5ipzo1SU+fR3wWogIPubOWX0U7JNoHDkIw==
   dependencies:
-    "@salesforce/core" "^5.2.9"
+    "@salesforce/core" "^5.2.10"
     "@salesforce/kit" "^3.0.11"
     "@salesforce/ts-types" "^2.0.6"
     "@types/shelljs" "^0.8.12"
