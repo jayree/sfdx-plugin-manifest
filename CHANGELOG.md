@@ -1,3 +1,10 @@
+## [3.1.32](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.1.31...v3.1.32) (2023-10-19)
+
+
+### Bug Fixes
+
+* **deps:** bump @babel/traverse from 7.21.4 to 7.23.2 ([#990](https://github.com/jayree/sfdx-plugin-manifest/issues/990)) ([131e3da](https://github.com/jayree/sfdx-plugin-manifest/commit/131e3da3f67d28dc076aeee9644a1bbb44189613))
+
 ## [3.1.31](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.1.30...v3.1.31) (2023-10-13)
 
 
