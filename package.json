@@ -55,7 +55,7 @@
     "shx": "^0.3.4",
     "sinon": "17.0.1",
     "ts-node": "^10.9.1",
-    "typedoc": "0.25.2",
+    "typedoc": "0.25.3",
     "typedoc-plugin-missing-exports": "2.1.0",
     "typescript": "^5.2.2",
     "wireit": "^0.14.1"
