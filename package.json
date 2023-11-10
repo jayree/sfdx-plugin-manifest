@@ -27,7 +27,7 @@
     "@types/debug": "^4.1.10",
     "@types/fs-extra": "^11.0.3",
     "@types/graceful-fs": "^4.1.8",
-    "@types/inquirer": "^9.0.6",
+    "@types/inquirer": "^9.0.7",
     "c8": "^8.0.1",
     "eslint-config-oclif": "^5.0",
     "eslint-plugin-prettier": "^5.0.1",
