@@ -31,7 +31,7 @@
     "c8": "^8.0.1",
     "eslint-config-oclif": "^5.0",
     "eslint-plugin-prettier": "^5.0.1",
-    "eslint-plugin-sf-plugin": "^1.16.13",
+    "eslint-plugin-sf-plugin": "^1.16.14",
     "is-ci": "^3.0.1",
     "oclif": "^4.0.3",
     "patch-package": "^8.0.0",
