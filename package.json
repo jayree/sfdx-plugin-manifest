@@ -24,7 +24,7 @@
     "@salesforce/cli-plugins-testkit": "^5.0.2",
     "@salesforce/dev-scripts": "^6.0.3",
     "@salesforce/ts-sinon": "^1.4.19",
-    "@types/debug": "^4.1.10",
+    "@types/debug": "^4.1.12",
     "@types/fs-extra": "^11.0.4",
     "@types/graceful-fs": "^4.1.9",
     "@types/inquirer": "^9.0.7",
