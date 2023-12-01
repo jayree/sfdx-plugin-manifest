@@ -1,3 +1,14 @@
+## [3.1.39](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.1.38...v3.1.39) (2023-12-01)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 3.12.0 to 3.13.1 ([#1060](https://github.com/jayree/sfdx-plugin-manifest/issues/1060)) ([742ce04](https://github.com/jayree/sfdx-plugin-manifest/commit/742ce045a49cfee7bebb954b79af7e66f55ffb7e))
+* **deps:** bump @salesforce/core from 6.2.0 to 6.2.2 ([#1061](https://github.com/jayree/sfdx-plugin-manifest/issues/1061)) ([a319f24](https://github.com/jayree/sfdx-plugin-manifest/commit/a319f2491f93c03843e0c2675e12d52e414f3593))
+* **deps:** bump @salesforce/sf-plugins-core from 5.0.3 to 5.0.5 ([#1064](https://github.com/jayree/sfdx-plugin-manifest/issues/1064)) ([9f11d36](https://github.com/jayree/sfdx-plugin-manifest/commit/9f11d367bbc2effcfc6a467e6efdd78a5ee4198c))
+* **deps:** bump @salesforce/source-deploy-retrieve from 10.0.2 to 10.0.3 ([#1063](https://github.com/jayree/sfdx-plugin-manifest/issues/1063)) ([2a78146](https://github.com/jayree/sfdx-plugin-manifest/commit/2a78146096d9f2853582f54999e25e0201e39857))
+* **deps:** bump fs-extra from 11.1.1 to 11.2.0 ([#1066](https://github.com/jayree/sfdx-plugin-manifest/issues/1066)) ([f4ea024](https://github.com/jayree/sfdx-plugin-manifest/commit/f4ea024419bb6385f75936fa83636662a1c9e156))
+
 ## [3.1.38](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.1.37...v3.1.38) (2023-11-24)
 
 
