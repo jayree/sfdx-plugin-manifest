@@ -1055,10 +1055,10 @@
     semver "^7.5.4"
     ts-retry-promise "^0.7.1"
 
-"@salesforce/core@^6.2.2", "@salesforce/core@^6.3.0":
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/@salesforce/core/-/core-6.3.0.tgz#94613dcdcf70e8061bbdc4aa9f0f0ad605ebb51e"
-  integrity sha512-PLPDWRXbLi+ECNER6NHLTK/Ed9tMndmyVbBTE0/vyErXtCCPF6aSNyUmvFT1NrIZRrYA9p/QRHOtYUO7kPG4zg==
+"@salesforce/core@^6.2.2", "@salesforce/core@^6.3.0", "@salesforce/core@^6.4.0":
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/@salesforce/core/-/core-6.4.0.tgz#09e856194c8dad5bd0d86e271e84c3c47304f508"
+  integrity sha512-zbUuOll6RnaOyO6vHGjaO6mv2SBimu2JzInubBrbx+bgw5KFVT0y+OrN0gEhBPS94VoC9/N6ZRKve+vQ82zmmA==
   dependencies:
     "@salesforce/kit" "^3.0.15"
     "@salesforce/schemas" "^1.6.1"
@@ -1146,12 +1146,12 @@
     chalk "^4"
     inquirer "^8.2.5"
 
-"@salesforce/source-deploy-retrieve@^10.2.0":
-  version "10.2.0"
-  resolved "https://registry.yarnpkg.com/@salesforce/source-deploy-retrieve/-/source-deploy-retrieve-10.2.0.tgz#073b6791eb8c3c7158bd97357eecfd6ca5a51cb2"
-  integrity sha512-0AkuQ8e0EBkh0OlDMqaYk1goAIw/Ge2W7PnkzB4FscgQmL7zupSVC+sb04YAO508NKPDZ5d8sZSId62hjq8DQg==
+"@salesforce/source-deploy-retrieve@^10.2.1":
+  version "10.2.1"
+  resolved "https://registry.yarnpkg.com/@salesforce/source-deploy-retrieve/-/source-deploy-retrieve-10.2.1.tgz#fe5ba3006761ecc462b427c26619cdff26512e1e"
+  integrity sha512-KaslYNh0oZTKGklECIPRM4SwciPIZqQdjOe/YttCLh0JDchVVeu/Qv8VCldHGnhGUpZ83bSvWG/YWXeEtoY/2w==
   dependencies:
-    "@salesforce/core" "^6.2.2"
+    "@salesforce/core" "^6.4.0"
     "@salesforce/kit" "^3.0.15"
     "@salesforce/ts-types" "^2.0.9"
     fast-levenshtein "^3.0.0"
