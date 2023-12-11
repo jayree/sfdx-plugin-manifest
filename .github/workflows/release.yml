@@ -32,8 +32,20 @@ jobs:
         run: |
           npm install -global semantic-release https://github.com/jayree/semantic-release/raw/master/oclif-semantic-release-v3.1.5.tgz
           semantic-release -e @oclif/semantic-release
-      - name: Docs
+      - name: gitConfig
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          yarn ci-docs
+      - name: build docs
+        run: |
+          rm -rf docs
+          git worktree prune
+          git fetch origin gh-pages:gh-pages
+          git worktree add docs gh-pages
+          yarn docs
+      - name: send to git
+        run: |
+          cd docs
+          git add .
+          git commit -m 'docs: publishing gh-pages [skip ci]' --no-verify
+          git push origin gh-pages --no-verify
