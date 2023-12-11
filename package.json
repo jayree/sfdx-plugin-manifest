@@ -8,7 +8,7 @@
   "dependencies": {
     "@jayree/changelog": "^1.1.8",
     "@oclif/core": "^3.14.1",
-    "@salesforce/core": "^6.3.0",
+    "@salesforce/core": "^6.4.0",
     "@salesforce/sf-plugins-core": "^5.0.8",
     "@salesforce/source-deploy-retrieve": "^10.2.1",
     "debug": "^4.3.4",
