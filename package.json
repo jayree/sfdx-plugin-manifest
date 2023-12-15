@@ -6,7 +6,7 @@
   "type": "module",
   "bugs": "https://github.com/jayree/sfdx-plugin-manifest/issues",
   "dependencies": {
-    "@jayree/changelog": "^1.1.8",
+    "@jayree/changelog": "^1.1.9",
     "@oclif/core": "^3.14.1",
     "@salesforce/core": "^6.4.0",
     "@salesforce/sf-plugins-core": "^5.0.10",
