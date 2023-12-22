@@ -31,7 +31,7 @@
     "@types/inquirer": "^9.0.7",
     "c8": "^8.0.1",
     "eslint-config-oclif": "^5.0",
-    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-prettier": "^5.1.1",
     "eslint-plugin-sf-plugin": "^1.17.0",
     "is-ci": "^3.0.1",
     "oclif": "^4.1.0",
