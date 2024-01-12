@@ -1041,7 +1041,7 @@
     strip-ansi "6.0.1"
     ts-retry-promise "^0.7.1"
 
-"@salesforce/core@^6.4.1", "@salesforce/core@^6.4.2", "@salesforce/core@^6.4.4", "@salesforce/core@^6.4.7":
+"@salesforce/core@^6.4.1", "@salesforce/core@^6.4.4", "@salesforce/core@^6.4.7":
   version "6.4.7"
   resolved "https://registry.yarnpkg.com/@salesforce/core/-/core-6.4.7.tgz#f15538380aa5c75de697d3c95a2ddbdabae69dbb"
   integrity sha512-gebjw2xC8Z0gqS3lYRQWz7J+PuGZtybotrnnaJbnzzxdfpBFIp6PjW4nt/235BQW9UWFTLaQh+AwkFgmMTTSkA==
@@ -1133,12 +1133,12 @@
     chalk "^4"
     inquirer "^8.2.5"
 
-"@salesforce/source-deploy-retrieve@^10.2.6":
-  version "10.2.6"
-  resolved "https://registry.yarnpkg.com/@salesforce/source-deploy-retrieve/-/source-deploy-retrieve-10.2.6.tgz#37189ff3c2185158a856137e63a811bdd5b05b43"
-  integrity sha512-MGN5Jrz2dhk5f6XfrvfpD0SKGjSI+Jf/mCXc1svMZe7PMTg4RO3y/B9aTqLZmHcmUWLTvrKVIwN2PsZfNqrLgQ==
+"@salesforce/source-deploy-retrieve@^10.2.9":
+  version "10.2.9"
+  resolved "https://registry.yarnpkg.com/@salesforce/source-deploy-retrieve/-/source-deploy-retrieve-10.2.9.tgz#8a3b543d42cedc6b1b2b05bf6b4352434af76850"
+  integrity sha512-an4GFw86lkLzz4q6212XyXEiNA0hs6B5cCjJF2jheS6ESbDk7Hmuvimvwcyp50eYYvmhI6fPqmzoOVVWJtjsNw==
   dependencies:
-    "@salesforce/core" "^6.4.2"
+    "@salesforce/core" "^6.4.4"
     "@salesforce/kit" "^3.0.15"
     "@salesforce/ts-types" "^2.0.9"
     fast-levenshtein "^3.0.0"
