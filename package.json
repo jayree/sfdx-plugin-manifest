@@ -41,7 +41,7 @@
     "shx": "^0.3.4",
     "ts-node": "^10.9.2",
     "typedoc": "0.25.7",
-    "typedoc-plugin-missing-exports": "2.1.0",
+    "typedoc-plugin-missing-exports": "2.2.0",
     "typescript": "^5.3.3"
   },
   "engines": {
