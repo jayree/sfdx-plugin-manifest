@@ -4,8 +4,6 @@
  * Licensed under the BSD 3-Clause license.
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
-import { dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import {
   SfCommand,
   Flags,
@@ -20,12 +18,7 @@ import { RegistryAccess, ComponentSet, PackageManifestObject } from '@salesforce
 import { ensureArray } from '@salesforce/kit';
 import fs from 'fs-extra';
 
-// eslint-disable-next-line no-underscore-dangle
-const __filename = fileURLToPath(import.meta.url);
-// eslint-disable-next-line no-underscore-dangle
-const __dirname = dirname(__filename);
-
-Messages.importMessagesDirectory(__dirname);
+Messages.importMessagesDirectoryFromMetaUrl(import.meta.url);
 
 const registryAccess = new RegistryAccess();
 
