@@ -85,7 +85,7 @@ export default class GitDiffCommand extends SfCommand<GitDiffCommandResult> {
   }
 
   protected async getSourceApiVersion(): Promise<Optional<string>> {
-    const projectConfig = await this.project.resolveProjectConfig();
+    const projectConfig = await this.project?.resolveProjectConfig();
     return getString(projectConfig, 'sourceApiVersion') ?? undefined;
   }
 
