@@ -101,7 +101,8 @@
         "releaseNotesPath": "https://github.com/jayree/sfdx-plugin-manifest/tree/main",
         "releaseNotesFilename": "CHANGELOG.md"
       }
-    }
+    },
+    "topicSeparator": " "
   },
   "repository": "jayree/sfdx-plugin-manifest",
   "scripts": {
