@@ -1,3 +1,10 @@
+## [3.1.54](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.1.53...v3.1.54) (2024-02-21)
+
+
+### Bug Fixes
+
+* **deps:** bump ip from 1.1.8 to 1.1.9 ([#1165](https://github.com/jayree/sfdx-plugin-manifest/issues/1165)) ([3bd0c16](https://github.com/jayree/sfdx-plugin-manifest/commit/3bd0c165719c5445864e7c52b34b6862f76f0107))
+
 ## [3.1.53](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.1.52...v3.1.53) (2024-02-16)
 
 
