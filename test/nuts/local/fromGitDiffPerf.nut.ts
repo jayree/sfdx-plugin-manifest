@@ -27,7 +27,7 @@ describe('perf testing', () => {
   it('should return in a reasonable amount of time #1', async () => {
     const start = Date.now();
     await ComponentSetExtra.fromGitDiff(['HEAD~']);
-    expect(Date.now() - start).to.be.lessThan(10000);
+    expect(Date.now() - start).to.be.lessThan(10_000);
   });
 
   // it('should return in a reasonable amount of time #2', async () => {
