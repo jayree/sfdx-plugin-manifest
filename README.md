@@ -27,14 +27,15 @@ Removes those tags from a manifest file that are present in a second manifest fi
 
 ```
 USAGE
-  $ sfdx jayree manifest cleanup -f <value> [--json] [-x <value>]
+  $ sfdx jayree manifest cleanup -f <value> [--json] [--flags-dir <value>] [-x <value>]
 
 FLAGS
   -f, --file=<value>      (required) Path to the second 'cleanup' manifest file.
   -x, --manifest=<value>  Path to the manifest file.
 
 GLOBAL FLAGS
-  --json  Format output as json.
+  --flags-dir=<value>  Import flag values from a directory.
+  --json               Format output as json.
 
 DESCRIPTION
   Removes those tags from a manifest file that are present in a second manifest file.
@@ -47,7 +48,7 @@ EXAMPLES
   $ sfdx jayree manifest cleanup --manifest=package.xml --file=packageignore.xml
 ```
 
-_See code: [src/commands/jayree/manifest/cleanup.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v3.1.60/src/commands/jayree/manifest/cleanup.ts)_
+_See code: [src/commands/jayree/manifest/cleanup.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v3.1.61/src/commands/jayree/manifest/cleanup.ts)_
 
 ### `sfdx jayree manifest generate`
 
@@ -55,8 +56,8 @@ Generate a complete manifest file form the specified org.
 
 ```
 USAGE
-  $ sfdx jayree manifest generate -o <value> [--json] [--api-version <value>] [-q <value>] [-c] [-w] [--include-flow-versions]
-    [-f <value>] [--exclude-managed | --exclude-all]
+  $ sfdx jayree manifest generate -o <value> [--json] [--flags-dir <value>] [--api-version <value>] [-q <value>] [-c] [-w]
+    [--include-flow-versions] [-f <value>] [--exclude-managed | --exclude-all]
 
 FLAGS
   -c, --match-case               Enable 'match case' for the quickfilter.
@@ -71,7 +72,8 @@ FLAGS
       --include-flow-versions    Include flow versions as with api version 43.0.
 
 GLOBAL FLAGS
-  --json  Format output as json.
+  --flags-dir=<value>  Import flag values from a directory.
+  --json               Format output as json.
 
 DESCRIPTION
   Generate a complete manifest file form the specified org.
@@ -84,7 +86,7 @@ EXAMPLES
   <Package xmlns='http://soap.sforce.com/2006/04/metadata'>...</Package>
 ```
 
-_See code: [src/commands/jayree/manifest/generate.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v3.1.60/src/commands/jayree/manifest/generate.ts)_
+_See code: [src/commands/jayree/manifest/generate.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v3.1.61/src/commands/jayree/manifest/generate.ts)_
 
 ### `sfdx jayree manifest git diff`
 
@@ -92,8 +94,8 @@ Create a project manifest and destructiveChanges manifest that lists the metadat
 
 ```
 USAGE
-  $ sfdx jayree manifest git diff REF1 [REF2] [--json] [--api-version <value>] [-d <value>] [--output-dir <value>]
-    [--destructive-changes-only]
+  $ sfdx jayree manifest git diff REF1 [REF2] [--json] [--flags-dir <value>] [--api-version <value>] [-d <value>]
+    [--output-dir <value>] [--destructive-changes-only]
 
 ARGUMENTS
   REF1  Base commit or branch.
@@ -106,7 +108,8 @@ FLAGS
       --output-dir=<value>        Directory to save the created manifest files.
 
 GLOBAL FLAGS
-  --json  Format output as json.
+  --flags-dir=<value>  Import flag values from a directory.
+  --json               Format output as json.
 
 DESCRIPTION
   Create a project manifest and destructiveChanges manifest that lists the metadata components you want to deploy or
@@ -166,5 +169,5 @@ FLAG DESCRIPTIONS
     The location can be an absolute path or relative to the current working directory.
 ```
 
-_See code: [src/commands/jayree/manifest/git/diff.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v3.1.60/src/commands/jayree/manifest/git/diff.ts)_
+_See code: [src/commands/jayree/manifest/git/diff.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v3.1.61/src/commands/jayree/manifest/git/diff.ts)_
 <!-- commandsstop -->
