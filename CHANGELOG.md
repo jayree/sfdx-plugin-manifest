@@ -1,3 +1,11 @@
+## [3.1.63](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.1.62...v3.1.63) (2024-04-12)
+
+
+### Bug Fixes
+
+* **deps:** bump @jayree/changelog from 1.1.10 to 1.1.11 ([#1234](https://github.com/jayree/sfdx-plugin-manifest/issues/1234)) ([6f5265d](https://github.com/jayree/sfdx-plugin-manifest/commit/6f5265dc862e65e66ad852b082d0198c0e228ea6))
+* **deps:** bump @oclif/core from 3.26.0 to 3.26.2 ([#1241](https://github.com/jayree/sfdx-plugin-manifest/issues/1241)) ([91b7219](https://github.com/jayree/sfdx-plugin-manifest/commit/91b7219356e2be6bf0abedaae0c549de9c02af22))
+
 ## [3.1.62](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.1.61...v3.1.62) (2024-04-05)
 
 
