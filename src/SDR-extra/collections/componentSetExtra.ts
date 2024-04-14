@@ -11,7 +11,6 @@ import {
   TreeContainer,
   DestructiveChangesType,
   RegistryAccess,
-  registry as untypedRegistry,
   SourceComponent,
 } from '@salesforce/source-deploy-retrieve';
 import { SfProject, Lifecycle } from '@salesforce/core';
@@ -88,10 +87,9 @@ export class ComponentSetExtra extends ComponentSet {
     const inclusiveFilter = await gitDiffResolver.resolve(ref1, ref2, fsPaths);
 
     const childsTobeReplacedByParent = [
-      ...Object.keys(untypedRegistry.types.workflow.children?.types ?? {}),
-      ...Object.keys(untypedRegistry.types.sharingrules.children?.types ?? {}),
-      ...Object.keys(untypedRegistry.types.customobjecttranslation.children?.types ?? {}),
-      ...Object.keys(untypedRegistry.types.bot.children?.types ?? {}),
+      ...Object.keys(registry.getTypeByName('workflow').children?.types ?? {}),
+      ...Object.keys(registry.getTypeByName('sharingrules').children?.types ?? {}),
+      ...Object.keys(registry.getTypeByName('bot').children?.types ?? {}),
     ];
 
     for (const component of inclusiveFilter.getSourceComponents()) {
