@@ -10,7 +10,7 @@ import { spyMethod } from '@salesforce/ts-sinon';
 import { TestSession } from '@salesforce/cli-plugins-testkit';
 import { expect } from 'chai';
 import { Lifecycle } from '@salesforce/core';
-import { TestContext } from '@salesforce/core/lib/testSetup.js';
+import { TestContext } from '@salesforce/core/testSetup';
 import { ComponentSetExtra } from '../../../src/SDR-extra/index.js';
 
 describe('result testing with EDU-RA-Chatbot', () => {
