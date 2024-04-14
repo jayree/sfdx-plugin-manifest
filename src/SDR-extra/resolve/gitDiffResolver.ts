@@ -120,6 +120,17 @@ export class GitDiffResolver {
             return false;
           }
         }
+        const fullName = parseMetadataXml(file.path)?.fullName;
+        if (fullName) {
+          if (
+            files.find(
+              (a) =>
+                a.path === path.join(path.dirname(file.path), fullName, path.basename(file.path)) && a.status === 'A',
+            )
+          ) {
+            return false;
+          }
+        }
       }
       return true;
     });
