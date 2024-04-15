@@ -256,57 +256,8 @@ describe('result testing with EDA', () => {
         },
       }),
     );
-    // this is the correct behaviour
-    // expect(JSON.stringify(await comp.getObject())).to.be.equal(
-    //   JSON.stringify({ Package: { types: [], version: '52.0' } }),
-    // );
-
-    // only for testing until it is fixed by salesforce
     expect(JSON.stringify(await comp.getObject())).to.be.equal(
-      JSON.stringify({
-        Package: {
-          types: [
-            {
-              members: [
-                'Lead.Area_Of_Interest__c',
-                'Lead.Birth_Date__c',
-                'Lead.Citizenship__c',
-                'Lead.Ethnicity__c',
-                'Lead.External_Id__c',
-                'Lead.GPA__c',
-                'Lead.Gender__c',
-                'Lead.Highest_Degree_Earned__c',
-                'Lead.Language__c',
-                'Lead.Most_Recent_School__c',
-                'Lead.Preferred_Enrollment_Date__c',
-                'Lead.Preferred_Enrollment_Status__c',
-                'Lead.Preferred_Teaching_Format__c',
-                'Lead.Recruitment_Stage__c',
-                'Lead.SMS_Opt_Out__c',
-                'Lead.SSN__c',
-                'Lead.Undergraduate_Major__c',
-              ],
-              name: 'CustomField',
-            },
-            {
-              members: [
-                'Lead-ca',
-                'Lead-de',
-                'Lead-en_GB',
-                'Lead-en_US',
-                'Lead-es',
-                'Lead-es_MX',
-                'Lead-fi',
-                'Lead-fr',
-                'Lead-ja',
-                'Lead-nl_NL',
-              ],
-              name: 'CustomObjectTranslation',
-            },
-          ],
-          version: '52.0',
-        },
-      }),
+      JSON.stringify({ Package: { types: [], version: '52.0' } }),
     );
   });
 

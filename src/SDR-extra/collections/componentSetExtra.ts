@@ -111,12 +111,21 @@ export class ComponentSetExtra extends ComponentSet {
 
     debug({ fsPaths });
 
-    const components = ComponentSet.fromSource({
+    let components = ComponentSet.fromSource({
       fsPaths,
       include: inclusiveFilter,
       tree,
       registry,
     });
+
+    const isMarkedForDelete = new Set(
+      inclusiveFilter
+        .getSourceComponents()
+        .filter((c) => c.isMarkedForDelete())
+        .map((c) => `${c.fullName}:${c.type.name}`),
+    );
+
+    components = components.filter(({ fullName, type }) => !isMarkedForDelete.has(`${fullName}:${type.name}`));
 
     for (const component of inclusiveFilter.getSourceComponents()) {
       if (component.isMarkedForDelete()) {
