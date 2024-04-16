@@ -9,7 +9,7 @@ import { expect } from 'chai';
 import { DestructiveChangesType } from '@salesforce/source-deploy-retrieve';
 import { ComponentSetExtra } from '../../../src/SDR-extra/index.js';
 
-describe('result testing with EDA', () => {
+describe('result testing with EDA #4', () => {
   let session: TestSession;
 
   before(async () => {
@@ -25,64 +25,6 @@ describe('result testing with EDA', () => {
     await session?.clean();
   });
 
-  it('should return "Added new custom labels"', async () => {
-    const comp = await ComponentSetExtra.fromGitDiff({
-      ref: '48a560bbb507e82dca0caac53024ccf60ecda7fb..83e42ae2b162833a98121a147e00b93feb3784aa',
-    });
-    expect(JSON.stringify(comp.getTypesOfDestructiveChanges())).to.be.equal(JSON.stringify([]));
-    expect(JSON.stringify(await comp.getObject())).to.be.equal(
-      JSON.stringify({
-        Package: {
-          types: [
-            {
-              members: [
-                'stgReleaseGateActivateLatest',
-                'stgReleaseGateEDALatestDescription',
-                'stgReleaseGateEDALatestFeatureDescription',
-                'stgReleaseGateEDALatestLabel',
-              ],
-              name: 'CustomLabel',
-            },
-          ],
-          version: '52.0',
-        },
-      }),
-    );
-  });
-
-  it('should return "make release gate label generic"', async () => {
-    const comp = await ComponentSetExtra.fromGitDiff({
-      ref: ['aa15a67b689e6d0cfb3ebe10c2b0ff241417559c', '0e3182433fae05158c873b57e2fe0c7eaef5d86f'],
-      fsPaths: ['force-app'],
-    });
-    expect(JSON.stringify(comp.getTypesOfDestructiveChanges())).to.be.equal(JSON.stringify(['post']));
-    expect(JSON.stringify(await comp.getObject(DestructiveChangesType.POST))).to.be.equal(
-      JSON.stringify({
-        Package: {
-          types: [
-            {
-              members: ['stgReleaseGateEDASpring22FeatureHelpLabel', 'stgReleaseGateEDAWinter22FeatureHelpLabel'],
-              name: 'CustomLabel',
-            },
-          ],
-          version: '52.0',
-        },
-      }),
-    );
-    expect(JSON.stringify(await comp.getObject())).to.be.equal(
-      JSON.stringify({
-        Package: {
-          types: [
-            { members: ['EDASpring22ReleaseGate', 'EDAWinter22ReleaseGate'], name: 'ApexClass' },
-            { members: ['stgReleaseGateEDAFeatureHelpLabel'], name: 'CustomLabel' },
-            { members: ['ca', 'de', 'en_GB', 'es', 'es_MX', 'fi', 'fr', 'ja', 'nl_NL'], name: 'Translations' },
-          ],
-          version: '52.0',
-        },
-      }),
-    );
-  });
-
   it('should return "Add prefEmail Spanish"', async () => {
     const comp = await ComponentSetExtra.fromGitDiff(
       'edb3652099ea8d6897847dda565c0b6870d247e8..5094826337ccccbf01a2f18cb7063091fcc7921d',
@@ -93,6 +35,28 @@ describe('result testing with EDA', () => {
         Package: {
           types: [
             { members: ['ACCT_AdministrativeNameRefresh_TEST', 'ACCT_IndividualAccounts_TEST'], name: 'ApexClass' },
+          ],
+          version: '52.0',
+        },
+      }),
+    );
+  });
+
+  it('should return "edit auto status"', async () => {
+    const comp = await ComponentSetExtra.fromGitDiff({
+      ref: 'f35272f663ed00dd8d473bc82e821fa0b97a05a6..7412a3b1701925591227f8a7c33629a479e2ebb2',
+    });
+    expect(JSON.stringify(comp.getTypesOfDestructiveChanges())).to.be.equal(JSON.stringify([]));
+    expect(JSON.stringify(await comp.getObject())).to.be.equal(
+      JSON.stringify({
+        Package: {
+          types: [
+            { members: ['ProgramSettingsController'], name: 'ApexClass' },
+            {
+              members: ['autoEnrollmentMappingModal', 'autoEnrollmentMappingModalOpener', 'edaSettingsContainer'],
+              name: 'AuraDefinitionBundle',
+            },
+            { members: ['autoEnrollmentMappingModalBody', 'programSettings'], name: 'LightningComponentBundle' },
           ],
           version: '52.0',
         },
@@ -261,25 +225,24 @@ describe('result testing with EDA', () => {
     );
   });
 
-  it('should return "edit auto status"', async () => {
-    const comp = await ComponentSetExtra.fromGitDiff({
-      ref: 'f35272f663ed00dd8d473bc82e821fa0b97a05a6..7412a3b1701925591227f8a7c33629a479e2ebb2',
-    });
-    expect(JSON.stringify(comp.getTypesOfDestructiveChanges())).to.be.equal(JSON.stringify([]));
-    expect(JSON.stringify(await comp.getObject())).to.be.equal(
-      JSON.stringify({
-        Package: {
-          types: [
-            { members: ['ProgramSettingsController'], name: 'ApexClass' },
-            {
-              members: ['autoEnrollmentMappingModal', 'autoEnrollmentMappingModalOpener', 'edaSettingsContainer'],
-              name: 'AuraDefinitionBundle',
-            },
-            { members: ['autoEnrollmentMappingModalBody', 'programSettings'], name: 'LightningComponentBundle' },
-          ],
-          version: '52.0',
-        },
-      }),
-    );
+  it('should return in a reasonable amount of time #1', async () => {
+    const start = Date.now();
+    await ComponentSetExtra.fromGitDiff(['HEAD~']);
+    expect(Date.now() - start).to.be.lessThan(10_000);
   });
+
+  // it('should return in a reasonable amount of time #2', async () => {
+  //   const start = Date.now();
+  //   await ComponentSetExtra.fromGitDiff('HEAD^2');
+  //   expect(Date.now() - start).to.be.lessThan(10000);
+  // });
+
+  // it('should return in a reasonable amount of time #3', async () => {
+  //   const start = Date.now();
+  //   await ComponentSetExtra.fromGitDiff([
+  //     '6636996f74cbc0ed2ff65cd8091722c3b4a7cf49',
+  //     '940b1f6a827bb9ef286ef11b4e12c31abb8c6e3c',
+  //   ]);
+  //   expect(Date.now() - start).to.be.lessThan(60000);
+  // });
 });
