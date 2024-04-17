@@ -6,9 +6,9 @@
  */
 import util from 'node:util';
 import path from 'node:path';
+import fs from 'node:fs/promises';
 import git from 'isomorphic-git';
 import { Lifecycle } from '@salesforce/core';
-import fs from 'graceful-fs';
 
 export interface GitRepoOptions {
   gitDir: string;
@@ -251,7 +251,9 @@ export class GitRepo {
   }
 
   public async listFullPathFiles(ref: string): Promise<string[]> {
-    return (await git.listFiles({ fs, dir: this.gitDir, ref })).map((p) => path.join(this.gitDir, ensureOSPath(p)));
+    return ref
+      ? (await git.listFiles({ fs, dir: this.gitDir, ref })).map((p) => path.join(this.gitDir, ensureOSPath(p)))
+      : (await fs.readdir(this.gitDir, { recursive: true })).map((p) => path.join(this.gitDir, ensureOSPath(p)));
   }
 
   public async getOid(ref: string): Promise<string> {

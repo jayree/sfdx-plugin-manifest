@@ -5,9 +5,9 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 import path from 'node:path';
+import fs from 'node:fs/promises';
 import { VirtualTreeContainer, VirtualDirectory } from '@salesforce/source-deploy-retrieve';
 import { parseMetadataXml } from '@salesforce/source-deploy-retrieve/lib/src/utils/index.js';
-import fs from 'graceful-fs';
 import { GitRepo } from '../utils/index.js';
 
 export { parseMetadataXml } from '@salesforce/source-deploy-retrieve/lib/src/utils/index.js';
@@ -43,7 +43,7 @@ export class VirtualTreeContainerExtra extends VirtualTreeContainer {
               parseMetadataXml(filename) && includeBufferForFiles.includes(filename)
                 ? oid
                   ? await localRepo.readBlobAsBuffer({ oid, filename })
-                  : await fs.promises.readFile(filename)
+                  : await fs.readFile(filename)
                 : Buffer.from(''),
           }),
         ),
