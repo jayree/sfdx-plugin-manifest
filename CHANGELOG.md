@@ -1,3 +1,11 @@
+## [3.1.65](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.1.64...v3.1.65) (2024-04-18)
+
+
+### Bug Fixes
+
+* isMarkedForDelete workaround ([7de2ab4](https://github.com/jayree/sfdx-plugin-manifest/commit/7de2ab478d17290cbe9a247e00125ddf0e88b3a4))
+* use local fs if ref2 is not set ([f42e31b](https://github.com/jayree/sfdx-plugin-manifest/commit/f42e31bae165f0b4ca4fdae9caeffe95bc78470f))
+
 ## [3.1.64](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.1.63...v3.1.64) (2024-04-15)
 
 
