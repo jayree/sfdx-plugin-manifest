@@ -1,3 +1,17 @@
+# [3.2.0](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.1.66...v3.2.0) (2024-04-21)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 7.3.0 to 7.3.1 ([#1256](https://github.com/jayree/sfdx-plugin-manifest/issues/1256)) ([1b5f1bc](https://github.com/jayree/sfdx-plugin-manifest/commit/1b5f1bcf97103f96c0f716dbff50454efae8ff48))
+* **deps:** bump @salesforce/sf-plugins-core from 9.0.4 to 9.0.5 ([#1263](https://github.com/jayree/sfdx-plugin-manifest/issues/1263)) ([548565f](https://github.com/jayree/sfdx-plugin-manifest/commit/548565f81cc2fa33be0c97c33e5412e7e48ef8a6))
+* **deps:** bump @salesforce/source-deploy-retrieve from 11.0.1 to 11.0.2 ([#1262](https://github.com/jayree/sfdx-plugin-manifest/issues/1262)) ([14b74c1](https://github.com/jayree/sfdx-plugin-manifest/commit/14b74c1c567b172d07cade365bc97b621e70aca9))
+
+
+### Features
+
+* support SDR presets ([fb13495](https://github.com/jayree/sfdx-plugin-manifest/commit/fb13495152a14d8269c74c35ede2c66f630a2951))
+
 ## [3.1.66](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.1.65...v3.1.66) (2024-04-19)
 
 
