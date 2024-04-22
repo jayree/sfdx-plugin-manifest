@@ -30,31 +30,27 @@ describe('result testing with EDA #2', () => {
       ref: ['aa15a67b689e6d0cfb3ebe10c2b0ff241417559c', '0e3182433fae05158c873b57e2fe0c7eaef5d86f'],
       fsPaths: ['force-app'],
     });
-    expect(JSON.stringify(comp.getTypesOfDestructiveChanges())).to.be.equal(JSON.stringify(['post']));
-    expect(JSON.stringify(await comp.getObject(DestructiveChangesType.POST))).to.be.equal(
-      JSON.stringify({
-        Package: {
-          types: [
-            {
-              members: ['stgReleaseGateEDASpring22FeatureHelpLabel', 'stgReleaseGateEDAWinter22FeatureHelpLabel'],
-              name: 'CustomLabel',
-            },
-          ],
-          version: '52.0',
-        },
-      }),
-    );
-    expect(JSON.stringify(await comp.getObject())).to.be.equal(
-      JSON.stringify({
-        Package: {
-          types: [
-            { members: ['EDASpring22ReleaseGate', 'EDAWinter22ReleaseGate'], name: 'ApexClass' },
-            { members: ['stgReleaseGateEDAFeatureHelpLabel'], name: 'CustomLabel' },
-            { members: ['ca', 'de', 'en_GB', 'es', 'es_MX', 'fi', 'fr', 'ja', 'nl_NL'], name: 'Translations' },
-          ],
-          version: '52.0',
-        },
-      }),
-    );
+    expect(comp.getTypesOfDestructiveChanges()).to.deep.equal(['post']);
+    expect(await comp.getObject(DestructiveChangesType.POST)).to.deep.equal({
+      Package: {
+        types: [
+          {
+            members: ['stgReleaseGateEDASpring22FeatureHelpLabel', 'stgReleaseGateEDAWinter22FeatureHelpLabel'],
+            name: 'CustomLabel',
+          },
+        ],
+        version: '52.0',
+      },
+    });
+    expect(await comp.getObject()).to.deep.equal({
+      Package: {
+        types: [
+          { members: ['EDASpring22ReleaseGate', 'EDAWinter22ReleaseGate'], name: 'ApexClass' },
+          { members: ['stgReleaseGateEDAFeatureHelpLabel'], name: 'CustomLabel' },
+          { members: ['ca', 'de', 'en_GB', 'es', 'es_MX', 'fi', 'fr', 'ja', 'nl_NL'], name: 'Translations' },
+        ],
+        version: '52.0',
+      },
+    });
   });
 });

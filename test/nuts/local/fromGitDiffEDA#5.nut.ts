@@ -53,10 +53,8 @@ describe('failure result testing with EDA #5', () => {
         `The forceignored file "${session.project.dir}/force-app/main/default/classes/AccountAutoDeletionSettingsVMapper.cls" was ignored.`,
       ),
     ).to.be.true;
-    expect(JSON.stringify(comp.getTypesOfDestructiveChanges())).to.be.equal(JSON.stringify([]));
-    expect(JSON.stringify(await comp.getObject())).to.be.equal(
-      JSON.stringify({ Package: { types: [], version: '52.0' } }),
-    );
+    expect(comp.getTypesOfDestructiveChanges()).to.deep.equal([]);
+    expect(await comp.getObject()).to.deep.equal({ Package: { types: [], version: '52.0' } });
   });
 
   it('should return with warnings if included in forceignored child', async () => {
@@ -83,10 +81,8 @@ describe('failure result testing with EDA #5', () => {
         `The forceignored file "${session.project.dir}/force-app/main/default/objects/Account/fields/Billing_County__c.field-meta.xml" was ignored.`,
       ),
     ).to.be.true;
-    expect(JSON.stringify(comp.getTypesOfDestructiveChanges())).to.be.equal(JSON.stringify([]));
-    expect(JSON.stringify(await comp.getObject())).to.be.equal(
-      JSON.stringify({ Package: { types: [], version: '52.0' } }),
-    );
+    expect(comp.getTypesOfDestructiveChanges()).to.deep.equal([]);
+    expect(await comp.getObject()).to.deep.equal({ Package: { types: [], version: '52.0' } });
   });
 
   it('should return with warning after move of metadata', async () => {
@@ -113,12 +109,10 @@ describe('failure result testing with EDA #5', () => {
       filepath: '.',
     });
     const comp = await ComponentSetExtra.fromGitDiff(['HEAD']);
-    expect(JSON.stringify(comp.getTypesOfDestructiveChanges())).to.be.equal(JSON.stringify([]));
+    expect(comp.getTypesOfDestructiveChanges()).to.deep.equal([]);
 
-    expect(JSON.stringify(await comp.getObject())).to.be.equal(
-      JSON.stringify({
-        Package: { types: [{ members: ['autocomplete'], name: 'AuraDefinitionBundle' }], version: '52.0' },
-      }),
-    );
+    expect(await comp.getObject()).to.deep.equal({
+      Package: { types: [{ members: ['autocomplete'], name: 'AuraDefinitionBundle' }], version: '52.0' },
+    });
   });
 });

@@ -47,16 +47,12 @@ describe('failure result testing with EDA #3', () => {
         `The unstaged file "${session.project.dir}/force-app/main/default/labels/CustomLabels.labels-meta.xml" was processed.`,
       ),
     ).to.be.true;
-    expect(JSON.stringify(comp.getTypesOfDestructiveChanges())).to.be.equal(JSON.stringify(['post']));
-    expect(JSON.stringify(await comp.getObject(DestructiveChangesType.POST))).to.be.equal(
-      JSON.stringify({
-        Package: { types: [{ members: ['AfflMappingsDescription'], name: 'CustomLabel' }], version: '52.0' },
-      }),
-    );
-    expect(JSON.stringify(await comp.getObject())).to.be.equal(
-      JSON.stringify({
-        Package: { types: [{ members: ['AfflMappingsDescription1'], name: 'CustomLabel' }], version: '52.0' },
-      }),
-    );
+    expect(comp.getTypesOfDestructiveChanges()).to.deep.equal(['post']);
+    expect(await comp.getObject(DestructiveChangesType.POST)).to.deep.equal({
+      Package: { types: [{ members: ['AfflMappingsDescription'], name: 'CustomLabel' }], version: '52.0' },
+    });
+    expect(await comp.getObject()).to.deep.equal({
+      Package: { types: [{ members: ['AfflMappingsDescription1'], name: 'CustomLabel' }], version: '52.0' },
+    });
   });
 });

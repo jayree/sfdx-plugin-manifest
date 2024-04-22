@@ -30,18 +30,16 @@ describe('result testing with EDU-RA-Chatbot #1', () => {
       'c0e0918a5e3effb1d2774759d4798618b83251a2',
       'd68f23aa8c39e61e861454ade8f88b0715df2409',
     ]);
-    expect(JSON.stringify(comp.getTypesOfDestructiveChanges())).to.be.equal(JSON.stringify([]));
-    expect(JSON.stringify(await comp.getObject())).to.be.equal(
-      JSON.stringify({
-        Package: {
-          types: [
-            { members: ['Mascot'], name: 'Bot' },
-            { members: ['Mascot.v1'], name: 'BotVersion' },
-          ],
-          version: '50.0',
-        },
-      }),
-    );
+    expect(comp.getTypesOfDestructiveChanges()).to.deep.equal([]);
+    expect(await comp.getObject()).to.deep.equal({
+      Package: {
+        types: [
+          { members: ['Mascot'], name: 'Bot' },
+          { members: ['Mascot.v1'], name: 'BotVersion' },
+        ],
+        version: '50.0',
+      },
+    });
   });
 
   it('should fail returning "updated dialog" with wrong fsPath', async () => {

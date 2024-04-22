@@ -28,24 +28,22 @@ describe('result testing with EDA #1', () => {
     const comp = await ComponentSetExtra.fromGitDiff({
       ref: '48a560bbb507e82dca0caac53024ccf60ecda7fb..83e42ae2b162833a98121a147e00b93feb3784aa',
     });
-    expect(JSON.stringify(comp.getTypesOfDestructiveChanges())).to.be.equal(JSON.stringify([]));
-    expect(JSON.stringify(await comp.getObject())).to.be.equal(
-      JSON.stringify({
-        Package: {
-          types: [
-            {
-              members: [
-                'stgReleaseGateActivateLatest',
-                'stgReleaseGateEDALatestDescription',
-                'stgReleaseGateEDALatestFeatureDescription',
-                'stgReleaseGateEDALatestLabel',
-              ],
-              name: 'CustomLabel',
-            },
-          ],
-          version: '52.0',
-        },
-      }),
-    );
+    expect(comp.getTypesOfDestructiveChanges()).to.deep.equal([]);
+    expect(await comp.getObject()).to.deep.equal({
+      Package: {
+        types: [
+          {
+            members: [
+              'stgReleaseGateActivateLatest',
+              'stgReleaseGateEDALatestDescription',
+              'stgReleaseGateEDALatestFeatureDescription',
+              'stgReleaseGateEDALatestLabel',
+            ],
+            name: 'CustomLabel',
+          },
+        ],
+        version: '52.0',
+      },
+    });
   });
 });

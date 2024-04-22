@@ -48,9 +48,7 @@ describe('failure result testing with EDU-RA-Chatbot #2', () => {
         `The unstaged file "${session.project.dir}/force-app/main/default/bots/Mascot/v1.botVersion-meta.xml" was processed.`,
       ),
     ).to.be.true;
-    expect(JSON.stringify(await comp.getObject())).to.be.equal(
-      JSON.stringify({ Package: { types: [], version: '50.0' } }),
-    );
+    expect(await comp.getObject()).to.deep.equal({ Package: { types: [], version: '50.0' } });
   });
 
   it('should return with warning after local file removal', async () => {
@@ -62,13 +60,11 @@ describe('failure result testing with EDU-RA-Chatbot #2', () => {
         `The unstaged file "${session.project.dir}/force-app/main/default/bots/Mascot/v1.botVersion-meta.xml" was processed.`,
       ),
     ).to.be.true;
-    expect(JSON.stringify(comp.getTypesOfDestructiveChanges())).to.be.equal(JSON.stringify(['post']));
-    expect(JSON.stringify(await comp.getObject(DestructiveChangesType.POST))).to.be.equal(
-      JSON.stringify({ Package: { types: [{ members: ['Mascot.v1'], name: 'BotVersion' }], version: '50.0' } }),
-    );
-    expect(JSON.stringify(await comp.getObject())).to.be.equal(
-      JSON.stringify({ Package: { types: [], version: '50.0' } }),
-    );
+    expect(comp.getTypesOfDestructiveChanges()).to.deep.equal(['post']);
+    expect(await comp.getObject(DestructiveChangesType.POST)).to.deep.equal({
+      Package: { types: [{ members: ['Mascot.v1'], name: 'BotVersion' }], version: '50.0' },
+    });
+    expect(await comp.getObject()).to.deep.equal({ Package: { types: [], version: '50.0' } });
   });
 
   it('should return "updated dialog" with warning after local file removal', async () => {
@@ -79,14 +75,12 @@ describe('failure result testing with EDU-RA-Chatbot #2', () => {
     ]);
     expect(emitWarningStub.calledOnce).to.be.true;
     expect(emitWarningStub.calledWith(`The component "BotVersion:Mascot.v1" was not found locally.`)).to.be.true;
-    expect(JSON.stringify(comp.getTypesOfDestructiveChanges())).to.be.equal(JSON.stringify([]));
-    expect(JSON.stringify(await comp.getObject())).to.be.equal(
-      JSON.stringify({
-        Package: {
-          types: [{ members: ['Mascot'], name: 'Bot' }],
-          version: '50.0',
-        },
-      }),
-    );
+    expect(comp.getTypesOfDestructiveChanges()).to.deep.equal([]);
+    expect(await comp.getObject()).to.deep.equal({
+      Package: {
+        types: [{ members: ['Mascot'], name: 'Bot' }],
+        version: '50.0',
+      },
+    });
   });
 });

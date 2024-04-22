@@ -29,47 +29,43 @@ describe('result testing with PMM', () => {
       '7acc58b91e92e87eb633fb4818132adaa747b487',
       'cd478b102c572be293e0ee3e29a4b724ba692b32',
     ]);
-    expect(JSON.stringify(comp.getTypesOfDestructiveChanges())).to.be.equal(JSON.stringify([]));
-    expect(JSON.stringify(await comp.getObject())).to.be.equal(
-      JSON.stringify({
-        Package: {
-          types: [
-            { members: ['SelectParticipantModel'], name: 'ApexClass' },
-            { members: ['Filter_by_Record'], name: 'CustomLabel' },
-            { members: ['participantSelector'], name: 'LightningComponentBundle' },
-          ],
-          version: '49.0',
-        },
-      }),
-    );
+    expect(comp.getTypesOfDestructiveChanges()).to.deep.equal([]);
+    expect(await comp.getObject()).to.deep.equal({
+      Package: {
+        types: [
+          { members: ['SelectParticipantModel'], name: 'ApexClass' },
+          { members: ['Filter_by_Record'], name: 'CustomLabel' },
+          { members: ['participantSelector'], name: 'LightningComponentBundle' },
+        ],
+        version: '49.0',
+      },
+    });
   });
 
   it('should return "Label adjustments" (merge base)', async () => {
     const comp = await ComponentSetExtra.fromGitDiff(
       '7acc58b91e92e87eb633fb4818132adaa747b487...cd478b102c572be293e0ee3e29a4b724ba692b32',
     );
-    expect(JSON.stringify(comp.getTypesOfDestructiveChanges())).to.be.equal(JSON.stringify([]));
-    expect(JSON.stringify(await comp.getObject())).to.be.equal(
-      JSON.stringify({
-        Package: {
-          types: [
-            { members: ['SelectParticipantModel'], name: 'ApexClass' },
-            { members: ['Filter_by_Record'], name: 'CustomLabel' },
-            { members: ['participantSelector'], name: 'LightningComponentBundle' },
-          ],
-          version: '49.0',
-        },
-      }),
-    );
+    expect(comp.getTypesOfDestructiveChanges()).to.deep.equal([]);
+    expect(await comp.getObject()).to.deep.equal({
+      Package: {
+        types: [
+          { members: ['SelectParticipantModel'], name: 'ApexClass' },
+          { members: ['Filter_by_Record'], name: 'CustomLabel' },
+          { members: ['participantSelector'], name: 'LightningComponentBundle' },
+        ],
+        version: '49.0',
+      },
+    });
   });
 
   it('should return "HEAD~5"', async () => {
     const comp = await ComponentSetExtra.fromGitDiff('HEAD~5');
-    expect(JSON.stringify(await comp.getObject())).to.contains('49.0');
+    expect(await comp.getObject()).to.have.nested.property('Package.version', '49.0');
   });
 
   it('should return "HEAD^1"', async () => {
     const comp = await ComponentSetExtra.fromGitDiff('HEAD^1');
-    expect(JSON.stringify(await comp.getObject())).to.contains('49.0');
+    expect(await comp.getObject()).to.have.nested.property('Package.version', '49.0');
   });
 });
