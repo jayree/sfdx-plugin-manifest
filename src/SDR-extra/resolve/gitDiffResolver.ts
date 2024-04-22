@@ -21,8 +21,6 @@ import { VirtualTreeContainerExtra, parseMetadataXml } from './index.js';
 
 const debug = Debug('sf:gitDiff:resolver');
 
-const registryAccess = new RegistryAccess();
-
 /**
  * Resolver for metadata type and component objects from a git diff result
  *
@@ -35,12 +33,14 @@ export class GitDiffResolver {
   private gitDir: string;
   private uniquePackageDirectories: string[];
   private localRepo: GitRepo;
+  private registry: RegistryAccess;
 
   /**
    * @param dir SFDX project directory
    */
-  public constructor(project: SfProject) {
+  public constructor(project: SfProject, registry?: RegistryAccess) {
     this.gitDir = project.getPath();
+    this.registry = registry ?? new RegistryAccess();
     this.uniquePackageDirectories = project.getUniquePackageDirectories().map((pDir) => pDir.fullPath);
     this.localRepo = GitRepo.getInstance({
       gitDir: this.gitDir,
@@ -90,8 +90,8 @@ export class GitDiffResolver {
     }
 
     this.ref2VirtualTreeContainer = ref2VirtualTreeContainer;
-    this.ref1Resolver = new MetadataResolver(registryAccess, ref1VirtualTreeContainer);
-    this.ref2Resolver = new MetadataResolver(registryAccess, this.ref2VirtualTreeContainer);
+    this.ref1Resolver = new MetadataResolver(this.registry, ref1VirtualTreeContainer);
+    this.ref2Resolver = new MetadataResolver(this.registry, this.ref2VirtualTreeContainer);
 
     return this.getComponentSet(fileStatus);
   }
@@ -139,7 +139,7 @@ export class GitDiffResolver {
 
   // eslint-disable-next-line complexity
   private async getComponentSet(gitLines: Array<{ path: string; status: string | undefined }>): Promise<ComponentSet> {
-    const results = new ComponentSet(undefined, registryAccess);
+    const results = new ComponentSet(undefined, this.registry);
 
     const childComponentPromises: Array<
       Promise<{

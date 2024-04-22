@@ -83,7 +83,7 @@ export class ComponentSetExtra extends ComponentSet {
 
     const project = await SfProject.resolve();
 
-    const gitDiffResolver = new GitDiffResolver(project);
+    const gitDiffResolver = new GitDiffResolver(project, registry);
     const inclusiveFilter = await gitDiffResolver.resolve(ref1, ref2, fsPaths);
 
     const childsTobeReplacedByParent = [
