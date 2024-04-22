@@ -24,7 +24,9 @@ jobs:
       - name: Building
         run: yarn build
       - name: Testing
-        run: yarn test
+        run: |
+          yarn test
+          yarn test:nuts
       - name: Release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
