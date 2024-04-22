@@ -1,3 +1,10 @@
+## [3.2.1](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.2.0...v3.2.1) (2024-04-22)
+
+
+### Bug Fixes
+
+* reuse RegistryAccess ([d354c79](https://github.com/jayree/sfdx-plugin-manifest/commit/d354c79df1cc8c6a5c0cb696599505b5e033f3d2))
+
 # [3.2.0](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.1.66...v3.2.0) (2024-04-21)
 
 
