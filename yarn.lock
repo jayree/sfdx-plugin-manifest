@@ -6627,10 +6627,10 @@ object.values@^1.1.7:
     define-properties "^1.2.0"
     es-abstract "^1.22.1"
 
-oclif@^4.8.8:
-  version "4.8.8"
-  resolved "https://registry.yarnpkg.com/oclif/-/oclif-4.8.8.tgz#a7690a0fd7ffabb88709af939ffca23a6632345b"
-  integrity sha512-EZszrIY/rSa1fo0fq11rFAU7QvBX8FqAxyYIFTb19adSvxUwK8NKVn0b+lPlchibcpFHwde7ENFYSyJ1G+cWXg==
+oclif@^4.9.0:
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/oclif/-/oclif-4.9.0.tgz#6519161de69b58559c2483b9ff81dd16ecffdb4e"
+  integrity sha512-35wI+Rqu7iDix6iLToYyqTw7aHDxzUsymt2JZ5HMzrZWlaebDwkYMJTyOT08e9IQY8U8k4+zZPie1hLTxdEOFg==
   dependencies:
     "@aws-sdk/client-cloudfront" "^3.535.0"
     "@aws-sdk/client-s3" "^3.554.0"
