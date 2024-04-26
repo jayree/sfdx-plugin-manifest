@@ -1788,13 +1788,13 @@
     "@salesforce/ts-types" "^2.0.9"
     chalk "^5.3.0"
 
-"@salesforce/source-deploy-retrieve@^11.0.2":
-  version "11.0.2"
-  resolved "https://registry.yarnpkg.com/@salesforce/source-deploy-retrieve/-/source-deploy-retrieve-11.0.2.tgz#860411de2d41d6aec3b8f0774256e7bdf8cdb68e"
-  integrity sha512-1EJbzA1r01o8XGq2c2gd4K1WvtiA3x3Ka4pgP8WpQfxVRtcxjwrM9gFWJLHhAz3nt2jeDsrUDerAc4a1FaoE7g==
+"@salesforce/source-deploy-retrieve@^11.1.2":
+  version "11.1.2"
+  resolved "https://registry.yarnpkg.com/@salesforce/source-deploy-retrieve/-/source-deploy-retrieve-11.1.2.tgz#f5c70b952eca711b2be0e110b289eb24aaa60b4d"
+  integrity sha512-QhRft7U/XMBDaZTbzacbHH4sapTW/d25V3Hiwua2lg/Ce6hEj/5w6l8LlO5UAyRpRMaMy2LfaTRygu+rT3AS8g==
   dependencies:
-    "@salesforce/core" "^7.3.0"
-    "@salesforce/kit" "^3.1.0"
+    "@salesforce/core" "^7.3.1"
+    "@salesforce/kit" "^3.1.1"
     "@salesforce/ts-types" "^2.0.9"
     fast-levenshtein "^3.0.0"
     fast-xml-parser "^4.3.6"
@@ -1805,7 +1805,6 @@
     mime "2.6.0"
     minimatch "^5.1.6"
     proxy-agent "^6.4.0"
-    ts-retry-promise "^0.7.1"
 
 "@salesforce/ts-sinon@^1.4.19":
   version "1.4.19"
