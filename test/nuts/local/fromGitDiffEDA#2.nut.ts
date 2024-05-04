@@ -8,6 +8,7 @@ import { TestSession } from '@salesforce/cli-plugins-testkit';
 import { expect } from 'chai';
 import { DestructiveChangesType } from '@salesforce/source-deploy-retrieve';
 import { ComponentSetExtra } from '../../../src/SDR-extra/index.js';
+import { setAutocrlfOnWin32 } from '../../helper/git.js';
 
 describe('result testing with EDA #2', () => {
   let session: TestSession;
@@ -19,6 +20,7 @@ describe('result testing with EDA #2', () => {
       },
       devhubAuthStrategy: 'NONE',
     });
+    await setAutocrlfOnWin32(session.project.dir);
   });
 
   after(async () => {

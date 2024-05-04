@@ -12,6 +12,7 @@ import fs from 'fs-extra';
 import { DestructiveChangesType } from '@salesforce/source-deploy-retrieve';
 import sinon from 'sinon';
 import { ComponentSetExtra } from '../../../src/SDR-extra/index.js';
+import { setAutocrlfOnWin32 } from '../../helper/git.js';
 
 describe('failure result testing with EDU-RA-Chatbot #2', () => {
   let session: TestSession;
@@ -23,6 +24,7 @@ describe('failure result testing with EDU-RA-Chatbot #2', () => {
       },
       devhubAuthStrategy: 'NONE',
     });
+    await setAutocrlfOnWin32(session.project.dir);
   });
 
   after(async () => {
@@ -45,9 +47,10 @@ describe('failure result testing with EDU-RA-Chatbot #2', () => {
     expect(emitWarningStub.calledOnce).to.be.true;
     expect(
       emitWarningStub.calledWith(
-        `The unstaged file "${session.project.dir}/force-app/main/default/bots/Mascot/v1.botVersion-meta.xml" was processed.`,
+        `The unstaged file "${join(session.project.dir, 'force-app', 'main', 'default', 'bots', 'Mascot', 'v1.botVersion-meta.xml')}" was processed.`,
       ),
     ).to.be.true;
+    expect(comp.getTypesOfDestructiveChanges()).to.deep.equal([]);
     expect(await comp.getObject()).to.deep.equal({ Package: { types: [], version: '50.0' } });
   });
 
@@ -57,7 +60,7 @@ describe('failure result testing with EDU-RA-Chatbot #2', () => {
     expect(emitWarningStub.calledOnce).to.be.true;
     expect(
       emitWarningStub.calledWith(
-        `The unstaged file "${session.project.dir}/force-app/main/default/bots/Mascot/v1.botVersion-meta.xml" was processed.`,
+        `The unstaged file "${join(session.project.dir, 'force-app', 'main', 'default', 'bots', 'Mascot', 'v1.botVersion-meta.xml')}" was processed.`,
       ),
     ).to.be.true;
     expect(comp.getTypesOfDestructiveChanges()).to.deep.equal(['post']);

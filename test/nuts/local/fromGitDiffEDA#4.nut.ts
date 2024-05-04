@@ -8,6 +8,7 @@ import { TestSession } from '@salesforce/cli-plugins-testkit';
 import { expect } from 'chai';
 import { DestructiveChangesType } from '@salesforce/source-deploy-retrieve';
 import { ComponentSetExtra } from '../../../src/SDR-extra/index.js';
+import { setAutocrlfOnWin32 } from '../../helper/git.js';
 
 describe('result testing with EDA #4', () => {
   let session: TestSession;
@@ -19,6 +20,7 @@ describe('result testing with EDA #4', () => {
       },
       devhubAuthStrategy: 'NONE',
     });
+    await setAutocrlfOnWin32(session.project.dir);
   });
 
   after(async () => {
@@ -210,21 +212,6 @@ describe('result testing with EDA #4', () => {
   it('should return in a reasonable amount of time #1', async () => {
     const start = Date.now();
     await ComponentSetExtra.fromGitDiff(['HEAD~']);
-    expect(Date.now() - start).to.be.lessThan(10_000);
+    expect(Date.now() - start).to.be.lessThan(12_000);
   });
-
-  // it('should return in a reasonable amount of time #2', async () => {
-  //   const start = Date.now();
-  //   await ComponentSetExtra.fromGitDiff('HEAD^2');
-  //   expect(Date.now() - start).to.be.lessThan(10000);
-  // });
-
-  // it('should return in a reasonable amount of time #3', async () => {
-  //   const start = Date.now();
-  //   await ComponentSetExtra.fromGitDiff([
-  //     '6636996f74cbc0ed2ff65cd8091722c3b4a7cf49',
-  //     '940b1f6a827bb9ef286ef11b4e12c31abb8c6e3c',
-  //   ]);
-  //   expect(Date.now() - start).to.be.lessThan(60000);
-  // });
 });

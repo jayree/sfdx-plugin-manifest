@@ -12,6 +12,7 @@ import fs from 'fs-extra';
 import sinon from 'sinon';
 import git from 'isomorphic-git';
 import { ComponentSetExtra } from '../../../src/SDR-extra/index.js';
+import { setAutocrlfOnWin32 } from '../../helper/git.js';
 
 describe('failure result testing with EDA #5', () => {
   let session: TestSession;
@@ -25,6 +26,7 @@ describe('failure result testing with EDA #5', () => {
       devhubAuthStrategy: 'NONE',
     });
     emitWarningStub = sinon.stub(process, 'emitWarning');
+    await setAutocrlfOnWin32(session.project.dir);
   });
 
   afterEach(async () => {
@@ -45,12 +47,12 @@ describe('failure result testing with EDA #5', () => {
     expect(emitWarningStub.calledTwice).to.be.true;
     expect(
       emitWarningStub.calledWith(
-        `The unstaged file "${session.project.dir}/force-app/main/default/classes/AccountAutoDeletionSettingsVMapper.cls" was processed.`,
+        `The unstaged file "${join(session.project.dir, 'force-app', 'main', 'default', 'classes', 'AccountAutoDeletionSettingsVMapper.cls')}" was processed.`,
       ),
     ).to.be.true;
     expect(
       emitWarningStub.calledWith(
-        `The forceignored file "${session.project.dir}/force-app/main/default/classes/AccountAutoDeletionSettingsVMapper.cls" was ignored.`,
+        `The forceignored file "${join(session.project.dir, 'force-app', 'main', 'default', 'classes', 'AccountAutoDeletionSettingsVMapper.cls')}" was ignored.`,
       ),
     ).to.be.true;
     expect(comp.getTypesOfDestructiveChanges()).to.deep.equal([]);
@@ -73,12 +75,12 @@ describe('failure result testing with EDA #5', () => {
     expect(emitWarningStub.calledTwice).to.be.true;
     expect(
       emitWarningStub.calledWith(
-        `The unstaged file "${session.project.dir}/force-app/main/default/objects/Account/fields/Billing_County__c.field-meta.xml" was processed.`,
+        `The unstaged file "${join(session.project.dir, 'force-app', 'main', 'default', 'objects', 'Account', 'fields', 'Billing_County__c.field-meta.xml')}" was processed.`,
       ),
     ).to.be.true;
     expect(
       emitWarningStub.calledWith(
-        `The forceignored file "${session.project.dir}/force-app/main/default/objects/Account/fields/Billing_County__c.field-meta.xml" was ignored.`,
+        `The forceignored file "${join(session.project.dir, 'force-app', 'main', 'default', 'objects', 'Account', 'fields', 'Billing_County__c.field-meta.xml')}" was ignored.`,
       ),
     ).to.be.true;
     expect(comp.getTypesOfDestructiveChanges()).to.deep.equal([]);
@@ -110,7 +112,6 @@ describe('failure result testing with EDA #5', () => {
     });
     const comp = await ComponentSetExtra.fromGitDiff(['HEAD']);
     expect(comp.getTypesOfDestructiveChanges()).to.deep.equal([]);
-
     expect(await comp.getObject()).to.deep.equal({
       Package: { types: [{ members: ['autocomplete'], name: 'AuraDefinitionBundle' }], version: '52.0' },
     });

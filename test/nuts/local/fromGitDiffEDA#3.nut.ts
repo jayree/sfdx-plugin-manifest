@@ -12,6 +12,7 @@ import fs from 'fs-extra';
 import sinon from 'sinon';
 import { DestructiveChangesType } from '@salesforce/source-deploy-retrieve';
 import { ComponentSetExtra } from '../../../src/SDR-extra/index.js';
+import { setAutocrlfOnWin32 } from '../../helper/git.js';
 
 describe('failure result testing with EDA #3', () => {
   let session: TestSession;
@@ -25,6 +26,7 @@ describe('failure result testing with EDA #3', () => {
       devhubAuthStrategy: 'NONE',
     });
     emitWarningStub = sinon.stub(process, 'emitWarning');
+    await setAutocrlfOnWin32(session.project.dir);
   });
 
   afterEach(async () => {
@@ -44,7 +46,7 @@ describe('failure result testing with EDA #3', () => {
     expect(emitWarningStub.calledOnce).to.be.true;
     expect(
       emitWarningStub.calledWith(
-        `The unstaged file "${session.project.dir}/force-app/main/default/labels/CustomLabels.labels-meta.xml" was processed.`,
+        `The unstaged file "${join(session.project.dir, 'force-app', 'main', 'default', 'labels', 'CustomLabels.labels-meta.xml')}" was processed.`,
       ),
     ).to.be.true;
     expect(comp.getTypesOfDestructiveChanges()).to.deep.equal(['post']);
