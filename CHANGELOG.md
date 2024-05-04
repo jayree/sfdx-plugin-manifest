@@ -1,3 +1,11 @@
+## [3.2.4](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.2.3...v3.2.4) (2024-05-04)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.25.7 to 1.25.8 ([#1276](https://github.com/jayree/sfdx-plugin-manifest/issues/1276)) ([6ededfb](https://github.com/jayree/sfdx-plugin-manifest/commit/6ededfb9a93d3a3ad225863cdb148050e9ee6bc8))
+* fix statusMatrix with win32 linebreaks ([e0a72c7](https://github.com/jayree/sfdx-plugin-manifest/commit/e0a72c787c0fed70b48ca357487118e4f207db92))
+
 ## [3.2.3](https://github.com/jayree/sfdx-plugin-manifest/compare/v3.2.2...v3.2.3) (2024-05-03)
 
 
