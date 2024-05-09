@@ -19,7 +19,7 @@ sfdx plugins:install @jayree/sfdx-plugin-manifest
 <!-- commands -->
 * [`sfdx jayree manifest cleanup`](#sfdx-jayree-manifest-cleanup)
 * [`sfdx jayree manifest generate`](#sfdx-jayree-manifest-generate)
-* [`sfdx jayree manifest git diff`](#sfdx-jayree-manifest-git-diff)
+* [`sfdx jayree manifest git diff REF1 [REF2]`](#sfdx-jayree-manifest-git-diff-ref1-ref2)
 
 ### `sfdx jayree manifest cleanup`
 
@@ -88,7 +88,7 @@ EXAMPLES
 
 _See code: [src/commands/jayree/manifest/generate.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/v3.2.5/src/commands/jayree/manifest/generate.ts)_
 
-### `sfdx jayree manifest git diff`
+### `sfdx jayree manifest git diff REF1 [REF2]`
 
 Create a project manifest and destructiveChanges manifest that lists the metadata components you want to deploy or delete based on changes in your git history.
 
