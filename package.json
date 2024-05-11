@@ -64,17 +64,21 @@
     "diff",
     "delta",
     "manifest",
-    "salesforce",
     "package",
     "retrieve",
     "deploy",
+    "force",
+    "salesforce",
+    "salesforcedx",
+    "sf",
+    "sf-plugin",
     "sfdx",
     "sfdx-plugin"
   ],
   "license": "BSD-3-Clause",
   "oclif": {
     "commands": "./lib/commands",
-    "bin": "sfdx",
+    "bin": "sf",
     "hooks": {
       "update": "./lib/hooks/changelog"
     },
