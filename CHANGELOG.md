@@ -1,3 +1,12 @@
+## [3.2.8](https://github.com/jayree/sfdx-plugin-manifest/compare/3.2.7...3.2.8) (2024-05-14)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 7.3.5 to 7.3.6 ([#1303](https://github.com/jayree/sfdx-plugin-manifest/issues/1303)) ([e5a6a92](https://github.com/jayree/sfdx-plugin-manifest/commit/e5a6a922fc89086255922e33d46d93fb13cf80ea))
+
+
+
 ## [3.2.7](https://github.com/jayree/sfdx-plugin-manifest/compare/3.2.6...3.2.7) (2024-05-10)
 
 
