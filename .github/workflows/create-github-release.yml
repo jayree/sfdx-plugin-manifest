@@ -1,12 +1,8 @@
 name: create-github-release
 
 on:
-  push:
-    branches:
-      - main
-      - prerelease/**
-    tags-ignore:
-      - '*'
+  schedule:
+    - cron: '0 8 * * *'
   workflow_dispatch:
     inputs:
       prerelease:
