@@ -1,3 +1,7 @@
+## [3.2.12](https://github.com/jayree/sfdx-plugin-manifest/compare/3.2.11...3.2.12) (2024-05-17)
+
+
+
 ## [3.2.11](https://github.com/jayree/sfdx-plugin-manifest/compare/3.2.10...3.2.11) (2024-05-16)
 
 
