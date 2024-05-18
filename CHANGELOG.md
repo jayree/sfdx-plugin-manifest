@@ -1,3 +1,12 @@
+## [3.2.14](https://github.com/jayree/sfdx-plugin-manifest/compare/3.2.13...3.2.14) (2024-05-18)
+
+
+### Reverts
+
+* Revert "chore: schedule to combine releases" ([609e574](https://github.com/jayree/sfdx-plugin-manifest/commit/609e574919ccefab8e1b10b50469d7a89f5b0f94))
+
+
+
 ## [3.2.13](https://github.com/jayree/sfdx-plugin-manifest/compare/3.2.12...3.2.13) (2024-05-18)
 
 
