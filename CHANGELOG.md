@@ -1,3 +1,12 @@
+## [3.2.18](https://github.com/jayree/sfdx-plugin-manifest/compare/3.2.17...3.2.18) (2024-05-25)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/sf-plugins-core from 9.0.10 to 9.0.12 ([#1318](https://github.com/jayree/sfdx-plugin-manifest/issues/1318)) ([639789c](https://github.com/jayree/sfdx-plugin-manifest/commit/639789c8c7504e0337bc3ef4d2c252f8e0338423))
+
+
+
 ## [3.2.17](https://github.com/jayree/sfdx-plugin-manifest/compare/3.2.16...3.2.17) (2024-05-25)
 
 
