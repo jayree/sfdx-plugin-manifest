@@ -9,7 +9,6 @@ import {
   ComponentSet,
   OptionalTreeRegistryOptions,
   TreeContainer,
-  DestructiveChangesType,
   RegistryAccess,
   SourceComponent,
 } from '@salesforce/source-deploy-retrieve';
@@ -84,7 +83,10 @@ export class ComponentSetExtra extends ComponentSet {
     const project = await SfProject.resolve();
 
     const gitDiffResolver = new GitDiffResolver(project, registry);
-    const inclusiveFilter = await gitDiffResolver.resolve(ref1, ref2, fsPaths);
+    const gitDiffResult = await gitDiffResolver.resolve(ref1, ref2, fsPaths);
+
+    const include = new ComponentSet([], registry);
+    const markedForDelete = new ComponentSet([], registry);
 
     const childsTobeReplacedByParent = [
       ...Object.keys(registry.getTypeByName('workflow').children?.types ?? {}),
@@ -92,16 +94,17 @@ export class ComponentSetExtra extends ComponentSet {
       ...Object.keys(registry.getTypeByName('bot').children?.types ?? {}),
     ];
 
-    for (const component of inclusiveFilter.getSourceComponents()) {
-      if (
-        !component.isMarkedForDelete() &&
-        component.parent &&
-        childsTobeReplacedByParent.includes(component.type.id)
-      ) {
-        debug(
-          `add parent ${component.parent.type.name}:${component.parent.fullName} of ${component.type.name}:${component.fullName} to manifest`,
-        );
-        inclusiveFilter.add(component.parent);
+    for (const component of gitDiffResult.getSourceComponents()) {
+      if (!component.isMarkedForDelete()) {
+        if (component.parent && childsTobeReplacedByParent.includes(component.type.id)) {
+          debug(
+            `add parent ${component.parent.type.name}:${component.parent.fullName} of ${component.type.name}:${component.fullName} to manifest`,
+          );
+          include.add(component.parent);
+        }
+        include.add(component);
+      } else {
+        markedForDelete.add(component, component.getDestructiveChangesType());
       }
     }
 
@@ -111,26 +114,15 @@ export class ComponentSetExtra extends ComponentSet {
 
     debug({ fsPaths });
 
-    let components = ComponentSet.fromSource({
+    const components = ComponentSet.fromSource({
       fsPaths,
-      include: inclusiveFilter,
+      include,
       tree,
       registry,
     });
 
-    const isMarkedForDelete = new Set(
-      inclusiveFilter
-        .getSourceComponents()
-        .filter((c) => c.isMarkedForDelete())
-        .map((c) => `${c.fullName}:${c.type.name}`),
-    );
-
-    components = components.filter(({ fullName, type }) => !isMarkedForDelete.has(`${fullName}:${type.name}`));
-
-    for (const component of inclusiveFilter.getSourceComponents()) {
-      if (component.isMarkedForDelete()) {
-        components.add(component, DestructiveChangesType.POST);
-      }
+    for (const component of markedForDelete.getSourceComponents()) {
+      components.add(component, component.getDestructiveChangesType());
     }
 
     let localSourceComponents: SourceComponent[] = [];
@@ -140,7 +132,7 @@ export class ComponentSetExtra extends ComponentSet {
       localSourceComponents = localSourceComponents.concat(localComponent);
     }
 
-    for await (const component of inclusiveFilter.getSourceComponents()) {
+    for await (const component of include.getSourceComponents()) {
       if (
         !localSourceComponents.find(
           (localComponent) =>
