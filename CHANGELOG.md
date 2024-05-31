@@ -1,3 +1,12 @@
+## [3.2.21](https://github.com/jayree/sfdx-plugin-manifest/compare/3.2.20...3.2.21) (2024-05-31)
+
+
+### Bug Fixes
+
+* **gitdiff:** optimize componentset filter ([7990cb3](https://github.com/jayree/sfdx-plugin-manifest/commit/7990cb3b795a81187fd9c4649ab85349e4cb0a14))
+
+
+
 ## [3.2.20](https://github.com/jayree/sfdx-plugin-manifest/compare/3.2.19...3.2.20) (2024-05-25)
 
 
