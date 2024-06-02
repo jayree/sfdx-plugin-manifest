@@ -13,6 +13,19 @@ A Salesforce CLI plugin containing commands for creating manifest files from Sal
 sf plugins:install @jayree/sfdx-plugin-manifest
 ```
 
+> **Note:**
+>
+> The `jayree manifest git diff` command uses the `isomorphic-git` module, which does not support system or global git configurations. Windows users who have `autocrlf` enabled need to set this configuration locally in the repository to enhance the performance of the command.
+>
+> To do this, execute the following command in your repository:
+>
+> ```powershell
+> git config --local core.autocrlf true
+> ```
+
+
+
+
 ## Commands
 
 <!-- commands -->
