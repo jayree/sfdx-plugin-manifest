@@ -19,7 +19,7 @@ import { GitDiffResolver } from '../resolve/index.js';
 
 const debug = Debug('sf:gitDiff:ComponentSetExtra');
 
-export interface FromGitDiffOptions extends OptionalTreeRegistryOptions {
+export type FromGitDiffOptions = {
   /**
    * Git ref to resolve components against
    */
@@ -28,7 +28,7 @@ export interface FromGitDiffOptions extends OptionalTreeRegistryOptions {
    * File paths or directory paths to resolve components against
    */
   fsPaths?: string[];
-}
+} & OptionalTreeRegistryOptions;
 
 export class ComponentSetExtra extends ComponentSet {
   /**
@@ -132,6 +132,7 @@ export class ComponentSetExtra extends ComponentSet {
       localSourceComponents = localSourceComponents.concat(localComponent);
     }
 
+    const lifecycle = Lifecycle.getInstance();
     for await (const component of include.getSourceComponents()) {
       if (
         !localSourceComponents.find(
@@ -139,7 +140,7 @@ export class ComponentSetExtra extends ComponentSet {
             component.type.name === localComponent.type.name && component.fullName === localComponent.fullName,
         )
       ) {
-        await Lifecycle.getInstance().emitWarning(
+        await lifecycle.emitWarning(
           `The component "${component.type.name}:${component.fullName}" was not found locally.`,
         );
       }

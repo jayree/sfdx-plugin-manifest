@@ -1,12 +1,13 @@
 /// <reference types="node" resolution-mode="require"/>
-export interface GitRepoOptions {
+export type GitRepoOptions = {
     gitDir: string;
     packageDirs?: string[];
-}
+};
 export declare class GitRepo {
     private static instanceMap;
     gitDir: string;
     private packageDirs;
+    private lifecycle;
     private constructor();
     static getInstance(options: GitRepoOptions): GitRepo;
     resolveMultiRefString(ref: string): Promise<{
@@ -35,4 +36,5 @@ export declare class GitRepo {
     }): Promise<Buffer>;
     private getCommitLog;
     private ensureGitRelPath;
+    private checkLocalGitAutocrlfConfig;
 }

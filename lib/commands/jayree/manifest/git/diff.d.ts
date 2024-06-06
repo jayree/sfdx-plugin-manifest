@@ -1,6 +1,6 @@
 import { SfCommand } from '@salesforce/sf-plugins-core';
 import { Optional } from '@salesforce/ts-types';
-export interface GitDiffCommandResult {
+export type GitDiffCommandResult = {
     manifest?: {
         path: string;
         name: string;
@@ -9,7 +9,7 @@ export interface GitDiffCommandResult {
         path: string;
         name: string;
     };
-}
+};
 export default class GitDiffCommand extends SfCommand<GitDiffCommandResult> {
     static readonly summary: string;
     static readonly description: string;

@@ -1,22 +1,22 @@
 import { SfCommand } from '@salesforce/sf-plugins-core';
 import { FileProperties, ListMetadataQuery } from '@salesforce/source-deploy-retrieve/lib/src/client/types.js';
 import { PackageManifestObject } from '@salesforce/source-deploy-retrieve';
-export interface QueryResult {
+export type QueryResult = {
     size: number;
     totalSize: number;
     done: boolean;
     queryLocator: string;
     entityTypeName: string;
     records: StdValueSetRecord[] | FlowDefinitionRecord[];
-}
-export interface StdValueSetRecord {
+};
+export type StdValueSetRecord = {
     Id: string;
     MasterLabel: string;
     Metadata: {
         standardValue: Array<Record<string, unknown>>;
     };
-}
-export interface FlowDefinitionRecord {
+};
+export type FlowDefinitionRecord = {
     DeveloperName: string;
     ActiveVersion: {
         VersionNumber: string;
@@ -24,7 +24,7 @@ export interface FlowDefinitionRecord {
     LatestVersion: {
         VersionNumber: string;
     };
-}
+};
 export default class GeneratePackageXML extends SfCommand<PackageManifestObject> {
     static readonly summary: string;
     static readonly description: string;

@@ -18,13 +18,13 @@ Messages.importMessagesDirectoryFromMetaUrl(import.meta.url);
 
 const messages = Messages.loadMessages('@jayree/sfdx-plugin-manifest', 'manifestcleanup');
 
-interface PackageManifestObject {
+type PackageManifestObject = {
   Package: {
     types: PackageTypeMembers[];
     version: string;
     [XML_NS_KEY]?: string;
   };
-}
+};
 
 export default class CleanupManifest extends SfCommand<void> {
   public static readonly summary = messages.getMessage('summary');

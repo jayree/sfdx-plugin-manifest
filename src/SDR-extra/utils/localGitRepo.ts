@@ -7,13 +7,14 @@
 import util from 'node:util';
 import path from 'node:path';
 import fs from 'node:fs/promises';
+import { execSync } from 'node:child_process';
 import git from 'isomorphic-git';
 import { Lifecycle } from '@salesforce/core';
 
-export interface GitRepoOptions {
+export type GitRepoOptions = {
   gitDir: string;
   packageDirs?: string[];
-}
+};
 
 export class GitRepo {
   private static instanceMap = new Map<string, GitRepo>();
@@ -21,6 +22,8 @@ export class GitRepo {
   public gitDir: string;
 
   private packageDirs: string[] | undefined;
+
+  private lifecycle = Lifecycle.getInstance();
 
   private constructor(options: GitRepoOptions) {
     this.gitDir = options.gitDir;
@@ -141,6 +144,8 @@ export class GitRepo {
       return undefined;
     };
 
+    await this.checkLocalGitAutocrlfConfig();
+
     const statusMatrix = await git.statusMatrix({
       fs,
       dir: this.gitDir,
@@ -166,7 +171,6 @@ export class GitRepo {
 
     if (warningMatrix.length) {
       const buildWarningArray = (warnings: Array<{ filter: number[][]; message: string }>): Array<Promise<void>> => {
-        const LifecycleInstance = Lifecycle.getInstance();
         const emitWarningArray: Array<Promise<void>> = [];
         warnings.forEach((warning) => {
           const filteredChanges = warningMatrix
@@ -174,7 +178,7 @@ export class GitRepo {
             .map((row) => path.join(this.gitDir, ensureOSPath(row[0])));
 
           for (const file of filteredChanges) {
-            emitWarningArray.push(LifecycleInstance.emitWarning(util.format(warning.message, file)));
+            emitWarningArray.push(this.lifecycle.emitWarning(util.format(warning.message, file)));
           }
         });
         return emitWarningArray;
@@ -292,6 +296,25 @@ export class GitRepo {
 
   private ensureGitRelPath(fpath: string): string {
     return path.relative(this.gitDir, fpath).split(path.sep).join(path.posix.sep);
+  }
+
+  private async checkLocalGitAutocrlfConfig(): Promise<void> {
+    try {
+      const stdout = execSync('git config --show-origin core.autocrlf', { cwd: this.gitDir }).toString().trim();
+
+      if (stdout) {
+        const [origin, value] = stdout.split('\t');
+        const [, ...rest] = origin.split(':');
+        const file = rest.join(':') || '';
+        if (file !== '.git/config') {
+          await this.lifecycle.emitWarning(
+            `You have currently set core.autocrlf to ${value} in ${file}. To optimize performance, please execute 'git config --local core.autocrlf ${value}'.`,
+          );
+        }
+      }
+    } catch {
+      // if the command fails, autocrlf is not set
+    }
   }
 }
 
