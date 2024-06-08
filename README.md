@@ -60,7 +60,7 @@ EXAMPLES
   $ sf jayree manifest cleanup --manifest=package.xml --file=packageignore.xml
 ```
 
-_See code: [src/commands/jayree/manifest/cleanup.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/3.2.23/src/commands/jayree/manifest/cleanup.ts)_
+_See code: [src/commands/jayree/manifest/cleanup.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/3.2.24/src/commands/jayree/manifest/cleanup.ts)_
 
 ### `sf jayree manifest generate`
 
@@ -68,7 +68,7 @@ Generate a complete manifest file form the specified org.
 
 ```
 USAGE
-  $ sf jayree manifest generate -o <value> [--json] [--flags-dir <value>] [--api-version <value>] [-q <value>] [-c] [-w]
+  $ sf jayree manifest generate -o <value> [--json] [--flags-dir <value>] [--api-version <value>] [-q <value>...] [-c] [-w]
     [--include-flow-versions] [-f <value>] [--exclude-managed | --exclude-all]
 
 FLAGS
@@ -98,7 +98,7 @@ EXAMPLES
   <Package xmlns='http://soap.sforce.com/2006/04/metadata'>...</Package>
 ```
 
-_See code: [src/commands/jayree/manifest/generate.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/3.2.23/src/commands/jayree/manifest/generate.ts)_
+_See code: [src/commands/jayree/manifest/generate.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/3.2.24/src/commands/jayree/manifest/generate.ts)_
 
 ### `sf jayree manifest git diff REF1 [REF2]`
 
@@ -106,8 +106,8 @@ Create a project manifest and destructiveChanges manifest that lists the metadat
 
 ```
 USAGE
-  $ sf jayree manifest git diff REF1 [REF2] [--json] [--flags-dir <value>] [--api-version <value>] [-d <value>] [--output-dir
-    <value>] [--destructive-changes-only]
+  $ sf jayree manifest git diff REF1 [REF2] [--json] [--flags-dir <value>] [--api-version <value>] [-d <value>...]
+    [--output-dir <value>] [--destructive-changes-only]
 
 ARGUMENTS
   REF1  Base commit or branch.
@@ -181,5 +181,5 @@ FLAG DESCRIPTIONS
     The location can be an absolute path or relative to the current working directory.
 ```
 
-_See code: [src/commands/jayree/manifest/git/diff.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/3.2.23/src/commands/jayree/manifest/git/diff.ts)_
+_See code: [src/commands/jayree/manifest/git/diff.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/3.2.24/src/commands/jayree/manifest/git/diff.ts)_
 <!-- commandsstop -->
