@@ -1,3 +1,12 @@
+# [3.3.0](https://github.com/jayree/sfdx-plugin-manifest/compare/3.2.25...3.3.0) (2024-06-09)
+
+
+### Features
+
+* add core.autocrlf warning ([#1327](https://github.com/jayree/sfdx-plugin-manifest/issues/1327)) ([72cf5af](https://github.com/jayree/sfdx-plugin-manifest/commit/72cf5af6d6cb074de5931c353659bd1803d3dcb9))
+
+
+
 ## [3.2.25](https://github.com/jayree/sfdx-plugin-manifest/compare/3.2.24...3.2.25) (2024-06-09)
 
 
