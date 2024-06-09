@@ -214,8 +214,9 @@ export class GitDiffResolver {
       new Set([...this.ref1Resolver.forceIgnoredPaths, ...this.ref2Resolver.forceIgnoredPaths]),
     );
 
+    const lifecycle = Lifecycle.getInstance();
     for await (const file of forceIgnored) {
-      await Lifecycle.getInstance().emitWarning(`The forceignored file "${file}" was ignored.`);
+      await lifecycle.emitWarning(`The forceignored file "${file}" was ignored.`);
     }
 
     return results;

@@ -24,26 +24,26 @@ const registryAccess = new RegistryAccess();
 
 const messages = Messages.loadMessages('@jayree/sfdx-plugin-manifest', 'manifestgenerate');
 
-export interface QueryResult {
+export type QueryResult = {
   size: number;
   totalSize: number;
   done: boolean;
   queryLocator: string;
   entityTypeName: string;
   records: StdValueSetRecord[] | FlowDefinitionRecord[];
-}
+};
 
-export interface StdValueSetRecord {
+export type StdValueSetRecord = {
   Id: string;
   MasterLabel: string;
   Metadata: { standardValue: Array<Record<string, unknown>> };
-}
+};
 
-export interface FlowDefinitionRecord {
+export type FlowDefinitionRecord = {
   DeveloperName: string;
   ActiveVersion: { VersionNumber: string };
   LatestVersion: { VersionNumber: string };
-}
+};
 export default class GeneratePackageXML extends SfCommand<PackageManifestObject> {
   public static readonly summary = messages.getMessage('summary');
   public static readonly description = messages.getMessage('description');

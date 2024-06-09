@@ -1,5 +1,5 @@
 import { ComponentSet, OptionalTreeRegistryOptions } from '@salesforce/source-deploy-retrieve';
-export interface FromGitDiffOptions extends OptionalTreeRegistryOptions {
+export type FromGitDiffOptions = {
     /**
      * Git ref to resolve components against
      */
@@ -8,7 +8,7 @@ export interface FromGitDiffOptions extends OptionalTreeRegistryOptions {
      * File paths or directory paths to resolve components against
      */
     fsPaths?: string[];
-}
+} & OptionalTreeRegistryOptions;
 export declare class ComponentSetExtra extends ComponentSet {
     /**
      * Resolve metadata components from git diff <ref> HEAD.

@@ -16,10 +16,10 @@ import { ComponentSetExtra } from '../../../../SDR-extra/index.js';
 Messages.importMessagesDirectoryFromMetaUrl(import.meta.url);
 const messages = Messages.loadMessages('@jayree/sfdx-plugin-manifest', 'gitdiff');
 
-export interface GitDiffCommandResult {
+export type GitDiffCommandResult = {
   manifest?: { path: string; name: string };
   destructiveChanges?: { path: string; name: string };
-}
+};
 
 export default class GitDiffCommand extends SfCommand<GitDiffCommandResult> {
   public static readonly summary = messages.getMessage('summary');
