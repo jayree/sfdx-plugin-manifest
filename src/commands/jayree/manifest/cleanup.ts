@@ -6,9 +6,8 @@
  */
 import { Messages } from '@salesforce/core';
 import { CLIError } from '@oclif/core/errors';
-import chalk from 'chalk';
 import fs from 'fs-extra';
-import { SfCommand, Flags } from '@salesforce/sf-plugins-core';
+import { SfCommand, Flags, StandardColors } from '@salesforce/sf-plugins-core';
 import { ensureArray } from '@salesforce/kit';
 import { PackageTypeMembers } from '@salesforce/source-deploy-retrieve';
 import { XMLParser, XMLBuilder } from 'fast-xml-parser';
@@ -94,7 +93,7 @@ export default class CleanupManifest extends SfCommand<void> {
       this.log(`Cleanup manifest file template '${file}' was created`);
     } else {
       if (!flags['manifest'] || !(await fs.pathExists(flags['manifest']))) {
-        throw new CLIError(`The following error occurred:\n  ${chalk.dim('Missing required flag manifest')}`);
+        throw new CLIError(`The following error occurred:\n  ${StandardColors.info('Missing required flag manifest')}`);
       }
       await this.cleanupManifestFile(flags['manifest'], file);
     }
