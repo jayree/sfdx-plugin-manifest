@@ -12,12 +12,11 @@ import {
   RegistryAccess,
   SourceComponent,
 } from '@salesforce/source-deploy-retrieve';
-import { SfProject, Lifecycle } from '@salesforce/core';
-import Debug from 'debug';
+import { SfProject, Lifecycle, Logger } from '@salesforce/core';
 import fs from 'graceful-fs';
 import { GitDiffResolver } from '../resolve/index.js';
 
-const debug = Debug('sf:gitDiff:ComponentSetExtra');
+const logger = Logger.childFromRoot('gitDiff:ComponentSetExtra');
 
 export type FromGitDiffOptions = {
   /**
@@ -97,7 +96,7 @@ export class ComponentSetExtra extends ComponentSet {
     for (const component of gitDiffResult.getSourceComponents()) {
       if (!component.isMarkedForDelete()) {
         if (component.parent && childsTobeReplacedByParent.includes(component.type.id)) {
-          debug(
+          logger.debug(
             `add parent ${component.parent.type.name}:${component.parent.fullName} of ${component.type.name}:${component.fullName} to manifest`,
           );
           include.add(component.parent);
@@ -112,7 +111,7 @@ export class ComponentSetExtra extends ComponentSet {
       fsPaths?.map((filepath) => path.resolve(filepath)).filter((filepath) => fs.existsSync(filepath)) ??
       project.getUniquePackageDirectories().map((pDir) => pDir.fullPath);
 
-    debug({ fsPaths });
+    logger.debug({ fsPaths });
 
     const components = ComponentSet.fromSource({
       fsPaths,

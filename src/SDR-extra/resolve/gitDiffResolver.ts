@@ -12,14 +12,13 @@ import {
   SourceComponent,
   DestructiveChangesType,
 } from '@salesforce/source-deploy-retrieve';
-import { SfProject, SfError, Lifecycle } from '@salesforce/core';
+import { SfProject, SfError, Lifecycle, Logger } from '@salesforce/core';
 import equal from 'fast-deep-equal';
-import Debug from 'debug';
 import { getString } from '@salesforce/ts-types';
 import { GitRepo } from '../utils/localGitRepo.js';
 import { VirtualTreeContainerExtra, parseMetadataXml } from './index.js';
 
-const debug = Debug('sf:gitDiff:resolver');
+const logger = Logger.childFromRoot('gitDiff:resolver');
 
 /**
  * Resolver for metadata type and component objects from a git diff result
@@ -62,10 +61,10 @@ export class GitDiffResolver {
       ref2 = r2;
     }
 
-    debug({ ref1, ref2 });
+    logger.debug({ ref1, ref2 });
 
     const fileStatus = await this.getFileStatus(ref1, ref2);
-    debug({ fileStatus });
+    logger.debug({ fileStatus });
 
     const [ref1VirtualTreeContainer, ref2VirtualTreeContainer] = await Promise.all([
       VirtualTreeContainerExtra.fromGitRef(
@@ -172,7 +171,7 @@ export class GitDiffResolver {
                   results.add(nonDeletedComponent);
                 });
             } catch (e) {
-              debug(`unable to find component at ${c.content}.  That's ok if it was supposed to be deleted`);
+              logger.debug(`unable to find component at ${c.content}.  That's ok if it was supposed to be deleted`);
             }
           } else {
             results.add(c, DestructiveChangesType.POST);
