@@ -1,3 +1,12 @@
+## [3.3.2](https://github.com/jayree/sfdx-plugin-manifest/compare/3.3.1...3.3.2) (2024-06-12)
+
+
+### Bug Fixes
+
+* **deps:** bump braces from 3.0.2 to 3.0.3 ([#1335](https://github.com/jayree/sfdx-plugin-manifest/issues/1335)) ([ee27ef7](https://github.com/jayree/sfdx-plugin-manifest/commit/ee27ef7681baac10a6259c2d085dbf8ee1d65370))
+
+
+
 ## [3.3.1](https://github.com/jayree/sfdx-plugin-manifest/compare/3.3.0...3.3.1) (2024-06-12)
 
 
