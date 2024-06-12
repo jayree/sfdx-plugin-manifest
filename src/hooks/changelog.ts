@@ -9,20 +9,20 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Hook } from '@oclif/core';
 import printChangeLog from '@jayree/changelog';
-import Debug from 'debug';
+import { Logger } from '@salesforce/core';
 
 // eslint-disable-next-line no-underscore-dangle
 const __filename = fileURLToPath(import.meta.url);
 // eslint-disable-next-line no-underscore-dangle
 const __dirname = dirname(__filename);
 
+const logger = Logger.childFromRoot('@jayree/sfdx-plugin-manifest:hooks:update');
+
 // eslint-disable-next-line @typescript-eslint/require-await
 export const changelog: Hook<'update'> = async function () {
-  const debug = Debug([this.config.bin, '@jayree/sfdx-plugin-manifest', 'hooks', 'update'].join(':'));
-
   // eslint-disable-next-line @typescript-eslint/no-misused-promises
   process.once('beforeExit', async () => {
-    const changes = await printChangeLog(this.config.cacheDir, join(__dirname, '..', '..'), debug);
+    const changes = await printChangeLog(this.config.cacheDir, join(__dirname, '..', '..'), logger);
     if (changes) this.log(changes);
   });
 };
