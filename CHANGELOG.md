@@ -1,3 +1,12 @@
+## [3.3.1](https://github.com/jayree/sfdx-plugin-manifest/compare/3.3.0...3.3.1) (2024-06-12)
+
+
+### Bug Fixes
+
+* replace debug with logger ([#1334](https://github.com/jayree/sfdx-plugin-manifest/issues/1334)) ([5cad351](https://github.com/jayree/sfdx-plugin-manifest/commit/5cad351730293ac13251e8849f3d8d4b5b437598))
+
+
+
 # [3.3.0](https://github.com/jayree/sfdx-plugin-manifest/compare/3.2.25...3.3.0) (2024-06-09)
 
 
