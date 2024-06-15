@@ -1662,7 +1662,7 @@
     wordwrap "^1.0.0"
     wrap-ansi "^7.0.0"
 
-"@oclif/core@^4", "@oclif/core@^4.0.0-beta.13", "@oclif/core@^4.0.6":
+"@oclif/core@^4", "@oclif/core@^4.0.0-beta.13", "@oclif/core@^4.0.3", "@oclif/core@^4.0.6":
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/@oclif/core/-/core-4.0.6.tgz#05958a928591567b7fe90638e0ee8df9e07eb3ff"
   integrity sha512-z/4YUVQsf2pHsXRze5etbmvAYDhoUhIzpM6oJGEdsdWfvQJ6YQBogH7TdX/ItuGda6+vpfXg/4U1CtPexSF+bA==
@@ -1754,7 +1754,7 @@
     strip-ansi "6.0.1"
     ts-retry-promise "^0.8.1"
 
-"@salesforce/core@^7.3.10", "@salesforce/core@^7.3.12", "@salesforce/core@^7.3.9", "@salesforce/core@^7.4.1":
+"@salesforce/core@^7.3.12", "@salesforce/core@^7.3.9", "@salesforce/core@^7.4.1":
   version "7.4.1"
   resolved "https://registry.yarnpkg.com/@salesforce/core/-/core-7.4.1.tgz#7c37623f6a89c199bf12cd6dc28d89bc950914ef"
   integrity sha512-ccYs7uL4GYjdOcc44trfRnaz69kG0jU0aoT0qjPkIel8oVOyEoXaoDCG0A+2diqmicDp5uWK0pNs+tdWNj2mcQ==
@@ -1815,13 +1815,13 @@
     typescript "^5.4.3"
     wireit "^0.14.4"
 
-"@salesforce/kit@^3.1.1", "@salesforce/kit@^3.1.2":
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/@salesforce/kit/-/kit-3.1.2.tgz#270741c54c70969df19ef17f8979b4ef1fa664b2"
-  integrity sha512-si+ddvZDgx9q5czxAANuK5xhz3pv+KGspQy1wyia/7HDPKadA0QZkLTzUnO1Ju4Mux32CNHEb2y9lw9jj+eVTA==
+"@salesforce/kit@^3.1.1", "@salesforce/kit@^3.1.2", "@salesforce/kit@^3.1.3":
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/@salesforce/kit/-/kit-3.1.4.tgz#e71b986440c1118f7df56ca71e387566dd1acbe0"
+  integrity sha512-R0hiOF3n/byNCTExaZgUAKSHr0JByvdQbB2c9+9stL35xBBlBhCzFO0elXM7q7P4TW73YtURbxaiWN2W8Mjr8g==
   dependencies:
     "@salesforce/ts-types" "^2.0.9"
-    tslib "^2.6.2"
+    tslib "^2.6.3"
 
 "@salesforce/prettier-config@^0.0.3":
   version "0.0.3"
@@ -1833,18 +1833,18 @@
   resolved "https://registry.yarnpkg.com/@salesforce/schemas/-/schemas-1.9.0.tgz#ba477a112653a20b4edcf989c61c57bdff9aa3ca"
   integrity sha512-LiN37zG5ODT6z70sL1fxF7BQwtCX9JOWofSU8iliSNIM+WDEeinnoFtVqPInRSNt8I0RiJxIKCrqstsmQRBNvA==
 
-"@salesforce/sf-plugins-core@^10.0.0":
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/@salesforce/sf-plugins-core/-/sf-plugins-core-10.0.0.tgz#712b38cf101ab95866e757c2738ffc3ddd27ded5"
-  integrity sha512-Y18aDrz376Ekza45nfCjpyiI+np1oY9Cc7DxNAYiP37c0lstTajVsgz6wvDvt6p6QGEX//nnqcz/NaMlry/INw==
+"@salesforce/sf-plugins-core@^11.0.1":
+  version "11.0.1"
+  resolved "https://registry.yarnpkg.com/@salesforce/sf-plugins-core/-/sf-plugins-core-11.0.1.tgz#5dca567e4e18322d6341fa77e58c7debe409a7d2"
+  integrity sha512-A6Dzkl6XNxn6sYoZjhgnjQhwYcGek55VfWj+7zIzSjvP48YGPXy8VRiJEd4asCtYBxHBtVbrzfL23358MZ3h7Q==
   dependencies:
     "@inquirer/confirm" "^3.1.9"
     "@inquirer/password" "^2.1.9"
-    "@oclif/core" "^4"
-    "@salesforce/core" "^7.3.10"
-    "@salesforce/kit" "^3.1.2"
+    "@oclif/core" "^4.0.3"
+    "@salesforce/core" "^7.3.12"
+    "@salesforce/kit" "^3.1.3"
     "@salesforce/ts-types" "^2.0.9"
-    ansis "^3.1.1"
+    ansis "^3.2.0"
     cli-progress "^3.12.0"
     natural-orderby "^3.0.2"
     slice-ansi "^7.1.0"
@@ -8327,6 +8327,11 @@ tslib@^2.0.1, tslib@^2.0.3, tslib@^2.1.0, tslib@^2.3.1, tslib@^2.5.0, tslib@^2.6
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.6.2.tgz#703ac29425e7b37cd6fd456e92404d46d1f3e4ae"
   integrity sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==
+
+tslib@^2.6.3:
+  version "2.6.3"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.6.3.tgz#0438f810ad7a9edcde7a241c3d80db693c8cbfe0"
+  integrity sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==
 
 tunnel-agent@*, tunnel-agent@^0.6.0:
   version "0.6.0"
