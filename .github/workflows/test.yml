@@ -6,10 +6,10 @@ on:
 
 jobs:
   unit-tests:
-    uses: jayree/github-workflows/.github/workflows/unitTest.yml@jayree
+    uses: salesforcecli/github-workflows/.github/workflows/unitTest.yml@main
   nuts:
     needs: unit-tests
-    uses: jayree/github-workflows/.github/workflows/nut.yml@jayree
+    uses: salesforcecli/github-workflows/.github/workflows/nut.yml@main
     secrets: inherit
     strategy:
       matrix:
