@@ -1738,14 +1738,14 @@
   resolved "https://registry.yarnpkg.com/@pkgr/core/-/core-0.1.1.tgz#1ec17e2edbec25c8306d424ecfbf13c7de1aaa31"
   integrity sha512-cq8o4cWH0ibXh9VGi5P20Tu9XF/0fFXl9EUinr9QfTM7a7p0oTA4iJRCQWppXR1Pg8dSM0UCItCkPwsk9qWWYA==
 
-"@salesforce/cli-plugins-testkit@^5.3.9":
-  version "5.3.9"
-  resolved "https://registry.yarnpkg.com/@salesforce/cli-plugins-testkit/-/cli-plugins-testkit-5.3.9.tgz#864cb3e2421c1734c3d4ba838aa7e6447abaf201"
-  integrity sha512-v9WQZCCX1Izs4e/4hMn5nCsPyoE3iUmdpV5/nT9lfjFdtdUlwpfhdwUJqNczEz8g2qkJnebYETrB+KklHAQj2A==
+"@salesforce/cli-plugins-testkit@^5.3.14":
+  version "5.3.14"
+  resolved "https://registry.yarnpkg.com/@salesforce/cli-plugins-testkit/-/cli-plugins-testkit-5.3.14.tgz#4a0f43ca87a346db7efb30d1f7a03696cb5eb19f"
+  integrity sha512-jEQqPNafiFHJXiN+aub0UcuOUoXe46iNK9maCeafaD1A48125+RQuQYDiU4bvakCa322zqlBkW6r40u0+eQ4PA==
   dependencies:
-    "@salesforce/core" "^7.3.9"
-    "@salesforce/kit" "^3.1.2"
-    "@salesforce/ts-types" "^2.0.9"
+    "@salesforce/core" "^7.4.1"
+    "@salesforce/kit" "^3.1.4"
+    "@salesforce/ts-types" "^2.0.10"
     "@types/shelljs" "^0.8.15"
     debug "^4.3.5"
     jszip "^3.10.1"
@@ -1815,12 +1815,12 @@
     typescript "^5.4.3"
     wireit "^0.14.4"
 
-"@salesforce/kit@^3.1.1", "@salesforce/kit@^3.1.2", "@salesforce/kit@^3.1.3":
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/@salesforce/kit/-/kit-3.1.4.tgz#e71b986440c1118f7df56ca71e387566dd1acbe0"
-  integrity sha512-R0hiOF3n/byNCTExaZgUAKSHr0JByvdQbB2c9+9stL35xBBlBhCzFO0elXM7q7P4TW73YtURbxaiWN2W8Mjr8g==
+"@salesforce/kit@^3.1.1", "@salesforce/kit@^3.1.2", "@salesforce/kit@^3.1.3", "@salesforce/kit@^3.1.4":
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/@salesforce/kit/-/kit-3.1.5.tgz#ffddbf81414a4b08be00d724eef1d252ae4ba047"
+  integrity sha512-N7v5r7Q8VfDl6WLzl5aVrrkE7SKgZLgJPTq/65SPaLYG7f1gkUpAJp1CRQd8b/LUQc7f0su2KrCJ3BhRQC7iGA==
   dependencies:
-    "@salesforce/ts-types" "^2.0.9"
+    "@salesforce/ts-types" "^2.0.10"
     tslib "^2.6.3"
 
 "@salesforce/prettier-config@^0.0.3":
