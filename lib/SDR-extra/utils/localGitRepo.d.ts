@@ -1,4 +1,3 @@
-/// <reference types="node" resolution-mode="require"/>
 export type GitRepoOptions = {
     gitDir: string;
     packageDirs?: string[];
