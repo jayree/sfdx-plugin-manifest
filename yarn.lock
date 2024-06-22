@@ -1862,13 +1862,12 @@
     typescript "^5.4.3"
     wireit "^0.14.4"
 
-"@salesforce/kit@^3.1.1", "@salesforce/kit@^3.1.2", "@salesforce/kit@^3.1.3", "@salesforce/kit@^3.1.4":
-  version "3.1.5"
-  resolved "https://registry.yarnpkg.com/@salesforce/kit/-/kit-3.1.5.tgz#ffddbf81414a4b08be00d724eef1d252ae4ba047"
-  integrity sha512-N7v5r7Q8VfDl6WLzl5aVrrkE7SKgZLgJPTq/65SPaLYG7f1gkUpAJp1CRQd8b/LUQc7f0su2KrCJ3BhRQC7iGA==
+"@salesforce/kit@^3.1.1", "@salesforce/kit@^3.1.2", "@salesforce/kit@^3.1.3", "@salesforce/kit@^3.1.4", "@salesforce/kit@^3.1.6":
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/@salesforce/kit/-/kit-3.1.6.tgz#aefb39c0e0f325e11f80551ff92cf6979dd74070"
+  integrity sha512-zAYPmCSAvdonDOnL5AzuVRVv0sRMlQd6gi12HDE1964VqSjt5pzlLU90thh3Qq4A1Wxbdu0FbHYx9BvZ4fWPvQ==
   dependencies:
     "@salesforce/ts-types" "^2.0.10"
-    tslib "^2.6.3"
 
 "@salesforce/prettier-config@^0.0.3":
   version "0.0.3"
