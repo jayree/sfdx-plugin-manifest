@@ -7431,7 +7431,7 @@ shiki@^0.14.7:
     vscode-oniguruma "^1.7.0"
     vscode-textmate "^8.0.0"
 
-shiki@^1.6.5:
+shiki@^1.9.0:
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/shiki/-/shiki-1.9.0.tgz#e4d3a044d9c746aefbea47615e83323fdc3dc361"
   integrity sha512-i6//Lqgn7+7nZA0qVjoYH0085YdNk4MC+tJV4bo+HgjgRMJ0JmkLZzFAuvVioJqLkcGDK5GAMpghZEZkCnwxpQ==
@@ -8162,15 +8162,15 @@ typedoc-plugin-missing-exports@3.0.0:
   resolved "https://registry.yarnpkg.com/typedoc-plugin-missing-exports/-/typedoc-plugin-missing-exports-3.0.0.tgz#47ab7cf9b91967f50550b7f07549ed1b743f3726"
   integrity sha512-R7D8fYrK34mBFZSlF1EqJxfqiUSlQSmyrCiQgTQD52nNm6+kUtqwiaqaNkuJ2rA2wBgWFecUA8JzHT7x2r7ePg==
 
-typedoc@0.26.0:
-  version "0.26.0"
-  resolved "https://registry.yarnpkg.com/typedoc/-/typedoc-0.26.0.tgz#fcfdba7c976aa83c0d19b31ef92adc11a3becd00"
-  integrity sha512-OcYevjHsMN8DfpaL0dSBGAEBhOxuBB5Au8QVs9oz9iB0kRStPZwXLFWqh9gwbMUxNjW3yQuIM5GrVVauMJ2Akw==
+typedoc@0.26.1:
+  version "0.26.1"
+  resolved "https://registry.yarnpkg.com/typedoc/-/typedoc-0.26.1.tgz#fc43108abdea64929a2e636877e250d5dea50957"
+  integrity sha512-APsVXqh93jTlpkLuw6+/IORx7n5LN8hzJV8nvMIrYYaIva0VCq0CoDN7Z3hsRThEYVExI/qoFHnAAxrhG+Wd7Q==
   dependencies:
     lunr "^2.3.9"
     markdown-it "^14.1.0"
     minimatch "^9.0.4"
-    shiki "^1.6.5"
+    shiki "^1.9.0"
     yaml "^2.4.5"
 
 typedoc@^0.25.13:
