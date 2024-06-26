@@ -5,7 +5,7 @@ A Salesforce CLI plugin containing commands for creating manifest files from Sal
 [![sf](https://img.shields.io/badge/cli-sf-brightgreen.svg)](https://developer.salesforce.com/tools/salesforcecli)
 [![NPM](https://img.shields.io/npm/v/@jayree/sfdx-plugin-manifest.svg?label=@jayree/sfdx-plugin-manifest)](https://npmjs.org/package/@jayree/sfdx-plugin-manifest)
 [![Downloads/week](https://img.shields.io/npm/dw/@jayree/sfdx-plugin-manifest.svg)](https://npmjs.org/package/@jayree/sfdx-plugin-manifest)
-[![License](https://img.shields.io/npm/l/@jayree/sfdx-plugin-manifest.svg)](https://github.com/jayree-plugins/sfdx-plugin-manifest/blob/main/package.json)
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-brightgreen.svg)](https://raw.githubusercontent.com/jayree/sfdx-plugin-manifest/main/LICENSE.txt)
 
 ## Install
 
