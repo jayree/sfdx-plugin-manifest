@@ -60,7 +60,7 @@ EXAMPLES
   $ sf jayree manifest cleanup --manifest=package.xml --file=packageignore.xml
 ```
 
-_See code: [src/commands/jayree/manifest/cleanup.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/3.3.8/src/commands/jayree/manifest/cleanup.ts)_
+_See code: [src/commands/jayree/manifest/cleanup.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/3.3.9/src/commands/jayree/manifest/cleanup.ts)_
 
 ### `sf jayree manifest generate`
 
@@ -98,7 +98,7 @@ EXAMPLES
   <Package xmlns='http://soap.sforce.com/2006/04/metadata'>...</Package>
 ```
 
-_See code: [src/commands/jayree/manifest/generate.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/3.3.8/src/commands/jayree/manifest/generate.ts)_
+_See code: [src/commands/jayree/manifest/generate.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/3.3.9/src/commands/jayree/manifest/generate.ts)_
 
 ### `sf jayree manifest git diff REF1 [REF2]`
 
@@ -181,5 +181,5 @@ FLAG DESCRIPTIONS
     The location can be an absolute path or relative to the current working directory.
 ```
 
-_See code: [src/commands/jayree/manifest/git/diff.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/3.3.8/src/commands/jayree/manifest/git/diff.ts)_
+_See code: [src/commands/jayree/manifest/git/diff.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/3.3.9/src/commands/jayree/manifest/git/diff.ts)_
 <!-- commandsstop -->
