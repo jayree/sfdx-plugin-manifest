@@ -12,7 +12,7 @@ import {
   SourceComponent,
   DestructiveChangesType,
 } from '@salesforce/source-deploy-retrieve';
-import { SfProject, SfError, Lifecycle, Logger } from '@salesforce/core';
+import { SfProject, SfError, Lifecycle, Logger, NamedPackageDir } from '@salesforce/core';
 import equal from 'fast-deep-equal';
 import { getString } from '@salesforce/ts-types';
 import { GitRepo } from '../utils/localGitRepo.js';
@@ -29,8 +29,8 @@ export class GitDiffResolver {
   private ref2VirtualTreeContainer!: VirtualTreeContainerExtra;
   private ref1Resolver!: MetadataResolver;
   private ref2Resolver!: MetadataResolver;
-  private gitDir: string;
-  private uniquePackageDirectories: string[];
+  private dir: string;
+  private uniquePackageDirectories: NamedPackageDir[];
   private localRepo: GitRepo;
   private registry: RegistryAccess;
 
@@ -38,12 +38,13 @@ export class GitDiffResolver {
    * @param dir SFDX project directory
    */
   public constructor(project: SfProject, registry?: RegistryAccess) {
-    this.gitDir = project.getPath();
+    this.dir = project.getPath();
     this.registry = registry ?? new RegistryAccess();
-    this.uniquePackageDirectories = project.getUniquePackageDirectories().map((pDir) => pDir.fullPath);
+    this.uniquePackageDirectories = project.getUniquePackageDirectories();
     this.localRepo = GitRepo.getInstance({
-      gitDir: this.gitDir,
+      dir: this.dir,
       packageDirs: this.uniquePackageDirectories,
+      registry: this.registry,
     });
   }
 
@@ -63,19 +64,23 @@ export class GitDiffResolver {
 
     logger.debug({ ref1, ref2 });
 
-    const fileStatus = await this.getFileStatus(ref1, ref2);
+    const fileStatus = await this.localRepo.getStatusText(ref1, ref2);
     logger.debug({ fileStatus });
 
     const [ref1VirtualTreeContainer, ref2VirtualTreeContainer] = await Promise.all([
       VirtualTreeContainerExtra.fromGitRef(
         ref1,
-        this.gitDir,
+        this.dir,
         fileStatus.filter((l) => l.status === 'M').map((l) => l.path),
+        this.uniquePackageDirectories,
+        this.registry,
       ),
       VirtualTreeContainerExtra.fromGitRef(
         ref2,
-        this.gitDir,
+        this.dir,
         fileStatus.filter((l) => l.status === 'M').map((l) => l.path),
+        this.uniquePackageDirectories,
+        this.registry,
       ),
     ]);
 
@@ -93,47 +98,6 @@ export class GitDiffResolver {
     this.ref2Resolver = new MetadataResolver(this.registry, this.ref2VirtualTreeContainer);
 
     return this.getComponentSet(fileStatus);
-  }
-
-  private async getFileStatus(
-    ref1: string,
-    ref2: string,
-  ): Promise<Array<{ path: string; status: string | undefined }>> {
-    let files: Array<{ path: string; status: string | undefined }>;
-
-    if (ref2) {
-      files = (await this.localRepo.getFileState({ ref1, ref2 })).filter((l) =>
-        this.uniquePackageDirectories.some((f) => l.path.startsWith(f)),
-      );
-    } else {
-      files = await this.localRepo.getStatus(ref1);
-    }
-
-    files = files.filter((file) => {
-      if (file.status === 'D') {
-        for (const sourcePath of this.uniquePackageDirectories) {
-          const defaultFolder = path.join(sourcePath, 'main', 'default');
-          const filePath = file.path.replace(file.path.startsWith(defaultFolder) ? defaultFolder : sourcePath, '');
-          const target = files.find((t) => t.path.endsWith(filePath) && t.status === 'A');
-          if (target) {
-            return false;
-          }
-        }
-        const fullName = parseMetadataXml(file.path)?.fullName;
-        if (fullName) {
-          if (
-            files.find(
-              (a) =>
-                a.path === path.join(path.dirname(file.path), fullName, path.basename(file.path)) && a.status === 'A',
-            )
-          ) {
-            return false;
-          }
-        }
-      }
-      return true;
-    });
-    return files;
   }
 
   // eslint-disable-next-line complexity
@@ -215,7 +179,7 @@ export class GitDiffResolver {
 
     const lifecycle = Lifecycle.getInstance();
     for await (const file of forceIgnored) {
-      await lifecycle.emitWarning(`The forceignored file "${file}" was ignored.`);
+      await lifecycle.emitWarning(`The forceignored file ${path.relative(this.dir, file)} was ignored.`);
     }
 
     return results;

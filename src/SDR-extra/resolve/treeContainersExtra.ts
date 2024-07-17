@@ -6,8 +6,9 @@
  */
 import path from 'node:path';
 import fs from 'node:fs/promises';
-import { VirtualTreeContainer, VirtualDirectory } from '@salesforce/source-deploy-retrieve';
+import { VirtualTreeContainer, VirtualDirectory, RegistryAccess } from '@salesforce/source-deploy-retrieve';
 import { parseMetadataXml } from '@salesforce/source-deploy-retrieve/lib/src/utils/index.js';
+import { NamedPackageDir } from '@salesforce/core';
 import { GitRepo } from '../utils/index.js';
 
 export { parseMetadataXml } from '@salesforce/source-deploy-retrieve/lib/src/utils/index.js';
@@ -24,10 +25,12 @@ export class VirtualTreeContainerExtra extends VirtualTreeContainer {
    */
   public static async fromGitRef(
     ref: string,
-    gitDir: string,
+    dir: string,
     includeBufferForFiles: string[],
+    packageDirs: NamedPackageDir[],
+    registry: RegistryAccess,
   ): Promise<VirtualTreeContainer> {
-    const localRepo = GitRepo.getInstance({ gitDir });
+    const localRepo = GitRepo.getInstance({ dir, packageDirs, registry });
 
     const paths = await localRepo.listFullPathFiles(ref);
     const oid = await localRepo.getOid(ref);

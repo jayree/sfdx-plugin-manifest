@@ -47,7 +47,7 @@ describe('failure result testing with EDU-RA-Chatbot #2', () => {
     expect(emitWarningStub.calledOnce).to.be.true;
     expect(
       emitWarningStub.calledWith(
-        `The unstaged file "${join(session.project.dir, 'force-app', 'main', 'default', 'bots', 'Mascot', 'v1.botVersion-meta.xml')}" was processed.`,
+        `The unstaged file ${join('force-app', 'main', 'default', 'bots', 'Mascot', 'v1.botVersion-meta.xml')} was processed.`,
       ),
     ).to.be.true;
     expect(comp.getTypesOfDestructiveChanges()).to.deep.equal([]);
@@ -60,7 +60,7 @@ describe('failure result testing with EDU-RA-Chatbot #2', () => {
     expect(emitWarningStub.calledOnce).to.be.true;
     expect(
       emitWarningStub.calledWith(
-        `The unstaged file "${join(session.project.dir, 'force-app', 'main', 'default', 'bots', 'Mascot', 'v1.botVersion-meta.xml')}" was processed.`,
+        `The unstaged file ${join('force-app', 'main', 'default', 'bots', 'Mascot', 'v1.botVersion-meta.xml')} was processed.`,
       ),
     ).to.be.true;
     expect(comp.getTypesOfDestructiveChanges()).to.deep.equal(['post']);

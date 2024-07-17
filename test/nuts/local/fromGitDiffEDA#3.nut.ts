@@ -46,7 +46,7 @@ describe('failure result testing with EDA #3', () => {
     expect(emitWarningStub.calledOnce).to.be.true;
     expect(
       emitWarningStub.calledWith(
-        `The unstaged file "${join(session.project.dir, 'force-app', 'main', 'default', 'labels', 'CustomLabels.labels-meta.xml')}" was processed.`,
+        `The unstaged file ${join('force-app', 'main', 'default', 'labels', 'CustomLabels.labels-meta.xml')} was processed.`,
       ),
     ).to.be.true;
     expect(comp.getTypesOfDestructiveChanges()).to.deep.equal(['post']);

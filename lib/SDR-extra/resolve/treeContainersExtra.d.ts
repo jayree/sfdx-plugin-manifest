@@ -1,4 +1,5 @@
-import { VirtualTreeContainer } from '@salesforce/source-deploy-retrieve';
+import { VirtualTreeContainer, RegistryAccess } from '@salesforce/source-deploy-retrieve';
+import { NamedPackageDir } from '@salesforce/core';
 export { parseMetadataXml } from '@salesforce/source-deploy-retrieve/lib/src/utils/index.js';
 export declare class VirtualTreeContainerExtra extends VirtualTreeContainer {
     /**
@@ -10,5 +11,5 @@ export declare class VirtualTreeContainerExtra extends VirtualTreeContainer {
      * @param includeBufferForFiles full paths to modified files
      * @returns VirtualTreeContainer
      */
-    static fromGitRef(ref: string, gitDir: string, includeBufferForFiles: string[]): Promise<VirtualTreeContainer>;
+    static fromGitRef(ref: string, dir: string, includeBufferForFiles: string[], packageDirs: NamedPackageDir[], registry: RegistryAccess): Promise<VirtualTreeContainer>;
 }
