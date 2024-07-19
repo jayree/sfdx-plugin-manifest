@@ -64,21 +64,20 @@ export class GitDiffResolver {
 
     logger.debug({ ref1, ref2 });
 
-    const fileStatus = await this.localRepo.getStatusText(ref1, ref2);
-    logger.debug({ fileStatus });
+    await this.localRepo.getStatus(ref1, ref2);
 
     const [ref1VirtualTreeContainer, ref2VirtualTreeContainer] = await Promise.all([
       VirtualTreeContainerExtra.fromGitRef(
         ref1,
         this.dir,
-        fileStatus.filter((l) => l.status === 'M').map((l) => l.path),
+        this.localRepo.getModifyFilenames(),
         this.uniquePackageDirectories,
         this.registry,
       ),
       VirtualTreeContainerExtra.fromGitRef(
         ref2,
         this.dir,
-        fileStatus.filter((l) => l.status === 'M').map((l) => l.path),
+        this.localRepo.getModifyFilenames(),
         this.uniquePackageDirectories,
         this.registry,
       ),
@@ -97,11 +96,11 @@ export class GitDiffResolver {
     this.ref1Resolver = new MetadataResolver(this.registry, ref1VirtualTreeContainer);
     this.ref2Resolver = new MetadataResolver(this.registry, this.ref2VirtualTreeContainer);
 
-    return this.getComponentSet(fileStatus);
+    return this.getComponentSet();
   }
 
   // eslint-disable-next-line complexity
-  private async getComponentSet(gitLines: Array<{ path: string; status: string | undefined }>): Promise<ComponentSet> {
+  private async getComponentSet(): Promise<ComponentSet> {
     const results = new ComponentSet(undefined, this.registry);
 
     const childComponentPromises: Array<
@@ -113,42 +112,44 @@ export class GitDiffResolver {
       }>
     > = [];
 
-    for (const [, { status, path: fpath }] of gitLines.entries()) {
-      if (status === 'D') {
-        for (const c of this.ref1Resolver.getComponentsFromPath(fpath)) {
-          // if the component supports partial delete AND there are files that are not deleted,
-          // set the component for deploy, not for delete.
-          // https://github.com/forcedotcom/source-tracking/blob/5cb32bef2e5860c0f8fc2afa3ea65432fe511a99/src/shared/localComponentSetArray.ts#L81
-          if (
-            (!!c.type.supportsPartialDelete || c.type.name === 'CustomObjectTranslation') &&
-            c.content &&
-            this.ref2VirtualTreeContainer.exists(c.content)
-          ) {
-            // all bundle types have a directory name
-            try {
-              this.ref2Resolver
-                .getComponentsFromPath(path.resolve(c.content))
-                .filter(
-                  (input: SourceComponent | undefined): input is SourceComponent => input instanceof SourceComponent,
-                )
-                .map((nonDeletedComponent) => {
-                  results.add(nonDeletedComponent);
-                });
-            } catch (e) {
-              logger.debug(`unable to find component at ${c.content}.  That's ok if it was supposed to be deleted`);
-            }
-          } else {
-            results.add(c, DestructiveChangesType.POST);
+    this.localRepo.getDeleteFilenames().forEach((fpath) => {
+      for (const c of this.ref1Resolver.getComponentsFromPath(fpath)) {
+        // if the component supports partial delete AND there are files that are not deleted,
+        // set the component for deploy, not for delete.
+        // https://github.com/forcedotcom/source-tracking/blob/5cb32bef2e5860c0f8fc2afa3ea65432fe511a99/src/shared/localComponentSetArray.ts#L81
+        if (
+          (!!c.type.supportsPartialDelete || c.type.name === 'CustomObjectTranslation') &&
+          c.content &&
+          this.ref2VirtualTreeContainer.exists(c.content)
+        ) {
+          // all bundle types have a directory name
+          try {
+            this.ref2Resolver
+              .getComponentsFromPath(path.resolve(c.content))
+              .filter(
+                (input: SourceComponent | undefined): input is SourceComponent => input instanceof SourceComponent,
+              )
+              .map((nonDeletedComponent) => {
+                results.add(nonDeletedComponent);
+              });
+          } catch (e) {
+            logger.debug(`unable to find component at ${c.content}.  That's ok if it was supposed to be deleted`);
           }
+        } else {
+          results.add(c, DestructiveChangesType.POST);
         }
-      } else if (status === 'A') {
-        for (const c of this.ref2Resolver.getComponentsFromPath(fpath)) {
-          results.add(c);
-        }
-      } else {
-        childComponentPromises.push(this.getChildComponentStatus(fpath));
       }
-    }
+    });
+
+    this.localRepo.getAddFilenames().forEach((fpath) => {
+      for (const c of this.ref2Resolver.getComponentsFromPath(fpath)) {
+        results.add(c);
+      }
+    });
+
+    this.localRepo.getModifyFilenames().forEach((fpath) => {
+      childComponentPromises.push(this.getChildComponentStatus(fpath));
+    });
 
     for await (const check of childComponentPromises) {
       if (check.status === 0) {

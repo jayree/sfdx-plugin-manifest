@@ -4,6 +4,7 @@
  * Licensed under the BSD 3-Clause license.
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
+// https://github.com/forcedotcom/source-tracking/blob/main/src/shared/local/moveDetection.ts
 import path from 'node:path';
 import { isUtf8 } from 'node:buffer';
 import { Lifecycle } from '@salesforce/core';
@@ -15,8 +16,8 @@ import {
 } from '@salesforce/source-deploy-retrieve';
 import git from 'isomorphic-git';
 import fs from 'graceful-fs';
-import { ensureWindows } from '@salesforce/source-tracking/lib/shared/local/functions.js';
 import { isDefined } from '@salesforce/source-tracking/lib/shared/guards.js';
+import { ensureWindows } from '@salesforce/source-tracking/lib/shared/local/functions.js';
 import {
   AddAndDeleteMaps,
   FilenameBasenameHash,
@@ -53,14 +54,27 @@ export const filenameMatchesToMap =
       ),
     );
 
+export const getLogMessage = (matches: StringMapsForMatches): string[] => [
+  ...[...matches.fullMatches.entries()].map(([add, del]) => `The file ${del} moved to ${add} was ignored`),
+  ...[...matches.deleteOnly.entries()].map(
+    ([add, del]) => `The file ${del} moved to ${add} and modified was processed`,
+  ),
+];
+
 /** build maps of the add/deletes with filenames, returning the matches  Logs if we can't make a match because buildMap puts them in the ignored bucket */
 const buildMaps = async ({ addedInfo, deletedInfo }: AddAndDeleteFileInfos): Promise<AddAndDeleteMaps> => {
   const [addedMap, addedIgnoredMap] = buildMap(addedInfo);
   const [deletedMap, deletedIgnoredMap] = buildMap(deletedInfo);
+
+  // If we detected any files that have the same basename and hash, emit a warning and send telemetry
+  // These files will still show up as expected in the `sf project deploy preview` output
+  // We could add more logic to determine and display filepaths that we ignored...
+  // but this is likely rare enough to not warrant the added complexity
+  // Telemetry will help us determine how often this occurs
   if (addedIgnoredMap.size || deletedIgnoredMap.size) {
     const message = 'Files were found that have the same basename and hash.';
     const lifecycle = Lifecycle.getInstance();
-    await lifecycle.emitWarning(message);
+    await Promise.all([lifecycle.emitWarning(message)]);
   }
   return { addedMap, deletedMap };
 };

@@ -12,4 +12,5 @@ type StringMapsForMatches = {
 };
 /** composed functions to simplified use by the shadowRepo class */
 export declare const filenameMatchesToMap: (isWindows: boolean) => (registry: RegistryAccess) => (projectPath: string) => (gitDir: string) => ({ added, deleted }: AddedAndDeletedFilenames) => Promise<StringMapsForMatches>;
+export declare const getLogMessage: (matches: StringMapsForMatches) => string[];
 export {};

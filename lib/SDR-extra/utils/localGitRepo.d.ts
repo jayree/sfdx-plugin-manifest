@@ -1,6 +1,10 @@
 import { StatusRow } from 'isomorphic-git';
 import { NamedPackageDir } from '@salesforce/core';
 import { RegistryAccess } from '@salesforce/source-deploy-retrieve';
+export declare const FILE = 0;
+export declare const HEAD = 1;
+export declare const WORKDIR = 2;
+export declare const STAGE = 3;
 export type GitRepoOptions = {
     dir: string;
     packageDirs: NamedPackageDir[];
@@ -20,11 +24,14 @@ export declare class GitRepo {
         ref2: string;
     }>;
     resolveSingleRefString(ref: string | undefined): Promise<string>;
+    getAdds(): StatusRow[];
+    getAddFilenames(): string[];
+    getModifies(): StatusRow[];
+    getModifyFilenames(): string[];
+    getDeletes(): StatusRow[];
+    getDeleteFilenames(): string[];
     getStatus(ref1: string, ref2?: string): Promise<StatusRow[]>;
-    getStatusText(ref1: string, ref2?: string): Promise<Array<{
-        path: string;
-        status: string | undefined;
-    }>>;
+    emitStatusWarnings(): Promise<void>;
     statusMatrix(options: {
         ref1: string;
         ref2?: string;
@@ -36,10 +43,9 @@ export declare class GitRepo {
     getOid(ref: string): Promise<string>;
     readBlobAsBuffer(options: {
         oid: string;
-        filename: string;
+        filepath: string;
     }): Promise<Buffer>;
     private detectMovedFiles;
     private getCommitLog;
-    private ensureGitRelPath;
     private checkLocalGitAutocrlfConfig;
 }
