@@ -20,7 +20,7 @@
     "isomorphic-git": "1.27.1"
   },
   "devDependencies": {
-    "@oclif/plugin-command-snapshot": "^5.2.7",
+    "@oclif/plugin-command-snapshot": "^5.2.10",
     "@oclif/plugin-help": "^6.2.7",
     "@salesforce/cli-plugins-testkit": "^5.3.20",
     "@salesforce/dev-scripts": "^10.2.2",
