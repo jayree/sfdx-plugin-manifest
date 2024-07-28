@@ -6,20 +6,25 @@
  */
 import util from 'node:util';
 import path from 'node:path';
-import * as os from 'node:os';
+import os from 'node:os';
 import fs from 'node:fs/promises';
 import { execSync } from 'node:child_process';
 import git, { StatusRow } from 'isomorphic-git';
 import { Lifecycle, NamedPackageDir, SfError } from '@salesforce/core';
 import { RegistryAccess } from '@salesforce/source-deploy-retrieve';
 import { excludeLwcLocalOnlyTest, folderContainsPath } from '@salesforce/source-tracking/lib/shared/functions.js';
+import {
+  FILE,
+  HEAD,
+  WORKDIR,
+  IS_WINDOWS,
+  ensurePosix,
+  ensureWindows,
+} from '@salesforce/source-tracking/lib/shared/local/functions.js';
 import { getMatches } from '@salesforce/source-tracking/lib/shared/local/moveDetection.js';
 import { parseMetadataXml } from '../index.js';
 import { filenameMatchesToMap, getLogMessage } from './moveDetection.js';
 
-export const FILE = 0;
-export const HEAD = 1;
-export const WORKDIR = 2;
 export const STAGE = 3;
 
 export type GitRepoOptions = {
@@ -29,8 +34,6 @@ export type GitRepoOptions = {
 };
 
 type Warning = { filter: Array<Array<0 | 1 | 2 | 3>>; message: string };
-
-const IS_WINDOWS = os.type() === 'Windows_NT';
 
 const redirectToCliRepoError = (e: unknown): never => {
   if (e instanceof git.Errors.InternalError) {
@@ -169,7 +172,6 @@ export class GitRepo {
     await this.checkLocalGitAutocrlfConfig();
 
     try {
-      // status hasn't been initialized yet
       this.status = await this.statusMatrix({
         ref1,
         ref2,
@@ -178,14 +180,15 @@ export class GitRepo {
         filter: fileFilter(this.packageDirs),
       });
 
+      // isomorphic-git stores things in unix-style tree.  Convert to windows-style if necessary
+      if (IS_WINDOWS) {
+        this.status = this.status.map((row) => [path.normalize(row[0]), row[HEAD], row[WORKDIR], row[STAGE]]);
+      }
+
       await this.detectMovedFiles();
       await this.emitStatusWarnings();
     } catch (e) {
       redirectToCliRepoError(e);
-    }
-    // isomorphic-git stores things in unix-style tree.  Convert to windows-style if necessary
-    if (IS_WINDOWS) {
-      this.status = this.status.map((row) => [path.normalize(row[0]), row[HEAD], row[WORKDIR], row[STAGE]]);
     }
     return this.status;
   }
@@ -223,7 +226,7 @@ export class GitRepo {
       warnings.flatMap((warning) => {
         const filesToWarn = filteredRows
           .filter((row) => matchesPattern(row, warning.filter))
-          .map((row) => ensureOSPath(row[0]));
+          .map((row) => (IS_WINDOWS ? ensureWindows(row[0]) : row[0]));
 
         return filesToWarn.map((file) => this.lifecycle.emitWarning(util.format(warning.message, file)));
       });
@@ -231,6 +234,7 @@ export class GitRepo {
     await Promise.all(getWarningPromises(warningMessages));
   }
 
+  // based on https://github.com/isomorphic-git/isomorphic-git/blob/main/src/api/statusMatrix.js
   public async statusMatrix(options: {
     ref1: string;
     ref2?: string;
@@ -308,8 +312,12 @@ export class GitRepo {
 
   public async listFullPathFiles(ref: string): Promise<string[]> {
     return ref
-      ? (await git.listFiles({ fs, dir: this.dir, ref })).map((p) => path.join(this.dir, ensureOSPath(p)))
-      : (await fs.readdir(this.dir, { recursive: true })).map((p) => path.join(this.dir, ensureOSPath(p)));
+      ? (await git.listFiles({ fs, dir: this.dir, ref })).map((p) =>
+          path.join(this.dir, IS_WINDOWS ? ensureWindows(p) : p),
+        )
+      : (await fs.readdir(this.dir, { recursive: true })).map((p) =>
+          path.join(this.dir, IS_WINDOWS ? ensureWindows(p) : p),
+        );
   }
 
   public async getOid(ref: string): Promise<string> {
@@ -337,7 +345,7 @@ export class GitRepo {
     for (const deletedFilePath of matchingFiles.deleted) {
       const fullName = parseMetadataXml(deletedFilePath)?.fullName;
       if (fullName) {
-        const addedFilePath = path.posix.join(path.dirname(deletedFilePath), fullName, path.basename(deletedFilePath));
+        const addedFilePath = path.join(path.dirname(deletedFilePath), fullName, path.basename(deletedFilePath));
         if (matchingFiles.added.has(addedFilePath)) {
           matchingFiles.deleted.delete(deletedFilePath);
           matchingFiles.added.delete(addedFilePath);
@@ -346,9 +354,7 @@ export class GitRepo {
       }
     }
 
-    const matches = await filenameMatchesToMap(IS_WINDOWS)(this.registry)(this.dir)(path.join(this.dir, '.git'))(
-      matchingFiles,
-    );
+    const matches = await filenameMatchesToMap(this.registry)(this.dir)(path.join(this.dir, '.git'))(matchingFiles);
 
     tmpMatches.forEach((key: string, value: string) => {
       matches.fullMatches.set(key, value);
@@ -404,14 +410,11 @@ export class GitRepo {
   }
 }
 
-const ensureOSPath = (filepath: string): string => filepath.split(path.posix.sep).join(path.sep);
-const ensurePosixPath = (filepath: string): string => filepath.split(path.sep).join(path.posix.sep);
-
 const toFilenames = (dir: string, rows: StatusRow[]): string[] =>
-  rows.map((row) => path.join(dir, ensureOSPath(row[FILE])));
+  rows.map((row) => path.join(dir, IS_WINDOWS ? ensureWindows(row[FILE]) : row[FILE]));
 
 const dirToRelativePosixPath = (projectPath: string, fullPath: string): string =>
-  IS_WINDOWS ? ensurePosixPath(path.relative(projectPath, fullPath)) : path.relative(projectPath, fullPath);
+  IS_WINDOWS ? ensurePosix(path.relative(projectPath, fullPath)) : path.relative(projectPath, fullPath);
 
 const fileFilter =
   (packageDirs: string[]) =>

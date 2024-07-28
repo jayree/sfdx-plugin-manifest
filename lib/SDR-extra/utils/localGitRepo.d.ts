@@ -1,9 +1,6 @@
 import { StatusRow } from 'isomorphic-git';
 import { NamedPackageDir } from '@salesforce/core';
 import { RegistryAccess } from '@salesforce/source-deploy-retrieve';
-export declare const FILE = 0;
-export declare const HEAD = 1;
-export declare const WORKDIR = 2;
 export declare const STAGE = 3;
 export type GitRepoOptions = {
     dir: string;
