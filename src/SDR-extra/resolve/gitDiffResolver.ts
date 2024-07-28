@@ -247,7 +247,7 @@ export class GitDiffResolver {
     }
 
     const getUniqueIdentifier = (component: SourceComponent): string =>
-      `${component.type.name}#${getString(component, component.type.uniqueIdElement as string)}`;
+      `${component.type.name}#${getString(component, component.type.uniqueIdElement as string) as string}`;
 
     const ref2ChildUniqueIdArray = ref2Component
       .getChildren()
