@@ -14,11 +14,11 @@ import { DestructiveChangesType } from '@salesforce/source-deploy-retrieve';
 import { ComponentSetExtra } from '../../../src/SDR-extra/index.js';
 import { setAutocrlfOnWin32 } from '../../helper/git.js';
 
-describe('failure result testing with EDA #3', () => {
+describe('result testing with EDA #3', () => {
   let session: TestSession;
   let emitWarningStub: sinon.SinonStub;
 
-  beforeEach(async () => {
+  before(async () => {
     session = await TestSession.create({
       project: {
         gitClone: 'https://github.com/SalesforceFoundation/EDA',
@@ -29,7 +29,7 @@ describe('failure result testing with EDA #3', () => {
     await setAutocrlfOnWin32(session.project.dir);
   });
 
-  afterEach(async () => {
+  after(async () => {
     await session?.clean();
     emitWarningStub.restore();
   });

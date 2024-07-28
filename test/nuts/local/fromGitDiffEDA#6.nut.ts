@@ -13,7 +13,7 @@ import sinon from 'sinon';
 import { ComponentSetExtra } from '../../../src/SDR-extra/index.js';
 import { setAutocrlfOnWin32 } from '../../helper/git.js';
 
-describe('result testing with EDA #5', () => {
+describe('result testing with EDA #6', () => {
   let session: TestSession;
   let emitWarningStub: sinon.SinonStub;
 
@@ -33,25 +33,28 @@ describe('result testing with EDA #5', () => {
     emitWarningStub.restore();
   });
 
-  it('should return with warnings if included in forceignore', async () => {
-    await fs.appendFile(
-      join(session.project.dir, 'force-app/main/default/classes/AccountAutoDeletionSettingsVMapper.cls'),
-      '\n',
+  it('should return with warnings if included in forceignored child', async () => {
+    const data = await fs.readFile(
+      join(session.project.dir, 'force-app/main/default/objects/Account/fields/Billing_County__c.field-meta.xml'),
+    );
+    await fs.writeFile(
+      join(session.project.dir, 'force-app/main/default/objects/Account/fields/Billing_County__c.field-meta.xml'),
+      data.toString().replace('false', 'true'),
     );
     await fs.appendFile(
       join(session.project.dir, '.forceignore'),
-      '\nforce-app/main/default/classes/AccountAutoDeletionSettingsVMapper.*\n',
+      '\nforce-app/main/default/objects/Account/fields/Billing_County__c.field-meta.xml\n',
     );
     const comp = await ComponentSetExtra.fromGitDiff(['HEAD']);
     expect(emitWarningStub.calledTwice).to.be.true;
     expect(
       emitWarningStub.calledWith(
-        `The unstaged file ${join('force-app', 'main', 'default', 'classes', 'AccountAutoDeletionSettingsVMapper.cls')} was processed.`,
+        `The unstaged file ${join('force-app', 'main', 'default', 'objects', 'Account', 'fields', 'Billing_County__c.field-meta.xml')} was processed.`,
       ),
     ).to.be.true;
     expect(
       emitWarningStub.calledWith(
-        `The forceignored file ${join('force-app', 'main', 'default', 'classes', 'AccountAutoDeletionSettingsVMapper.cls')} was ignored.`,
+        `The forceignored file ${join('force-app', 'main', 'default', 'objects', 'Account', 'fields', 'Billing_County__c.field-meta.xml')} was ignored.`,
       ),
     ).to.be.true;
     expect(comp.getTypesOfDestructiveChanges()).to.deep.equal([]);
