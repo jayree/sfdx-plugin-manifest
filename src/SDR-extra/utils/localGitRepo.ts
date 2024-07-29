@@ -18,12 +18,13 @@ import {
   HEAD,
   WORKDIR,
   IS_WINDOWS,
-  ensurePosix,
   ensureWindows,
 } from '@salesforce/source-tracking/lib/shared/local/functions.js';
 import { getMatches } from '@salesforce/source-tracking/lib/shared/local/moveDetection.js';
 import { parseMetadataXml } from '../index.js';
 import { filenameMatchesToMap, getLogMessage } from './moveDetection.js';
+import { statusMatrix } from './statusMatrix.js';
+import { dirToRelativePosixPath } from './functions.js';
 
 export const STAGE = 3;
 
@@ -172,11 +173,12 @@ export class GitRepo {
     await this.checkLocalGitAutocrlfConfig();
 
     try {
-      this.status = await this.statusMatrix({
+      this.status = await statusMatrix({
+        dir: this.dir,
         ref1,
         ref2,
         filepaths: this.packageDirs,
-        ignore: true,
+        ignored: true,
         filter: fileFilter(this.packageDirs),
       });
 
@@ -232,109 +234,6 @@ export class GitRepo {
       });
 
     await Promise.all(getWarningPromises(warningMessages));
-  }
-
-  // based on https://github.com/isomorphic-git/isomorphic-git/blob/main/src/api/statusMatrix.js
-  public async statusMatrix(options: {
-    ref1: string;
-    ref2?: string;
-    filepaths?: string[];
-    filter?: ((arg0: string) => boolean) | undefined;
-    ignore?: boolean;
-  }): Promise<StatusRow[]> {
-    const filepaths = options.filepaths ?? ['.'];
-    const filter = options.filter;
-    const dir = this.dir;
-    const shouldIgnore = options.ignore ?? false;
-    return git.walk({
-      fs,
-      dir,
-      trees: [
-        git.TREE({ ref: options.ref1 }),
-        options.ref2 ? git.TREE({ ref: options.ref2 }) : git.WORKDIR(),
-        options.ref2 ? git.TREE({ ref: options.ref2 }) : git.STAGE(),
-      ],
-      // eslint-disable-next-line complexity
-      async map(filepath, [head, workdir, stage]) {
-        // Ignore ignored files, but only if they are not already tracked.
-        if (!head && !stage && workdir) {
-          if (!shouldIgnore) {
-            const isIgnored = await git.isIgnored({
-              fs,
-              dir,
-              filepath,
-            });
-            if (isIgnored) {
-              return null;
-            }
-          }
-        }
-        // match against base paths
-        if (!filepaths.some((base) => worthWalking(filepath, base))) {
-          return null;
-        }
-        // Late filter against file names
-        if (filter) {
-          if (!filter(filepath)) return;
-        }
-
-        const [headType, workdirType, stageType] = await Promise.all([head?.type(), workdir?.type(), stage?.type()]);
-
-        const isBlob = [headType, workdirType, stageType].includes('blob');
-
-        // For now, bail on directories unless the file is also a blob in another tree
-        if ((headType === 'tree' || headType === 'special') && !isBlob) return;
-        if (headType === 'commit') return null;
-
-        if ((workdirType === 'tree' || workdirType === 'special') && !isBlob) return;
-
-        if (stageType === 'commit') return null;
-        if ((stageType === 'tree' || stageType === 'special') && !isBlob) return;
-
-        // Figure out the oids for files, using the staged oid for the working dir oid if the stats match.
-        const headOid = headType === 'blob' ? await head?.oid() : undefined;
-        const stageOid = stageType === 'blob' ? await stage?.oid() : undefined;
-        let workdirOid;
-        if (headType !== 'blob' && workdirType === 'blob' && stageType !== 'blob') {
-          // We don't actually NEED the sha. Any sha will do
-          // TODO: update this logic to handle N trees instead of just 3.
-          workdirOid = '42';
-        } else if (workdirType === 'blob') {
-          workdirOid = await workdir?.oid();
-        }
-        const entry = [undefined, headOid, workdirOid, stageOid];
-        const result = entry.map((value) => entry.indexOf(value));
-        result.shift(); // remove leading undefined entry
-        return [filepath, ...result];
-      },
-    }) as Promise<StatusRow[]>;
-  }
-
-  public async listFullPathFiles(ref: string): Promise<string[]> {
-    return ref
-      ? (await git.listFiles({ fs, dir: this.dir, ref })).map((p) =>
-          path.join(this.dir, IS_WINDOWS ? ensureWindows(p) : p),
-        )
-      : (await fs.readdir(this.dir, { recursive: true })).map((p) =>
-          path.join(this.dir, IS_WINDOWS ? ensureWindows(p) : p),
-        );
-  }
-
-  public async getOid(ref: string): Promise<string> {
-    return ref ? git.resolveRef({ fs, dir: this.dir, ref }) : '';
-  }
-
-  public async readBlobAsBuffer(options: { oid: string; filepath: string }): Promise<Buffer> {
-    return Buffer.from(
-      (
-        await git.readBlob({
-          fs,
-          dir: this.dir,
-          oid: options.oid,
-          filepath: dirToRelativePosixPath(this.dir, options.filepath),
-        })
-      ).blob,
-    );
   }
 
   private async detectMovedFiles(): Promise<void> {
@@ -413,9 +312,6 @@ export class GitRepo {
 const toFilenames = (dir: string, rows: StatusRow[]): string[] =>
   rows.map((row) => path.join(dir, IS_WINDOWS ? ensureWindows(row[FILE]) : row[FILE]));
 
-const dirToRelativePosixPath = (projectPath: string, fullPath: string): string =>
-  IS_WINDOWS ? ensurePosix(path.relative(projectPath, fullPath)) : path.relative(projectPath, fullPath);
-
 const fileFilter =
   (packageDirs: string[]) =>
   (f: string): boolean =>
@@ -427,14 +323,3 @@ const fileFilter =
     !f.endsWith('.gitignore') &&
     // isogit uses `startsWith` for filepaths so it's possible to get a false positive
     packageDirs.some(folderContainsPath(f));
-
-const worthWalking = (filepath: string, root: string): boolean => {
-  if (filepath === '.' || root == null || root.length === 0 || root === '.') {
-    return true;
-  }
-  if (root.length >= filepath.length) {
-    return root.startsWith(filepath);
-  } else {
-    return filepath.startsWith(root);
-  }
-};

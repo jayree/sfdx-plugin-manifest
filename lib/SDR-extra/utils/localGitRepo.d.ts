@@ -29,19 +29,6 @@ export declare class GitRepo {
     getDeleteFilenames(): string[];
     getStatus(ref1: string, ref2?: string): Promise<StatusRow[]>;
     emitStatusWarnings(): Promise<void>;
-    statusMatrix(options: {
-        ref1: string;
-        ref2?: string;
-        filepaths?: string[];
-        filter?: ((arg0: string) => boolean) | undefined;
-        ignore?: boolean;
-    }): Promise<StatusRow[]>;
-    listFullPathFiles(ref: string): Promise<string[]>;
-    getOid(ref: string): Promise<string>;
-    readBlobAsBuffer(options: {
-        oid: string;
-        filepath: string;
-    }): Promise<Buffer>;
     private detectMovedFiles;
     private getCommitLog;
     private checkLocalGitAutocrlfConfig;

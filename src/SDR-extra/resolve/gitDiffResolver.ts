@@ -67,20 +67,8 @@ export class GitDiffResolver {
     await this.localRepo.getStatus(ref1, ref2);
 
     const [ref1VirtualTreeContainer, ref2VirtualTreeContainer] = await Promise.all([
-      VirtualTreeContainerExtra.fromGitRef(
-        ref1,
-        this.dir,
-        this.localRepo.getModifyFilenames(),
-        this.uniquePackageDirectories,
-        this.registry,
-      ),
-      VirtualTreeContainerExtra.fromGitRef(
-        ref2,
-        this.dir,
-        this.localRepo.getModifyFilenames(),
-        this.uniquePackageDirectories,
-        this.registry,
-      ),
+      VirtualTreeContainerExtra.fromGitRef(ref1, this.dir, this.localRepo.getModifyFilenames()),
+      VirtualTreeContainerExtra.fromGitRef(ref2, this.dir, this.localRepo.getModifyFilenames()),
     ]);
 
     if (fsPaths) {
@@ -116,7 +104,7 @@ export class GitDiffResolver {
       for (const c of this.ref1Resolver.getComponentsFromPath(fpath)) {
         // if the component supports partial delete AND there are files that are not deleted,
         // set the component for deploy, not for delete.
-        // https://github.com/forcedotcom/source-tracking/blob/5cb32bef2e5860c0f8fc2afa3ea65432fe511a99/src/shared/localComponentSetArray.ts#L81
+        // https://github.com/forcedotcom/source-tracking/blob/main/src/shared/localComponentSetArray.ts#L90
         if (
           (!!c.type.supportsPartialDelete || c.type.name === 'CustomObjectTranslation') &&
           c.content &&
