@@ -1,5 +1,4 @@
 import { VirtualTreeContainer } from '@salesforce/source-deploy-retrieve';
-export { parseMetadataXml } from '@salesforce/source-deploy-retrieve/lib/src/utils/index.js';
 export declare class VirtualTreeContainerExtra extends VirtualTreeContainer {
     /**
      * Designed for recreating virtual files from a git ref

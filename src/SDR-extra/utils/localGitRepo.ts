@@ -4,6 +4,7 @@
  * Licensed under the BSD 3-Clause license.
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
+// https://github.com/forcedotcom/source-tracking/blob/main/src/shared/local/localShadowRepo.ts
 import util from 'node:util';
 import path from 'node:path';
 import os from 'node:os';
@@ -14,17 +15,17 @@ import { Lifecycle, NamedPackageDir, SfError } from '@salesforce/core';
 import { RegistryAccess } from '@salesforce/source-deploy-retrieve';
 import { excludeLwcLocalOnlyTest, folderContainsPath } from '@salesforce/source-tracking/lib/shared/functions.js';
 import {
-  FILE,
   HEAD,
   WORKDIR,
   IS_WINDOWS,
   ensureWindows,
+  ensurePosix,
+  toFilenames,
 } from '@salesforce/source-tracking/lib/shared/local/functions.js';
 import { getMatches } from '@salesforce/source-tracking/lib/shared/local/moveDetection.js';
-import { parseMetadataXml } from '../index.js';
+import { parseMetadataXml } from '@salesforce/source-deploy-retrieve/lib/src/utils/index.js';
 import { filenameMatchesToMap, getLogMessage } from './moveDetection.js';
 import { statusMatrix } from './statusMatrix.js';
-import { dirToRelativePosixPath } from './functions.js';
 
 export const STAGE = 3;
 
@@ -60,7 +61,7 @@ export class GitRepo {
 
   private constructor(options: GitRepoOptions) {
     this.dir = options.dir;
-    this.packageDirs = options.packageDirs.map((dir) => dirToRelativePosixPath(options.dir, dir.fullPath));
+    this.packageDirs = options.packageDirs.map(packageDirToRelativePosixPath(options.dir));
     this.registry = options.registry;
   }
 
@@ -150,7 +151,7 @@ export class GitRepo {
   }
 
   public getAddFilenames(): string[] {
-    return toFilenames(this.dir, this.getAdds());
+    return toFilenames(this.getAdds());
   }
 
   public getModifies(): StatusRow[] {
@@ -158,7 +159,7 @@ export class GitRepo {
   }
 
   public getModifyFilenames(): string[] {
-    return toFilenames(this.dir, this.getModifies());
+    return toFilenames(this.getModifies());
   }
 
   public getDeletes(): StatusRow[] {
@@ -166,7 +167,7 @@ export class GitRepo {
   }
 
   public getDeleteFilenames(): string[] {
-    return toFilenames(this.dir, this.getDeletes());
+    return toFilenames(this.getDeletes());
   }
 
   public async getStatus(ref1: string, ref2?: string): Promise<StatusRow[]> {
@@ -309,8 +310,12 @@ export class GitRepo {
   }
 }
 
-const toFilenames = (dir: string, rows: StatusRow[]): string[] =>
-  rows.map((row) => path.join(dir, IS_WINDOWS ? ensureWindows(row[FILE]) : row[FILE]));
+const packageDirToRelativePosixPath =
+  (projectPath: string) =>
+  (packageDir: NamedPackageDir): string =>
+    IS_WINDOWS
+      ? ensurePosix(path.relative(projectPath, packageDir.fullPath))
+      : path.relative(projectPath, packageDir.fullPath);
 
 const fileFilter =
   (packageDirs: string[]) =>
