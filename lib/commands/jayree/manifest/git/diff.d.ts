@@ -23,7 +23,7 @@ export default class GitDiffCommand extends SfCommand<GitDiffCommandResult> {
     static readonly aliases: string[];
     static readonly flags: {
         'api-version': import("@oclif/core/interfaces").OptionFlag<string | undefined, import("@oclif/core/interfaces").CustomOptions>;
-        'source-dir': import("@oclif/core/interfaces").OptionFlag<string[], import("@oclif/core/interfaces").CustomOptions>;
+        'source-dir': import("@oclif/core/interfaces").OptionFlag<string[] | undefined, import("@oclif/core/interfaces").CustomOptions>;
         'output-dir': import("@oclif/core/interfaces").OptionFlag<string, import("@oclif/core/interfaces").CustomOptions>;
         'destructive-changes-only': import("@oclif/core/interfaces").BooleanFlag<boolean>;
     };
