@@ -32,7 +32,7 @@ export default class GeneratePackageXML extends SfCommand<PackageManifestObject>
     static readonly flags: {
         'target-org': import("@oclif/core/interfaces").OptionFlag<import("@salesforce/core").Org, import("@oclif/core/interfaces").CustomOptions>;
         'api-version': import("@oclif/core/interfaces").OptionFlag<string | undefined, import("@oclif/core/interfaces").CustomOptions>;
-        'quick-filter': import("@oclif/core/interfaces").OptionFlag<string[], import("@oclif/core/interfaces").CustomOptions>;
+        'quick-filter': import("@oclif/core/interfaces").OptionFlag<string[] | undefined, import("@oclif/core/interfaces").CustomOptions>;
         'match-case': import("@oclif/core/interfaces").BooleanFlag<boolean>;
         'match-whole-word': import("@oclif/core/interfaces").BooleanFlag<boolean>;
         'include-flow-versions': import("@oclif/core/interfaces").BooleanFlag<boolean>;
