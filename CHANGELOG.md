@@ -1,3 +1,12 @@
+## [3.3.26](https://github.com/jayree/sfdx-plugin-manifest/compare/3.3.25...3.3.26) (2024-08-03)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/kit from 3.1.6 to 3.2.0 ([#1419](https://github.com/jayree/sfdx-plugin-manifest/issues/1419)) ([7c320c5](https://github.com/jayree/sfdx-plugin-manifest/commit/7c320c56f690b99000f2771e753710a9c299a395))
+
+
+
 ## [3.3.25](https://github.com/jayree/sfdx-plugin-manifest/compare/3.3.24...3.3.25) (2024-08-03)
 
 
