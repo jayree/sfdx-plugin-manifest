@@ -1,3 +1,12 @@
+## [3.3.24](https://github.com/jayree/sfdx-plugin-manifest/compare/3.3.23...3.3.24) (2024-08-03)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/ts-types from 2.0.10 to 2.0.12 ([#1415](https://github.com/jayree/sfdx-plugin-manifest/issues/1415)) ([d19a5cd](https://github.com/jayree/sfdx-plugin-manifest/commit/d19a5cd7748d421bdcb30181cff8c81446e4003c))
+
+
+
 ## [3.3.23](https://github.com/jayree/sfdx-plugin-manifest/compare/3.3.22...3.3.23) (2024-07-27)
 
 
