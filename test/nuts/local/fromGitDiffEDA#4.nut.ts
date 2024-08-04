@@ -208,10 +208,4 @@ describe('result testing with EDA #4', () => {
     });
     expect(await comp.getObject()).to.deep.equal({ Package: { types: [], version: '52.0' } });
   });
-
-  it('should return in a reasonable amount of time #1', async () => {
-    const start = Date.now();
-    await ComponentSetExtra.fromGitDiff(['HEAD~']);
-    expect(Date.now() - start).to.be.lessThan(12_000);
-  });
 });

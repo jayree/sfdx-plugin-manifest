@@ -1,0 +1,26 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/forcedotcom/source-deploy-retrieve/main/src/resolve/treeContainers.ts",
+    "hash": "f6051ebf4aca47d852cb2b780edae061e09b5e470a3bd6c8f3ace35497165c9c"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/forcedotcom/source-tracking/main/src/shared/localComponentSetArray.ts",
+    "hash": "7900b6beee22faa1af1e3937daa0a936f0ad7d4ce875601f9eff4292794f729f"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/forcedotcom/source-tracking/main/src/shared/local/localShadowRepo.ts",
+    "hash": "0f8c8190ac378b21b77480cbd5607913dbfac2ba6cfe36d2a31fcf920451086a"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/forcedotcom/source-tracking/main/src/shared/local/moveDetection.ts",
+    "hash": "3cf075bb2659d5cacd072b13a714e48f1d45718de6506552ca29f663c32238bd"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/isomorphic-git/isomorphic-git/main/src/api/statusMatrix.js",
+    "hash": "fc1462cf2c41f14bc863c14965d91d011ceccf364fe54a9406d32df4e008d63f"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/isomorphic-git/isomorphic-git/main/src/utils/worthWalking.js",
+    "hash": "8a299e3ef1d382d894dd741a3ffe3d3d93b819c7acb275821f4da67717791661"
+  }
+]

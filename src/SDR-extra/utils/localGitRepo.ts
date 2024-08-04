@@ -4,38 +4,73 @@
  * Licensed under the BSD 3-Clause license.
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
+// https://github.com/forcedotcom/source-tracking/blob/main/src/shared/local/localShadowRepo.ts
 import util from 'node:util';
 import path from 'node:path';
+import os from 'node:os';
 import fs from 'node:fs/promises';
 import { execSync } from 'node:child_process';
-import git from 'isomorphic-git';
-import { Lifecycle } from '@salesforce/core';
+import git, { StatusRow } from 'isomorphic-git';
+import { Lifecycle, NamedPackageDir, SfError } from '@salesforce/core';
+import { RegistryAccess } from '@salesforce/source-deploy-retrieve';
+import { excludeLwcLocalOnlyTest, folderContainsPath } from '@salesforce/source-tracking/lib/shared/functions.js';
+import {
+  HEAD,
+  WORKDIR,
+  IS_WINDOWS,
+  ensureWindows,
+  ensurePosix,
+  toFilenames,
+} from '@salesforce/source-tracking/lib/shared/local/functions.js';
+import { getMatches } from '@salesforce/source-tracking/lib/shared/local/moveDetection.js';
+import { parseMetadataXml } from '@salesforce/source-deploy-retrieve/lib/src/utils/index.js';
+import { filenameMatchesToMap, getLogMessage } from './moveDetection.js';
+import { statusMatrix } from './statusMatrix.js';
+
+export const STAGE = 3;
 
 export type GitRepoOptions = {
-  gitDir: string;
-  packageDirs?: string[];
+  dir: string;
+  packageDirs: NamedPackageDir[];
+  registry: RegistryAccess;
 };
 
+type Warning = { filter: Array<Array<0 | 1 | 2 | 3>>; message: string };
+
+const redirectToCliRepoError = (e: unknown): never => {
+  if (e instanceof git.Errors.InternalError) {
+    const error = new SfError(
+      `An internal error caused this command to fail. isomorphic-git error:${os.EOL}${e.data.message}`,
+      e.name,
+    );
+    throw error;
+  }
+  throw e;
+};
 export class GitRepo {
   private static instanceMap = new Map<string, GitRepo>();
 
-  public gitDir: string;
+  public dir: string;
 
-  private packageDirs: string[] | undefined;
+  private packageDirs: string[];
+  private status!: StatusRow[];
 
   private lifecycle = Lifecycle.getInstance();
 
+  private readonly registry: RegistryAccess;
+
   private constructor(options: GitRepoOptions) {
-    this.gitDir = options.gitDir;
-    this.packageDirs = options.packageDirs;
+    this.dir = options.dir;
+    this.packageDirs = options.packageDirs.map(packageDirToRelativePosixPath(options.dir));
+    this.registry = options.registry;
   }
 
   public static getInstance(options: GitRepoOptions): GitRepo {
-    if (!GitRepo.instanceMap.has(options.gitDir)) {
+    if (!GitRepo.instanceMap.has(options.dir)) {
       const newInstance = new GitRepo(options);
-      GitRepo.instanceMap.set(options.gitDir, newInstance);
+      GitRepo.instanceMap.set(options.dir, newInstance);
     }
-    return GitRepo.instanceMap.get(options.gitDir) as GitRepo;
+    return GitRepo.instanceMap.get(options.dir) as GitRepo;
   }
 
   public async resolveMultiRefString(ref: string): Promise<{
@@ -60,7 +95,7 @@ export class GitRepo {
       ref1 = (
         await git.findMergeBase({
           fs,
-          dir: this.gitDir,
+          dir: this.dir,
           oids: [ref2, ref1],
         })
       )[0] as string;
@@ -111,177 +146,138 @@ export class GitRepo {
     return resolvedRef;
   }
 
-  public async getStatus(ref: string): Promise<Array<{ path: string; status: string | undefined }>> {
-    const getStatusText = (row: number[]): 'A' | 'D' | 'M' | undefined => {
-      if (
-        [
-          [0, 2, 2], // added, staged
-          [0, 2, 3], // added, staged, with unstaged changes
-        ].some((a) => a.every((val, index) => val === row[index]))
-      ) {
-        return 'A';
-      }
-      if (
-        [
-          [1, 0, 0], // deleted, staged
-          [1, 0, 1], // deleted, unstaged
-          [1, 1, 0], // deleted, staged, with unstaged original file
-          [1, 2, 0], // deleted, staged, with unstaged changes
-          [1, 0, 3], // modified, staged, with unstaged deletion
-        ].some((a) => a.every((val, index) => val === row[index]))
-      ) {
-        return 'D';
-      }
-      if (
-        [
-          [1, 2, 1], // modified, unstaged
-          [1, 2, 2], // modified, staged
-          [1, 2, 3], // modified, staged, with unstaged changes
-        ].some((a) => a.every((val, index) => val === row[index]))
-      ) {
-        return 'M';
-      }
-      return undefined;
-    };
+  public getAdds(): StatusRow[] {
+    return this.status.filter((file) => file[HEAD] === 0 && file[WORKDIR] === 2);
+  }
 
+  public getAddFilenames(): string[] {
+    return toFilenames(this.getAdds());
+  }
+
+  public getModifies(): StatusRow[] {
+    return this.status.filter((file) => file[HEAD] === 1 && file[WORKDIR] === 2);
+  }
+
+  public getModifyFilenames(): string[] {
+    return toFilenames(this.getModifies());
+  }
+
+  public getDeletes(): StatusRow[] {
+    return this.status.filter((file) => file[HEAD] === 1 && file[WORKDIR] === 0);
+  }
+
+  public getDeleteFilenames(): string[] {
+    return toFilenames(this.getDeletes());
+  }
+
+  public async getStatus(ref1: string, ref2?: string): Promise<StatusRow[]> {
     await this.checkLocalGitAutocrlfConfig();
 
-    const statusMatrix = await git.statusMatrix({
-      fs,
-      dir: this.gitDir,
-      ref,
-      filter: (f) =>
-        this.packageDirs ? this.packageDirs.some((fDir) => f.startsWith(this.ensureGitRelPath(fDir))) : true,
-    });
+    try {
+      this.status = await statusMatrix({
+        dir: this.dir,
+        ref1,
+        ref2,
+        filepaths: this.packageDirs,
+        ignored: true,
+        filter: fileFilter(this.packageDirs),
+      });
 
-    const warningMatrix = statusMatrix.filter((row) =>
-      [
-        [0, 2, 3], // added, staged, with unstaged changes
-        [1, 0, 3], // modified, staged, with unstaged deletion
-        [1, 2, 3], // modified, staged, with unstaged changes
-        [1, 1, 0], // deleted, staged, with unstaged original file
-        [1, 2, 0], // deleted, staged, with unstaged changes
-        [0, 0, 3], // added, staged, with unstaged deletion
-        [1, 1, 3], // modified, staged, with unstaged original file
-        [1, 2, 1], // modified, unstaged
-        [1, 0, 1], // deleted, unstaged
-        [0, 2, 0], // new, untracked
-      ].some((a) => a.every((val, index) => val === row.slice(1)[index])),
-    );
+      // isomorphic-git stores things in unix-style tree.  Convert to windows-style if necessary
+      if (IS_WINDOWS) {
+        this.status = this.status.map((row) => [path.normalize(row[0]), row[HEAD], row[WORKDIR], row[STAGE]]);
+      }
 
-    if (warningMatrix.length) {
-      const buildWarningArray = (warnings: Array<{ filter: number[][]; message: string }>): Array<Promise<void>> => {
-        const emitWarningArray: Array<Promise<void>> = [];
-        warnings.forEach((warning) => {
-          const filteredChanges = warningMatrix
-            .filter((row) => warning.filter.some((a) => a.every((val, index) => val === row.slice(1)[index])))
-            .map((row) => path.join(this.gitDir, ensureOSPath(row[0])));
+      await this.detectMovedFiles();
+      await this.emitStatusWarnings();
+    } catch (e) {
+      redirectToCliRepoError(e);
+    }
+    return this.status;
+  }
 
-          for (const file of filteredChanges) {
-            emitWarningArray.push(this.lifecycle.emitWarning(util.format(warning.message, file)));
-          }
-        });
-        return emitWarningArray;
-      };
-      // prettier-ignore
-      await Promise.all(buildWarningArray([
-        { filter: [[0, 2, 3], [1, 0, 3], [1, 2, 3], [1, 1, 0], [1, 2, 0]], message: 'The staged file with unstaged changes "%s" was processed.', },
-        { filter: [[0, 0, 3], [1, 1, 3]], message: 'The staged file with unstaged changes "%s" was ignored.', },
-        { filter: [[1, 2, 1], [1, 0, 1]], message: 'The unstaged file "%s" was processed.', },
-        { filter: [[0, 2, 0]], message: 'The untracked file "%s" was ignored.', },
-      ]));
+  public async emitStatusWarnings(): Promise<void> {
+    const warningPatterns: Array<Array<0 | 1 | 2 | 3>> = [
+      [0, 2, 3], // added, staged, with unstaged changes
+      [1, 0, 3], // modified, staged, with unstaged deletion
+      [1, 2, 3], // modified, staged, with unstaged changes
+      [1, 1, 0], // deleted, staged, with unstaged original file
+      [1, 2, 0], // deleted, staged, with unstaged changes
+      [0, 0, 3], // added, staged, with unstaged deletion
+      [1, 1, 3], // modified, staged, with unstaged original file
+      [1, 2, 1], // modified, unstaged
+      [1, 0, 1], // deleted, unstaged
+      [0, 2, 0], // new, untracked
+    ];
+
+    // prettier-ignore
+    const warningMessages: Warning[] = [
+      { filter: [[0, 2, 3], [1, 0, 3], [1, 2, 3], [1, 2, 0], [0, 0, 3]], message: 'The staged file with unstaged changes %s was processed.' },
+      { filter: [[1, 1, 3], [1, 1, 0]], message: 'The staged file with unstaged changes %s was ignored.' },
+      { filter: [[1, 2, 1], [1, 0, 1]], message: 'The unstaged file %s was processed.' },
+      { filter: [[0, 2, 0]], message: 'The untracked file %s was processed.' },
+    ];
+
+    const matchesPattern = (row: StatusRow, patterns: Array<Array<0 | 1 | 2 | 3>>): boolean =>
+      patterns.some((pattern) => pattern.every((val, i) => val === row[i + 1]));
+
+    const filteredRows = this.status.filter((row) => matchesPattern(row, warningPatterns));
+
+    if (filteredRows.length === 0) return;
+
+    const getWarningPromises = (warnings: Warning[]): Array<Promise<void>> =>
+      warnings.flatMap((warning) => {
+        const filesToWarn = filteredRows
+          .filter((row) => matchesPattern(row, warning.filter))
+          .map((row) => (IS_WINDOWS ? ensureWindows(row[0]) : row[0]));
+
+        return filesToWarn.map((file) => this.lifecycle.emitWarning(util.format(warning.message, file)));
+      });
+
+    await Promise.all(getWarningPromises(warningMessages));
+  }
+
+  private async detectMovedFiles(): Promise<void> {
+    const matchingFiles = getMatches(this.status);
+    if (!matchingFiles.added.size || !matchingFiles.deleted.size) return;
+
+    const tmpMatches = new Map();
+    for (const deletedFilePath of matchingFiles.deleted) {
+      const fullName = parseMetadataXml(deletedFilePath)?.fullName;
+      if (fullName) {
+        const addedFilePath = path.join(path.dirname(deletedFilePath), fullName, path.basename(deletedFilePath));
+        if (matchingFiles.added.has(addedFilePath)) {
+          matchingFiles.deleted.delete(deletedFilePath);
+          matchingFiles.added.delete(addedFilePath);
+          tmpMatches.set(deletedFilePath, addedFilePath);
+        }
+      }
     }
 
-    const gitlines = statusMatrix
-      .filter(
-        (row) =>
-          ![
-            [0, 0, 0], // undefined
-            [1, 1, 1], // unmodified
-            [0, 0, 3], // added, staged, with unstaged deletion
-            [0, 2, 0], // new, untracked
-            [1, 1, 3], // modified, staged, with unstaged original file
-          ].some((a) => a.every((val, index) => val === row.slice(1)[index])),
-      )
-      .map((row) => ({
-        path: path.join(this.gitDir, ensureOSPath(row[0])),
-        status: getStatusText(row.slice(1) as number[]),
-      }));
+    const matches = await filenameMatchesToMap(this.registry)(this.dir)(path.join(this.dir, '.git'))(matchingFiles);
 
-    return gitlines;
-  }
-
-  public async getFileState(options: { ref1: string; ref2: string }): Promise<
-    [
-      {
-        path: string;
-        status: string;
-      },
-    ]
-  > {
-    const gitDir = this.gitDir;
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return git.walk({
-      fs,
-      dir: this.gitDir,
-      trees: [git.TREE({ ref: options.ref1 }), git.TREE({ ref: options.ref2 })],
-      async map(filepath, [A, B]) {
-        if (filepath === '.' || (await A?.type()) === 'tree' || (await B?.type()) === 'tree') {
-          return;
-        }
-
-        const Aoid = await A?.oid();
-        const Boid = await B?.oid();
-
-        let type = 'EQ';
-        if (Aoid !== Boid) {
-          type = 'M';
-        }
-        if (Aoid === undefined) {
-          type = 'A';
-        }
-        if (Boid === undefined) {
-          type = 'D';
-        }
-
-        if (type !== 'EQ') {
-          return {
-            path: path.join(gitDir, ensureOSPath(filepath)),
-            status: type,
-          };
-        }
-      },
+    tmpMatches.forEach((key: string, value: string) => {
+      matches.fullMatches.set(key, value);
     });
-  }
 
-  public async listFullPathFiles(ref: string): Promise<string[]> {
-    return ref
-      ? (await git.listFiles({ fs, dir: this.gitDir, ref })).map((p) => path.join(this.gitDir, ensureOSPath(p)))
-      : (await fs.readdir(this.gitDir, { recursive: true })).map((p) => path.join(this.gitDir, ensureOSPath(p)));
-  }
+    if (matches.deleteOnly.size === 0 && matches.fullMatches.size === 0) return;
 
-  public async getOid(ref: string): Promise<string> {
-    return ref ? git.resolveRef({ fs, dir: this.gitDir, ref }) : '';
-  }
+    await Promise.all(getLogMessage(matches).map((message) => this.lifecycle.emitWarning(message)));
 
-  public async readBlobAsBuffer(options: { oid: string; filename: string }): Promise<Buffer> {
-    return Buffer.from(
-      (
-        await git.readBlob({
-          fs,
-          dir: this.gitDir,
-          oid: options.oid,
-          filepath: this.ensureGitRelPath(options.filename),
-        })
-      ).blob,
-    );
+    const removeFiles = [
+      ...matches.fullMatches.values(),
+      ...matches.fullMatches.keys(),
+      ...matches.deleteOnly.values(),
+    ];
+
+    this.status = this.status.filter((file) => (removeFiles.includes(file[0]) ? false : true));
   }
 
   private async getCommitLog(ref: string): Promise<{ oid: string; parents: string[] }> {
     try {
       const [log] = await git.log({
         fs,
-        dir: this.gitDir,
+        dir: this.dir,
         ref,
         depth: 1,
       });
@@ -294,13 +290,9 @@ export class GitRepo {
     }
   }
 
-  private ensureGitRelPath(fpath: string): string {
-    return path.relative(this.gitDir, fpath).split(path.sep).join(path.posix.sep);
-  }
-
   private async checkLocalGitAutocrlfConfig(): Promise<void> {
     try {
-      const stdout = execSync('git config --show-origin core.autocrlf', { cwd: this.gitDir }).toString().trim();
+      const stdout = execSync('git config --show-origin core.autocrlf', { cwd: this.dir }).toString().trim();
 
       if (stdout) {
         const [origin, value] = stdout.split('\t');
@@ -318,6 +310,21 @@ export class GitRepo {
   }
 }
 
-function ensureOSPath(fpath: string): string {
-  return fpath.split(path.posix.sep).join(path.sep);
-}
+const packageDirToRelativePosixPath =
+  (projectPath: string) =>
+  (packageDir: NamedPackageDir): string =>
+    IS_WINDOWS
+      ? ensurePosix(path.relative(projectPath, packageDir.fullPath))
+      : path.relative(projectPath, packageDir.fullPath);
+
+const fileFilter =
+  (packageDirs: string[]) =>
+  (f: string): boolean =>
+    // no hidden files
+    !f.includes(`${path.sep}.`) &&
+    // no lwc tests
+    excludeLwcLocalOnlyTest(f) &&
+    // no gitignore files
+    !f.endsWith('.gitignore') &&
+    // isogit uses `startsWith` for filepaths so it's possible to get a false positive
+    packageDirs.some(folderContainsPath(f));

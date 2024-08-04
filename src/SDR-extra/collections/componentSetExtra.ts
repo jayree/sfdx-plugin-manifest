@@ -14,7 +14,7 @@ import {
 } from '@salesforce/source-deploy-retrieve';
 import { SfProject, Lifecycle, Logger } from '@salesforce/core';
 import fs from 'graceful-fs';
-import { GitDiffResolver } from '../resolve/index.js';
+import { GitDiffResolver } from '../resolve/gitDiffResolver.js';
 
 const logger = Logger.childFromRoot('gitDiff:ComponentSetExtra');
 

@@ -94,7 +94,11 @@ export default class GitDiffCommand extends SfCommand<GitDiffCommandResult> {
       ref: [args.ref1, args.ref2 as string],
       fsPaths: flags['source-dir'],
     });
-    this.componentSet.sourceApiVersion = flags['api-version'] ?? ((await this.getSourceApiVersion()) as string);
+
+    if (flags['api-version']) {
+      this.componentSet.apiVersion = flags['api-version'];
+      this.componentSet.sourceApiVersion = flags['api-version'];
+    }
 
     if (this.outputDir) {
       await fs.ensureDir(this.outputDir);
