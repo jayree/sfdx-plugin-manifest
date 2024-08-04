@@ -1,3 +1,12 @@
+# [3.4.0](https://github.com/jayree/sfdx-plugin-manifest/compare/3.3.28...3.4.0) (2024-08-04)
+
+
+### Features
+
+* **manifest:git:diff:** new moved files detection ([#1392](https://github.com/jayree/sfdx-plugin-manifest/issues/1392)) ([3ca21a7](https://github.com/jayree/sfdx-plugin-manifest/commit/3ca21a7bcae522953098c4839a1f096e2f8b834e))
+
+
+
 ## [3.3.28](https://github.com/jayree/sfdx-plugin-manifest/compare/3.3.27...3.3.28) (2024-08-03)
 
 
