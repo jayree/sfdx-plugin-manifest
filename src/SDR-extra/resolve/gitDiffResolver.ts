@@ -91,7 +91,6 @@ export class GitDiffResolver {
     return cs;
   }
 
-  // eslint-disable-next-line complexity
   private async gitChangesAsComponentSet(byPackageDir?: boolean): Promise<ComponentSet[]> {
     const [projectConfig] = await Promise.all([
       this.project.resolveProjectConfig() as {
