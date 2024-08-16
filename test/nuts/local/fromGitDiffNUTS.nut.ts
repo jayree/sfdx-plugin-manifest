@@ -33,12 +33,27 @@ describe('result testing with NUTS', () => {
 
   it('should return registryPresets decomposed metadata w/o deletions', async () => {
     const comp = await ComponentSetExtra.fromGitDiff({
-      ref: ['b7e7ab98db9d54c2c3c5224e7de6d972f166dba7', '896a6c08146bbe963ef8aebec031175a8ddf1c6f'],
+      ref: ['df2762153bd163b2fd05bca96cbf17c8bbbaeb4e', '294e2cc483ae84cade37e2bb359a86a867fc9309'],
     });
     expect(comp.getTypesOfDestructiveChanges()).to.deep.equal([]);
     expect(
       emitWarningStub.calledWith(
         `The file ${join('force-app', 'main', 'default', 'permissionsets', 'Experience_Profile_Manager.permissionset-meta.xml')} moved to ${join('force-app', 'main', 'default', 'permissionsets', 'Experience_Profile_Manager', 'Experience_Profile_Manager.permissionset-meta.xml')} was ignored.`,
+      ),
+    ).to.be.true;
+    expect(
+      emitWarningStub.calledWith(
+        `The file ${join('force-app', 'main', 'default', 'labels', 'CustomLabels.labels-meta.xml')} moved to ${join('force-app', 'main', 'default', 'labels', 'CustomLabels', 'CustomLabels.labels-meta.xml')} was ignored.`,
+      ),
+    ).to.be.true;
+    expect(
+      emitWarningStub.calledWith(
+        `The file ${join('force-app', 'main', 'default', 'sharingRules', 'Account.sharingRules-meta.xml')} moved to ${join('force-app', 'main', 'default', 'sharingRules', 'Account', 'Account.sharingRules-meta.xml')} was ignored.`,
+      ),
+    ).to.be.true;
+    expect(
+      emitWarningStub.calledWith(
+        `The file ${join('force-app', 'main', 'default', 'workflows', 'Case.workflow-meta.xml')} moved to ${join('force-app', 'main', 'default', 'workflows', 'Case', 'Case.workflow-meta.xml')} was ignored.`,
       ),
     ).to.be.true;
     expect(await comp.getObject()).to.deep.equal({
@@ -49,8 +64,12 @@ describe('result testing with NUTS', () => {
             name: 'CustomLabels',
           },
           {
-            members: ['Experience_Profile_Manager', 'sfdcInternalInt__sfdc_scrt2'],
+            members: ['Experience_Profile_Manager'],
             name: 'PermissionSet',
+          },
+          {
+            members: ['Account'],
+            name: 'SharingRules',
           },
           {
             members: ['Case'],
