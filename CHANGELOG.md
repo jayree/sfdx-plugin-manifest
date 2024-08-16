@@ -1,3 +1,12 @@
+## [3.4.6](https://github.com/jayree/sfdx-plugin-manifest/compare/3.4.5...3.4.6) (2024-08-16)
+
+
+### Bug Fixes
+
+* new sdr-extra exports ([9ee6e28](https://github.com/jayree/sfdx-plugin-manifest/commit/9ee6e280e2ee3afbd6b5e32b790eb1d79c7a6dd3))
+
+
+
 ## [3.4.5](https://github.com/jayree/sfdx-plugin-manifest/compare/3.4.4...3.4.5) (2024-08-10)
 
 
