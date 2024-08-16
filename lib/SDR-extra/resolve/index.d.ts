@@ -1,2 +1,2 @@
-export * from './gitDiffResolver.js';
-export * from './treeContainersExtra.js';
+export { GitDiffResolver } from './gitDiffResolver.js';
+export { VirtualTreeContainerExtra } from './treeContainersExtra.js';

@@ -5,29 +5,13 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 import path from 'node:path';
-import {
-  ComponentSet,
-  OptionalTreeRegistryOptions,
-  TreeContainer,
-  RegistryAccess,
-  SourceComponent,
-} from '@salesforce/source-deploy-retrieve';
+import { ComponentSet, TreeContainer, RegistryAccess, SourceComponent } from '@salesforce/source-deploy-retrieve';
 import { SfProject, Lifecycle, Logger } from '@salesforce/core';
 import fs from 'graceful-fs';
 import { GitDiffResolver } from '../resolve/gitDiffResolver.js';
+import { FromGitDiffOptions } from './types.js';
 
 const logger = Logger.childFromRoot('gitDiff:ComponentSetExtra');
-
-export type FromGitDiffOptions = {
-  /**
-   * Git ref to resolve components against
-   */
-  ref: string | string[];
-  /**
-   * File paths or directory paths to resolve components against
-   */
-  fsPaths?: string[];
-} & OptionalTreeRegistryOptions;
 
 export class ComponentSetExtra extends ComponentSet {
   /**

@@ -12,7 +12,7 @@ import { TREE } from 'isomorphic-git';
 import { WORKDIR } from 'isomorphic-git';
 import { walk as _walk } from 'isomorphic-git';
 import { isIgnored as _isIgnored, StatusRow } from 'isomorphic-git';
-import { worthWalking } from './worthWalking.js';
+import { worthWalking } from '../utils/worthWalking.js';
 
 export async function statusMatrix({
   dir,

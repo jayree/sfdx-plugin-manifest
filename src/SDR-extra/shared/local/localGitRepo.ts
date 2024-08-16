@@ -24,8 +24,8 @@ import {
 } from '@salesforce/source-tracking/lib/shared/local/functions.js';
 import { getMatches } from '@salesforce/source-tracking/lib/shared/local/moveDetection.js';
 import { parseMetadataXml } from '@salesforce/source-deploy-retrieve/lib/src/utils/index.js';
+import { statusMatrix } from '../../api/statusMatrix.js';
 import { filenameMatchesToMap, getLogMessage } from './moveDetection.js';
-import { statusMatrix } from './statusMatrix.js';
 
 export const STAGE = 3;
 

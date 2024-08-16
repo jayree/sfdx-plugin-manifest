@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/SDR-extra/resolve/index.ts"],"names":[],"mappings":"AAAA;;;;;GAKG;AACH,cAAc,sBAAsB,CAAC;AACrC,cAAc,0BAA0B,CAAC"}
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/SDR-extra/resolve/index.ts"],"names":[],"mappings":"AAAA;;;;;GAKG;AACH,OAAO,EAAE,eAAe,EAAE,MAAM,sBAAsB,CAAC;AACvD,OAAO,EAAE,yBAAyB,EAAE,MAAM,0BAA0B,CAAC"}

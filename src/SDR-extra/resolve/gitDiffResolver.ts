@@ -7,8 +7,8 @@
 import path from 'node:path';
 import { ComponentSet, RegistryAccess, MetadataResolver } from '@salesforce/source-deploy-retrieve';
 import { SfProject, SfError, Lifecycle, Logger, NamedPackageDir } from '@salesforce/core';
-import { GitRepo } from '../utils/localGitRepo.js';
-import { getComponentSets, getGroupedFiles } from '../utils/gitComponentSetArray.js';
+import { GitRepo } from '../shared/local/localGitRepo.js';
+import { getComponentSets, getGroupedFiles } from '../shared/gitComponentSetArray.js';
 import { VirtualTreeContainerExtra } from '../resolve/treeContainersExtra.js';
 
 const logger = Logger.childFromRoot('gitDiff:resolver');
