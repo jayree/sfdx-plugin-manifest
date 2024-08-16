@@ -1,3 +1,12 @@
+## [3.4.7](https://github.com/jayree/sfdx-plugin-manifest/compare/3.4.6...3.4.7) (2024-08-16)
+
+
+### Bug Fixes
+
+* **deps:** bump @jayree/changelog from 1.2.1 to 1.2.2 ([#1441](https://github.com/jayree/sfdx-plugin-manifest/issues/1441)) ([572ccfe](https://github.com/jayree/sfdx-plugin-manifest/commit/572ccfe3ffb879eade1e0a49dd7bc995ce09dfcf))
+
+
+
 ## [3.4.6](https://github.com/jayree/sfdx-plugin-manifest/compare/3.4.5...3.4.6) (2024-08-16)
 
 
