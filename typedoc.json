@@ -2,6 +2,8 @@
   "theme": "default",
   "excludePrivate": true,
   "excludeProtected": true,
-  "entryPoints": ["src"],
-  "entryPointStrategy": "expand"
+  "entryPoints": ["src/SDR-extra/"],
+  "entryPointStrategy": "expand",
+  "name": "SDR-extra",
+  "readme": "src/SDR-extra/README.md"
 }
