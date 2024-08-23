@@ -1,3 +1,12 @@
+## [3.4.13](https://github.com/jayree/sfdx-plugin-manifest/compare/3.4.12...3.4.13) (2024-08-23)
+
+
+### Bug Fixes
+
+* **deps:** bump micromatch from 4.0.5 to 4.0.8 ([#1452](https://github.com/jayree/sfdx-plugin-manifest/issues/1452)) ([c8bb76d](https://github.com/jayree/sfdx-plugin-manifest/commit/c8bb76dbaa3659dd91c1d93a6a82b04f644d75a6))
+
+
+
 ## [3.4.12](https://github.com/jayree/sfdx-plugin-manifest/compare/3.4.11...3.4.12) (2024-08-23)
 
 
