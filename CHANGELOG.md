@@ -1,3 +1,12 @@
+# [3.5.0](https://github.com/jayree/sfdx-plugin-manifest/compare/3.4.15...3.5.0) (2024-08-28)
+
+
+### Features
+
+* support decomposeCustomLabelsBeta2 ([#1457](https://github.com/jayree/sfdx-plugin-manifest/issues/1457)) ([a40b089](https://github.com/jayree/sfdx-plugin-manifest/commit/a40b08920d53fc4e3e2e59997e3532a58f04b586))
+
+
+
 ## [3.4.15](https://github.com/jayree/sfdx-plugin-manifest/compare/3.4.14...3.4.15) (2024-08-24)
 
 
