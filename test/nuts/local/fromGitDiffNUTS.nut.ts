@@ -31,19 +31,14 @@ describe('result testing with NUTS', () => {
     emitWarningStub.restore();
   });
 
-  it('should return registryPresets decomposed metadata w/o deletions', async () => {
+  it('should return sourceBehaviorOptions decomposed metadata w/o deletions', async () => {
     const comp = await ComponentSetExtra.fromGitDiff({
-      ref: ['df2762153bd163b2fd05bca96cbf17c8bbbaeb4e', '294e2cc483ae84cade37e2bb359a86a867fc9309'],
+      ref: ['df2762153bd163b2fd05bca96cbf17c8bbbaeb4e'],
     });
     expect(comp.getTypesOfDestructiveChanges()).to.deep.equal([]);
     expect(
       emitWarningStub.calledWith(
         `The file ${join('force-app', 'main', 'default', 'permissionsets', 'Experience_Profile_Manager.permissionset-meta.xml')} moved to ${join('force-app', 'main', 'default', 'permissionsets', 'Experience_Profile_Manager', 'Experience_Profile_Manager.permissionset-meta.xml')} was ignored.`,
-      ),
-    ).to.be.true;
-    expect(
-      emitWarningStub.calledWith(
-        `The file ${join('force-app', 'main', 'default', 'labels', 'CustomLabels.labels-meta.xml')} moved to ${join('force-app', 'main', 'default', 'labels', 'CustomLabels', 'CustomLabels.labels-meta.xml')} was ignored.`,
       ),
     ).to.be.true;
     expect(
@@ -60,8 +55,8 @@ describe('result testing with NUTS', () => {
       Package: {
         types: [
           {
-            members: ['CustomLabels'],
-            name: 'CustomLabels',
+            members: ['x1', 'x2'],
+            name: 'CustomLabel',
           },
           {
             members: ['Experience_Profile_Manager'],
