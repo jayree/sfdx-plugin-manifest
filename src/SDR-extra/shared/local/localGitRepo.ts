@@ -241,7 +241,7 @@ export class GitRepo {
     const matchingFiles = getMatches(this.status);
     if (!matchingFiles.added.size || !matchingFiles.deleted.size) return;
 
-    const tmpMatches = new Map();
+    const sourceBehaviorOptionsBetaMatches = new Map();
     for (const deletedFilePath of matchingFiles.deleted) {
       const fullName = parseMetadataXml(deletedFilePath)?.fullName;
       if (fullName) {
@@ -249,14 +249,14 @@ export class GitRepo {
         if (matchingFiles.added.has(addedFilePath)) {
           matchingFiles.deleted.delete(deletedFilePath);
           matchingFiles.added.delete(addedFilePath);
-          tmpMatches.set(deletedFilePath, addedFilePath);
+          sourceBehaviorOptionsBetaMatches.set(deletedFilePath, addedFilePath);
         }
       }
     }
 
     const matches = await filenameMatchesToMap(this.registry)(this.dir)(path.join(this.dir, '.git'))(matchingFiles);
 
-    tmpMatches.forEach((key: string, value: string) => {
+    sourceBehaviorOptionsBetaMatches.forEach((key: string, value: string) => {
       matches.fullMatches.set(key, value);
     });
 

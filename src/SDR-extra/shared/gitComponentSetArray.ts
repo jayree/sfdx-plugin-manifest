@@ -83,9 +83,19 @@ export const getComponentSets = ({
         componentSet.sourceApiVersion = sourceApiVersion;
       }
 
+      const filterSourceBehaviorOptionsBetaDeletions = (component: SourceComponent): boolean => {
+        const customLabelsType = registry.getTypeByName('customlabels');
+        if (component.type === customLabelsType) {
+          logger.debug(`remove '${component.xml as string}' from deletes due to sourceBehaviourOptionsBeta.`);
+          return customLabelsType.strategies?.transformer !== 'decomposedLabels';
+        }
+        return true;
+      };
+
       grouping.deletes
         .flatMap((filename) => resolverForDeletes.getComponentsFromPath(filename))
         .filter(isDefined)
+        .filter(filterSourceBehaviorOptionsBetaDeletions)
         .forEach((component) => {
           // if the component supports partial delete AND there are files that are not deleted,
           // set the component for deploy, not for delete.
