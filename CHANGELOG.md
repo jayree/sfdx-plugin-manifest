@@ -1,3 +1,12 @@
+## [3.5.1](https://github.com/jayree/sfdx-plugin-manifest/compare/3.5.0...3.5.1) (2024-08-31)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve from 12.5.1 to 12.6.0 ([#1460](https://github.com/jayree/sfdx-plugin-manifest/issues/1460)) ([f687c9b](https://github.com/jayree/sfdx-plugin-manifest/commit/f687c9bdced89faf119921360dda725b9f4741cd))
+
+
+
 # [3.5.0](https://github.com/jayree/sfdx-plugin-manifest/compare/3.4.15...3.5.0) (2024-08-28)
 
 
