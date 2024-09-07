@@ -24,7 +24,7 @@
     "@oclif/plugin-command-snapshot": "^5.2.15",
     "@oclif/plugin-help": "^6.2.10",
     "@salesforce/cli-plugins-testkit": "^5.3.28",
-    "@salesforce/dev-scripts": "^10.2.9",
+    "@salesforce/dev-scripts": "^10.2.10",
     "@salesforce/ts-sinon": "^1.4.26",
     "@types/fs-extra": "^11.0.4",
     "@types/graceful-fs": "^4.1.9",
