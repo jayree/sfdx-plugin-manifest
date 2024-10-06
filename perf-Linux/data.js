@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1728247262491,
+  "lastUpdate": 1728247436379,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -202,6 +202,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-fromGitDiff-linux",
             "value": 3066,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "068fe41b94af35a09c23fda52d2940f018773543",
+          "message": "fix(deps): bump @salesforce/sf-plugins-core from 11.3.10 to 11.3.12\n\nBumps [@salesforce/sf-plugins-core](https://github.com/salesforcecli/sf-plugins-core) from 11.3.10 to 11.3.12.\n- [Release notes](https://github.com/salesforcecli/sf-plugins-core/releases)\n- [Changelog](https://github.com/salesforcecli/sf-plugins-core/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/salesforcecli/sf-plugins-core/compare/11.3.10...11.3.12)\n\n---\nupdated-dependencies:\n- dependency-name: \"@salesforce/sf-plugins-core\"\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2024-10-06T20:40:27Z",
+          "tree_id": "8c4e167ebe16dd8d3ed432fea1f772f2f99212db",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/068fe41b94af35a09c23fda52d2940f018773543"
+        },
+        "date": 1728247435874,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-fromGitDiff-linux",
+            "value": 3061,
             "unit": "ms"
           }
         ]
