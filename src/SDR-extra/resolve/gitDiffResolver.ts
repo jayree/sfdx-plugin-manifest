@@ -7,6 +7,7 @@
 import path from 'node:path';
 import { ComponentSet, RegistryAccess, MetadataResolver } from '@salesforce/source-deploy-retrieve';
 import { SfProject, SfError, Lifecycle, Logger, NamedPackageDir } from '@salesforce/core';
+import { Performance } from '@oclif/core/performance';
 import { GitRepo } from '../shared/local/localGitRepo.js';
 import { getComponentSets, getGroupedFiles } from '../shared/gitComponentSetArray.js';
 import { VirtualTreeContainerExtra } from '../resolve/treeContainersExtra.js';
@@ -44,6 +45,8 @@ export class GitDiffResolver {
   }
 
   public async resolve(ref1: string, ref2: string | undefined, fsPaths: string[] | undefined): Promise<ComponentSet> {
+    const marker = Performance.mark('@jayree/sfdx-plugin-manifest', 'GitDiffResolver.resolve');
+
     if (ref2 === undefined) {
       const { ref1: r1, ref2: r2 } = await this.localRepo.resolveMultiRefString(ref1);
       ref1 = r1;
@@ -87,6 +90,8 @@ export class GitDiffResolver {
         await lifecycle.emitWarning(`The forceignored file ${file} was ignored.`);
       }
     }
+
+    marker?.stop();
 
     return cs;
   }

@@ -11,6 +11,7 @@ import os from 'node:os';
 import fs from 'node:fs/promises';
 import { execSync } from 'node:child_process';
 import git, { StatusRow } from 'isomorphic-git';
+import { Performance } from '@oclif/core/performance';
 import { Lifecycle, NamedPackageDir, SfError } from '@salesforce/core';
 import { RegistryAccess } from '@salesforce/source-deploy-retrieve';
 import { excludeLwcLocalOnlyTest, folderContainsPath } from '@salesforce/source-tracking/lib/shared/functions.js';
@@ -171,6 +172,7 @@ export class GitRepo {
   }
 
   public async getStatus(ref1: string, ref2?: string): Promise<StatusRow[]> {
+    const marker = Performance.mark('@jayree/sfdx-plugin-manifest', 'localGitRepo.getStatus');
     await this.checkLocalGitAutocrlfConfig();
 
     try {
@@ -193,6 +195,7 @@ export class GitRepo {
     } catch (e) {
       redirectToCliRepoError(e);
     }
+    marker?.stop();
     return this.status;
   }
 
@@ -241,6 +244,8 @@ export class GitRepo {
     const matchingFiles = getMatches(this.status);
     if (!matchingFiles.added.size || !matchingFiles.deleted.size) return;
 
+    const movedFilesMarker = Performance.mark('@jayree/sfdx-plugin-manifest', 'localGitRepo.detectMovedFiles');
+
     const sourceBehaviorOptionsBetaMatches = new Map();
     for (const deletedFilePath of matchingFiles.deleted) {
       const fullName = parseMetadataXml(deletedFilePath)?.fullName;
@@ -271,6 +276,7 @@ export class GitRepo {
     ];
 
     this.status = this.status.filter((file) => (removeFiles.includes(file[0]) ? false : true));
+    movedFilesMarker?.stop();
   }
 
   private async getCommitLog(ref: string): Promise<{ oid: string; parents: string[] }> {
