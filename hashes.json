@@ -22,5 +22,9 @@
   {
     "url": "https://raw.githubusercontent.com/isomorphic-git/isomorphic-git/main/src/utils/worthWalking.js",
     "hash": "8a299e3ef1d382d894dd741a3ffe3d3d93b819c7acb275821f4da67717791661"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/forcedotcom/source-deploy-retrieve/main/test/nuts/scale/perfUtils.ts",
+    "hash": "fa30ab7630e24a7660fa09e07dc16f8579f8107c905cc92a62f85c3c24276f64"
   }
 ]
