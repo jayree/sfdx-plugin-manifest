@@ -16,6 +16,7 @@ import {
 } from '@salesforce/source-deploy-retrieve';
 import git from 'isomorphic-git';
 import fs from 'graceful-fs';
+import { Performance } from '@oclif/core/performance';
 import { isDefined } from '@salesforce/source-tracking/lib/shared/guards.js';
 import { uniqueArrayConcat } from '@salesforce/source-tracking/lib/shared/functions.js';
 import { IS_WINDOWS, ensurePosix, ensureWindows } from '@salesforce/source-tracking/lib/shared/local/functions.js';
@@ -141,11 +142,19 @@ const toFileInfo = async ({
   added: Set<string>;
   deleted: Set<string>;
 }): Promise<AddAndDeleteFileInfos> => {
+  const getInfoMarker = Performance.mark('@jayree/sfdx-plugin-manifest', 'localGitRepo.detectMovedFiles#toFileInfo', {
+    addedFiles: added.size,
+    deletedFiles: deleted.size,
+  });
+
   const headRef = await git.resolveRef({ fs, dir: projectPath, gitdir: gitDir, ref: 'HEAD' });
   const [addedInfo, deletedInfo] = await Promise.all([
     await Promise.all(Array.from(added).map(getHashForAddedFile(projectPath))),
     await Promise.all(Array.from(deleted).map(getHashFromActualFileContents(gitDir)(projectPath)(headRef))),
   ]);
+
+  getInfoMarker?.stop();
+
   return { addedInfo, deletedInfo };
 };
 

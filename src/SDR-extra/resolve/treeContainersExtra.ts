@@ -11,6 +11,7 @@ import { VirtualTreeContainer, VirtualDirectory } from '@salesforce/source-deplo
 import { parseMetadataXml } from '@salesforce/source-deploy-retrieve/lib/src/utils/index.js';
 import { readBlob as _readBlob, listFiles as _listFiles, resolveRef } from 'isomorphic-git';
 import { ensurePosix, ensureWindows, IS_WINDOWS } from '@salesforce/source-tracking/lib/shared/local/functions.js';
+import { Performance } from '@oclif/core/performance';
 
 export class VirtualTreeContainerExtra extends VirtualTreeContainer {
   /**
@@ -27,6 +28,8 @@ export class VirtualTreeContainerExtra extends VirtualTreeContainer {
     dir: string,
     includeBufferForFiles: string[],
   ): Promise<VirtualTreeContainer> {
+    const marker = Performance.mark('@jayree/sfdx-plugin-manifest', 'VirtualTreeContainerExtra.fromGitRef');
+
     const paths = await listFiles(dir, ref);
     const oid = ref ? await resolveRef({ fs, dir, ref }) : '';
     const virtualDirectoryByFullPath = new Map<string, VirtualDirectory>();
@@ -53,6 +56,9 @@ export class VirtualTreeContainerExtra extends VirtualTreeContainer {
         });
       }
     }
+
+    marker?.stop();
+
     return new VirtualTreeContainer(Array.from(virtualDirectoryByFullPath.values()));
   }
 }
