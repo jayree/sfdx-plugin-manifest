@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1728244781905,
+  "lastUpdate": 1728245212176,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -86,6 +86,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-fromGitDiff-win32",
             "value": 5606,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jayree.git@icloud.com",
+            "name": "jayree",
+            "username": "jayree"
+          },
+          "committer": {
+            "email": "jayree.git@icloud.com",
+            "name": "jayree",
+            "username": "jayree"
+          },
+          "distinct": true,
+          "id": "0880b7470d45ec89a90bebb29c6f5918831d4cb3",
+          "message": "chore: add perfScaleNut workflow",
+          "timestamp": "2024-10-06T22:04:36+02:00",
+          "tree_id": "9fbba2e10145132f2fd09fb424ce348cd1512bcf",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/0880b7470d45ec89a90bebb29c6f5918831d4cb3"
+        },
+        "date": 1728245206623,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-fromGitDiff-win32",
+            "value": 5577,
             "unit": "ms"
           }
         ]
