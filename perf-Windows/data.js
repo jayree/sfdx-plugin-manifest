@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1728248875311,
+  "lastUpdate": 1728400221285,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -289,6 +289,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-fromGitDiff-win32",
             "value": 5251,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jayree.git@icloud.com",
+            "name": "jayree",
+            "username": "jayree"
+          },
+          "committer": {
+            "email": "jayree.git@icloud.com",
+            "name": "jayree",
+            "username": "jayree"
+          },
+          "distinct": true,
+          "id": "7df33ab7103138889672b80a67b1b89e117ca8e5",
+          "message": "feat: add cache",
+          "timestamp": "2024-10-08T17:07:01+02:00",
+          "tree_id": "a7eb18088ae513a93f4b5e4294b194d33b47783d",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/7df33ab7103138889672b80a67b1b89e117ca8e5"
+        },
+        "date": 1728400205917,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-fromGitDiff-win32",
+            "value": 5387,
             "unit": "ms"
           }
         ]
