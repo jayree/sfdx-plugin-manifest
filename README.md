@@ -183,3 +183,10 @@ FLAG DESCRIPTIONS
 
 _See code: [src/commands/jayree/manifest/git/diff.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/3.5.24/src/commands/jayree/manifest/git/diff.ts)_
 <!-- commandsstop -->
+
+## Performance Testing
+
+There are some benchmark.js checks to get a baseline for `jayree manifest git diff` command performance.
+
+https://jayree.github.io/sfdx-plugin-manifest/perf-Linux/  
+https://jayree.github.io/sfdx-plugin-manifest/perf-Windows/
