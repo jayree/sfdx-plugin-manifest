@@ -26,7 +26,7 @@ window.BENCHMARK_DATA = {
         "tool": "customSmallerIsBetter",
         "benches": [
           {
-            "name": "eda-fromGitDiff-linux",
+            "name": "eda-ComponentSetExtra-linux",
             "value": 3053,
             "unit": "ms"
           }
@@ -55,7 +55,7 @@ window.BENCHMARK_DATA = {
         "tool": "customSmallerIsBetter",
         "benches": [
           {
-            "name": "eda-fromGitDiff-linux",
+            "name": "eda-ComponentSetExtra-linux",
             "value": 3064,
             "unit": "ms"
           }
@@ -84,7 +84,7 @@ window.BENCHMARK_DATA = {
         "tool": "customSmallerIsBetter",
         "benches": [
           {
-            "name": "eda-fromGitDiff-linux",
+            "name": "eda-ComponentSetExtra-linux",
             "value": 3078,
             "unit": "ms"
           }
@@ -113,7 +113,7 @@ window.BENCHMARK_DATA = {
         "tool": "customSmallerIsBetter",
         "benches": [
           {
-            "name": "eda-fromGitDiff-linux",
+            "name": "eda-ComponentSetExtra-linux",
             "value": 3008,
             "unit": "ms"
           }
@@ -142,7 +142,7 @@ window.BENCHMARK_DATA = {
         "tool": "customSmallerIsBetter",
         "benches": [
           {
-            "name": "eda-fromGitDiff-linux",
+            "name": "eda-ComponentSetExtra-linux",
             "value": 3074,
             "unit": "ms"
           }
@@ -171,7 +171,7 @@ window.BENCHMARK_DATA = {
         "tool": "customSmallerIsBetter",
         "benches": [
           {
-            "name": "eda-fromGitDiff-linux",
+            "name": "eda-ComponentSetExtra-linux",
             "value": 2724,
             "unit": "ms"
           }
@@ -200,7 +200,7 @@ window.BENCHMARK_DATA = {
         "tool": "customSmallerIsBetter",
         "benches": [
           {
-            "name": "eda-fromGitDiff-linux",
+            "name": "eda-ComponentSetExtra-linux",
             "value": 3066,
             "unit": "ms"
           }
@@ -229,7 +229,7 @@ window.BENCHMARK_DATA = {
         "tool": "customSmallerIsBetter",
         "benches": [
           {
-            "name": "eda-fromGitDiff-linux",
+            "name": "eda-ComponentSetExtra-linux",
             "value": 3061,
             "unit": "ms"
           }
@@ -258,7 +258,7 @@ window.BENCHMARK_DATA = {
         "tool": "customSmallerIsBetter",
         "benches": [
           {
-            "name": "eda-fromGitDiff-linux",
+            "name": "eda-ComponentSetExtra-linux",
             "value": 3003,
             "unit": "ms"
           }
@@ -287,7 +287,7 @@ window.BENCHMARK_DATA = {
         "tool": "customSmallerIsBetter",
         "benches": [
           {
-            "name": "eda-fromGitDiff-linux",
+            "name": "eda-ComponentSetExtra-linux",
             "value": 2757,
             "unit": "ms"
           }
@@ -316,7 +316,7 @@ window.BENCHMARK_DATA = {
         "tool": "customSmallerIsBetter",
         "benches": [
           {
-            "name": "eda-fromGitDiff-linux",
+            "name": "eda-ComponentSetExtra-linux",
             "value": 2741,
             "unit": "ms"
           }
