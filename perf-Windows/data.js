@@ -26,7 +26,7 @@ window.BENCHMARK_DATA = {
         "tool": "customSmallerIsBetter",
         "benches": [
           {
-            "name": "eda-fromGitDiff-win32",
+            "name": "eda-ComponentSetExtra-win32",
             "value": 5556,
             "unit": "ms"
           }
@@ -55,7 +55,7 @@ window.BENCHMARK_DATA = {
         "tool": "customSmallerIsBetter",
         "benches": [
           {
-            "name": "eda-fromGitDiff-win32",
+            "name": "eda-ComponentSetExtra-win32",
             "value": 5602,
             "unit": "ms"
           }
@@ -84,7 +84,7 @@ window.BENCHMARK_DATA = {
         "tool": "customSmallerIsBetter",
         "benches": [
           {
-            "name": "eda-fromGitDiff-win32",
+            "name": "eda-ComponentSetExtra-win32",
             "value": 5606,
             "unit": "ms"
           }
@@ -113,7 +113,7 @@ window.BENCHMARK_DATA = {
         "tool": "customSmallerIsBetter",
         "benches": [
           {
-            "name": "eda-fromGitDiff-win32",
+            "name": "eda-ComponentSetExtra-win32",
             "value": 5577,
             "unit": "ms"
           }
@@ -142,7 +142,7 @@ window.BENCHMARK_DATA = {
         "tool": "customSmallerIsBetter",
         "benches": [
           {
-            "name": "eda-fromGitDiff-win32",
+            "name": "eda-ComponentSetExtra-win32",
             "value": 5710,
             "unit": "ms"
           }
@@ -171,7 +171,7 @@ window.BENCHMARK_DATA = {
         "tool": "customSmallerIsBetter",
         "benches": [
           {
-            "name": "eda-fromGitDiff-win32",
+            "name": "eda-ComponentSetExtra-win32",
             "value": 5255,
             "unit": "ms"
           }
@@ -200,7 +200,7 @@ window.BENCHMARK_DATA = {
         "tool": "customSmallerIsBetter",
         "benches": [
           {
-            "name": "eda-fromGitDiff-win32",
+            "name": "eda-ComponentSetExtra-win32",
             "value": 5521,
             "unit": "ms"
           }
@@ -229,7 +229,7 @@ window.BENCHMARK_DATA = {
         "tool": "customSmallerIsBetter",
         "benches": [
           {
-            "name": "eda-fromGitDiff-win32",
+            "name": "eda-ComponentSetExtra-win32",
             "value": 5499,
             "unit": "ms"
           }
@@ -258,7 +258,7 @@ window.BENCHMARK_DATA = {
         "tool": "customSmallerIsBetter",
         "benches": [
           {
-            "name": "eda-fromGitDiff-win32",
+            "name": "eda-ComponentSetExtra-win32",
             "value": 5518,
             "unit": "ms"
           }
@@ -287,7 +287,7 @@ window.BENCHMARK_DATA = {
         "tool": "customSmallerIsBetter",
         "benches": [
           {
-            "name": "eda-fromGitDiff-win32",
+            "name": "eda-ComponentSetExtra-win32",
             "value": 5251,
             "unit": "ms"
           }
@@ -316,7 +316,7 @@ window.BENCHMARK_DATA = {
         "tool": "customSmallerIsBetter",
         "benches": [
           {
-            "name": "eda-fromGitDiff-win32",
+            "name": "eda-ComponentSetExtra-win32",
             "value": 5387,
             "unit": "ms"
           }
