@@ -7,15 +7,15 @@
   "bugs": "https://github.com/jayree/sfdx-plugin-manifest/issues",
   "dependencies": {
     "@jayree/changelog": "^1.2.4",
-    "@oclif/core": "^4.0.23",
+    "@oclif/core": "^4.0.27",
     "@salesforce/core": "^8.6.2",
-    "@salesforce/kit": "^3.2.2",
+    "@salesforce/kit": "^3.2.3",
     "@salesforce/sf-plugins-core": "^11.3.12",
     "@salesforce/source-deploy-retrieve": "^12.8.0",
     "@salesforce/source-tracking": "^7.1.17",
     "@salesforce/ts-types": "^2.0.12",
     "fast-deep-equal": "^3.1.3",
-    "fast-xml-parser": "^4.4.1",
+    "fast-xml-parser": "^4.5.0",
     "fs-extra": "^11.2.0",
     "graceful-fs": "^4.2.11",
     "isomorphic-git": "1.27.1"
