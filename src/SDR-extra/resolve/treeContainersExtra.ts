@@ -6,12 +6,10 @@
  */
 // https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/resolve/treeContainers.ts
 import path from 'node:path';
-import fs from 'node:fs/promises';
 import { VirtualTreeContainer, VirtualDirectory } from '@salesforce/source-deploy-retrieve';
 import { parseMetadataXml } from '@salesforce/source-deploy-retrieve/lib/src/utils/index.js';
-import { readBlob as _readBlob, listFiles as _listFiles, resolveRef } from 'isomorphic-git';
-import { ensurePosix, ensureWindows, IS_WINDOWS } from '@salesforce/source-tracking/lib/shared/local/functions.js';
 import { Performance } from '@oclif/core/performance';
+import { GitRepo } from '../shared/local/localGitRepo.js';
 
 export class VirtualTreeContainerExtra extends VirtualTreeContainer {
   /**
@@ -30,8 +28,9 @@ export class VirtualTreeContainerExtra extends VirtualTreeContainer {
   ): Promise<VirtualTreeContainer> {
     const marker = Performance.mark('@jayree/sfdx-plugin-manifest', 'VirtualTreeContainerExtra.fromGitRef');
 
-    const paths = await listFiles(dir, ref);
-    const oid = ref ? await resolveRef({ fs, dir, ref }) : '';
+    const localRepo = GitRepo.getInstance({ dir });
+    const paths = await localRepo.listFiles(ref);
+    const oid = await localRepo.resolveRef(ref);
     const virtualDirectoryByFullPath = new Map<string, VirtualDirectory>();
     for await (const filepath of paths) {
       let dirPath = path.dirname(filepath);
@@ -42,7 +41,7 @@ export class VirtualTreeContainerExtra extends VirtualTreeContainer {
             name: path.basename(filepath),
             data:
               parseMetadataXml(filepath) && includeBufferForFiles.includes(filepath)
-                ? await readBlob(dir, filepath, oid)
+                ? await localRepo.readBlob(filepath, oid)
                 : Buffer.from(''),
           }),
         ),
@@ -61,25 +60,4 @@ export class VirtualTreeContainerExtra extends VirtualTreeContainer {
 
     return new VirtualTreeContainer(Array.from(virtualDirectoryByFullPath.values()));
   }
-}
-
-async function listFiles(dir: string, ref: string): Promise<string[]> {
-  return ref
-    ? (await _listFiles({ fs, dir, ref })).map((p) => path.join(IS_WINDOWS ? ensureWindows(p) : p))
-    : (await fs.readdir(dir, { recursive: true })).map((p) => path.join(IS_WINDOWS ? ensureWindows(p) : p));
-}
-
-async function readBlob(dir: string, filepath: string, oid: string): Promise<Buffer> {
-  return oid
-    ? Buffer.from(
-        (
-          await _readBlob({
-            fs,
-            dir,
-            oid,
-            filepath: IS_WINDOWS ? ensurePosix(filepath) : filepath,
-          })
-        ).blob,
-      )
-    : fs.readFile(path.resolve(filepath));
 }
