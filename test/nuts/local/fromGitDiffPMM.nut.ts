@@ -4,8 +4,10 @@
  * Licensed under the BSD 3-Clause license.
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
+import { join } from 'node:path';
 import { TestSession } from '@salesforce/cli-plugins-testkit';
 import { expect } from 'chai';
+import fs from 'fs-extra';
 import { ComponentSetExtra } from '../../../src/SDR-extra/index.js';
 import { setAutocrlfOnWin32 } from '../../helper/git.js';
 
@@ -64,6 +66,53 @@ describe('result testing with PMM', () => {
   it('should return "HEAD~5"', async () => {
     const comp = await ComponentSetExtra.fromGitDiff('HEAD~5');
     expect(await comp.getObject()).to.have.nested.property('Package.version', '49.0');
+  });
+
+  it('should return modified metadata', async () => {
+    let data = await fs.readFile(
+      join(session.project.dir, 'force-app/main/default/labels/CustomLabels.labels-meta.xml'),
+    );
+    await fs.writeFile(
+      join(session.project.dir, 'force-app/main/default/labels/CustomLabels.labels-meta.xml'),
+      data
+        .toString()
+        .replace('accordionSection_ToggleInstructionsWhenOpen', 'accordionSection_ToggleInstructionsWhenOpen1'),
+    );
+
+    data = await fs.readFile(
+      join(session.project.dir, 'unpackaged/config/experience_cloud/sharingRules/Contact.sharingRules-meta.xml'),
+    );
+    await fs.writeFile(
+      join(session.project.dir, 'unpackaged/config/experience_cloud/sharingRules/Contact.sharingRules-meta.xml'),
+      data.toString().replace('Community_Volunteer', 'Community_Volunteer1'),
+    );
+
+    const comp = await ComponentSetExtra.fromGitDiff('HEAD');
+    expect(comp.getTypesOfDestructiveChanges()).to.deep.equal(['post']);
+    expect(await comp.getObject()).to.deep.equal({
+      Package: {
+        types: [
+          { members: ['accordionSection_ToggleInstructionsWhenOpen1'], name: 'CustomLabel' },
+          { members: ['Contact.Community_Volunteer1'], name: 'SharingOwnerRule' },
+          { members: ['Contact'], name: 'SharingRules' },
+        ],
+        version: '49.0',
+      },
+    });
+  });
+
+  it('should return modified metadata - only force-app', async () => {
+    const comp = await ComponentSetExtra.fromGitDiff({
+      ref: ['HEAD'],
+      fsPaths: ['force-app'],
+    });
+    expect(comp.getTypesOfDestructiveChanges()).to.deep.equal(['post']);
+    expect(await comp.getObject()).to.deep.equal({
+      Package: {
+        types: [{ members: ['accordionSection_ToggleInstructionsWhenOpen1'], name: 'CustomLabel' }],
+        version: '49.0',
+      },
+    });
   });
 
   it('should return "HEAD^1"', async () => {
