@@ -14,12 +14,10 @@ import {
   RegistryAccess,
   VirtualTreeContainer,
 } from '@salesforce/source-deploy-retrieve';
-import git from 'isomorphic-git';
-import fs from 'graceful-fs';
 import { Performance } from '@oclif/core/performance';
 import { isDefined } from '@salesforce/source-tracking/lib/shared/guards.js';
 import { uniqueArrayConcat } from '@salesforce/source-tracking/lib/shared/functions.js';
-import { IS_WINDOWS, ensurePosix, ensureWindows } from '@salesforce/source-tracking/lib/shared/local/functions.js';
+import { IS_WINDOWS, ensureWindows } from '@salesforce/source-tracking/lib/shared/local/functions.js';
 import { buildMap } from '@salesforce/source-tracking/lib/shared/local/moveDetection.js';
 import {
   AddAndDeleteMaps,
@@ -27,6 +25,7 @@ import {
   DetectionFileInfoWithType,
   StringMap,
 } from '@salesforce/source-tracking/lib/shared/local/types.js';
+import { GitRepo } from './localGitRepo.js';
 
 const JOIN_CHAR = '#__#'; // the __ makes it unlikely to be used in metadata names
 type AddAndDeleteFileInfos = Readonly<{ addedInfo: DetectionFileInfo[]; deletedInfo: DetectionFileInfo[] }>;
@@ -42,23 +41,27 @@ export type StringMapsForMatches = {
   deleteOnly: StringMap;
 };
 
+let localRepo: GitRepo;
+
 /** composed functions to simplified use by the shadowRepo class */
 export const filenameMatchesToMap =
   (registry: RegistryAccess) =>
   (projectPath: string) =>
-  (gitDir: string) =>
   async ({ added, deleted }: AddedAndDeletedFilenames): Promise<StringMapsForMatches> => {
     const resolver = new MetadataResolver(
       registry,
       VirtualTreeContainer.fromFilePaths(uniqueArrayConcat(added, deleted)),
     );
 
+    localRepo = GitRepo.getInstance({
+      dir: projectPath,
+      registry,
+    });
+
     return compareHashes(
       await buildMaps(
         addTypes(resolver)(
           await toFileInfo({
-            projectPath,
-            gitDir,
             added,
             deleted,
           }),
@@ -132,13 +135,9 @@ const compareHashes = ({ addedMap, deletedMap }: AddAndDeleteMaps): StringMapsFo
 
 /** enrich the filenames with basename and oid (hash)  */
 const toFileInfo = async ({
-  projectPath,
-  gitDir,
   added,
   deleted,
 }: {
-  projectPath: string;
-  gitDir: string;
   added: Set<string>;
   deleted: Set<string>;
 }): Promise<AddAndDeleteFileInfos> => {
@@ -147,10 +146,10 @@ const toFileInfo = async ({
     deletedFiles: deleted.size,
   });
 
-  const headRef = await git.resolveRef({ fs, dir: projectPath, gitdir: gitDir, ref: 'HEAD' });
+  const headRef = (await localRepo.resolveRef('HEAD')) as string;
   const [addedInfo, deletedInfo] = await Promise.all([
-    await Promise.all(Array.from(added).map(getHashForAddedFile(projectPath))),
-    await Promise.all(Array.from(deleted).map(getHashFromActualFileContents(gitDir)(projectPath)(headRef))),
+    await Promise.all(Array.from(added).map(getHashForAddedFile)),
+    await Promise.all(Array.from(deleted).map(getHashFromActualFileContents(headRef))),
   ]);
 
   getInfoMarker?.stop();
@@ -158,26 +157,20 @@ const toFileInfo = async ({
   return { addedInfo, deletedInfo };
 };
 
-const getHashForAddedFile =
-  (projectPath: string) =>
-  async (filepath: string): Promise<DetectionFileInfo> => {
-    const autocrlf = (await git.getConfig({
-      fs,
-      dir: projectPath,
-      path: 'core.autocrlf',
-    })) as string;
+const getHashForAddedFile = async (filepath: string): Promise<DetectionFileInfo> => {
+  const autocrlf = await localRepo.getConfig('core.autocrlf');
 
-    let object = await fs.promises.readFile(path.join(projectPath, filepath));
+  let object = await localRepo.readBlob(filepath);
 
-    if (autocrlf === 'true' && isUtf8(object)) {
-      object = Buffer.from(object.toString('utf8').replace(/\r\n/g, '\n'));
-    }
-    return {
-      filename: filepath,
-      basename: path.basename(filepath),
-      hash: (await git.hashBlob({ object })).oid,
-    };
+  if (autocrlf === 'true' && isUtf8(object)) {
+    object = Buffer.from(object.toString('utf8').replace(/\r\n/g, '\n'));
+  }
+  return {
+    filename: filepath,
+    basename: path.basename(filepath),
+    hash: await localRepo.hashBlob(object),
   };
+};
 
 const resolveType =
   (resolver: MetadataResolver) =>
@@ -194,15 +187,11 @@ const resolveType =
 
 /** where we don't have git objects to use, read the file contents to generate the hash */
 const getHashFromActualFileContents =
-  (gitdir: string) =>
-  (projectPath: string) =>
   (oid: string) =>
   async (filepath: string): Promise<DetectionFileInfo> => ({
     filename: filepath,
     basename: path.basename(filepath),
-    hash: (
-      await git.readBlob({ fs, dir: projectPath, gitdir, filepath: IS_WINDOWS ? ensurePosix(filepath) : filepath, oid })
-    ).oid,
+    hash: await localRepo.readOid(filepath, oid),
   });
 
 const removeHashFromEntry = ([k, v]: [string, string]): [string, string] => [removeHashFromKey(k), v];
