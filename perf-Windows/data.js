@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1728813407937,
+  "lastUpdate": 1728813585605,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -703,6 +703,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 468,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6dfb0a2116ac979b3ec8bfcded4e132fc50d276b",
+          "message": "fix(deps): bump @oclif/core from 4.0.27 to 4.0.28\n\nBumps [@oclif/core](https://github.com/oclif/core) from 4.0.27 to 4.0.28.\n- [Release notes](https://github.com/oclif/core/releases)\n- [Changelog](https://github.com/oclif/core/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/oclif/core/compare/4.0.27...4.0.28)\n\n---\nupdated-dependencies:\n- dependency-name: \"@oclif/core\"\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2024-10-13T09:54:19Z",
+          "tree_id": "9c9090a119b4245d6a8d7254d9d1e6bb8cefab62",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/6dfb0a2116ac979b3ec8bfcded4e132fc50d276b"
+        },
+        "date": 1728813575136,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 6101,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 4537,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 575,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 512,
             "unit": "ms"
           }
         ]
