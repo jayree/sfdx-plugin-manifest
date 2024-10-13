@@ -33,7 +33,7 @@ jobs:
 
       # Run `github-action-benchmark` action
       - name: Store benchmark result
-        uses: benchmark-action/github-action-benchmark@4de1bed97a47495fc4c5404952da0499e31f5c29
+        uses: benchmark-action/github-action-benchmark@v1
         with:
           tool: 'customSmallerIsBetter'
           output-file-path: test/nuts/scale/output.json
