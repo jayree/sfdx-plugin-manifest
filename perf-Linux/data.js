@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1729598493479,
+  "lastUpdate": 1729598809222,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -1583,6 +1583,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 359,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1645e4c54bd45148bbcf4aa37af7c103ae807b77",
+          "message": "fix(deps): bump @salesforce/sf-plugins-core from 11.3.12 to 12.0.4\n\nBumps [@salesforce/sf-plugins-core](https://github.com/salesforcecli/sf-plugins-core) from 11.3.12 to 12.0.4.\n- [Release notes](https://github.com/salesforcecli/sf-plugins-core/releases)\n- [Changelog](https://github.com/salesforcecli/sf-plugins-core/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/salesforcecli/sf-plugins-core/compare/11.3.12...12.0.4)\n\n---\nupdated-dependencies:\n- dependency-name: \"@salesforce/sf-plugins-core\"\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2024-10-22T12:01:19Z",
+          "tree_id": "4ebdaecf96d680fd6ec02e80087c604480877e48",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/1645e4c54bd45148bbcf4aa37af7c103ae807b77"
+        },
+        "date": 1729598808353,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 3110,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 2343,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 402,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 352,
             "unit": "ms"
           }
         ]
