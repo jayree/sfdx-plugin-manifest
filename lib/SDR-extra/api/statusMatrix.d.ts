@@ -136,17 +136,19 @@ import { StatusRow } from 'isomorphic-git';
  * @param {string} [args.ref2 = 'STAGE'] - Optionally specify a different commit to compare against the <ref1> commit instead of the workdir and stage
  * @param {string[]} [args.filepaths = ['.']] - Limit the query to the given files and directories
  * @param {function(string): boolean} [args.filter] - Filter the results to only those whose filepath matches a function.
+ * @param {object} [args.cache] - a [cache](cache.md) object
  * @param {boolean} [args.ignored = false] - include ignored files in the result
  *
  * @returns {Promise<Array<StatusRow>>} Resolves with a status matrix, described below.
  * @see StatusRow
  */
-export declare function statusMatrix({ dir, gitdir, ref1, ref2, filepaths, filter, ignored: shouldIgnore, }: {
+export declare function statusMatrix({ dir, gitdir, ref1, ref2, filepaths, filter, cache, ignored: shouldIgnore, }: {
     dir: string;
     gitdir?: string;
     ref1: string;
     ref2?: string;
     filepaths?: string[];
     filter?: ((arg0: string) => boolean) | undefined;
+    cache: unknown;
     ignored?: boolean;
 }): Promise<StatusRow[]>;
