@@ -11,6 +11,6 @@ export type StringMapsForMatches = {
     deleteOnly: StringMap;
 };
 /** composed functions to simplified use by the shadowRepo class */
-export declare const filenameMatchesToMap: (registry: RegistryAccess) => (projectPath: string) => (gitDir: string) => ({ added, deleted }: AddedAndDeletedFilenames) => Promise<StringMapsForMatches>;
+export declare const filenameMatchesToMap: (registry: RegistryAccess) => (projectPath: string) => ({ added, deleted }: AddedAndDeletedFilenames) => Promise<StringMapsForMatches>;
 export declare const getLogMessage: (matches: StringMapsForMatches) => string[];
 export {};
