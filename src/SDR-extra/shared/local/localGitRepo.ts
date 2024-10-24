@@ -10,7 +10,7 @@ import path from 'node:path';
 import os from 'node:os';
 import fs from 'node:fs/promises';
 import { execSync } from 'node:child_process';
-import git, { StatusRow } from 'isomorphic-git';
+import git, { StatusRow, readBlob as _readBlob, listFiles as _listFiles } from 'isomorphic-git';
 import { Performance } from '@oclif/core/performance';
 import { Lifecycle, NamedPackageDir, SfError } from '@salesforce/core';
 import { RegistryAccess } from '@salesforce/source-deploy-retrieve';
@@ -32,8 +32,8 @@ export const STAGE = 3;
 
 export type GitRepoOptions = {
   dir: string;
-  packageDirs: NamedPackageDir[];
-  registry: RegistryAccess;
+  packageDirs?: NamedPackageDir[];
+  registry?: RegistryAccess;
 };
 
 type Warning = { filter: Array<Array<0 | 1 | 2 | 3>>; message: string };
@@ -55,6 +55,7 @@ export class GitRepo {
 
   private packageDirs: string[];
   private status!: StatusRow[];
+  private cache!: unknown;
 
   private lifecycle = Lifecycle.getInstance();
 
@@ -62,8 +63,9 @@ export class GitRepo {
 
   private constructor(options: GitRepoOptions) {
     this.dir = options.dir;
-    this.packageDirs = options.packageDirs.map(packageDirToRelativePosixPath(options.dir));
-    this.registry = options.registry;
+    this.packageDirs = options.packageDirs?.map(packageDirToRelativePosixPath(options.dir)) ?? [];
+    this.registry = options.registry ?? new RegistryAccess();
+    this.cache = {};
   }
 
   public static getInstance(options: GitRepoOptions): GitRepo {
@@ -72,6 +74,55 @@ export class GitRepo {
       GitRepo.instanceMap.set(options.dir, newInstance);
     }
     return GitRepo.instanceMap.get(options.dir) as GitRepo;
+  }
+
+  public async resolveRef(ref: string): Promise<string | undefined> {
+    return ref ? git.resolveRef({ fs, dir: this.dir, ref }) : undefined;
+  }
+
+  public async getConfig(p: string): Promise<string> {
+    return (await git.getConfig({ fs, dir: this.dir, path: p })) as string;
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  public async hashBlob(object: Buffer): Promise<string> {
+    return (await git.hashBlob({ object })).oid;
+  }
+
+  public async listFiles(ref: string): Promise<string[]> {
+    return ref
+      ? (await _listFiles({ fs, dir: this.dir, ref, cache: this.cache })).map((p) =>
+          path.join(IS_WINDOWS ? ensureWindows(p) : p),
+        )
+      : (await fs.readdir(this.dir, { recursive: true })).map((p) => path.join(IS_WINDOWS ? ensureWindows(p) : p));
+  }
+
+  public async readBlob(filepath: string, oid?: string): Promise<Buffer> {
+    return oid
+      ? Buffer.from(
+          (
+            await _readBlob({
+              fs,
+              dir: this.dir,
+              oid,
+              filepath: IS_WINDOWS ? ensurePosix(filepath) : filepath,
+              cache: this.cache,
+            })
+          ).blob,
+        )
+      : fs.readFile(path.resolve(filepath));
+  }
+
+  public async readOid(filepath: string, oid: string): Promise<string> {
+    return (
+      await _readBlob({
+        fs,
+        dir: this.dir,
+        oid,
+        filepath: IS_WINDOWS ? ensurePosix(filepath) : filepath,
+        cache: this.cache,
+      })
+    ).oid;
   }
 
   public async resolveMultiRefString(ref: string): Promise<{
@@ -98,6 +149,7 @@ export class GitRepo {
           fs,
           dir: this.dir,
           oids: [ref2, ref1],
+          cache: this.cache,
         })
       )[0] as string;
     } else {
@@ -178,6 +230,7 @@ export class GitRepo {
     try {
       this.status = await statusMatrix({
         dir: this.dir,
+        cache: this.cache,
         ref1,
         ref2,
         filepaths: this.packageDirs,
@@ -259,7 +312,7 @@ export class GitRepo {
       }
     }
 
-    const matches = await filenameMatchesToMap(this.registry)(this.dir)(path.join(this.dir, '.git'))(matchingFiles);
+    const matches = await filenameMatchesToMap(this.registry)(this.dir)(matchingFiles);
 
     sourceBehaviorOptionsBetaMatches.forEach((key: string, value: string) => {
       matches.fullMatches.set(key, value);
@@ -286,6 +339,7 @@ export class GitRepo {
         dir: this.dir,
         ref,
         depth: 1,
+        cache: this.cache,
       });
       return { oid: log.oid, parents: log.commit.parent };
     } catch (error) {
