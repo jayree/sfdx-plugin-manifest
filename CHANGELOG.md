@@ -1,3 +1,12 @@
+# [3.6.0](https://github.com/jayree/sfdx-plugin-manifest/compare/3.5.33...3.6.0) (2024-10-27)
+
+
+### Features
+
+* use isomorphic-git cache ([996ad86](https://github.com/jayree/sfdx-plugin-manifest/commit/996ad8682f4168f23ba1490fc7483a1ec00a8a0b))
+
+
+
 ## [3.5.33](https://github.com/jayree/sfdx-plugin-manifest/compare/3.5.32...3.5.33) (2024-10-26)
 
 
