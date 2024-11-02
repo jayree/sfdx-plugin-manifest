@@ -1728,7 +1728,7 @@
     semver "^7.6.3"
     ts-json-schema-generator "^1.5.1"
 
-"@oclif/plugin-help@^6.2.14", "@oclif/plugin-help@^6.2.16":
+"@oclif/plugin-help@^6.2.16":
   version "6.2.16"
   resolved "https://registry.yarnpkg.com/@oclif/plugin-help/-/plugin-help-6.2.16.tgz#3cb6c068739bc934159dc430d4f8ca7f9effa22a"
   integrity sha512-1x/Bm0LebDouDOfsjkOz+6AXqY6gIZ6JmmU/KuF/GnUmowDvj5i3MFlP9uBTiN8UsOUeT9cdLwnc1kmitHWFTg==
@@ -6985,10 +6985,10 @@ object.values@^1.1.7:
     define-properties "^1.2.1"
     es-object-atoms "^1.0.0"
 
-oclif@^4.15.15:
-  version "4.15.15"
-  resolved "https://registry.yarnpkg.com/oclif/-/oclif-4.15.15.tgz#dd5e586a4bd9be495d5bf11c3bc11e59fdc22b0a"
-  integrity sha512-AhuSSQ9gW+g3C86hdTHYBWKGknE/q0puFHsEcQTeCPS+NfTXSefmEUowE7QWAx8CkrdYDpJY/sOWXrK3FJEqFQ==
+oclif@^4.15.16:
+  version "4.15.16"
+  resolved "https://registry.yarnpkg.com/oclif/-/oclif-4.15.16.tgz#02c9f8690eac3b625a40fabbf3e21312461207d1"
+  integrity sha512-y/xBQpFrYZihmEoCUwCzGM2aoKKWHMEcnEHrXrsrTOmDIcS8diwk7IoL8k72Ztp7kbD+GrAVhUXfsbo1jUZCaQ==
   dependencies:
     "@aws-sdk/client-cloudfront" "^3.679.0"
     "@aws-sdk/client-s3" "^3.676.0"
@@ -6996,7 +6996,7 @@ oclif@^4.15.15:
     "@inquirer/input" "^2.2.4"
     "@inquirer/select" "^2.5.0"
     "@oclif/core" "^4.0.30"
-    "@oclif/plugin-help" "^6.2.14"
+    "@oclif/plugin-help" "^6.2.16"
     "@oclif/plugin-not-found" "^3.2.21"
     "@oclif/plugin-warn-if-update-available" "^3.1.20"
     async-retry "^1.3.3"
