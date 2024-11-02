@@ -23,7 +23,7 @@
   "devDependencies": {
     "@oclif/plugin-command-snapshot": "^5.2.21",
     "@oclif/plugin-help": "^6.2.16",
-    "@salesforce/cli-plugins-testkit": "^5.3.35",
+    "@salesforce/cli-plugins-testkit": "^5.3.36",
     "@salesforce/dev-scripts": "^10.2.10",
     "@salesforce/ts-sinon": "^1.4.28",
     "@types/fs-extra": "^11.0.4",
