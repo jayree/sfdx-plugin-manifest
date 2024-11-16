@@ -1,3 +1,12 @@
+## [3.6.7](https://github.com/jayree/sfdx-plugin-manifest/compare/3.6.6...3.6.7) (2024-11-16)
+
+
+### Bug Fixes
+
+* **deps:** bump cross-spawn from 7.0.3 to 7.0.5 ([#1564](https://github.com/jayree/sfdx-plugin-manifest/issues/1564)) ([1feb2a0](https://github.com/jayree/sfdx-plugin-manifest/commit/1feb2a0943d811872301ad155752584bc31e65a9))
+
+
+
 ## [3.6.6](https://github.com/jayree/sfdx-plugin-manifest/compare/3.6.5...3.6.6) (2024-11-09)
 
 
