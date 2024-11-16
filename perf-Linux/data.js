@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1731750887770,
+  "lastUpdate": 1731751262441,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -3695,6 +3695,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 218,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "de962724f6abea8e715122d730dc597c229057a4",
+          "message": "fix(deps): bump cross-spawn from 7.0.3 to 7.0.5\n\nBumps [cross-spawn](https://github.com/moxystudio/node-cross-spawn) from 7.0.3 to 7.0.5.\n- [Changelog](https://github.com/moxystudio/node-cross-spawn/blob/master/CHANGELOG.md)\n- [Commits](https://github.com/moxystudio/node-cross-spawn/compare/v7.0.3...v7.0.5)\n\n---\nupdated-dependencies:\n- dependency-name: cross-spawn\n  dependency-type: indirect\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2024-11-16T10:00:12Z",
+          "tree_id": "e279d57c129a57ed6059c584d19b62139b0752ad",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/de962724f6abea8e715122d730dc597c229057a4"
+        },
+        "date": 1731751261793,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 2661,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 1724,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 276,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 213,
             "unit": "ms"
           }
         ]
