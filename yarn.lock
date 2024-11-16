@@ -1704,10 +1704,10 @@
     minimatch "^9.0.5"
     proxy-agent "^6.4.0"
 
-"@salesforce/source-tracking@^7.1.22":
-  version "7.1.22"
-  resolved "https://registry.yarnpkg.com/@salesforce/source-tracking/-/source-tracking-7.1.22.tgz#546e37dbfc5a2d7de663f5a0ef73d05be2dbff76"
-  integrity sha512-y7/HTrf9ad2fjSA/Y+N7nGXY8gc/fwIKRZwvq2KBI7ZXKj62wcijNyOwXj+ojeUefrw3NmPePGDU53EBCSbDTw==
+"@salesforce/source-tracking@^7.1.23":
+  version "7.1.23"
+  resolved "https://registry.yarnpkg.com/@salesforce/source-tracking/-/source-tracking-7.1.23.tgz#8a5a323ebb6af00f86e6401c923727f12fa1b480"
+  integrity sha512-2KxZbpEA5Ha8+j51viRZ6Egw7ATDuA3wkFLm9zS5U8JTJP07Xt51lTqPSSLJy/Cc1JdZkz7AXTxNLdCIpnGFTg==
   dependencies:
     "@oclif/core" "^4.0.31"
     "@salesforce/core" "^8.8.0"
