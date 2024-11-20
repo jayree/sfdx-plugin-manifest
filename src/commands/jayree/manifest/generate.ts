@@ -4,14 +4,7 @@
  * Licensed under the BSD 3-Clause license.
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
-import {
-  SfCommand,
-  Flags,
-  arrayWithDeprecation,
-  orgApiVersionFlagWithDeprecations,
-  requiredOrgFlagWithDeprecations,
-  Ux,
-} from '@salesforce/sf-plugins-core';
+import { SfCommand, Flags, Ux } from '@salesforce/sf-plugins-core';
 import { FileProperties, ListMetadataQuery } from '@salesforce/source-deploy-retrieve/lib/src/client/types.js';
 import { Messages, Logger, Connection } from '@salesforce/core';
 import { RegistryAccess, ComponentSet, PackageManifestObject } from '@salesforce/source-deploy-retrieve';
@@ -51,11 +44,13 @@ export default class GeneratePackageXML extends SfCommand<PackageManifestObject>
   public static readonly examples = messages.getMessages('examples');
 
   public static readonly flags = {
-    'target-org': requiredOrgFlagWithDeprecations,
-    'api-version': orgApiVersionFlagWithDeprecations,
-    'quick-filter': arrayWithDeprecation({
+    'target-org': Flags.requiredOrg(),
+    'api-version': Flags.orgApiVersion(),
+    'quick-filter': Flags.string({
       char: 'q',
-      description: messages.getMessage('flags.quick-filter.summary'),
+      summary: messages.getMessage('flags.quick-filter.summary'),
+      multiple: true,
+      delimiter: ',',
       deprecateAliases: true,
       aliases: ['quickfilter'],
     }),
