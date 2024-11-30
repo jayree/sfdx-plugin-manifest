@@ -2068,19 +2068,19 @@
     minimatch "^9.0.5"
     proxy-agent "^6.4.0"
 
-"@salesforce/source-tracking@^7.1.25":
-  version "7.1.25"
-  resolved "https://registry.yarnpkg.com/@salesforce/source-tracking/-/source-tracking-7.1.25.tgz#20aa39053cab26e0a65c6a47141f53ab3b633c1d"
-  integrity sha512-DSdRrjQkS0ZU0r5oiBparWIpG/ofLIyRH5ouqWHf6sfqKgYQPeB7UhBjPhPLxcG2yAvUnBZcqQSShdENwaNXkQ==
+"@salesforce/source-tracking@^7.2.2":
+  version "7.2.2"
+  resolved "https://registry.yarnpkg.com/@salesforce/source-tracking/-/source-tracking-7.2.2.tgz#ac0a67697363a24ba71fb8cd40539e08be6d1726"
+  integrity sha512-GYQkynnTcrJCOjE15Phn5gFJKVaCRWQXu6t2mj9z+JF3+4qDVCRFHdUco5neJKEzUaUS9oedknhisTpieDC9Jw==
   dependencies:
-    "@oclif/core" "^4.0.32"
+    "@oclif/core" "^4.0.33"
     "@salesforce/core" "^8.8.0"
     "@salesforce/kit" "^3.2.3"
     "@salesforce/source-deploy-retrieve" "^12.10.2"
     "@salesforce/ts-types" "^2.0.12"
     fast-xml-parser "^4.5.0"
     graceful-fs "^4.2.11"
-    isomorphic-git "^1.27.1"
+    isomorphic-git "^1.27.2"
     ts-retry-promise "^0.8.1"
 
 "@salesforce/ts-sinon@^1.4.30":
@@ -6131,7 +6131,7 @@ isexe@^2.0.0:
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==
 
-isomorphic-git@1.27.2, isomorphic-git@^1.27.1:
+isomorphic-git@1.27.2, isomorphic-git@^1.27.2:
   version "1.27.2"
   resolved "https://registry.yarnpkg.com/isomorphic-git/-/isomorphic-git-1.27.2.tgz#969727adf4e81ec313974e9ebe2d1d0982b25c7f"
   integrity sha512-nCiz+ieOkWb5kDJSSckDTiMjTcgkxqH2xuiQmw1Y6O/spwx4d6TKYSfGCd4f71HGvUYcRSUGqJEI+3uN6UQlOw==
