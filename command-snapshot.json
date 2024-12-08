@@ -12,15 +12,12 @@
     "command": "jayree:manifest:generate",
     "flagAliases": [
       "a",
-      "apiversion",
       "excludeall",
       "excludemanaged",
       "includeflowversions",
       "matchcase",
       "matchwholeword",
       "quickfilter",
-      "targetusername",
-      "u",
       "x"
     ],
     "flagChars": ["c", "f", "o", "q", "w"],
@@ -42,7 +39,7 @@
   {
     "alias": ["jayree:manifest:beta:git:diff"],
     "command": "jayree:manifest:git:diff",
-    "flagAliases": ["apiversion", "destructivechangesonly", "o", "outputdir", "p", "sourcepath"],
+    "flagAliases": ["destructivechangesonly", "o", "outputdir", "p", "sourcepath"],
     "flagChars": ["d"],
     "flags": ["api-version", "destructive-changes-only", "flags-dir", "json", "output-dir", "source-dir"],
     "plugin": "@jayree/sfdx-plugin-manifest"
