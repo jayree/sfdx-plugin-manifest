@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1733589050857,
+  "lastUpdate": 1733952489767,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -6423,6 +6423,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 407,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jayree.git@icloud.com",
+            "name": "jayree",
+            "username": "jayree"
+          },
+          "committer": {
+            "email": "jayree.git@icloud.com",
+            "name": "jayree",
+            "username": "jayree"
+          },
+          "distinct": true,
+          "id": "480c58a6ee1d323c5a4a280c01d83fdb7034be19",
+          "message": "feat: remove flag deprecations",
+          "timestamp": "2024-12-11T22:22:53+01:00",
+          "tree_id": "78a3af40f9314dc25f75d42b659ca4f6fdcf37b8",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/480c58a6ee1d323c5a4a280c01d83fdb7034be19"
+        },
+        "date": 1733952472887,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 5059,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 3447,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 393,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 343,
             "unit": "ms"
           }
         ]
