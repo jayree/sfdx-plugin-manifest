@@ -1,3 +1,12 @@
+## [3.6.19](https://github.com/jayree/sfdx-plugin-manifest/compare/3.6.18...3.6.19) (2024-12-14)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/sf-plugins-core from 12.1.0 to 12.1.1 ([#1592](https://github.com/jayree/sfdx-plugin-manifest/issues/1592)) ([574db8d](https://github.com/jayree/sfdx-plugin-manifest/commit/574db8d027458de523efbe46bf74140e44a8367a))
+
+
+
 ## [3.6.18](https://github.com/jayree/sfdx-plugin-manifest/compare/3.6.17...3.6.18) (2024-12-14)
 
 
