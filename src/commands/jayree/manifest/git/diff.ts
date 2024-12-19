@@ -8,7 +8,7 @@ import { join } from 'node:path';
 import { Messages } from '@salesforce/core';
 import fs from 'fs-extra';
 import { DestructiveChangesType } from '@salesforce/source-deploy-retrieve';
-import { SfCommand, Flags, orgApiVersionFlagWithDeprecations, arrayWithDeprecation } from '@salesforce/sf-plugins-core';
+import { SfCommand, Flags } from '@salesforce/sf-plugins-core';
 import { Args } from '@oclif/core';
 import { getString, Optional } from '@salesforce/ts-types';
 import { ComponentSetExtra } from '../../../../SDR-extra/index.js';
@@ -42,9 +42,11 @@ export default class GitDiffCommand extends SfCommand<GitDiffCommandResult> {
   public static readonly aliases = ['jayree:manifest:beta:git:diff'];
 
   public static readonly flags = {
-    'api-version': orgApiVersionFlagWithDeprecations,
-    'source-dir': arrayWithDeprecation({
+    'api-version': Flags.orgApiVersion(),
+    'source-dir': Flags.string({
       char: 'd',
+      multiple: true,
+      delimiter: ',',
       summary: messages.getMessage('flags.source-dir.summary'),
       description: messages.getMessage('flags.source-dir.description'),
       deprecateAliases: true,
