@@ -1,3 +1,12 @@
+## [3.6.21](https://github.com/jayree/sfdx-plugin-manifest/compare/3.6.20...3.6.21) (2024-12-21)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-xml-parser from 4.5.0 to 4.5.1 ([#1601](https://github.com/jayree/sfdx-plugin-manifest/issues/1601)) ([babfd7c](https://github.com/jayree/sfdx-plugin-manifest/commit/babfd7c8837dfa80f67379f3b13861c9006c86b1))
+
+
+
 ## [3.6.20](https://github.com/jayree/sfdx-plugin-manifest/compare/3.6.19...3.6.20) (2024-12-14)
 
 
