@@ -136,7 +136,7 @@
     "@smithy/util-waiter" "^3.2.0"
     tslib "^2.6.2"
 
-"@aws-sdk/client-s3@^3.712.0":
+"@aws-sdk/client-s3@^3.717.0":
   version "3.717.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/client-s3/-/client-s3-3.717.0.tgz#b2ab596bd2d293db6ab57f963608b451dca0560e"
   integrity sha512-jzaH8IskAXVnqlZ3/H/ROwrB2HCnq/atlN7Hi7FIfjWvMPf5nfcJKfzJ1MXFX0EQR5qO6X4TbK7rgi7Bjw9NjQ==
@@ -1623,7 +1623,7 @@
     "@inquirer/type" "^3.0.2"
     ansi-escapes "^4.3.2"
 
-"@inquirer/prompts@^7.2.0":
+"@inquirer/prompts@^7.2.1":
   version "7.2.1"
   resolved "https://registry.yarnpkg.com/@inquirer/prompts/-/prompts-7.2.1.tgz#f00fbcf06998a07faebc10741efa289384529950"
   integrity sha512-v2JSGri6/HXSfoGIwuKEn8sNCQK6nsB2BNpy2lSX6QH9bsECrMv93QHnj5+f+1ZWpF/VNioIV2B/PDox8EvGuQ==
@@ -1862,12 +1862,12 @@
   dependencies:
     "@oclif/core" "^4"
 
-"@oclif/plugin-not-found@^3.2.31":
-  version "3.2.32"
-  resolved "https://registry.yarnpkg.com/@oclif/plugin-not-found/-/plugin-not-found-3.2.32.tgz#5b96bb4ea006a45798ecd869fc5bfa019ce124bc"
-  integrity sha512-8uyqhwq0I2qkBra6W6Ti0opBqDsBbMywVWplhbt1TkjMr9B8ZA8F1cQYa5Zz14blJD7dSS+OAhSHb/Ikkm1g4Q==
+"@oclif/plugin-not-found@^3.2.32":
+  version "3.2.33"
+  resolved "https://registry.yarnpkg.com/@oclif/plugin-not-found/-/plugin-not-found-3.2.33.tgz#d74cd2c16eaf0f54aa0f45ae7e29c0664f8bb8ea"
+  integrity sha512-1RgvZ0J5KloU8TRemHxCr5MbVtr41ungnz8BBCPJn2yR5L+Eo2Lt+kpOyEeYAohjo4Tml1AHSmipUF4jKThwTw==
   dependencies:
-    "@inquirer/prompts" "^7.2.0"
+    "@inquirer/prompts" "^7.2.1"
     "@oclif/core" "^4"
     ansis "^3.5.2"
     fast-levenshtein "^3.0.0"
@@ -7169,19 +7169,19 @@ object.values@^1.1.7:
     define-properties "^1.2.1"
     es-object-atoms "^1.0.0"
 
-oclif@^4.17.4:
-  version "4.17.4"
-  resolved "https://registry.yarnpkg.com/oclif/-/oclif-4.17.4.tgz#d435f6c95f6b6b19fb5cb0f35544f8b4f0e6a458"
-  integrity sha512-CELZOdxSfpM2Kl3dGP0N4fL4+RReGP18vo6oNklWoSP4ka+pJTBzO3W0o15KHAyrzpes5cui+xur3UPZIGr0LQ==
+oclif@^4.17.6:
+  version "4.17.6"
+  resolved "https://registry.yarnpkg.com/oclif/-/oclif-4.17.6.tgz#7ec3cb606396978f3bcc5856a7442f2bb7cddef3"
+  integrity sha512-0BtCVyoP7IG3o8IuVlbBd9eHQbzQu4Banwt4G5ZdfmLs/UwUyE1AVW8h/bZcBBujT5iys9LcAuSk1l50OXO6ow==
   dependencies:
     "@aws-sdk/client-cloudfront" "^3.699.0"
-    "@aws-sdk/client-s3" "^3.712.0"
+    "@aws-sdk/client-s3" "^3.717.0"
     "@inquirer/confirm" "^3.1.22"
     "@inquirer/input" "^2.2.4"
     "@inquirer/select" "^2.5.0"
     "@oclif/core" "^4.2.0"
     "@oclif/plugin-help" "^6.2.20"
-    "@oclif/plugin-not-found" "^3.2.31"
+    "@oclif/plugin-not-found" "^3.2.32"
     "@oclif/plugin-warn-if-update-available" "^3.1.28"
     async-retry "^1.3.3"
     chalk "^4"
