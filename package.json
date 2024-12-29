@@ -1,7 +1,7 @@
 {
   "name": "@jayree/sfdx-plugin-manifest",
   "description": "A Salesforce CLI plugin containing commands for creating manifest files from Salesforce orgs or git commits of sfdx projects.",
-  "version": "3.6.23",
+  "version": "3.6.24",
   "author": "jayree",
   "type": "module",
   "bugs": "https://github.com/jayree/sfdx-plugin-manifest/issues",
