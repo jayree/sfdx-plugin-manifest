@@ -5,5 +5,6 @@
   "entryPoints": ["src/SDR-extra/"],
   "entryPointStrategy": "expand",
   "name": "SDR-extra",
-  "readme": "src/SDR-extra/README.md"
+  "readme": "src/SDR-extra/README.md",
+  "hostedBaseUrl": "https://jayree.github.io/sfdx-plugin-manifest/"
 }
