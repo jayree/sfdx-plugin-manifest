@@ -1,3 +1,12 @@
+## [3.6.26](https://github.com/jayree/sfdx-plugin-manifest/compare/3.6.25...3.6.26) (2025-01-05)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.27.2 to 1.28.0 ([#1609](https://github.com/jayree/sfdx-plugin-manifest/issues/1609)) ([59884ce](https://github.com/jayree/sfdx-plugin-manifest/commit/59884cee9a0bcf8fa082450c053f9055084766fb))
+
+
+
 ## [3.6.25](https://github.com/jayree/sfdx-plugin-manifest/compare/3.6.24...3.6.25) (2025-01-05)
 
 
