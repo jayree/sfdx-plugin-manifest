@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1736035581711,
+  "lastUpdate": 1736089816373,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -7743,6 +7743,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 334,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b5ca309b11b633985ace59bdb5093c2322923f84",
+          "message": "fix(deps): bump @salesforce/source-tracking from 7.3.4 to 7.3.5\n\nBumps [@salesforce/source-tracking](https://github.com/forcedotcom/source-tracking) from 7.3.4 to 7.3.5.\n- [Release notes](https://github.com/forcedotcom/source-tracking/releases)\n- [Changelog](https://github.com/forcedotcom/source-tracking/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/forcedotcom/source-tracking/compare/7.3.4...7.3.5)\n\n---\nupdated-dependencies:\n- dependency-name: \"@salesforce/source-tracking\"\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2025-01-05T15:06:28Z",
+          "tree_id": "7fe23a9b6c0390bb6828164f13a1fd14d0006a0b",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/b5ca309b11b633985ace59bdb5093c2322923f84"
+        },
+        "date": 1736089806534,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 5135,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 3444,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 383,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 335,
             "unit": "ms"
           }
         ]
