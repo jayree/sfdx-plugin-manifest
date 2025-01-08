@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1736154007797,
+  "lastUpdate": 1736343163571,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -8007,6 +8007,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 359,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jayree.git@icloud.com",
+            "name": "jayree",
+            "username": "jayree"
+          },
+          "committer": {
+            "email": "jayree.git@icloud.com",
+            "name": "jayree",
+            "username": "jayree"
+          },
+          "distinct": true,
+          "id": "5eea95ecf0e3915135e001e04ed475a58cea8a2c",
+          "message": "fix: remove 'bot' from child components replacement logic",
+          "timestamp": "2025-01-08T14:27:41+01:00",
+          "tree_id": "bf7575689ba6391b62c86f9d2b83848c84381469",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/5eea95ecf0e3915135e001e04ed475a58cea8a2c"
+        },
+        "date": 1736343149685,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 5548,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 3730,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 398,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 370,
             "unit": "ms"
           }
         ]
