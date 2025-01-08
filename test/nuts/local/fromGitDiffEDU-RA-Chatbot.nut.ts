@@ -49,10 +49,7 @@ describe('result testing with EDU-RA-Chatbot', () => {
     expect(comp.getTypesOfDestructiveChanges()).to.deep.equal([]);
     expect(await comp.getObject()).to.deep.equal({
       Package: {
-        types: [
-          { members: ['Mascot'], name: 'Bot' },
-          { members: ['Mascot.v1'], name: 'BotVersion' },
-        ],
+        types: [{ members: ['Mascot.v1'], name: 'BotVersion' }],
         version: '50.0',
       },
     });
@@ -144,7 +141,7 @@ describe('result testing with EDU-RA-Chatbot', () => {
     expect(comp.getTypesOfDestructiveChanges()).to.deep.equal([]);
     expect(await comp.getObject()).to.deep.equal({
       Package: {
-        types: [{ members: ['Mascot'], name: 'Bot' }],
+        types: [],
         version: '50.0',
       },
     });
