@@ -1,3 +1,12 @@
+## [3.6.28](https://github.com/jayree/sfdx-plugin-manifest/compare/3.6.27...3.6.28) (2025-01-08)
+
+
+### Bug Fixes
+
+* remove 'bot' from child components replacement logic ([501dd54](https://github.com/jayree/sfdx-plugin-manifest/commit/501dd54bfc0b5e8f46a953e2f4642f9852566218))
+
+
+
 ## [3.6.27](https://github.com/jayree/sfdx-plugin-manifest/compare/3.6.26...3.6.27) (2025-01-08)
 
 
