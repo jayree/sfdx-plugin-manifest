@@ -11,7 +11,7 @@
     "@salesforce/core": "^8.8.0",
     "@salesforce/kit": "^3.2.3",
     "@salesforce/sf-plugins-core": "^12.1.2",
-    "@salesforce/source-deploy-retrieve": "^12.10.4",
+    "@salesforce/source-deploy-retrieve": "^12.11.3",
     "@salesforce/source-tracking": "^7.3.5",
     "@salesforce/ts-types": "^2.0.12",
     "fast-deep-equal": "^3.1.3",
