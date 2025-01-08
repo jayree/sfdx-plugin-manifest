@@ -67,8 +67,8 @@ describe('result testing with NUTS', () => {
             name: 'SharingRules',
           },
           {
-            members: ['Case'],
-            name: 'Workflow',
+            members: ['Case.ChangePriorityToHigh'],
+            name: 'WorkflowFieldUpdate',
           },
         ],
         version: '59.0',
