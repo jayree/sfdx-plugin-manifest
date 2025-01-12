@@ -63,8 +63,8 @@ describe('result testing with NUTS', () => {
             name: 'PermissionSet',
           },
           {
-            members: ['Account'],
-            name: 'SharingRules',
+            members: ['Account.x1'],
+            name: 'SharingOwnerRule',
           },
           {
             members: ['Case.ChangePriorityToHigh'],
