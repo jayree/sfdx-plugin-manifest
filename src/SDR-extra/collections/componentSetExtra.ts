@@ -71,10 +71,17 @@ export class ComponentSetExtra extends ComponentSet {
     const include = new ComponentSet([], registry);
     const markedForDelete = new ComponentSet([], registry);
 
-    const childsTobeReplacedByParent = [
-      ...Object.keys(registry.getTypeByName('workflow').children?.types ?? {}), // can be removed as soon as sourceBehaviorOptions becomes available in the default registry
-      ...Object.keys(registry.getTypeByName('sharingrules').children?.types ?? {}), // can be removed as soon as sourceBehaviorOptions becomes available in the default registry
-    ];
+    const sourceBehaviorOptions = project.getSfProjectJson().get<string[]>('sourceBehaviorOptions'); // can be removed as soon as sourceBehaviorOptions becomes available in the default registry
+
+    const childsTobeReplacedByParent = [];
+
+    if (!sourceBehaviorOptions?.includes('decomposeWorkflowBeta')) {
+      childsTobeReplacedByParent.push(...Object.keys(registry.getTypeByName('workflow').children?.types ?? {}));
+    }
+
+    if (!sourceBehaviorOptions?.includes('decomposeSharingRulesBeta')) {
+      childsTobeReplacedByParent.push(...Object.keys(registry.getTypeByName('sharingrules').children?.types ?? {}));
+    }
 
     for (const component of gitDiffResult.getSourceComponents()) {
       if (!component.isMarkedForDelete()) {
