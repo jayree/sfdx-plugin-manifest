@@ -1,3 +1,12 @@
+## [3.6.35](https://github.com/jayree/sfdx-plugin-manifest/compare/3.6.34...3.6.35) (2025-01-17)
+
+
+### Bug Fixes
+
+* respect sourceBehaviorOptions ([#1623](https://github.com/jayree/sfdx-plugin-manifest/issues/1623)) ([0a2011b](https://github.com/jayree/sfdx-plugin-manifest/commit/0a2011b483241df7e64b15284037ccf74fdebb6b))
+
+
+
 ## [3.6.34](https://github.com/jayree/sfdx-plugin-manifest/compare/3.6.33...3.6.34) (2025-01-12)
 
 
