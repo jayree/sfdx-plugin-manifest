@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1737306748095,
+  "lastUpdate": 1737313655589,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -10075,6 +10075,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 288,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jayree.git@icloud.com",
+            "name": "jayree",
+            "username": "jayree"
+          },
+          "committer": {
+            "email": "jayree.git@icloud.com",
+            "name": "jayree",
+            "username": "jayree"
+          },
+          "distinct": true,
+          "id": "caa3c007ba72cbce08617a66e505788f846fc92c",
+          "message": "fix: refactor outputPath",
+          "timestamp": "2025-01-19T20:06:52+01:00",
+          "tree_id": "72444fe2380559034dd5a5aae9664fee2c71630c",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/caa3c007ba72cbce08617a66e505788f846fc92c"
+        },
+        "date": 1737313654099,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 2777,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 1838,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 347,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 259,
             "unit": "ms"
           }
         ]
