@@ -30,7 +30,8 @@ export default class GitDiffCommand extends SfCommand<GitDiffCommandResult> {
     private outputDir;
     private manifestName;
     private destructiveChangesName;
-    private outputPath;
+    private manifestOutputPath;
+    private destructiveChangesOutputPath;
     private componentSet;
     private destructiveChangesOnly;
     run(): Promise<GitDiffCommandResult>;

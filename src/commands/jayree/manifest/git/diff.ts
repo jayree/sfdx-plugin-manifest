@@ -51,6 +51,7 @@ export default class GitDiffCommand extends SfCommand<GitDiffCommandResult> {
       aliases: ['sourcepath', 'p'],
     }),
     'output-dir': Flags.directory({
+      char: 'r',
       summary: messages.getMessage('flags.output-dir.summary'),
       description: messages.getMessage('flags.output-dir.description'),
       default: '',
@@ -65,10 +66,11 @@ export default class GitDiffCommand extends SfCommand<GitDiffCommandResult> {
     }),
   };
 
-  private outputDir!: string;
+  private outputDir!: string | undefined;
   private manifestName!: string;
   private destructiveChangesName!: string;
-  private outputPath!: string;
+  private manifestOutputPath!: string;
+  private destructiveChangesOutputPath!: string;
   private componentSet!: ComponentSetExtra;
   private destructiveChangesOnly!: boolean;
 
@@ -102,15 +104,17 @@ export default class GitDiffCommand extends SfCommand<GitDiffCommandResult> {
 
     if (this.outputDir) {
       await fs.ensureDir(this.outputDir);
-      this.outputPath = join(this.outputDir, this.manifestName);
+      this.manifestOutputPath = join(this.outputDir, this.manifestName);
+      this.destructiveChangesOutputPath = join(this.outputDir, this.destructiveChangesName);
     } else {
-      this.outputPath = this.manifestName;
+      this.manifestOutputPath = this.manifestName;
+      this.destructiveChangesOutputPath = this.destructiveChangesName;
     }
 
     if (this.componentSet.size) {
       if (this.componentSet.getTypesOfDestructiveChanges().length) {
         await fs.writeFile(
-          join(this.outputDir, this.destructiveChangesName),
+          this.destructiveChangesOutputPath,
           await this.componentSet.getPackageXml(undefined, DestructiveChangesType.POST),
         );
       }
@@ -118,11 +122,11 @@ export default class GitDiffCommand extends SfCommand<GitDiffCommandResult> {
         if (this.componentSet.getTypesOfDestructiveChanges().length) {
           const emptyCompSet = new ComponentSetExtra();
           emptyCompSet.sourceApiVersion = this.componentSet.sourceApiVersion;
-          return fs.writeFile(this.outputPath, await emptyCompSet.getPackageXml());
+          return fs.writeFile(this.manifestOutputPath, await emptyCompSet.getPackageXml());
         }
         return;
       }
-      return fs.writeFile(this.outputPath, await this.componentSet.getPackageXml());
+      return fs.writeFile(this.manifestOutputPath, await this.componentSet.getPackageXml());
     }
   }
 
@@ -148,14 +152,14 @@ export default class GitDiffCommand extends SfCommand<GitDiffCommandResult> {
     }
     if (this.componentSet.getTypesOfDestructiveChanges().length) {
       return {
-        manifest: { path: this.outputPath, name: this.manifestName },
+        manifest: { path: this.manifestOutputPath, name: this.manifestName },
         destructiveChanges: {
-          path: join(this.outputDir, this.destructiveChangesName),
+          path: this.destructiveChangesOutputPath,
           name: this.destructiveChangesName,
         },
       };
     } else if (this.componentSet.size && !this.destructiveChangesOnly) {
-      return { manifest: { path: this.outputPath, name: this.manifestName } };
+      return { manifest: { path: this.manifestOutputPath, name: this.manifestName } };
     } else {
       return {};
     }
