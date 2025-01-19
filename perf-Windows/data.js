@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1737304247868,
+  "lastUpdate": 1737304488357,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -9767,6 +9767,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 344,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c4b888f0a6d67bdbb8d636be3ea516a95d995145",
+          "message": "chore(deps-dev): bump eslint-plugin-prettier from 5.2.1 to 5.2.3\n\nBumps [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier) from 5.2.1 to 5.2.3.\n- [Release notes](https://github.com/prettier/eslint-plugin-prettier/releases)\n- [Changelog](https://github.com/prettier/eslint-plugin-prettier/blob/master/CHANGELOG.md)\n- [Commits](https://github.com/prettier/eslint-plugin-prettier/compare/v5.2.1...v5.2.3)\n\n---\nupdated-dependencies:\n- dependency-name: eslint-plugin-prettier\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2025-01-19T16:26:08Z",
+          "tree_id": "c536df3d3ba79524c8c268131c0205a695b94fa2",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/c4b888f0a6d67bdbb8d636be3ea516a95d995145"
+        },
+        "date": 1737304483241,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 5322,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 3616,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 373,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 337,
             "unit": "ms"
           }
         ]
