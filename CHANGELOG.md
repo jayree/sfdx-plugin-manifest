@@ -1,3 +1,12 @@
+## [3.6.37](https://github.com/jayree/sfdx-plugin-manifest/compare/3.6.36...3.6.37) (2025-01-19)
+
+
+### Bug Fixes
+
+* **deps:** bump fs-extra from 11.2.0 to 11.3.0 ([#1629](https://github.com/jayree/sfdx-plugin-manifest/issues/1629)) ([bdddc45](https://github.com/jayree/sfdx-plugin-manifest/commit/bdddc45aaea9e718f6d73a45cb0a96ec4080843f))
+
+
+
 ## [3.6.36](https://github.com/jayree/sfdx-plugin-manifest/compare/3.6.35...3.6.36) (2025-01-19)
 
 
