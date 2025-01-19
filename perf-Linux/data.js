@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1737302881419,
+  "lastUpdate": 1737304014441,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -9767,6 +9767,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 243,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d520f55b6c157b58f60f88cbffe1ddedcbee3ece",
+          "message": "fix(deps): bump fs-extra from 11.2.0 to 11.3.0\n\nBumps [fs-extra](https://github.com/jprichardson/node-fs-extra) from 11.2.0 to 11.3.0.\n- [Changelog](https://github.com/jprichardson/node-fs-extra/blob/master/CHANGELOG.md)\n- [Commits](https://github.com/jprichardson/node-fs-extra/compare/11.2.0...11.3.0)\n\n---\nupdated-dependencies:\n- dependency-name: fs-extra\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2025-01-19T16:26:02Z",
+          "tree_id": "fd37d78fec4dfbdb144630ecfd486d02d760582c",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/d520f55b6c157b58f60f88cbffe1ddedcbee3ece"
+        },
+        "date": 1737304013598,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 2814,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 1833,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 278,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 249,
             "unit": "ms"
           }
         ]
