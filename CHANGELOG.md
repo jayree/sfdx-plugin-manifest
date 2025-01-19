@@ -1,3 +1,12 @@
+## [3.6.39](https://github.com/jayree/sfdx-plugin-manifest/compare/3.6.38...3.6.39) (2025-01-19)
+
+
+### Bug Fixes
+
+* refactor outputPath ([#1624](https://github.com/jayree/sfdx-plugin-manifest/issues/1624)) ([9054fb6](https://github.com/jayree/sfdx-plugin-manifest/commit/9054fb67fb602c142cf74f230cbcc5cac9e1d34e))
+
+
+
 ## [3.6.38](https://github.com/jayree/sfdx-plugin-manifest/compare/3.6.37...3.6.38) (2025-01-19)
 
 
