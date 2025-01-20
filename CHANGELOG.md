@@ -1,3 +1,12 @@
+## [3.6.40](https://github.com/jayree/sfdx-plugin-manifest/compare/3.6.39...3.6.40) (2025-01-20)
+
+
+### Bug Fixes
+
+* remove default value for output-dir parameter ([97c0ce3](https://github.com/jayree/sfdx-plugin-manifest/commit/97c0ce3b9279ad4e5cea9cf943b7b65a915b59a7))
+
+
+
 ## [3.6.39](https://github.com/jayree/sfdx-plugin-manifest/compare/3.6.38...3.6.39) (2025-01-19)
 
 
