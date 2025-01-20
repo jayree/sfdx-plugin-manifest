@@ -54,7 +54,6 @@ export default class GitDiffCommand extends SfCommand<GitDiffCommandResult> {
       char: 'r',
       summary: messages.getMessage('flags.output-dir.summary'),
       description: messages.getMessage('flags.output-dir.description'),
-      default: '',
       deprecateAliases: true,
       aliases: ['outputdir', 'o'],
     }),
