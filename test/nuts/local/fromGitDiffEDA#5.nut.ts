@@ -43,17 +43,17 @@ describe('result testing with EDA #5', () => {
       '\nforce-app/main/default/classes/AccountAutoDeletionSettingsVMapper.*\n',
     );
     const comp = await ComponentSetExtra.fromGitDiff(['HEAD']);
-    expect(emitWarningStub.calledTwice).to.be.true;
+    expect(emitWarningStub.calledTwice).to.equal(true);
     expect(
       emitWarningStub.calledWith(
         `The unstaged file ${join('force-app', 'main', 'default', 'classes', 'AccountAutoDeletionSettingsVMapper.cls')} was processed.`,
       ),
-    ).to.be.true;
+    ).to.equal(true);
     expect(
       emitWarningStub.calledWith(
         `The forceignored file ${join('force-app', 'main', 'default', 'classes', 'AccountAutoDeletionSettingsVMapper.cls')} was ignored.`,
       ),
-    ).to.be.true;
+    ).to.equal(true);
     expect(comp.getTypesOfDestructiveChanges()).to.deep.equal([]);
     expect(await comp.getObject()).to.deep.equal({ Package: { types: [], version: '52.0' } });
   });

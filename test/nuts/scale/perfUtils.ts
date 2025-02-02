@@ -37,5 +37,5 @@ export const recordPerf = async (testName: string, performance: Performance): Pr
   );
   performance.clearMarks();
   performance.clearMeasures();
-  expect(fs.existsSync(fileTarget)).to.be.true;
+  expect(fs.existsSync(fileTarget)).to.equal(true);
 };

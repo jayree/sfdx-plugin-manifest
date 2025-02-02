@@ -8,5 +8,5 @@ import git from 'isomorphic-git';
 import fs from 'fs-extra';
 
 export async function setAutocrlfOnWin32(dir: string) {
-  process.platform === 'win32' && (await git.setConfig({ fs, dir, path: 'core.autocrlf', value: 'true' }));
+  return process.platform === 'win32' && (await git.setConfig({ fs, dir, path: 'core.autocrlf', value: 'true' }));
 }

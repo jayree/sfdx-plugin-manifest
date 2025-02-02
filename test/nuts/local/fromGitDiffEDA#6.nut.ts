@@ -46,17 +46,17 @@ describe('result testing with EDA #6', () => {
       '\nforce-app/main/default/objects/Account/fields/Billing_County__c.field-meta.xml\n',
     );
     const comp = await ComponentSetExtra.fromGitDiff(['HEAD']);
-    expect(emitWarningStub.calledTwice).to.be.true;
+    expect(emitWarningStub.calledTwice).to.equal(true);
     expect(
       emitWarningStub.calledWith(
         `The unstaged file ${join('force-app', 'main', 'default', 'objects', 'Account', 'fields', 'Billing_County__c.field-meta.xml')} was processed.`,
       ),
-    ).to.be.true;
+    ).to.equal(true);
     expect(
       emitWarningStub.calledWith(
         `The forceignored file ${join('force-app', 'main', 'default', 'objects', 'Account', 'fields', 'Billing_County__c.field-meta.xml')} was ignored.`,
       ),
-    ).to.be.true;
+    ).to.equal(true);
     expect(comp.getTypesOfDestructiveChanges()).to.deep.equal([]);
     expect(await comp.getObject()).to.deep.equal({ Package: { types: [], version: '52.0' } });
   });

@@ -86,6 +86,7 @@ export class GitDiffResolver {
 
     if (cs.forceIgnoredPaths?.size) {
       const lifecycle = Lifecycle.getInstance();
+      // eslint-disable-next-line @typescript-eslint/await-thenable
       for await (const file of cs.forceIgnoredPaths) {
         await lifecycle.emitWarning(`The forceignored file ${file} was ignored.`);
       }

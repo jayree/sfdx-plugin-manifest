@@ -179,7 +179,7 @@ const resolveType =
       .flatMap((filename) => {
         try {
           return resolver.getComponentsFromPath(filename);
-        } catch (e) {
+        } catch {
           return undefined;
         }
       })

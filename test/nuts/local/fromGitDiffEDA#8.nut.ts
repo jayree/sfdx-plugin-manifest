@@ -66,7 +66,7 @@ describe('result testing with EDA #8', () => {
       emitWarningStub.calledWith(
         `The file ${join('force-app', 'main', 'default', 'aura', 'autocomplete', 'autocomplete.cmp')} moved to ${join('src', 'aura', 'autocomplete', 'autocomplete.cmp')} and modified was processed.`,
       ),
-    ).to.be.true;
+    ).to.equal(true);
     expect(comp.getTypesOfDestructiveChanges()).to.deep.equal([]);
     expect(await comp.getObject()).to.deep.equal({
       Package: {

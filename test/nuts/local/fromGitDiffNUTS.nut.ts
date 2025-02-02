@@ -40,17 +40,17 @@ describe('result testing with NUTS', () => {
       emitWarningStub.calledWith(
         `The file ${join('force-app', 'main', 'default', 'permissionsets', 'Experience_Profile_Manager.permissionset-meta.xml')} moved to ${join('force-app', 'main', 'default', 'permissionsets', 'Experience_Profile_Manager', 'Experience_Profile_Manager.permissionset-meta.xml')} was ignored.`,
       ),
-    ).to.be.true;
+    ).to.equal(true);
     expect(
       emitWarningStub.calledWith(
         `The file ${join('force-app', 'main', 'default', 'sharingRules', 'Account.sharingRules-meta.xml')} moved to ${join('force-app', 'main', 'default', 'sharingRules', 'Account', 'Account.sharingRules-meta.xml')} was ignored.`,
       ),
-    ).to.be.true;
+    ).to.equal(true);
     expect(
       emitWarningStub.calledWith(
         `The file ${join('force-app', 'main', 'default', 'workflows', 'Case.workflow-meta.xml')} moved to ${join('force-app', 'main', 'default', 'workflows', 'Case', 'Case.workflow-meta.xml')} was ignored.`,
       ),
-    ).to.be.true;
+    ).to.equal(true);
     expect(await comp.getObject()).to.deep.equal({
       Package: {
         types: [

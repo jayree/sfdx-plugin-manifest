@@ -122,6 +122,7 @@ export class ComponentSetExtra extends ComponentSet {
     }
 
     const lifecycle = Lifecycle.getInstance();
+    // eslint-disable-next-line @typescript-eslint/await-thenable
     for await (const component of include.getSourceComponents()) {
       if (
         !localSourceComponents.find(
