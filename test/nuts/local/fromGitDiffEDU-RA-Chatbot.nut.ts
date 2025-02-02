@@ -104,12 +104,12 @@ describe('result testing with EDU-RA-Chatbot', () => {
   it('should return with warning after local file appending', async () => {
     await fs.appendFile(join(session.project.dir, 'force-app/main/default/bots/Mascot/v1.botVersion-meta.xml'), '\n');
     const comp = await ComponentSetExtra.fromGitDiff(['HEAD']);
-    expect(emitWarningStub.calledOnce).to.be.true;
+    expect(emitWarningStub.calledOnce).to.equal(true);
     expect(
       emitWarningStub.calledWith(
         `The unstaged file ${join('force-app', 'main', 'default', 'bots', 'Mascot', 'v1.botVersion-meta.xml')} was processed.`,
       ),
-    ).to.be.true;
+    ).to.equal(true);
     expect(comp.getTypesOfDestructiveChanges()).to.deep.equal([]);
     expect(await comp.getObject()).to.deep.equal({ Package: { types: [], version: '50.0' } });
   });
@@ -117,12 +117,12 @@ describe('result testing with EDU-RA-Chatbot', () => {
   it('should return with warning after local file removal', async () => {
     await fs.remove(join(session.project.dir, 'force-app/main/default/bots/Mascot/v1.botVersion-meta.xml'));
     const comp = await ComponentSetExtra.fromGitDiff(['HEAD']);
-    expect(emitWarningStub.calledOnce).to.be.true;
+    expect(emitWarningStub.calledOnce).to.equal(true);
     expect(
       emitWarningStub.calledWith(
         `The unstaged file ${join('force-app', 'main', 'default', 'bots', 'Mascot', 'v1.botVersion-meta.xml')} was processed.`,
       ),
-    ).to.be.true;
+    ).to.equal(true);
     expect(comp.getTypesOfDestructiveChanges()).to.deep.equal(['post']);
     expect(await comp.getObject(DestructiveChangesType.POST)).to.deep.equal({
       Package: { types: [{ members: ['Mascot.v1'], name: 'BotVersion' }], version: '50.0' },
@@ -136,8 +136,8 @@ describe('result testing with EDU-RA-Chatbot', () => {
       'c0e0918a5e3effb1d2774759d4798618b83251a2',
       'd68f23aa8c39e61e861454ade8f88b0715df2409',
     ]);
-    expect(emitWarningStub.calledOnce).to.be.true;
-    expect(emitWarningStub.calledWith(`The component "BotVersion:Mascot.v1" was not found locally.`)).to.be.true;
+    expect(emitWarningStub.calledOnce).to.equal(true);
+    expect(emitWarningStub.calledWith(`The component "BotVersion:Mascot.v1" was not found locally.`)).to.equal(true);
     expect(comp.getTypesOfDestructiveChanges()).to.deep.equal([]);
     expect(await comp.getObject()).to.deep.equal({
       Package: {

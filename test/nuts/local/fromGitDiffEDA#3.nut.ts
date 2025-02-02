@@ -43,12 +43,12 @@ describe('result testing with EDA #3', () => {
       data.toString().replace('AfflMappingsDescription', 'AfflMappingsDescription1'),
     );
     const comp = await ComponentSetExtra.fromGitDiff(['HEAD']);
-    expect(emitWarningStub.calledOnce).to.be.true;
+    expect(emitWarningStub.calledOnce).to.equal(true);
     expect(
       emitWarningStub.calledWith(
         `The unstaged file ${join('force-app', 'main', 'default', 'labels', 'CustomLabels.labels-meta.xml')} was processed.`,
       ),
-    ).to.be.true;
+    ).to.equal(true);
     expect(comp.getTypesOfDestructiveChanges()).to.deep.equal(['post']);
     expect(await comp.getObject(DestructiveChangesType.POST)).to.deep.equal({
       Package: { types: [{ members: ['AfflMappingsDescription'], name: 'CustomLabel' }], version: '52.0' },

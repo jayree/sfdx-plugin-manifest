@@ -32,6 +32,7 @@ export class VirtualTreeContainerExtra extends VirtualTreeContainer {
     const paths = await localRepo.listFiles(ref);
     const oid = await localRepo.resolveRef(ref);
     const virtualDirectoryByFullPath = new Map<string, VirtualDirectory>();
+    // eslint-disable-next-line @typescript-eslint/await-thenable
     for await (const filepath of paths) {
       let dirPath = path.dirname(filepath);
       virtualDirectoryByFullPath.set(dirPath, {

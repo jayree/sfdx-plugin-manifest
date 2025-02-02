@@ -342,7 +342,7 @@ export class GitRepo {
         cache: this.cache,
       });
       return { oid: log.oid, parents: log.commit.parent };
-    } catch (error) {
+    } catch {
       throw new Error(
         `ambiguous argument '${ref}': unknown revision or path not in the working tree.
   See more help with --help`,
