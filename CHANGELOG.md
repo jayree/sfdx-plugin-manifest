@@ -1,3 +1,12 @@
+## [3.6.47](https://github.com/jayree/sfdx-plugin-manifest/compare/3.6.46...3.6.47) (2025-02-02)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 4.2.4 to 4.2.6 ([#1651](https://github.com/jayree/sfdx-plugin-manifest/issues/1651)) ([1de3c08](https://github.com/jayree/sfdx-plugin-manifest/commit/1de3c085e90f42b66b0b6c3400696e9f87e89aab))
+
+
+
 ## [3.6.46](https://github.com/jayree/sfdx-plugin-manifest/compare/3.6.45...3.6.46) (2025-02-02)
 
 
