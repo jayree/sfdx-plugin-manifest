@@ -6,5 +6,7 @@
   "entryPointStrategy": "expand",
   "name": "SDR-extra",
   "readme": "src/SDR-extra/README.md",
-  "hostedBaseUrl": "https://jayree.github.io/sfdx-plugin-manifest/"
+  "hostedBaseUrl": "https://sfdx-plugin-manifest.jayree.de/",
+  "cname": "sfdx-plugin-manifest.jayree.de",
+  "plugin": ["./scripts/typedoc-meta-plugin.mjs"]
 }
