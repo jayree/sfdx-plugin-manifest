@@ -4,14 +4,7 @@
  * Licensed under the BSD 3-Clause license.
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
-import {
-  SfCommand,
-  Flags,
-  arrayWithDeprecation,
-  orgApiVersionFlagWithDeprecations,
-  requiredOrgFlagWithDeprecations,
-  Ux,
-} from '@salesforce/sf-plugins-core';
+import { SfCommand, Flags, Ux } from '@salesforce/sf-plugins-core';
 import { FileProperties, ListMetadataQuery } from '@salesforce/source-deploy-retrieve/lib/src/client/types.js';
 import { Messages, Logger, Connection } from '@salesforce/core';
 import { RegistryAccess, ComponentSet, PackageManifestObject } from '@salesforce/source-deploy-retrieve';
@@ -51,30 +44,23 @@ export default class GeneratePackageXML extends SfCommand<PackageManifestObject>
   public static readonly examples = messages.getMessages('examples');
 
   public static readonly flags = {
-    'target-org': requiredOrgFlagWithDeprecations,
-    'api-version': orgApiVersionFlagWithDeprecations,
-    'quick-filter': arrayWithDeprecation({
+    'target-org': Flags.requiredOrg(),
+    'api-version': Flags.orgApiVersion(),
+    'quick-filter': Flags.string({
       char: 'q',
       summary: messages.getMessage('flags.quick-filter.summary'),
-      deprecateAliases: true,
-      aliases: ['quickfilter'],
+      multiple: true,
     }),
     'match-case': Flags.boolean({
       char: 'c',
       summary: messages.getMessage('flags.match-case.summary'),
-      deprecateAliases: true,
-      aliases: ['matchcase'],
     }),
     'match-whole-word': Flags.boolean({
       char: 'w',
       summary: messages.getMessage('flags.match-whole-word.summary'),
-      deprecateAliases: true,
-      aliases: ['matchwholeword'],
     }),
     'include-flow-versions': Flags.boolean({
       summary: messages.getMessage('flags.include-flow-versions.summary'),
-      deprecateAliases: true,
-      aliases: ['includeflowversions'],
     }),
     file: Flags.string({
       char: 'f',
@@ -84,15 +70,11 @@ export default class GeneratePackageXML extends SfCommand<PackageManifestObject>
       char: 'x',
       summary: messages.getMessage('flags.exclude-managed.summary'),
       exclusive: ['exclude-all'],
-      deprecateAliases: true,
-      aliases: ['excludemanaged'],
     }),
     'exclude-all': Flags.boolean({
       char: 'a',
       summary: messages.getMessage('flags.exclude-all.summary'),
       exclusive: ['exclude-managed'],
-      deprecateAliases: true,
-      aliases: ['excludeall'],
     }),
   };
 
