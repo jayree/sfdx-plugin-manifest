@@ -33,7 +33,7 @@
     "eslint-config-oclif": "^6.0",
     "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-sf-plugin": "^1.20.15",
-    "oclif": "^4.17.30",
+    "oclif": "^4.17.31",
     "patch-package": "^8.0.0",
     "prettier": "^3.5.1",
     "pretty-quick": "^4.0.0",
