@@ -1,3 +1,12 @@
+## [3.6.54](https://github.com/jayree/sfdx-plugin-manifest/compare/3.6.53...3.6.54) (2025-02-23)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-tracking from 7.3.15 to 7.3.16 ([#1668](https://github.com/jayree/sfdx-plugin-manifest/issues/1668)) ([9b36db9](https://github.com/jayree/sfdx-plugin-manifest/commit/9b36db9b171088c9d87baa7fcda9265d75bf5b89))
+
+
+
 ## [3.6.53](https://github.com/jayree/sfdx-plugin-manifest/compare/3.6.52...3.6.53) (2025-02-16)
 
 
