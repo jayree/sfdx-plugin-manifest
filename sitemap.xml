@@ -2,110 +2,110 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://sfdx-plugin-manifest.jayree.de/index.html</loc>
-		<lastmod>2025-02-23T13:26:41.695Z</lastmod>
+		<lastmod>2025-02-23T17:36:52.392Z</lastmod>
 	</url>
 	<url>
 		<loc>https://sfdx-plugin-manifest.jayree.de/modules/api_statusMatrix.html</loc>
-		<lastmod>2025-02-23T13:26:41.695Z</lastmod>
+		<lastmod>2025-02-23T17:36:52.392Z</lastmod>
 	</url>
 	<url>
 		<loc>https://sfdx-plugin-manifest.jayree.de/functions/api_statusMatrix.statusMatrix.html</loc>
-		<lastmod>2025-02-23T13:26:41.695Z</lastmod>
+		<lastmod>2025-02-23T17:36:52.392Z</lastmod>
 	</url>
 	<url>
 		<loc>https://sfdx-plugin-manifest.jayree.de/modules/collections.html</loc>
-		<lastmod>2025-02-23T13:26:41.695Z</lastmod>
+		<lastmod>2025-02-23T17:36:52.392Z</lastmod>
 	</url>
 	<url>
 		<loc>https://sfdx-plugin-manifest.jayree.de/modules/collections_componentSetExtra.html</loc>
-		<lastmod>2025-02-23T13:26:41.695Z</lastmod>
+		<lastmod>2025-02-23T17:36:52.392Z</lastmod>
 	</url>
 	<url>
 		<loc>https://sfdx-plugin-manifest.jayree.de/classes/collections_componentSetExtra.ComponentSetExtra.html</loc>
-		<lastmod>2025-02-23T13:26:41.695Z</lastmod>
+		<lastmod>2025-02-23T17:36:52.392Z</lastmod>
 	</url>
 	<url>
 		<loc>https://sfdx-plugin-manifest.jayree.de/modules/collections_types.html</loc>
-		<lastmod>2025-02-23T13:26:41.695Z</lastmod>
+		<lastmod>2025-02-23T17:36:52.392Z</lastmod>
 	</url>
 	<url>
 		<loc>https://sfdx-plugin-manifest.jayree.de/types/collections_types.FromGitDiffOptions.html</loc>
-		<lastmod>2025-02-23T13:26:41.695Z</lastmod>
+		<lastmod>2025-02-23T17:36:52.392Z</lastmod>
 	</url>
 	<url>
 		<loc>https://sfdx-plugin-manifest.jayree.de/modules/index.html</loc>
-		<lastmod>2025-02-23T13:26:41.695Z</lastmod>
+		<lastmod>2025-02-23T17:36:52.392Z</lastmod>
 	</url>
 	<url>
 		<loc>https://sfdx-plugin-manifest.jayree.de/modules/resolve.html</loc>
-		<lastmod>2025-02-23T13:26:41.695Z</lastmod>
+		<lastmod>2025-02-23T17:36:52.392Z</lastmod>
 	</url>
 	<url>
 		<loc>https://sfdx-plugin-manifest.jayree.de/modules/resolve_gitDiffResolver.html</loc>
-		<lastmod>2025-02-23T13:26:41.695Z</lastmod>
+		<lastmod>2025-02-23T17:36:52.392Z</lastmod>
 	</url>
 	<url>
 		<loc>https://sfdx-plugin-manifest.jayree.de/classes/resolve_gitDiffResolver.GitDiffResolver.html</loc>
-		<lastmod>2025-02-23T13:26:41.695Z</lastmod>
+		<lastmod>2025-02-23T17:36:52.392Z</lastmod>
 	</url>
 	<url>
 		<loc>https://sfdx-plugin-manifest.jayree.de/modules/resolve_treeContainersExtra.html</loc>
-		<lastmod>2025-02-23T13:26:41.695Z</lastmod>
+		<lastmod>2025-02-23T17:36:52.392Z</lastmod>
 	</url>
 	<url>
 		<loc>https://sfdx-plugin-manifest.jayree.de/classes/resolve_treeContainersExtra.VirtualTreeContainerExtra.html</loc>
-		<lastmod>2025-02-23T13:26:41.695Z</lastmod>
+		<lastmod>2025-02-23T17:36:52.392Z</lastmod>
 	</url>
 	<url>
 		<loc>https://sfdx-plugin-manifest.jayree.de/modules/shared_gitComponentSetArray.html</loc>
-		<lastmod>2025-02-23T13:26:41.695Z</lastmod>
+		<lastmod>2025-02-23T17:36:52.392Z</lastmod>
 	</url>
 	<url>
 		<loc>https://sfdx-plugin-manifest.jayree.de/functions/shared_gitComponentSetArray.getComponentSets.html</loc>
-		<lastmod>2025-02-23T13:26:41.695Z</lastmod>
+		<lastmod>2025-02-23T17:36:52.392Z</lastmod>
 	</url>
 	<url>
 		<loc>https://sfdx-plugin-manifest.jayree.de/functions/shared_gitComponentSetArray.getGroupedFiles.html</loc>
-		<lastmod>2025-02-23T13:26:41.695Z</lastmod>
+		<lastmod>2025-02-23T17:36:52.392Z</lastmod>
 	</url>
 	<url>
 		<loc>https://sfdx-plugin-manifest.jayree.de/modules/shared_local_localGitRepo.html</loc>
-		<lastmod>2025-02-23T13:26:41.695Z</lastmod>
+		<lastmod>2025-02-23T17:36:52.392Z</lastmod>
 	</url>
 	<url>
 		<loc>https://sfdx-plugin-manifest.jayree.de/classes/shared_local_localGitRepo.GitRepo.html</loc>
-		<lastmod>2025-02-23T13:26:41.695Z</lastmod>
+		<lastmod>2025-02-23T17:36:52.392Z</lastmod>
 	</url>
 	<url>
 		<loc>https://sfdx-plugin-manifest.jayree.de/types/shared_local_localGitRepo.GitRepoOptions.html</loc>
-		<lastmod>2025-02-23T13:26:41.695Z</lastmod>
+		<lastmod>2025-02-23T17:36:52.392Z</lastmod>
 	</url>
 	<url>
 		<loc>https://sfdx-plugin-manifest.jayree.de/variables/shared_local_localGitRepo.STAGE.html</loc>
-		<lastmod>2025-02-23T13:26:41.695Z</lastmod>
+		<lastmod>2025-02-23T17:36:52.392Z</lastmod>
 	</url>
 	<url>
 		<loc>https://sfdx-plugin-manifest.jayree.de/modules/shared_local_moveDetection.html</loc>
-		<lastmod>2025-02-23T13:26:41.695Z</lastmod>
+		<lastmod>2025-02-23T17:36:52.392Z</lastmod>
 	</url>
 	<url>
 		<loc>https://sfdx-plugin-manifest.jayree.de/types/shared_local_moveDetection.StringMapsForMatches.html</loc>
-		<lastmod>2025-02-23T13:26:41.695Z</lastmod>
+		<lastmod>2025-02-23T17:36:52.392Z</lastmod>
 	</url>
 	<url>
 		<loc>https://sfdx-plugin-manifest.jayree.de/functions/shared_local_moveDetection.filenameMatchesToMap.html</loc>
-		<lastmod>2025-02-23T13:26:41.695Z</lastmod>
+		<lastmod>2025-02-23T17:36:52.392Z</lastmod>
 	</url>
 	<url>
 		<loc>https://sfdx-plugin-manifest.jayree.de/functions/shared_local_moveDetection.getLogMessage.html</loc>
-		<lastmod>2025-02-23T13:26:41.695Z</lastmod>
+		<lastmod>2025-02-23T17:36:52.392Z</lastmod>
 	</url>
 	<url>
 		<loc>https://sfdx-plugin-manifest.jayree.de/modules/utils_worthWalking.html</loc>
-		<lastmod>2025-02-23T13:26:41.695Z</lastmod>
+		<lastmod>2025-02-23T17:36:52.392Z</lastmod>
 	</url>
 	<url>
 		<loc>https://sfdx-plugin-manifest.jayree.de/functions/utils_worthWalking.worthWalking.html</loc>
-		<lastmod>2025-02-23T13:26:41.695Z</lastmod>
+		<lastmod>2025-02-23T17:36:52.392Z</lastmod>
 	</url>
 </urlset>
