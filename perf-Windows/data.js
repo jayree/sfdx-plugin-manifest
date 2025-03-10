@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1741591613152,
+  "lastUpdate": 1741592488051,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -14382,6 +14382,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-VirtualTreeContainerExtra-win32",
             "value": 381,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 330,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5c292dce7c9bfb5a1fbd047f3996547e7cd65ea8",
+          "message": "chore(deps-dev): bump pretty-quick from 4.0.0 to 4.1.1\n\nBumps [pretty-quick](https://github.com/prettier/pretty-quick) from 4.0.0 to 4.1.1.\n- [Release notes](https://github.com/prettier/pretty-quick/releases)\n- [Changelog](https://github.com/prettier/pretty-quick/blob/master/CHANGELOG.md)\n- [Commits](https://github.com/prettier/pretty-quick/compare/v4.0.0...v4.1.1)\n\n---\nupdated-dependencies:\n- dependency-name: pretty-quick\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2025-03-10T07:38:50Z",
+          "tree_id": "9073adec59d82644ed4448639e791c8989a20beb",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/5c292dce7c9bfb5a1fbd047f3996547e7cd65ea8"
+        },
+        "date": 1741592482119,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 5247,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 3549,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 373,
             "unit": "ms"
           },
           {
