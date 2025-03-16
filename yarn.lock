@@ -1584,10 +1584,10 @@
     cli-progress "^3.12.0"
     terminal-link "^3.0.0"
 
-"@salesforce/source-deploy-retrieve@12.16.5", "@salesforce/source-deploy-retrieve@^12.15.0":
-  version "12.16.5"
-  resolved "https://registry.yarnpkg.com/@salesforce/source-deploy-retrieve/-/source-deploy-retrieve-12.16.5.tgz#1aeefbacaa277e299578574fbb307d6120f77a3d"
-  integrity sha512-icrdVRPnBJkxe2cAqvoi5BAps4BNaUQtWPy7R59tBK+dbzMq/980hiashZfnFBZ2kEljZlcj5LApUMm9zQghJA==
+"@salesforce/source-deploy-retrieve@12.16.7", "@salesforce/source-deploy-retrieve@^12.15.0":
+  version "12.16.7"
+  resolved "https://registry.yarnpkg.com/@salesforce/source-deploy-retrieve/-/source-deploy-retrieve-12.16.7.tgz#2ea882317a5f79bd040429663869817ffe072dc1"
+  integrity sha512-QnSKeFulXLN7Fn94RVt513+7hC39wUcIANxc5hTzMwmzYZAk0ivFpwQeD3HWW6x0HWWyE5zH67MN0XoUFRotOQ==
   dependencies:
     "@salesforce/core" "^8.8.5"
     "@salesforce/kit" "^3.2.3"
@@ -1603,7 +1603,7 @@
     mime "2.6.0"
     minimatch "^9.0.5"
     proxy-agent "^6.4.0"
-    yaml "^2.6.1"
+    yaml "^2.7.0"
 
 "@salesforce/source-tracking@7.3.16":
   version "7.3.16"
@@ -9460,7 +9460,7 @@ yallist@^4.0.0:
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-4.0.0.tgz#9bb92790d9c0effec63be73519e11a35019a3a72"
   integrity sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
 
-yaml@^2.2.2, yaml@^2.5.1, yaml@^2.6.1:
+yaml@^2.2.2, yaml@^2.5.1, yaml@^2.7.0:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.7.0.tgz#aef9bb617a64c937a9a748803786ad8d3ffe1e98"
   integrity sha512-+hSoy/QHluxmC9kCIJyL/uyFmLmc+e5CFR5Wa+bpIhIj85LVb9ZH2nVnqrHoSvKogwODv0ClqZkmiSSaIH5LTA==
