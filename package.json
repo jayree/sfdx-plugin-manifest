@@ -18,7 +18,7 @@
     "fast-xml-parser": "^5.0.9",
     "fs-extra": "^11.3.0",
     "graceful-fs": "^4.2.11",
-    "isomorphic-git": "1.29.0"
+    "isomorphic-git": "1.30.1"
   },
   "devDependencies": {
     "@oclif/plugin-command-snapshot": "^5.2.37",

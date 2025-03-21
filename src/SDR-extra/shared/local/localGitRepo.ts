@@ -55,7 +55,7 @@ export class GitRepo {
 
   private packageDirs: string[];
   private status!: StatusRow[];
-  private cache!: unknown;
+  private cache!: object;
 
   private lifecycle = Lifecycle.getInstance();
 
