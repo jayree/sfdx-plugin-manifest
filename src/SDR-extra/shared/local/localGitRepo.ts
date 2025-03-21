@@ -355,6 +355,8 @@ export class GitRepo {
       const stdout = execSync('git config --show-origin core.autocrlf', { cwd: this.dir }).toString().trim();
 
       if (stdout) {
+        // eslint-disable-next-line no-console
+        console.log(stdout);
         const [origin, value] = stdout.split('\t');
         const [, ...rest] = origin.split(':');
         const file = rest.join(':') || '';
@@ -365,6 +367,8 @@ export class GitRepo {
         }
       }
     } catch {
+      // eslint-disable-next-line no-console
+      console.log('not found');
       // if the command fails, autocrlf is not set
     }
   }
