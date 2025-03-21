@@ -149,6 +149,6 @@ export declare function statusMatrix({ dir, gitdir, ref1, ref2, filepaths, filte
     ref2?: string;
     filepaths?: string[];
     filter?: ((arg0: string) => boolean) | undefined;
-    cache: unknown;
+    cache: object;
     ignored?: boolean;
 }): Promise<StatusRow[]>;

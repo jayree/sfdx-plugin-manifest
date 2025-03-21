@@ -173,7 +173,7 @@ export async function statusMatrix({
   ref2?: string;
   filepaths?: string[];
   filter?: ((arg0: string) => boolean) | undefined;
-  cache: unknown;
+  cache: object;
   ignored?: boolean;
 }): Promise<StatusRow[]> {
   return _walk({
