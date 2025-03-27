@@ -4,6 +4,7 @@
 ### Bug Fixes
 
 * **deps:** bump @jayree/changelog from 1.2.6 to 1.2.7 ([#1717](https://github.com/jayree/sfdx-plugin-manifest/issues/1717)) ([163b44c](https://github.com/jayree/sfdx-plugin-manifest/commit/163b44cd5db90b4dacd697ccc192e29e5faec857))
+  * revert marked, marked-terminal ([4a2990d](https://github.com/jayree/changelog/commit/4a2990d81418becd6ae8d4212150ed53de68254e))
 
 
 
