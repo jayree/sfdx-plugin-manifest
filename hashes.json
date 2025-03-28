@@ -26,5 +26,9 @@
   {
     "url": "https://raw.githubusercontent.com/forcedotcom/source-deploy-retrieve/main/test/nuts/scale/perfUtils.ts",
     "hash": "fa30ab7630e24a7660fa09e07dc16f8579f8107c905cc92a62f85c3c24276f64"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/salesforcecli/github-workflows/refs/heads/main/.github/workflows/create-github-release.yml",
+    "hash": "66230672a64669cdef3d4e938da647534b4c9f2848646c2dfe8066ac387d54c0"
   }
 ]

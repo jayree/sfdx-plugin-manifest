@@ -21,38 +21,9 @@ jobs:
           ref: ${{ github.event.release.tag_name || inputs.tag  }}
       - uses: salesforcecli/github-workflows/.github/actions/getPreReleaseTag@main
         id: distTag
-  updateChangelog:
-    needs: getDistTag
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository for updating CHANGELOG.md
-        uses: actions/checkout@v4
-        with:
-          token: ${{secrets.SVC_CLI_BOT_GITHUB_TOKEN}}
-      - uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-          cache: yarn
-      - name: Run update changelog script
-        env:
-          GITHUB_TOKEN: ${{secrets.SVC_CLI_BOT_GITHUB_TOKEN}}
-        run: yarn install && yarn update-changelog
-      - name: Commit and push updated CHANGELOG.md
-        env:
-          GITHUB_TOKEN: ${{secrets.SVC_CLI_BOT_GITHUB_TOKEN}}
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add CHANGELOG.md
-          if git diff --cached --quiet; then
-            echo "No changes to commit in CHANGELOG.md"
-          else
-            git commit -m "chore: update CHANGELOG.md [skip ci]"
-            git push origin HEAD:main
-          fi
   npm:
     uses: salesforcecli/github-workflows/.github/workflows/npmPublish.yml@main
-    needs: [getDistTag, updateChangelog]
+    needs: [getDistTag]
     with:
       tag: ${{ needs.getDistTag.outputs.tag || 'latest' }}
       githubTag: ${{ github.event.release.tag_name || inputs.tag }}
