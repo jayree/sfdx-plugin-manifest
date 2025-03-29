@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1743262698343,
+  "lastUpdate": 1743263007803,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -17159,6 +17159,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 249,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a068a1d8d98104e23c9f3a1d71dc1aafccac1dd8",
+          "message": "chore(deps): bump ncipollo/release-action from 1.14.0 to 1.16.0\n\nBumps [ncipollo/release-action](https://github.com/ncipollo/release-action) from 1.14.0 to 1.16.0.\n- [Release notes](https://github.com/ncipollo/release-action/releases)\n- [Commits](https://github.com/ncipollo/release-action/compare/2c591bcc8ecdcd2db72b97d6147f871fcd833ba5...440c8c1cb0ed28b9f43e4d1d670870f059653174)\n\n---\nupdated-dependencies:\n- dependency-name: ncipollo/release-action\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2025-03-29T15:37:40Z",
+          "tree_id": "0b4af671463061537d43a498f2a9c2a587553643",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/a068a1d8d98104e23c9f3a1d71dc1aafccac1dd8"
+        },
+        "date": 1743263006524,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 2774,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 1783,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 276,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 246,
             "unit": "ms"
           }
         ]
