@@ -6,7 +6,7 @@ import semver from 'semver';
 import packageJson from 'package-json';
 
 const changelogPath = './CHANGELOG.md';
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN || null;
+const GITHUB_TOKEN = process.env.SVC_CLI_BOT_GITHUB_TOKEN || null;
 const updateAll = process.argv.includes('--all');
 
 // Repository where the pull requests were created

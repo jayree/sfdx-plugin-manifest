@@ -16578,7 +16578,7 @@ async function packageJson(packageName, options = {}) {
 
 // scripts/update-changelog.mjs
 var changelogPath = './CHANGELOG.md';
-var GITHUB_TOKEN = process.env.GITHUB_TOKEN || null;
+var GITHUB_TOKEN = process.env.SVC_CLI_BOT_GITHUB_TOKEN || null;
 var updateAll = process.argv.includes('--all');
 var CHANGELOG_REPO = { owner: 'jayree', repo: 'sfdx-plugin-manifest' };
 var headers = {

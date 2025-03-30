@@ -122,7 +122,7 @@
     "test:nuts": "c8 mocha \"**/*.nut.ts\" --slow 4500 --timeout 600000 --parallel",
     "test:nuts:local": "mocha \"**/local/*.nut.ts\" --slow 4500 --timeout 600000 --parallel",
     "test:only": "wireit",
-    "update-changelog": "node scripts/update-changelog.mjs",
+    "build-changelog-update": "esbuild scripts/update-changelog.mjs --bundle --platform=node --format=cjs --outfile=scripts/dist/update-changelog.cjs",
     "compare-hashes": "node scripts/compare-filehash/compare.mjs",
     "generate-hashes": "node scripts/compare-filehash/generate.mjs",
     "version": "oclif readme --no-aliases"
