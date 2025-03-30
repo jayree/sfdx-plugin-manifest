@@ -1,3 +1,12 @@
+## [3.7.4](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.3...3.7.4) (2025-03-30)
+
+
+### Bug Fixes
+
+* update workflow env variable ([7c6b9e8](https://github.com/jayree/sfdx-plugin-manifest/commit/7c6b9e8d0cff7a4d4a458c0cf7c0addfed88ccb6))
+
+
+
 ## [3.7.3](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.2...3.7.3) (2025-03-30)
 
 
