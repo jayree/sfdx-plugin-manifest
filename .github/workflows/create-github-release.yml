@@ -79,6 +79,7 @@ jobs:
           pre-release: ${{ steps.prereleaseTag.outputs.tag && 'true' || 'false' }}
           pre-release-identifier: ${{ steps.prereleaseTag.outputs.tag }}
           pre-commit: scripts/dist/update-changelog.cjs
+          input-file: CHANGELOG.md
           # ternary-ish: https://github.com/actions/runner/issues/409#issuecomment-752775072
           output-file: ${{ steps.prereleaseTag.outputs.tag && 'false' || 'CHANGELOG.md' }} # If prerelease, do not write the changelog file
       - name: Create Github Release

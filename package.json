@@ -34,7 +34,6 @@
     "eslint-plugin-prettier": "^5.2.5",
     "eslint-plugin-sf-plugin": "^1.20.18",
     "oclif": "^4.17.42",
-    "package-json": "^10.0.1",
     "patch-package": "^8.0.0",
     "prettier": "^3.5.3",
     "pretty-quick": "^4.1.1",
@@ -122,7 +121,7 @@
     "test:nuts": "c8 mocha \"**/*.nut.ts\" --slow 4500 --timeout 600000 --parallel",
     "test:nuts:local": "mocha \"**/local/*.nut.ts\" --slow 4500 --timeout 600000 --parallel",
     "test:only": "wireit",
-    "build-changelog-update": "esbuild scripts/update-changelog.mjs --bundle --platform=node --format=cjs --outfile=scripts/dist/update-changelog.cjs",
+    "build-changelog-update": "esbuild scripts/update-changelog/update-changelog.mjs --bundle --platform=node --format=cjs --outfile=scripts/update-changelog/dist/update-changelog.cjs",
     "compare-hashes": "node scripts/compare-filehash/compare.mjs",
     "generate-hashes": "node scripts/compare-filehash/generate.mjs",
     "version": "oclif readme --no-aliases"
