@@ -201,8 +201,7 @@ function getLatestEntryIndices(lines) {
   return { start: start === -1 ? 0 : start, end };
 }
 
-// Main function that orchestrates the update.
-async function run() {
+export async function preCommit(props) {
   await logApiLimits();
   const content = fs.readFileSync(changelogPath, 'utf-8');
   const lines = content.split('\n');
@@ -244,7 +243,7 @@ async function run() {
   console.log('✅ CHANGELOG.md updated');
 }
 
-run().catch((error) => {
+preCommit().catch((error) => {
   console.error(`❌ Unhandled error: ${error}`);
   process.exit(1);
 });
