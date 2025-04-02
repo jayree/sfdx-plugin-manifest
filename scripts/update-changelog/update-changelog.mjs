@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import fs from 'fs';
+import { URL } from 'url';
 import semver from 'semver';
 import packageJson from 'package-json';
 import { Octokit } from '@octokit/rest';
@@ -72,8 +73,11 @@ async function getPullRequestTitle(owner, repo, prNumber) {
 async function getRepoInfo(packageName) {
   const pkg = await packageJson(packageName, { fullMetadata: true });
   const repoUrl = pkg.repository?.url;
-  if (!repoUrl || !repoUrl.includes('github.com')) throw new Error(`No GitHub repository for ${packageName}`);
-  const match = repoUrl.match(/github\.com[:/](.+?)\/(.+?)(\.git)?$/);
+  if (!repoUrl) throw new Error(`No repository URL for ${packageName}`);
+  const parsedUrl = new URL(repoUrl);
+  const allowedHosts = ['github.com', 'www.github.com'];
+  if (!allowedHosts.includes(parsedUrl.host)) throw new Error(`No GitHub repository for ${packageName}`);
+  const match = parsedUrl.pathname.match(/^\/(.+?)\/(.+?)(\.git)?$/);
   if (!match) throw new Error(`Invalid repository URL: ${repoUrl}`);
   return { owner: match[1], repo: match[2] };
 }
