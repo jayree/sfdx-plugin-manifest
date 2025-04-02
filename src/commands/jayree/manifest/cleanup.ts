@@ -197,5 +197,5 @@ function parseManifest(xmlData: string): { packageTypeMembers: PackageTypeMember
 function js2Manifest(jsData: PackageManifestObject): string {
   const js2Xml = new XMLBuilder({ format: true, indentBy: '    ', ignoreAttributes: false });
   jsData.Package[XML_NS_KEY] = XML_NS_URL;
-  return XML_DECL.concat(js2Xml.build(jsData) as string);
+  return XML_DECL.concat(js2Xml.build(jsData));
 }
