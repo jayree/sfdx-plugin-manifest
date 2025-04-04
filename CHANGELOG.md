@@ -4,6 +4,7 @@
 ### Bug Fixes
 
 * **deps:** bump fast-xml-parser from 5.1.0 to 5.2.0 ([#1730](https://github.com/jayree/sfdx-plugin-manifest/issues/1730)) ([5aea760](https://github.com/jayree/sfdx-plugin-manifest/commit/5aea7607ae29c09eff0a0a9c6132781ea6230276))
+  *   feat: support metadata on nodes ([#593](https://redirect.github.com/NaturalIntelligence/fast-xml-parser/issues/593)) (By [Steven R. Loomis](https://github.com/srl295))
 
 
 
@@ -13,6 +14,9 @@
 ### Bug Fixes
 
 * **deps:** bump fast-xml-parser from 5.0.9 to 5.1.0 ([#1727](https://github.com/jayree/sfdx-plugin-manifest/issues/1727)) ([b175452](https://github.com/jayree/sfdx-plugin-manifest/commit/b1754520c194cc6224b6fa9a541e2b7c9e8c7780))
+  *   feat: declare package as side-effect free ([#738](https://redirect.github.com/NaturalIntelligence/fast-xml-parser/issues/738)) (By [Thomas Bouffard](https://github.com/tbouffard))
+  *   fix cjs build mode
+  *   fix builder return type to string
 
 
 
@@ -40,8 +44,8 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/source-deploy-retrieve ([#1719](https://github.com/jayree/sfdx-plugin-manifest/issues/1719)) ([9b8ad0f](https://github.com/jayree/sfdx-plugin-manifest/commit/9b8ad0f973d134492f45b76c67ad5eed1b67b87a))
-  * add metadata support for FieldServiceMobileConfig ([7a529f7](https://github.com/forcedotcom/source-deploy-retrieve/commit/7a529f735f8a856e4b56211509a58ff741961ed0))
   * add checkDeployStatus for REST ([#1529](https://github.com/forcedotcom/source-deploy-retrieve/issues/1529)) ([2cfe5f4](https://github.com/forcedotcom/source-deploy-retrieve/commit/2cfe5f46216eb0f001e38d0d7c86b523d8c78344))
+  * add metadata support for FieldServiceMobileConfig ([7a529f7](https://github.com/forcedotcom/source-deploy-retrieve/commit/7a529f735f8a856e4b56211509a58ff741961ed0))
 
 
 
@@ -122,6 +126,8 @@
 ### Bug Fixes
 
 * **deps:** bump fast-xml-parser from 5.0.8 to 5.0.9 ([#1701](https://github.com/jayree/sfdx-plugin-manifest/issues/1701)) ([d9a806f](https://github.com/jayree/sfdx-plugin-manifest/commit/d9a806f35525d83b6845ef2e0cb4ffd0ab8b3442))
+  *   fix: support numeric entities with values over 0xFFFF ([#726](https://redirect.github.com/NaturalIntelligence/fast-xml-parser/issues/726)) (By (Marc Durdin)\[https://github.com/mcdurdin\])
+  *   fix: update strnum to fix parsing 0 if skiplike option is used
 
 
 
@@ -174,9 +180,9 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/source-deploy-retrieve ([#1692](https://github.com/jayree/sfdx-plugin-manifest/issues/1692)) ([4e4b898](https://github.com/jayree/sfdx-plugin-manifest/commit/4e4b898e4c5a84aa4f9c845f8a881ab921ff2721))
-  * **@W-17943542:** fix content path for inline media file inside nested folders ([#1518](https://github.com/forcedotcom/source-deploy-retrieve/issues/1518)) ([bdfd128](https://github.com/forcedotcom/source-deploy-retrieve/commit/bdfd12868fce434b5f62bbaeda7440850c57c037))
   * **deps:** bump @salesforce/core from 8.8.3 to 8.8.5 ([#1522](https://github.com/forcedotcom/source-deploy-retrieve/issues/1522)) ([6c35189](https://github.com/forcedotcom/source-deploy-retrieve/commit/6c351897f57efcb64ed536d6092231cabd9d2710))
   * @W-17936678 - Rename AnnotationExtensionSet metadata type to InvocabeActionExtension ([#1520](https://github.com/forcedotcom/source-deploy-retrieve/issues/1520)) ([3279c43](https://github.com/forcedotcom/source-deploy-retrieve/commit/3279c439ba14245bf32b1f6b48980e84ef8059c6))
+  * **@W-17943542:** fix content path for inline media file inside nested folders ([#1518](https://github.com/forcedotcom/source-deploy-retrieve/issues/1518)) ([bdfd128](https://github.com/forcedotcom/source-deploy-retrieve/commit/bdfd12868fce434b5f62bbaeda7440850c57c037))
 
 
 
@@ -196,12 +202,9 @@
 ### Bug Fixes
 
 * **deps:** bump fast-xml-parser from 5.0.6 to 5.0.8 ([#1684](https://github.com/jayree/sfdx-plugin-manifest/issues/1684)) ([7807af8](https://github.com/jayree/sfdx-plugin-manifest/commit/7807af8c58355ea422437b84a84bdf95920d2dea))
-  - Multiple minor fixes provided in the validator and parser
-  - v6 is added for experimental use.
-  - ignoreAttributes support function, and array of string or regex
-  - Add support for parsing HTML numeric entities
-  - v5 of the application is ESM module now. However, JS is also supported
-  **Note**: Release section in not updated frequently. Please check [CHANGELOG](https://github.com/NaturalIntelligence/fast-xml-parser/blob/master/CHANGELOG.md) or [Tags](https://github.com/NaturalIntelligence/fast-xml-parser/tags) for latest release information.
+  *   fix parsing 0 if skiplike option is used.
+  *   updating strnum dependency
+  *   fix ([#724](https://redirect.github.com/NaturalIntelligence/fast-xml-parser/issues/724)) typings for cjs.
 
 
 
@@ -244,6 +247,22 @@
 ### Bug Fixes
 
 * **deps:** bump fast-xml-parser from 4.5.1 to 5.0.6 ([#1672](https://github.com/jayree/sfdx-plugin-manifest/issues/1672)) ([a527ac7](https://github.com/jayree/sfdx-plugin-manifest/commit/a527ac7c91103a016ee50b88df1ee4ea6fc91418))
+  *   fix cli output (By [Angel Delgado](https://github.com/angeld7))
+  *   remove multiple JSON parsing
+  *   fix parsing of string starting with 'e' or 'E' by updating strnum
+  *   fix CLI to support all the versions of node js when displaying library version.
+  *   fix CJS import in v5
+  *   by fixing webpack config
+  *   Using strnum ESM module
+  *   new fixes in strum may break your experience
+  *   fix: include CommonJS resources in the npm package [#714](https://redirect.github.com/NaturalIntelligence/fast-xml-parser/issues/714) (By [Thomas Bouffard](https://github.com/tbouffard))
+  *   fix: move babel deps to dev deps
+  *   fix syntax error for CLI command
+  *   ESM support
+  *   no change in the functionality, syntax, APIs, options, or documentation.
+  *   Fix null CDATA to comply with undefined behavior ([#701](https://redirect.github.com/NaturalIntelligence/fast-xml-parser/issues/701)) (By [Matthieu BOHEAS](https://github.com/Kelgors))
+  *   Fix(performance): Update check for leaf node in saveTextToParentTag function in OrderedObjParser.js ([#707](https://redirect.github.com/NaturalIntelligence/fast-xml-parser/issues/707)) (By [...](https://github.com/tomingtoming))
+  *   Fix: emit full JSON string from CLI when no output filename specified ([#710](https://redirect.github.com/NaturalIntelligence/fast-xml-parser/issues/710)) (By [Matt Benson](https://github.com/mbenson))
 
 
 
@@ -297,8 +316,8 @@
 
 * **deps:** bump @salesforce/source-deploy-retrieve ([#1667](https://github.com/jayree/sfdx-plugin-manifest/issues/1667)) ([a3e7895](https://github.com/jayree/sfdx-plugin-manifest/commit/a3e78950c564a88d6ed812498166d048cf176b4e))
   * **@W-17522423:** enable 2gp and source tracking for contenttypebundle ([#1506](https://github.com/forcedotcom/source-deploy-retrieve/issues/1506)) ([e2c8edf](https://github.com/forcedotcom/source-deploy-retrieve/commit/e2c8edf4640dab77ac4908ade0eaae25f633463f))
-  * **mdTypes:** update tua viz metadata types ([#1504](https://github.com/forcedotcom/source-deploy-retrieve/issues/1504)) ([a204d2c](https://github.com/forcedotcom/source-deploy-retrieve/commit/a204d2c678133104bc933889979113fc903df720))
   * add support for type `AnnotationExtensionSet` ([#1503](https://github.com/forcedotcom/source-deploy-retrieve/issues/1503)) ([9ac85ca](https://github.com/forcedotcom/source-deploy-retrieve/commit/9ac85cab79bea23a6f2f655e26b05849100ad021))
+  * **mdTypes:** update tua viz metadata types ([#1504](https://github.com/forcedotcom/source-deploy-retrieve/issues/1504)) ([a204d2c](https://github.com/forcedotcom/source-deploy-retrieve/commit/a204d2c678133104bc933889979113fc903df720))
   * **mdTypes:** update tua assets md types directory names ([#1508](https://github.com/forcedotcom/source-deploy-retrieve/issues/1508)) ([5fa0408](https://github.com/forcedotcom/source-deploy-retrieve/commit/5fa0408b8a8bc391dfac85451dd2e98ef8291221))
 
 
@@ -324,13 +343,13 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/source-deploy-retrieve ([#1660](https://github.com/jayree/sfdx-plugin-manifest/issues/1660)) ([6dd1cc5](https://github.com/jayree/sfdx-plugin-manifest/commit/6dd1cc5cfc578dcdf50cbde7fc258a7a8ad5fe9f))
-  * properly merge `DigitalExperience` components W-16646427 ([#1496](https://github.com/forcedotcom/source-deploy-retrieve/issues/1496)) ([251278f](https://github.com/forcedotcom/source-deploy-retrieve/commit/251278f94f00ea8a6604b79ab5e589983897f18e))
-  * build DE source path for merge ([79159bc](https://github.com/forcedotcom/source-deploy-retrieve/commit/79159bcc36a67617a8e0bd77be12a45366e623a9))
-  * properly merge DE ([5c63b44](https://github.com/forcedotcom/source-deploy-retrieve/commit/5c63b44f623e2a9fa391b6ed157da40b8a08dea6))
-  * add genAiFunction bundle type W-17750901 ([#1499](https://github.com/forcedotcom/source-deploy-retrieve/issues/1499)) ([fcf6662](https://github.com/forcedotcom/source-deploy-retrieve/commit/fcf66621c9a7255e479e5969933ea94c2d0381eb))
   * check for sourcepath length ([932992e](https://github.com/forcedotcom/source-deploy-retrieve/commit/932992e836b70978883a20a3a4ce4507d9ed0ebc))
   * filter types combined with source dir ([7cec15a](https://github.com/forcedotcom/source-deploy-retrieve/commit/7cec15a0390e2a235f0232ae4f46c86b5f021fa5))
   * limit CSB sourcepath with metadata.excluded ([ac40090](https://github.com/forcedotcom/source-deploy-retrieve/commit/ac40090a49f22befcb332639ea057d0d255e7563))
+  * build DE source path for merge ([79159bc](https://github.com/forcedotcom/source-deploy-retrieve/commit/79159bcc36a67617a8e0bd77be12a45366e623a9))
+  * properly merge DE ([5c63b44](https://github.com/forcedotcom/source-deploy-retrieve/commit/5c63b44f623e2a9fa391b6ed157da40b8a08dea6))
+  * add genAiFunction bundle type W-17750901 ([#1499](https://github.com/forcedotcom/source-deploy-retrieve/issues/1499)) ([fcf6662](https://github.com/forcedotcom/source-deploy-retrieve/commit/fcf66621c9a7255e479e5969933ea94c2d0381eb))
+  * properly merge `DigitalExperience` components W-16646427 ([#1496](https://github.com/forcedotcom/source-deploy-retrieve/issues/1496)) ([251278f](https://github.com/forcedotcom/source-deploy-retrieve/commit/251278f94f00ea8a6604b79ab5e589983897f18e))
 
 
 
@@ -350,10 +369,10 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/source-tracking from 7.3.9 to 7.3.12 ([#1650](https://github.com/jayree/sfdx-plugin-manifest/issues/1650)) ([84e1ce9](https://github.com/jayree/sfdx-plugin-manifest/commit/84e1ce93c53aaf34ead070d35547cd8eab1fce00))
-  * **deps:** bump @salesforce/source-deploy-retrieve ([b151f09](https://github.com/forcedotcom/source-tracking/commit/b151f0950b6a647fee252bd7fbf782b10d20a117))
-  * bump sdr to pick up esr preset ([#736](https://github.com/forcedotcom/source-tracking/issues/736)) ([3af321f](https://github.com/forcedotcom/source-tracking/commit/3af321fedb23c847a14ff4b3306e2db101963382))
   * use newer org, not from RSTS's cached singletons ([2e99f07](https://github.com/forcedotcom/source-tracking/commit/2e99f072f3751cc558df86d972a2ff040307b26c))
   * **deps:** bump @oclif/core from 4.2.3 to 4.2.4 ([3c7861f](https://github.com/forcedotcom/source-tracking/commit/3c7861f764f409dccc4b1c1ba0e33ad165ab8e3a))
+  * bump sdr to pick up esr preset ([#736](https://github.com/forcedotcom/source-tracking/issues/736)) ([3af321f](https://github.com/forcedotcom/source-tracking/commit/3af321fedb23c847a14ff4b3306e2db101963382))
+  * **deps:** bump @salesforce/source-deploy-retrieve ([b151f09](https://github.com/forcedotcom/source-tracking/commit/b151f0950b6a647fee252bd7fbf782b10d20a117))
 
 
 
@@ -363,8 +382,8 @@
 ### Bug Fixes
 
 * **deps:** bump @oclif/core from 4.2.4 to 4.2.6 ([#1651](https://github.com/jayree/sfdx-plugin-manifest/issues/1651)) ([1de3c08](https://github.com/jayree/sfdx-plugin-manifest/commit/1de3c085e90f42b66b0b6c3400696e9f87e89aab))
-  * **W-17692101:** migrate to eslint 9 ([#1305](https://github.com/oclif/core/issues/1305)) ([e42713c](https://github.com/oclif/core/commit/e42713cc5b5965e9ed5ac1f696609ca33922d03d))
   * **deps:** bump ansis from 3.9.0 to 3.10.0 ([0c3b168](https://github.com/oclif/core/commit/0c3b1685bbc130f88533c6429a212460cfa022f7))
+  * **W-17692101:** migrate to eslint 9 ([#1305](https://github.com/oclif/core/issues/1305)) ([e42713c](https://github.com/oclif/core/commit/e42713cc5b5965e9ed5ac1f696609ca33922d03d))
 
 
 
@@ -462,6 +481,8 @@
 ### Bug Fixes
 
 * **deps:** bump fs-extra from 11.2.0 to 11.3.0 ([#1629](https://github.com/jayree/sfdx-plugin-manifest/issues/1629)) ([bdddc45](https://github.com/jayree/sfdx-plugin-manifest/commit/bdddc45aaea9e718f6d73a45cb0a96ec4080843f))
+  *   Add promise support for newer `fs` methods ([#1044](https://redirect.github.com/jprichardson/node-fs-extra/issues/1044), [#1045](https://redirect.github.com/jprichardson/node-fs-extra/pull/1045))
+  *   Use `fs.opendir` in `copy()`/`copySync()` for better perf/scalability ([#972](https://redirect.github.com/jprichardson/node-fs-extra/issues/972), [#1028](https://redirect.github.com/jprichardson/node-fs-extra/pull/1028))
 
 
 
@@ -490,8 +511,8 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/source-deploy-retrieve from 12.12.1 to 12.12.3 ([#1621](https://github.com/jayree/sfdx-plugin-manifest/issues/1621)) ([c9555a9](https://github.com/jayree/sfdx-plugin-manifest/commit/c9555a967b6bf52e20760c3b978771a2ebf5f414))
-  * populate manifestComponents consistently ([#1481](https://github.com/forcedotcom/source-deploy-retrieve/issues/1481)) ([84ba5bd](https://github.com/forcedotcom/source-deploy-retrieve/commit/84ba5bd74bdcb447e7d6bedd94a00be6d84df19b))
   * sharing rule children are now addressable in the beta preset ([#1482](https://github.com/forcedotcom/source-deploy-retrieve/issues/1482)) ([c0d834c](https://github.com/forcedotcom/source-deploy-retrieve/commit/c0d834c8ffe60dc9f9e4a10b8e638d7e60ca4256))
+  * populate manifestComponents consistently ([#1481](https://github.com/forcedotcom/source-deploy-retrieve/issues/1481)) ([84ba5bd](https://github.com/forcedotcom/source-deploy-retrieve/commit/84ba5bd74bdcb447e7d6bedd94a00be6d84df19b))
 
 
 
@@ -607,8 +628,8 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/source-tracking from 7.3.2 to 7.3.4 ([#1602](https://github.com/jayree/sfdx-plugin-manifest/issues/1602)) ([a3debcc](https://github.com/jayree/sfdx-plugin-manifest/commit/a3debcc0764bd093c1be2a0e0ed2dceb8f896a16))
-  * **deps:** bump fast-xml-parser from 4.5.0 to 4.5.1 ([f549b70](https://github.com/forcedotcom/source-tracking/commit/f549b709127adc22bd196f981db36a8a88888d75))
   * **deps:** bump @oclif/core from 4.0.34 to 4.2.0 ([25c8ee2](https://github.com/forcedotcom/source-tracking/commit/25c8ee2bc79c3da90d6caab4298162f6463a68f2))
+  * **deps:** bump fast-xml-parser from 4.5.0 to 4.5.1 ([f549b70](https://github.com/forcedotcom/source-tracking/commit/f549b709127adc22bd196f981db36a8a88888d75))
 
 
 
@@ -630,6 +651,8 @@
 ### Bug Fixes
 
 * **deps:** bump fast-xml-parser from 4.5.0 to 4.5.1 ([#1601](https://github.com/jayree/sfdx-plugin-manifest/issues/1601)) ([babfd7c](https://github.com/jayree/sfdx-plugin-manifest/commit/babfd7c8837dfa80f67379f3b13861c9006c86b1))
+  *   Fix empty tag key name for v5 ([#697](https://redirect.github.com/NaturalIntelligence/fast-xml-parser/issues/697)). no impact on v4
+  *   Fixes entity parsing when used in strict mode ([#699](https://redirect.github.com/NaturalIntelligence/fast-xml-parser/issues/699))
 
 
 
@@ -776,6 +799,7 @@
 ### Bug Fixes
 
 * **deps:** bump cross-spawn from 7.0.3 to 7.0.5 ([#1564](https://github.com/jayree/sfdx-plugin-manifest/issues/1564)) ([1feb2a0](https://github.com/jayree/sfdx-plugin-manifest/commit/1feb2a0943d811872301ad155752584bc31e65a9))
+  *   fix escaping bug introduced by backtracking ([640d391](https://github.com/moxystudio/node-cross-spawn/commit/640d391fde65388548601d95abedccc12943374f))
 
 
 
@@ -796,8 +820,8 @@
 
 * **deps:** bump @salesforce/source-tracking from 7.1.17 to 7.1.20 ([#1548](https://github.com/jayree/sfdx-plugin-manifest/issues/1548)) ([b2fe402](https://github.com/jayree/sfdx-plugin-manifest/commit/b2fe402b2e94b11573725b672870def1509d8386))
   * **deps:** bump @oclif/core from 4.0.23 to 4.0.31 ([7ba0bcc](https://github.com/forcedotcom/source-tracking/commit/7ba0bcc31df315a5a2bbd1b94897affc512f1476))
-  * **deps:** bump @salesforce/core from 8.6.2 to 8.6.4 ([52f721a](https://github.com/forcedotcom/source-tracking/commit/52f721a5bade15d8233bffa588ff17da6c3d82ef))
   * **deps:** bump @salesforce/source-deploy-retrieve ([3d7ddad](https://github.com/forcedotcom/source-tracking/commit/3d7ddad6ffb317f9db0f19bae6e537afc6bef946))
+  * **deps:** bump @salesforce/core from 8.6.2 to 8.6.4 ([52f721a](https://github.com/forcedotcom/source-tracking/commit/52f721a5bade15d8233bffa588ff17da6c3d82ef))
 
 
 
@@ -807,8 +831,8 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/sf-plugins-core from 12.0.9 to 12.0.11 ([#1550](https://github.com/jayree/sfdx-plugin-manifest/issues/1550)) ([c06b4f2](https://github.com/jayree/sfdx-plugin-manifest/commit/c06b4f28c06cb459e2c0f2f982d61d79048cd552))
-  * bump oclif/table ([#643](https://github.com/salesforcecli/sf-plugins-core/issues/643)) ([a10aec6](https://github.com/salesforcecli/sf-plugins-core/commit/a10aec6087036c5ff42bdeaaf1b5f76e17125a5b))
   * bump oclif/table ([65e21e4](https://github.com/salesforcecli/sf-plugins-core/commit/65e21e4927a12f5c840b7e9d96056fde07cf510d))
+  * bump oclif/table ([#643](https://github.com/salesforcecli/sf-plugins-core/issues/643)) ([a10aec6](https://github.com/salesforcecli/sf-plugins-core/commit/a10aec6087036c5ff42bdeaaf1b5f76e17125a5b))
 
 
 
@@ -818,7 +842,6 @@
 ### Bug Fixes
 
 * **deps:** bump @oclif/core from 4.0.30 to 4.0.31 ([#1549](https://github.com/jayree/sfdx-plugin-manifest/issues/1549)) ([34d1edb](https://github.com/jayree/sfdx-plugin-manifest/commit/34d1edb625cec20af554149148778486f93315d8))
-  ### Reverts
   * Revert "fix: bump is-wsl to v3 (#1211)" (#1235) ([fa76792](https://github.com/oclif/core/commit/fa767920b23e802e60c512fa42179aca0deffd12)), closes [#1211](https://github.com/oclif/core/issues/1211) [#1235](https://github.com/oclif/core/issues/1235)
 
 
@@ -860,8 +883,8 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/sf-plugins-core from 12.0.7 to 12.0.9 ([#1539](https://github.com/jayree/sfdx-plugin-manifest/issues/1539)) ([c54b639](https://github.com/jayree/sfdx-plugin-manifest/commit/c54b639286c2904bf2d1c2283355211dc6716ee0))
-  * bump oclif/table ([6ebe4d1](https://github.com/salesforcecli/sf-plugins-core/commit/6ebe4d1ae99fbff6232f9799e57b4c06fbd7c7c9))
   * bump oclif/table ([6ed3d12](https://github.com/salesforcecli/sf-plugins-core/commit/6ed3d121868607aa3a056f7dda247ed7f61e3225))
+  * bump oclif/table ([6ebe4d1](https://github.com/salesforcecli/sf-plugins-core/commit/6ebe4d1ae99fbff6232f9799e57b4c06fbd7c7c9))
 
 
 
@@ -881,9 +904,8 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/sf-plugins-core from 12.0.4 to 12.0.7 ([#1537](https://github.com/jayree/sfdx-plugin-manifest/issues/1537)) ([d91f640](https://github.com/jayree/sfdx-plugin-manifest/commit/d91f640cb433fc481fa576ec08b7773ef5375958))
-  * bump oclif/table ([4831534](https://github.com/salesforcecli/sf-plugins-core/commit/4831534b9d672ad855a6ad78ac1bf42fc012929f))
   * export makeTable ([5fb127e](https://github.com/salesforcecli/sf-plugins-core/commit/5fb127e0a061d6127fcad7e005fc1b6679afa73d))
-  ### Reverts
+  * bump oclif/table ([4831534](https://github.com/salesforcecli/sf-plugins-core/commit/4831534b9d672ad855a6ad78ac1bf42fc012929f))
   * Revert "fix: export makeTable" ([897e2ae](https://github.com/salesforcecli/sf-plugins-core/commit/897e2aefb0c04d48914a224626b45d1f4ebb15e0))
 
 
@@ -894,108 +916,11 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/sf-plugins-core from 11.3.12 to 12.0.4 ([#1535](https://github.com/jayree/sfdx-plugin-manifest/issues/1535)) ([ee977f8](https://github.com/jayree/sfdx-plugin-manifest/commit/ee977f851abe33d1b9a8da6f4efb9d58429cdbeb))
-  * upgrade oclif/table ([20ccfcf](https://github.com/salesforcecli/sf-plugins-core/commit/20ccfcf2e5fe31c41bd01b582b482541b9d2b6cc))
   * bump @oclif/table [skip-validate-pr] ([#641](https://github.com/salesforcecli/sf-plugins-core/issues/641)) ([1a2a5b4](https://github.com/salesforcecli/sf-plugins-core/commit/1a2a5b424458be5c2e240809c59eb594f2b0597c))
+  * upgrade oclif/table ([20ccfcf](https://github.com/salesforcecli/sf-plugins-core/commit/20ccfcf2e5fe31c41bd01b582b482541b9d2b6cc))
   * bump oclif/table ([d670456](https://github.com/salesforcecli/sf-plugins-core/commit/d670456dd788e0f1143981503dcc41fc26e487a3))
   * bump oclif/table ([d0db256](https://github.com/salesforcecli/sf-plugins-core/commit/d0db256602407694106bcebf817af19b459b31bb))
   * feat!: use @oclif/table (#635) ([402831e](https://github.com/salesforcecli/sf-plugins-core/commit/402831ebf6f7e6ca9894ed8ad074c2ebde3df60f)), closes [#635](https://github.com/salesforcecli/sf-plugins-core/issues/635)
-  ### BREAKING CHANGES
-  #### New `table` API
-  We updated `table` to be easier to use. If you need to maintain the old (v11 or older) API or would like to migrate one table at a time, you can wrap the old input in `convertToNewTableAPI` to convert it.
-  **Before**
-  ```typescript
-  const data = [
-  {
-  alias: 'devhub',
-  connectedStatus: 'Connected',
-  defaultMarker: undefined,
-  instanceUrl: 'https://su0503.my.salesforce.com',
-  isDefaultDevHubUsername: false,
-  isDefaultUsername: false,
-  isDevHub: true,
-  orgId: '00DB0000000Ih65MAC',
-  timestamp: '2022-05-10T19:26:45.436Z',
-  type: 'DevHub',
-  username: 'md@su-blitz.org',
-  },
-  {
-  alias: 'na40devhub',
-  connectedStatus: 'Connected',
-  defaultMarker: '🌳',
-  instanceUrl: 'https://na40-dev-hub.my.salesforce.com',
-  isDefaultDevHubUsername: true,
-  isDefaultUsername: false,
-  isDevHub: true,
-  orgId: '00D460000019MkyEAE',
-  type: 'DevHub',
-  username: 'admin@integrationtesthubna40.org',
-  },
-  ]
-  const columns = {
-  defaultMarker: {
-  header: '',
-  },
-  type: {
-  header: 'Type',
-  },
-  alias: {
-  header: 'Alias',
-  },
-  username: { header: 'Username' },
-  orgId: { header: 'Org ID' },
-  }
-  table(data, columns)
-  ```
-  **After**
-  ```typescript
-  const data = [
-  {
-  alias: 'devhub',
-  connectedStatus: 'Connected',
-  defaultMarker: undefined,
-  instanceUrl: 'https://su0503.my.salesforce.com',
-  isDefaultDevHubUsername: false,
-  isDefaultUsername: false,
-  isDevHub: true,
-  orgId: '00DB0000000Ih65MAC',
-  timestamp: '2022-05-10T19:26:45.436Z',
-  type: 'DevHub',
-  username: 'md@su-blitz.org',
-  },
-  {
-  alias: 'na40devhub',
-  connectedStatus: 'Connected',
-  defaultMarker: '🌳',
-  instanceUrl: 'https://na40-dev-hub.my.salesforce.com',
-  isDefaultDevHubUsername: true,
-  isDefaultUsername: false,
-  isDevHub: true,
-  orgId: '00D460000019MkyEAE',
-  type: 'DevHub',
-  username: 'admin@integrationtesthubna40.org',
-  },
-  ]
-  table({
-  columns: [
-  {
-  key: 'defaultMarker',
-  name: ' ',
-  },
-  'type',
-  'alias',
-  'username',
-  {
-  key: 'instanceUrl',
-  name: 'Instance URL',
-  },
-  {
-  key: 'orgId',
-  name: 'Org ID',
-  },
-  ],
-  data,
-  })
-  ```
 
 
 
@@ -1076,8 +1001,8 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/source-deploy-retrieve from 12.7.2 to 12.7.4 ([#1511](https://github.com/jayree/sfdx-plugin-manifest/issues/1511)) ([a40547a](https://github.com/jayree/sfdx-plugin-manifest/commit/a40547a46d3110d8c98ce7732ba6caff7ee110bb))
-  * adding new saml plugin to eca ([#1430](https://github.com/forcedotcom/source-deploy-retrieve/issues/1430)) ([eb567e8](https://github.com/forcedotcom/source-deploy-retrieve/commit/eb567e88dbb579c0e83a20dcc329646f093b6c31))
   * calculate if parent exists, return path to be calculated ([#1431](https://github.com/forcedotcom/source-deploy-retrieve/issues/1431)) ([755f89c](https://github.com/forcedotcom/source-deploy-retrieve/commit/755f89cef02f2c97da76341eb019f95c8ef52c19))
+  * adding new saml plugin to eca ([#1430](https://github.com/forcedotcom/source-deploy-retrieve/issues/1430)) ([eb567e8](https://github.com/forcedotcom/source-deploy-retrieve/commit/eb567e88dbb579c0e83a20dcc329646f093b6c31))
 
 
 
@@ -1119,8 +1044,8 @@
 
 * **deps:** bump @salesforce/source-deploy-retrieve from 12.6.3 to 12.7.1 ([#1496](https://github.com/jayree/sfdx-plugin-manifest/issues/1496)) ([108b87f](https://github.com/jayree/sfdx-plugin-manifest/commit/108b87f0a70eaf30b13b148396e9f5ceb2dc5f7e))
   * Wr/decompose permission sets ([#1412](https://github.com/forcedotcom/source-deploy-retrieve/issues/1412)) ([3650332](https://github.com/forcedotcom/source-deploy-retrieve/commit/3650332d16b61b7588bd3ef7bc14ec1354ff6110))
-  * add ExtlClntAppPushSettings and ExtlClntAppPushConfigurablePolicies ([#1424](https://github.com/forcedotcom/source-deploy-retrieve/issues/1424)) ([8fa28a1](https://github.com/forcedotcom/source-deploy-retrieve/commit/8fa28a11025c4ddb7ea87705ff69368fdbb68a33))
   * **deps:** bump @salesforce/core from 8.5.4 to 8.5.7 ([#1421](https://github.com/forcedotcom/source-deploy-retrieve/issues/1421)) ([b18de44](https://github.com/forcedotcom/source-deploy-retrieve/commit/b18de440a0f2d453332193490f1b9bd63f747c35))
+  * add ExtlClntAppPushSettings and ExtlClntAppPushConfigurablePolicies ([#1424](https://github.com/forcedotcom/source-deploy-retrieve/issues/1424)) ([8fa28a1](https://github.com/forcedotcom/source-deploy-retrieve/commit/8fa28a11025c4ddb7ea87705ff69368fdbb68a33))
 
 
 
@@ -1130,8 +1055,8 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/sf-plugins-core from 11.3.7 to 11.3.10 ([#1491](https://github.com/jayree/sfdx-plugin-manifest/issues/1491)) ([efede01](https://github.com/jayree/sfdx-plugin-manifest/commit/efede01b907d18174cd71b95b5907686f0e46132))
-  * **deps:** bump @inquirer/password from 2.1.22 to 2.2.0 ([3f5c38e](https://github.com/salesforcecli/sf-plugins-core/commit/3f5c38ebed98c220bf3e2e440ccdca02834b74dc))
   * **deps:** bump @salesforce/kit from 3.2.1 to 3.2.2 ([914c19b](https://github.com/salesforcecli/sf-plugins-core/commit/914c19b07d566551f16977353b0844b52a3f6d17))
+  * **deps:** bump @inquirer/password from 2.1.22 to 2.2.0 ([3f5c38e](https://github.com/salesforcecli/sf-plugins-core/commit/3f5c38ebed98c220bf3e2e440ccdca02834b74dc))
   * **deps:** bump path-to-regexp from 1.8.0 to 1.9.0 ([9b404b6](https://github.com/salesforcecli/sf-plugins-core/commit/9b404b6c2b529bf24445a44a3c7828a5edada3dc))
 
 
@@ -1163,8 +1088,8 @@
 
 * **deps:** bump @salesforce/core from 8.5.4 to 8.5.7 ([#1485](https://github.com/jayree/sfdx-plugin-manifest/issues/1485)) ([2b29d1f](https://github.com/jayree/sfdx-plugin-manifest/commit/2b29d1fc2dc1c60304dbf8125b66d6957ac0b348))
   * **deps:** bump pino from 9.3.2 to 9.4.0 ([bb3dcff](https://github.com/forcedotcom/sfdx-core/commit/bb3dcffded446a4454d099a72565d66b1dd43c72))
-  * **deps:** bump path-to-regexp from 1.8.0 to 1.9.0 ([7aacd1f](https://github.com/forcedotcom/sfdx-core/commit/7aacd1f99f1a15079f3da509ec9a516ac21fa1cd))
   * update error message for sfdx auth url ([96f1dd4](https://github.com/forcedotcom/sfdx-core/commit/96f1dd4745074262ee763e5ef4c2a1be7bd0944b))
+  * **deps:** bump path-to-regexp from 1.8.0 to 1.9.0 ([7aacd1f](https://github.com/forcedotcom/sfdx-core/commit/7aacd1f99f1a15079f3da509ec9a516ac21fa1cd))
 
 
 
@@ -1174,9 +1099,9 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/source-tracking from 7.1.10 to 7.1.14 ([#1478](https://github.com/jayree/sfdx-plugin-manifest/issues/1478)) ([badbb8b](https://github.com/jayree/sfdx-plugin-manifest/commit/badbb8bc4d8a4778ad81cd07a4031fbc77a7eb25))
-  * **deps:** bump @oclif/core from 4.0.18 to 4.0.19 ([aefa86c](https://github.com/forcedotcom/source-tracking/commit/aefa86c0fd3d829396e126141d40358eb094bcb7))
-  * **deps:** bump fast-xml-parser from 4.4.1 to 4.5.0 ([cffcbfe](https://github.com/forcedotcom/source-tracking/commit/cffcbfe2c07aef5efcefce5e43a8b391c75b8a2e))
   * support `SF_` and `SFDX_` prefixed env vars ([#668](https://github.com/forcedotcom/source-tracking/issues/668)) ([c64812e](https://github.com/forcedotcom/source-tracking/commit/c64812eba4fe9093bf322ae5f118dd526a787840))
+  * **deps:** bump fast-xml-parser from 4.4.1 to 4.5.0 ([cffcbfe](https://github.com/forcedotcom/source-tracking/commit/cffcbfe2c07aef5efcefce5e43a8b391c75b8a2e))
+  * **deps:** bump @oclif/core from 4.0.18 to 4.0.19 ([aefa86c](https://github.com/forcedotcom/source-tracking/commit/aefa86c0fd3d829396e126141d40358eb094bcb7))
   * **deps:** bump @oclif/core from 4.0.19 to 4.0.20 ([21ed1dd](https://github.com/forcedotcom/source-tracking/commit/21ed1dd58f6735988e22225608e09e7ef504bdd9))
 
 
@@ -1229,8 +1154,8 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/source-deploy-retrieve from 12.6.0 to 12.6.2 ([#1475](https://github.com/jayree/sfdx-plugin-manifest/issues/1475)) ([c0c751c](https://github.com/jayree/sfdx-plugin-manifest/commit/c0c751c39daf485de5dda036386b294653abeb12))
-  * **deps:** bump @salesforce/core from 8.4.0 to 8.5.2 ([#1411](https://github.com/forcedotcom/source-deploy-retrieve/issues/1411)) ([d832460](https://github.com/forcedotcom/source-deploy-retrieve/commit/d832460895818acd1f5247a5b6e9829299dfd2d6))
   * **deps:** bump @salesforce/kit from 3.2.1 to 3.2.2 ([#1409](https://github.com/forcedotcom/source-deploy-retrieve/issues/1409)) ([97e0a37](https://github.com/forcedotcom/source-deploy-retrieve/commit/97e0a37e58e6c5c29afcf9828f6f42118947357d))
+  * **deps:** bump @salesforce/core from 8.4.0 to 8.5.2 ([#1411](https://github.com/forcedotcom/source-deploy-retrieve/issues/1411)) ([d832460](https://github.com/forcedotcom/source-deploy-retrieve/commit/d832460895818acd1f5247a5b6e9829299dfd2d6))
 
 
 
@@ -1240,9 +1165,9 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/core from 8.5.1 to 8.5.3 ([#1469](https://github.com/jayree/sfdx-plugin-manifest/issues/1469)) ([adf989f](https://github.com/jayree/sfdx-plugin-manifest/commit/adf989ff251a790486b2afe9e5c70d70e062ec43))
+  * **deps:** bump @salesforce/kit from 3.1.6 to 3.2.2 ([665258c](https://github.com/forcedotcom/sfdx-core/commit/665258c9a310da6bc96219c877adf3983b44bd6e))
   * **env:** support more `SF_` source-tracking vars ([e9bff6b](https://github.com/forcedotcom/sfdx-core/commit/e9bff6be88da830634c7c8adaccd00e26bfe2323))
   * **deps:** bump @jsforce/jsforce-node from 3.4.0 to 3.4.1 ([95de99e](https://github.com/forcedotcom/sfdx-core/commit/95de99e99211f04da907d82eeecf205f05138706))
-  * **deps:** bump @salesforce/kit from 3.1.6 to 3.2.2 ([665258c](https://github.com/forcedotcom/sfdx-core/commit/665258c9a310da6bc96219c877adf3983b44bd6e))
 
 
 
@@ -1252,8 +1177,8 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/sf-plugins-core from 11.3.4 to 11.3.6 ([#1458](https://github.com/jayree/sfdx-plugin-manifest/issues/1458)) ([7490f2b](https://github.com/jayree/sfdx-plugin-manifest/commit/7490f2b8f545cef782560a10c6bc3fa315db16d3))
-  * **deps:** bump micromatch from 4.0.5 to 4.0.8 ([7ddcc48](https://github.com/salesforcecli/sf-plugins-core/commit/7ddcc480f956a7a8b5ef5884f1784127c741bfd7))
   * **deps:** bump @oclif/core from 4.0.17 to 4.0.19 ([7fd3002](https://github.com/salesforcecli/sf-plugins-core/commit/7fd3002e72be6dfc5e3e2ab5e4aac933cbcc7c79))
+  * **deps:** bump micromatch from 4.0.5 to 4.0.8 ([7ddcc48](https://github.com/salesforcecli/sf-plugins-core/commit/7ddcc480f956a7a8b5ef5884f1784127c741bfd7))
 
 
 
@@ -1333,8 +1258,8 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/source-tracking from 7.1.7 to 7.1.9 ([#1455](https://github.com/jayree/sfdx-plugin-manifest/issues/1455)) ([07da22a](https://github.com/jayree/sfdx-plugin-manifest/commit/07da22a191dc9ffb47dba48ce9468ddb6a10c27b))
-  * **deps:** bump @salesforce/source-deploy-retrieve from 12.4.0 to 12.5.1 ([9d01874](https://github.com/forcedotcom/source-tracking/commit/9d0187416a0c93f34691895d2c4a0189990cbd8e))
   * **deps:** bump micromatch from 4.0.5 to 4.0.8 ([cb034f8](https://github.com/forcedotcom/source-tracking/commit/cb034f891f0c345abd85311b4e4e227528fee3f2))
+  * **deps:** bump @salesforce/source-deploy-retrieve from 12.4.0 to 12.5.1 ([9d01874](https://github.com/forcedotcom/source-tracking/commit/9d0187416a0c93f34691895d2c4a0189990cbd8e))
 
 
 
@@ -1344,7 +1269,7 @@
 ### Bug Fixes
 
 * **deps:** bump micromatch from 4.0.5 to 4.0.8 ([#1452](https://github.com/jayree/sfdx-plugin-manifest/issues/1452)) ([c8bb76d](https://github.com/jayree/sfdx-plugin-manifest/commit/c8bb76dbaa3659dd91c1d93a6a82b04f644d75a6))
-  Ultimate release that fixes both CVE-2024-4067 and CVE-2024-4068. We consider the issues low-priority, so even if you see automated scanners saying otherwise, don't be scared.
+  *   backported CVE-2024-4067 fix (from v4.0.6) over to 4.x branch
 
 
 
@@ -1404,8 +1329,8 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/sf-plugins-core from 11.3.0 to 11.3.2 ([#1443](https://github.com/jayree/sfdx-plugin-manifest/issues/1443)) ([8f5e553](https://github.com/jayree/sfdx-plugin-manifest/commit/8f5e5535acab928462485d15c1f95ee3f159b346))
-  * **deps:** bump @inquirer/password from 2.1.20 to 2.1.22 ([f79d72b](https://github.com/salesforcecli/sf-plugins-core/commit/f79d72b849df2dd535b9e23fa36bd6ffede3c98d))
   * **deps:** bump @inquirer/confirm from 3.1.20 to 3.1.22 ([c7eaca6](https://github.com/salesforcecli/sf-plugins-core/commit/c7eaca66336be3ce3353d65bb2bee28ba0d0aa15))
+  * **deps:** bump @inquirer/password from 2.1.20 to 2.1.22 ([f79d72b](https://github.com/salesforcecli/sf-plugins-core/commit/f79d72b849df2dd535b9e23fa36bd6ffede3c98d))
 
 
 
@@ -1457,10 +1382,10 @@
 
 * **deps:** bump @salesforce/sf-plugins-core from 11.2.4 to 11.3.0 ([#1435](https://github.com/jayree/sfdx-plugin-manifest/issues/1435)) ([9aa49b2](https://github.com/jayree/sfdx-plugin-manifest/commit/9aa49b2cfbe694ba9414a64e3757fe36ea807ea6))
   * flush intra-command warnings at the end ([68cafb3](https://github.com/salesforcecli/sf-plugins-core/commit/68cafb3d953ab4c58e50c43e7b84533a341dec6f))
-  * **deps:** bump @salesforce/ts-types from 2.0.11 to 2.0.12 ([c378319](https://github.com/salesforcecli/sf-plugins-core/commit/c378319b5d98cf466fec91e995b7d2aa0f269cb8))
   * **deps:** bump @inquirer/confirm from 3.1.17 to 3.1.20 ([0c946a7](https://github.com/salesforcecli/sf-plugins-core/commit/0c946a7d6248ab7b926496de6830461a131a0b69))
-  * **deps:** bump @inquirer/password from 2.1.18 to 2.1.20 ([adcaab1](https://github.com/salesforcecli/sf-plugins-core/commit/adcaab1cb003c21d97616dad517398d45c9f5555))
+  * **deps:** bump @salesforce/ts-types from 2.0.11 to 2.0.12 ([c378319](https://github.com/salesforcecli/sf-plugins-core/commit/c378319b5d98cf466fec91e995b7d2aa0f269cb8))
   * correct method signature ([df4b2b7](https://github.com/salesforcecli/sf-plugins-core/commit/df4b2b73bb1a110377cd71ac4a6e017fc707991a))
+  * **deps:** bump @inquirer/password from 2.1.18 to 2.1.20 ([adcaab1](https://github.com/salesforcecli/sf-plugins-core/commit/adcaab1cb003c21d97616dad517398d45c9f5555))
   * **deps:** bump @salesforce/kit from 3.1.6 to 3.2.1 ([f1d288a](https://github.com/salesforcecli/sf-plugins-core/commit/f1d288a804eed011517a93a0416f59eab9e5ccf4))
 
 
@@ -1500,13 +1425,13 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/sf-plugins-core from 11.2.1 to 11.2.4 ([#1418](https://github.com/jayree/sfdx-plugin-manifest/issues/1418)) ([1ce46b1](https://github.com/jayree/sfdx-plugin-manifest/commit/1ce46b12647deb1a2e5054fb234bbfc6ca0b1c4b))
-  * **deps:** bump ansis from 3.2.1 to 3.3.2 ([e1cec43](https://github.com/salesforcecli/sf-plugins-core/commit/e1cec43d9b7b421fa057021987313f011137bfa2))
-  * **deps:** bump @inquirer/confirm from 3.1.16 to 3.1.17 ([5e580c0](https://github.com/salesforcecli/sf-plugins-core/commit/5e580c0efe38ca7014459fcdf49288ed7195bd6c))
   * remove dead code ([#598](https://github.com/salesforcecli/sf-plugins-core/issues/598)) ([cfd04e8](https://github.com/salesforcecli/sf-plugins-core/commit/cfd04e86b2e5a88742735690520df4e387e2b8e2))
+  * **deps:** bump @inquirer/confirm from 3.1.16 to 3.1.17 ([5e580c0](https://github.com/salesforcecli/sf-plugins-core/commit/5e580c0efe38ca7014459fcdf49288ed7195bd6c))
+  * **deps:** bump ansis from 3.2.1 to 3.3.2 ([e1cec43](https://github.com/salesforcecli/sf-plugins-core/commit/e1cec43d9b7b421fa057021987313f011137bfa2))
 * **deps:** bump @salesforce/source-deploy-retrieve from 12.1.8 to 12.1.11 ([#1411](https://github.com/jayree/sfdx-plugin-manifest/issues/1411)) ([5fb3351](https://github.com/jayree/sfdx-plugin-manifest/commit/5fb3351edc2dfe49c18b83cc98eee32b51c4a2ed))
   * recurse through dirs then files ([#1381](https://github.com/forcedotcom/source-deploy-retrieve/issues/1381)) ([f2e79c3](https://github.com/forcedotcom/source-deploy-retrieve/commit/f2e79c3153f9a07f2aaf581ecd4d1b14ea0c0715))
-  * use jsforce's `cancelDeploy` method ([#1380](https://github.com/forcedotcom/source-deploy-retrieve/issues/1380)) ([7d644f2](https://github.com/forcedotcom/source-deploy-retrieve/commit/7d644f215d7c0bcfe413d1fcfafc10122b17a412))
   * manifests for custom object can omit parent ([#1375](https://github.com/forcedotcom/source-deploy-retrieve/issues/1375)) ([8fd9c9e](https://github.com/forcedotcom/source-deploy-retrieve/commit/8fd9c9ec57a8502234c9c2abe0cd528e5107844b))
+  * use jsforce's `cancelDeploy` method ([#1380](https://github.com/forcedotcom/source-deploy-retrieve/issues/1380)) ([7d644f2](https://github.com/forcedotcom/source-deploy-retrieve/commit/7d644f215d7c0bcfe413d1fcfafc10122b17a412))
 
 
 
@@ -1536,6 +1461,9 @@
 ### Bug Fixes
 
 * **deps:** bump fast-xml-parser from 4.4.0 to 4.4.1 ([#1412](https://github.com/jayree/sfdx-plugin-manifest/issues/1412)) ([96f7d91](https://github.com/jayree/sfdx-plugin-manifest/commit/96f7d91c3b01c439aca0ccc1f0e63becc160e530))
+  *   v5 fix: maximum length limit to currency value
+  *   fix [#634](https://redirect.github.com/NaturalIntelligence/fast-xml-parser/issues/634): build attributes with oneListGroup and attributesGroupName ([#653](https://redirect.github.com/NaturalIntelligence/fast-xml-parser/issues/653))(By [Andreas Naziris](https://github.com/a-rasin))
+  *   fix: get oneListGroup to work as expected for array of strings ([#662](https://redirect.github.com/NaturalIntelligence/fast-xml-parser/issues/662))(By [Andreas Naziris](https://github.com/a-rasin))
 
 
 
@@ -1545,8 +1473,8 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/ts-types from 2.0.10 to 2.0.12 ([#1415](https://github.com/jayree/sfdx-plugin-manifest/issues/1415)) ([d19a5cd](https://github.com/jayree/sfdx-plugin-manifest/commit/d19a5cd7748d421bdcb30181cff8c81446e4003c))
-  * typedoc update ([#307](https://github.com/forcedotcom/ts-types/issues/307)) ([2aebc45](https://github.com/forcedotcom/ts-types/commit/2aebc453f0bc57e206d762d3d5332966dc85b7c1))
   * **deps:** devScripts update ([#306](https://github.com/forcedotcom/ts-types/issues/306)) ([baf2277](https://github.com/forcedotcom/ts-types/commit/baf22772314019f9ae48c5700d03112ec6160aff))
+  * typedoc update ([#307](https://github.com/forcedotcom/ts-types/issues/307)) ([2aebc45](https://github.com/forcedotcom/ts-types/commit/2aebc453f0bc57e206d762d3d5332966dc85b7c1))
 
 
 
@@ -1556,10 +1484,10 @@
 ### Bug Fixes
 
 * **deps:** bump @oclif/core from 4.0.12 to 4.0.16 ([#1405](https://github.com/jayree/sfdx-plugin-manifest/issues/1405)) ([edf3310](https://github.com/jayree/sfdx-plugin-manifest/commit/edf3310b37da5c1718c88248658fadbbf6bc4636))
-  * **deps:** bump ansis from 3.2.1 to 3.3.1 ([a0eba0a](https://github.com/oclif/core/commit/a0eba0abec7aa297fe0fc38ea60e9f26f4ce7166))
   * husky 9.1.1 fix ([#1147](https://github.com/oclif/core/issues/1147)) ([cd3720f](https://github.com/oclif/core/commit/cd3720f9722b619be229b1605f354020c44df21e))
-  * ignore escaped delimiters ([#1148](https://github.com/oclif/core/issues/1148)) ([a41962a](https://github.com/oclif/core/commit/a41962af85fb9d84040614c4a1aab7a8e4c7d4af))
+  * **deps:** bump ansis from 3.2.1 to 3.3.1 ([a0eba0a](https://github.com/oclif/core/commit/a0eba0abec7aa297fe0fc38ea60e9f26f4ce7166))
   * **deps:** bump requirejs from 2.3.6 to 2.3.7 ([216d8e7](https://github.com/oclif/core/commit/216d8e7a050c7bd4cdba82c6920c6e9744186ed2))
+  * ignore escaped delimiters ([#1148](https://github.com/oclif/core/issues/1148)) ([a41962a](https://github.com/oclif/core/commit/a41962af85fb9d84040614c4a1aab7a8e4c7d4af))
 
 
 
@@ -1579,8 +1507,8 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/core from 8.2.1 to 8.2.3 ([#1408](https://github.com/jayree/sfdx-plugin-manifest/issues/1408)) ([a196703](https://github.com/jayree/sfdx-plugin-manifest/commit/a196703fd1fc8399b061354331c722a7703b699e))
-  * **deps:** bump @jsforce/jsforce-node from 3.2.3 to 3.2.4 ([5f92923](https://github.com/forcedotcom/sfdx-core/commit/5f92923e7a481b26c6ac4a5537e7c0f3db80b5e9))
   * wrap-error-like-objects ([#1108](https://github.com/forcedotcom/sfdx-core/issues/1108)) ([e0c5eca](https://github.com/forcedotcom/sfdx-core/commit/e0c5eca7e4f9e6ef05c1f0daaa8506ffe491256e))
+  * **deps:** bump @jsforce/jsforce-node from 3.2.3 to 3.2.4 ([5f92923](https://github.com/forcedotcom/sfdx-core/commit/5f92923e7a481b26c6ac4a5537e7c0f3db80b5e9))
 
 
 
@@ -1591,9 +1519,9 @@
 
 * **deps:** bump @salesforce/sf-plugins-core from 11.1.6 to 11.2.0 ([#1397](https://github.com/jayree/sfdx-plugin-manifest/issues/1397)) ([c76049d](https://github.com/jayree/sfdx-plugin-manifest/commit/c76049de14991efdfbb4e1daa5026121d71ed492))
   * parse error messages to suggest correct flag value usage ([05c25ba](https://github.com/salesforcecli/sf-plugins-core/commit/05c25ba9fe3d8eff16207fc36a94e6e5d996b9d1))
+  * **deps:** bump @oclif/core from 4.0.8 to 4.0.12 ([26004af](https://github.com/salesforcecli/sf-plugins-core/commit/26004af618653526b9bb3cf1f41b672965df076e))
   * **deps:** bump string-width from 7.1.0 to 7.2.0 ([7157212](https://github.com/salesforcecli/sf-plugins-core/commit/715721279849e07b70d71433226436cfeb5eae9d))
   * **deps:** bump ansis from 3.2.0 to 3.2.1 ([7240349](https://github.com/salesforcecli/sf-plugins-core/commit/724034987eb101cd66eb83074f574e44b1a96fd9))
-  * **deps:** bump @oclif/core from 4.0.8 to 4.0.12 ([26004af](https://github.com/salesforcecli/sf-plugins-core/commit/26004af618653526b9bb3cf1f41b672965df076e))
 
 
 
@@ -1603,9 +1531,9 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/source-deploy-retrieve from 12.1.5 to 12.1.8 ([#1394](https://github.com/jayree/sfdx-plugin-manifest/issues/1394)) ([944d83a](https://github.com/jayree/sfdx-plugin-manifest/commit/944d83ab4e6705aa68e2bf632be0832938d4ca0b))
-  * handle nulls/undefined in template literal ([#1370](https://github.com/forcedotcom/source-deploy-retrieve/issues/1370)) ([2f8dac3](https://github.com/forcedotcom/source-deploy-retrieve/commit/2f8dac3ce0ed143be8985f0e419e69e5a8db5c04))
-  * only read multiple custom labels files once during conversion ([#1368](https://github.com/forcedotcom/source-deploy-retrieve/issues/1368)) ([d5606ba](https://github.com/forcedotcom/source-deploy-retrieve/commit/d5606ba8ce1d22553f00af5d9b2569f0266c1e24))
   * remove top-level metadata types mlmodel, modelconnection and modelschema ([#1369](https://github.com/forcedotcom/source-deploy-retrieve/issues/1369)) ([e3b4285](https://github.com/forcedotcom/source-deploy-retrieve/commit/e3b4285698f7af94ba2a5189c236960e22220232))
+  * only read multiple custom labels files once during conversion ([#1368](https://github.com/forcedotcom/source-deploy-retrieve/issues/1368)) ([d5606ba](https://github.com/forcedotcom/source-deploy-retrieve/commit/d5606ba8ce1d22553f00af5d9b2569f0266c1e24))
+  * handle nulls/undefined in template literal ([#1370](https://github.com/forcedotcom/source-deploy-retrieve/issues/1370)) ([2f8dac3](https://github.com/forcedotcom/source-deploy-retrieve/commit/2f8dac3ce0ed143be8985f0e419e69e5a8db5c04))
 
 
 
@@ -1615,9 +1543,9 @@
 ### Bug Fixes
 
 * **deps:** bump @oclif/core from 4.0.8 to 4.0.12 ([#1389](https://github.com/jayree/sfdx-plugin-manifest/issues/1389)) ([db256c9](https://github.com/jayree/sfdx-plugin-manifest/commit/db256c9b3328b1f178bd84953e23161de2fe978d))
+  * use colorize to ensure proper TTY detection ([8a5d71f](https://github.com/oclif/core/commit/8a5d71f93104ce17555adc28998db0520a2a7187))
   * correctly identify powershell on windows ([#1134](https://github.com/oclif/core/issues/1134)) ([bcec7df](https://github.com/oclif/core/commit/bcec7dfbcb27579ddd312f8ebda5a7b6c0829e98))
   * export ArgDefinition ([#1137](https://github.com/oclif/core/issues/1137)) ([db8d951](https://github.com/oclif/core/commit/db8d9513862d9702cb573d5d0544e0e164427032))
-  * use colorize to ensure proper TTY detection ([8a5d71f](https://github.com/oclif/core/commit/8a5d71f93104ce17555adc28998db0520a2a7187))
   * **deps:** bump ansis from 3.2.0 to 3.2.1 ([0d84684](https://github.com/oclif/core/commit/0d846842dea1c1963c93d4581d2211eb1a16ba14))
 
 
@@ -1638,10 +1566,10 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/sf-plugins-core from 11.1.2 to 11.1.6 ([#1388](https://github.com/jayree/sfdx-plugin-manifest/issues/1388)) ([6a33b7e](https://github.com/jayree/sfdx-plugin-manifest/commit/6a33b7ebbd03a5d523d9c5cb0771bf631928eecc))
-  * **deps:** bump @inquirer/password from 2.1.9 to 2.1.14 ([7ec06cf](https://github.com/salesforcecli/sf-plugins-core/commit/7ec06cfe57e662f2dcf7fa94b024afddd0dac162))
-  * **deps:** bump @salesforce/core from 8.0.3 to 8.1.1 ([937ae20](https://github.com/salesforcecli/sf-plugins-core/commit/937ae2048ba57f457dd99d51030ee21b39db580b))
   * **deps:** bump @oclif/core from 4.0.6 to 4.0.8 ([defa00d](https://github.com/salesforcecli/sf-plugins-core/commit/defa00d258b91c47f83b388c0d5fb3ebbcd8b678))
   * **deps:** bump @inquirer/confirm from 3.1.9 to 3.1.14 ([9bf97de](https://github.com/salesforcecli/sf-plugins-core/commit/9bf97dec0aa8594ce9719f5d0920b118b6b695d1))
+  * **deps:** bump @inquirer/password from 2.1.9 to 2.1.14 ([7ec06cf](https://github.com/salesforcecli/sf-plugins-core/commit/7ec06cfe57e662f2dcf7fa94b024afddd0dac162))
+  * **deps:** bump @salesforce/core from 8.0.3 to 8.1.1 ([937ae20](https://github.com/salesforcecli/sf-plugins-core/commit/937ae2048ba57f457dd99d51030ee21b39db580b))
 
 
 
@@ -1671,8 +1599,8 @@
 
 * **deps:** bump isomorphic-git from 1.26.3 to 1.27.0 ([#1379](https://github.com/jayree/sfdx-plugin-manifest/issues/1379)) ([3a187c4](https://github.com/jayree/sfdx-plugin-manifest/commit/3a187c46026fad0efd22e89fa45d107ae571bf5d))
   * commit --amend ([#1949](https://github.com/isomorphic-git/isomorphic-git/issues/1949)) ([988efd0](https://github.com/isomorphic-git/isomorphic-git/commit/988efd0fb9c5d9512cb5b8ff6882f0fda645df7e))
-  * push tag: do not update remote ref ([#1948](https://github.com/isomorphic-git/isomorphic-git/issues/1948)) ([017052c](https://github.com/isomorphic-git/isomorphic-git/commit/017052ceb400842fce448cb777208c326e3ae5dc))
   * deleteBranch should remove branch config ([#1946](https://github.com/isomorphic-git/isomorphic-git/issues/1946)) ([fa4eab6](https://github.com/isomorphic-git/isomorphic-git/commit/fa4eab6a3c8b80d8011e124f8d4eb7fb1222814f))
+  * push tag: do not update remote ref ([#1948](https://github.com/isomorphic-git/isomorphic-git/issues/1948)) ([017052c](https://github.com/isomorphic-git/isomorphic-git/commit/017052ceb400842fce448cb777208c326e3ae5dc))
 
 
 
@@ -1703,11 +1631,11 @@
 
 * **deps:** bump @salesforce/source-deploy-retrieve from 12.0.1 to 12.1.4 ([#1374](https://github.com/jayree/sfdx-plugin-manifest/issues/1374)) ([97e8aeb](https://github.com/jayree/sfdx-plugin-manifest/commit/97e8aeb59e67a26b9bde3bde9cdd31f06deb3138))
   * guarantee fileResponseSuccess has a path ([#1358](https://github.com/forcedotcom/source-deploy-retrieve/issues/1358)) ([9a1d565](https://github.com/forcedotcom/source-deploy-retrieve/commit/9a1d565fcbbcda5a7935c8b207f40548e65247d6))
-  * **deps:** devScripts update ([#1354](https://github.com/forcedotcom/source-deploy-retrieve/issues/1354)) ([9d08882](https://github.com/forcedotcom/source-deploy-retrieve/commit/9d08882fec55bd9b9e2df36fbb318b45e83b3057))
   * definition/version types  ([#1357](https://github.com/forcedotcom/source-deploy-retrieve/issues/1357)) ([3448e89](https://github.com/forcedotcom/source-deploy-retrieve/commit/3448e89f1c8ff6b672114901cee5376014b6d907))
+  * **deps:** devScripts update ([#1354](https://github.com/forcedotcom/source-deploy-retrieve/issues/1354)) ([9d08882](https://github.com/forcedotcom/source-deploy-retrieve/commit/9d08882fec55bd9b9e2df36fbb318b45e83b3057))
   * change error message, add UT ([#1355](https://github.com/forcedotcom/source-deploy-retrieve/issues/1355)) ([1e34691](https://github.com/forcedotcom/source-deploy-retrieve/commit/1e346913f63145363cb323592e70824cc76c4e51))
-  * bump minimatch to latest major version ([#1360](https://github.com/forcedotcom/source-deploy-retrieve/issues/1360)) ([5686c7c](https://github.com/forcedotcom/source-deploy-retrieve/commit/5686c7c32e49fac89549e1f166400df698eb65dd))
   * use import rather than fs read ([#1359](https://github.com/forcedotcom/source-deploy-retrieve/issues/1359)) ([db46af6](https://github.com/forcedotcom/source-deploy-retrieve/commit/db46af6a19f3479126b7c88f117b07253a4a21f7))
+  * bump minimatch to latest major version ([#1360](https://github.com/forcedotcom/source-deploy-retrieve/issues/1360)) ([5686c7c](https://github.com/forcedotcom/source-deploy-retrieve/commit/5686c7c32e49fac89549e1f166400df698eb65dd))
 
 
 
@@ -1729,8 +1657,8 @@
 * **deps:** bump isomorphic-git from 1.25.10 to 1.26.2 ([#1368](https://github.com/jayree/sfdx-plugin-manifest/issues/1368)) ([24a0fea](https://github.com/jayree/sfdx-plugin-manifest/commit/24a0fea23d8e56e17b8e21cafd39862bf5ce83ce))
   * **checkout, clone, push:** Add 'onPrePush' and 'onPostCheckout' ([#1797](https://github.com/isomorphic-git/isomorphic-git/issues/1797)) ([d361301](https://github.com/isomorphic-git/isomorphic-git/commit/d3613013b15a4b78be01d3cc3192ac4e4e659107))
   * Added new docs when using bundlers ([#1914](https://github.com/isomorphic-git/isomorphic-git/issues/1914)) ([fcaf7cb](https://github.com/isomorphic-git/isomorphic-git/commit/fcaf7cb5cff401e6a956a89453708ead7453c7a5))
-  * readObject when reading from packed objects with format `wrapped` ([#1935](https://github.com/isomorphic-git/isomorphic-git/issues/1935)) ([85bde9d](https://github.com/isomorphic-git/isomorphic-git/commit/85bde9df84ae348a7be485dca6fec0931d5b1fc7))
   * Revert "refactor: use `path.join` from `stdlib` instead of custom join ([#1861](https://github.com/isomorphic-git/isomorphic-git/issues/1861))" ([#1937](https://github.com/isomorphic-git/isomorphic-git/issues/1937)) ([59254b5](https://github.com/isomorphic-git/isomorphic-git/commit/59254b5b4f32e3600347cd32f34323900da67c79))
+  * readObject when reading from packed objects with format `wrapped` ([#1935](https://github.com/isomorphic-git/isomorphic-git/issues/1935)) ([85bde9d](https://github.com/isomorphic-git/isomorphic-git/commit/85bde9df84ae348a7be485dca6fec0931d5b1fc7))
 
 
 
@@ -1743,21 +1671,21 @@
   * **deps:** bump marked-terminal from 7.0.0 to 7.1.0 ([#393](https://github.com/jayree/changelog/issues/393)) ([bca5f76](https://github.com/jayree/changelog/commit/bca5f767f9607b6fe763eddf8e130db2153bf415))
 * **deps:** bump @salesforce/core from 7.4.1 to 8.0.3 ([#1358](https://github.com/jayree/sfdx-plugin-manifest/issues/1358)) ([e2f7aa8](https://github.com/jayree/sfdx-plugin-manifest/commit/e2f7aa8104fdb6a0bb7773138b6aac3d62731060))
   * only require packageDir, not NamedPackageDir ([6b4b308](https://github.com/forcedotcom/sfdx-core/commit/6b4b3082fd348f5b659731e9185d2163d641de44))
-  * **deps:** bump ajv from 8.15.0 to 8.16.0 ([f96c9fa](https://github.com/forcedotcom/sfdx-core/commit/f96c9faf8b0e96014b0b5558dc5dfa187cd41f15))
-  * allow uppercase keys inside project.plugins ([5b112f8](https://github.com/forcedotcom/sfdx-core/commit/5b112f8c124a2c19dc1a090b97bb32a20cc11d83))
+  * bump major ([#1091](https://github.com/forcedotcom/sfdx-core/issues/1091)) ([69e6a5c](https://github.com/forcedotcom/sfdx-core/commit/69e6a5cef8cec642f97fce670850c9512d14cc04))
   * compile error TS2589 - Type instantiation is excessively deep and possibly infinite ([6b4aa8a](https://github.com/forcedotcom/sfdx-core/commit/6b4aa8a43d1c9d60460c39bc4077404380bb8699))
   * sfProject types matches schemas repo ([82fee15](https://github.com/forcedotcom/sfdx-core/commit/82fee154bab78d5019ee06a8b5343996b6befb0e))
-  * bump major ([#1091](https://github.com/forcedotcom/sfdx-core/issues/1091)) ([69e6a5c](https://github.com/forcedotcom/sfdx-core/commit/69e6a5cef8cec642f97fce670850c9512d14cc04))
+  * allow uppercase keys inside project.plugins ([5b112f8](https://github.com/forcedotcom/sfdx-core/commit/5b112f8c124a2c19dc1a090b97bb32a20cc11d83))
+  * **deps:** bump ajv from 8.15.0 to 8.16.0 ([f96c9fa](https://github.com/forcedotcom/sfdx-core/commit/f96c9faf8b0e96014b0b5558dc5dfa187cd41f15))
 * **deps:** bump @salesforce/sf-plugins-core from 11.0.1 to 11.1.2 ([#1353](https://github.com/jayree/sfdx-plugin-manifest/issues/1353)) ([4283333](https://github.com/jayree/sfdx-plugin-manifest/commit/4283333e339380ce78ef78eef0be525238601e3a))
   * better error handling in SfCommand.catch ([c093c8f](https://github.com/salesforcecli/sf-plugins-core/commit/c093c8f0c2ff3e0e93141c179c00040392c6be35))
+  * **deps:** bump @oclif/core from 4.0.3 to 4.0.6 ([f509a69](https://github.com/salesforcecli/sf-plugins-core/commit/f509a69b3d22ca064fb7f251eaee4bb0bdbefe7f))
   * better typing ([c120a53](https://github.com/salesforcecli/sf-plugins-core/commit/c120a53ded4ae75d0f23f205a6bcfe7cdc957ef4))
   * handle oclif errors correctly ([2119353](https://github.com/salesforcecli/sf-plugins-core/commit/21193534582536e11cf31f41524958afb7178c8f))
-  * **deps:** bump @oclif/core from 4.0.3 to 4.0.6 ([f509a69](https://github.com/salesforcecli/sf-plugins-core/commit/f509a69b3d22ca064fb7f251eaee4bb0bdbefe7f))
 * **deps:** bump @salesforce/source-deploy-retrieve from 11.6.7 to 12.0.1 ([#1354](https://github.com/jayree/sfdx-plugin-manifest/issues/1354)) ([91f0484](https://github.com/jayree/sfdx-plugin-manifest/commit/91f0484cce528d8f3a310b0548f75904bbb303a3))
-  * class-scoped xml cache for recomposition ([#1348](https://github.com/forcedotcom/source-deploy-retrieve/issues/1348)) ([9fca2f3](https://github.com/forcedotcom/source-deploy-retrieve/commit/9fca2f32278bbcaf3caa66006dcacb72b77df0eb))
+  * cause next major release ([#1350](https://github.com/forcedotcom/source-deploy-retrieve/issues/1350)) ([734cc64](https://github.com/forcedotcom/source-deploy-retrieve/commit/734cc6421946d62afd3d0c346ecfd5190f19b256))
   * Remove ExpressionSetDefinitionVersion to not allow user to deploy it explicitly ([#1340](https://github.com/forcedotcom/source-deploy-retrieve/issues/1340)) ([0385acc](https://github.com/forcedotcom/source-deploy-retrieve/commit/0385acc8a6c563c63a8e2d43170cccf9bd83bec5))
   * **deps:** bump kit et al ([#1345](https://github.com/forcedotcom/source-deploy-retrieve/issues/1345)) ([f18ddc8](https://github.com/forcedotcom/source-deploy-retrieve/commit/f18ddc87e81b54df977cabe9972efa8dc9a668ed))
-  * cause next major release ([#1350](https://github.com/forcedotcom/source-deploy-retrieve/issues/1350)) ([734cc64](https://github.com/forcedotcom/source-deploy-retrieve/commit/734cc6421946d62afd3d0c346ecfd5190f19b256))
+  * class-scoped xml cache for recomposition ([#1348](https://github.com/forcedotcom/source-deploy-retrieve/issues/1348)) ([9fca2f3](https://github.com/forcedotcom/source-deploy-retrieve/commit/9fca2f32278bbcaf3caa66006dcacb72b77df0eb))
 
 
 
@@ -1767,9 +1695,9 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/source-deploy-retrieve from 11.6.4 to 11.6.7 ([#1345](https://github.com/jayree/sfdx-plugin-manifest/issues/1345)) ([6af332e](https://github.com/jayree/sfdx-plugin-manifest/commit/6af332e8734bd5d336105c16b69842473a471563))
-  * "did you mean" for project metadata detects mdapi format ([8830972](https://github.com/forcedotcom/source-deploy-retrieve/commit/88309728e9f9c11387b56ebbd63adcfc76f40ba3))
-  * **deps:** devScripts update ([#1337](https://github.com/forcedotcom/source-deploy-retrieve/issues/1337)) ([efe70d4](https://github.com/forcedotcom/source-deploy-retrieve/commit/efe70d4f9e6b66e7010fc63603bb7ac78ff2df2c))
   * selectively write the parent ([f3cf83a](https://github.com/forcedotcom/source-deploy-retrieve/commit/f3cf83aebbe0f45f47b60e5935f5f272f3f5298a))
+  * **deps:** devScripts update ([#1337](https://github.com/forcedotcom/source-deploy-retrieve/issues/1337)) ([efe70d4](https://github.com/forcedotcom/source-deploy-retrieve/commit/efe70d4f9e6b66e7010fc63603bb7ac78ff2df2c))
+  * "did you mean" for project metadata detects mdapi format ([8830972](https://github.com/forcedotcom/source-deploy-retrieve/commit/88309728e9f9c11387b56ebbd63adcfc76f40ba3))
 
 
 
@@ -1780,10 +1708,6 @@
 
 * **deps:** bump @salesforce/sf-plugins-core from 10.0.0 to 11.0.1 ([#1340](https://github.com/jayree/sfdx-plugin-manifest/issues/1340)) ([34e8a97](https://github.com/jayree/sfdx-plugin-manifest/commit/34e8a97319b5fc8261742064901ae8a1dd44fbdb))
   * **deps:** devScripts update ([#566](https://github.com/salesforcecli/sf-plugins-core/issues/566)) ([2b0e7a9](https://github.com/salesforcecli/sf-plugins-core/commit/2b0e7a98e43baf2b56eb286f877f28e50256ab84))
-  ## Refactored `SfCommand.Error`
-  - `SfCommand.toErrorJson()` was removed.  This is now handled by `SfCommandError.toJson()`.
-  - `SfCommandError.code` has changed from being a number to a string.  The value for this is from the original error first, followed by the error name if it's an SfError, followed by the exit code as a string.
-  - `SfCommandError` is now a class instead of a type.
 
 
 
@@ -1793,9 +1717,9 @@
 ### Bug Fixes
 
 * **deps:** bump @oclif/core from 4.0.3 to 4.0.6 ([#1339](https://github.com/jayree/sfdx-plugin-manifest/issues/1339)) ([cd6903e](https://github.com/jayree/sfdx-plugin-manifest/commit/cd6903ef65baf3dc69425b0776d410c6d023ac39))
-  * **deps:** bump braces from 3.0.2 to 3.0.3 ([d20f082](https://github.com/oclif/core/commit/d20f082dea6f13d2c2f25c2cb68ee40f0ec170ec))
-  * use lilconfig ([#1108](https://github.com/oclif/core/issues/1108)) ([804db9b](https://github.com/oclif/core/commit/804db9b5a5c35a1d2cdc85d8635f61ca44a27e04))
   * single command cli symbol on help output ([#1112](https://github.com/oclif/core/issues/1112)) ([5de6a40](https://github.com/oclif/core/commit/5de6a402129299a3b0d17dc6ddc2dc1cd82b6005))
+  * use lilconfig ([#1108](https://github.com/oclif/core/issues/1108)) ([804db9b](https://github.com/oclif/core/commit/804db9b5a5c35a1d2cdc85d8635f61ca44a27e04))
+  * **deps:** bump braces from 3.0.2 to 3.0.3 ([d20f082](https://github.com/oclif/core/commit/d20f082dea6f13d2c2f25c2cb68ee40f0ec170ec))
 
 
 
@@ -1843,227 +1767,51 @@
 
 * **deps:** bump @oclif/core from 3.26.6 to 4.0.3 ([#1331](https://github.com/jayree/sfdx-plugin-manifest/issues/1331)) ([c980fd9](https://github.com/jayree/sfdx-plugin-manifest/commit/c980fd9e9dd0c1bae69c1da1c6caa3f051a4f1ff))
   * added option to specify example flag value in docopts ([#1095](https://github.com/oclif/core/issues/1095)) ([0345ac3](https://github.com/oclif/core/commit/0345ac33bb8726c4d9870d4f2a8f3dcdee8bd07a)), closes [#1091](https://github.com/oclif/core/issues/1091)
-  * remove baseFlags ([d062173](https://github.com/oclif/core/commit/d06217324d4270794dd07c6854505a5e61ebb986))
-  * support tsx for runtime transpilation ([a194aa6](https://github.com/oclif/core/commit/a194aa6cb6f391be259b559ab6fd7415c1294bc7))
-  * remove baseFlags ([d062173](https://github.com/oclif/core/commit/d06217324d4270794dd07c6854505a5e61ebb986))
-  * improved types and top-level exports ([#1076](https://github.com/oclif/core/issues/1076)) ([3f421e7](https://github.com/oclif/core/commit/3f421e79fe4924ed8f5b5faf7bb6fd71076dec4b))
   * support rc files ([#1067](https://github.com/oclif/core/issues/1067)) ([6af9c71](https://github.com/oclif/core/commit/6af9c71791e982c79a31036671df608d5787243f))
   * add customizable logger ([371edda](https://github.com/oclif/core/commit/371eddaf565f9c879446ac36bf2f739679edffa8))
   * remove native error logger ([af986c5](https://github.com/oclif/core/commit/af986c5882b2cdaa39eb48f7973db1212ecff21f))
   * slimmer ux ([#1056](https://github.com/oclif/core/issues/1056)) ([879cac9](https://github.com/oclif/core/commit/879cac9e753d852d0353a8233f327ff84c369de9))
-  * add customizable logger ([371edda](https://github.com/oclif/core/commit/371eddaf565f9c879446ac36bf2f739679edffa8))
-  * remove native error logger ([af986c5](https://github.com/oclif/core/commit/af986c5882b2cdaa39eb48f7973db1212ecff21f))
   * slimmer ux module ([da97d98](https://github.com/oclif/core/commit/da97d987491d4f80113d785472b62687b014c069))
+  * add customizable logger ([371edda](https://github.com/oclif/core/commit/371eddaf565f9c879446ac36bf2f739679edffa8))
+  * remove native error logger ([af986c5](https://github.com/oclif/core/commit/af986c5882b2cdaa39eb48f7973db1212ecff21f))
   * support tsx for runtime transpilation ([a194aa6](https://github.com/oclif/core/commit/a194aa6cb6f391be259b559ab6fd7415c1294bc7))
-  * support rc files ([#1067](https://github.com/oclif/core/issues/1067)) ([6af9c71](https://github.com/oclif/core/commit/6af9c71791e982c79a31036671df608d5787243f))
+  * remove baseFlags ([d062173](https://github.com/oclif/core/commit/d06217324d4270794dd07c6854505a5e61ebb986))
   * improved types and top-level exports ([#1076](https://github.com/oclif/core/issues/1076)) ([3f421e7](https://github.com/oclif/core/commit/3f421e79fe4924ed8f5b5faf7bb6fd71076dec4b))
-  * slimmer ux ([#1056](https://github.com/oclif/core/issues/1056)) ([879cac9](https://github.com/oclif/core/commit/879cac9e753d852d0353a8233f327ff84c369de9))
+  * support rc files ([#1067](https://github.com/oclif/core/issues/1067)) ([6af9c71](https://github.com/oclif/core/commit/6af9c71791e982c79a31036671df608d5787243f))
+  * support tsx for runtime transpilation ([a194aa6](https://github.com/oclif/core/commit/a194aa6cb6f391be259b559ab6fd7415c1294bc7))
+  * remove baseFlags ([d062173](https://github.com/oclif/core/commit/d06217324d4270794dd07c6854505a5e61ebb986))
+  * improved types and top-level exports ([#1076](https://github.com/oclif/core/issues/1076)) ([3f421e7](https://github.com/oclif/core/commit/3f421e79fe4924ed8f5b5faf7bb6fd71076dec4b))
   * support rc files ([#1067](https://github.com/oclif/core/issues/1067)) ([6af9c71](https://github.com/oclif/core/commit/6af9c71791e982c79a31036671df608d5787243f))
   * add customizable logger ([371edda](https://github.com/oclif/core/commit/371eddaf565f9c879446ac36bf2f739679edffa8))
   * remove native error logger ([af986c5](https://github.com/oclif/core/commit/af986c5882b2cdaa39eb48f7973db1212ecff21f))
+  * slimmer ux ([#1056](https://github.com/oclif/core/issues/1056)) ([879cac9](https://github.com/oclif/core/commit/879cac9e753d852d0353a8233f327ff84c369de9))
   * slimmer ux ([#1056](https://github.com/oclif/core/issues/1056)) ([879cac9](https://github.com/oclif/core/commit/879cac9e753d852d0353a8233f327ff84c369de9))
   * **deps:** bump debug from 4.3.4 to 4.3.5 ([#1093](https://github.com/oclif/core/issues/1093)) ([58b9fed](https://github.com/oclif/core/commit/58b9fed6c7b32026279afc707227aab8dfb4ef6f))
   * only replace command id in usage if it's at beginning of string ([#1090](https://github.com/oclif/core/issues/1090)) ([3916945](https://github.com/oclif/core/commit/391694559446ef82bc5fc307e6e9ff72e44f7558))
   * get core meta version ([#1094](https://github.com/oclif/core/issues/1094)) ([9639fd4](https://github.com/oclif/core/commit/9639fd421824f58fbd209b771f0bdd5eac0426d0))
-  * isolate supports-color for testing ([6f990b4](https://github.com/oclif/core/commit/6f990b4bc9425229ed563c88ab1a568c04e608a2))
-  * improve types and ProdOnlyCache ([e9c7ff7](https://github.com/oclif/core/commit/e9c7ff7108e17ee405572301962f28732dd4fa9d))
-  * clarify types ([64b7669](https://github.com/oclif/core/commit/64b7669fa1373ef7b2eb10d0acb5038b29c91dca))
-  * allow empty ux.stdout ([da1e4cb](https://github.com/oclif/core/commit/da1e4cbe8be3f724a3b264d7a2d813a6dcbcae95))
-  * check supports-color in colorize ([ac32408](https://github.com/oclif/core/commit/ac3240885296774250a602df4fa42bbab6a566ae))
-  * allow empty ux.stdout ([da1e4cb](https://github.com/oclif/core/commit/da1e4cbe8be3f724a3b264d7a2d813a6dcbcae95))
-  * update hook type ([29664ba](https://github.com/oclif/core/commit/29664ba39181e151ebdb97dcadcfeda46db2c32c))
-  * improve types and ProdOnlyCache ([e9c7ff7](https://github.com/oclif/core/commit/e9c7ff7108e17ee405572301962f28732dd4fa9d))
-  * restore baseFlags support ([#1085](https://github.com/oclif/core/issues/1085)) ([b89d73d](https://github.com/oclif/core/commit/b89d73d7744cfe2f4dd0a020cb77a3bf63159a26))
-  * clarify types ([64b7669](https://github.com/oclif/core/commit/64b7669fa1373ef7b2eb10d0acb5038b29c91dca))
+  * cache child loggers ([2a9164d](https://github.com/oclif/core/commit/2a9164dabc8c814226a57b48729acbd9d3f838fd))
+  * cache child loggers ([2a9164d](https://github.com/oclif/core/commit/2a9164dabc8c814226a57b48729acbd9d3f838fd))
   * revert ignoreDuplicates in warn ([0e99723](https://github.com/oclif/core/commit/0e997235d3fbbcccac74ad5673dc135b736fe408))
-  * cache child loggers ([2a9164d](https://github.com/oclif/core/commit/2a9164dabc8c814226a57b48729acbd9d3f838fd))
+  * allow empty ux.stdout ([da1e4cb](https://github.com/oclif/core/commit/da1e4cbe8be3f724a3b264d7a2d813a6dcbcae95))
   * check supports-color in colorize ([ac32408](https://github.com/oclif/core/commit/ac3240885296774250a602df4fa42bbab6a566ae))
-  * add export for parser ([#1098](https://github.com/oclif/core/issues/1098)) ([f7bfc76](https://github.com/oclif/core/commit/f7bfc7607ecafbe669696b6b18a332af617dd981))
-  * cache child loggers ([2a9164d](https://github.com/oclif/core/commit/2a9164dabc8c814226a57b48729acbd9d3f838fd))
+  * improve types and ProdOnlyCache ([e9c7ff7](https://github.com/oclif/core/commit/e9c7ff7108e17ee405572301962f28732dd4fa9d))
+  * clarify types ([64b7669](https://github.com/oclif/core/commit/64b7669fa1373ef7b2eb10d0acb5038b29c91dca))
   * restore baseFlags support ([#1085](https://github.com/oclif/core/issues/1085)) ([b89d73d](https://github.com/oclif/core/commit/b89d73d7744cfe2f4dd0a020cb77a3bf63159a26))
-  * export parser related types ([#1099](https://github.com/oclif/core/issues/1099)) ([0daafdd](https://github.com/oclif/core/commit/0daafdd47f4f7925502513dc9097193a691bad1f))
   * update hook type ([29664ba](https://github.com/oclif/core/commit/29664ba39181e151ebdb97dcadcfeda46db2c32c))
+  * export parser related types ([#1099](https://github.com/oclif/core/issues/1099)) ([0daafdd](https://github.com/oclif/core/commit/0daafdd47f4f7925502513dc9097193a691bad1f))
+  * check supports-color in colorize ([ac32408](https://github.com/oclif/core/commit/ac3240885296774250a602df4fa42bbab6a566ae))
+  * allow empty ux.stdout ([da1e4cb](https://github.com/oclif/core/commit/da1e4cbe8be3f724a3b264d7a2d813a6dcbcae95))
+  * update hook type ([29664ba](https://github.com/oclif/core/commit/29664ba39181e151ebdb97dcadcfeda46db2c32c))
+  * improve types and ProdOnlyCache ([e9c7ff7](https://github.com/oclif/core/commit/e9c7ff7108e17ee405572301962f28732dd4fa9d))
+  * restore baseFlags support ([#1085](https://github.com/oclif/core/issues/1085)) ([b89d73d](https://github.com/oclif/core/commit/b89d73d7744cfe2f4dd0a020cb77a3bf63159a26))
+  * clarify types ([64b7669](https://github.com/oclif/core/commit/64b7669fa1373ef7b2eb10d0acb5038b29c91dca))
   * revert ignoreDuplicates in warn ([0e99723](https://github.com/oclif/core/commit/0e997235d3fbbcccac74ad5673dc135b736fe408))
   * cache child loggers ([2a9164d](https://github.com/oclif/core/commit/2a9164dabc8c814226a57b48729acbd9d3f838fd))
   * parsed args regression ([#1096](https://github.com/oclif/core/issues/1096)) ([53f915b](https://github.com/oclif/core/commit/53f915b949596a0a30784586790f5cdee6a60426))
-  ## Slimmer `ux` module
-  As described [here](https://github.com/oclif/core/discussions/999), we're removing most of the methods in the `ux` module. We're simply unable to adequately support the feature set that `ux` offers and think that most people would benefit from using dedicated libraries that are better supported.
-  We are, however, keeping some of the functionality. The new `ux` module will contain the following:
-  #### Unchanged
-  - `colorize`
-  - `error`
-  - `exit`
-  - `action` - will be unchanged from previous version except that the spinner color will be configurable using [themes](https://oclif.io/docs/themes).
-  - `warn`
-  #### Renamed
-  - `stdout` - rename of `ux.log`
-  - `stderr` - rename of `ux.logToStderr`
-  #### New
-  - `colorizeJson` - Apply color theme to arbitrary JSON.
-  #### Removed
-  - `annotation`
-  - `anykey`
-  - `confirm`
-  - `debug`
-  - `done` (use `ux.action.stop()` instead)
-  - `flush` (still available via `@oclif/core/flush`)
-  - `info` (use `ux.stdout` instead)
-  - `progress`
-  - `prompt`
-  - `styledHeader`
-  - `styledJSON`
-  - `styledObject`
-  - `table`
-  - `trace`
-  - `tree`
-  - `url`
-  - `wait`
-  ### What you'll need to do
-  You will need to replace everything that `ux` was doing with dedicated libraries. Here are a few suggestions:
-  - For prompts: [inquirer](https://www.npmjs.com/package/inquirer)
-  - For progress bars: [cli-progress](https://www.npmjs.com/package/cli-progress)
-  - For hyperlinks: [hyperlink](https://www.npmjs.com/package/hyperlink)
-  - For tables: [tty-table](https://www.npmjs.com/package/tty-table), [cliui](https://www.npmjs.com/package/cliui)
-  - For trees: [object-treeify](https://www.npmjs.com/package/object-treeify)
-  - For notifications: [node-notifier](https://www.npmjs.com/package/node-notifier)
-  - For links: [terminal-link](https://www.npmjs.com/package/terminal-link)
-  - For rendering react components: [ink](https://www.npmjs.com/package/ink)
-  ## Theme-able spinner and JSON output
-  The color of the spinner can now be customized using the `spinner` key in your [theme](https://oclif.io/docs/themes).
-  The JSON output can also now be customized with these keys:
-  ```
-  brace
-  bracket
-  colon
-  comma
-  key
-  string
-  number
-  boolean
-  null
-  ```
-  ## Customizable Logger
-  In the current major version, we exclusively use [debug](https://www.npmjs.com/package/debug) for debug logs. In the next major, we're going to export a `Logger` interface that will allow you to provide a custom logger for `@oclif/core` to use. This will be useful if you want all the `@oclif/core` debug logs to go through your own logger.
-  The default logger will continue to use `debug` under the hood. So if you choose to use the default, you can continue to use the `DEBUG` environment variable to access the debug logs in the console. The only breaking change will be that the namespace for all the logs with be prefixed with a root namespace, `oclif`.
-  So if you're used to using `DEBUG=config:* my-cli do stuff`, you'll need to start doing this instead: `DEBUG=oclif:config:* my-cli do stuff`
-  ### Interface
-  ```typescript
-  export type Logger = {
-  debug: (formatter: unknown, ...args: unknown[]) => void
-  error: (formatter: unknown, ...args: unknown[]) => void
-  info: (formatter: unknown, ...args: unknown[]) => void
-  trace: (formatter: unknown, ...args: unknown[]) => void
-  warn: (formatter: unknown, ...args: unknown[]) => void
-  child: (namespace: string) => Logger
-  namespace: string
-  }
-  ```
-  ### Usage
-  ```typescript
-  // oclif-logger.ts
-  import { format } from 'node:util';
-  import { Interfaces } from '@oclif/core';
-  import { Logger } from './my-cli-logger';
-  export const customLogger = (namespace: string): Interfaces.Logger => {
-  const myLogger = new Logger(namespace);
-  return {
-  child: (ns: string, delimiter?: string) => customLogger(`${namespace}${delimiter ?? ':'}${ns}`),
-  debug: (formatter: unknown, ...args: unknown[]) => myLogger.debug(format(formatter, ...args)),
-  error: (formatter: unknown, ...args: unknown[]) => myLogger.error(format(formatter, ...args)),
-  info: (formatter: unknown, ...args: unknown[]) => myLogger.info(format(formatter, ...args)),
-  trace: (formatter: unknown, ...args: unknown[]) => myLogger.trace(format(formatter, ...args)),
-  warn: (formatter: unknown, ...args: unknown[]) => myLogger.warn(format(formatter, ...args)),
-  namespace,
-  };
-  };
-  export const logger = customLogger('sf');
-  ```
-  ```javascript
-  // bin/run.js
-  #!/usr/bin/env node
-  async function main() {
-  const {execute} = await import('@oclif/core');
-  const { logger } = await import('../dist/oclif-logger.js');
-  await oclif.execute({
-  dir: import.meta.url,
-  loadOptions: {
-  root: import.meta.dirname,
-  logger,
-  },
-  });
-  }
-  await main();
-  ```
-  You can also provide the logger to `Config`, in the event that you instantiate `Config` before calling `run` or `execute`
-  ```typescript
-  import {Config, run} from '@oclif/core'
-  const config = await config.load({
-  logger,
-  });
-  await run(process.argv.slice(2), config)
-  ```
-  ## Support for `rc` files
-  Currently the configuration for oclif must live inside the `oclif` section of your CLI or plugin's package.json. This can be difficult if you have a large amount of configuration, you want to dynamically change the configuration, or want to ensure that your configuration is correctly typed.
-  To solve this, we can now use [lilconfig](https://www.npmjs.com/package/lilconfig) to read in a variety of rc files.
-  Despite being able to use an rc file, `@oclif/core` will still be dependent on your package.json to get the `name`, `version`, and `dependencies`. We could ask that you put those value in your rc file, but duplicating that information across two files feels like something people would rather not do.
-  If you choose to use an rc file, one thing you must consider is that there will be a slight performance hit due to needing to search for the rc file in addition to the package.json.
-  This is the list of supported files. Please feel free to create a PR to add support for other files
-  ```
-  .oclifrc
-  .oclifrc.json
-  .oclifrc.js
-  .oclifrc.mjs
-  .oclifrc.cjs
-  oclif.config.js
-  oclif.config.mjs
-  oclif.config.cjs
-  ```
-  ## Top level exports
-  We'll have top level exports for:
-  - `args`
-  - `command`
-  - `config`
-  - `errors`
-  - `execute`
-  - `flags`
-  - `flush`
-  - `handle`
-  - `help`
-  - `hooks`
-  - `interfaces`
-  - `logger`
-  - `performance`
-  - `run`
-  - `settings`
-  - `util/ids`
-  - `ux`
-  The current way of accessing these looks like this:
-  ```js
-  import {run, flush, handle} from '@oclif/core'
-  ```
-  With top level exports, you could access those like this:
-  ```js
-  import run from '@oclif/core/run'
-  import flush from '@oclif/core/flush'
-  import handle from '@oclif/core/handle'
-  ```
-  The benefit of this is that you'll be able to import those utilities without also importing everything else that `@oclif/core` exports.
-  As a result of this change, deep imports (e.g. `import {Command} from '@oclif/core/lib/command.js`) will no longer work.
-  ## Bundling support for custom help classes
-  In case you missed it, we introduced new [command discovery strategies](https://oclif.io/docs/command_discovery_strategies) that make bundling possible. In order to do that, the location of commands and hooks needed to be configured using a `target` (i.e. a file or directory containing the commands or hooks) and an `identifier` (i.e. the name of the export inside the `target`).
-  This change originally only worked for commands and hooks but now also works for custom help classes so that those can be bundled as well.
-  ## exactOptionalPropertyTypes
-  We enabled `exactOptionalPropertyTypes` (fixes #960) for improved type safety
-  ## Interfaces
-  ### Interfaces.PJSON
-  `Interfaces.PJSON` has now been simplified to a single type instead of `Interfaces.PJSON.CLI` and `Interfaces.PJSON.Plugin`
-  ### Interfaces.OclifConfiguration
-  There's a new `Interfaces.OclifConfiguration` that represents everything that could be added to the `oclif` section of your package.json (or rc file). This is particularly helpful if you want to use a `.oclifrc.ts` and ensure that your oclif configuration matches the expected type.
-  ## Runtime auto-transpilation of linked ESM plugins with `tsx`
-  If your ESM plugin has a devDependency on `tsx`, then you oclif can now auto-transpile the code at runtime
+  * isolate supports-color for testing ([6f990b4](https://github.com/oclif/core/commit/6f990b4bc9425229ed563c88ab1a568c04e608a2))
+  * add export for parser ([#1098](https://github.com/oclif/core/issues/1098)) ([f7bfc76](https://github.com/oclif/core/commit/f7bfc7607ecafbe669696b6b18a332af617dd981))
 * **deps:** bump @salesforce/sf-plugins-core from 9.1.1 to 10.0.0 ([#1328](https://github.com/jayree/sfdx-plugin-manifest/issues/1328)) ([6100b80](https://github.com/jayree/sfdx-plugin-manifest/commit/6100b80490089c73a00db61086597133fcc1abde))
   * copy oclif/core ux methods ([#537](https://github.com/salesforcecli/sf-plugins-core/issues/537)) ([97f5584](https://github.com/salesforcecli/sf-plugins-core/commit/97f5584c88ada84688e0a5229f697f623fa81110))
-  ### BREAKING CHANGES
   * remove csv, json and yaml from table options
   * chore: use ux.stdout from core
   * chore: bump @oclif/core
@@ -2096,10 +1844,10 @@
 
 * **deps:** bump @salesforce/core from 7.3.9 to 7.3.12 ([#1332](https://github.com/jayree/sfdx-plugin-manifest/issues/1332)) ([b199efe](https://github.com/jayree/sfdx-plugin-manifest/commit/b199efe39d411d090e712467d5841d0b59d041db))
   * only require packageDir, not NamedPackageDir ([6b4b308](https://github.com/forcedotcom/sfdx-core/commit/6b4b3082fd348f5b659731e9185d2163d641de44))
+  * **deps:** bump ajv from 8.14.0 to 8.15.0 ([66208eb](https://github.com/forcedotcom/sfdx-core/commit/66208eb96499848030d960239bad99a6048d180d))
   * non-reference clone of transferred listeners ([#1080](https://github.com/forcedotcom/sfdx-core/issues/1080)) ([f5b2b02](https://github.com/forcedotcom/sfdx-core/commit/f5b2b02c77ffc572f25d39f663126eca977cb29b))
   * add a did you mean action to AuthInfo ([#1079](https://github.com/forcedotcom/sfdx-core/issues/1079)) ([da5483e](https://github.com/forcedotcom/sfdx-core/commit/da5483e7bbbdd1837f313d168fe5aeaa5e5ec016))
   * sfProject types matches schemas repo ([82fee15](https://github.com/forcedotcom/sfdx-core/commit/82fee154bab78d5019ee06a8b5343996b6befb0e))
-  * **deps:** bump ajv from 8.14.0 to 8.15.0 ([66208eb](https://github.com/forcedotcom/sfdx-core/commit/66208eb96499848030d960239bad99a6048d180d))
 
 
 
@@ -2109,15 +1857,13 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/sf-plugins-core from 9.0.12 to 9.1.1 ([#1323](https://github.com/jayree/sfdx-plugin-manifest/issues/1323)) ([95296c9](https://github.com/jayree/sfdx-plugin-manifest/commit/95296c9f059db4995ba11bd98a0f7ab60927a969))
+  * copy oclif/core ux methods ([36d7506](https://github.com/salesforcecli/sf-plugins-core/commit/36d7506db725ae3e7f216cccd1daa7141fa27ec6))
+  * use cli-progress instead of ux.progress ([4fa9d7e](https://github.com/salesforcecli/sf-plugins-core/commit/4fa9d7ed1cc8ce3e0b5af3f6e6dfcf7edec7ff1d))
+  * remove csv, json and yaml from table options
+  * copy oclif/core ux methods ([36d7506](https://github.com/salesforcecli/sf-plugins-core/commit/36d7506db725ae3e7f216cccd1daa7141fa27ec6))
+  * use cli-progress instead of ux.progress ([4fa9d7e](https://github.com/salesforcecli/sf-plugins-core/commit/4fa9d7ed1cc8ce3e0b5af3f6e6dfcf7edec7ff1d))
+  * remove csv, json and yaml from table options
   * add a default summary for optional orgs ([#560](https://github.com/salesforcecli/sf-plugins-core/issues/560)) ([8793406](https://github.com/salesforcecli/sf-plugins-core/commit/8793406075e6d753dd5137a5c7d1cbe759572c54))
-  * copy oclif/core ux methods ([36d7506](https://github.com/salesforcecli/sf-plugins-core/commit/36d7506db725ae3e7f216cccd1daa7141fa27ec6))
-  * use cli-progress instead of ux.progress ([4fa9d7e](https://github.com/salesforcecli/sf-plugins-core/commit/4fa9d7ed1cc8ce3e0b5af3f6e6dfcf7edec7ff1d))
-  ### BREAKING CHANGES
-  * remove csv, json and yaml from table options
-  * copy oclif/core ux methods ([36d7506](https://github.com/salesforcecli/sf-plugins-core/commit/36d7506db725ae3e7f216cccd1daa7141fa27ec6))
-  * use cli-progress instead of ux.progress ([4fa9d7e](https://github.com/salesforcecli/sf-plugins-core/commit/4fa9d7ed1cc8ce3e0b5af3f6e6dfcf7edec7ff1d))
-  ### BREAKING CHANGES
-  * remove csv, json and yaml from table options
   * **deps:** bump @salesforce/kit from 3.1.1 to 3.1.2 ([d0d50b1](https://github.com/salesforcecli/sf-plugins-core/commit/d0d50b1869f989b8f454fb097bce4c6c5835087d))
   * **deps:** major-version-inquirers, exit-code typing ([#561](https://github.com/salesforcecli/sf-plugins-core/issues/561)) ([91333cb](https://github.com/salesforcecli/sf-plugins-core/commit/91333cb39ed0683fb3835acd069e92374cfde6cd))
   * core v4 ([edf5d39](https://github.com/salesforcecli/sf-plugins-core/commit/edf5d394db058984a3ebd7ba35f6039498319ff8))
@@ -2153,8 +1899,8 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/source-deploy-retrieve from 11.4.4 to 11.6.2 ([#1316](https://github.com/jayree/sfdx-plugin-manifest/issues/1316)) ([e7d01e2](https://github.com/jayree/sfdx-plugin-manifest/commit/e7d01e2eecd8282d480f33927bc6e83ed46141b2))
-  * **mdTypes:** add support for genAiFunction, genAiPlanner ([#1319](https://github.com/forcedotcom/source-deploy-retrieve/issues/1319)) ([01648b4](https://github.com/forcedotcom/source-deploy-retrieve/commit/01648b4e1254391a7ecf6e5aa4373bcf62aea802))
   * rename presets property ([#1312](https://github.com/forcedotcom/source-deploy-retrieve/issues/1312)) ([df722e3](https://github.com/forcedotcom/source-deploy-retrieve/commit/df722e3c67420b8ef65dd6832eb74d5b52ded54c))
+  * **mdTypes:** add support for genAiFunction, genAiPlanner ([#1319](https://github.com/forcedotcom/source-deploy-retrieve/issues/1319)) ([01648b4](https://github.com/forcedotcom/source-deploy-retrieve/commit/01648b4e1254391a7ecf6e5aa4373bcf62aea802))
   * **mdTypes:** pluralize genai type dirs ([#1322](https://github.com/forcedotcom/source-deploy-retrieve/issues/1322)) ([faac5bc](https://github.com/forcedotcom/source-deploy-retrieve/commit/faac5bcac21dae01d051335e89441dd6c5aadc9f))
 
 
@@ -2196,8 +1942,8 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/core from 7.3.6 to 7.3.8 ([#1312](https://github.com/jayree/sfdx-plugin-manifest/issues/1312)) ([0cc788c](https://github.com/jayree/sfdx-plugin-manifest/commit/0cc788c9552d2ae8037dd174db61b6ac7bf5191a))
-  * add oauth options data to auth code exchange errors ([#1068](https://github.com/forcedotcom/sfdx-core/issues/1068)) ([ea859ed](https://github.com/forcedotcom/sfdx-core/commit/ea859edee8f6ff8b068433d66bd9606f1278b776))
   * use PlatformCLI not Platform CLI ([#1073](https://github.com/forcedotcom/sfdx-core/issues/1073)) ([281488f](https://github.com/forcedotcom/sfdx-core/commit/281488fb91620a2af062a8c8822fda5b909951a3))
+  * add oauth options data to auth code exchange errors ([#1068](https://github.com/forcedotcom/sfdx-core/issues/1068)) ([ea859ed](https://github.com/forcedotcom/sfdx-core/commit/ea859edee8f6ff8b068433d66bd9606f1278b776))
 
 
 
@@ -2207,6 +1953,9 @@
 ### Bug Fixes
 
 * **deps:** bump fast-xml-parser from 4.3.6 to 4.4.0 ([#1310](https://github.com/jayree/sfdx-plugin-manifest/issues/1310)) ([a477a08](https://github.com/jayree/sfdx-plugin-manifest/commit/a477a08e214f08c25e52c7eb7d9e24ffde09d3a7))
+  *   fix [#654](https://redirect.github.com/NaturalIntelligence/fast-xml-parser/issues/654): parse attribute list correctly for self closing stop node.
+  *   fix: validator bug when closing tag is not opened. ([#647](https://redirect.github.com/NaturalIntelligence/fast-xml-parser/issues/647)) (By [Ryosuke Fukatani](https://github.com/RyosukeFukatani))
+  *   fix [#581](https://redirect.github.com/NaturalIntelligence/fast-xml-parser/issues/581): typings; return type of `tagValueProcessor` & `attributeValueProcessor` ([#582](https://redirect.github.com/NaturalIntelligence/fast-xml-parser/issues/582)) (By monholm)
 
 
 
@@ -2276,9 +2025,9 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/source-deploy-retrieve from 11.4.0 to 11.4.3 ([#1293](https://github.com/jayree/sfdx-plugin-manifest/issues/1293)) ([d8934b8](https://github.com/jayree/sfdx-plugin-manifest/commit/d8934b83732e1721cdf36da09413d8d769d3dea9))
-  * md names handle spaces, colons, and both ([#1297](https://github.com/forcedotcom/source-deploy-retrieve/issues/1297)) ([76e9486](https://github.com/forcedotcom/source-deploy-retrieve/commit/76e9486ac642e59136dbd0133838349df56ac0f9))
-  * prevent empty parent xml overwrites ([#1308](https://github.com/forcedotcom/source-deploy-retrieve/issues/1308)) ([b8a8c7f](https://github.com/forcedotcom/source-deploy-retrieve/commit/b8a8c7f6a37c9418a4acd57965414ac4a95446f4))
   * use `projectDir` when getting API version ([#1307](https://github.com/forcedotcom/source-deploy-retrieve/issues/1307)) ([a79023a](https://github.com/forcedotcom/source-deploy-retrieve/commit/a79023afaf08fe702d98ae56f387c8c3d47229bb))
+  * prevent empty parent xml overwrites ([#1308](https://github.com/forcedotcom/source-deploy-retrieve/issues/1308)) ([b8a8c7f](https://github.com/forcedotcom/source-deploy-retrieve/commit/b8a8c7f6a37c9418a4acd57965414ac4a95446f4))
+  * md names handle spaces, colons, and both ([#1297](https://github.com/forcedotcom/source-deploy-retrieve/issues/1297)) ([76e9486](https://github.com/forcedotcom/source-deploy-retrieve/commit/76e9486ac642e59136dbd0133838349df56ac0f9))
 
 
 
@@ -2342,8 +2091,8 @@
 
 * **deps:** bump @salesforce/source-deploy-retrieve from 11.0.2 to 11.1.2 ([#1265](https://github.com/jayree/sfdx-plugin-manifest/issues/1265)) ([014e012](https://github.com/jayree/sfdx-plugin-manifest/commit/014e012d94084cfb29f84b3eb41ac09f50bd7849))
   * allow destructive changes with MetadataOptions ([#1294](https://github.com/forcedotcom/source-deploy-retrieve/issues/1294)) ([7dad1c7](https://github.com/forcedotcom/source-deploy-retrieve/commit/7dad1c7be70cfc6a50d78671d796753d9747154b))
-  * from-org refactor ([#1296](https://github.com/forcedotcom/source-deploy-retrieve/issues/1296)) ([2fecb51](https://github.com/forcedotcom/source-deploy-retrieve/commit/2fecb513f4acd566c04671fa2917185e210257a2))
   * forceignore ignores output file correctly - cleanup extra type d… ([#1295](https://github.com/forcedotcom/source-deploy-retrieve/issues/1295)) ([287b13e](https://github.com/forcedotcom/source-deploy-retrieve/commit/287b13e60549fc5bc5a104a4d15a0ff549301d3b))
+  * from-org refactor ([#1296](https://github.com/forcedotcom/source-deploy-retrieve/issues/1296)) ([2fecb51](https://github.com/forcedotcom/source-deploy-retrieve/commit/2fecb513f4acd566c04671fa2917185e210257a2))
 
 
 
@@ -2390,7 +2139,6 @@
 * **deps:** bump @salesforce/sf-plugins-core from 9.0.1 to 9.0.4 ([#1248](https://github.com/jayree/sfdx-plugin-manifest/issues/1248)) ([95ffed6](https://github.com/jayree/sfdx-plugin-manifest/commit/95ffed69f1c4780bac99c0050ce86622f9d9a46f))
   * copy oclif/core ux methods ([36d7506](https://github.com/salesforcecli/sf-plugins-core/commit/36d7506db725ae3e7f216cccd1daa7141fa27ec6))
   * use cli-progress instead of ux.progress ([4fa9d7e](https://github.com/salesforcecli/sf-plugins-core/commit/4fa9d7ed1cc8ce3e0b5af3f6e6dfcf7edec7ff1d))
-  ### BREAKING CHANGES
   * remove csv, json and yaml from table options
   * **deps:** bump @salesforce/core from 7.0.0 to 7.2.0 ([16a502c](https://github.com/salesforcecli/sf-plugins-core/commit/16a502cab546abda960a06c26c31ccadfb8f5603))
   * **deps:** updates from devScripts ([#536](https://github.com/salesforcecli/sf-plugins-core/issues/536)) ([918f4c5](https://github.com/salesforcecli/sf-plugins-core/commit/918f4c5506a75d155d129c0674cc44b6da89ef79))
@@ -2416,11 +2164,10 @@
 
 * child component resolution workaround ([c94e85a](https://github.com/jayree/sfdx-plugin-manifest/commit/c94e85a743858ad1f0a51993b9b2086ba63f3b94))
 * **deps:** bump @salesforce/core from 6.7.6 to 7.2.0 ([#1236](https://github.com/jayree/sfdx-plugin-manifest/issues/1236)) ([048da02](https://github.com/jayree/sfdx-plugin-manifest/commit/048da02cd94246e38803174d2f342e1ef490b0d9))
+  * export envVars top-level ([0ed5e69](https://github.com/forcedotcom/sfdx-core/commit/0ed5e694eca8653d34c91a8c97e9e950555b2a02))
   * export of scratchSettingsGenerator for pkg-library ([#1053](https://github.com/forcedotcom/sfdx-core/issues/1053)) ([920b5df](https://github.com/forcedotcom/sfdx-core/commit/920b5df712f6f75a3e00bf210ab146f388b04248))
   * let cause be unknown for constructor, create (like wrap) ([aed3f3c](https://github.com/forcedotcom/sfdx-core/commit/aed3f3c5323c1369e44fca9158516783be9395db))
-  * sfError ([c8d9c1c](https://github.com/forcedotcom/sfdx-core/commit/c8d9c1c292e5fa5c72559c9fd1e7c399beb8517a))
-  * export envVars top-level ([0ed5e69](https://github.com/forcedotcom/sfdx-core/commit/0ed5e694eca8653d34c91a8c97e9e950555b2a02))  * feat!: jsforce-node, top-level exports, improved sfError ([515011c](https://github.com/forcedotcom/sfdx-core/commit/515011ce231392480cae6f80a88cc540a11e78fd))
-  ### BREAKING CHANGES
+  * sfError ([c8d9c1c](https://github.com/forcedotcom/sfdx-core/commit/c8d9c1c292e5fa5c72559c9fd1e7c399beb8517a))  * feat!: jsforce-node, top-level exports, improved sfError ([515011c](https://github.com/forcedotcom/sfdx-core/commit/515011ce231392480cae6f80a88cc540a11e78fd))
   * top-level exports will prevent imports from @salesforce/core/lib/etc
   * uses jsforce-node in place of jsforce
   * type changes for SFError
@@ -2439,19 +2186,16 @@
   * refactor: typing for sfError.getObject, omit undefined props
   * refactor: restore param mutation/side-effects
 * **deps:** bump @salesforce/sf-plugins-core from 8.0.3 to 9.0.1 ([#1239](https://github.com/jayree/sfdx-plugin-manifest/issues/1239)) ([3358a98](https://github.com/jayree/sfdx-plugin-manifest/commit/3358a98a78bb8c256091daae28bb66e2879e1617))
-  * **deps:** bump @salesforce/core from 6.7.3 to 6.7.6 ([4ea81b6](https://github.com/salesforcecli/sf-plugins-core/commit/4ea81b62d2d72d1441744cc0a5443830e04b37d1))
   * extract handler transform for ut, handle undefined ([#530](https://github.com/salesforcecli/sf-plugins-core/issues/530)) ([7eb46a8](https://github.com/salesforcecli/sf-plugins-core/commit/7eb46a8d45f3663f4e28f57a070ac3f82a5ac156))
+  * **deps:** bump @salesforce/core from 6.7.3 to 6.7.6 ([4ea81b6](https://github.com/salesforcecli/sf-plugins-core/commit/4ea81b62d2d72d1441744cc0a5443830e04b37d1))
   * feat!: jsforce-node ([8800eb1](https://github.com/salesforcecli/sf-plugins-core/commit/8800eb1f612c58ab3cde5ce88105f9a5e142ea90))
-  ### BREAKING CHANGES
   * jsforce swap
   * feat!: jsforce-node (#529) ([8255b52](https://github.com/salesforcecli/sf-plugins-core/commit/8255b523efe70779d94746c644c08e211632ecad)), closes [#529](https://github.com/salesforcecli/sf-plugins-core/issues/529)
-  ### BREAKING CHANGES
   * core7, jsforce-node
 * **deps:** bump @salesforce/source-deploy-retrieve from 10.9.0 to 11.0.1 ([#1245](https://github.com/jayree/sfdx-plugin-manifest/issues/1245)) ([0f8c8b4](https://github.com/jayree/sfdx-plugin-manifest/commit/0f8c8b48dc0c2906723e662dbb9a437886dea0ad))
-  * **deps:** bump @salesforce/core from 7.0.0 to 7.2.0 ([#1281](https://github.com/forcedotcom/source-deploy-retrieve/issues/1281)) ([ac430f3](https://github.com/forcedotcom/source-deploy-retrieve/commit/ac430f3a0df0e70b6ef8f8c4778eaac9ca195af6))
   * expand mdTransfer error ([#1275](https://github.com/forcedotcom/source-deploy-retrieve/issues/1275)) ([8e12937](https://github.com/forcedotcom/source-deploy-retrieve/commit/8e129376bf9fe7c83db2d6b6f4fd0fad1eea25bf))
+  * **deps:** bump @salesforce/core from 7.0.0 to 7.2.0 ([#1281](https://github.com/forcedotcom/source-deploy-retrieve/issues/1281)) ([ac430f3](https://github.com/forcedotcom/source-deploy-retrieve/commit/ac430f3a0df0e70b6ef8f8c4778eaac9ca195af6))
   * feat!: sfdx-core7, jsforce-node (#1280) ([7d8d111](https://github.com/forcedotcom/source-deploy-retrieve/commit/7d8d11136b1917027d92ddd52220acd8879e5fc6)), closes [#1280](https://github.com/forcedotcom/source-deploy-retrieve/issues/1280)
-  ### BREAKING CHANGES
   * sfdx-core7, jsforce-node
 
 
@@ -2464,8 +2208,8 @@
 * **deps:** bump @jayree/changelog from 1.1.10 to 1.1.11 ([#1234](https://github.com/jayree/sfdx-plugin-manifest/issues/1234)) ([6f5265d](https://github.com/jayree/sfdx-plugin-manifest/commit/6f5265dc862e65e66ad852b082d0198c0e228ea6))
   * **deps:** bump marked from 12.0.0 to 12.0.1 ([#347](https://github.com/jayree/changelog/issues/347)) ([28ba7cb](https://github.com/jayree/changelog/commit/28ba7cbdfae26590e289b12e73f65d624cc198de))
 * **deps:** bump @oclif/core from 3.26.0 to 3.26.2 ([#1241](https://github.com/jayree/sfdx-plugin-manifest/issues/1241)) ([91b7219](https://github.com/jayree/sfdx-plugin-manifest/commit/91b7219356e2be6bf0abedaae0c549de9c02af22))
-  * **deps:** bump minimatch from 9.0.3 to 9.0.4 ([#1041](https://github.com/oclif/core/issues/1041)) ([87cd0e6](https://github.com/oclif/core/commit/87cd0e6cafba4e2d461a9a9d61f729e694091558))
   * do not throw an error if a flag with allowStdin='only' is immediately followed by another flag ([#1046](https://github.com/oclif/core/issues/1046)) ([#1047](https://github.com/oclif/core/issues/1047)) ([f05b0c8](https://github.com/oclif/core/commit/f05b0c8119853b8a9de62d9076a42d8d93a94046))
+  * **deps:** bump minimatch from 9.0.3 to 9.0.4 ([#1041](https://github.com/oclif/core/issues/1041)) ([87cd0e6](https://github.com/oclif/core/commit/87cd0e6cafba4e2d461a9a9d61f729e694091558))
 
 
 
@@ -2475,16 +2219,16 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/core from 6.7.3 to 6.7.6 ([#1231](https://github.com/jayree/sfdx-plugin-manifest/issues/1231)) ([97b5cf3](https://github.com/jayree/sfdx-plugin-manifest/commit/97b5cf3b1da5871cf83c535338a96c09357c5bb1))
-  * **deps:** bump @salesforce/kit from 3.0.15 to 3.1.0 ([ad320e0](https://github.com/forcedotcom/sfdx-core/commit/ad320e0b1c23e19680e8aa933b8b56cf8ef51e88))
   * current linter standards, allow 2 ([20601d0](https://github.com/forcedotcom/sfdx-core/commit/20601d09a48a7dbba47cc7acbc318fd379a2351e))
+  * **deps:** bump @salesforce/kit from 3.0.15 to 3.1.0 ([ad320e0](https://github.com/forcedotcom/sfdx-core/commit/ad320e0b1c23e19680e8aa933b8b56cf8ef51e88))
 * **deps:** bump @salesforce/sf-plugins-core from 8.0.2 to 8.0.3 ([#1227](https://github.com/jayree/sfdx-plugin-manifest/issues/1227)) ([35065ff](https://github.com/jayree/sfdx-plugin-manifest/commit/35065ffd154ce7cc0083fa1bb28b2aa191d8ebdc))
   * **deps:** bump @salesforce/kit from 3.0.15 to 3.1.0 ([aa5166b](https://github.com/salesforcecli/sf-plugins-core/commit/aa5166b67e9e59547f7da1eb9c64d7b28c36e38b))
 * **deps:** bump @salesforce/source-deploy-retrieve from 10.6.1 to 10.9.0 ([#1228](https://github.com/jayree/sfdx-plugin-manifest/issues/1228)) ([e221886](https://github.com/jayree/sfdx-plugin-manifest/commit/e221886b35f26a2aec22e9394bbed405aeff871a))
+  * variants instrumentation ([#1272](https://github.com/forcedotcom/source-deploy-retrieve/issues/1272)) ([1261096](https://github.com/forcedotcom/source-deploy-retrieve/commit/12610965bae0eed81e65f1fc81afffbddda7b024))
   * add AffinityScoreDefinition metadatatype ([#1267](https://github.com/forcedotcom/source-deploy-retrieve/issues/1267)) ([18ff186](https://github.com/forcedotcom/source-deploy-retrieve/commit/18ff186c48bc75619e4999fa4a67bb8566d368a5))
   * absolute paths for string replacements for out-of-project ([#1239](https://github.com/forcedotcom/source-deploy-retrieve/issues/1239)) ([0b3e75f](https://github.com/forcedotcom/source-deploy-retrieve/commit/0b3e75fcf4a9a689666672d917a88d889ca82961))
-  * variants instrumentation ([#1272](https://github.com/forcedotcom/source-deploy-retrieve/issues/1272)) ([1261096](https://github.com/forcedotcom/source-deploy-retrieve/commit/12610965bae0eed81e65f1fc81afffbddda7b024))
-  * throw on bad presets ([#1266](https://github.com/forcedotcom/source-deploy-retrieve/issues/1266)) ([0385629](https://github.com/forcedotcom/source-deploy-retrieve/commit/03856296edf3d36eeaa83350fcf95386469984ed))
   * **deps:** bump fast-xml-parser from 4.3.5 to 4.3.6 ([#1258](https://github.com/forcedotcom/source-deploy-retrieve/issues/1258)) ([7c17d45](https://github.com/forcedotcom/source-deploy-retrieve/commit/7c17d4546b25c91cd0e0818715727151c85a0cb1))
+  * throw on bad presets ([#1266](https://github.com/forcedotcom/source-deploy-retrieve/issues/1266)) ([0385629](https://github.com/forcedotcom/source-deploy-retrieve/commit/03856296edf3d36eeaa83350fcf95386469984ed))
   * suffix mismatch ([#1270](https://github.com/forcedotcom/source-deploy-retrieve/issues/1270)) ([15b1ec1](https://github.com/forcedotcom/source-deploy-retrieve/commit/15b1ec10ab639977a35c2c82b3055a6bc73c74d2))
 * **deps:** bump isomorphic-git from 1.25.6 to 1.25.7 ([#1226](https://github.com/jayree/sfdx-plugin-manifest/issues/1226)) ([0427f7a](https://github.com/jayree/sfdx-plugin-manifest/commit/0427f7aea6ac0bc8381902d9ee561cc574e315b9))
   * handle no-refs response from git-upload-pack for git > 2.41.0 ([#1862](https://github.com/isomorphic-git/isomorphic-git/issues/1862)) ([112eb7a](https://github.com/isomorphic-git/isomorphic-git/commit/112eb7aae18a36b78eed42c77a143b581de59c5b))
@@ -2497,10 +2241,9 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/sf-plugins-core from 7.1.16 to 8.0.2 ([#1222](https://github.com/jayree/sfdx-plugin-manifest/issues/1222)) ([b8e2696](https://github.com/jayree/sfdx-plugin-manifest/commit/b8e2696df8184e5c31d45a61b442cd6640ee1639))
-  * **deps:** bump @salesforce/core from 6.7.0 to 6.7.3 ([e09fc6a](https://github.com/salesforcecli/sf-plugins-core/commit/e09fc6a3cb01dba035c56bc126d9f31d99d94cc7))
   * **deps:** bump @oclif/core from 3.23.0 to 3.26.0 ([09ac64c](https://github.com/salesforcecli/sf-plugins-core/commit/09ac64c6831207a83bd871f5b6602e7e7349ccff))
+  * **deps:** bump @salesforce/core from 6.7.0 to 6.7.3 ([e09fc6a](https://github.com/salesforcecli/sf-plugins-core/commit/e09fc6a3cb01dba035c56bc126d9f31d99d94cc7))
   * feat!: add flags-dir base flag (#519) ([c8fd443](https://github.com/salesforcecli/sf-plugins-core/commit/c8fd44358a2ab39d49f8eb4f90f1631708179719)), closes [#519](https://github.com/salesforcecli/sf-plugins-core/issues/519)
-  ### BREAKING CHANGES
   * SfCommand.baseFlags may cause compilation errors
 
 
@@ -2511,8 +2254,8 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/core from 6.7.1 to 6.7.3 ([#1215](https://github.com/jayree/sfdx-plugin-manifest/issues/1215)) ([bc53c7a](https://github.com/jayree/sfdx-plugin-manifest/commit/bc53c7aa4fa736377e0132ba069293e2a722c8de))
-  * updating CN Edition test references ([46ed37e](https://github.com/forcedotcom/sfdx-core/commit/46ed37eced4cf300ffab1aa967317149b644fc52))
   * **auth-server:** handle preflight requests ([#1040](https://github.com/forcedotcom/sfdx-core/issues/1040)) ([7a109d9](https://github.com/forcedotcom/sfdx-core/commit/7a109d9deb05fb583578b9e2e7dfb2f62aca3673))
+  * updating CN Edition test references ([46ed37e](https://github.com/forcedotcom/sfdx-core/commit/46ed37eced4cf300ffab1aa967317149b644fc52))
 * **deps:** bump @salesforce/source-deploy-retrieve from 10.5.4 to 10.6.1 ([#1220](https://github.com/jayree/sfdx-plugin-manifest/issues/1220)) ([8137e8a](https://github.com/jayree/sfdx-plugin-manifest/commit/8137e8a8a4b65f5628c48ed824a25eadffd6a18d))
   * registryCustomizations ([#1217](https://github.com/forcedotcom/source-deploy-retrieve/issues/1217)) ([eaa37b2](https://github.com/forcedotcom/source-deploy-retrieve/commit/eaa37b2046f172b3f5183d516aa303975b9358ba))
   * **deps:** bump @salesforce/core from 6.7.1 to 6.7.3 ([#1264](https://github.com/forcedotcom/source-deploy-retrieve/issues/1264)) ([12079ae](https://github.com/forcedotcom/source-deploy-retrieve/commit/12079aef75b59413e05935b4e3bea382774da04c))
@@ -2532,9 +2275,10 @@
 * **deps:** bump @salesforce/sf-plugins-core from 7.1.15 to 7.1.16 ([#1207](https://github.com/jayree/sfdx-plugin-manifest/issues/1207)) ([6f9dc06](https://github.com/jayree/sfdx-plugin-manifest/commit/6f9dc061149ae5815488930fce7d607feaa96643))
   * set defaultHelp on duration flag ([85a502a](https://github.com/salesforcecli/sf-plugins-core/commit/85a502af1494dc21f7c119be384ba573f4099c9c))
 * **deps:** bump @salesforce/source-deploy-retrieve from 10.5.2 to 10.5.4 ([#1209](https://github.com/jayree/sfdx-plugin-manifest/issues/1209)) ([0daddf7](https://github.com/jayree/sfdx-plugin-manifest/commit/0daddf7790ce34d443a7e955629e23bdf4bf1d94))
-  * refactor for better typing and readability ([#1262](https://github.com/forcedotcom/source-deploy-retrieve/issues/1262)) ([8d89dbc](https://github.com/forcedotcom/source-deploy-retrieve/commit/8d89dbc9d925f4be5cf6ff71020293eba538450f))
   * handle string replacements for individual custom labels ([#1257](https://github.com/forcedotcom/source-deploy-retrieve/issues/1257)) ([70571e8](https://github.com/forcedotcom/source-deploy-retrieve/commit/70571e8d43b6395b86dc31ad0103859536f554f5))
+  * refactor for better typing and readability ([#1262](https://github.com/forcedotcom/source-deploy-retrieve/issues/1262)) ([8d89dbc](https://github.com/forcedotcom/source-deploy-retrieve/commit/8d89dbc9d925f4be5cf6ff71020293eba538450f))
 * **deps:** bump fast-xml-parser from 4.3.5 to 4.3.6 ([#1211](https://github.com/jayree/sfdx-plugin-manifest/issues/1211)) ([246534e](https://github.com/jayree/sfdx-plugin-manifest/commit/246534e7ac5a45faa0880d221ec86ca92bdcc9a8))
+  *   Add support for parsing HTML numeric entities ([#645](https://redirect.github.com/NaturalIntelligence/fast-xml-parser/issues/645)) (By [Jonas Schade](https://github.com/DerZade) )
 
 
 
@@ -2568,101 +2312,9 @@
   * bundle friendly ([d0aa430](https://github.com/oclif/core/commit/d0aa4305a761298d328a03af8467a9f2307b0afc))
   * add import strategy for command discovery ([2ca6815](https://github.com/oclif/core/commit/2ca68153f5cf8334fa6f6d207d6d3e66d0e807b9))
   * add new strategy for single command CLIs ([994bd0a](https://github.com/oclif/core/commit/994bd0aeb9ba3a7ff950bd791de170f45e41401c))
-  * add strategies for command discovery ([#945](https://github.com/oclif/core/issues/945)) ([eaf5a86](https://github.com/oclif/core/commit/eaf5a8692c85d37b1c1728230a851151a895704f))
-  #### Command Discovery Strategies
-  Support three strategies for command discovery:
-  1. `pattern` - this is the current behavior that finds commands based on glob patterns
-  2. `explicit` - find commands that are exported from a specified file. This is to support developers who wish to bundle their CLI into a single file.
-  3. `single` - CLI contains a single command executed by top-level bin
-  ##### `pattern` Strategy
-  For `pattern`, plugins could continue to do this:
-  ```json
-  {
-  "oclif": {
-  "commands": "./dist/commands",
-  }
-  }
-  ```
-  which will tell oclif to look for commands in that directory (this is skipped if an `oclif.manifest.json` is present)
-  Alternatively, plugins could set this configuration:
-  ```json
-  {
-  "oclif": {
-  "commands": {
-  "strategy": "pattern",
-  "target": "./dist/commands"
-  }
-  }
-  }
-  ```
-  And they could even add `globPatterns` to override the glob patterns that oclif uses when searching for command files:
-  ```json
-  {
-  "oclif": {
-  "commands": {
-  "strategy": "pattern",
-  "target": "./dist/commands",
-  "globPatterns": [
-  "**/*.+(js|cjs|mjs|ts|tsx|mts|cts)",
-  "!**/*.+(d.*|test.*|spec.*|helpers.*)?(x)"
-  ]
-  }
-  }
-  }
-  ```
-  ##### `explicit` Strategy
-  For `explicit`, plugins would add a new file (e.g. `src/commands.ts`) and then add this configuration to the package.json
-  ```json
-  {
-  "oclif": {
-  "commands": {
-  "strategy": "explicit",
-  "target": "./dist/index.js",
-  "identifier": "COMMANDS",
-  }
-  }
-  }
-  ```
-  `src/index.ts` would then need to have an export with the same name as the `identifier` (if not set, it defaults to `default`) that's an object of command names to command classes, e.g.
-  ```typescript
-  import Hello from './commands/hello'
-  import HelloWorld from './commands/hello/world'
-  export const COMMANDS = {
-  hello: Hello,
-  'hello:world': HelloWorld,
-  howdy: Hello, // alias the `hello` command to `howdy`
-  }
-  ```
-  The `explicit` strategy is useful to those who can't rely on file paths because they've bundled their code (https://github.com/oclif/oclif/issues/653) but it can also be used if you simply prefer to be more explicit about your commands instead of relying on oclif "magically" finding commands from the file system.
-  It can also be leveraged to create or modify commands at runtime (e.g. add flags to a command based on an API spec - see `oclif + dynamic commands` section below).
-  Unfortunately, there is no notable performance improvement for development since most of the time is spent auto-transpiling typescript with ts-node
-  ##### `single` Strategy
-  This strategy is for [single command CLIs](https://oclif.io/docs/single_command_cli), i.e. CLIs whose bin invokes a single command.
-  The current way to achieve this to set this in the package.json
-  ```json
-  {
-  "oclif": {
-  "default": ".",
-  "commands": "./dist",
-  }
-  }
-  ```
-  The `default` tells oclif to use `.` as the command id when no command is found and `commands` tells oclif where to find the command file. In the example, `./dist` will resolve to to `./dist/index.js`
-  The `default` property has always been a less-than-ideal workaround and will be deprecated in favor of these settings:
-  ```json
-  {
-  "oclif": {
-  "commands": {
-  "strategy": "single",
-  "target": "./dist"
-  }
-  }
-  }
-  ```
-  ##### Note about `oclif.manifest.json`
-  For all strategies, the `oclif.manifest.json` will be used to load the commands instead of the default behavior of the strategy.
   * support plugins with wildcards ([966db94](https://github.com/oclif/core/commit/966db94f6f6e82630b2bf7eadf1d277ee0aa79c0))
   * deprecate ux module ([#1000](https://github.com/oclif/core/issues/1000)) ([503c7ae](https://github.com/oclif/core/commit/503c7ae39aa1e42cebf79bdd98c05d85c3721309))
+  * add strategies for command discovery ([#945](https://github.com/oclif/core/issues/945)) ([eaf5a86](https://github.com/oclif/core/commit/eaf5a8692c85d37b1c1728230a851151a895704f))
   * make dir optional for execute ([394cbc6](https://github.com/oclif/core/commit/394cbc6643bee8ebcc2abe3ddab5969558c12719))
   * only register command ids if they have valid cmd ([488d4e2](https://github.com/oclif/core/commit/488d4e2409213c8ff650248c093fd8967db7227a))
   * update perf marker ([0073a78](https://github.com/oclif/core/commit/0073a78bffa125a401a44de08c5d78a1b4969504))
@@ -2706,16 +2358,16 @@
   * add import strategy for command discovery ([2ca6815](https://github.com/oclif/core/commit/2ca68153f5cf8334fa6f6d207d6d3e66d0e807b9))
   * add new strategy for single command CLIs ([994bd0a](https://github.com/oclif/core/commit/994bd0aeb9ba3a7ff950bd791de170f45e41401c))
   * **deps:** bump ip from 2.0.0 to 2.0.1 ([c2dcb43](https://github.com/oclif/core/commit/c2dcb4371a0468367677f0b575aad067e75c5136))
+  * clear timeout when prompt times out ([#961](https://github.com/oclif/core/issues/961)) ([f5c698a](https://github.com/oclif/core/commit/f5c698af081d171f246fefc0d1509e4dd84d7e3a))
   * update perf marker ([0073a78](https://github.com/oclif/core/commit/0073a78bffa125a401a44de08c5d78a1b4969504))
   * allow long text in ux.prompt ([7d521b2](https://github.com/oclif/core/commit/7d521b2350e488bf5c1570f8f82bf7a582eea0d8))
-  * clear timeout when prompt times out ([#961](https://github.com/oclif/core/issues/961)) ([f5c698a](https://github.com/oclif/core/commit/f5c698af081d171f246fefc0d1509e4dd84d7e3a))
-  * only set timeout for TTY ([8a97f20](https://github.com/oclif/core/commit/8a97f2087d07290474d9bf224057322ae2abe4bc))
   * update perf marker ([0073a78](https://github.com/oclif/core/commit/0073a78bffa125a401a44de08c5d78a1b4969504))
   * add missing files ([e142331](https://github.com/oclif/core/commit/e14233104df808cb30ded795d126afd83853b949))
   * explicit aliases ([2d1e018](https://github.com/oclif/core/commit/2d1e018a44303a19d692016f4bb182afcad204b0))
+  * only set timeout for TTY ([8a97f20](https://github.com/oclif/core/commit/8a97f2087d07290474d9bf224057322ae2abe4bc))
 * **deps:** bump @salesforce/core from 6.5.3 to 6.5.5 ([#1166](https://github.com/jayree/sfdx-plugin-manifest/issues/1166)) ([e9828e0](https://github.com/jayree/sfdx-plugin-manifest/commit/e9828e0417b4ffb1312c2e69dce41fb452625eb8))
-  * **deps:** bump pino from 8.18.0 to 8.19.0 ([ff148e1](https://github.com/forcedotcom/sfdx-core/commit/ff148e118db7d5a144f0dc6e92239cbd8a39ca35))
   * **deps:** bump semver and @types/semver ([a868c32](https://github.com/forcedotcom/sfdx-core/commit/a868c3221038e6d925c481da803395e8285a5a6c))
+  * **deps:** bump pino from 8.18.0 to 8.19.0 ([ff148e1](https://github.com/forcedotcom/sfdx-core/commit/ff148e118db7d5a144f0dc6e92239cbd8a39ca35))
 * **deps:** bump @salesforce/sf-plugins-core from 7.1.9 to 7.1.11 ([#1171](https://github.com/jayree/sfdx-plugin-manifest/issues/1171)) ([bfdf4a6](https://github.com/jayree/sfdx-plugin-manifest/commit/bfdf4a644e55de2fdec9c283bc2ae012a5328908))
   * **deps:** bump @salesforce/core from 6.5.2 to 6.5.4 ([583997d](https://github.com/salesforcecli/sf-plugins-core/commit/583997d0ac117fefee276fd5792b49fe9aa7bb0c))
   * **deps:** bump @oclif/core from 3.19.1 to 3.19.2 ([2b624c6](https://github.com/salesforcecli/sf-plugins-core/commit/2b624c664315647934574af3592987b7836f3d13))
@@ -2746,9 +2398,9 @@
   * add import strategy for command discovery ([2ca6815](https://github.com/oclif/core/commit/2ca68153f5cf8334fa6f6d207d6d3e66d0e807b9))
   * add new strategy for single command CLIs ([994bd0a](https://github.com/oclif/core/commit/994bd0aeb9ba3a7ff950bd791de170f45e41401c))
   * bundle friendly ([d0aa430](https://github.com/oclif/core/commit/d0aa4305a761298d328a03af8467a9f2307b0afc))
+  * allow long text in ux.prompt ([7d521b2](https://github.com/oclif/core/commit/7d521b2350e488bf5c1570f8f82bf7a582eea0d8))
   * add missing files ([e142331](https://github.com/oclif/core/commit/e14233104df808cb30ded795d126afd83853b949))
   * explicit aliases ([2d1e018](https://github.com/oclif/core/commit/2d1e018a44303a19d692016f4bb182afcad204b0))
-  * allow long text in ux.prompt ([7d521b2](https://github.com/oclif/core/commit/7d521b2350e488bf5c1570f8f82bf7a582eea0d8))
 * **deps:** bump @salesforce/source-deploy-retrieve from 10.3.7 to 10.3.9 ([#1157](https://github.com/jayree/sfdx-plugin-manifest/issues/1157)) ([c6e38b4](https://github.com/jayree/sfdx-plugin-manifest/commit/c6e38b495af206b1b931a03b1941df18e60ad216))
   * defend against bad mdapi responses ([#1236](https://github.com/forcedotcom/source-deploy-retrieve/issues/1236)) ([d35911d](https://github.com/forcedotcom/source-deploy-retrieve/commit/d35911dda97c552f167c9ab7b3b9e818f7f4085b))
 * **deps:** bump isomorphic-git from 1.25.3 to 1.25.4 ([#1163](https://github.com/jayree/sfdx-plugin-manifest/issues/1163)) ([e7f06bf](https://github.com/jayree/sfdx-plugin-manifest/commit/e7f06bf5dec9d5162b7edd2555701be88f366625))
@@ -2769,21 +2421,21 @@
   * return undefined if no theme ([3cb3373](https://github.com/oclif/core/commit/3cb33734ff0a69e3d24f129ff210e8e52139002d))
   * **parser:** cache stdin value in global scope ([#935](https://github.com/oclif/core/issues/935)) ([c8bf886](https://github.com/oclif/core/commit/c8bf886c570ab4dc3b8a139be4a716d4e6a053af))
 * **deps:** bump @salesforce/core from 6.5.1 to 6.5.3 ([#1151](https://github.com/jayree/sfdx-plugin-manifest/issues/1151)) ([d2252d7](https://github.com/jayree/sfdx-plugin-manifest/commit/d2252d728504419e426fa77978a5187d006108db))
-  * **deps:** bump pino from 8.17.2 to 8.18.0 ([5485a4d](https://github.com/forcedotcom/sfdx-core/commit/5485a4d72ecba6796165d35900c23d989a2ce6b8))
   * remove unused env/config ([1c5bc73](https://github.com/forcedotcom/sfdx-core/commit/1c5bc739e3a930847e6e9f31e7e25cfc5f357909))
+  * **deps:** bump pino from 8.17.2 to 8.18.0 ([5485a4d](https://github.com/forcedotcom/sfdx-core/commit/5485a4d72ecba6796165d35900c23d989a2ce6b8))
 * **deps:** bump @salesforce/sf-plugins-core from 7.1.4 to 7.1.9 ([#1153](https://github.com/jayree/sfdx-plugin-manifest/issues/1153)) ([fb7fbb3](https://github.com/jayree/sfdx-plugin-manifest/commit/fb7fbb3977055cd2f7bfd635d8cec20773462801))
-  * **deps:** bump @oclif/core from 3.18.1 to 3.18.2 ([3d66c60](https://github.com/salesforcecli/sf-plugins-core/commit/3d66c6063cb70c1e90675eb2ebd5a724e251d713))
-  * **deps:** bump @inquirer/confirm from 2.0.15 to 2.0.17 ([fcbb1c1](https://github.com/salesforcecli/sf-plugins-core/commit/fcbb1c1c750b9387acc89cab74190285647e4b14))
   * **deps:** bump @salesforce/core from 6.5.0 to 6.5.2 ([bcaad18](https://github.com/salesforcecli/sf-plugins-core/commit/bcaad1861656728f5d08a05e5889f375b339f6f6))
-  * **deps:** bump @inquirer/password from 1.1.14 to 1.1.16 ([5700f4c](https://github.com/salesforcecli/sf-plugins-core/commit/5700f4ce1dd1f6f459325d1277be154cb8a8279c))
+  * **deps:** bump @oclif/core from 3.18.1 to 3.18.2 ([3d66c60](https://github.com/salesforcecli/sf-plugins-core/commit/3d66c6063cb70c1e90675eb2ebd5a724e251d713))
   * bump oclif/core ([#497](https://github.com/salesforcecli/sf-plugins-core/issues/497)) ([ebba3ac](https://github.com/salesforcecli/sf-plugins-core/commit/ebba3ac983a3b3e9de78a39aa6355f723a935bd5)), closes [/github.com/oclif/core/blob/main/CHANGELOG.md#3191-2024-02-06](https://github.com//github.com/oclif/core/blob/main/CHANGELOG.md/issues/3191-2024-02-06)
+  * **deps:** bump @inquirer/password from 1.1.14 to 1.1.16 ([5700f4c](https://github.com/salesforcecli/sf-plugins-core/commit/5700f4ce1dd1f6f459325d1277be154cb8a8279c))
+  * **deps:** bump @inquirer/confirm from 2.0.15 to 2.0.17 ([fcbb1c1](https://github.com/salesforcecli/sf-plugins-core/commit/fcbb1c1c750b9387acc89cab74190285647e4b14))
 * **deps:** bump @salesforce/source-deploy-retrieve from 10.3.1 to 10.3.7 ([#1150](https://github.com/jayree/sfdx-plugin-manifest/issues/1150)) ([7348043](https://github.com/jayree/sfdx-plugin-manifest/commit/73480434cba5c84db4a95864284225954f152a1c))
-  * **deps:** bump ignore from 5.3.0 to 5.3.1 ([#1228](https://github.com/forcedotcom/source-deploy-retrieve/issues/1228)) ([8d9f6e1](https://github.com/forcedotcom/source-deploy-retrieve/commit/8d9f6e1b404efc336761eb0f7b7ff53ca61ae8e9))
   * decompose by any folder name ([#1233](https://github.com/forcedotcom/source-deploy-retrieve/issues/1233)) ([98901dd](https://github.com/forcedotcom/source-deploy-retrieve/commit/98901ddeac1d93d4093f4e9050a492bd8da6c029))
   * deployment of ESVersion,DMVersion ([#1160](https://github.com/forcedotcom/source-deploy-retrieve/issues/1160)) ([51007ae](https://github.com/forcedotcom/source-deploy-retrieve/commit/51007aef63c4d7422e3f1a271072c31bef1c88b5))
   * revert ESVersion,DMVersion ([#1160](https://github.com/forcedotcom/source-deploy-retrieve/issues/1160))" ([#1230](https://github.com/forcedotcom/source-deploy-retrieve/issues/1230)) ([0660e43](https://github.com/forcedotcom/source-deploy-retrieve/commit/0660e4316a1d2e606eeec9e4a446780875f9a99c))
-  * **deps:** bump fast-xml-parser from 4.3.2 to 4.3.4 ([#1227](https://github.com/forcedotcom/source-deploy-retrieve/issues/1227)) ([02554d5](https://github.com/forcedotcom/source-deploy-retrieve/commit/02554d564a4a1ed9cebfa194afa60da71f1573f1))
+  * **deps:** bump ignore from 5.3.0 to 5.3.1 ([#1228](https://github.com/forcedotcom/source-deploy-retrieve/issues/1228)) ([8d9f6e1](https://github.com/forcedotcom/source-deploy-retrieve/commit/8d9f6e1b404efc336761eb0f7b7ff53ca61ae8e9))
   * recompose decomposed xml using xmlElementName where it exists ([#1234](https://github.com/forcedotcom/source-deploy-retrieve/issues/1234)) ([4cf89e1](https://github.com/forcedotcom/source-deploy-retrieve/commit/4cf89e1f62a001d8006f165c014bfe7857f4bde0))
+  * **deps:** bump fast-xml-parser from 4.3.2 to 4.3.4 ([#1227](https://github.com/forcedotcom/source-deploy-retrieve/issues/1227)) ([02554d5](https://github.com/forcedotcom/source-deploy-retrieve/commit/02554d564a4a1ed9cebfa194afa60da71f1573f1))
 
 
 
@@ -2799,6 +2451,7 @@
   * **deps:** bump @salesforce/core from 6.4.7 to 6.5.1 ([#1222](https://github.com/forcedotcom/source-deploy-retrieve/issues/1222)) ([989b429](https://github.com/forcedotcom/source-deploy-retrieve/commit/989b429f2833141722f3ce259dd46875cb291e57))
   * override forceignore defaults ([#1224](https://github.com/forcedotcom/source-deploy-retrieve/issues/1224)) ([954097b](https://github.com/forcedotcom/source-deploy-retrieve/commit/954097b521e503e32973e0ab5396461e39453612))
 * **deps:** bump fast-xml-parser from 4.3.3 to 4.3.4 ([#1145](https://github.com/jayree/sfdx-plugin-manifest/issues/1145)) ([647129a](https://github.com/jayree/sfdx-plugin-manifest/commit/647129a1fd3789bf41ae2fea91d8ea9216add0ac))
+  *   fix: Don't escape entities in CDATA sections ([#633](https://redirect.github.com/NaturalIntelligence/fast-xml-parser/issues/633)) (By [wackbyte](https://github.com/wackbyte))
 
 
 
@@ -2810,17 +2463,15 @@
 * **deps:** bump @salesforce/sf-plugins-core from 5.0.13 to 7.1.4 ([#1143](https://github.com/jayree/sfdx-plugin-manifest/issues/1143)) ([12f9544](https://github.com/jayree/sfdx-plugin-manifest/commit/12f95447fa922a33906b432287a1fb5d90a8982c))
   * oclif error code handling ([61582b5](https://github.com/salesforcecli/sf-plugins-core/commit/61582b5612204eafc3fa75b23ad4190a22f40ee0))
   * bump to latest core lib ([74241bf](https://github.com/salesforcecli/sf-plugins-core/commit/74241bf1fdbeaf7b23fc03e716135cf6a4561400))
-  * **deps:** bump @salesforce/core from 6.4.6 to 6.4.7 ([9e92dce](https://github.com/salesforcecli/sf-plugins-core/commit/9e92dceae70ca37ae30ed0f182cb97cf70513894))
   * bump version of core to 6.5.0 ([1127b33](https://github.com/salesforcecli/sf-plugins-core/commit/1127b333decc35ee71e165e5d6f22d99e77f2610))
   * **deps:** bump @oclif/core from 3.16.0 to 3.18.1 ([4eb6d1e](https://github.com/salesforcecli/sf-plugins-core/commit/4eb6d1e349ab8bf39927fd6fedde1f918f981e31))
+  * **deps:** bump @salesforce/core from 6.4.6 to 6.4.7 ([9e92dce](https://github.com/salesforcecli/sf-plugins-core/commit/9e92dceae70ca37ae30ed0f182cb97cf70513894))
   * feat!: use current inquirer ([9a89ae7](https://github.com/salesforcecli/sf-plugins-core/commit/9a89ae761661599d055c830066c959d171e6921d))
-  ### BREAKING CHANGES
   * ESM-only
   * removes cross-cloud hooks (deployer, deauthorizer, etc)
   * removes Prompter module
   * remove option to barrel-import from Ux
   * feat!: use current inquirer (#479) ([77e33ab](https://github.com/salesforcecli/sf-plugins-core/commit/77e33ab1a0a88389895f882653036ace4d20db80)), closes [#479](https://github.com/salesforcecli/sf-plugins-core/issues/479)
-  ### BREAKING CHANGES
   * ESM-only
   * removes cross-cloud hooks (deployer, deauthorizer, etc)
   * removes Prompter module
@@ -2882,15 +2533,16 @@
   * make @types/cli-progress a dependency ([#922](https://github.com/oclif/core/issues/922)) ([6528850](https://github.com/oclif/core/commit/6528850442e7c537d089f119f3f71299a1b54e5b))
 * **deps:** bump @salesforce/core from 6.4.4 to 6.4.7 ([#1128](https://github.com/jayree/sfdx-plugin-manifest/issues/1128)) ([b534e42](https://github.com/jayree/sfdx-plugin-manifest/commit/b534e4244fa8d9383b87d3a657f7db9e8920c360))
   * ignore requests for site icons ([aeab4a9](https://github.com/forcedotcom/sfdx-core/commit/aeab4a9eb0c11b987d9d20e217726688fbc3fd9b))
+  * **deps:** bump pino from 8.16.2 to 8.17.2 ([c63976b](https://github.com/forcedotcom/sfdx-core/commit/c63976ba14a575f631ffad219d2022e7374755e3))
   * address review comments ([ea7ad36](https://github.com/forcedotcom/sfdx-core/commit/ea7ad36c65231b9a289c19f5dd185ca5bcf9c735))
   * better header check ([ae4757f](https://github.com/forcedotcom/sfdx-core/commit/ae4757f99746866b6bf0e73c4d8f5e9ac8e418c0))
   * handle html server response ([90d025d](https://github.com/forcedotcom/sfdx-core/commit/90d025d07e749499206c96f2eabe2055899f38cb))
-  * **deps:** bump pino from 8.16.2 to 8.17.2 ([c63976b](https://github.com/forcedotcom/sfdx-core/commit/c63976ba14a575f631ffad219d2022e7374755e3))
 * **deps:** bump @salesforce/source-deploy-retrieve from 10.2.6 to 10.2.9 ([#1121](https://github.com/jayree/sfdx-plugin-manifest/issues/1121)) ([f56b815](https://github.com/jayree/sfdx-plugin-manifest/commit/f56b81505121044fc337b5018fc8fe5c213a81fe))
   * **deps:** bump @salesforce/core from 6.4.2 to 6.4.4 ([#1206](https://github.com/forcedotcom/source-deploy-retrieve/issues/1206)) ([5408f2b](https://github.com/forcedotcom/source-deploy-retrieve/commit/5408f2b308c9366063a1aef16397537c86ccd437))
-  * add the ExpressionSetObjectAlias metadata type ([#1209](https://github.com/forcedotcom/source-deploy-retrieve/issues/1209)) ([896ec32](https://github.com/forcedotcom/source-deploy-retrieve/commit/896ec326982fdeea91feb03b2fd39e47bf407b29))
   * add DataCalcInsightTemplate and DataKitObjectTemplate ([#1210](https://github.com/forcedotcom/source-deploy-retrieve/issues/1210)) ([cb845b3](https://github.com/forcedotcom/source-deploy-retrieve/commit/cb845b3759051438e3511530fefa36bdd0d189cd))
+  * add the ExpressionSetObjectAlias metadata type ([#1209](https://github.com/forcedotcom/source-deploy-retrieve/issues/1209)) ([896ec32](https://github.com/forcedotcom/source-deploy-retrieve/commit/896ec326982fdeea91feb03b2fd39e47bf407b29))
 * **deps:** bump fast-xml-parser from 4.3.2 to 4.3.3 ([#1122](https://github.com/jayree/sfdx-plugin-manifest/issues/1122)) ([57b66e6](https://github.com/jayree/sfdx-plugin-manifest/commit/57b66e65b60b727eb421ea914dfa40fbd5371098))
+  *   Remove unnecessary regex
 * **deps:** bump isomorphic-git from 1.25.2 to 1.25.3 ([#1117](https://github.com/jayree/sfdx-plugin-manifest/issues/1117)) ([5a20134](https://github.com/jayree/sfdx-plugin-manifest/commit/5a201340320d1e312edd5da14a08aeff24c8df74))
   * `normalizePath` performance ([#1853](https://github.com/isomorphic-git/isomorphic-git/issues/1853)) ([5331049](https://github.com/isomorphic-git/isomorphic-git/commit/53310498e9dd84a213197de2d69047ce733580e6))
 
@@ -2945,8 +2597,8 @@
 * **deps:** bump @salesforce/core from 6.4.1 to 6.4.2 ([#1099](https://github.com/jayree/sfdx-plugin-manifest/issues/1099)) ([9cd95a3](https://github.com/jayree/sfdx-plugin-manifest/commit/9cd95a32ff340bfb14128cc071fca8666f82f291))
   * **deps:** bump pino-pretty from 10.2.3 to 10.3.0 ([f7da5be](https://github.com/forcedotcom/sfdx-core/commit/f7da5be9a1384e56a60363ff04906fd7bd15de61))
 * **deps:** bump @salesforce/sf-plugins-core from 5.0.10 to 5.0.12 ([#1100](https://github.com/jayree/sfdx-plugin-manifest/issues/1100)) ([6651c4e](https://github.com/jayree/sfdx-plugin-manifest/commit/6651c4e0ebda19aed282cbee8b9f9646ab983ebe))
-  * **deps:** bump @oclif/core from 3.14.1 to 3.15.0 ([9ebc68b](https://github.com/salesforcecli/sf-plugins-core/commit/9ebc68bbf48ffff0f5e1df5d03a941399dbb84b9))
   * **deps:** bump @salesforce/core from 6.2.2 to 6.4.1 ([2dbb56f](https://github.com/salesforcecli/sf-plugins-core/commit/2dbb56f27cffbae304ad3989d1b3b4177f80fa4d))
+  * **deps:** bump @oclif/core from 3.14.1 to 3.15.0 ([9ebc68b](https://github.com/salesforcecli/sf-plugins-core/commit/9ebc68bbf48ffff0f5e1df5d03a941399dbb84b9))
 * **deps:** bump @salesforce/source-deploy-retrieve from 10.2.1 to 10.2.4 ([#1097](https://github.com/jayree/sfdx-plugin-manifest/issues/1097)) ([4945344](https://github.com/jayree/sfdx-plugin-manifest/commit/4945344ade07aa9a184ab7a0306b5e499208caba))
   * change mdcoverage url for getCurrentApiVersion ([#1191](https://github.com/forcedotcom/source-deploy-retrieve/issues/1191)) ([ff82bb9](https://github.com/forcedotcom/source-deploy-retrieve/commit/ff82bb963a3f847023ade67de8e0b5c09038b5aa))
   * implicit dependency ([#1192](https://github.com/forcedotcom/source-deploy-retrieve/issues/1192)) ([d691e5e](https://github.com/forcedotcom/source-deploy-retrieve/commit/d691e5e1eedb348584820e2cd16a86d8ac890043))
@@ -2964,8 +2616,8 @@
 * **deps:** bump @salesforce/core from 6.4.0 to 6.4.1 ([#1090](https://github.com/jayree/sfdx-plugin-manifest/issues/1090)) ([36e3870](https://github.com/jayree/sfdx-plugin-manifest/commit/36e3870d584c6555177dee7b058661392005ab28))
   * update max query limit env var ([7b42e94](https://github.com/forcedotcom/sfdx-core/commit/7b42e949a88885c9eea236d667e07aa10a411b49))
 * **deps:** bump @salesforce/sf-plugins-core from 5.0.8 to 5.0.10 ([#1093](https://github.com/jayree/sfdx-plugin-manifest/issues/1093)) ([6b3cf85](https://github.com/jayree/sfdx-plugin-manifest/commit/6b3cf85ed849038f708ab533dd9f3a8247850e7b))
-  * allow zero default duration flags ([#470](https://github.com/salesforcecli/sf-plugins-core/issues/470)) ([fdc04b8](https://github.com/salesforcecli/sf-plugins-core/commit/fdc04b88bf45567b1b6476f807989a8b39936ed1))
   * check oclif exit code first ([#466](https://github.com/salesforcecli/sf-plugins-core/issues/466)) ([6ac36aa](https://github.com/salesforcecli/sf-plugins-core/commit/6ac36aacaaf67b6222c91584c367ef3c49c01069))
+  * allow zero default duration flags ([#470](https://github.com/salesforcecli/sf-plugins-core/issues/470)) ([fdc04b8](https://github.com/salesforcecli/sf-plugins-core/commit/fdc04b88bf45567b1b6476f807989a8b39936ed1))
 
 
 
@@ -2995,15 +2647,15 @@
   * set some known props during scratch org creation ([447b070](https://github.com/forcedotcom/sfdx-core/commit/447b070d02badbe488f20c961b8db79ac6e9aef9))
   * return a value, use that instead of mutating state ([b311cb1](https://github.com/forcedotcom/sfdx-core/commit/b311cb1a9340e9494c8deff127900d04f921aab8))
   * set some known props during scratch org creation ([447b070](https://github.com/forcedotcom/sfdx-core/commit/447b070d02badbe488f20c961b8db79ac6e9aef9))
-  * backward logic on scratch/sbox ([98762d5](https://github.com/forcedotcom/sfdx-core/commit/98762d510ad9fab37ede32a0670bf85a9fe9ab8f))
-  * backward logic on scratch/sbox ([98762d5](https://github.com/forcedotcom/sfdx-core/commit/98762d510ad9fab37ede32a0670bf85a9fe9ab8f))
   * jsdoc error ([985c2f6](https://github.com/forcedotcom/sfdx-core/commit/985c2f6b8fa90ee5302ecb84a07df8c4e2f214a4))
   * only hit server for undefined values, not false ([c0f3845](https://github.com/forcedotcom/sfdx-core/commit/c0f3845de26400381ee953782444abfdbaa530b9))
+  * backward logic on scratch/sbox ([98762d5](https://github.com/forcedotcom/sfdx-core/commit/98762d510ad9fab37ede32a0670bf85a9fe9ab8f))
+  * backward logic on scratch/sbox ([98762d5](https://github.com/forcedotcom/sfdx-core/commit/98762d510ad9fab37ede32a0670bf85a9fe9ab8f))
   * jsdoc error ([985c2f6](https://github.com/forcedotcom/sfdx-core/commit/985c2f6b8fa90ee5302ecb84a07df8c4e2f214a4))
   * only hit server for undefined values, not false ([c0f3845](https://github.com/forcedotcom/sfdx-core/commit/c0f3845de26400381ee953782444abfdbaa530b9))
 * **deps:** bump @salesforce/sf-plugins-core from 5.0.5 to 5.0.7 ([#1074](https://github.com/jayree/sfdx-plugin-manifest/issues/1074)) ([f5f21a8](https://github.com/jayree/sfdx-plugin-manifest/commit/f5f21a87ce1201a49f7540847df20d3b9587a722))
-  * preserve oclif exit code ([#460](https://github.com/salesforcecli/sf-plugins-core/issues/460)) ([8a3c370](https://github.com/salesforcecli/sf-plugins-core/commit/8a3c370096f970b7bac8e8dabe1384bc1239a441))
   * **deps:** bump @salesforce/core from 6.2.0 to 6.2.2 ([#463](https://github.com/salesforcecli/sf-plugins-core/issues/463)) ([50ec705](https://github.com/salesforcecli/sf-plugins-core/commit/50ec7058542e22f3a167fcf41f848350618a5795))
+  * preserve oclif exit code ([#460](https://github.com/salesforcecli/sf-plugins-core/issues/460)) ([8a3c370](https://github.com/salesforcecli/sf-plugins-core/commit/8a3c370096f970b7bac8e8dabe1384bc1239a441))
 * **deps:** bump @salesforce/source-deploy-retrieve from 10.0.3 to 10.2.0 ([#1069](https://github.com/jayree/sfdx-plugin-manifest/issues/1069)) ([4946e9b](https://github.com/jayree/sfdx-plugin-manifest/commit/4946e9bbb6168ca5a335d9cad9de65d59cbf1186))
   * build ComponentSet using metadata and an org connection ([#1182](https://github.com/forcedotcom/source-deploy-retrieve/issues/1182)) ([d4d2b93](https://github.com/forcedotcom/source-deploy-retrieve/commit/d4d2b93847c264cf303bdd81fac906364e09fc16))
   * 3 entities for Service Catalog Eligibility Rules ([#1185](https://github.com/forcedotcom/source-deploy-retrieve/issues/1185)) ([a1e0a58](https://github.com/forcedotcom/source-deploy-retrieve/commit/a1e0a58ade6de0449f70bfbb00184134afa99df4))
@@ -3020,20 +2672,22 @@
 
 * **deps:** bump @oclif/core from 3.12.0 to 3.13.1 ([#1060](https://github.com/jayree/sfdx-plugin-manifest/issues/1060)) ([742ce04](https://github.com/jayree/sfdx-plugin-manifest/commit/742ce045a49cfee7bebb954b79af7e66f55ffb7e))
   * add 'multipleNonGreedy' flag option to assign only one value per multiple flag ([#880](https://github.com/oclif/core/issues/880)) ([#889](https://github.com/oclif/core/issues/889)) ([354cead](https://github.com/oclif/core/commit/354cead9ae44ac8036911fce8ba94f085294ceb9))
-  * cache this.commandsDir ([#891](https://github.com/oclif/core/issues/891)) ([7b217a4](https://github.com/oclif/core/commit/7b217a45aac2aa44bc696054924ef2280ecdc944))
   * command not found on empty arg ([#887](https://github.com/oclif/core/issues/887)) ([#888](https://github.com/oclif/core/issues/888)) ([a8ca6cc](https://github.com/oclif/core/commit/a8ca6cc495d7aeba2b276477ab8217ec22f0ce63))
+  * cache this.commandsDir ([#891](https://github.com/oclif/core/issues/891)) ([7b217a4](https://github.com/oclif/core/commit/7b217a45aac2aa44bc696054924ef2280ecdc944))
 * **deps:** bump @salesforce/core from 6.2.0 to 6.2.2 ([#1061](https://github.com/jayree/sfdx-plugin-manifest/issues/1061)) ([a319f24](https://github.com/jayree/sfdx-plugin-manifest/commit/a319f2491f93c03843e0c2675e12d52e414f3593))
   * set some known props during scratch org creation ([447b070](https://github.com/forcedotcom/sfdx-core/commit/447b070d02badbe488f20c961b8db79ac6e9aef9))
-  * **deps:** bump @types/semver from 7.5.5 to 7.5.6 ([c12440d](https://github.com/forcedotcom/sfdx-core/commit/c12440de94c8479f4a885157082ee28065e43cff))
   * bump jsforce ([#1001](https://github.com/forcedotcom/sfdx-core/issues/1001)) ([bc5a6f0](https://github.com/forcedotcom/sfdx-core/commit/bc5a6f08c25087fb8f63a49882ade9e1a7a63bbc))
+  * **deps:** bump @types/semver from 7.5.5 to 7.5.6 ([c12440d](https://github.com/forcedotcom/sfdx-core/commit/c12440de94c8479f4a885157082ee28065e43cff))
   * jsdoc error ([985c2f6](https://github.com/forcedotcom/sfdx-core/commit/985c2f6b8fa90ee5302ecb84a07df8c4e2f214a4))
   * only hit server for undefined values, not false ([c0f3845](https://github.com/forcedotcom/sfdx-core/commit/c0f3845de26400381ee953782444abfdbaa530b9))
 * **deps:** bump @salesforce/sf-plugins-core from 5.0.3 to 5.0.5 ([#1064](https://github.com/jayree/sfdx-plugin-manifest/issues/1064)) ([9f11d36](https://github.com/jayree/sfdx-plugin-manifest/commit/9f11d367bbc2effcfc6a467e6efdd78a5ee4198c))
-  * **deps:** bump @oclif/core from 3.11.0 to 3.12.0 ([eb7289d](https://github.com/salesforcecli/sf-plugins-core/commit/eb7289ddbb4f60a1cdffe176badb58e14eb20cf3))
   * **deps:** bump @salesforce/core from 6.1.3 to 6.2.0 ([23ee019](https://github.com/salesforcecli/sf-plugins-core/commit/23ee019ace63b3d6bf4c1752fd93d5cba78ec002))
+  * **deps:** bump @oclif/core from 3.11.0 to 3.12.0 ([eb7289d](https://github.com/salesforcecli/sf-plugins-core/commit/eb7289ddbb4f60a1cdffe176badb58e14eb20cf3))
 * **deps:** bump @salesforce/source-deploy-retrieve from 10.0.2 to 10.0.3 ([#1063](https://github.com/jayree/sfdx-plugin-manifest/issues/1063)) ([2a78146](https://github.com/jayree/sfdx-plugin-manifest/commit/2a78146096d9f2853582f54999e25e0201e39857))
   * **deps:** bump @salesforce/core from 6.1.3 to 6.2.0 ([#1181](https://github.com/forcedotcom/source-deploy-retrieve/issues/1181)) ([125e7cf](https://github.com/forcedotcom/source-deploy-retrieve/commit/125e7cf639240bbae6d97b5661d5ee430934e6e2))
 * **deps:** bump fs-extra from 11.1.1 to 11.2.0 ([#1066](https://github.com/jayree/sfdx-plugin-manifest/issues/1066)) ([f4ea024](https://github.com/jayree/sfdx-plugin-manifest/commit/f4ea024419bb6385f75936fa83636662a1c9e156))
+  *   Copy directory contents in parallel for better performance ([#1026](https://redirect.github.com/jprichardson/node-fs-extra/pull/1026))
+  *   Refactor internal code to use `async`/`await` ([#1020](https://redirect.github.com/jprichardson/node-fs-extra/issues/1020))
 
 
 
@@ -3084,7 +2738,6 @@
 * **deps:** bump @salesforce/source-deploy-retrieve from 9.8.5 to 10.0.0 ([#1043](https://github.com/jayree/sfdx-plugin-manifest/issues/1043)) ([7ed9e90](https://github.com/jayree/sfdx-plugin-manifest/commit/7ed9e902fa7e15881160ea589d8804d6083d9ad6))
   * **lint:** current linter rules ([#1159](https://github.com/forcedotcom/source-deploy-retrieve/issues/1159)) ([5ae721a](https://github.com/forcedotcom/source-deploy-retrieve/commit/5ae721ad469c0cc3d8a9697e9b69ad1f4dec1eeb))
   * feat!: require node18, use core6 ([6af3a90](https://github.com/forcedotcom/source-deploy-retrieve/commit/6af3a9004f7cb89ae02dee2259ec0f80b16f7b90))
-  ### BREAKING CHANGES
   * require node18+
   * chore: core6
 
@@ -3096,23 +2749,23 @@
 ### Bug Fixes
 
 * **deps:** bump @oclif/core from 3.10.0 to 3.10.8 ([#1040](https://github.com/jayree/sfdx-plugin-manifest/issues/1040)) ([7338899](https://github.com/jayree/sfdx-plugin-manifest/commit/73388998c532297008bc50d8707f9ea453165361))
-  * **deps:** bump get-func-name from 2.0.0 to 2.0.2 ([#796](https://github.com/oclif/core/issues/796)) ([a6c5f3c](https://github.com/oclif/core/commit/a6c5f3c18721b0f2893ea17eb4eb9cc4c2774869))
+  * dont drop ts-node options if there are no extends ([#853](https://github.com/oclif/core/issues/853)) ([039b42a](https://github.com/oclif/core/commit/039b42a9dcfb8e1bd953820bf65d7c9ddbbf9740))
+  * **deps:** bump postcss from 8.4.30 to 8.4.31 ([#809](https://github.com/oclif/core/issues/809)) ([fd938d3](https://github.com/oclif/core/commit/fd938d3a91f58cad5c59286815567a0cff14b69d))
   * check for ENOENT code ([44fb9dc](https://github.com/oclif/core/commit/44fb9dc40a307ea1656e726806b62c9d165ae32f))
   * handle non-existent tsconfig ([0b15536](https://github.com/oclif/core/commit/0b15536b1b021eec182b18e99d5ab2b6c9deacd3))
   * support jsonc tsconfig ([026f835](https://github.com/oclif/core/commit/026f8358006eea5651961070d77105111e1a37a2))
   * use tsconfck to handle json-c ([7f0c9f0](https://github.com/oclif/core/commit/7f0c9f0a78c9d4f78bbdcc8b174aef01a007a918))
-  * dont drop ts-node options if there are no extends ([#853](https://github.com/oclif/core/issues/853)) ([039b42a](https://github.com/oclif/core/commit/039b42a9dcfb8e1bd953820bf65d7c9ddbbf9740))
-  * **deps:** bump postcss from 8.4.30 to 8.4.31 ([#809](https://github.com/oclif/core/issues/809)) ([fd938d3](https://github.com/oclif/core/commit/fd938d3a91f58cad5c59286815567a0cff14b69d))
-  * extra parens in debug logs ([81c9efc](https://github.com/oclif/core/commit/81c9efcb1a042344761bbea01f12e54e39190c59))
+  * **deps:** bump get-func-name from 2.0.0 to 2.0.2 ([#796](https://github.com/oclif/core/issues/796)) ([a6c5f3c](https://github.com/oclif/core/commit/a6c5f3c18721b0f2893ea17eb4eb9cc4c2774869))
   * handle undefined flags in help ([bd5a38f](https://github.com/oclif/core/commit/bd5a38f3abb05586b71b2bbe8c202987f38ba5da))
-  * improve plugin loading performance ([#856](https://github.com/oclif/core/issues/856)) ([3c17c24](https://github.com/oclif/core/commit/3c17c24b3955c9d74e462790c3cf0a46908a2b85)), closes [#857](https://github.com/oclif/core/issues/857)
+  * extra parens in debug logs ([81c9efc](https://github.com/oclif/core/commit/81c9efcb1a042344761bbea01f12e54e39190c59))
   * move up prod check in tsPath ([#858](https://github.com/oclif/core/issues/858)) ([204de58](https://github.com/oclif/core/commit/204de58ddd158e10943007d50c658e0e1ef81d4f))
+  * improve plugin loading performance ([#856](https://github.com/oclif/core/issues/856)) ([3c17c24](https://github.com/oclif/core/commit/3c17c24b3955c9d74e462790c3cf0a46908a2b85)), closes [#857](https://github.com/oclif/core/issues/857)
 * **deps:** bump @salesforce/sf-plugins-core from 4.0.0 to 4.1.0 ([#1036](https://github.com/jayree/sfdx-plugin-manifest/issues/1036)) ([e01d041](https://github.com/jayree/sfdx-plugin-manifest/commit/e01d04100e024e60b321eac25738041acf90b20f))
-  * export inquirer Separator ([#443](https://github.com/salesforcecli/sf-plugins-core/issues/443)) ([cb58076](https://github.com/salesforcecli/sf-plugins-core/commit/cb58076f8dcc7c2d8b273a450e9dfafa06d76426))
   * export inquirer Separator ([616b781](https://github.com/salesforcecli/sf-plugins-core/commit/616b781bab8f55914f54374f8fdd6af0aaa7f57c))
+  * export inquirer Separator ([#443](https://github.com/salesforcecli/sf-plugins-core/issues/443)) ([cb58076](https://github.com/salesforcecli/sf-plugins-core/commit/cb58076f8dcc7c2d8b273a450e9dfafa06d76426))
   * mode @types/inquirer to deps ([f2c1543](https://github.com/salesforcecli/sf-plugins-core/commit/f2c15436592da07b5060e195d62ef0e63b536e10))
-  * export from index ([c8870ce](https://github.com/salesforcecli/sf-plugins-core/commit/c8870ce59f4749769fe4ad8888c3ba01bbc1b632))
   * export from index ([c173249](https://github.com/salesforcecli/sf-plugins-core/commit/c173249219ffecbaa07eade25a83411613b44255))
+  * export from index ([c8870ce](https://github.com/salesforcecli/sf-plugins-core/commit/c8870ce59f4749769fe4ad8888c3ba01bbc1b632))
   * finally got it right ([d4c0974](https://github.com/salesforcecli/sf-plugins-core/commit/d4c0974c0c1d0f04c9702396c4c2f857e5962fae))
 * **deps:** bump @salesforce/source-deploy-retrieve from 9.8.3 to 9.8.5 ([#1042](https://github.com/jayree/sfdx-plugin-manifest/issues/1042)) ([cca0ba4](https://github.com/jayree/sfdx-plugin-manifest/commit/cca0ba4e0860c6b057141e3c63d8af90eb900a5c))
   * **deps:** bump @salesforce/core from 5.3.16 to 5.3.17 ([#1166](https://github.com/forcedotcom/source-deploy-retrieve/issues/1166)) ([11030af](https://github.com/forcedotcom/source-deploy-retrieve/commit/11030afdd4b698dcdc887c1c3860d421a0692248))
@@ -3131,10 +2784,10 @@
   * restore exit(0) behavior ([0c3fdd7](https://github.com/oclif/core/commit/0c3fdd7a7e3bfe605274d69894e9a2fba8c2e3d7))
 * **deps:** bump @salesforce/source-deploy-retrieve from 9.7.28 to 9.8.3 ([#1023](https://github.com/jayree/sfdx-plugin-manifest/issues/1023)) ([0b25dbb](https://github.com/jayree/sfdx-plugin-manifest/commit/0b25dbb956faa284d607f80972a95ce2435e23b8))
   * replaces unzipper library with jszip ([#1086](https://github.com/forcedotcom/source-deploy-retrieve/issues/1086)) ([6bc0c12](https://github.com/forcedotcom/source-deploy-retrieve/commit/6bc0c12bc2cdb4cfe5f49c2b460843baf39ed388))
-  * **deps:** bump @salesforce/ts-types from 2.0.8 to 2.0.9 ([#1155](https://github.com/forcedotcom/source-deploy-retrieve/issues/1155)) ([04af179](https://github.com/forcedotcom/source-deploy-retrieve/commit/04af17922d850cd385d31dae226568cba43cc30b))
   * Wr/coft mpd ([#1146](https://github.com/forcedotcom/source-deploy-retrieve/issues/1146)) ([7fdfd33](https://github.com/forcedotcom/source-deploy-retrieve/commit/7fdfd337d843e95babc950c628c371eccd8d7e7c))
-  * support metadata type managedEventSubscription ([#1162](https://github.com/forcedotcom/source-deploy-retrieve/issues/1162)) ([8afad5a](https://github.com/forcedotcom/source-deploy-retrieve/commit/8afad5a2859255a1d88744a07ba0f55bb3c1585b))
+  * **deps:** bump @salesforce/ts-types from 2.0.8 to 2.0.9 ([#1155](https://github.com/forcedotcom/source-deploy-retrieve/issues/1155)) ([04af179](https://github.com/forcedotcom/source-deploy-retrieve/commit/04af17922d850cd385d31dae226568cba43cc30b))
   * add support for more metadata types ([#1161](https://github.com/forcedotcom/source-deploy-retrieve/issues/1161)) ([b4748aa](https://github.com/forcedotcom/source-deploy-retrieve/commit/b4748aae6811f23828804a9fd0a891ec43651faa))
+  * support metadata type managedEventSubscription ([#1162](https://github.com/forcedotcom/source-deploy-retrieve/issues/1162)) ([8afad5a](https://github.com/forcedotcom/source-deploy-retrieve/commit/8afad5a2859255a1d88744a07ba0f55bb3c1585b))
 * **deps:** bump isomorphic-git from 1.24.5 to 1.25.0 ([#1033](https://github.com/jayree/sfdx-plugin-manifest/issues/1033)) ([3ed7370](https://github.com/jayree/sfdx-plugin-manifest/commit/3ed737084a38f525446c5e5d69677293b1c3cfe9))
   * **add:** Merge deletions support ([#1836](https://github.com/isomorphic-git/isomorphic-git/issues/1836)) ([90ea0e3](https://github.com/isomorphic-git/isomorphic-git/commit/90ea0e34f6bb0956858213281fafff0fd8e94309))
 
@@ -3156,8 +2809,8 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/source-deploy-retrieve from 9.7.24 to 9.7.27 ([#999](https://github.com/jayree/sfdx-plugin-manifest/issues/999)) ([c8d9028](https://github.com/jayree/sfdx-plugin-manifest/commit/c8d902837491d0f8a4c64864cb3e22df37a9e017))
-  * **deps:** bump @salesforce/kit from 3.0.11 to 3.0.13 ([#1141](https://github.com/forcedotcom/source-deploy-retrieve/issues/1141)) ([1963957](https://github.com/forcedotcom/source-deploy-retrieve/commit/1963957cd41dc982ceb3b19d4258d70796589976))
   * component set maps treat encoded and decoded keys as the same ([#1138](https://github.com/forcedotcom/source-deploy-retrieve/issues/1138)) ([7fe0bab](https://github.com/forcedotcom/source-deploy-retrieve/commit/7fe0bab1d6815afa3daad7ed0a3cac4f5808ea20))
+  * **deps:** bump @salesforce/kit from 3.0.11 to 3.0.13 ([#1141](https://github.com/forcedotcom/source-deploy-retrieve/issues/1141)) ([1963957](https://github.com/forcedotcom/source-deploy-retrieve/commit/1963957cd41dc982ceb3b19d4258d70796589976))
   * remove duplicates from file responses ([#1137](https://github.com/forcedotcom/source-deploy-retrieve/issues/1137)) ([a8b4ebf](https://github.com/forcedotcom/source-deploy-retrieve/commit/a8b4ebf14b9441c21bfc53514208e2b22c084ae3))
 
 
@@ -3168,52 +2821,75 @@
 ### Bug Fixes
 
 * **deps:** bump @babel/traverse from 7.21.4 to 7.23.2 ([#990](https://github.com/jayree/sfdx-plugin-manifest/issues/990)) ([131e3da](https://github.com/jayree/sfdx-plugin-manifest/commit/131e3da3f67d28dc076aeee9644a1bbb44189613))
-  # v7.21.7 (2023-04-29)
-  Force-pubilsh `@babel/compat-data`
-  ## v7.21.5 (2023-04-28)
-  #### :eyeglasses: Spec Compliance
+  * `babel-compat-data`
+  * [#15598](https://github.com/babel/babel/pull/15598) fix: Not found `corejs3-shipped-proposals.json` ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
   * `babel-generator`, `babel-parser`, `babel-types`
   * [#15539](https://github.com/babel/babel/pull/15539) fix: Remove `mixins` and `implements` for `DeclareInterface` and `InterfaceDeclaration` ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
-  #### :bug: Bug Fix
   * `babel-core`, `babel-generator`, `babel-plugin-transform-modules-commonjs`, `babel-plugin-transform-react-jsx`
   * [#15515](https://github.com/babel/babel/pull/15515) fix: `)` position with `createParenthesizedExpressions` ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
   * `babel-preset-env`
   * [#15580](https://github.com/babel/babel/pull/15580) Add syntax import meta to preset env ([@JLHwung](https://github.com/JLHwung))
-  #### :nail_care: Polish
   * `babel-types`
   * [#15546](https://github.com/babel/babel/pull/15546) Improve the layout of generated validators ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
   * `babel-core`
   * [#15535](https://github.com/babel/babel/pull/15535) Use `lt` instead of `lte` to check TS version for .cts config ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  #### :house: Internal
   * `babel-core`
   * [#15575](https://github.com/babel/babel/pull/15575) Use synchronous `import.meta.resolve` ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
   * `babel-helper-fixtures`, `babel-preset-typescript`
   * [#15568](https://github.com/babel/babel/pull/15568) Handle `.overrides` and `.env` when resolving plugins/presets from fixture options ([@JLHwung](https://github.com/JLHwung))
   * `babel-helper-create-class-features-plugin`, `babel-helper-create-regexp-features-plugin`
   * [#15548](https://github.com/babel/babel/pull/15548) Use `semver` package to compare versions ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  #### Committers: 4
-  - Babel Bot ([@babel-bot](https://github.com/babel-bot))
-  - Huáng Jùnliàng ([@JLHwung](https://github.com/JLHwung))
-  - Nicolò Ribaudo ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  - [@liuxingbaoyu](https://github.com/liuxingbaoyu)
-  ## v7.21.6 (2023-04-29)
-  #### :bug: Bug Fix
-  * `babel-compat-data`
-  * [#15598](https://github.com/babel/babel/pull/15598) fix: Not found `corejs3-shipped-proposals.json` ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
-  #### Committers: 1
-  - [@liuxingbaoyu](https://github.com/liuxingbaoyu)
-  ## v7.21.8 (2023-05-02)
-  #### :eyeglasses: Spec Compliance
+  * `babel-preset-env`, `babel-standalone`
+  * [#15675](https://github.com/babel/babel/pull/15675) Fix using `syntax-unicode-sets-regex` in standalone ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
+  * `babel-core`
+  * [#15683](https://github.com/babel/babel/pull/15683) Suggest `-transform-` when resolving missing plugins ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
   * `babel-parser`
-  * [#15602](https://github.com/babel/babel/pull/15602) Remove `using await` restriction in explicitResourceManagement ([@JLHwung](https://github.com/JLHwung))
-  #### :bug: Bug Fix
-  * `babel-helper-create-class-features-plugin`, `babel-helper-create-regexp-features-plugin`
-  * [#15605](https://github.com/babel/babel/pull/15605) Fix backward compat for semver checks in class&regexp feat plugins ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  #### Committers: 2
-  - Huáng Jùnliàng ([@JLHwung](https://github.com/JLHwung))
-  - Nicolò Ribaudo ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  ## v7.22.0 (2023-05-26)
-  #### :rocket: New Feature
+  * [#15631](https://github.com/babel/babel/pull/15631) rescan gt token at the end of type args parsing ([@JLHwung](https://github.com/JLHwung))
+  * `babel-generator`
+  * [#15569](https://github.com/babel/babel/pull/15569) Fix indentation when `retainLines` is `true` ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
+  * `babel-template`
+  * [#15534](https://github.com/babel/babel/pull/15534) fix: Template `export { x }` stuck in infinite loop ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
+  * `babel-compat-data`, `babel-preset-env`
+  * [#15606](https://github.com/babel/babel/pull/15606) fix: enable transform-block-scoping with generators feature (#12806) ([@IlyaSemenov](https://github.com/IlyaSemenov))
+  * `babel-compat-data`, `babel-helper-compilation-targets`, `babel-preset-env`
+  * [#15727](https://github.com/babel/babel/pull/15727) Add opera mobile compat data ([@JLHwung](https://github.com/JLHwung))
+  * `babel-plugin-transform-optional-chaining`
+  * [#15739](https://github.com/babel/babel/pull/15739) Fix transform of `delete a?.b` in function params ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
+  * `babel-helper-split-export-declaration`, `babel-plugin-transform-modules-commonjs`
+  * [#15736](https://github.com/babel/babel/pull/15736) fix: Default export for duplicate names ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
+  * `babel-compat-data`, `babel-preset-env`
+  * [#15726](https://github.com/babel/babel/pull/15726) update compat-data sources ([@JLHwung](https://github.com/JLHwung))
+  * `babel-helpers`, `babel-plugin-proposal-explicit-resource-management`, `babel-runtime-corejs3`, `babel-runtime`
+  * [#15705](https://github.com/babel/babel/pull/15705) Fix handling of sync error in `@@asyncDispose` ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
+  * `babel-standalone`
+  * [#15707](https://github.com/babel/babel/pull/15707) fix: Support transforming Explicit Resource Management in `stage-2` ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
+  * `babel-core`
+  * [#15626](https://github.com/babel/babel/pull/15626) fix: Works correctly with `--frozen-intrinsics` ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
+  * `babel-helper-create-class-features-plugin`, `babel-plugin-transform-classes`
+  * [#15700](https://github.com/babel/babel/pull/15700) Minor class transform cleanups ([@JLHwung](https://github.com/JLHwung))
+  * `babel-plugin-bugfix-v8-spread-parameters-in-optional-chaining`, `babel-plugin-transform-class-properties`, `babel-plugin-transform-optional-chaining`, `babel-plugin-transform-typescript`
+  * [#15740](https://github.com/babel/babel/pull/15740) Compress output for optional chain with multiple `?.` ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
+  * `babel-plugin-proposal-destructuring-private`, `babel-plugin-proposal-do-expressions`, `babel-plugin-proposal-pipeline-operator`, `babel-plugin-transform-class-properties`, `babel-plugin-transform-nullish-coalescing-operator`, `babel-plugin-transform-optional-chaining`, `babel-plugin-transform-private-property-in-object`, `babel-traverse`
+  * [#15741](https://github.com/babel/babel/pull/15741) Inject tmp vars in the params list of IIFEs when possible ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
+  * `babel-plugin-transform-typescript`
+  * [#15882](https://github.com/babel/babel/pull/15882) Fix: fully remove TS nested type-only exported namespaces ([@yangguansen](https://github.com/yangguansen))
+  * `babel-types`
+  * [#15867](https://github.com/babel/babel/pull/15867) fix: definition of TS function type params ([@danez](https://github.com/danez))
+  * `babel-plugin-transform-async-generator-functions`, `babel-plugin-transform-class-static-block`, `babel-plugin-transform-dynamic-import`, `babel-plugin-transform-export-namespace-from`, `babel-plugin-transform-json-strings`, `babel-plugin-transform-logical-assignment-operators`, `babel-plugin-transform-nullish-coalescing-operator`, `babel-plugin-transform-numeric-separator`, `babel-plugin-transform-object-rest-spread`, `babel-plugin-transform-optional-catch-binding`, `babel-plugin-transform-optional-chaining`, `babel-plugin-transform-private-property-in-object`
+  * [#15858](https://github.com/babel/babel/pull/15858) fix(standalone): strip archived syntax plugins ([@JLHwung](https://github.com/JLHwung))
+  * `babel-core`
+  * [#15850](https://github.com/babel/babel/pull/15850) Support configuring cache in ESM configs ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
+  * `babel-parser`
+  * [#10940](https://github.com/babel/babel/pull/10940) Do not record trailing comma pos when `maybeAsyncArrow: false` ([@JLHwung](https://github.com/JLHwung))
+  * `babel-core`, `babel-helper-compilation-targets`, `babel-parser`, `babel-plugin-proposal-destructuring-private`, `babel-plugin-syntax-decorators`, `babel-preset-env`, `babel-preset-react`, `babel-register`, `babel-traverse`, `babel-types`
+  * [#15872](https://github.com/babel/babel/pull/15872) enable jest/no-standalone-expect ([@JLHwung](https://github.com/JLHwung))
+  * `babel-core`, `babel-helpers`, `babel-plugin-transform-async-generator-functions`, `babel-plugin-transform-modules-commonjs`, `babel-plugin-transform-regenerator`, `babel-preset-env`, `babel-runtime-corejs2`, `babel-runtime-corejs3`, `babel-runtime`
+  * [#15833](https://github.com/babel/babel/pull/15833) bump json5, terser and webpack, further minimize babel helpers ([@JLHwung](https://github.com/JLHwung))
+  * Other
+  * [#15846](https://github.com/babel/babel/pull/15846) Use Babel 8.0 alpha to build babel ([@JLHwung](https://github.com/JLHwung))
+  * [#15856](https://github.com/babel/babel/pull/15856) Exclude redundant files from publish process ([@JLHwung](https://github.com/JLHwung))
+  * `babel-plugin-bugfix-v8-spread-parameters-in-optional-chaining`, `babel-plugin-transform-class-properties`, `babel-plugin-transform-classes`, `babel-plugin-transform-optional-chaining`, `babel-preset-env`
+  * [#15871](https://github.com/babel/babel/pull/15871) Simplify `?.` output when chain result is ignored ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
   * `babel-parser`, `babel-plugin-transform-typescript`
   * [#15497](https://github.com/babel/babel/pull/15497) [ts] Support `import ... =` and `export =` in scripts ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
   * `babel-compat-data`, `babel-core`, `babel-plugin-proposal-unicode-sets-regex`, `babel-plugin-transform-unicode-sets-regex`, `babel-preset-env`, `babel-standalone`
@@ -3230,116 +2906,42 @@
   * [#15638](https://github.com/babel/babel/pull/15638) Enable regexp unicode sets parsing by default ([@JLHwung](https://github.com/JLHwung))
   * `babel-helpers`, `babel-plugin-proposal-decorators`, `babel-plugin-syntax-decorators`, `babel-runtime-corejs2`, `babel-runtime-corejs3`, `babel-runtime`
   * [#15570](https://github.com/babel/babel/pull/15570) Add decorators version `2023-05` ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  #### :nail_care: Polish
   * `babel-plugin-transform-react-constant-elements`, `babel-plugin-transform-react-jsx`, `babel-traverse`, `babel-types`
   * [#15549](https://github.com/babel/babel/pull/15549) Improve type definitions for validators ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
-  #### :house: Internal
   * `babel-parser`
   * [#15630](https://github.com/babel/babel/pull/15630) Unify parsing of import/export modifiers (type/typeof/module) ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
   * `babel-compat-data`, `babel-helper-transform-fixture-test-runner`, `babel-node`, `babel-plugin-proposal-decorators`, `babel-plugin-proposal-duplicate-named-capturing-groups-regex`, `babel-plugin-transform-async-generator-functions`, `babel-plugin-transform-named-capturing-groups-regex`, `babel-plugin-transform-runtime`, `babel-preset-env`, `babel-runtime-corejs3`
   * [#15531](https://github.com/babel/babel/pull/15531) Allow polyfill providers to specify custom `@babel/runtime` pkg ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
   * `babel-core`, `babel-plugin-proposal-async-generator-functions`, `babel-plugin-proposal-class-properties`, `babel-plugin-proposal-class-static-block`, `babel-plugin-proposal-decorators`, `babel-plugin-proposal-dynamic-import`, `babel-plugin-proposal-export-namespace-from`, `babel-plugin-proposal-function-sent`, `babel-plugin-proposal-json-strings`, `babel-plugin-proposal-logical-assignment-operators`, `babel-plugin-proposal-nullish-coalescing-operator`, `babel-plugin-proposal-numeric-separator`, `babel-plugin-proposal-object-rest-spread`, `babel-plugin-proposal-optional-catch-binding`, `babel-plugin-proposal-optional-chaining`, `babel-plugin-proposal-pipeline-operator`, `babel-plugin-proposal-private-methods`, `babel-plugin-proposal-private-property-in-object`, `babel-plugin-proposal-unicode-property-regex`, `babel-preset-env`, `babel-standalone`
   * [#15614](https://github.com/babel/babel/pull/15614) Rename `-proposal-`s that became standard to `-transform-` ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  #### Committers: 4
-  - Babel Bot ([@babel-bot](https://github.com/babel-bot))
-  - Huáng Jùnliàng ([@JLHwung](https://github.com/JLHwung))
-  - Nicolò Ribaudo ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  - [@liuxingbaoyu](https://github.com/liuxingbaoyu)
-  ## v7.22.7 (2023-07-06)
-  #### :bug: Bug Fix
+  * `babel-preset-env`
+  * [#15658](https://github.com/babel/babel/pull/15658) Workaround for broken babel-preset-react-app ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
+  * `babel-core`, `babel-traverse`
+  * [#15754](https://github.com/babel/babel/pull/15754) Revert "Use `NodePath#hub` as part of the paths cache key" ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
+  * `babel-parser`
+  * [#15602](https://github.com/babel/babel/pull/15602) Remove `using await` restriction in explicitResourceManagement ([@JLHwung](https://github.com/JLHwung))
+  * `babel-helper-create-class-features-plugin`, `babel-helper-create-regexp-features-plugin`
+  * [#15605](https://github.com/babel/babel/pull/15605) Fix backward compat for semver checks in class&regexp feat plugins ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
   * `babel-generator`
   * [#15719](https://github.com/babel/babel/pull/15719) fix: Avoid internally generating negative source maps columns ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
   * `babel-core`, `babel-traverse`
   * [#15725](https://github.com/babel/babel/pull/15725) Use `NodePath#hub` as part of the paths cache key ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
   * Other
   * [#15747](https://github.com/babel/babel/pull/15747) fix: export `meta` from `eslint-parser/experimental-worker` ([@JLHwung](https://github.com/JLHwung))
-  #### :house: Internal
   * `babel-core`, `babel-traverse`
   * [#15702](https://github.com/babel/babel/pull/15702) Refactor visitors merging ([@nullableVoidPtr](https://github.com/nullableVoidPtr))
-  #### Committers: 4
-  - Avery ([@nullableVoidPtr](https://github.com/nullableVoidPtr))
-  - Huáng Jùnliàng ([@JLHwung](https://github.com/JLHwung))
-  - Nicolò Ribaudo ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  - [@liuxingbaoyu](https://github.com/liuxingbaoyu)
-  ## v7.22.4 (2023-05-29)
-  #### :bug: Bug Fix
   * `babel-traverse`
-  * [#15649](https://github.com/babel/babel/pull/15649) Set `shorthand: false` when renaming an identifier inside an object property ([@coderaiser](https://github.com/coderaiser))
-  #### :house: Internal
-  * `babel-types`
-  * [#15666](https://github.com/babel/babel/pull/15666) Add missing `attributes`/`assertions` to `VISITOR_KEYS` ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
+  * [#16033](https://github.com/babel/babel/pull/16033) Only evaluate own String/Number/Math methods ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
+  * `babel-preset-typescript`
+  * [#16022](https://github.com/babel/babel/pull/16022) Rewrite `.tsx` extension when using `rewriteImportExtensions` ([@jimmydief](https://github.com/jimmydief))
+  * `babel-helpers`
+  * [#16017](https://github.com/babel/babel/pull/16017) Fix: fallback to typeof when toString is applied to incompatible object ([@JLHwung](https://github.com/JLHwung))
+  * `babel-helpers`, `babel-plugin-transform-modules-commonjs`, `babel-runtime-corejs2`, `babel-runtime-corejs3`, `babel-runtime`
+  * [#16025](https://github.com/babel/babel/pull/16025) Avoid override mistake in namespace imports ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
   * `babel-parser`
-  * [#15667](https://github.com/babel/babel/pull/15667) Mark `assert` attributes with `extra.deprecatedAssertSyntax` ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  #### Committers: 3
-  - Huáng Jùnliàng ([@JLHwung](https://github.com/JLHwung))
-  - Nicolò Ribaudo ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  - coderaiser ([@coderaiser](https://github.com/coderaiser))
-  ## v7.21.9 (2023-05-22)
-  #### :bug: Bug Fix
-  * `babel-parser`
-  * [#15631](https://github.com/babel/babel/pull/15631) rescan gt token at the end of type args parsing ([@JLHwung](https://github.com/JLHwung))
-  * `babel-generator`
-  * [#15569](https://github.com/babel/babel/pull/15569) Fix indentation when `retainLines` is `true` ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
-  * `babel-template`
-  * [#15534](https://github.com/babel/babel/pull/15534) fix: Template `export { x }` stuck in infinite loop ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
-  * `babel-compat-data`, `babel-preset-env`
-  * [#15606](https://github.com/babel/babel/pull/15606) fix: enable transform-block-scoping with generators feature (#12806) ([@IlyaSemenov](https://github.com/IlyaSemenov))
-  #### Committers: 5
-  - Babel Bot ([@babel-bot](https://github.com/babel-bot))
-  - Huáng Jùnliàng ([@JLHwung](https://github.com/JLHwung))
-  - Ilya Semenov ([@IlyaSemenov](https://github.com/IlyaSemenov))
-  - Nicolò Ribaudo ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  - [@liuxingbaoyu](https://github.com/liuxingbaoyu)
-  ## v7.22.20 (2023-09-16)
-  #### :house: Internal
-  * `babel-helper-validator-identifier`
-  * [#15973](https://github.com/babel/babel/pull/15973) Remove special-casing of U+200C and U+200D ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  * `babel-plugin-transform-dotall-regex`
-  * [#15974](https://github.com/babel/babel/pull/15974) Update Unicode test fixtures ([@JLHwung](https://github.com/JLHwung))
-  #### :leftwards_arrow_with_hook: Revert
-  * `babel-helper-remap-async-to-generator`, `babel-helper-wrap-function`, `babel-plugin-proposal-explicit-resource-management`, `babel-plugin-proposal-function-sent`, `babel-plugin-transform-async-generator-functions`, `babel-plugin-transform-async-to-generator`, `babel-plugin-transform-block-scoping`, `babel-plugin-transform-class-properties`, `babel-plugin-transform-classes`, `babel-plugin-transform-parameters`, `babel-plugin-transform-runtime`, `babel-preset-env`
-  * [#15979](https://github.com/babel/babel/pull/15979) Revert "Improve output when wrapping functions" ([@jjonescz](https://github.com/jjonescz))
-  #### Committers: 3
-  - Huáng Jùnliàng ([@JLHwung](https://github.com/JLHwung))
-  - Jan Jones ([@jjonescz](https://github.com/jjonescz))
-  - Nicolò Ribaudo ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  ## v7.22.12 (2023-08-25)
-  #### :bug: Bug Fix
-  * `babel-plugin-transform-optional-chaining`
-  * [#15888](https://github.com/babel/babel/pull/15888) Fix optional chain optimization in sequence expression ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  #### Committers: 2
-  - Babel Bot ([@babel-bot](https://github.com/babel-bot))
-  - Nicolò Ribaudo ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  ## v7.22.3 (2023-05-27)
-  - Re-publish all the package published in 7.22.0 that hadn't been republished yet. We accidentally published them with a `package.json` file containing `"type": "script"` instead of `"type": "commonjs"` ([#15664](https://github.com/babel/babel/issues/15664)).
-  ## v7.22.1 (2023-05-26)
-  #### :bug: Bug Fix
-  * `babel-preset-env`
-  * [#15658](https://github.com/babel/babel/pull/15658) Workaround for broken babel-preset-react-app ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  #### Committers: 2
-  - Nicolò Ribaudo ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  - [@liuxingbaoyu](https://github.com/liuxingbaoyu)
-  ## v7.22.9 (2023-07-12)
-  #### :bug: Bug Fix
-  * `babel-plugin-transform-typescript`
-  * [#15774](https://github.com/babel/babel/pull/15774) fix: `Infinity` in enums ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
-  * `babel-helper-module-transforms`, `babel-helper-remap-async-to-generator`, `babel-helper-replace-supers`, `babel-helper-wrap-function`
-  * [#15771](https://github.com/babel/babel/pull/15771) Simplify helper dependencies ([@JLHwung](https://github.com/JLHwung))
-  #### :nail_care: Polish
-  * `babel-generator`
-  * [#15757](https://github.com/babel/babel/pull/15757) `recordAndTupleSyntaxType` defaults to `"hash"` ([@coderaiser](https://github.com/coderaiser))
-  #### :house: Internal
-  * [#15748](https://github.com/babel/babel/pull/15748) Migrate to `eslint.config.js` ([@JLHwung](https://github.com/JLHwung))
-  * [#15758](https://github.com/babel/babel/pull/15758) Use Prettier 3 stable ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  #### Committers: 5
-  - Babel Bot ([@babel-bot](https://github.com/babel-bot))
-  - Huáng Jùnliàng ([@JLHwung](https://github.com/JLHwung))
-  - Nicolò Ribaudo ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  - [@liuxingbaoyu](https://github.com/liuxingbaoyu)
-  - coderaiser ([@coderaiser](https://github.com/coderaiser))
-  ## v7.23.0 (2023-09-25)
-  Thanks @lorenzoferre and @RajShukla1 for your first PRs!
-  #### :rocket: New Feature
+  * [#15935](https://github.com/babel/babel/pull/15935) fix: `__esModule` is missing from published `@babel/parser` ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
+  * `babel-traverse`
+  * [#15936](https://github.com/babel/babel/pull/15936) Skip deprecation warning tests when in a folder named `@babel` ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
   * `babel-plugin-proposal-import-wasm-source`, `babel-plugin-syntax-import-source`, `babel-plugin-transform-dynamic-import`
   * [#15870](https://github.com/babel/babel/pull/15870) Support transforming `import source` for wasm ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
   * `babel-helper-module-transforms`, `babel-helpers`, `babel-plugin-proposal-import-defer`, `babel-plugin-syntax-import-defer`, `babel-plugin-transform-modules-commonjs`, `babel-runtime-corejs2`, `babel-runtime-corejs3`, `babel-runtime`, `babel-standalone`
@@ -3361,202 +2963,37 @@
   * [#15913](https://github.com/babel/babel/pull/15913) Add `rewriteImportExtensions` option to TS preset ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
   * `babel-parser`
   * [#15896](https://github.com/babel/babel/pull/15896) Allow TS tuples to have both labeled and unlabeled elements ([@yukukotani](https://github.com/yukukotani))
-  #### :bug: Bug Fix
   * `babel-plugin-transform-block-scoping`
   * [#15962](https://github.com/babel/babel/pull/15962) fix: `transform-block-scoping` captures the variables of the method in the loop ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
-  #### :nail_care: Polish
   * `babel-traverse`
   * [#15797](https://github.com/babel/babel/pull/15797) Expand evaluation of global built-ins in `@babel/traverse` ([@lorenzoferre](https://github.com/lorenzoferre))
   * `babel-plugin-proposal-explicit-resource-management`
   * [#15985](https://github.com/babel/babel/pull/15985) Improve source maps for blocks with `using` declarations ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  #### :microscope: Output optimization
   * `babel-core`, `babel-helper-module-transforms`, `babel-plugin-transform-async-to-generator`, `babel-plugin-transform-classes`, `babel-plugin-transform-dynamic-import`, `babel-plugin-transform-function-name`, `babel-plugin-transform-modules-amd`, `babel-plugin-transform-modules-commonjs`, `babel-plugin-transform-modules-umd`, `babel-plugin-transform-parameters`, `babel-plugin-transform-react-constant-elements`, `babel-plugin-transform-react-inline-elements`, `babel-plugin-transform-runtime`, `babel-plugin-transform-typescript`, `babel-preset-env`
   * [#15984](https://github.com/babel/babel/pull/15984) Inline `exports.XXX =` update in simple variable declarations ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  #### Committers: 7
-  - Babel Bot ([@babel-bot](https://github.com/babel-bot))
-  - Huáng Jùnliàng ([@JLHwung](https://github.com/JLHwung))
-  - Lorenzo Ferretti ([@lorenzoferre](https://github.com/lorenzoferre))
-  - Nicolò Ribaudo ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  - Raj Pawan Shukla ([@RajShukla1](https://github.com/RajShukla1))
-  - Yuku Kotani ([@yukukotani](https://github.com/yukukotani))
-  - [@liuxingbaoyu](https://github.com/liuxingbaoyu)
-  ## v7.22.14 (2023-08-30)
-  #### :bug: Bug Fix
-  * `babel-preset-env`
-  * [#15907](https://github.com/babel/babel/pull/15907) Avoid dynamic require call in preset-env ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  #### :house: Internal
-  * `babel-parser`
-  * [#15884](https://github.com/babel/babel/pull/15884) Simplify parser errors creation ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  * `babel-core`, `babel-helper-compilation-targets`, `babel-helper-simple-access`, `babel-parser`, `babel-plugin-syntax-decorators`, `babel-preset-env`, `babel-preset-flow`, `babel-preset-react`, `babel-preset-typescript`, `babel-traverse`, `babel-types`
-  * [#15902](https://github.com/babel/babel/pull/15902) extract more test helpers to repo-utils ([@JLHwung](https://github.com/JLHwung))
-  #### Committers: 2
-  - Huáng Jùnliàng ([@JLHwung](https://github.com/JLHwung))
-  - Nicolò Ribaudo ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  ## v7.22.8 (2023-07-06)
-  This release reverts a commit that caused all new angular installations to fail: https://github.com/angular/angular-cli/issues/25496
-  #### :leftwards_arrow_with_hook: Revert
-  * `babel-core`, `babel-traverse`
-  * [#15754](https://github.com/babel/babel/pull/15754) Revert "Use `NodePath#hub` as part of the paths cache key" ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  #### Committers: 1
-  - Nicolò Ribaudo ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  ## v7.22.6 (2023-07-04)
-  #### :bug: Bug Fix
-  * `babel-compat-data`, `babel-helper-compilation-targets`, `babel-preset-env`
-  * [#15727](https://github.com/babel/babel/pull/15727) Add opera mobile compat data ([@JLHwung](https://github.com/JLHwung))
-  * `babel-plugin-transform-optional-chaining`
-  * [#15739](https://github.com/babel/babel/pull/15739) Fix transform of `delete a?.b` in function params ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  * `babel-helper-split-export-declaration`, `babel-plugin-transform-modules-commonjs`
-  * [#15736](https://github.com/babel/babel/pull/15736) fix: Default export for duplicate names ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
-  * `babel-compat-data`, `babel-preset-env`
-  * [#15726](https://github.com/babel/babel/pull/15726) update compat-data sources ([@JLHwung](https://github.com/JLHwung))
-  * `babel-helpers`, `babel-plugin-proposal-explicit-resource-management`, `babel-runtime-corejs3`, `babel-runtime`
-  * [#15705](https://github.com/babel/babel/pull/15705) Fix handling of sync error in `@@asyncDispose` ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  * `babel-standalone`
-  * [#15707](https://github.com/babel/babel/pull/15707) fix: Support transforming Explicit Resource Management in `stage-2` ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
-  * `babel-core`
-  * [#15626](https://github.com/babel/babel/pull/15626) fix: Works correctly with `--frozen-intrinsics` ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
-  #### :house: Internal
-  * `babel-helper-create-class-features-plugin`, `babel-plugin-transform-classes`
-  * [#15700](https://github.com/babel/babel/pull/15700) Minor class transform cleanups ([@JLHwung](https://github.com/JLHwung))
-  #### :microscope: Output optimization
-  * `babel-plugin-bugfix-v8-spread-parameters-in-optional-chaining`, `babel-plugin-transform-class-properties`, `babel-plugin-transform-optional-chaining`, `babel-plugin-transform-typescript`
-  * [#15740](https://github.com/babel/babel/pull/15740) Compress output for optional chain with multiple `?.` ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  * `babel-plugin-proposal-destructuring-private`, `babel-plugin-proposal-do-expressions`, `babel-plugin-proposal-pipeline-operator`, `babel-plugin-transform-class-properties`, `babel-plugin-transform-nullish-coalescing-operator`, `babel-plugin-transform-optional-chaining`, `babel-plugin-transform-private-property-in-object`, `babel-traverse`
-  * [#15741](https://github.com/babel/babel/pull/15741) Inject tmp vars in the params list of IIFEs when possible ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  #### Committers: 5
-  - Babel Bot ([@babel-bot](https://github.com/babel-bot))
-  - Huáng Jùnliàng ([@JLHwung](https://github.com/JLHwung))
-  - Joe Maffei ([@joemaffei](https://github.com/joemaffei))
-  - Nicolò Ribaudo ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  - [@liuxingbaoyu](https://github.com/liuxingbaoyu)
-  ## v7.22.13 (2023-08-28)
-  #### :house: Internal
-  * `babel-helper-fixtures`, `babel-plugin-proposal-function-bind`, `babel-plugin-transform-modules-commonjs`, `babel-preset-env`
-  * [#15890](https://github.com/babel/babel/pull/15890) Improve helper-fixtures ([@JLHwung](https://github.com/JLHwung))
-  #### :leftwards_arrow_with_hook: Revert
-  * `babel-parser`
-  * [#15901](https://github.com/babel/babel/pull/15901) Revert "Do not record trailing comma pos when `maybeAsyncArrow: false`" ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  #### Committers: 2
-  - Huáng Jùnliàng ([@JLHwung](https://github.com/JLHwung))
-  - Nicolò Ribaudo ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  ## v7.22.15 (2023-09-04)
-  #### :bug: Bug Fix
-  * `babel-core`
-  * [#15923](https://github.com/babel/babel/pull/15923) Only perform config loading re-entrancy check for cjs ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  #### :house: Internal
-  * _Every package_
-  * [#15892](https://github.com/babel/babel/pull/15892) Add explicit `.ts`/`.js` extension to all imports in `src` ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  #### Committers: 4
-  - Babel Bot ([@babel-bot](https://github.com/babel-bot))
-  - Huáng Jùnliàng ([@JLHwung](https://github.com/JLHwung))
-  - Nicolò Ribaudo ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  - [@liuxingbaoyu](https://github.com/liuxingbaoyu)
-  ## v7.22.2 (2023-05-26)
-  #### :bug: Bug Fix
-  * `babel-plugin-transform-runtime`, `babel-preset-env`, `babel-runtime-corejs2`
-  * [#15660](https://github.com/babel/babel/pull/15660) Fix importing symbol polyfill in `@babel/runtime-corejs2` ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  #### Committers: 1
-  - Nicolò Ribaudo ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  ## v7.23.1 (2023-09-25)
-  Re-publishing `@babel/helpers` due to a publishing error in 7.23.0.
-  ## v7.22.17 (2023-09-08)
-  Thanks @jordanbtucker for your first PR!
-  #### :bug: Bug Fix
-  * `babel-core`
-  * [#15947](https://github.com/babel/babel/pull/15947) Fix compatibility with Node.js 20.6 ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  * `babel-helper-module-transforms`, `babel-plugin-transform-modules-commonjs`
-  * [#15941](https://github.com/babel/babel/pull/15941) Fix compiling duplicate ns imports to lazy CommonJS ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  * `babel-types`
-  * [#15920](https://github.com/babel/babel/pull/15920) Make `ClassDeclaration["id"]` optional in babel-types ([@jordanbtucker](https://github.com/jordanbtucker))
-  #### :microscope: Output optimization
-  * `babel-helper-remap-async-to-generator`, `babel-helper-wrap-function`, `babel-plugin-proposal-explicit-resource-management`, `babel-plugin-proposal-function-sent`, `babel-plugin-transform-async-generator-functions`, `babel-plugin-transform-async-to-generator`, `babel-plugin-transform-block-scoping`, `babel-plugin-transform-class-properties`, `babel-plugin-transform-classes`, `babel-plugin-transform-parameters`, `babel-plugin-transform-runtime`, `babel-preset-env`
-  * [#15922](https://github.com/babel/babel/pull/15922) Improve output when wrapping functions (e.g. `async` functions) ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
-  #### Committers: 3
-  - Jordan Tucker ([@jordanbtucker](https://github.com/jordanbtucker))
-  - Nicolò Ribaudo ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  - [@liuxingbaoyu](https://github.com/liuxingbaoyu)
-  ## v7.22.11 (2023-08-24)
-  Thanks @0o001 and @yangguansen for your first PRs!
-  #### :bug: Bug Fix
-  * `babel-plugin-transform-typescript`
-  * [#15882](https://github.com/babel/babel/pull/15882) Fix: fully remove TS nested type-only exported namespaces ([@yangguansen](https://github.com/yangguansen))
-  * `babel-types`
-  * [#15867](https://github.com/babel/babel/pull/15867) fix: definition of TS function type params ([@danez](https://github.com/danez))
-  * `babel-plugin-transform-async-generator-functions`, `babel-plugin-transform-class-static-block`, `babel-plugin-transform-dynamic-import`, `babel-plugin-transform-export-namespace-from`, `babel-plugin-transform-json-strings`, `babel-plugin-transform-logical-assignment-operators`, `babel-plugin-transform-nullish-coalescing-operator`, `babel-plugin-transform-numeric-separator`, `babel-plugin-transform-object-rest-spread`, `babel-plugin-transform-optional-catch-binding`, `babel-plugin-transform-optional-chaining`, `babel-plugin-transform-private-property-in-object`
-  * [#15858](https://github.com/babel/babel/pull/15858) fix(standalone): strip archived syntax plugins ([@JLHwung](https://github.com/JLHwung))
-  * `babel-core`
-  * [#15850](https://github.com/babel/babel/pull/15850) Support configuring cache in ESM configs ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  #### :house: Internal
-  * `babel-parser`
-  * [#10940](https://github.com/babel/babel/pull/10940) Do not record trailing comma pos when `maybeAsyncArrow: false` ([@JLHwung](https://github.com/JLHwung))
-  * `babel-core`, `babel-helper-compilation-targets`, `babel-parser`, `babel-plugin-proposal-destructuring-private`, `babel-plugin-syntax-decorators`, `babel-preset-env`, `babel-preset-react`, `babel-register`, `babel-traverse`, `babel-types`
-  * [#15872](https://github.com/babel/babel/pull/15872) enable jest/no-standalone-expect ([@JLHwung](https://github.com/JLHwung))
-  * `babel-core`, `babel-helpers`, `babel-plugin-transform-async-generator-functions`, `babel-plugin-transform-modules-commonjs`, `babel-plugin-transform-regenerator`, `babel-preset-env`, `babel-runtime-corejs2`, `babel-runtime-corejs3`, `babel-runtime`
-  * [#15833](https://github.com/babel/babel/pull/15833) bump json5, terser and webpack, further minimize babel helpers ([@JLHwung](https://github.com/JLHwung))
-  * Other
-  * [#15846](https://github.com/babel/babel/pull/15846) Use Babel 8.0 alpha to build babel ([@JLHwung](https://github.com/JLHwung))
-  * [#15856](https://github.com/babel/babel/pull/15856) Exclude redundant files from publish process ([@JLHwung](https://github.com/JLHwung))
-  #### :microscope: Output optimization
-  * `babel-plugin-bugfix-v8-spread-parameters-in-optional-chaining`, `babel-plugin-transform-class-properties`, `babel-plugin-transform-classes`, `babel-plugin-transform-optional-chaining`, `babel-preset-env`
-  * [#15871](https://github.com/babel/babel/pull/15871) Simplify `?.` output when chain result is ignored ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  #### Committers: 7
-  - Babel Bot ([@babel-bot](https://github.com/babel-bot))
-  - Daniel Tschinder ([@danez](https://github.com/danez))
-  - Huáng Jùnliàng ([@JLHwung](https://github.com/JLHwung))
-  - Mustafa Ateş Uzun ([@0o001](https://github.com/0o001))
-  - Nicolò Ribaudo ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  - [@liuxingbaoyu](https://github.com/liuxingbaoyu)
-  - sanmu ([@yangguansen](https://github.com/yangguansen))
-  ## v7.23.2 (2023-10-11)
-  **NOTE**: This release also re-publishes `@babel/core`, even if it does not appear in the linked release commit.
-  Thanks @jimmydief for your first PR!
-  #### :bug: Bug Fix
   * `babel-traverse`
-  * [#16033](https://github.com/babel/babel/pull/16033) Only evaluate own String/Number/Math methods ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  * `babel-preset-typescript`
-  * [#16022](https://github.com/babel/babel/pull/16022) Rewrite `.tsx` extension when using `rewriteImportExtensions` ([@jimmydief](https://github.com/jimmydief))
-  * `babel-helpers`
-  * [#16017](https://github.com/babel/babel/pull/16017) Fix: fallback to typeof when toString is applied to incompatible object ([@JLHwung](https://github.com/JLHwung))
-  * `babel-helpers`, `babel-plugin-transform-modules-commonjs`, `babel-runtime-corejs2`, `babel-runtime-corejs3`, `babel-runtime`
-  * [#16025](https://github.com/babel/babel/pull/16025) Avoid override mistake in namespace imports ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  #### Committers: 5
-  - Babel Bot ([@babel-bot](https://github.com/babel-bot))
-  - Huáng Jùnliàng ([@JLHwung](https://github.com/JLHwung))
-  - James Diefenderfer ([@jimmydief](https://github.com/jimmydief))
-  - Nicolò Ribaudo ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  - [@liuxingbaoyu](https://github.com/liuxingbaoyu)
-  ## v7.22.18 (2023-09-14)
-  **NOTE:** This release had a publishing problem -- it has been re-published as 7.22.19.
-  Thanks @dhlolo for your first PR!
-  #### :bug: Bug Fix
+  * [#15649](https://github.com/babel/babel/pull/15649) Set `shorthand: false` when renaming an identifier inside an object property ([@coderaiser](https://github.com/coderaiser))
+  * `babel-types`
+  * [#15666](https://github.com/babel/babel/pull/15666) Add missing `attributes`/`assertions` to `VISITOR_KEYS` ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
+  * `babel-parser`
+  * [#15667](https://github.com/babel/babel/pull/15667) Mark `assert` attributes with `extra.deprecatedAssertSyntax` ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
   * `babel-helper-validator-identifier`
-  * [#15957](https://github.com/babel/babel/pull/15957) Update identifier name definitions to Unicode 15.1 ([@JLHwung](https://github.com/JLHwung))
-  * `babel-helper-module-transforms`, `babel-plugin-transform-modules-amd`, `babel-plugin-transform-modules-commonjs`, `babel-plugin-transform-modules-umd`
-  * [#15898](https://github.com/babel/babel/pull/15898) Fix transform of named import with shadowed namespace import ([@dhlolo](https://github.com/dhlolo))
-  #### :leftwards_arrow_with_hook: Revert
-  * [#15965](https://github.com/babel/babel/pull/15965) Revert Node.js 20.6.0 bug workaround ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  #### Committers: 3
-  - Huáng Jùnliàng ([@JLHwung](https://github.com/JLHwung))
-  - Int ([@dhlolo](https://github.com/dhlolo))
-  - Nicolò Ribaudo ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  ## v7.22.19 (2023-09-14)
-  Re-published 7.22.18, due to a releasing error.
-  ## v7.22.10 (2023-08-07)
-  Thanks @DimitriPapadopoulos, @FabianWarnecke, @JoshuaKGoldberg, and @YYvanYang for your first pull requests!
-  #### :bug: Bug Fix
+  * [#15973](https://github.com/babel/babel/pull/15973) Remove special-casing of U+200C and U+200D ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
+  * `babel-plugin-transform-dotall-regex`
+  * [#15974](https://github.com/babel/babel/pull/15974) Update Unicode test fixtures ([@JLHwung](https://github.com/JLHwung))
+  * `babel-helper-remap-async-to-generator`, `babel-helper-wrap-function`, `babel-plugin-proposal-explicit-resource-management`, `babel-plugin-proposal-function-sent`, `babel-plugin-transform-async-generator-functions`, `babel-plugin-transform-async-to-generator`, `babel-plugin-transform-block-scoping`, `babel-plugin-transform-class-properties`, `babel-plugin-transform-classes`, `babel-plugin-transform-parameters`, `babel-plugin-transform-runtime`, `babel-preset-env`
+  * [#15979](https://github.com/babel/babel/pull/15979) Revert "Improve output when wrapping functions" ([@jjonescz](https://github.com/jjonescz))
   * `babel-plugin-transform-typescript`
   * [#15799](https://github.com/babel/babel/pull/15799) [ts] Strip type-only namespaces ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
   * [#15798](https://github.com/babel/babel/pull/15798) [ts] Fix compiling extended exported nested namespace ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
   * `babel-helper-create-class-features-plugin`, `babel-plugin-proposal-decorators`, `babel-plugin-proposal-destructuring-private`, `babel-plugin-transform-class-properties`, `babel-plugin-transform-class-static-block`, `babel-plugin-transform-new-target`, `babel-plugin-transform-private-methods`, `babel-preset-env`
   * [#15701](https://github.com/babel/babel/pull/15701) Memoize class binding when compiling private methods and static elements ([@JLHwung](https://github.com/JLHwung))
-  #### :nail_care: Polish
   * `babel-cli`
   * [#15824](https://github.com/babel/babel/pull/15824) Add `meta` object to `@babel/eslint-plugin` ([@JLHwung](https://github.com/JLHwung))
   * `babel-traverse`, `babel-types`
   * [#15661](https://github.com/babel/babel/pull/15661) Improve the type definition of `path.isX` ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
   * `babel-generator`, `babel-types`
   * [#15776](https://github.com/babel/babel/pull/15776) improve SourceLocation typing ([@JLHwung](https://github.com/JLHwung))
-  #### :house: Internal
   * Other
   * [#15818](https://github.com/babel/babel/pull/15818) build: generate flow typings in prepublish job ([@JLHwung](https://github.com/JLHwung))
   * [#15777](https://github.com/babel/babel/pull/15777) chore: bump dev dependencies and remove .eslintignore ([@JLHwung](https://github.com/JLHwung))
@@ -3568,42 +3005,47 @@
   * [#15793](https://github.com/babel/babel/pull/15793) Use const enum in babel-parser ([@JLHwung](https://github.com/JLHwung))
   * `babel-plugin-transform-runtime`, `babel-traverse`, `babel-types`
   * [#15716](https://github.com/babel/babel/pull/15716) chore: Use `typescript-eslint@v6` with reworked configs ([@JoshuaKGoldberg](https://github.com/JoshuaKGoldberg))
-  #### :microscope: Output optimization
   * `babel-plugin-transform-block-scoping`, `babel-plugin-transform-parameters`, `babel-plugin-transform-regenerator`
   * [#15746](https://github.com/babel/babel/pull/15746) Reduce `transform-block-scoping` loops output size ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
-  #### Committers: 9
-  - Babel Bot ([@babel-bot](https://github.com/babel-bot))
-  - Dimitri Papadopoulos Orfanos ([@DimitriPapadopoulos](https://github.com/DimitriPapadopoulos))
-  - Huáng Jùnliàng ([@JLHwung](https://github.com/JLHwung))
-  - Josh Goldberg ✨ ([@JoshuaKGoldberg](https://github.com/JoshuaKGoldberg))
-  - Nicolò Ribaudo ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  - Tianlan Zhou ([@SuperSodaSea](https://github.com/SuperSodaSea))
-  - [@FabianWarnecke](https://github.com/FabianWarnecke)
-  - [@YYvanYang](https://github.com/YYvanYang)
-  - [@liuxingbaoyu](https://github.com/liuxingbaoyu)
-  ## v7.22.16 (2023-09-06)
-  #### :bug: Bug Fix
-  * `babel-parser`
-  * [#15935](https://github.com/babel/babel/pull/15935) fix: `__esModule` is missing from published `@babel/parser` ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
-  #### :house: Internal
-  * `babel-traverse`
-  * [#15936](https://github.com/babel/babel/pull/15936) Skip deprecation warning tests when in a folder named `@babel` ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  #### Committers: 3
-  - Huáng Jùnliàng ([@JLHwung](https://github.com/JLHwung))
-  - Nicolò Ribaudo ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  - [@liuxingbaoyu](https://github.com/liuxingbaoyu)
-  ## v7.22.5 (2023-06-08)
-  #### :bug: Bug Fix
-  * `babel-preset-env`, `babel-standalone`
-  * [#15675](https://github.com/babel/babel/pull/15675) Fix using `syntax-unicode-sets-regex` in standalone ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  #### :nail_care: Polish
   * `babel-core`
-  * [#15683](https://github.com/babel/babel/pull/15683) Suggest `-transform-` when resolving missing plugins ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  #### Committers: 4
-  - Avery ([@nullableVoidPtr](https://github.com/nullableVoidPtr))
-  - Babel Bot ([@babel-bot](https://github.com/babel-bot))
-  - Nicolò Ribaudo ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
-  - [@liuxingbaoyu](https://github.com/liuxingbaoyu)
+  * [#15923](https://github.com/babel/babel/pull/15923) Only perform config loading re-entrancy check for cjs ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
+  * _Every package_
+  * [#15892](https://github.com/babel/babel/pull/15892) Add explicit `.ts`/`.js` extension to all imports in `src` ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
+  * `babel-plugin-transform-runtime`, `babel-preset-env`, `babel-runtime-corejs2`
+  * [#15660](https://github.com/babel/babel/pull/15660) Fix importing symbol polyfill in `@babel/runtime-corejs2` ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
+  * `babel-helper-validator-identifier`
+  * [#15957](https://github.com/babel/babel/pull/15957) Update identifier name definitions to Unicode 15.1 ([@JLHwung](https://github.com/JLHwung))
+  * `babel-helper-module-transforms`, `babel-plugin-transform-modules-amd`, `babel-plugin-transform-modules-commonjs`, `babel-plugin-transform-modules-umd`
+  * [#15898](https://github.com/babel/babel/pull/15898) Fix transform of named import with shadowed namespace import ([@dhlolo](https://github.com/dhlolo))
+  * [#15965](https://github.com/babel/babel/pull/15965) Revert Node.js 20.6.0 bug workaround ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
+  * `babel-plugin-transform-optional-chaining`
+  * [#15888](https://github.com/babel/babel/pull/15888) Fix optional chain optimization in sequence expression ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
+  * `babel-helper-fixtures`, `babel-plugin-proposal-function-bind`, `babel-plugin-transform-modules-commonjs`, `babel-preset-env`
+  * [#15890](https://github.com/babel/babel/pull/15890) Improve helper-fixtures ([@JLHwung](https://github.com/JLHwung))
+  * `babel-parser`
+  * [#15901](https://github.com/babel/babel/pull/15901) Revert "Do not record trailing comma pos when `maybeAsyncArrow: false`" ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
+  * `babel-preset-env`
+  * [#15907](https://github.com/babel/babel/pull/15907) Avoid dynamic require call in preset-env ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
+  * `babel-parser`
+  * [#15884](https://github.com/babel/babel/pull/15884) Simplify parser errors creation ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
+  * `babel-core`, `babel-helper-compilation-targets`, `babel-helper-simple-access`, `babel-parser`, `babel-plugin-syntax-decorators`, `babel-preset-env`, `babel-preset-flow`, `babel-preset-react`, `babel-preset-typescript`, `babel-traverse`, `babel-types`
+  * [#15902](https://github.com/babel/babel/pull/15902) extract more test helpers to repo-utils ([@JLHwung](https://github.com/JLHwung))
+  * `babel-core`
+  * [#15947](https://github.com/babel/babel/pull/15947) Fix compatibility with Node.js 20.6 ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
+  * `babel-helper-module-transforms`, `babel-plugin-transform-modules-commonjs`
+  * [#15941](https://github.com/babel/babel/pull/15941) Fix compiling duplicate ns imports to lazy CommonJS ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
+  * `babel-types`
+  * [#15920](https://github.com/babel/babel/pull/15920) Make `ClassDeclaration["id"]` optional in babel-types ([@jordanbtucker](https://github.com/jordanbtucker))
+  * `babel-helper-remap-async-to-generator`, `babel-helper-wrap-function`, `babel-plugin-proposal-explicit-resource-management`, `babel-plugin-proposal-function-sent`, `babel-plugin-transform-async-generator-functions`, `babel-plugin-transform-async-to-generator`, `babel-plugin-transform-block-scoping`, `babel-plugin-transform-class-properties`, `babel-plugin-transform-classes`, `babel-plugin-transform-parameters`, `babel-plugin-transform-runtime`, `babel-preset-env`
+  * [#15922](https://github.com/babel/babel/pull/15922) Improve output when wrapping functions (e.g. `async` functions) ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
+  * `babel-plugin-transform-typescript`
+  * [#15774](https://github.com/babel/babel/pull/15774) fix: `Infinity` in enums ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
+  * `babel-helper-module-transforms`, `babel-helper-remap-async-to-generator`, `babel-helper-replace-supers`, `babel-helper-wrap-function`
+  * [#15771](https://github.com/babel/babel/pull/15771) Simplify helper dependencies ([@JLHwung](https://github.com/JLHwung))
+  * `babel-generator`
+  * [#15757](https://github.com/babel/babel/pull/15757) `recordAndTupleSyntaxType` defaults to `"hash"` ([@coderaiser](https://github.com/coderaiser))
+  * [#15748](https://github.com/babel/babel/pull/15748) Migrate to `eslint.config.js` ([@JLHwung](https://github.com/JLHwung))
+  * [#15758](https://github.com/babel/babel/pull/15758) Use Prettier 3 stable ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
 
 
 
@@ -3621,18 +3063,18 @@
   * use oclif/core v3 ([d9284e1](https://github.com/salesforcecli/sf-plugins-core/commit/d9284e16f06ba8f0717bfc20992b1c9b36d63d81))
   * bump oclif/core ([958834a](https://github.com/salesforcecli/sf-plugins-core/commit/958834af2e052e5c8c3b185d36f8a543e8bcd425))
   * use oclif/core v3 ([d9284e1](https://github.com/salesforcecli/sf-plugins-core/commit/d9284e16f06ba8f0717bfc20992b1c9b36d63d81))
+  * **deps:** bump @salesforce/kit from 3.0.11 to 3.0.13 ([2789a38](https://github.com/salesforcecli/sf-plugins-core/commit/2789a38bfefdec0edc6469d241a4e2eebbbcfdce))
   * **deps:** bump @salesforce/core from 5.2.10 to 5.3.1 ([a8ddfae](https://github.com/salesforcecli/sf-plugins-core/commit/a8ddfaeb26af68cb64ba2ffd32a37a2036e28ce2))
-  * bump oclif/core ([8d340ce](https://github.com/salesforcecli/sf-plugins-core/commit/8d340ce7addd9fdb11de6ab6195b04eef5f924c5))
-  * **deps:** bump @salesforce/core from 5.2.1 to 5.2.6 ([3de9cb1](https://github.com/salesforcecli/sf-plugins-core/commit/3de9cb1401a23e139d505e566555df1393b29272))
-  * **deps:** bump @oclif/core from 2.12.0 to 2.15.0 ([45a069c](https://github.com/salesforcecli/sf-plugins-core/commit/45a069c2e5f4e41c18069de99eec8656917a6ef3))
   * bump core ([7e57f8d](https://github.com/salesforcecli/sf-plugins-core/commit/7e57f8dc70cf3f192aafb0bb6a9de09974203c5a))
   * bump core ([f0257e4](https://github.com/salesforcecli/sf-plugins-core/commit/f0257e4fcc8013e41a8b088cc601734358dd9b90))
   * bump oclif/core ([8d340ce](https://github.com/salesforcecli/sf-plugins-core/commit/8d340ce7addd9fdb11de6ab6195b04eef5f924c5))
   * stop spinners on caught error ([c3242a7](https://github.com/salesforcecli/sf-plugins-core/commit/c3242a7127a2721eea60edad29f3ad72261a96e6))
+  * **deps:** bump @salesforce/core from 5.2.1 to 5.2.6 ([3de9cb1](https://github.com/salesforcecli/sf-plugins-core/commit/3de9cb1401a23e139d505e566555df1393b29272))
+  * **deps:** bump @oclif/core from 2.12.0 to 2.15.0 ([45a069c](https://github.com/salesforcecli/sf-plugins-core/commit/45a069c2e5f4e41c18069de99eec8656917a6ef3))
+  * bump oclif/core ([8d340ce](https://github.com/salesforcecli/sf-plugins-core/commit/8d340ce7addd9fdb11de6ab6195b04eef5f924c5))
   * bump core ([7e57f8d](https://github.com/salesforcecli/sf-plugins-core/commit/7e57f8dc70cf3f192aafb0bb6a9de09974203c5a))
   * bump core ([f0257e4](https://github.com/salesforcecli/sf-plugins-core/commit/f0257e4fcc8013e41a8b088cc601734358dd9b90))
   * bump oclif/core ([8d340ce](https://github.com/salesforcecli/sf-plugins-core/commit/8d340ce7addd9fdb11de6ab6195b04eef5f924c5))
-  * **deps:** bump @salesforce/kit from 3.0.11 to 3.0.13 ([2789a38](https://github.com/salesforcecli/sf-plugins-core/commit/2789a38bfefdec0edc6469d241a4e2eebbbcfdce))
 * **deps:** bump @salesforce/source-deploy-retrieve from 9.7.22 to 9.7.24 ([#988](https://github.com/jayree/sfdx-plugin-manifest/issues/988)) ([c4a2700](https://github.com/jayree/sfdx-plugin-manifest/commit/c4a27002a00ef4570957deda6f310e3af1f2bf5a))
   * **deps:** bump fast-xml-parser from 4.2.7 to 4.3.2 ([#1134](https://github.com/forcedotcom/source-deploy-retrieve/issues/1134)) ([fdee418](https://github.com/forcedotcom/source-deploy-retrieve/commit/fdee41810a9cd053c192d5bd4ecc3d6dcb605271))
   * include line/col numbers in deploy failures ([#1130](https://github.com/forcedotcom/source-deploy-retrieve/issues/1130)) ([dc6320f](https://github.com/forcedotcom/source-deploy-retrieve/commit/dc6320fca42c89e315e70c5332f896ca1985681b))
@@ -3648,10 +3090,11 @@
   * **deps:** bump marked-terminal from 5.2.0 to 6.0.0 ([#170](https://github.com/jayree/changelog/issues/170)) ([26af902](https://github.com/jayree/changelog/commit/26af902cf268a0c134794d7c92417d478b2adb3e))
 * **deps:** bump @salesforce/source-deploy-retrieve from 9.7.18 to 9.7.22 ([#970](https://github.com/jayree/sfdx-plugin-manifest/issues/970)) ([f08f8eb](https://github.com/jayree/sfdx-plugin-manifest/commit/f08f8ebca325c74024e6f76f17979269e25c7148))
   * metadata type support for ExtlClntAppConfigurablePolicies ([9aeb1cc](https://github.com/forcedotcom/source-deploy-retrieve/commit/9aeb1ccf5ac520a37b074cd3911d996fe048f8e7))
-  * support metadata type EventRelayConfig ([#1129](https://github.com/forcedotcom/source-deploy-retrieve/issues/1129)) ([d41afe8](https://github.com/forcedotcom/source-deploy-retrieve/commit/d41afe875bdcbaa4d8a67b1ec7d5fec2e1acd398))
   * one-off handling of 1 html entity ([#1128](https://github.com/forcedotcom/source-deploy-retrieve/issues/1128)) ([544bccb](https://github.com/forcedotcom/source-deploy-retrieve/commit/544bccbeba8af94233ee102906ac5959403869de))
+  * support metadata type EventRelayConfig ([#1129](https://github.com/forcedotcom/source-deploy-retrieve/issues/1129)) ([d41afe8](https://github.com/forcedotcom/source-deploy-retrieve/commit/d41afe875bdcbaa4d8a67b1ec7d5fec2e1acd398))
   * **deps:** bump @salesforce/core from 5.2.10 to 5.3.1 ([#1123](https://github.com/forcedotcom/source-deploy-retrieve/issues/1123)) ([85c247b](https://github.com/forcedotcom/source-deploy-retrieve/commit/85c247b5d772a50e1470d2b2001c23f4c6e8178a))
 * **deps:** bump fast-xml-parser from 4.3.1 to 4.3.2 ([#973](https://github.com/jayree/sfdx-plugin-manifest/issues/973)) ([c8e13c9](https://github.com/jayree/sfdx-plugin-manifest/commit/c8e13c9e593e3d770b82a8f107c6298083e8c576))
+  *   fix `jObj.hasOwnProperty` when give input is null (By [Arda TANRIKULU](https://github.com/ardatan))
 
 
 
@@ -3661,12 +3104,12 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/sf-plugins-core from 3.1.23 to 3.1.25 ([#960](https://github.com/jayree/sfdx-plugin-manifest/issues/960)) ([3041162](https://github.com/jayree/sfdx-plugin-manifest/commit/304116273398b337e9d66f64507621535829f8d9))
-  * **deps:** bump get-func-name from 2.0.0 to 2.0.2 ([7437cf0](https://github.com/salesforcecli/sf-plugins-core/commit/7437cf0ead86fc40cf1eed1b95859f22c683cf38))
   * **deps:** bump @salesforce/core from 5.2.9 to 5.2.10 ([dcabda3](https://github.com/salesforcecli/sf-plugins-core/commit/dcabda3e3573883ae6396e961528602020931442))
+  * **deps:** bump get-func-name from 2.0.0 to 2.0.2 ([7437cf0](https://github.com/salesforcecli/sf-plugins-core/commit/7437cf0ead86fc40cf1eed1b95859f22c683cf38))
 * **deps:** bump @salesforce/source-deploy-retrieve from 9.7.15 to 9.7.18 ([#959](https://github.com/jayree/sfdx-plugin-manifest/issues/959)) ([06c4158](https://github.com/jayree/sfdx-plugin-manifest/commit/06c4158ec8ca6aded8dc005d694acb4ab56dff35))
-  * **mdTypes:** add ConversationChannelDefinition support ([f82fa77](https://github.com/forcedotcom/source-deploy-retrieve/commit/f82fa77269b645ed1c25cdccc845f7699b93ad14))
-  * new coverage locations ([#1119](https://github.com/forcedotcom/source-deploy-retrieve/issues/1119)) ([9e6e076](https://github.com/forcedotcom/source-deploy-retrieve/commit/9e6e076520332812c922388b836be28af26ec6b5))
   * **deps:** bump @salesforce/core from 5.2.9 to 5.2.10 ([#1116](https://github.com/forcedotcom/source-deploy-retrieve/issues/1116)) ([5cf4338](https://github.com/forcedotcom/source-deploy-retrieve/commit/5cf4338a4d59f56f855017176aa8ffc6ab575361))
+  * new coverage locations ([#1119](https://github.com/forcedotcom/source-deploy-retrieve/issues/1119)) ([9e6e076](https://github.com/forcedotcom/source-deploy-retrieve/commit/9e6e076520332812c922388b836be28af26ec6b5))
+  * **mdTypes:** add ConversationChannelDefinition support ([f82fa77](https://github.com/forcedotcom/source-deploy-retrieve/commit/f82fa77269b645ed1c25cdccc845f7699b93ad14))
 
 
 
@@ -3676,13 +3119,11 @@
 ### Bug Fixes
 
 * **deps:** bump fast-xml-parser from 4.2.7 to 4.3.1 ([#951](https://github.com/jayree/sfdx-plugin-manifest/issues/951)) ([476827d](https://github.com/jayree/sfdx-plugin-manifest/commit/476827d0199cf991b17a53f070c1f1318bbc4aef))
+  *   revert back "Fix typings for builder and parser to make return type generic" to avoid failure of existing projects. Need to decide a common approach.
+  *   Fix stopNodes to work with removeNSPrefix ([#607](https://redirect.github.com/NaturalIntelligence/fast-xml-parser/issues/607)) ([#608](https://redirect.github.com/NaturalIntelligence/fast-xml-parser/issues/608)) (By \[Craig Andrews\][https://github.com/candrews](https://github.com/candrews)))
+  *   Fix [#610](https://redirect.github.com/NaturalIntelligence/fast-xml-parser/issues/610) ignore properties set to Object.prototype
+  *   Fix typings for builder and parser to make return type generic (By [Sarah Dayan](https://github.com/sarahdayan))
 * **deps:** bump get-func-name from 2.0.0 to 2.0.2 ([#950](https://github.com/jayree/sfdx-plugin-manifest/issues/950)) ([d4776da](https://github.com/jayree/sfdx-plugin-manifest/commit/d4776da819f52bba8336d87dd4ec6db269ce8408))
-  ## What's Changed
-  Revert previous changes that shipped this as an ES module.
-  **Full Changelog**: https://github.com/chaijs/get-func-name/commits/v2.0.2
-  ## What's Changed
-  Fix https://github.com/chaijs/get-func-name/security/advisories/GHSA-4q6p-r6v2-jvc5
-  **Full Changelog**: https://github.com/chaijs/get-func-name/commits/v2.0.1
 
 
 
@@ -3719,12 +3160,11 @@
 
 * **deps:** bump @salesforce/sf-plugins-core from 3.1.20 to 3.1.22 ([#919](https://github.com/jayree/sfdx-plugin-manifest/issues/919)) ([e12eacf](https://github.com/jayree/sfdx-plugin-manifest/commit/e12eacf367825989380c460adb36b793d5148498))
   * use oclif/core v3 ([d9284e1](https://github.com/salesforcecli/sf-plugins-core/commit/d9284e16f06ba8f0717bfc20992b1c9b36d63d81))
-  * **deps:** bump @salesforce/core from 5.2.1 to 5.2.6 ([3de9cb1](https://github.com/salesforcecli/sf-plugins-core/commit/3de9cb1401a23e139d505e566555df1393b29272))
   * **deps:** bump @oclif/core from 2.12.0 to 2.15.0 ([45a069c](https://github.com/salesforcecli/sf-plugins-core/commit/45a069c2e5f4e41c18069de99eec8656917a6ef3))
+  * **deps:** bump @salesforce/core from 5.2.1 to 5.2.6 ([3de9cb1](https://github.com/salesforcecli/sf-plugins-core/commit/3de9cb1401a23e139d505e566555df1393b29272))
 * **deps:** bump @salesforce/source-deploy-retrieve from 9.7.6 to 9.7.9 ([#923](https://github.com/jayree/sfdx-plugin-manifest/issues/923)) ([c4c2ff4](https://github.com/jayree/sfdx-plugin-manifest/commit/c4c2ff4ddad6255710756bb34e4693dfbbe0b24f))
   * @W-12612279 Adding FundraisingConfig to metadata registry ([#1085](https://github.com/forcedotcom/source-deploy-retrieve/issues/1085)) ([e5c23d8](https://github.com/forcedotcom/source-deploy-retrieve/commit/e5c23d8f33a3cf7d864a49bcdb7d6f820ee83a04))
   * **deps:** bump @salesforce/kit from 3.0.9 to 3.0.11 ([#1090](https://github.com/forcedotcom/source-deploy-retrieve/issues/1090)) ([17c4ef0](https://github.com/forcedotcom/source-deploy-retrieve/commit/17c4ef059d9f9585613c2ee6707ffe8449358600))
-  ### Reverts
   * Revert "feat!: component set components are now DecodableMaps (#1080)" (#1101) ([615c477](https://github.com/forcedotcom/source-deploy-retrieve/commit/615c477f777d71742c5a741e3852b3f780bf44c0)), closes [#1080](https://github.com/forcedotcom/source-deploy-retrieve/issues/1080) [#1101](https://github.com/forcedotcom/source-deploy-retrieve/issues/1101)
 
 
@@ -3744,8 +3184,8 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/sf-plugins-core from 3.1.18 to 3.1.20 ([#908](https://github.com/jayree/sfdx-plugin-manifest/issues/908)) ([2ff6416](https://github.com/jayree/sfdx-plugin-manifest/commit/2ff6416d473430d2215856b781a02137df6e7cd8))
-  * **deps:** bump @salesforce/kit from 3.0.9 to 3.0.11 ([903d3f9](https://github.com/salesforcecli/sf-plugins-core/commit/903d3f99206bfd987d6f36b4d67f534fab15a48c))
   * bump oclif/core ([d1e15a8](https://github.com/salesforcecli/sf-plugins-core/commit/d1e15a8eb1cf68abdbe7abb72b3bbd3b97dde5e8))
+  * **deps:** bump @salesforce/kit from 3.0.9 to 3.0.11 ([903d3f9](https://github.com/salesforcecli/sf-plugins-core/commit/903d3f99206bfd987d6f36b4d67f534fab15a48c))
 
 
 
@@ -3765,17 +3205,15 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/sf-plugins-core from 3.1.15 to 3.1.18 ([#895](https://github.com/jayree/sfdx-plugin-manifest/issues/895)) ([5b34ac9](https://github.com/jayree/sfdx-plugin-manifest/commit/5b34ac95f40b20a915599e64b106e66612759273))
-  * use getPluginsList to prep for oclif/core v3 ([#377](https://github.com/salesforcecli/sf-plugins-core/issues/377)) ([716f4f8](https://github.com/salesforcecli/sf-plugins-core/commit/716f4f8f615cad1d5ede54b4ba458c2517bf8297))
   * **deps:** bump @salesforce/ts-types from 2.0.6 to 2.0.7 ([1f572f2](https://github.com/salesforcecli/sf-plugins-core/commit/1f572f240a4220f723dfff4efb09612069a13079))
+  * use getPluginsList to prep for oclif/core v3 ([#377](https://github.com/salesforcecli/sf-plugins-core/issues/377)) ([716f4f8](https://github.com/salesforcecli/sf-plugins-core/commit/716f4f8f615cad1d5ede54b4ba458c2517bf8297))
   * **deps:** bump @salesforce/core from 5.2.0 to 5.2.1 ([bf2ba9d](https://github.com/salesforcecli/sf-plugins-core/commit/bf2ba9d930c6bc64bcb8b40cf037efae4d462e21))
 * **deps:** bump @salesforce/source-deploy-retrieve from 9.7.4 to 9.7.7 ([#894](https://github.com/jayree/sfdx-plugin-manifest/issues/894)) ([d80690c](https://github.com/jayree/sfdx-plugin-manifest/commit/d80690c95047baa761f8305e1c13b7b13822c948))
-  * @W-12612279 Adding FundraisingConfig to metadata registry ([#1085](https://github.com/forcedotcom/source-deploy-retrieve/issues/1085)) ([e5c23d8](https://github.com/forcedotcom/source-deploy-retrieve/commit/e5c23d8f33a3cf7d864a49bcdb7d6f820ee83a04))
   * **deps:** bump @salesforce/core from 5.2.0 to 5.2.1 ([#1084](https://github.com/forcedotcom/source-deploy-retrieve/issues/1084)) ([d5dfb49](https://github.com/forcedotcom/source-deploy-retrieve/commit/d5dfb491d7c4e0922bdce9e9101ac7da52d88c38))
+  * @W-12612279 Adding FundraisingConfig to metadata registry ([#1085](https://github.com/forcedotcom/source-deploy-retrieve/issues/1085)) ([e5c23d8](https://github.com/forcedotcom/source-deploy-retrieve/commit/e5c23d8f33a3cf7d864a49bcdb7d6f820ee83a04))
   * **deps:** bump @salesforce/ts-types from 2.0.6 to 2.0.7 ([#1083](https://github.com/forcedotcom/source-deploy-retrieve/issues/1083)) ([a239052](https://github.com/forcedotcom/source-deploy-retrieve/commit/a239052fb3cb0546c1b7956231837bdfa63a911b))
 * **deps:** bump tslib from 2.6.1 to 2.6.2 ([#888](https://github.com/jayree/sfdx-plugin-manifest/issues/888)) ([edf243a](https://github.com/jayree/sfdx-plugin-manifest/commit/edf243a4a25d5acf4d03cd63fa396bfee8a96c78))
-  ## What's Changed
   * Fix path to `exports["module"]["types"]` by @andrewbranch in https://github.com/microsoft/tslib/pull/217
-  **Full Changelog**: https://github.com/microsoft/tslib/compare/v2.6.1...v2.6.2
 
 
 
@@ -3801,8 +3239,8 @@
 * **deps:** bump @salesforce/sf-plugins-core from 3.1.13 to 3.1.14 ([#866](https://github.com/jayree/sfdx-plugin-manifest/issues/866)) ([6464fd6](https://github.com/jayree/sfdx-plugin-manifest/commit/6464fd698530b6831067678bb709bc33345ddbbe))
   * bump sfdx-core to v5 ([74a7a85](https://github.com/salesforcecli/sf-plugins-core/commit/74a7a855910af0d27b2f2f745d59b76f493cbb77))
 * **deps:** bump @salesforce/source-deploy-retrieve from 9.7.1 to 9.7.3 ([#862](https://github.com/jayree/sfdx-plugin-manifest/issues/862)) ([0f281dd](https://github.com/jayree/sfdx-plugin-manifest/commit/0f281ddd79325890c31553162ee31e9967ae48e1))
-  * **deps:** bump fast-xml-parser from 4.2.6 to 4.2.7 ([#1068](https://github.com/forcedotcom/source-deploy-retrieve/issues/1068)) ([a67e1ed](https://github.com/forcedotcom/source-deploy-retrieve/commit/a67e1ed342caaeba8bc93e8d0f16ee4553a2f5fb))
   * **deps:** core5 ([e0c926a](https://github.com/forcedotcom/source-deploy-retrieve/commit/e0c926a958c85c77441515b4392dfdada66f4652))
+  * **deps:** bump fast-xml-parser from 4.2.6 to 4.2.7 ([#1068](https://github.com/forcedotcom/source-deploy-retrieve/issues/1068)) ([a67e1ed](https://github.com/forcedotcom/source-deploy-retrieve/commit/a67e1ed342caaeba8bc93e8d0f16ee4553a2f5fb))
 
 
 
@@ -3820,6 +3258,8 @@
   * **deps:** bump fast-xml-parser from 4.2.5 to 4.2.6 ([#1060](https://github.com/forcedotcom/source-deploy-retrieve/issues/1060)) ([12468f0](https://github.com/forcedotcom/source-deploy-retrieve/commit/12468f0c1d3bc111ecac3f4a47660a211b6e20ae))
   * throw when expected file is ENOENT ([#1062](https://github.com/forcedotcom/source-deploy-retrieve/issues/1062)) ([ad3f441](https://github.com/forcedotcom/source-deploy-retrieve/commit/ad3f441fe8b165cd67ceec08713da4ce26c66997))
 * **deps:** bump fast-xml-parser from 4.2.6 to 4.2.7 ([#851](https://github.com/jayree/sfdx-plugin-manifest/issues/851)) ([e5f5364](https://github.com/jayree/sfdx-plugin-manifest/commit/e5f53641b8a71bfb968cf018f71cc67683b71a38))
+  *   Fix: builder should set text node correctly when only textnode is present ([#589](https://redirect.github.com/NaturalIntelligence/fast-xml-parser/issues/589)) (By [qianqing](https://github.com/joneqian))
+  *   Fix: Fix for null and undefined attributes when building xml ([#585](https://redirect.github.com/NaturalIntelligence/fast-xml-parser/issues/585)) ([#598](https://redirect.github.com/NaturalIntelligence/fast-xml-parser/issues/598)). A null or undefined value should be ignored. (By [Eugenio Ceschia](https://github.com/cecia234))
 
 
 
@@ -3838,19 +3278,17 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/sf-plugins-core from 3.1.10 to 3.1.12 ([#832](https://github.com/jayree/sfdx-plugin-manifest/issues/832)) ([e4f52f6](https://github.com/jayree/sfdx-plugin-manifest/commit/e4f52f65e0ce905bfdbeded5ffc71dcb4e90b11a))
-  * **deps:** bump @salesforce/kit from 3.0.5 to 3.0.6 ([03713bc](https://github.com/salesforcecli/sf-plugins-core/commit/03713bc171d5f2212b389e4c41ac0b572dc940d7))
   * **deps:** bump @oclif/core from 2.9.3 to 2.9.4 ([4b88222](https://github.com/salesforcecli/sf-plugins-core/commit/4b882229e193c105bb7874e1d36f6b1e141fe06b))
+  * **deps:** bump @salesforce/kit from 3.0.5 to 3.0.6 ([03713bc](https://github.com/salesforcecli/sf-plugins-core/commit/03713bc171d5f2212b389e4c41ac0b572dc940d7))
 * **deps:** bump @salesforce/source-deploy-retrieve from 9.4.2 to 9.5.0 ([#841](https://github.com/jayree/sfdx-plugin-manifest/issues/841)) ([19c0ae9](https://github.com/jayree/sfdx-plugin-manifest/commit/19c0ae9223740722b20972f28fc360bf1f02ec9e))
   * **md-types:** messagingChannel ([#1054](https://github.com/forcedotcom/source-deploy-retrieve/issues/1054)) ([afcff87](https://github.com/forcedotcom/source-deploy-retrieve/commit/afcff87c773a118e12229ce98076688047af0734))
-  * **deps:** bump proxy-agent from 6.2.2 to 6.3.0 ([#1050](https://github.com/forcedotcom/source-deploy-retrieve/issues/1050)) ([8928932](https://github.com/forcedotcom/source-deploy-retrieve/commit/8928932b4f70723fc29e6b06e5eda1e5061a4ad5))
-  * missing stdValue ([#1052](https://github.com/forcedotcom/source-deploy-retrieve/issues/1052)) ([0c29b11](https://github.com/forcedotcom/source-deploy-retrieve/commit/0c29b11b943e4d6f3b97acd9ee39a3480982c20a))
   * spread/push argument limits ([#1046](https://github.com/forcedotcom/source-deploy-retrieve/issues/1046)) ([f878d65](https://github.com/forcedotcom/source-deploy-retrieve/commit/f878d65977cbed6d8a4d3dc1924f14084efcf141))
+  * missing stdValue ([#1052](https://github.com/forcedotcom/source-deploy-retrieve/issues/1052)) ([0c29b11](https://github.com/forcedotcom/source-deploy-retrieve/commit/0c29b11b943e4d6f3b97acd9ee39a3480982c20a))
   * **deps:** bump @salesforce/kit from 3.0.4 to 3.0.6 ([#1051](https://github.com/forcedotcom/source-deploy-retrieve/issues/1051)) ([2d2c94d](https://github.com/forcedotcom/source-deploy-retrieve/commit/2d2c94d19ce38e9400f048bbaf88cea13ffa250e))
+  * **deps:** bump proxy-agent from 6.2.2 to 6.3.0 ([#1050](https://github.com/forcedotcom/source-deploy-retrieve/issues/1050)) ([8928932](https://github.com/forcedotcom/source-deploy-retrieve/commit/8928932b4f70723fc29e6b06e5eda1e5061a4ad5))
 * **deps:** bump tslib from 2.6.0 to 2.6.1 ([#833](https://github.com/jayree/sfdx-plugin-manifest/issues/833)) ([44f34e2](https://github.com/jayree/sfdx-plugin-manifest/commit/44f34e2158eee12c309079aca64d2c9e9442fce7))
-  ## What's Changed
   * Allow functions as values in __addDisposableResource by @rbuckton in https://github.com/microsoft/tslib/pull/215
   * Stop using es6 syntax in the es6 file by @andrewbranch in https://github.com/microsoft/tslib/pull/216
-  **Full Changelog**: https://github.com/microsoft/tslib/compare/2.6.0...v2.6.1
 
 
 
@@ -3866,17 +3304,18 @@
   * **deps:** bump semver from 7.5.2 to 7.5.3 ([#91](https://github.com/jayree/changelog/issues/91)) ([1c733ee](https://github.com/jayree/changelog/commit/1c733eec6d26f1eb3c80b7b0557aa8f9345de5b2))
   * **deps:** bump semver from 7.5.3 to 7.5.4 ([#106](https://github.com/jayree/changelog/issues/106)) ([d992f2c](https://github.com/jayree/changelog/commit/d992f2ced73e51571a0dc1c87a67b4e96d8d1494))
 * **deps:** bump @salesforce/sf-plugins-core from 3.1.7 to 3.1.10 ([#825](https://github.com/jayree/sfdx-plugin-manifest/issues/825)) ([2d6c381](https://github.com/jayree/sfdx-plugin-manifest/commit/2d6c381b511f5e06a61c5998084067099d289431))
-  * **deps:** bump @salesforce/core from 4.3.10 to 4.3.11 ([4661225](https://github.com/salesforcecli/sf-plugins-core/commit/4661225549588806131cab76c701ef01fa63b0f0))
   * **deps:** bump @oclif/core from 2.8.11 to 2.9.3 ([8c4d954](https://github.com/salesforcecli/sf-plugins-core/commit/8c4d954a005e19ef0f1fa6244c61c57f57c6431d))
+  * **deps:** bump @salesforce/core from 4.3.10 to 4.3.11 ([4661225](https://github.com/salesforcecli/sf-plugins-core/commit/4661225549588806131cab76c701ef01fa63b0f0))
   * **deps:** remove hooks docs, add docs for stubUx functions, bump deps ([#347](https://github.com/salesforcecli/sf-plugins-core/issues/347)) ([765fc17](https://github.com/salesforcecli/sf-plugins-core/commit/765fc1759c8ca20c92d8b1e88686e4d0fdc5296f))
 * **deps:** bump @salesforce/source-deploy-retrieve from 9.3.4 to 9.4.2 ([#828](https://github.com/jayree/sfdx-plugin-manifest/issues/828)) ([100f04c](https://github.com/jayree/sfdx-plugin-manifest/commit/100f04c02e4a4625fd70be525c9a147fe9fde089))
   * **md-types:** ServiceProcess and ProcessFlowMigration ([#1039](https://github.com/forcedotcom/source-deploy-retrieve/issues/1039)) ([2e3f49d](https://github.com/forcedotcom/source-deploy-retrieve/commit/2e3f49d204be064f153b4b317da8bfab6d1809c6))
   * **deps:** bump @salesforce/ts-types from 2.0.3 to 2.0.5 ([#1044](https://github.com/forcedotcom/source-deploy-retrieve/issues/1044)) ([2f5a70b](https://github.com/forcedotcom/source-deploy-retrieve/commit/2f5a70bdce4c955d9244c3990be20e82f537eee1))
   * **deps:** bump proxy-agent from 6.2.1 to 6.2.2 ([#1041](https://github.com/forcedotcom/source-deploy-retrieve/issues/1041)) ([57bf5ab](https://github.com/forcedotcom/source-deploy-retrieve/commit/57bf5abf555e5d17fd6934ac9057aa5339694580))
 * **deps:** bump fast-xml-parser from 4.2.5 to 4.2.6 ([#831](https://github.com/jayree/sfdx-plugin-manifest/issues/831)) ([42ade74](https://github.com/jayree/sfdx-plugin-manifest/commit/42ade74739cda52395b7a4c2cff0f574e611d21d))
+  *   Remove trailing slash from jPath for self-closing tags ([#595](https://redirect.github.com/NaturalIntelligence/fast-xml-parser/issues/595)) (By [Maciej Radzikowski](https://github.com/m-radzikowski))
 * **deps:** bump isomorphic-git from 1.24.3 to 1.24.5 ([#822](https://github.com/jayree/sfdx-plugin-manifest/issues/822)) ([b191a78](https://github.com/jayree/sfdx-plugin-manifest/commit/b191a78b36b57be8561c4520e516aca2e52966e4))
-  * don't consider identical oids as ambiguous in expandOid ([#1789](https://github.com/isomorphic-git/isomorphic-git/issues/1789)) ([#1790](https://github.com/isomorphic-git/isomorphic-git/issues/1790)) ([d72cf91](https://github.com/isomorphic-git/isomorphic-git/commit/d72cf9160cfeb17ae0a566263d184da06562db0d))
   * checking Promise object in filesystem [#1782](https://github.com/isomorphic-git/isomorphic-git/issues/1782) ([#1795](https://github.com/isomorphic-git/isomorphic-git/issues/1795)) ([3a39a83](https://github.com/isomorphic-git/isomorphic-git/commit/3a39a83d6a486b9a70c563f24c1751343eb2117c))
+  * don't consider identical oids as ambiguous in expandOid ([#1789](https://github.com/isomorphic-git/isomorphic-git/issues/1789)) ([#1790](https://github.com/isomorphic-git/isomorphic-git/issues/1790)) ([d72cf91](https://github.com/isomorphic-git/isomorphic-git/commit/d72cf9160cfeb17ae0a566263d184da06562db0d))
 
 
 
@@ -3886,16 +3325,13 @@
 ### Bug Fixes
 
 * **deps:** bump word-wrap from 1.2.3 to 1.2.4 ([#816](https://github.com/jayree/sfdx-plugin-manifest/issues/816)) ([833f6db](https://github.com/jayree/sfdx-plugin-manifest/commit/833f6dbae1374bf9feec7530f6c54f0b02268834))
-  ## What's Changed
   * Remove default indent by @mohd-akram in https://github.com/jonschlinkert/word-wrap/pull/24
   * 🔒fix: CVE 2023 26115 (2) by @OlafConijn in https://github.com/jonschlinkert/word-wrap/pull/41
   * :lock: fix: CVE-2023-26115 by @aashutoshrathi in https://github.com/jonschlinkert/word-wrap/pull/33
   * chore: publish workflow by @OlafConijn in https://github.com/jonschlinkert/word-wrap/pull/42
-  ## New Contributors
   * @mohd-akram made their first contribution in https://github.com/jonschlinkert/word-wrap/pull/24
   * @OlafConijn made their first contribution in https://github.com/jonschlinkert/word-wrap/pull/41
   * @aashutoshrathi made their first contribution in https://github.com/jonschlinkert/word-wrap/pull/33
-  **Full Changelog**: https://github.com/jonschlinkert/word-wrap/compare/1.2.3...1.2.4
 
 
 
@@ -3905,12 +3341,12 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/sf-plugins-core from 3.1.4 to 3.1.7 ([#805](https://github.com/jayree/sfdx-plugin-manifest/issues/805)) ([65b69d7](https://github.com/jayree/sfdx-plugin-manifest/commit/65b69d7db139d0dbd722c4af81acb49f0fa8b291))
-  * **deps:** bump semver from 5.7.1 to 5.7.2 ([103c4b9](https://github.com/salesforcecli/sf-plugins-core/commit/103c4b94d5c217bb26cad4b9e6279aa9d2a91b68))
   * **deps:** bump @salesforce/kit from 3.0.3 to 3.0.4 ([8793632](https://github.com/salesforcecli/sf-plugins-core/commit/879363260f5b1cb80ea56a1a1fd455201fe96c66))
+  * **deps:** bump semver from 5.7.1 to 5.7.2 ([103c4b9](https://github.com/salesforcecli/sf-plugins-core/commit/103c4b94d5c217bb26cad4b9e6279aa9d2a91b68))
   * **deps:** bump @salesforce/core from 4.3.2 to 4.3.8 ([f600baf](https://github.com/salesforcecli/sf-plugins-core/commit/f600baf48925ce91c6e27969e48c3907ac7e7b43))
 * **deps:** bump @salesforce/source-deploy-retrieve from 9.3.2 to 9.3.4 ([#808](https://github.com/jayree/sfdx-plugin-manifest/issues/808)) ([b8e73bd](https://github.com/jayree/sfdx-plugin-manifest/commit/b8e73bdcf32c38361b1d6b1cd41001ea60fa83be))
-  * add mobile plugin types to registry ([#1033](https://github.com/forcedotcom/source-deploy-retrieve/issues/1033)) ([09a2648](https://github.com/forcedotcom/source-deploy-retrieve/commit/09a2648d50bd269e26424f79e08b245798f6baf5))
   * **deps:** bump @salesforce/kit from 3.0.3 to 3.0.4 ([#1036](https://github.com/forcedotcom/source-deploy-retrieve/issues/1036)) ([7ea893e](https://github.com/forcedotcom/source-deploy-retrieve/commit/7ea893edb268fd422cf55a82b7f567ce5b0236e9))
+  * add mobile plugin types to registry ([#1033](https://github.com/forcedotcom/source-deploy-retrieve/issues/1033)) ([09a2648](https://github.com/forcedotcom/source-deploy-retrieve/commit/09a2648d50bd269e26424f79e08b245798f6baf5))
 * **deps:** bump isomorphic-git from 1.24.2 to 1.24.3 ([#802](https://github.com/jayree/sfdx-plugin-manifest/issues/802)) ([a8db996](https://github.com/jayree/sfdx-plugin-manifest/commit/a8db9967f03c0f422d4d27797998b955542a1b35))
   * prevent invalid HEAD state, when renaming current branch ([#1784](https://github.com/isomorphic-git/isomorphic-git/issues/1784)) ([1b7a893](https://github.com/isomorphic-git/isomorphic-git/commit/1b7a8931da9d74edeba7fd7553fdf801583ac07f)), closes [#1783](https://github.com/isomorphic-git/isomorphic-git/issues/1783)
 
@@ -3932,7 +3368,6 @@
 ### Bug Fixes
 
 * **deps:** bump tough-cookie from 4.1.2 to 4.1.3 ([#800](https://github.com/jayree/sfdx-plugin-manifest/issues/800)) ([f2423bc](https://github.com/jayree/sfdx-plugin-manifest/commit/f2423bc9c6d197118103af923d25500cdf19f523))
-  Security fix for Prototype Pollution discovery in #282. This is a minor release, although output from the `inspect` utility is affected by this change, we felt this change was important enough to be pushed into the next patch.
 
 
 
@@ -3957,13 +3392,11 @@
   * **deps:** bump @salesforce/core from 4.3.1 to 4.3.2 ([e6f08a3](https://github.com/salesforcecli/sf-plugins-core/commit/e6f08a3676837f28098a7dcb4c53fbf6fb03f5f8))
 * **deps:** bump @salesforce/source-deploy-retrieve from 9.2.5 to 9.3.0 ([#784](https://github.com/jayree/sfdx-plugin-manifest/issues/784)) ([8afd9de](https://github.com/jayree/sfdx-plugin-manifest/commit/8afd9de8e82eb6f5c3ba4ce9bbcc25bf18d9bceb))
   * allowUnsetEnvVariable ([#1019](https://github.com/forcedotcom/source-deploy-retrieve/issues/1019)) ([0eeaccf](https://github.com/forcedotcom/source-deploy-retrieve/commit/0eeaccfb1ed05ad742a1472cc025fe2c4cabee5e))
-  * restore missing error actions ([#1020](https://github.com/forcedotcom/source-deploy-retrieve/issues/1020)) ([dbbeb21](https://github.com/forcedotcom/source-deploy-retrieve/commit/dbbeb21dcb4a5f04234fe276c436359523a4c904))
   * **deps:** bump fast-xml-parser from 4.2.4 to 4.2.5 ([#1024](https://github.com/forcedotcom/source-deploy-retrieve/issues/1024)) ([93427a0](https://github.com/forcedotcom/source-deploy-retrieve/commit/93427a05489fbadb236415015cdf2b80c39603e8))
+  * restore missing error actions ([#1020](https://github.com/forcedotcom/source-deploy-retrieve/issues/1020)) ([dbbeb21](https://github.com/forcedotcom/source-deploy-retrieve/commit/dbbeb21dcb4a5f04234fe276c436359523a4c904))
   * Sm/connection-resolve-skip-missing-components ([#1021](https://github.com/forcedotcom/source-deploy-retrieve/issues/1021)) ([ad4068d](https://github.com/forcedotcom/source-deploy-retrieve/commit/ad4068de9890291b9c3c72691dfd362e116758c0))
 * **deps:** bump tslib from 2.5.3 to 2.6.0 ([#785](https://github.com/jayree/sfdx-plugin-manifest/issues/785)) ([58f53f3](https://github.com/jayree/sfdx-plugin-manifest/commit/58f53f37b9c5c3272bcaebbb9940f9ac58b52ee5))
-  ## What's Changed
   * Add helpers for `using` and `await using` by @rbuckton in https://github.com/microsoft/tslib/pull/213
-  **Full Changelog**: https://github.com/microsoft/tslib/compare/v2.5.3...2.6.0
 
 
 
@@ -3977,13 +3410,14 @@
   * **deps:** bump @oclif/core from 2.8.6 to 2.8.7 ([d30f819](https://github.com/salesforcecli/sf-plugins-core/commit/d30f819f1478c9fcaeb5ea25804f2694c04c817a))
 * **deps:** bump @salesforce/source-deploy-retrieve from 9.2.2 to 9.2.5 ([#776](https://github.com/jayree/sfdx-plugin-manifest/issues/776)) ([666221d](https://github.com/jayree/sfdx-plugin-manifest/commit/666221defaacad84a89c860bff5983e5d2ddf000))
   * update metadata names for mobile settings and policies ([#1013](https://github.com/forcedotcom/source-deploy-retrieve/issues/1013)) ([4b6a8ff](https://github.com/forcedotcom/source-deploy-retrieve/commit/4b6a8ffbed3927b94e1e67af3b46837f94620a01))
-  * **deps:** bump @salesforce/core from 4.3.0 to 4.3.1 ([#1016](https://github.com/forcedotcom/source-deploy-retrieve/issues/1016)) ([24b99e4](https://github.com/forcedotcom/source-deploy-retrieve/commit/24b99e45fdd4998f319804c446b62ce0f9d83eff))
   * better output for mystery component ([#1018](https://github.com/forcedotcom/source-deploy-retrieve/issues/1018)) ([bcc2c4d](https://github.com/forcedotcom/source-deploy-retrieve/commit/bcc2c4dbbd87ffcb5daddbe8a1036d1dc6efceab))
+  * **deps:** bump @salesforce/core from 4.3.0 to 4.3.1 ([#1016](https://github.com/forcedotcom/source-deploy-retrieve/issues/1016)) ([24b99e4](https://github.com/forcedotcom/source-deploy-retrieve/commit/24b99e45fdd4998f319804c446b62ce0f9d83eff))
 * **deps:** bump fast-xml-parser from 4.2.4 to 4.2.5 ([#778](https://github.com/jayree/sfdx-plugin-manifest/issues/778)) ([bc1cbda](https://github.com/jayree/sfdx-plugin-manifest/commit/bc1cbdad3219280f9fc766406177829d71fd90f6))
+  *   change code implementation
 * **deps:** bump isomorphic-git from 1.23.0 to 1.24.2 ([#772](https://github.com/jayree/sfdx-plugin-manifest/issues/772)) ([6145083](https://github.com/jayree/sfdx-plugin-manifest/commit/6145083ec631bfc5729c18ca49b17be29050aaed))
   * Added 'parallel' parameter ([#1767](https://github.com/isomorphic-git/isomorphic-git/issues/1767)) ([2942c85](https://github.com/isomorphic-git/isomorphic-git/commit/2942c85b0a5763d841babeb359c0d36ad97dfab5))
-  * Never delete tags in deleteBranch ([#1777](https://github.com/isomorphic-git/isomorphic-git/issues/1777)) ([936812a](https://github.com/isomorphic-git/isomorphic-git/commit/936812a4abf53ee68fa569f987eb03c8f12eaa3b))
   * force CI/CD to Release new version ([#1775](https://github.com/isomorphic-git/isomorphic-git/issues/1775)) ([fb62b34](https://github.com/isomorphic-git/isomorphic-git/commit/fb62b345960a00efc387666c85d9aa47258d5fe1))
+  * Never delete tags in deleteBranch ([#1777](https://github.com/isomorphic-git/isomorphic-git/issues/1777)) ([936812a](https://github.com/isomorphic-git/isomorphic-git/commit/936812a4abf53ee68fa569f987eb03c8f12eaa3b))
 
 
 
@@ -4017,8 +3451,8 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/sf-plugins-core from 3.0.2 to 3.0.4 ([#751](https://github.com/jayree/sfdx-plugin-manifest/issues/751)) ([c3269eb](https://github.com/jayree/sfdx-plugin-manifest/commit/c3269ebb2955f4ebd8b9938a7bd9beb09843c686))
-  * **deps:** bump @salesforce/core from 4.1.0 to 4.1.2 ([415a06a](https://github.com/salesforcecli/sf-plugins-core/commit/415a06a29fbe31ccbbafeefc654bfb381000eb5a))
   * don't truncate tables by default ([2115fe7](https://github.com/salesforcecli/sf-plugins-core/commit/2115fe78b0d9180bf442082b2853fb72c0aa74b7))
+  * **deps:** bump @salesforce/core from 4.1.0 to 4.1.2 ([415a06a](https://github.com/salesforcecli/sf-plugins-core/commit/415a06a29fbe31ccbbafeefc654bfb381000eb5a))
 * **deps:** bump @salesforce/source-deploy-retrieve from 9.1.0 to 9.2.1 ([#756](https://github.com/jayree/sfdx-plugin-manifest/issues/756)) ([ff4ec94](https://github.com/jayree/sfdx-plugin-manifest/commit/ff4ec94b7ec36e24a862ddee5d8424f256a30b36))
   * validate manifests ([#996](https://github.com/forcedotcom/source-deploy-retrieve/issues/996)) ([173aba7](https://github.com/forcedotcom/source-deploy-retrieve/commit/173aba737afc4ed19a31b8af97802b54b07cb572))
   * **deps:** bump @salesforce/core from 4.1.0 to 4.1.2 ([#1004](https://github.com/forcedotcom/source-deploy-retrieve/issues/1004)) ([4ec56e7](https://github.com/forcedotcom/source-deploy-retrieve/commit/4ec56e7b527ec2736aa7478e9448e9fc964a6a7a))
@@ -4031,7 +3465,6 @@
 ### Bug Fixes
 
 * **deps:** bump fast-xml-parser from 4.2.2 to 4.2.4 ([#739](https://github.com/jayree/sfdx-plugin-manifest/issues/739)) ([c44e951](https://github.com/jayree/sfdx-plugin-manifest/commit/c44e951d16e64d20ffac6c8f2b141d752325ab08))
-  Update to this release if you use entity parsing in Fast XML Parser.
 
 
 
@@ -4097,13 +3530,9 @@
   * support for UserAccessPolicy ([#971](https://github.com/forcedotcom/source-deploy-retrieve/issues/971)) ([7a102b0](https://github.com/forcedotcom/source-deploy-retrieve/commit/7a102b0eb64c5ac5ecca9f55f2ce43a78f6763f6))
   * prevent [object Object] and provide component details ([#972](https://github.com/forcedotcom/source-deploy-retrieve/issues/972)) ([a16b9a2](https://github.com/forcedotcom/source-deploy-retrieve/commit/a16b9a256b7ff2eac99f466b11ba30312b09ab92))
 * **deps:** bump listr2 from 6.4.2 to 6.6.0 ([#704](https://github.com/jayree/sfdx-plugin-manifest/issues/704)) ([9032c8c](https://github.com/jayree/sfdx-plugin-manifest/commit/9032c8c373262e90b3a16adfc697d529ec659f22))
-  * expose manager tasks for brownie ([f8fdbf0](https://github.com/listr2/listr2/commit/f8fdbf0df433d7a230f141b8806384710563a3d3))
   * **process:** expose writablestream ([dde145d](https://github.com/listr2/listr2/commit/dde145d191f3663c8e27ffa78110f1b026c567fe)), closes [#677](https://github.com/listr2/listr2/issues/677) [#LISTR2-260](https://github.com/listr2/listr2/issues/LISTR2-260)
+  * expose manager tasks for brownie ([f8fdbf0](https://github.com/listr2/listr2/commit/f8fdbf0df433d7a230f141b8806384710563a3d3))
 * **deps:** bump tslib from 2.5.0 to 2.5.2 ([#708](https://github.com/jayree/sfdx-plugin-manifest/issues/708)) ([0c8b8c1](https://github.com/jayree/sfdx-plugin-manifest/commit/0c8b8c1b322e6578e35662d2442092bcfdaf6ba2))
-  This release [explicitly re-exports helpers](https://github.com/microsoft/tslib/pull/204) to work around TypeScript's incomplete symbol resolution for tslib.
-  This release of tslib provides fixes for two issues.
-  First, [it reverses the order of `init` hooks provided by decorators](https://github.com/microsoft/tslib/pull/202) to correctly reflect proposed behavior.
-  Second, it [corrects the `exports` field of tslib's `package.json` and provides accurate declaration files](https://github.com/microsoft/tslib/pull/202) so that it may be consumed under the `node16` and `bundler` settings for `moduleResolution.`
 
 
 
@@ -4123,12 +3552,6 @@
 ### Bug Fixes
 
 * **deps:** bump vm2 from 3.9.17 to 3.9.18 ([#702](https://github.com/jayree/sfdx-plugin-manifest/issues/702)) ([2b679f7](https://github.com/jayree/sfdx-plugin-manifest/commit/2b679f7a6fbc57deb3209788eac2fe85e4902912))
-  **New Features**
-  https://github.com/patriksimek/vm2/commit/dd81ff616ff528de5dc7a1cf2939de3d3701539d: Add resolver API to create a shared resolver for multiple `NodeVM` instances allowing to cache scripts and increase sandbox startup times.
-  https://github.com/patriksimek/vm2/commit/4d662e34d369b920943eee139ef60fb557666a43: Allow to pass a function to `require.context` which is called with the filename allowing to specify the context pre file. (Thanks to @blakebyrnes)
-  **Fixes**
-  https://github.com/patriksimek/vm2/commit/d88105f99752305c5b8a77b63ddee3ec86912daf: Fix issue leaking host array through `Proxy`. (Thanks to @arkark (Takeshi Kaneko) of GMO Cybersecurity by Ierae, Inc.)
-  https://github.com/patriksimek/vm2/commit/5206ba25afd86ef547a2c9d48d46ca7a9e6ec238: Fix issue with `inspect` being writeable. (Thanks to @arkark (Takeshi Kaneko) of GMO Cybersecurity by Ierae, Inc.)
 
 
 
@@ -4139,11 +3562,11 @@
 
 * **deps:** bump @salesforce/source-deploy-retrieve from 8.0.6 to 8.4.0 ([#700](https://github.com/jayree/sfdx-plugin-manifest/issues/700)) ([b6ed75c](https://github.com/jayree/sfdx-plugin-manifest/commit/b6ed75ce2ac7ff09a8507cdc99a9591d5efe0411))
   * added FSC standard value sets ([#965](https://github.com/forcedotcom/source-deploy-retrieve/issues/965)) ([82e637f](https://github.com/forcedotcom/source-deploy-retrieve/commit/82e637fdb0a349dd6e7b62b4882e438d38b6a975))
-  * add scoringframwork types to metadata registry ([#964](https://github.com/forcedotcom/source-deploy-retrieve/issues/964)) ([0003f44](https://github.com/forcedotcom/source-deploy-retrieve/commit/0003f44e818b5aac46f2ac1d090d9e9fbfd25893))
   * add skilltype to metadata registry ([761492e](https://github.com/forcedotcom/source-deploy-retrieve/commit/761492ee750db05c715e0da26437040caf32602d))
+  * add scoringframwork types to metadata registry ([#964](https://github.com/forcedotcom/source-deploy-retrieve/issues/964)) ([0003f44](https://github.com/forcedotcom/source-deploy-retrieve/commit/0003f44e818b5aac46f2ac1d090d9e9fbfd25893))
   * offer suggestions for unresolved metadata types ([#948](https://github.com/forcedotcom/source-deploy-retrieve/issues/948)) ([c4633b2](https://github.com/forcedotcom/source-deploy-retrieve/commit/c4633b27e718f0f6790f817bc438860df90aa0ad)), closes [#953](https://github.com/forcedotcom/source-deploy-retrieve/issues/953)
-  * **deps:** bump vm2 from 3.9.15 to 3.9.17 ([#963](https://github.com/forcedotcom/source-deploy-retrieve/issues/963)) ([42a9d5d](https://github.com/forcedotcom/source-deploy-retrieve/commit/42a9d5d3ffd550759c96a1bd1e6de0c4dcafb472))
   * windows path replacements ([#958](https://github.com/forcedotcom/source-deploy-retrieve/issues/958)) ([b71932b](https://github.com/forcedotcom/source-deploy-retrieve/commit/b71932b60d9f0dbe0c4efbce705ab16fa7d7d7a9))
+  * **deps:** bump vm2 from 3.9.15 to 3.9.17 ([#963](https://github.com/forcedotcom/source-deploy-retrieve/issues/963)) ([42a9d5d](https://github.com/forcedotcom/source-deploy-retrieve/commit/42a9d5d3ffd550759c96a1bd1e6de0c4dcafb472))
   * **deps:** bump fast-xml-parser from 4.2.0 to 4.2.2 ([#945](https://github.com/forcedotcom/source-deploy-retrieve/issues/945)) ([f458c52](https://github.com/forcedotcom/source-deploy-retrieve/commit/f458c5262ec479ba8f64116f0baa50bd107a2b45))
 
 
@@ -4154,14 +3577,14 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/sf-plugins-core from 2.2.11 to 2.4.2 ([#695](https://github.com/jayree/sfdx-plugin-manifest/issues/695)) ([577f2bf](https://github.com/jayree/sfdx-plugin-manifest/commit/577f2bf29466d05986224ea7afa932338209c5f2))
-  * support json env in any case ([a6d02bf](https://github.com/salesforcecli/sf-plugins-core/commit/a6d02bf57820b0b70da8de5281017d370c7907a3))
   * one config aggregator ([#274](https://github.com/salesforcecli/sf-plugins-core/issues/274)) ([169805a](https://github.com/salesforcecli/sf-plugins-core/commit/169805ab6491a807477bfb8688dbd5845c8508c4))
+  * support json env in any case ([a6d02bf](https://github.com/salesforcecli/sf-plugins-core/commit/a6d02bf57820b0b70da8de5281017d370c7907a3))
   * support setting json = true via env ([a02f269](https://github.com/salesforcecli/sf-plugins-core/commit/a02f2698d9d8fd650ecf33bfb311403fb9c71a11))
-  * bump for qa ([a0fd895](https://github.com/salesforcecli/sf-plugins-core/commit/a0fd8952905f940b5666dc89049a626e778c7690))
-  * nicer error messages for duration min/max violations ([9ec87e6](https://github.com/salesforcecli/sf-plugins-core/commit/9ec87e633c7b00fab6e1f1b946ecde15035ccb41))
-  * version update ([e329127](https://github.com/salesforcecli/sf-plugins-core/commit/e329127904be55f93b14210284d217c16a5a8e3c))
-  * bump prerel core for qa ([9231d74](https://github.com/salesforcecli/sf-plugins-core/commit/9231d7448bcfed92cb5ac53a55168019f2b339dc))
   * sf flag default values don't always appear in help text ([#288](https://github.com/salesforcecli/sf-plugins-core/issues/288)) ([cf4f915](https://github.com/salesforcecli/sf-plugins-core/commit/cf4f915ee835f4b959a9107d1c61ab44cb0096b3))
+  * bump prerel core for qa ([9231d74](https://github.com/salesforcecli/sf-plugins-core/commit/9231d7448bcfed92cb5ac53a55168019f2b339dc))
+  * bump for qa ([a0fd895](https://github.com/salesforcecli/sf-plugins-core/commit/a0fd8952905f940b5666dc89049a626e778c7690))
+  * version update ([e329127](https://github.com/salesforcecli/sf-plugins-core/commit/e329127904be55f93b14210284d217c16a5a8e3c))
+  * nicer error messages for duration min/max violations ([9ec87e6](https://github.com/salesforcecli/sf-plugins-core/commit/9ec87e633c7b00fab6e1f1b946ecde15035ccb41))
 * **deps:** bump @salesforce/source-deploy-retrieve from 8.0.4 to 8.0.6 ([#689](https://github.com/jayree/sfdx-plugin-manifest/issues/689)) ([5a84277](https://github.com/jayree/sfdx-plugin-manifest/commit/5a842771d2bffb9cee5627e74a1a3529f3eb330e))
   * update the update2 script for TS strict compile ([#954](https://github.com/forcedotcom/source-deploy-retrieve/issues/954)) ([e85a395](https://github.com/forcedotcom/source-deploy-retrieve/commit/e85a39596f985ecb9b81cc794aa86a549337e8e4))
   * another connection error ([#957](https://github.com/forcedotcom/source-deploy-retrieve/issues/957)) ([657c5f8](https://github.com/forcedotcom/source-deploy-retrieve/commit/657c5f8e0ac93e4dabb34ac2d5ed802d25354c72))
@@ -4190,9 +3613,9 @@
   * **deps:** bump semver from 7.4.0 to 7.5.0 ([#40](https://github.com/jayree/changelog/issues/40)) ([7940f52](https://github.com/jayree/changelog/commit/7940f52477b87b2d2830d0667ba7a0dd0466d418))
 * **deps:** bump @salesforce/sf-plugins-core from 2.2.9 to 2.2.11 ([#686](https://github.com/jayree/sfdx-plugin-manifest/issues/686)) ([0c6aa06](https://github.com/jayree/sfdx-plugin-manifest/commit/0c6aa069801a4eb70c53eef4ff163034828f7e9a))
   * emit sfCommandError event ([#240](https://github.com/salesforcecli/sf-plugins-core/issues/240)) ([ac385c0](https://github.com/salesforcecli/sf-plugins-core/commit/ac385c0bc16da5c50e53a8d39f582e592f5a1ed3))
+  * add more error properties to support push errors ([b39ada3](https://github.com/salesforcecli/sf-plugins-core/commit/b39ada36d2df142f18363951f38c84758ed9bb6e))
   * bump oclif/core to beta - add test ([3a15928](https://github.com/salesforcecli/sf-plugins-core/commit/3a15928e09313bffbb9650660952545b513662d2))
   * publish beta ([1258c6a](https://github.com/salesforcecli/sf-plugins-core/commit/1258c6a1c5ec84e5b8952685b443375402a8a7d8))
-  * add more error properties to support push errors ([b39ada3](https://github.com/salesforcecli/sf-plugins-core/commit/b39ada36d2df142f18363951f38c84758ed9bb6e))
 * **deps:** bump @salesforce/source-deploy-retrieve from 8.0.2 to 8.0.4 ([#680](https://github.com/jayree/sfdx-plugin-manifest/issues/680)) ([3252f86](https://github.com/jayree/sfdx-plugin-manifest/commit/3252f86a854a0d4cfe4d8889bfa14d51e9b7e3c8))
   * **deps:** bump @salesforce/core from 3.34.6 to 3.34.8 ([#942](https://github.com/forcedotcom/source-deploy-retrieve/issues/942)) ([b79301a](https://github.com/forcedotcom/source-deploy-retrieve/commit/b79301a05aa4a9f466776b47ca89ad957836ec8f))
   * update directory name for oauth policies and mobile policies ([#947](https://github.com/forcedotcom/source-deploy-retrieve/issues/947)) ([dbcf936](https://github.com/forcedotcom/source-deploy-retrieve/commit/dbcf9366719f177084c49a28e4a81b2b731fc69d))
@@ -4215,12 +3638,9 @@
 * **deps:** bump listr2 from 6.2.0 to 6.3.1 ([#674](https://github.com/jayree/sfdx-plugin-manifest/issues/674)) ([5b7923e](https://github.com/jayree/sfdx-plugin-manifest/commit/5b7923e286ea51177831a6f465576e016c745630))
   * **renderer:** add a caching mechanism for renderers ([4112564](https://github.com/listr2/listr2/commit/4112564b40b88f68a66dd0607f317d423a0c1417)), closes [#672](https://github.com/listr2/listr2/issues/672) [#LISTR2-259](https://github.com/listr2/listr2/issues/LISTR2-259)
   * **renderer:** make paused timer configurable for every renderer ([58f37d4](https://github.com/listr2/listr2/commit/58f37d4da2f54ff0c78aa271bba112200435b8f6))
-  * **task:** splat on titles for brownie and nx repositories ([a756a47](https://github.com/listr2/listr2/commit/a756a47f7524994d191c32b2dfc1b2531bdb5d10))
   * **renderer/default:** update how bottom bar is checked ([0b5dab9](https://github.com/listr2/listr2/commit/0b5dab9a8d5da1d6ee2b3ec51eef5cb6bb75d26b))
+  * **task:** splat on titles for brownie and nx repositories ([a756a47](https://github.com/listr2/listr2/commit/a756a47f7524994d191c32b2dfc1b2531bdb5d10))
 * **deps:** bump vm2 from 3.9.16 to 3.9.17 ([#670](https://github.com/jayree/sfdx-plugin-manifest/issues/670)) ([a72e1ae](https://github.com/jayree/sfdx-plugin-manifest/commit/a72e1ae463245698181ca58b45277af75eb4cdda))
-  **Fixes**
-  https://github.com/patriksimek/vm2/commit/4b22e87b102d97d45d112a0931dba1aef7eea049: Fix issue in catch block protection. (Thanks to [Xion](https://twitter.com/0x10n) (SeungHyun Lee) of [KAIST Hacking Lab](https://kaist-hacking.github.io/).)
-  https://github.com/patriksimek/vm2/commit/f3db4dee4d76b19869df05ba7880d638a880edd5: Fix issue with host exceptions thrown in async functions leaking though the Promise.
 
 
 
@@ -4232,6 +3652,17 @@
 * **deps:** bump @salesforce/source-deploy-retrieve from 7.15.1 to 8.0.1 ([59f2070](https://github.com/jayree/sfdx-plugin-manifest/commit/59f2070e2a5d23337f2854d08bf536d79bbffc61))
 * **deps:** bump listr2 from 5.0.8 to 6.2.0 ([643b814](https://github.com/jayree/sfdx-plugin-manifest/commit/643b814f2d0325b75721b10b2d4d872e6bcc541c))
   * ditch rxjs completely and use event emitter based approach ([213bc76](https://github.com/cenk1cenk2/listr2/commit/213bc76fec973719926927178b9a167aa89c563f))
+  * expose path from task directly ([5c393d0](https://github.com/listr2/listr2/commit/5c393d0d3137c3aa0980251297ce542f3ad47097))
+  * change naming scheme for renderer tasks to make it singular ([cbcdfe2](https://github.com/listr2/listr2/commit/cbcdfe23870d08e660ccf9bd4e067e36e5664f3a))
+  * update how test renderer logs and use a serializer instead of constantly creating objects ([5859ac4](https://github.com/listr2/listr2/commit/5859ac40e43f6cb2eeca8c2d6bf48da1fe03fa18))
+  * add possiblity to force unicode on all systems ([08ba157](https://github.com/cenk1cenk2/listr2/commit/08ba157dc5184dabbdf4187d8571866e3b1bd360))
+  * add splat util.format to output, title and skip ([02e5432](https://github.com/cenk1cenk2/listr2/commit/02e5432cd751be0e0f5cecc29a7d02b7e9668dbe))
+  * expose more api for pending tasks ([a7b1981](https://github.com/cenk1cenk2/listr2/commit/a7b1981f5db3f72bc4d489417ad4d87cb50941cc))
+  * **process-output:** ability to overwrite streams on process output ([474e096](https://github.com/cenk1cenk2/listr2/commit/474e096346eab10f2deca2347b2e34e89fc284c8))
+  * **renderer:** simplify and add eager option ([5248c78](https://github.com/cenk1cenk2/listr2/commit/5248c78b01583da5d65a83ea75f4f6f52a6956f6))
+  * refactor and simplify default renderer ([a9ec3c4](https://github.com/cenk1cenk2/listr2/commit/a9ec3c40f6cd922bb03f820f61a18109960e59ea))
+  * rename error field of listr and share through parent tasks ([88eb34e](https://github.com/cenk1cenk2/listr2/commit/88eb34e5052109501856af08d03284899c43519d))
+  * Renames the err field to errors in Listr class. So error collection is shared
   * add new options for base listr ([1a41939](https://github.com/listr2/listr2/commit/1a419391a8a5c5352345b66c4269ebf03b958c1f))
   * add possiblity to force unicode on all systems ([08ba157](https://github.com/listr2/listr2/commit/08ba157dc5184dabbdf4187d8571866e3b1bd360))
   * add process hooks to hook terminal to obstruct anything while rendering ([db7398d](https://github.com/listr2/listr2/commit/db7398d438f56a829e81a73981420e7b0f7230c8)), closes [#662](https://github.com/listr2/listr2/issues/662)
@@ -4246,7 +3677,6 @@
   * **process-output:** ability to overwrite streams on process output ([474e096](https://github.com/listr2/listr2/commit/474e096346eab10f2deca2347b2e34e89fc284c8))
   * **process-output:** hide cursor as before when hijacking output ([a0e150c](https://github.com/listr2/listr2/commit/a0e150c7e0d62e2c8f0cb95babca933e773ed2c0))
   * **renderer:** simplify and add eager option ([5248c78](https://github.com/listr2/listr2/commit/5248c78b01583da5d65a83ea75f4f6f52a6956f6))
-  ### Performance Improvements
   * bump node version to 16 since 14 dies in less than 1 month ([36dde30](https://github.com/listr2/listr2/commit/36dde30661103126949480639edf9fe77864efc3))
   * change field name ([91f6fda](https://github.com/listr2/listr2/commit/91f6fdabfaf6fd10674b3c4388cc9c91760c297a))
   * change naming scheme for renderer tasks to make it singular ([cbcdfe2](https://github.com/listr2/listr2/commit/cbcdfe23870d08e660ccf9bd4e067e36e5664f3a))
@@ -4276,124 +3706,62 @@
   * update how logger is implemented and injected ([3146082](https://github.com/listr2/listr2/commit/31460828258e949fdab6e387a6e2bea5c2710a52))
   * update how test renderer logs and use a serializer instead of constantly creating objects ([5859ac4](https://github.com/listr2/listr2/commit/5859ac40e43f6cb2eeca8c2d6bf48da1fe03fa18))
   * update naming scheme ([acc1f9d](https://github.com/listr2/listr2/commit/acc1f9d082f429d7240b91987ed2d53bc315558e))
-  ### BREAKING CHANGES
   * renames default renderer options `collapse` to
-  `collapseSubtasks`
   * On the main `Listr` task list, conditions for fallback and silent renderer have been
-  renamed.
-  - `rendererSilent` has been renamed to `silentRendererCondition`.
-  - `rendererFallback` has been renamed to `fallbackRendererCondition`.
   * Default fallback renderer has been changed from `verbose` to `simple`, since
-  `simple` can mostly handle non-tty at this point.
   * Changes default error collection behavior to `false` from `minimal`, since this is
-  the most hidden feature of them all, and it should be opt-in.
   * err field in manager has been renamed to errors as well
   * renames retry property withError to basically error
   * **renderer:** The default behavior of handling longer output has been changed to `wrap`.
   * `nonTTYRenderer`, `nonTTYRendererOptions` in Listr tasks has been renamed to
-  `fallbackRenderer` and `fallbackRendererOptions` respectively.
-  To be honest this was staying for the original Listr compatability but since so much is refactored,
-  it made sense to change it to match where the others are used.
   * Minimum node version usable is increased to node16 since node14 has been put out of
-  the maintenance circle.
   * Moves prompt to another channel and avoids using the output channel for prompts.
-  Properly uses the ProcessOutputHook for Simpler Renderer. Hooks on prompts.
-  Moves the ProcessOutputBuffer logic in to its own class, where streams can be recorded.
-  Deprecated through has been ditched by using a basic WritableStream, idk why i did use it in the
-  first place,
-  I guess it was coming from the original Listr implementation.
-  Still uses ansi escape parsing to properly render the output, still limited by mostly the log-update
-  but
-  buffering output for bells and clear line or hide cursor charachters breaks stuff too much, so it is
-  the safe
-  way.
   * Renames the err field to errors in Listr class. So error collection is shared
-  instead of injected.
   * This completely breaks old behavior with the renderers, even the basic
-  parameters are changed.
-  Now the renderers for things like timer and timestamps takes in
-  pluggable components through the shared constants, which makes them user
-  configurable.
-  The logger interface and logger itself has changed to handle all the
-  common cases for any kind of renderer, eventhough it does not use all of
-  them at the same time.
-  This is a big change that might make the user checkout the new README.
   * **constants:** State names has been changed, which might break backwards compatability.
-  * expose path from task directly ([5c393d0](https://github.com/listr2/listr2/commit/5c393d0d3137c3aa0980251297ce542f3ad47097))
-  ### Performance Improvements
-  * change naming scheme for renderer tasks to make it singular ([cbcdfe2](https://github.com/listr2/listr2/commit/cbcdfe23870d08e660ccf9bd4e067e36e5664f3a))
-  * update how test renderer logs and use a serializer instead of constantly creating objects ([5859ac4](https://github.com/listr2/listr2/commit/5859ac40e43f6cb2eeca8c2d6bf48da1fe03fa18))
   * add task retry delay ([b72eaf3](https://github.com/cenk1cenk2/listr2/commit/b72eaf3242e4837680d55c6a9204d5b9da5dd017)), closes [#668](https://github.com/cenk1cenk2/listr2/issues/668)
-  * add process hooks to hook terminal to obstruct anything while rendering ([db7398d](https://github.com/cenk1cenk2/listr2/commit/db7398d438f56a829e81a73981420e7b0f7230c8)), closes [#662](https://github.com/cenk1cenk2/listr2/issues/662)
   * expose and alias more of the interfaces since they can be used outside ([38479b0](https://github.com/cenk1cenk2/listr2/commit/38479b0bb9ae0942aa5d0cf0cca628c49cf0f5df))
-  ### Performance Improvements
   * rename property ([5e8a7be](https://github.com/cenk1cenk2/listr2/commit/5e8a7be8f3eef71a78927cd0f4408c61309394fb))
   * **renderer:** change the default ([796826a](https://github.com/cenk1cenk2/listr2/commit/796826a2b431f74561807cd24e46b9e213dd844f))
   * update api and rename for consistency ([ffbe9f2](https://github.com/cenk1cenk2/listr2/commit/ffbe9f25e5254fca6291997a1b6b3230c89159ac))
-  ### BREAKING CHANGES
   * err field in manager has been renamed to errors as well
   * renames retry property withError to basically error
   * **renderer:** The default behavior of handling longer output has been changed to `wrap`.
+  * add process hooks to hook terminal to obstruct anything while rendering ([db7398d](https://github.com/cenk1cenk2/listr2/commit/db7398d438f56a829e81a73981420e7b0f7230c8)), closes [#662](https://github.com/cenk1cenk2/listr2/issues/662)
   * force publish since semantic-release is stuck ([fa0fae1](https://github.com/listr2/listr2/commit/fa0fae1bb0e34dedc2b4d784f90d9237b5ff1fab))
-  * add new options for base listr ([1a41939](https://github.com/cenk1cenk2/listr2/commit/1a419391a8a5c5352345b66c4269ebf03b958c1f))
-  * expose spinner through its own stateful class ([99bd97d](https://github.com/cenk1cenk2/listr2/commit/99bd97db217aeee4fda702d42f7632bf0b5673aa))
-  ### Performance Improvements
-  * change field name ([91f6fda](https://github.com/cenk1cenk2/listr2/commit/91f6fdabfaf6fd10674b3c4388cc9c91760c297a))
-  * update naming scheme ([acc1f9d](https://github.com/cenk1cenk2/listr2/commit/acc1f9d082f429d7240b91987ed2d53bc315558e))
+  * adds new test renderer ([6098586](https://github.com/cenk1cenk2/listr2/commit/6098586adff1369565b79c43a546338731b4a13c))
+  * change the exposed API of the application ([513ed76](https://github.com/cenk1cenk2/listr2/commit/513ed767a069ba91e0fa27481308c420df40f6fa))
+  * changes and reuses logger component and pluggable plugins for renderers ([cbf668c](https://github.com/cenk1cenk2/listr2/commit/cbf668c1ddfbaf2d8ee4d980071305b8586f8d3d)), closes [#651](https://github.com/cenk1cenk2/listr2/issues/651) [#646](https://github.com/cenk1cenk2/listr2/issues/646) [#613](https://github.com/cenk1cenk2/listr2/issues/613)
+  * **constants:** changes names of listr states ([cf9c19d](https://github.com/cenk1cenk2/listr2/commit/cf9c19df04099e354a2ac6d51cd853c6def0c4bf))
+  * This completely breaks old behavior with the renderers, even the basic
+  * **constants:** State names has been changed, which might break backwards compatability.
   * **process-output:** hide cursor as before when hijacking output ([a0e150c](https://github.com/cenk1cenk2/listr2/commit/a0e150c7e0d62e2c8f0cb95babca933e773ed2c0))
-  ### Performance Improvements
   * bump node version to 16 since 14 dies in less than 1 month ([36dde30](https://github.com/cenk1cenk2/listr2/commit/36dde30661103126949480639edf9fe77864efc3))
   * **deps:** ditch-pmap instead of a basic implementation ([eb7cfdc](https://github.com/cenk1cenk2/listr2/commit/eb7cfdceaf357f415f3f8d2237a6631b2ec2db0e))
   * **logger:** move splat to logger as well and refactor multiline message handling ([fea0227](https://github.com/cenk1cenk2/listr2/commit/fea0227e6874b2dd35f789db5a13722705c052a2))
   * move prompt to own instance ([7cacdbd](https://github.com/cenk1cenk2/listr2/commit/7cacdbdd9e0b28a4273bb34c3d465c70b8f30907))
   * refactor the name to shorten it, since it is still understandable ([acfe5bd](https://github.com/cenk1cenk2/listr2/commit/acfe5bd5e96cccc60d2639832739c0c0b775c74d))
   * rename nonttyrenderer and its related settings ([f29bb12](https://github.com/cenk1cenk2/listr2/commit/f29bb12eece8cc9b5c8c6a1e9157c5768d641824))
-  ### BREAKING CHANGES
   * `nonTTYRenderer`, `nonTTYRendererOptions` in Listr tasks has been renamed to
-  `fallbackRenderer` and `fallbackRendererOptions` respectively.
-  To be honest this was staying for the original Listr compatability but since so much is refactored,
-  it made sense to change it to match where the others are used.
   * Minimum node version usable is increased to node16 since node14 has been put out of
-  the maintenance circle.
   * Moves prompt to another channel and avoids using the output channel for prompts.
-  Properly uses the ProcessOutputHook for Simpler Renderer. Hooks on prompts.
-  Moves the ProcessOutputBuffer logic in to its own class, where streams can be recorded.
-  Deprecated through has been ditched by using a basic WritableStream, idk why i did use it in the
-  first place,
-  I guess it was coming from the original Listr implementation.
-  Still uses ansi escape parsing to properly render the output, still limited by mostly the log-update
-  but
-  buffering output for bells and clear line or hide cursor charachters breaks stuff too much, so it is
-  the safe
-  way.
-  * add possiblity to force unicode on all systems ([08ba157](https://github.com/cenk1cenk2/listr2/commit/08ba157dc5184dabbdf4187d8571866e3b1bd360))
-  * add splat util.format to output, title and skip ([02e5432](https://github.com/cenk1cenk2/listr2/commit/02e5432cd751be0e0f5cecc29a7d02b7e9668dbe))
-  * expose more api for pending tasks ([a7b1981](https://github.com/cenk1cenk2/listr2/commit/a7b1981f5db3f72bc4d489417ad4d87cb50941cc))
-  * **process-output:** ability to overwrite streams on process output ([474e096](https://github.com/cenk1cenk2/listr2/commit/474e096346eab10f2deca2347b2e34e89fc284c8))
-  * **renderer:** simplify and add eager option ([5248c78](https://github.com/cenk1cenk2/listr2/commit/5248c78b01583da5d65a83ea75f4f6f52a6956f6))
-  ### Performance Improvements
-  * refactor and simplify default renderer ([a9ec3c4](https://github.com/cenk1cenk2/listr2/commit/a9ec3c40f6cd922bb03f820f61a18109960e59ea))
-  * rename error field of listr and share through parent tasks ([88eb34e](https://github.com/cenk1cenk2/listr2/commit/88eb34e5052109501856af08d03284899c43519d))
-  ### BREAKING CHANGES
-  * Renames the err field to errors in Listr class. So error collection is shared
-  instead of injected.
-  * adds new test renderer ([6098586](https://github.com/cenk1cenk2/listr2/commit/6098586adff1369565b79c43a546338731b4a13c))
-  ### Performance Improvements
-  * change the exposed API of the application ([513ed76](https://github.com/cenk1cenk2/listr2/commit/513ed767a069ba91e0fa27481308c420df40f6fa))
-  * changes and reuses logger component and pluggable plugins for renderers ([cbf668c](https://github.com/cenk1cenk2/listr2/commit/cbf668c1ddfbaf2d8ee4d980071305b8586f8d3d)), closes [#651](https://github.com/cenk1cenk2/listr2/issues/651) [#646](https://github.com/cenk1cenk2/listr2/issues/646) [#613](https://github.com/cenk1cenk2/listr2/issues/613)
-  * **constants:** changes names of listr states ([cf9c19d](https://github.com/cenk1cenk2/listr2/commit/cf9c19df04099e354a2ac6d51cd853c6def0c4bf))
-  ### BREAKING CHANGES
-  * This completely breaks old behavior with the renderers, even the basic
-  parameters are changed.
-  Now the renderers for things like timer and timestamps takes in
-  pluggable components through the shared constants, which makes them user
-  configurable.
-  The logger interface and logger itself has changed to handle all the
-  common cases for any kind of renderer, eventhough it does not use all of
-  them at the same time.
-  This is a big change that might make the user checkout the new README.
-  * **constants:** State names has been changed, which might break backwards compatability.
+  * add new options for base listr ([1a41939](https://github.com/cenk1cenk2/listr2/commit/1a419391a8a5c5352345b66c4269ebf03b958c1f))
+  * expose spinner through its own stateful class ([99bd97d](https://github.com/cenk1cenk2/listr2/commit/99bd97db217aeee4fda702d42f7632bf0b5673aa))
+  * change field name ([91f6fda](https://github.com/cenk1cenk2/listr2/commit/91f6fdabfaf6fd10674b3c4388cc9c91760c297a))
+  * update naming scheme ([acc1f9d](https://github.com/cenk1cenk2/listr2/commit/acc1f9d082f429d7240b91987ed2d53bc315558e))
   * expose colorrette and some more utils ([d9e0812](https://github.com/cenk1cenk2/listr2/commit/d9e08126d4d2f0773fe0f26702ca4403f5521fb6))
+  * refactor some of the api for work ([4bce0c0](https://github.com/listr2/listr2/commit/4bce0c0832462ab69f37cefa250325230aaa43bb))
+  * update jsdocs, change default renderer option ([2d99b67](https://github.com/listr2/listr2/commit/2d99b672ac85b04653672913c72c80449f9716df))
+  * handle prompts properly, rename loglevels to listrloglevels ([73cad76](https://github.com/listr2/listr2/commit/73cad7614d571fad175d4da0d0e8c4031ea541cb))
+  * update logger to be more flexible ([3b76139](https://github.com/listr2/listr2/commit/3b76139bfc59e571c679b1f13160c5a9747ac419))
+  * update option name ([9ddfea3](https://github.com/listr2/listr2/commit/9ddfea3ebb483b729c3a96de9efb2d9df61aae84))
+  * rename field ([aa831bd](https://github.com/listr2/listr2/commit/aa831bd59eda51573ae578bd0d24264a86999c15))
+  * renames default renderer options `collapse` to
+  * issue with test coverage ([1bd74d9](https://github.com/listr2/listr2/commit/1bd74d90785b56a24f4713ae556c8866e7832f00))
+  * handle non string values ([04c583c](https://github.com/cenk1cenk2/listr2/commit/04c583c790af74f835321d2b922a6a02ca3a34c1))
+  * issue with empty skips from before ([5c04f19](https://github.com/cenk1cenk2/listr2/commit/5c04f1962db5232c1ba7f6d2a51f1689faa44147))
+  * **task:** update naming scheme and hide taskfn ([1b19a89](https://github.com/cenk1cenk2/listr2/commit/1b19a89f4a908ab038866e29ee3644537299b863))
+  * update deps ([8140f28](https://github.com/cenk1cenk2/listr2/commit/8140f280c701702e7b5fe0fe3c67ac79820396ee))
   * comply with breaking changes on types ([23d1855](https://github.com/listr2/listr2/commit/23d1855b35cb5a9be6f7af9604771a68be6307c3))
   * expose colorrette and some more utils ([d9e0812](https://github.com/listr2/listr2/commit/d9e08126d4d2f0773fe0f26702ca4403f5521fb6))
   * handle non string values ([04c583c](https://github.com/listr2/listr2/commit/04c583c790af74f835321d2b922a6a02ca3a34c1))
@@ -4412,58 +3780,30 @@
   * update option name ([9ddfea3](https://github.com/listr2/listr2/commit/9ddfea3ebb483b729c3a96de9efb2d9df61aae84))
   * update splat from logger ([142be8c](https://github.com/listr2/listr2/commit/142be8c5cd61a51d7344187180deadc05432d080))
   * update typescript path and the import paths accordingly ([0d3afcb](https://github.com/listr2/listr2/commit/0d3afcb7bfea4d4e3afec4ce2171ada894ee7b9b))
-  * refactor some of the api for work ([4bce0c0](https://github.com/listr2/listr2/commit/4bce0c0832462ab69f37cefa250325230aaa43bb))
-  * issue with test coverage ([1bd74d9](https://github.com/listr2/listr2/commit/1bd74d90785b56a24f4713ae556c8866e7832f00))
-  * move wrong dependency type to dev ([d93f135](https://github.com/listr2/listr2/commit/d93f1353386b165bf085c09990f4002e7c4c9ca1))
-  * update logger to be more flexible ([3b76139](https://github.com/listr2/listr2/commit/3b76139bfc59e571c679b1f13160c5a9747ac419))
-  * update option name ([9ddfea3](https://github.com/listr2/listr2/commit/9ddfea3ebb483b729c3a96de9efb2d9df61aae84))
-  ### Performance Improvements
-  * rename field ([aa831bd](https://github.com/listr2/listr2/commit/aa831bd59eda51573ae578bd0d24264a86999c15))
-  ### BREAKING CHANGES
-  * renames default renderer options `collapse` to
-  `collapseSubtasks`
-  * update jsdocs, change default renderer option ([2d99b67](https://github.com/listr2/listr2/commit/2d99b672ac85b04653672913c72c80449f9716df))
-  ### Performance Improvements
-  * handle prompts properly, rename loglevels to listrloglevels ([73cad76](https://github.com/listr2/listr2/commit/73cad7614d571fad175d4da0d0e8c4031ea541cb))
-  * update npm demo ([fc24708](https://github.com/listr2/listr2/commit/fc24708941e290210b42bd40838a2436fdd62826))
   * missing stuff ([9d442f8](https://github.com/cenk1cenk2/listr2/commit/9d442f8ae709d1096ce43dac569f596cca1a7ff1))
-  * typing issues with secondary renderer not being changed ([f5c9871](https://github.com/listr2/listr2/commit/f5c987194348e4b2062cf1d346414e3d8040affe))
-  * force publish ([5a770da](https://github.com/listr2/listr2/commit/5a770da2785f3c821e4799f6a91c25b5f4850e1a))
-  * update filtering reordering mechanism ([a72cc7b](https://github.com/listr2/listr2/commit/a72cc7b2b881e3297f69fb7b2ff259c63b64037f)), closes [#670](https://github.com/listr2/listr2/issues/670)
-  * the issue with rendering, make default renderer method naming scheme similar to logger ([6c5c172](https://github.com/cenk1cenk2/listr2/commit/6c5c172684e388cc5367cfa40ca0459fc8b46cc5))
-  * update typescript path and the import paths accordingly ([0d3afcb](https://github.com/cenk1cenk2/listr2/commit/0d3afcb7bfea4d4e3afec4ce2171ada894ee7b9b))
   * **renderer:** update typings ([a080d11](https://github.com/listr2/listr2/commit/a080d1122b53a29e4f28705bbb411bd6a0742bae))
-  * update splat from logger ([142be8c](https://github.com/cenk1cenk2/listr2/commit/142be8c5cd61a51d7344187180deadc05432d080))
-  * handle non string values ([04c583c](https://github.com/cenk1cenk2/listr2/commit/04c583c790af74f835321d2b922a6a02ca3a34c1))
-  * issue with empty skips from before ([5c04f19](https://github.com/cenk1cenk2/listr2/commit/5c04f1962db5232c1ba7f6d2a51f1689faa44147))
-  * **task:** update naming scheme and hide taskfn ([1b19a89](https://github.com/cenk1cenk2/listr2/commit/1b19a89f4a908ab038866e29ee3644537299b863))
-  * update deps ([8140f28](https://github.com/cenk1cenk2/listr2/commit/8140f280c701702e7b5fe0fe3c67ac79820396ee))
+  * update filtering reordering mechanism ([a72cc7b](https://github.com/listr2/listr2/commit/a72cc7b2b881e3297f69fb7b2ff259c63b64037f)), closes [#670](https://github.com/listr2/listr2/issues/670)
+  * move wrong dependency type to dev ([d93f135](https://github.com/listr2/listr2/commit/d93f1353386b165bf085c09990f4002e7c4c9ca1))
   * comply with breaking changes on types ([23d1855](https://github.com/cenk1cenk2/listr2/commit/23d1855b35cb5a9be6f7af9604771a68be6307c3))
   * update dependencies and configuration ([ee07b2a](https://github.com/cenk1cenk2/listr2/commit/ee07b2a9c841c8d00adb6efe809a5decd46386f2))
-  ### Performance Improvements
+  * force publish ([5a770da](https://github.com/listr2/listr2/commit/5a770da2785f3c821e4799f6a91c25b5f4850e1a))
+  * update splat from logger ([142be8c](https://github.com/cenk1cenk2/listr2/commit/142be8c5cd61a51d7344187180deadc05432d080))
+  * update npm demo ([fc24708](https://github.com/listr2/listr2/commit/fc24708941e290210b42bd40838a2436fdd62826))
+  * the issue with rendering, make default renderer method naming scheme similar to logger ([6c5c172](https://github.com/cenk1cenk2/listr2/commit/6c5c172684e388cc5367cfa40ca0459fc8b46cc5))
+  * update typescript path and the import paths accordingly ([0d3afcb](https://github.com/cenk1cenk2/listr2/commit/0d3afcb7bfea4d4e3afec4ce2171ada894ee7b9b))
+  * typing issues with secondary renderer not being changed ([f5c9871](https://github.com/listr2/listr2/commit/f5c987194348e4b2062cf1d346414e3d8040affe))
   * update how bottom bar is handled through process output buffer ([1729962](https://github.com/cenk1cenk2/listr2/commit/1729962a503eceb5e4925cc24eb80a2d84807a0a))
-  ### Performance Improvements
   * go full esm on jest/ts-node, use dynamic imports for esm modules on default renderer ([9cc01c0](https://github.com/cenk1cenk2/listr2/commit/9cc01c0bd972f7adfd12c00669bbed21d65052e6))
-  ### Performance Improvements
-  * **logger:** unify the logger field input ([30a2658](https://github.com/cenk1cenk2/listr2/commit/30a26588d1728163364aff493d7a4c4a45d204cf))
-  ### Performance Improvements
-  * **logger:** use logger prototype instead of instance for initiating, always pass default ([1fc7ef9](https://github.com/cenk1cenk2/listr2/commit/1fc7ef992a81d687ccc68010f68106969f36211a))
-  ### Performance Improvements
-  * update how logger is implemented and injected ([3146082](https://github.com/listr2/listr2/commit/31460828258e949fdab6e387a6e2bea5c2710a52))
-  ### Performance Improvements
   * change the default behavior for error collection ([4785730](https://github.com/listr2/listr2/commit/478573001ebd519582891b82230f49219f5f9101))
   * default fallback renderer changed to simple renderer ([67b5b62](https://github.com/listr2/listr2/commit/67b5b62d1a3a06fc97a29f0d4b27b7e0c99211d0))
   * rename for consistency ([0530c22](https://github.com/listr2/listr2/commit/0530c22ed37f93e61baf127734c1e1892b632abf))
   * update documentation, rename presets ([4041410](https://github.com/listr2/listr2/commit/4041410d8ee540fe564bc65a940ec1c5a89414f1))
-  ### BREAKING CHANGES
   * On the main `Listr` task list, conditions for fallback and silent renderer have been
-  renamed.
-  - `rendererSilent` has been renamed to `silentRendererCondition`.
-  - `rendererFallback` has been renamed to `fallbackRendererCondition`.
   * Default fallback renderer has been changed from `verbose` to `simple`, since
-  `simple` can mostly handle non-tty at this point.
   * Changes default error collection behavior to `false` from `minimal`, since this is
-  the most hidden feature of them all, and it should be opt-in.
+  * **logger:** use logger prototype instead of instance for initiating, always pass default ([1fc7ef9](https://github.com/cenk1cenk2/listr2/commit/1fc7ef992a81d687ccc68010f68106969f36211a))
+  * update how logger is implemented and injected ([3146082](https://github.com/listr2/listr2/commit/31460828258e949fdab6e387a6e2bea5c2710a52))
+  * **logger:** unify the logger field input ([30a2658](https://github.com/cenk1cenk2/listr2/commit/30a26588d1728163364aff493d7a4c4a45d204cf))
 
 
 
@@ -4473,9 +3813,9 @@
 ### Bug Fixes
 
 * **deps:** bump @oclif/core from 2.8.0 to 2.8.2 ([#664](https://github.com/jayree/sfdx-plugin-manifest/issues/664)) ([d353da6](https://github.com/jayree/sfdx-plugin-manifest/commit/d353da6d6603ed2068aaf5632d34726a538bdfb1))
+  * force build ([7d0badc](https://github.com/oclif/core/commit/7d0badcd1ae31147707c40ee76e10b7f808d3a34))
   *  jsonEnabled not handling after pass-through ([#687](https://github.com/oclif/core/issues/687)) ([5c7e534](https://github.com/oclif/core/commit/5c7e534229197d32ffc605f19394300c6ebdf8ac))
   * defaultHelp not called with flag value at runtime ([46e89c4](https://github.com/oclif/core/commit/46e89c4b1ba0784f7547c784f5be3fb4453c5daa))
-  * force build ([7d0badc](https://github.com/oclif/core/commit/7d0badcd1ae31147707c40ee76e10b7f808d3a34))
 * **deps:** bump @salesforce/source-deploy-retrieve from 7.15.0 to 7.15.1 ([#657](https://github.com/jayree/sfdx-plugin-manifest/issues/657)) ([44c2d3f](https://github.com/jayree/sfdx-plugin-manifest/commit/44c2d3f6c4d94c8ddd9b1b2b47adf446f3515bc1))
   * **deps:** bump fast-xml-parser from 4.1.3 to 4.1.4 ([#933](https://github.com/forcedotcom/source-deploy-retrieve/issues/933)) ([e7da9ba](https://github.com/forcedotcom/source-deploy-retrieve/commit/e7da9ba38cbf37d44be10ef396bc2645b77d1a9b))
 
@@ -4487,8 +3827,6 @@
 ### Bug Fixes
 
 * **deps:** bump vm2 from 3.9.15 to 3.9.16 ([#656](https://github.com/jayree/sfdx-plugin-manifest/issues/656)) ([1fa7432](https://github.com/jayree/sfdx-plugin-manifest/commit/1fa74322316312c93677b79071276ef476f2bb4e))
-  **Fixes**
-  https://github.com/patriksimek/vm2/commit/24c724daa7c09f003e556d7cd1c7a8381cb985d7: Fix issue in transformer issue by reworking replacement logic. (Thanky to [Xion](https://twitter.com/0x10n) (SeungHyun Lee) of [KAIST Hacking Lab](https://kaist-hacking.github.io/).)
 
 
 
@@ -4498,8 +3836,6 @@
 ### Bug Fixes
 
 * **deps:** bump vm2 from 3.9.14 to 3.9.15 ([#655](https://github.com/jayree/sfdx-plugin-manifest/issues/655)) ([a5610e2](https://github.com/jayree/sfdx-plugin-manifest/commit/a5610e24fb95fdf97e0af45d0e881985b4e32266))
-  **Fixes**
-  https://github.com/patriksimek/vm2/commit/d534e5785f38307b70d3aac1945260a261a94d50: Ensure no host objects are passed through to `Error.prepareStackTrace`. (Thanky to Seongil Wi from KAIST [WSP Lab](https://wsp-lab.github.io/))
 
 
 
@@ -4511,15 +3847,15 @@
 * **deps:** bump @salesforce/sf-plugins-core from 2.2.5 to 2.2.7 ([#653](https://github.com/jayree/sfdx-plugin-manifest/issues/653)) ([be03533](https://github.com/jayree/sfdx-plugin-manifest/commit/be03533c4d9a587315bafcd8edbcd65c0cbe0468))
   * onRelease flow needs dist tag ([59e02a6](https://github.com/salesforcecli/sf-plugins-core/commit/59e02a606ba68bf00697d10340dac40c8557f0b0))
   * **deps:** bump @oclif/core from 2.7.1 to 2.8.0 ([580c9c7](https://github.com/salesforcecli/sf-plugins-core/commit/580c9c74f6cfd99004f2f6df0ed497cdaeadbb6c))
-  * use context.options ([9d55ab6](https://github.com/salesforcecli/sf-plugins-core/commit/9d55ab65cec49c493b11fc6c595527dab3023ec1))
-  * bump core ([256ddc9](https://github.com/salesforcecli/sf-plugins-core/commit/256ddc92c861c2220e94d10573911c7a72efc8b8))
   * **deps:** bump @salesforce/core from 3.34.1 to 3.34.6 ([efbc49d](https://github.com/salesforcecli/sf-plugins-core/commit/efbc49d4c46be8f9486299342f8796bb902676c5))
   * use ability to omit default and defaultHelp from manifest ([ad6be7c](https://github.com/salesforcecli/sf-plugins-core/commit/ad6be7cff5d5d8b3317ee7e104502ac44c106f18))
+  * use context.options ([9d55ab6](https://github.com/salesforcecli/sf-plugins-core/commit/9d55ab65cec49c493b11fc6c595527dab3023ec1))
+  * bump core ([256ddc9](https://github.com/salesforcecli/sf-plugins-core/commit/256ddc92c861c2220e94d10573911c7a72efc8b8))
   * use ability to omit default and defaultHelp from manifest ([ad6be7c](https://github.com/salesforcecli/sf-plugins-core/commit/ad6be7cff5d5d8b3317ee7e104502ac44c106f18))
 * **deps:** bump @salesforce/source-deploy-retrieve from 7.14.2 to 7.15.0 ([#651](https://github.com/jayree/sfdx-plugin-manifest/issues/651)) ([902986f](https://github.com/jayree/sfdx-plugin-manifest/commit/902986f6aeecf3d35c4fc4635ed29d232cc4d1b8))
   * upgrade fast-xml-parser ([#926](https://github.com/forcedotcom/source-deploy-retrieve/issues/926)) ([92423e6](https://github.com/forcedotcom/source-deploy-retrieve/commit/92423e699d620d7dad1dfc817261c4d24ae5b936))
-  * ensure retrieval and deployment of views with screen aware variants ([#930](https://github.com/forcedotcom/source-deploy-retrieve/issues/930)) ([ae6bb43](https://github.com/forcedotcom/source-deploy-retrieve/commit/ae6bb4352246319d556fc1832afd053db6299791))
   * bump minor ([f6ad1bd](https://github.com/forcedotcom/source-deploy-retrieve/commit/f6ad1bdbf5ea2dfd6d911d0a0bd7cb469d1d5ba2))
+  * ensure retrieval and deployment of views with screen aware variants ([#930](https://github.com/forcedotcom/source-deploy-retrieve/issues/930)) ([ae6bb43](https://github.com/forcedotcom/source-deploy-retrieve/commit/ae6bb4352246319d556fc1832afd053db6299791))
   * bump dev-scripts to avoid deleting perf data ([ddfa738](https://github.com/forcedotcom/source-deploy-retrieve/commit/ddfa73881a75d9cb61587ddb6950696dd805df06))
   * bump dev-scripts to avoid deleting perf data ([#927](https://github.com/forcedotcom/source-deploy-retrieve/issues/927)) ([90359a7](https://github.com/forcedotcom/source-deploy-retrieve/commit/90359a74203bda6cc264648dbbc2c43189c84a35))
   * get correct file paths for a DigitalExperience component ([#925](https://github.com/forcedotcom/source-deploy-retrieve/issues/925)) ([6ba8b87](https://github.com/forcedotcom/source-deploy-retrieve/commit/6ba8b878d7dff7ca316e719cc7cf28bc707b7653))
@@ -4536,16 +3872,15 @@
   * feat: add new param isWritingManifest to Plugin.load ([15c9b7f](https://github.com/oclif/core/commit/15c9b7ff033ab5b5092f1924bf142dad3967efd1))
   * make release beta ([c61ed5c](https://github.com/oclif/core/commit/c61ed5c8562888089bc8eaad3b366313190b51ef))
 * **deps:** bump @salesforce/source-deploy-retrieve from 7.13.0 to 7.14.2 ([#644](https://github.com/jayree/sfdx-plugin-manifest/issues/644)) ([bfd3dd1](https://github.com/jayree/sfdx-plugin-manifest/commit/bfd3dd120f8c253676e487f32783d22be575f05f))
+  * explicitly set projectDir on componentSet to prevent use of cwd ([76657c5](https://github.com/forcedotcom/source-deploy-retrieve/commit/76657c538566c00d77b4b9693d05ad2c7fc20129))
+  * explicitly set projectDir on componentSet to prevent use of cwd ([76657c5](https://github.com/forcedotcom/source-deploy-retrieve/commit/76657c538566c00d77b4b9693d05ad2c7fc20129))
   * pass projectDir down from ComponentSet ([519bc34](https://github.com/forcedotcom/source-deploy-retrieve/commit/519bc34c60ca695537910759ec5cd1d8e57a2e0b))
-  * explicitly set projectDir on componentSet to prevent use of cwd ([76657c5](https://github.com/forcedotcom/source-deploy-retrieve/commit/76657c538566c00d77b4b9693d05ad2c7fc20129))
-  * explicitly set projectDir on componentSet to prevent use of cwd ([76657c5](https://github.com/forcedotcom/source-deploy-retrieve/commit/76657c538566c00d77b4b9693d05ad2c7fc20129))
-  * restore the projectDir pass-around ([0d8da6d](https://github.com/forcedotcom/source-deploy-retrieve/commit/0d8da6dde658d03b9c31128534ba02e551120b71))
   * **deps:** bump @salesforce/core from 3.34.1 to 3.34.4 ([#898](https://github.com/forcedotcom/source-deploy-retrieve/issues/898)) ([d5c1b83](https://github.com/forcedotcom/source-deploy-retrieve/commit/d5c1b837ff56a3ff0305141e3742f42b882d2e60))
+  * restore the projectDir pass-around ([0d8da6d](https://github.com/forcedotcom/source-deploy-retrieve/commit/0d8da6dde658d03b9c31128534ba02e551120b71))
   * retry on net errors when retrieving MD info ([16b03c9](https://github.com/forcedotcom/source-deploy-retrieve/commit/16b03c92d6d5b1e947534bceb32476c57689e165))
-  * use always forward slash for DEB and DE fullName ([1511388](https://github.com/forcedotcom/source-deploy-retrieve/commit/1511388bd7953d849a269021f822acb4a69d07d7))
   * more types support wildcard and names ([#894](https://github.com/forcedotcom/source-deploy-retrieve/issues/894)) ([c62939c](https://github.com/forcedotcom/source-deploy-retrieve/commit/c62939c21e5ce2d8183961f95e385538821b8068))
+  * use always forward slash for DEB and DE fullName ([1511388](https://github.com/forcedotcom/source-deploy-retrieve/commit/1511388bd7953d849a269021f822acb4a69d07d7))
   * retry on net errors when retrieving MD info ([16b03c9](https://github.com/forcedotcom/source-deploy-retrieve/commit/16b03c92d6d5b1e947534bceb32476c57689e165))
-  ### Reverts
   * Revert "chore: auto-update metadata coverage in METADATA_SUPPORT.md" ([a43597e](https://github.com/forcedotcom/source-deploy-retrieve/commit/a43597e048752faa13efe2d6aff516eed97fd53d))
 
 
@@ -4567,7 +3902,6 @@
 * **deps:** bump @oclif/core from 2.6.4 to 2.7.1 ([#627](https://github.com/jayree/sfdx-plugin-manifest/issues/627)) ([967a72a](https://github.com/jayree/sfdx-plugin-manifest/commit/967a72a9a6a07f97f2ef5e36ddf0447ed8657501))
   * add param noSensitiveData to Plugin.load ([#665](https://github.com/oclif/core/issues/665)) ([b4a738e](https://github.com/oclif/core/commit/b4a738e40735c40dbf633546011c4a860ebff46c))
   * add flag name and short char to deprecation message ([#664](https://github.com/oclif/core/issues/664)) ([79c41ca](https://github.com/oclif/core/commit/79c41cafe58a27f22b6f7c88e1126c5fd06cb7bb))
-  ### Reverts
   * Revert "feat: add param noSensitiveData to Plugin.load (#665)" (#670) ([bdcbc87](https://github.com/oclif/core/commit/bdcbc8735c1c585029217215679da34608780f08)), closes [#665](https://github.com/oclif/core/issues/665) [#670](https://github.com/oclif/core/issues/670)
 * **deps:** bump @salesforce/sf-plugins-core from 2.2.4 to 2.2.5 ([#629](https://github.com/jayree/sfdx-plugin-manifest/issues/629)) ([62608fe](https://github.com/jayree/sfdx-plugin-manifest/commit/62608fec5441ab3621892aba1ab663f758124caf))
   * **deps:** bump @salesforce/core from 3.33.5 to 3.34.1 ([b17fbe2](https://github.com/salesforcecli/sf-plugins-core/commit/b17fbe2c6dbe4143a80c05dda7768f703882c628))
@@ -4576,6 +3910,7 @@
   * **deps:** bump graceful-fs from 4.2.10 to 4.2.11 ([#888](https://github.com/forcedotcom/source-deploy-retrieve/issues/888)) ([ba1943d](https://github.com/forcedotcom/source-deploy-retrieve/commit/ba1943d74e60c6a6d0f440b92bbb0aa91cfb70b5))
   * **deps:** bump @salesforce/core from 3.33.6 to 3.34.1 ([#886](https://github.com/forcedotcom/source-deploy-retrieve/issues/886)) ([c9ed7c4](https://github.com/forcedotcom/source-deploy-retrieve/commit/c9ed7c4a6ea7074292396e2c9df269b911826db2))
 * **deps:** bump fs-extra from 11.1.0 to 11.1.1 ([#628](https://github.com/jayree/sfdx-plugin-manifest/issues/628)) ([efe71c1](https://github.com/jayree/sfdx-plugin-manifest/commit/efe71c1f8ff076d9ea172c8a32ea31797218c275))
+  *   Preserve timestamps when moving files across devices ([#992](https://redirect.github.com/jprichardson/node-fs-extra/issues/992), [#994](https://redirect.github.com/jprichardson/node-fs-extra/pull/994))
 * **deps:** bump isomorphic-git from 1.22.0 to 1.23.0 ([#638](https://github.com/jayree/sfdx-plugin-manifest/issues/638)) ([4d61ed7](https://github.com/jayree/sfdx-plugin-manifest/commit/4d61ed78d88d47e83a92b5eb509a87dec4366fc1))
   * **abortMerge:** Introduce 'abortMerge' command  ([#1744](https://github.com/isomorphic-git/isomorphic-git/issues/1744)) ([31f3ffc](https://github.com/isomorphic-git/isomorphic-git/commit/31f3ffc720ad40d3c2ee653fc0c53468ceab2d6b))
 
@@ -4616,14 +3951,14 @@
 * **deps:** bump @oclif/core from 2.4.0 to 2.6.2 ([#606](https://github.com/jayree/sfdx-plugin-manifest/issues/606)) ([9d5cd36](https://github.com/jayree/sfdx-plugin-manifest/commit/9d5cd3605fa0cd702a1fa2ef46d2069813a370c0))
   * add Performance class ([#641](https://github.com/oclif/core/issues/641)) ([c808189](https://github.com/oclif/core/commit/c8081890bcd73b382ba2eb03ae13ad6cfd6b1f17))
   * add Config.versionDetails ([#651](https://github.com/oclif/core/issues/651)) ([ddddcd9](https://github.com/oclif/core/commit/ddddcd97913822dc3774b5b6250b7a0dbcfd4111))
-  * stop any unstopped markers when collecting perf results ([#649](https://github.com/oclif/core/issues/649)) ([f8ab63e](https://github.com/oclif/core/commit/f8ab63e7b0efbda7454bb34e7ab5471f50cec6cf))
   * improve Performance class ([b263fc3](https://github.com/oclif/core/commit/b263fc38fccbf100a5fdf876f84eeb01afb7501a))
   * add version details property to config interface ([#652](https://github.com/oclif/core/issues/652)) ([378095d](https://github.com/oclif/core/commit/378095d64413a673fc3d77598a46e4f14551dc16))
+  * stop any unstopped markers when collecting perf results ([#649](https://github.com/oclif/core/issues/649)) ([f8ab63e](https://github.com/oclif/core/commit/f8ab63e7b0efbda7454bb34e7ab5471f50cec6cf))
 * **deps:** bump @salesforce/kit from 1.9.0 to 1.9.2 ([#609](https://github.com/jayree/sfdx-plugin-manifest/issues/609)) ([2872e65](https://github.com/jayree/sfdx-plugin-manifest/commit/2872e65fb21053dc9b93c5466249fb28b9d33f4a))
   * ensuer support types are exported ([eb564ca](https://github.com/forcedotcom/kit/commit/eb564cabc895d0fd1af94df708c162c485381958))
 * **deps:** bump @salesforce/source-deploy-retrieve from 7.11.0 to 7.11.3 ([#607](https://github.com/jayree/sfdx-plugin-manifest/issues/607)) ([8dbf910](https://github.com/jayree/sfdx-plugin-manifest/commit/8dbf91005c6a45ad9562cf05e56b4505db765983))
-  * potential undefined in SDREvent orgId ([82a6d2d](https://github.com/forcedotcom/source-deploy-retrieve/commit/82a6d2d14a8e50c37646065bd0033238284dfaf1))
   * **deps:** bump @salesforce/kit from 1.8.5 to 1.9.0 ([#873](https://github.com/forcedotcom/source-deploy-retrieve/issues/873)) ([8b3a0be](https://github.com/forcedotcom/source-deploy-retrieve/commit/8b3a0be5ff7274854a17615007a269fa91caa54a))
+  * potential undefined in SDREvent orgId ([82a6d2d](https://github.com/forcedotcom/source-deploy-retrieve/commit/82a6d2d14a8e50c37646065bd0033238284dfaf1))
 
 
 
@@ -4652,6 +3987,7 @@
 * **deps:** bump @salesforce/source-deploy-retrieve from 7.10.1 to 7.11.0 ([#597](https://github.com/jayree/sfdx-plugin-manifest/issues/597)) ([1d5dafc](https://github.com/jayree/sfdx-plugin-manifest/commit/1d5dafc0f66f913a9ce1a4fd82cce15963357c40))
   * handle QueryLocator issues ([e4e7c5c](https://github.com/forcedotcom/source-deploy-retrieve/commit/e4e7c5ce21a69b360bd4a38fcd674a589619bf7e))
 * **deps:** bump fast-xml-parser from 4.1.2 to 4.1.3 ([#604](https://github.com/jayree/sfdx-plugin-manifest/issues/604)) ([7076db4](https://github.com/jayree/sfdx-plugin-manifest/commit/7076db4082e7db9db04cec946e850c0f42b05136))
+  *   fix [#546](https://github-redirect.dependabot.com/NaturalIntelligence/fast-xml-parser/issues/546): Support complex entity value
 
 
 
@@ -4679,8 +4015,8 @@
 * **deps:** bump @salesforce/sf-plugins-core from 2.1.2 to 2.2.2 ([#586](https://github.com/jayree/sfdx-plugin-manifest/issues/586)) ([15c5d80](https://github.com/jayree/sfdx-plugin-manifest/commit/15c5d8027cf62b73bb51fb0c816e44160c6180ed))
   * export Spinner and remove console.error ([#223](https://github.com/salesforcecli/sf-plugins-core/issues/223)) ([04475a0](https://github.com/salesforcecli/sf-plugins-core/commit/04475a0792bd8393be1885c22ccdefcf90740193))
   * _run type ([#227](https://github.com/salesforcecli/sf-plugins-core/issues/227)) ([5b01252](https://github.com/salesforcecli/sf-plugins-core/commit/5b012527c020829f891f029fe77779e75a6e665f))
-  * throw from catch ([#229](https://github.com/salesforcecli/sf-plugins-core/issues/229)) ([6dcb16f](https://github.com/salesforcecli/sf-plugins-core/commit/6dcb16f5cc662a07fb2217ffc5401c7ff7a14d61))
   * throw SfError from catch ([#230](https://github.com/salesforcecli/sf-plugins-core/issues/230)) ([1eb1c17](https://github.com/salesforcecli/sf-plugins-core/commit/1eb1c1715ceef59ee424677a351607ae0568b513))
+  * throw from catch ([#229](https://github.com/salesforcecli/sf-plugins-core/issues/229)) ([6dcb16f](https://github.com/salesforcecli/sf-plugins-core/commit/6dcb16f5cc662a07fb2217ffc5401c7ff7a14d61))
 * **deps:** bump @salesforce/source-deploy-retrieve from 7.9.3 to 7.10.1 ([#592](https://github.com/jayree/sfdx-plugin-manifest/issues/592)) ([d3c3d59](https://github.com/jayree/sfdx-plugin-manifest/commit/d3c3d5992b313ce3317c2873de2c64bfe5fd7e6c))
   * Add Option to Suppress Pre- and Post-Retrieve Events ([#854](https://github.com/forcedotcom/source-deploy-retrieve/issues/854)) ([2eef7d5](https://github.com/forcedotcom/source-deploy-retrieve/commit/2eef7d5ffc81c51e8f30748f475484ccf2876e5b))
   * **deps:** bump @salesforce/kit from 1.8.4 to 1.8.5 ([#857](https://github.com/forcedotcom/source-deploy-retrieve/issues/857)) ([0ee6ca2](https://github.com/forcedotcom/source-deploy-retrieve/commit/0ee6ca27cd22643da2811ac24d3717720a08cc5c))
@@ -4722,14 +4058,14 @@
 
 * **deps:** bump @oclif/core from 2.0.11 to 2.1.5 ([#572](https://github.com/jayree/sfdx-plugin-manifest/issues/572)) ([d3a1146](https://github.com/jayree/sfdx-plugin-manifest/commit/d3a11463f1fff17ff23e21c2ca1c1592e123a1c4))
   * add param to runHook to capture errors ([#617](https://github.com/oclif/core/issues/617)) ([7e7ca96](https://github.com/oclif/core/commit/7e7ca96259674b88cc7d5ff583182b5c1cad488a))
-  * remove brackets for required args ([#619](https://github.com/oclif/core/issues/619)) ([d461fbf](https://github.com/oclif/core/commit/d461fbf751ad9492d4fffe00c8d301040a32318f))
   * config runHook interface ([#620](https://github.com/oclif/core/issues/620)) ([7180b4c](https://github.com/oclif/core/commit/7180b4cac824c3a1acadabe48c2bd1faeadeb7dd))
-  * support legacy plugins ([#631](https://github.com/oclif/core/issues/631)) ([aff9e56](https://github.com/oclif/core/commit/aff9e562ca757e01ccc6589d200dcb1661b42486))
+  * remove brackets for required args ([#619](https://github.com/oclif/core/issues/619)) ([d461fbf](https://github.com/oclif/core/commit/d461fbf751ad9492d4fffe00c8d301040a32318f))
   * **deps:** bump cli-progress from 3.10.0 to 3.11.2 ([4d15304](https://github.com/oclif/core/commit/4d1530424ce650286cf61c3836aa587d27f2a932))
+  * support legacy plugins ([#631](https://github.com/oclif/core/issues/631)) ([aff9e56](https://github.com/oclif/core/commit/aff9e562ca757e01ccc6589d200dcb1661b42486))
   * pass command instance to parse context ([#628](https://github.com/oclif/core/issues/628)) ([5641de5](https://github.com/oclif/core/commit/5641de51f9598e96cc1b3ca7794f9ca12eff3f04))
 * **deps:** bump @salesforce/sf-plugins-core from 2.1.0 to 2.1.2 ([#573](https://github.com/jayree/sfdx-plugin-manifest/issues/573)) ([68ccf64](https://github.com/jayree/sfdx-plugin-manifest/commit/68ccf64e1e6a5c6b5b1707a3ecd21c821f9a0515))
-  * warnings to stderr ([fb0c56a](https://github.com/salesforcecli/sf-plugins-core/commit/fb0c56a51474a9cca7e923e34a0fd0e7ffc3d683))
   * dont allow hooks to exit process ([#217](https://github.com/salesforcecli/sf-plugins-core/issues/217)) ([928f89d](https://github.com/salesforcecli/sf-plugins-core/commit/928f89dce4ba85a2dd8b59d78a6823e7b22cf83d))
+  * warnings to stderr ([fb0c56a](https://github.com/salesforcecli/sf-plugins-core/commit/fb0c56a51474a9cca7e923e34a0fd0e7ffc3d683))
 * **deps:** bump @salesforce/source-deploy-retrieve from 7.9.1 to 7.9.3 ([#582](https://github.com/jayree/sfdx-plugin-manifest/issues/582)) ([803d125](https://github.com/jayree/sfdx-plugin-manifest/commit/803d12565f28d7938e54f157b40826cacf1ac42f))
   * more retryable mdapi errors ([e84ffc1](https://github.com/forcedotcom/source-deploy-retrieve/commit/e84ffc1e377fb75040dde76b818bcba3831d92cd))
   * **deps:** bump minimatch from 5.1.2 to 5.1.6 ([#848](https://github.com/forcedotcom/source-deploy-retrieve/issues/848)) ([cb92e33](https://github.com/forcedotcom/source-deploy-retrieve/commit/cb92e334847d859c2bc2850136167ef9033b3f33))
@@ -4765,6 +4101,10 @@
   * **mdTypes:** AccountingFieldMapping, AccountingModelConfig, ActionLauncherItemDef, PipelineInspMetricConfig , ActionableListDefinition, LocationUse, ExplainabilityMsgTemplate, IntegrationProviderDef, PersonAccountOwnerPowerUser, ProductSpecificationTypeDefinition ([98ce025](https://github.com/forcedotcom/source-deploy-retrieve/commit/98ce025adaf22bba6429f50ffa78c0d3ee442973))
   * handle forceignored files for partial bundle deletes ([#840](https://github.com/forcedotcom/source-deploy-retrieve/issues/840)) ([fcaaec0](https://github.com/forcedotcom/source-deploy-retrieve/commit/fcaaec06966c1bdd4d1eb16ca0b47affa035ef2a))
 * **deps:** bump fast-xml-parser from 4.0.15 to 4.1.1 ([#549](https://github.com/jayree/sfdx-plugin-manifest/issues/549)) ([c8262dc](https://github.com/jayree/sfdx-plugin-manifest/commit/c8262dc72c813c798df3b0839e97df7f3f85913d))
+  *   Fix [#540](https://github-redirect.dependabot.com/NaturalIntelligence/fast-xml-parser/issues/540): ignoreAttributes breaks unpairedTags
+  *   Refactor XML builder code
+  *   Fix '' in DTD comment throwing an error. ([#533](https://github-redirect.dependabot.com/NaturalIntelligence/fast-xml-parser/issues/533)) (By [Adam Baker](https://github.com/Cwazywierdo))
+  *   Set "eNotation" to 'true' as default
 
 
 
@@ -4779,14 +4119,8 @@
   * version 2.0.0 ([#539](https://github.com/oclif/core/issues/539)) ([d5f45af](https://github.com/oclif/core/commit/d5f45af91b85d7ed48af998301367995f6486eb7))
   * version 2.0.0 ([#539](https://github.com/oclif/core/issues/539)) ([d5f45af](https://github.com/oclif/core/commit/d5f45af91b85d7ed48af998301367995f6486eb7))
   * version 2.0.0 ([#539](https://github.com/oclif/core/issues/539)) ([d5f45af](https://github.com/oclif/core/commit/d5f45af91b85d7ed48af998301367995f6486eb7))
-  * make ux stubbable again ([f60c3a0](https://github.com/oclif/core/commit/f60c3a092d452483cb86ec09ab237ee0fe3d1bff))
-  * code review ([c47ab29](https://github.com/oclif/core/commit/c47ab29c7ddcdc7800eb7c32d53d4c563d5c6133))
-  * default id on statically instantiated commands ([59e1ce3](https://github.com/oclif/core/commit/59e1ce3286b2e76b95eda68dc1a513e2455c08d6))
-  * tests ([5989c19](https://github.com/oclif/core/commit/5989c192154d415fd9f942822f9e760ff59500b4))
   * correct version ([7feb109](https://github.com/oclif/core/commit/7feb10914b8218ee0aed04b6d3e5b8ad45ead4c7))
   * onRelease github action ([4af6474](https://github.com/oclif/core/commit/4af6474a249321a741b2943992e6ea8d2d778959))
-  * force publish ([93de62f](https://github.com/oclif/core/commit/93de62f0a37c2d2e25b22a491fad11b98cd925b5))
-  * bump package version ([7e7218d](https://github.com/oclif/core/commit/7e7218d7fdaa2281f56d068a1e61d5af5e07e9d1))
   * code review ([c47ab29](https://github.com/oclif/core/commit/c47ab29c7ddcdc7800eb7c32d53d4c563d5c6133))
   * more backwards compatiblity ([d501405](https://github.com/oclif/core/commit/d5014051db96f45a7c38e31e19575ac02b6f0f8e))
   * types ([d646005](https://github.com/oclif/core/commit/d6460055decbbe7306e790b1d430033c081ec450))
@@ -4800,19 +4134,7 @@
   * correct version ([7feb109](https://github.com/oclif/core/commit/7feb10914b8218ee0aed04b6d3e5b8ad45ead4c7))
   * onRelease github action ([4af6474](https://github.com/oclif/core/commit/4af6474a249321a741b2943992e6ea8d2d778959))
   * tests ([5989c19](https://github.com/oclif/core/commit/5989c192154d415fd9f942822f9e760ff59500b4))
-  * more backwards compatiblity ([d501405](https://github.com/oclif/core/commit/d5014051db96f45a7c38e31e19575ac02b6f0f8e))
-  * types ([d646005](https://github.com/oclif/core/commit/d6460055decbbe7306e790b1d430033c081ec450))
-  * type issues ([5156d44](https://github.com/oclif/core/commit/5156d4444724d4cbcac74b1c21acfe5d6abed952))
-  * force publish ([93de62f](https://github.com/oclif/core/commit/93de62f0a37c2d2e25b22a491fad11b98cd925b5))
-  * add missing dev dependency ([534df74](https://github.com/oclif/core/commit/534df7497924e80461fe2b25de4a39c34f01991a))
-  * bump package version ([7e7218d](https://github.com/oclif/core/commit/7e7218d7fdaa2281f56d068a1e61d5af5e07e9d1))
-  * remove PromiseLike ([d79aea3](https://github.com/oclif/core/commit/d79aea3966e99563453871f3f239be60fe2cc6d0))
-  * default id on statically instantiated commands ([59e1ce3](https://github.com/oclif/core/commit/59e1ce3286b2e76b95eda68dc1a513e2455c08d6))
-  * make ux stubbable again ([f60c3a0](https://github.com/oclif/core/commit/f60c3a092d452483cb86ec09ab237ee0fe3d1bff))
-  * correct version ([7feb109](https://github.com/oclif/core/commit/7feb10914b8218ee0aed04b6d3e5b8ad45ead4c7))
-  * onRelease github action ([4af6474](https://github.com/oclif/core/commit/4af6474a249321a741b2943992e6ea8d2d778959))
   * tests ([5989c19](https://github.com/oclif/core/commit/5989c192154d415fd9f942822f9e760ff59500b4))
-  * type issues ([5156d44](https://github.com/oclif/core/commit/5156d4444724d4cbcac74b1c21acfe5d6abed952))
   * code review ([c47ab29](https://github.com/oclif/core/commit/c47ab29c7ddcdc7800eb7c32d53d4c563d5c6133))
   * more backwards compatiblity ([d501405](https://github.com/oclif/core/commit/d5014051db96f45a7c38e31e19575ac02b6f0f8e))
   * types ([d646005](https://github.com/oclif/core/commit/d6460055decbbe7306e790b1d430033c081ec450))
@@ -4826,15 +4148,33 @@
   * correct version ([7feb109](https://github.com/oclif/core/commit/7feb10914b8218ee0aed04b6d3e5b8ad45ead4c7))
   * onRelease github action ([4af6474](https://github.com/oclif/core/commit/4af6474a249321a741b2943992e6ea8d2d778959))
   * tests ([5989c19](https://github.com/oclif/core/commit/5989c192154d415fd9f942822f9e760ff59500b4))
-  * more backwards compatiblity ([d501405](https://github.com/oclif/core/commit/d5014051db96f45a7c38e31e19575ac02b6f0f8e))
   * remove PromiseLike ([d79aea3](https://github.com/oclif/core/commit/d79aea3966e99563453871f3f239be60fe2cc6d0))
+  * more backwards compatiblity ([d501405](https://github.com/oclif/core/commit/d5014051db96f45a7c38e31e19575ac02b6f0f8e))
+  * make ux stubbable again ([f60c3a0](https://github.com/oclif/core/commit/f60c3a092d452483cb86ec09ab237ee0fe3d1bff))
+  * add missing dev dependency ([534df74](https://github.com/oclif/core/commit/534df7497924e80461fe2b25de4a39c34f01991a))
+  * allow negative num args ([#601](https://github.com/oclif/core/issues/601)) ([0540835](https://github.com/oclif/core/commit/05408357b149454ec127bc83d1b1502048c04500))
+  * more backwards compatiblity ([d501405](https://github.com/oclif/core/commit/d5014051db96f45a7c38e31e19575ac02b6f0f8e))
+  * types ([d646005](https://github.com/oclif/core/commit/d6460055decbbe7306e790b1d430033c081ec450))
+  * type issues ([5156d44](https://github.com/oclif/core/commit/5156d4444724d4cbcac74b1c21acfe5d6abed952))
+  * force publish ([93de62f](https://github.com/oclif/core/commit/93de62f0a37c2d2e25b22a491fad11b98cd925b5))
+  * add missing dev dependency ([534df74](https://github.com/oclif/core/commit/534df7497924e80461fe2b25de4a39c34f01991a))
+  * bump package version ([7e7218d](https://github.com/oclif/core/commit/7e7218d7fdaa2281f56d068a1e61d5af5e07e9d1))
+  * remove PromiseLike ([d79aea3](https://github.com/oclif/core/commit/d79aea3966e99563453871f3f239be60fe2cc6d0))
+  * default id on statically instantiated commands ([59e1ce3](https://github.com/oclif/core/commit/59e1ce3286b2e76b95eda68dc1a513e2455c08d6))
+  * make ux stubbable again ([f60c3a0](https://github.com/oclif/core/commit/f60c3a092d452483cb86ec09ab237ee0fe3d1bff))
+  * correct version ([7feb109](https://github.com/oclif/core/commit/7feb10914b8218ee0aed04b6d3e5b8ad45ead4c7))
+  * onRelease github action ([4af6474](https://github.com/oclif/core/commit/4af6474a249321a741b2943992e6ea8d2d778959))
+  * tests ([5989c19](https://github.com/oclif/core/commit/5989c192154d415fd9f942822f9e760ff59500b4))
+  * code review ([c47ab29](https://github.com/oclif/core/commit/c47ab29c7ddcdc7800eb7c32d53d4c563d5c6133))
+  * default id on statically instantiated commands ([59e1ce3](https://github.com/oclif/core/commit/59e1ce3286b2e76b95eda68dc1a513e2455c08d6))
   * failed flag parsing error ([d3e975f](https://github.com/oclif/core/commit/d3e975f500f152f055f1e04855bb4485df687916))
+  * type issues ([5156d44](https://github.com/oclif/core/commit/5156d4444724d4cbcac74b1c21acfe5d6abed952))
+  * force publish ([93de62f](https://github.com/oclif/core/commit/93de62f0a37c2d2e25b22a491fad11b98cd925b5))
   * types ([d646005](https://github.com/oclif/core/commit/d6460055decbbe7306e790b1d430033c081ec450))
   * release v2 as latest ([5a9cb16](https://github.com/oclif/core/commit/5a9cb166c4a53961a66eb1e173a73cbad5f4b3e0))
-  * flag type regressions ([57c755b](https://github.com/oclif/core/commit/57c755bb395d50aae8b513c277e181865a32df5c))
-  * allow negative num args ([#601](https://github.com/oclif/core/issues/601)) ([0540835](https://github.com/oclif/core/commit/05408357b149454ec127bc83d1b1502048c04500))
-  * add missing dev dependency ([534df74](https://github.com/oclif/core/commit/534df7497924e80461fe2b25de4a39c34f01991a))
   * provide more context to flag and arg parsers ([cb29ca7](https://github.com/oclif/core/commit/cb29ca732928df8e4897e240380c9fa1d632758d))
+  * flag type regressions ([57c755b](https://github.com/oclif/core/commit/57c755bb395d50aae8b513c277e181865a32df5c))
+  * bump package version ([7e7218d](https://github.com/oclif/core/commit/7e7218d7fdaa2281f56d068a1e61d5af5e07e9d1))
 * **deps:** bump @salesforce/kit from 1.8.3 to 1.8.4 ([#543](https://github.com/jayree/sfdx-plugin-manifest/issues/543)) ([a42453b](https://github.com/jayree/sfdx-plugin-manifest/commit/a42453b0227c4dc1e4af87acd26df2ba734fa8d3))
   * **deps:** bump tslib from 2.4.1 to 2.5.0 ([adbf371](https://github.com/forcedotcom/kit/commit/adbf371d866c1a854c0823a0200315019bc5fccf))
 * **deps:** bump @salesforce/sf-plugins-core from 1.22.2 to 1.22.3 ([#540](https://github.com/jayree/sfdx-plugin-manifest/issues/540)) ([da26f45](https://github.com/jayree/sfdx-plugin-manifest/commit/da26f4573c2794ba38145245e72c4519db925937))
@@ -4842,9 +4182,6 @@
 * **deps:** bump @salesforce/sf-plugins-core from 1.22.3 to 2.0.1 ([980797c](https://github.com/jayree/sfdx-plugin-manifest/commit/980797cdea9406f57ff218b0959f5e79e324e703))
   * use @oclif/core v2 ([a15823e](https://github.com/salesforcecli/sf-plugins-core/commit/a15823eb78411f48444035aefd88b9c0101a8d0a))
   * use @oclif/core v2 ([a15823e](https://github.com/salesforcecli/sf-plugins-core/commit/a15823eb78411f48444035aefd88b9c0101a8d0a))
-  * bump core ([dc07444](https://github.com/salesforcecli/sf-plugins-core/commit/dc0744498c7e938bf0da71f97971061dd8107460))
-  * export custom flag ([63db81a](https://github.com/salesforcecli/sf-plugins-core/commit/63db81a3922714408fd2682a5733b9e23001fc9c))
-  * bump core ([f2a5ab2](https://github.com/salesforcecli/sf-plugins-core/commit/f2a5ab255c9cbad8823fd03cca77ba0df5eb38f8))
   * arrayWithDeprecation ([ee217c3](https://github.com/salesforcecli/sf-plugins-core/commit/ee217c391b520c481e9cb7a9e8573cc9415d5685))
   * arrayWithDeprecation ([21d44a7](https://github.com/salesforcecli/sf-plugins-core/commit/21d44a7a733b443a3d4cd23f0cea98ece89f08ba))
   * arrayWithDeprecations ([f2f7cc4](https://github.com/salesforcecli/sf-plugins-core/commit/f2f7cc4e7b852c7bbbafcbfcc4e7ade7faa090a3))
@@ -4852,14 +4189,17 @@
   * export custom flag ([63db81a](https://github.com/salesforcecli/sf-plugins-core/commit/63db81a3922714408fd2682a5733b9e23001fc9c))
   * bump core ([dc07444](https://github.com/salesforcecli/sf-plugins-core/commit/dc0744498c7e938bf0da71f97971061dd8107460))
   * prerelease v2 ([d119b00](https://github.com/salesforcecli/sf-plugins-core/commit/d119b008e15520278e022911fa998b574372b2f9))
+  * arrayWithDeprecation ([21d44a7](https://github.com/salesforcecli/sf-plugins-core/commit/21d44a7a733b443a3d4cd23f0cea98ece89f08ba))
+  * export custom flag ([63db81a](https://github.com/salesforcecli/sf-plugins-core/commit/63db81a3922714408fd2682a5733b9e23001fc9c))
+  * bump core ([f2a5ab2](https://github.com/salesforcecli/sf-plugins-core/commit/f2a5ab255c9cbad8823fd03cca77ba0df5eb38f8))
+  * bump core ([dc07444](https://github.com/salesforcecli/sf-plugins-core/commit/dc0744498c7e938bf0da71f97971061dd8107460))
+  * prerelease v2 ([d119b00](https://github.com/salesforcecli/sf-plugins-core/commit/d119b008e15520278e022911fa998b574372b2f9))
   * arrayWithDeprecation ([ee217c3](https://github.com/salesforcecli/sf-plugins-core/commit/ee217c391b520c481e9cb7a9e8573cc9415d5685))
   * arrayWithDeprecations ([f2f7cc4](https://github.com/salesforcecli/sf-plugins-core/commit/f2f7cc4e7b852c7bbbafcbfcc4e7ade7faa090a3))
-  * prerelease v2 ([d119b00](https://github.com/salesforcecli/sf-plugins-core/commit/d119b008e15520278e022911fa998b574372b2f9))
-  * arrayWithDeprecation ([21d44a7](https://github.com/salesforcecli/sf-plugins-core/commit/21d44a7a733b443a3d4cd23f0cea98ece89f08ba))
 * **deps:** bump @salesforce/source-deploy-retrieve from 7.7.5 to 7.7.6 ([#544](https://github.com/jayree/sfdx-plugin-manifest/issues/544)) ([eb9db65](https://github.com/jayree/sfdx-plugin-manifest/commit/eb9db651efece7cf6db317ec280c9468fe539933))
-  * respect SF_APPLY_REPLACEMENTS_ON_CONVERT env var ([b9e8cd9](https://github.com/forcedotcom/source-deploy-retrieve/commit/b9e8cd9d8305cdec2d57ecc93a2a9696a9363f68))
-  * **deps:** bump @salesforce/kit from 1.8.0 to 1.8.3 ([#835](https://github.com/forcedotcom/source-deploy-retrieve/issues/835)) ([61f4856](https://github.com/forcedotcom/source-deploy-retrieve/commit/61f48562a898c9f94d4062eab1fc699878f3c9de))
   * pass output dir to SfProject instance ([e5a30dc](https://github.com/forcedotcom/source-deploy-retrieve/commit/e5a30dc9916e65d7bd7cc3478450b932ea7cbb59))
+  * **deps:** bump @salesforce/kit from 1.8.0 to 1.8.3 ([#835](https://github.com/forcedotcom/source-deploy-retrieve/issues/835)) ([61f4856](https://github.com/forcedotcom/source-deploy-retrieve/commit/61f48562a898c9f94d4062eab1fc699878f3c9de))
+  * respect SF_APPLY_REPLACEMENTS_ON_CONVERT env var ([b9e8cd9](https://github.com/forcedotcom/source-deploy-retrieve/commit/b9e8cd9d8305cdec2d57ecc93a2a9696a9363f68))
 * **deps:** bump @salesforce/ts-types from 1.7.2 to 1.7.3 ([#547](https://github.com/jayree/sfdx-plugin-manifest/issues/547)) ([cf5e568](https://github.com/jayree/sfdx-plugin-manifest/commit/cf5e56832450117553f5e75fcc8c7e950f0c34e1))
   * **deps:** bump tslib from 2.4.1 to 2.5.0 ([214f0df](https://github.com/forcedotcom/ts-types/commit/214f0df4d37246525deb2de14f8a23e32377a1c0))
 
@@ -4887,10 +4227,8 @@
   * await SVS promises to write to manifest ([#824](https://github.com/forcedotcom/source-deploy-retrieve/issues/824)) ([02895e2](https://github.com/forcedotcom/source-deploy-retrieve/commit/02895e287e4af2672316a07103307b1bd1b7354c))
 * **deps:** bump fast-xml-parser from 4.0.13 to 4.0.15 ([#530](https://github.com/jayree/sfdx-plugin-manifest/issues/530)) ([86a67ec](https://github.com/jayree/sfdx-plugin-manifest/commit/86a67eccd9ff49a381b55ec7b5b6a7bd9461436f))
 * **deps:** bump tslib from 2.4.1 to 2.5.0 ([#526](https://github.com/jayree/sfdx-plugin-manifest/issues/526)) ([ca4a8bf](https://github.com/jayree/sfdx-plugin-manifest/commit/ca4a8bf4f3f703aeca4ac0e61036c74a15f73cbc))
-  ## What's New
   * Fix asyncDelegator reporting done too early by @apendua in https://github.com/microsoft/tslib/pull/187
   * Add support for TypeScript 5.0's `__esDecorate` and related helpers by @rbuckton in https://github.com/microsoft/tslib/pull/193
-  **Full Changelog**: https://github.com/microsoft/tslib/compare/2.4.1...2.5.0
 
 
 
@@ -4904,19 +4242,18 @@
 * **deps:** bump @salesforce/kit from 1.8.2 to 1.8.3 ([#524](https://github.com/jayree/sfdx-plugin-manifest/issues/524)) ([603703f](https://github.com/jayree/sfdx-plugin-manifest/commit/603703f30ecac5228bb0158a89f1954fa5ad510f))
   * **deps:** bump @salesforce/ts-types from 1.7.1 to 1.7.2 ([679e76f](https://github.com/forcedotcom/kit/commit/679e76f585a9d4f376f5ab107bba0a15277d53a8))
 * **deps:** bump @salesforce/source-deploy-retrieve from 7.7.0 to 7.7.3 ([#511](https://github.com/jayree/sfdx-plugin-manifest/issues/511)) ([b905e24](https://github.com/jayree/sfdx-plugin-manifest/commit/b905e24ff8d01cef8c7eb41971bfb6bac3428c0e))
-  * deletes the local component and replaces with remote for partial delete retrieve ([#806](https://github.com/forcedotcom/source-deploy-retrieve/issues/806)) ([2df0529](https://github.com/forcedotcom/source-deploy-retrieve/commit/2df05295137acd3fe9daee1b9988dfa210f8032a))
-  * **deps:** bump @salesforce/core from 3.32.12 to 3.32.13 ([#820](https://github.com/forcedotcom/source-deploy-retrieve/issues/820)) ([eccee64](https://github.com/forcedotcom/source-deploy-retrieve/commit/eccee64d8e4f11f503aba49bb3e1b114d1705c4d))
   * pass output dir to SfProject ([#817](https://github.com/forcedotcom/source-deploy-retrieve/issues/817)) ([2aa0a4a](https://github.com/forcedotcom/source-deploy-retrieve/commit/2aa0a4aaf2dbc77839795a2b8cb1aa67743ac15e))
+  * **deps:** bump @salesforce/core from 3.32.12 to 3.32.13 ([#820](https://github.com/forcedotcom/source-deploy-retrieve/issues/820)) ([eccee64](https://github.com/forcedotcom/source-deploy-retrieve/commit/eccee64d8e4f11f503aba49bb3e1b114d1705c4d))
+  * deletes the local component and replaces with remote for partial delete retrieve ([#806](https://github.com/forcedotcom/source-deploy-retrieve/issues/806)) ([2df0529](https://github.com/forcedotcom/source-deploy-retrieve/commit/2df05295137acd3fe9daee1b9988dfa210f8032a))
 * **deps:** bump listr2 from 5.0.6 to 5.0.7 ([#518](https://github.com/jayree/sfdx-plugin-manifest/issues/518)) ([13058d3](https://github.com/jayree/sfdx-plugin-manifest/commit/13058d3f7e0846ece99ec7b9d116de24e7f7d718))
   * **deps:** update dependency rxjs to ^7.8.0 ([0e83e8d](https://github.com/cenk1cenk2/listr2/commit/0e83e8dd768cf1ec6dffb975bd1f227563594060))
 * **deps:** bump marked from 4.2.5 to 4.2.12 ([#520](https://github.com/jayree/sfdx-plugin-manifest/issues/520)) ([8bd119f](https://github.com/jayree/sfdx-plugin-manifest/commit/8bd119fd24df68b16df3d03bc90fc4bd291155a0))
   * add version to build files ([79b8c0b](https://github.com/markedjs/marked/commit/79b8c0b838ef3ec609091745d5dddb239f89f237))
+  * fix build file version ([94fa76f](https://github.com/markedjs/marked/commit/94fa76f28566ef2ce4a42b046f6ef75707f951b7))
   * use version ([fd759b3](https://github.com/markedjs/marked/commit/fd759b3d7765027841f234fcb55f6c9c16b29258))
   * just build in version ([22ac2cf](https://github.com/markedjs/marked/commit/22ac2cf2d2cf352b90a1f76b3523bc3d6894d5f6))
-  * fix build file version ([94fa76f](https://github.com/markedjs/marked/commit/94fa76f28566ef2ce4a42b046f6ef75707f951b7))
-  * revert to build script in ci ([d2ab474](https://github.com/markedjs/marked/commit/d2ab4745c20726407520adf1ede415a827310497))
   * fix version ([96380c3](https://github.com/markedjs/marked/commit/96380c32298f48c612f7f394974158463c393864))
-  Sorry for all of the quick releases. We were testing out different ways to build the files for releases. v4.2.5 - v4.2.12 have no changes to how marked works. The only addition is the version number in the comment in the build files.
+  * revert to build script in ci ([d2ab474](https://github.com/markedjs/marked/commit/d2ab4745c20726407520adf1ede415a827310497))
 
 
 
@@ -4934,21 +4271,23 @@
   * **deps:** bump json5 from 1.0.1 to 1.0.2 ([8bd3002](https://github.com/salesforcecli/command/commit/8bd30029bbcb21a6a944ea5e458502b047000b9d))
 * **deps:** bump @salesforce/sf-plugins-core from 1.21.5 to 1.22.0 ([#500](https://github.com/jayree/sfdx-plugin-manifest/issues/500)) ([9e040a3](https://github.com/jayree/sfdx-plugin-manifest/commit/9e040a319c7be77648985455b6844ad3bf0fe795))
   * optional devhub flag (and deprecated equivalent) ([8458fc3](https://github.com/salesforcecli/sf-plugins-core/commit/8458fc3ea1a2ed055d6e9c59e4d9e43da0efbf91))
+  * **deps:** bump json5 from 1.0.1 to 1.0.2 ([3e72202](https://github.com/salesforcecli/sf-plugins-core/commit/3e72202da74572423b3bae2200009fc7ede163e5))
   * allowed optional properties on Deployers ([941abda](https://github.com/salesforcecli/sf-plugins-core/commit/941abdaa7b8391ad78ce537d6ae5c561adff2938))
   * revert pr [#33](https://github.com/salesforcecli/sf-plugins-core/issues/33) (caused downstream type problems) ([1cc7e07](https://github.com/salesforcecli/sf-plugins-core/commit/1cc7e0738de190805cccd5404674df2b6ab5a7de))
-  * **deps:** bump json5 from 1.0.1 to 1.0.2 ([3e72202](https://github.com/salesforcecli/sf-plugins-core/commit/3e72202da74572423b3bae2200009fc7ede163e5))
   * add ‘both’ type to id flag ([e58a70f](https://github.com/salesforcecli/sf-plugins-core/commit/e58a70fb7e692f9b91ce39915f6483afda613748))
 * **deps:** bump @salesforce/source-deploy-retrieve from 7.5.22 to 7.7.0 ([#503](https://github.com/jayree/sfdx-plugin-manifest/issues/503)) ([c36f723](https://github.com/jayree/sfdx-plugin-manifest/commit/c36f72348decba3bf210dcda8ddded0b8e670db4))
-  * replacement telemetry ([4c442ea](https://github.com/forcedotcom/source-deploy-retrieve/commit/4c442ea9e931d78bcad3cfe4278190a797abfe45))
   * type improvements for deployResult ([b961860](https://github.com/forcedotcom/source-deploy-retrieve/commit/b961860df0dc7d1abb5b08da1e107e684b40a8b7))
-  * update onRelease workflow ([acc3aa9](https://github.com/forcedotcom/source-deploy-retrieve/commit/acc3aa9aae9b6845791c749b55cbedc611fe12b8))
+  * replacement telemetry ([4c442ea](https://github.com/forcedotcom/source-deploy-retrieve/commit/4c442ea9e931d78bcad3cfe4278190a797abfe45))
   * **deps:** bump @salesforce/ts-types from 1.7.1 to 1.7.2 ([#815](https://github.com/forcedotcom/source-deploy-retrieve/issues/815)) ([820becb](https://github.com/forcedotcom/source-deploy-retrieve/commit/820becbe2e6e2105963873d12fb2f6aa4d858d7a))
   * pass output dir to `SfProject` ([67293c5](https://github.com/forcedotcom/source-deploy-retrieve/commit/67293c5cd85c50f3e7dc66d7d70d810c84088c55))
-  * trigger gha ([058db5a](https://github.com/forcedotcom/source-deploy-retrieve/commit/058db5aff5e602b38907f0ae268bf2327be91502))
+  * update onRelease workflow ([acc3aa9](https://github.com/forcedotcom/source-deploy-retrieve/commit/acc3aa9aae9b6845791c749b55cbedc611fe12b8))
   * pass output dir to `SfProject` ([67293c5](https://github.com/forcedotcom/source-deploy-retrieve/commit/67293c5cd85c50f3e7dc66d7d70d810c84088c55))
+  * trigger gha ([058db5a](https://github.com/forcedotcom/source-deploy-retrieve/commit/058db5aff5e602b38907f0ae268bf2327be91502))
 * **deps:** bump @salesforce/ts-types from 1.7.1 to 1.7.2 ([#504](https://github.com/jayree/sfdx-plugin-manifest/issues/504)) ([b624d1a](https://github.com/jayree/sfdx-plugin-manifest/commit/b624d1a8b762712bcb39f137fc8afe4b94b942b8))
   * **deps:** bump json5 from 1.0.1 to 1.0.2 ([759e7dd](https://github.com/forcedotcom/ts-types/commit/759e7dd653db241a349b8c94b7576448b6195530))
 * **deps:** bump fast-xml-parser from 4.0.12 to 4.0.13 ([#496](https://github.com/jayree/sfdx-plugin-manifest/issues/496)) ([dff4fb9](https://github.com/jayree/sfdx-plugin-manifest/commit/dff4fb9ead81e632775a2dcf5ce99aa0dbd210f6))
+  *   preserveorder formatting (By [mdeknowis](https://github.com/mdeknowis))
+  *   support `transformAttributeName` (By [Erik Rothoff Andersson](https://github.com/erkie))
 
 
 
@@ -4991,17 +4330,22 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/command from 5.2.35 to 5.2.37 ([#477](https://github.com/jayree/sfdx-plugin-manifest/issues/477)) ([ced3e56](https://github.com/jayree/sfdx-plugin-manifest/commit/ced3e5618909acd588d9ba621f248dd85162f2d8))
-  * **deps:** bump @oclif/core from 1.22.0 to 1.23.0 ([8494194](https://github.com/salesforcecli/command/commit/8494194b1bb2ba6f542d814f7f55a9472618aaad))
   * **deps:** bump @oclif/test from 2.2.16 to 2.2.17 ([513e935](https://github.com/salesforcecli/command/commit/513e9355c0fe22593050ef9e3bfc95dd9fc098ec))
+  * **deps:** bump @oclif/core from 1.22.0 to 1.23.0 ([8494194](https://github.com/salesforcecli/command/commit/8494194b1bb2ba6f542d814f7f55a9472618aaad))
 * **deps:** bump @salesforce/kit from 1.8.0 to 1.8.2 ([#480](https://github.com/jayree/sfdx-plugin-manifest/issues/480)) ([0fea125](https://github.com/jayree/sfdx-plugin-manifest/commit/0fea1257ea0742188dc38e788e28b7f0e12cadc0))
-  * **deps:** bump json5 from 1.0.1 to 1.0.2 ([f2ffba8](https://github.com/forcedotcom/kit/commit/f2ffba8ef81bbc804e61416347e424dfb47eee5d))
   * getNumber, if given a default, guarantees the return type is of type number ([#130](https://github.com/forcedotcom/kit/issues/130)) ([14a9cf7](https://github.com/forcedotcom/kit/commit/14a9cf74254aa33ab18473088ecd0ddc914a696e))
+  * **deps:** bump json5 from 1.0.1 to 1.0.2 ([f2ffba8](https://github.com/forcedotcom/kit/commit/f2ffba8ef81bbc804e61416347e424dfb47eee5d))
 * **deps:** bump @salesforce/source-deploy-retrieve from 7.5.19 to 7.5.22 ([#479](https://github.com/jayree/sfdx-plugin-manifest/issues/479)) ([47b6e55](https://github.com/jayree/sfdx-plugin-manifest/commit/47b6e55a042dfe1279be1a8f7f12166ed16873b0))
   * **deps:** bump minimatch from 5.1.0 to 5.1.2 ([#811](https://github.com/forcedotcom/source-deploy-retrieve/issues/811)) ([13b2578](https://github.com/forcedotcom/source-deploy-retrieve/commit/13b25787c6957ad4e52bcce9a9fe569c9539587a))
-  * **deps:** bump ignore from 5.2.1 to 5.2.4 ([#812](https://github.com/forcedotcom/source-deploy-retrieve/issues/812)) ([ff96534](https://github.com/forcedotcom/source-deploy-retrieve/commit/ff96534c542a02df3628dfd23e2248c99209a844))
   * **deps:** bump @salesforce/core from 3.32.8 to 3.32.12 ([#810](https://github.com/forcedotcom/source-deploy-retrieve/issues/810)) ([bcf8412](https://github.com/forcedotcom/source-deploy-retrieve/commit/bcf8412faa1ee0d65f53fcb69ee0896887350325))
+  * **deps:** bump ignore from 5.2.1 to 5.2.4 ([#812](https://github.com/forcedotcom/source-deploy-retrieve/issues/812)) ([ff96534](https://github.com/forcedotcom/source-deploy-retrieve/commit/ff96534c542a02df3628dfd23e2248c99209a844))
 * **deps:** bump json5 from 1.0.1 to 1.0.2 ([#484](https://github.com/jayree/sfdx-plugin-manifest/issues/484)) ([469375b](https://github.com/jayree/sfdx-plugin-manifest/commit/469375b2b93687439e1474f2b3436ef539aa0061))
-  - Fix: Properties with the name `__proto__` are added to objects and arrays. ([#199]) This also fixes a prototype pollution vulnerability reported by Jonathan Gregson! ([#295]). This has been backported to v1. ([#298])
+  *   Fix: Properties with the name `__proto__` are added to objects and arrays. ([#199](https://github-redirect.dependabot.com/json5/json5/issues/199)) This also fixes a prototype pollution vulnerability reported by Jonathan Gregson! ([#295](https://github-redirect.dependabot.com/json5/json5/issues/295)). This has been backported to v1. ([#298](https://github-redirect.dependabot.com/json5/json5/issues/298))
+  *   Fix: json5@2.2.3 is now the 'latest' release according to npm instead of v1.0.2. ([#299](https://github-redirect.dependabot.com/json5/json5/issues/299))
+  *   Fix: Properties with the name `__proto__` are added to objects and arrays. ([#199](https://github-redirect.dependabot.com/json5/json5/issues/199)) This also fixes a prototype pollution vulnerability reported by Jonathan Gregson! ([#295](https://github-redirect.dependabot.com/json5/json5/issues/295)).
+  *   Fix: Removed dependence on minimist to patch CVE-2021-44906. ([#266](https://github-redirect.dependabot.com/json5/json5/issues/266))
+  *   New: Accurate and documented TypeScript declarations are now included. There is no need to install `@types/json5`. ([#236](https://github-redirect.dependabot.com/json5/json5/issues/236), [#244](https://github-redirect.dependabot.com/json5/json5/issues/244))
+  *   Fix: An out of memory bug when parsing numbers has been fixed. ([#228](https://github-redirect.dependabot.com/json5/json5/issues/228), [#229](https://github-redirect.dependabot.com/json5/json5/issues/229))
 
 
 
@@ -5054,8 +4398,8 @@
 * **deps:** bump @oclif/core from 1.22.0 to 1.23.0 ([#474](https://github.com/jayree/sfdx-plugin-manifest/issues/474)) ([e1dc961](https://github.com/jayree/sfdx-plugin-manifest/commit/e1dc9614d17d2480cc9118b0262dcdc8ff0d2f23))
   * allow flags to have false value in when ([#557](https://github.com/oclif/core/issues/557)) ([c40ce71](https://github.com/oclif/core/commit/c40ce711471ec596d417bd1c146682cde1dfbf6f))
 * **deps:** bump @salesforce/command from 5.2.33 to 5.2.35 ([#469](https://github.com/jayree/sfdx-plugin-manifest/issues/469)) ([6b18f65](https://github.com/jayree/sfdx-plugin-manifest/commit/6b18f65de1fdeff020102dc23875d541fce91868))
-  * **deps:** bump @salesforce/core from 3.32.11 to 3.32.12 ([8e3438d](https://github.com/salesforcecli/command/commit/8e3438d9375236ff7c0657c90f3725fa5c47c6ec))
   * **deps:** bump @oclif/test from 2.2.15 to 2.2.16 ([3ddccd6](https://github.com/salesforcecli/command/commit/3ddccd6f235015812c49c6b928c878f16d41dbe2))
+  * **deps:** bump @salesforce/core from 3.32.11 to 3.32.12 ([8e3438d](https://github.com/salesforcecli/command/commit/8e3438d9375236ff7c0657c90f3725fa5c47c6ec))
 * **deps:** bump @salesforce/source-deploy-retrieve from 7.5.18 to 7.5.19 ([#475](https://github.com/jayree/sfdx-plugin-manifest/issues/475)) ([de3e65a](https://github.com/jayree/sfdx-plugin-manifest/commit/de3e65a173e3299bf38f197c1b65125dd67e9751))
   * **deps:** bump got from 11.8.5 to 11.8.6 ([#805](https://github.com/forcedotcom/source-deploy-retrieve/issues/805)) ([856e99a](https://github.com/forcedotcom/source-deploy-retrieve/commit/856e99a1ad6921637e6a63b88d4b12d860818b18))
 * **deps:** bump marked from 4.2.4 to 4.2.5 ([#470](https://github.com/jayree/sfdx-plugin-manifest/issues/470)) ([fc5558b](https://github.com/jayree/sfdx-plugin-manifest/commit/fc5558bfee8fd7e18422676a4a27dd2d9092fcdf))
@@ -5091,8 +4435,8 @@
 * **deps:** bump @oclif/core from 1.21.0 to 1.22.0 ([#464](https://github.com/jayree/sfdx-plugin-manifest/issues/464)) ([3346c2f](https://github.com/jayree/sfdx-plugin-manifest/commit/3346c2fc5b8c8b191f9a5df4b6c1964712e6cba4))
   * pjson interface has devDependencies ([#574](https://github.com/oclif/core/issues/574)) ([4378886](https://github.com/oclif/core/commit/437888610b7bf2e4469d0a09d9bc0713dcec3fc5))
 * **deps:** bump @salesforce/command from 5.2.30 to 5.2.33 ([#462](https://github.com/jayree/sfdx-plugin-manifest/issues/462)) ([6cc78ed](https://github.com/jayree/sfdx-plugin-manifest/commit/6cc78ed5ae348aefab535d72c33bfc8c851a9308))
-  * **deps:** bump @salesforce/core from 3.32.9 to 3.32.11 ([d9a8b17](https://github.com/salesforcecli/command/commit/d9a8b174fdf7a058e3d10ba4e1c34bf14994bf2f))
   * **deps:** bump @oclif/core from 1.20.4 to 1.22.0 ([2cb87c9](https://github.com/salesforcecli/command/commit/2cb87c9872d8b63b52ac5ea81ff3d7f4c43b584f))
+  * **deps:** bump @salesforce/core from 3.32.9 to 3.32.11 ([d9a8b17](https://github.com/salesforcecli/command/commit/d9a8b174fdf7a058e3d10ba4e1c34bf14994bf2f))
   * **deps:** bump @oclif/test from 2.2.13 to 2.2.15 ([684fc85](https://github.com/salesforcecli/command/commit/684fc856a5496de1fbb17c6a39213f2080a9e52d))
 * **deps:** bump @salesforce/source-deploy-retrieve from 7.5.17 to 7.5.18 ([#457](https://github.com/jayree/sfdx-plugin-manifest/issues/457)) ([5ea35fa](https://github.com/jayree/sfdx-plugin-manifest/commit/5ea35fa4c3fc25d2bf2ed0b388960f1dc0db1762))
   * **deps:** bump ignore from 5.2.0 to 5.2.1 ([#794](https://github.com/forcedotcom/source-deploy-retrieve/issues/794)) ([de8306c](https://github.com/forcedotcom/source-deploy-retrieve/commit/de8306c570da2e2e3fb98d54bb7647755d0e9a75))
@@ -5108,8 +4452,8 @@
   * **deps:** bump @oclif/test from 2.2.12 to 2.2.13 ([6c7cc6d](https://github.com/salesforcecli/command/commit/6c7cc6d696cef66508970023f18b9618df49e95c))
   * **deps:** bump @salesforce/core from 3.32.6 to 3.32.9 ([b4cb21a](https://github.com/salesforcecli/command/commit/b4cb21a28d986bc5f41ef6a1e0ea9b41a7e33db9))
 * **deps:** bump @salesforce/source-deploy-retrieve from 7.5.14 to 7.5.17 ([#453](https://github.com/jayree/sfdx-plugin-manifest/issues/453)) ([f145807](https://github.com/jayree/sfdx-plugin-manifest/commit/f145807c06cd7ec43a49040399636225a9cc637e))
-  * always send deploy event and fix telemetry for mdapi deploy ([#797](https://github.com/forcedotcom/source-deploy-retrieve/issues/797)) ([42ab03e](https://github.com/forcedotcom/source-deploy-retrieve/commit/42ab03edd938156450547f423c2f1990b3f2d9df))
   * correct apiVersion and sourceApiVersion values before transfer and send events ([#791](https://github.com/forcedotcom/source-deploy-retrieve/issues/791)) ([2e865e9](https://github.com/forcedotcom/source-deploy-retrieve/commit/2e865e97a200cd4e493bde577970fb4f49862e7f))
+  * always send deploy event and fix telemetry for mdapi deploy ([#797](https://github.com/forcedotcom/source-deploy-retrieve/issues/797)) ([42ab03e](https://github.com/forcedotcom/source-deploy-retrieve/commit/42ab03edd938156450547f423c2f1990b3f2d9df))
   * **types:** FuelType, FuelTypeSustnUom, SustainabilityUom, SustnUomConversion ([d4f7b53](https://github.com/forcedotcom/source-deploy-retrieve/commit/d4f7b534a349dbedcc9109533d8d53e491bac2d2))
 
 
@@ -5175,6 +4519,7 @@
   * **deps:** bump @salesforce/core from 3.31.17 to 3.32.1 ([#779](https://github.com/forcedotcom/source-deploy-retrieve/issues/779)) ([05ed7ba](https://github.com/forcedotcom/source-deploy-retrieve/commit/05ed7bae5828d4390acdc768661add6406b1c663))
   * include string errors during convert ([#781](https://github.com/forcedotcom/source-deploy-retrieve/issues/781)) ([2f10c45](https://github.com/forcedotcom/source-deploy-retrieve/commit/2f10c458d6f393926f1dcded3bd1692899434dc6))
 * **deps:** bump fast-xml-parser from 4.0.11 to 4.0.12 ([#416](https://github.com/jayree/sfdx-plugin-manifest/issues/416)) ([22e1e92](https://github.com/jayree/sfdx-plugin-manifest/commit/22e1e92915f554eec43f9a0cfaa7242ae4f4a102))
+  *   fix typescript
 * **deps:** bump marked from 4.2.2 to 4.2.3 ([#415](https://github.com/jayree/sfdx-plugin-manifest/issues/415)) ([e96fca2](https://github.com/jayree/sfdx-plugin-manifest/commit/e96fca2fa30f8688035149fdb26fd67423f3c80e))
   * fix entity specs ([#2652](https://github.com/markedjs/marked/issues/2652)) ([36a2b63](https://github.com/markedjs/marked/commit/36a2b639dc66e756de11a8f2ea3f826d56ba4f7e))
   * fix link reference definitions specs ([#2654](https://github.com/markedjs/marked/issues/2654)) ([b7eea95](https://github.com/markedjs/marked/commit/b7eea9504bd73872274dbb938ae2baa7c57b6e0e))
@@ -5207,9 +4552,9 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/command from 5.2.20 to 5.2.24 ([#412](https://github.com/jayree/sfdx-plugin-manifest/issues/412)) ([00c4eb9](https://github.com/jayree/sfdx-plugin-manifest/commit/00c4eb9b68928accff5c9650b147283af889bfb8))
-  * **deps:** bump @salesforce/kit from 1.7.1 to 1.8.0 ([4064079](https://github.com/salesforcecli/command/commit/406407903223494b6ef7eea4636f23392f7b2279))
   * **deps:** bump @oclif/core from 1.20.2 to 1.20.4 ([be7f291](https://github.com/salesforcecli/command/commit/be7f291fadd945a8a95a19ada8a5c479a84d249c))
   * **deps:** bump @salesforce/ts-types from 1.7.0 to 1.7.1 ([a436272](https://github.com/salesforcecli/command/commit/a4362727028124355b21ad6bb9a131fc1d4237ea))
+  * **deps:** bump @salesforce/kit from 1.7.1 to 1.8.0 ([4064079](https://github.com/salesforcecli/command/commit/406407903223494b6ef7eea4636f23392f7b2279))
   * **deps:** bump @oclif/test from 2.2.4 to 2.2.10 ([a8e4fd2](https://github.com/salesforcecli/command/commit/a8e4fd23e22475c5be2d9c1d15536cf318fc7007))
 * **deps:** bump @salesforce/source-deploy-retrieve from 7.5.6 to 7.5.9 ([#411](https://github.com/jayree/sfdx-plugin-manifest/issues/411)) ([aecfe7f](https://github.com/jayree/sfdx-plugin-manifest/commit/aecfe7f727efa3597b31f58872f6ce81c497fd85))
   * **metadataTypes:** ExtlClntAppMobileConfigurablePolicies ([90b1a3e](https://github.com/forcedotcom/source-deploy-retrieve/commit/90b1a3eaa0c0117b0be3c112622f27cf93af68fe))
@@ -5226,9 +4571,9 @@
   * **deps:** bump @oclif/core from 1.20.0 to 1.20.2 ([2725a5a](https://github.com/salesforcecli/command/commit/2725a5a47d82ff3d071ebdb22a41928ae6f7de82))
   * **deps:** bump @salesforce/kit from 1.7.0 to 1.7.1 ([be68d1a](https://github.com/salesforcecli/command/commit/be68d1a30b52dda22c4f5519871f607de1cc797f))
 * **deps:** bump @salesforce/source-deploy-retrieve from 7.5.1 to 7.5.6 ([#401](https://github.com/jayree/sfdx-plugin-manifest/issues/401)) ([add5226](https://github.com/jayree/sfdx-plugin-manifest/commit/add5226ac8cbdc512b420a6b5d40b023ac611c67))
-  * **metadataTypes:** timelineobjectdefinition ([de6fac3](https://github.com/forcedotcom/source-deploy-retrieve/commit/de6fac359e4310f22a1a271d05053f706bddb249))
-  * **deps:** bump @salesforce/ts-types from 1.7.0 to 1.7.1 ([#764](https://github.com/forcedotcom/source-deploy-retrieve/issues/764)) ([62be695](https://github.com/forcedotcom/source-deploy-retrieve/commit/62be6959b724b3f9d12a7655ff36968766aade2b))
   * **deps:** bump @salesforce/kit from 1.7.0 to 1.7.2 ([#766](https://github.com/forcedotcom/source-deploy-retrieve/issues/766)) ([bfff8d1](https://github.com/forcedotcom/source-deploy-retrieve/commit/bfff8d110ff4797f22c4574c212aac34b545b7ad))
+  * **deps:** bump @salesforce/ts-types from 1.7.0 to 1.7.1 ([#764](https://github.com/forcedotcom/source-deploy-retrieve/issues/764)) ([62be695](https://github.com/forcedotcom/source-deploy-retrieve/commit/62be6959b724b3f9d12a7655ff36968766aade2b))
+  * **metadataTypes:** timelineobjectdefinition ([de6fac3](https://github.com/forcedotcom/source-deploy-retrieve/commit/de6fac359e4310f22a1a271d05053f706bddb249))
   * don't wait for archiver finalize ([81e32c2](https://github.com/forcedotcom/source-deploy-retrieve/commit/81e32c2d89947cf5f4c4aa4375c5c778a0ffebea))
   * **metadataTypes:** ESDef/DMDef in metadata-registry ([7ee3943](https://github.com/forcedotcom/source-deploy-retrieve/commit/7ee39432c3bdf30e8f153f21a8af5c22e4638af7))
 * **deps:** bump marked from 4.2.1 to 4.2.2 ([#394](https://github.com/jayree/sfdx-plugin-manifest/issues/394)) ([5a69c7a](https://github.com/jayree/sfdx-plugin-manifest/commit/5a69c7a74b3bf5991cc5d07777b9b39b621aec7c))
@@ -5242,18 +4587,17 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/command from 5.2.16 to 5.2.18 ([#379](https://github.com/jayree/sfdx-plugin-manifest/issues/379)) ([07f40cb](https://github.com/jayree/sfdx-plugin-manifest/commit/07f40cb7f2bdff16b9648970c26a7e837c2165f2))
-  * **deps:** bump @oclif/core from 1.19.1 to 1.20.0 ([53e5e60](https://github.com/salesforcecli/command/commit/53e5e60d466cf8b1f9e2d2fa1a161c4c01854c90))
   * **deps:** bump @salesforce/core from 3.31.16 to 3.31.17 ([f02fddb](https://github.com/salesforcecli/command/commit/f02fddbd32b9e7fef1e3535154b13e7ab24cff98))
+  * **deps:** bump @oclif/core from 1.19.1 to 1.20.0 ([53e5e60](https://github.com/salesforcecli/command/commit/53e5e60d466cf8b1f9e2d2fa1a161c4c01854c90))
 * **deps:** bump @salesforce/source-deploy-retrieve from 7.4.0 to 7.5.1 ([#378](https://github.com/jayree/sfdx-plugin-manifest/issues/378)) ([edeb210](https://github.com/jayree/sfdx-plugin-manifest/commit/edeb2101d960c91b85633a0f2ba0f278c4ffda71))
   * string replacements in deploy ([#748](https://github.com/forcedotcom/source-deploy-retrieve/issues/748)) ([a23c6b3](https://github.com/forcedotcom/source-deploy-retrieve/commit/a23c6b359f5c9944aea555006d707a700caaf462))
-  * **metadataTypes:**  ExtlClntAppOauthConfigurablePolicies, ExtlClntAppMobileSettings ([#757](https://github.com/forcedotcom/source-deploy-retrieve/issues/757)) ([a6af2bf](https://github.com/forcedotcom/source-deploy-retrieve/commit/a6af2bf3381036f8ba6cd5957e2c8d05b018598f))
   * **deps:** bump @salesforce/core from 3.31.10 to 3.31.17 ([#754](https://github.com/forcedotcom/source-deploy-retrieve/issues/754)) ([cd89eaa](https://github.com/forcedotcom/source-deploy-retrieve/commit/cd89eaab1f33ac973b77599f52476e79b8787493))
   * **deps:** bump @salesforce/ts-types from 1.5.21 to 1.7.0 ([#753](https://github.com/forcedotcom/source-deploy-retrieve/issues/753)) ([a11923c](https://github.com/forcedotcom/source-deploy-retrieve/commit/a11923ce266ed75bcafb63d9c3684cef4d90ee83))
+  * **metadataTypes:**  ExtlClntAppOauthConfigurablePolicies, ExtlClntAppMobileSettings ([#757](https://github.com/forcedotcom/source-deploy-retrieve/issues/757)) ([a6af2bf](https://github.com/forcedotcom/source-deploy-retrieve/commit/a6af2bf3381036f8ba6cd5957e2c8d05b018598f))
 * **deps:** bump marked from 4.1.1 to 4.2.1 ([#382](https://github.com/jayree/sfdx-plugin-manifest/issues/382)) ([651f4f7](https://github.com/jayree/sfdx-plugin-manifest/commit/651f4f7269ab017f3ec315bcd5c62f415bb38561))
   * export bin/marked ([#2629](https://github.com/markedjs/marked/issues/2629)) ([bd8aad9](https://github.com/markedjs/marked/commit/bd8aad973a1c8d0ffcc38df76b910f41365e993e))
   * Support escapes within emphasis ([#2627](https://github.com/markedjs/marked/issues/2627)) ([377823a](https://github.com/markedjs/marked/commit/377823a6f5ca00c64726bd5630cf2962cb3ff1fc)), closes [#2280](https://github.com/markedjs/marked/issues/2280)
 * **deps:** bump tslib from 2.4.0 to 2.4.1 ([#374](https://github.com/jayree/sfdx-plugin-manifest/issues/374)) ([a79bf72](https://github.com/jayree/sfdx-plugin-manifest/commit/a79bf72244396a8b5386e4e0f76e584d301647ea))
-  This release contains [fixes for early `return`s and `throw`s invoked on generators](https://github.com/microsoft/tslib/pull/186).
 
 
 
@@ -5272,9 +4616,9 @@
   * **deps:** bump @salesforce/ts-types from 1.5.21 to 1.7.0 ([c61a483](https://github.com/forcedotcom/kit/commit/c61a4835b02627356bc5288905fdfe58706dff95))
 * **deps:** bump @salesforce/source-deploy-retrieve from 7.0.1 to 7.4.0 ([#368](https://github.com/jayree/sfdx-plugin-manifest/issues/368)) ([ffe2a95](https://github.com/jayree/sfdx-plugin-manifest/commit/ffe2a95d98855808246958363af41c0fc5e34903))
   * **metadata registry:**  adding BotBlock to metadata registry ([#741](https://github.com/forcedotcom/source-deploy-retrieve/issues/741)) ([8d7bdda](https://github.com/forcedotcom/source-deploy-retrieve/commit/8d7bdda1a2967465c7519743f2bed0bb5c7fd456))
-  * **metadataTypes:** ExtlClntAppOauthPlcyCnfg, ExtlClntAppOauthSettings, ExtlClntAppMobileSet  ([b4f61ae](https://github.com/forcedotcom/source-deploy-retrieve/commit/b4f61ae32902eb14ca25de517086663b8da26c47))
   * **metadataTypes:** DisclosureType DisclosureDefinition DisclosureDefinitionVersion ClauseCatgConfiguration ([555017e](https://github.com/forcedotcom/source-deploy-retrieve/commit/555017e8db2a83e753d061c7a923fea3ca5dad48))
   * **metadataTypes:** adding omnisupervisorconfig support ([#747](https://github.com/forcedotcom/source-deploy-retrieve/issues/747)) ([bf45ac1](https://github.com/forcedotcom/source-deploy-retrieve/commit/bf45ac18935aa2facb942eade57168d6725f2566))
+  * **metadataTypes:** ExtlClntAppOauthPlcyCnfg, ExtlClntAppOauthSettings, ExtlClntAppMobileSet  ([b4f61ae](https://github.com/forcedotcom/source-deploy-retrieve/commit/b4f61ae32902eb14ca25de517086663b8da26c47))
   * add a better error message with invalid manifests ([#740](https://github.com/forcedotcom/source-deploy-retrieve/issues/740)) ([8458c58](https://github.com/forcedotcom/source-deploy-retrieve/commit/8458c58fb2b8dfa2a7f1d170ce11dbd892329304))
   * fix MAE suffix ([#750](https://github.com/forcedotcom/source-deploy-retrieve/issues/750)) ([503a02c](https://github.com/forcedotcom/source-deploy-retrieve/commit/503a02c84e251d1a04705e9962f8b98ef19416fd))
 
@@ -5323,13 +4667,13 @@
   * create on asyncOptionalCreatable requires that P extend object ([e294798](https://github.com/forcedotcom/kit/commit/e2947982366f8318ad395ce682cf8b75d9e69262))
 * **deps:** bump @salesforce/source-deploy-retrieve from 6.8.2 to 6.9.0 ([#331](https://github.com/jayree/sfdx-plugin-manifest/issues/331)) ([4297f9e](https://github.com/jayree/sfdx-plugin-manifest/commit/4297f9e87148e52851bfedf26a334d8a0bef133f))
   * 5 new metadata type support ([c031034](https://github.com/forcedotcom/source-deploy-retrieve/commit/c031034cf847c15a195acac797c83844c8a4e270))
-  * deploy/push a CustomFieldTranslation without its parent ([89214fd](https://github.com/forcedotcom/source-deploy-retrieve/commit/89214fd5f5caf0a2aadbee69c9614984cec95862))
   * bump core ([7c7922b](https://github.com/forcedotcom/source-deploy-retrieve/commit/7c7922bba6e6b60528c9d82ee5c08c7534f79dd0))
   * show individual cft in a retrieve ([#728](https://github.com/forcedotcom/source-deploy-retrieve/issues/728)) ([44dae0c](https://github.com/forcedotcom/source-deploy-retrieve/commit/44dae0cdb3f88d8cdc4adf1b4b017278f1435add))
+  * deploy/push a CustomFieldTranslation without its parent ([89214fd](https://github.com/forcedotcom/source-deploy-retrieve/commit/89214fd5f5caf0a2aadbee69c9614984cec95862))
 * **deps:** bump fast-xml-parser from 4.0.10 to 4.0.11 ([#332](https://github.com/jayree/sfdx-plugin-manifest/issues/332)) ([ad6d6d2](https://github.com/jayree/sfdx-plugin-manifest/commit/ad6d6d20b608405f4c6e600c428868af495aa84c))
+  *   fix [#501](https://github-redirect.dependabot.com/NaturalIntelligence/fast-xml-parser/issues/501): parse for entities only once
 * **deps:** bump semver from 7.3.7 to 7.3.8 ([#334](https://github.com/jayree/sfdx-plugin-manifest/issues/334)) ([c1cd1a9](https://github.com/jayree/sfdx-plugin-manifest/commit/c1cd1a9fde362d2bf70bdf5d80cd83b196dbcb6b))
   * [`d8ef32c`](https://github.com/npm/node-semver/commit/d8ef32cee7a7e34310838f32451c9bcf52956b64) [#383](https://github.com/npm/node-semver/pull/383) add support for node.js esm auto exports (#383) (@MylesBorins)
-  ### Documentation
   * [`7209b14`](https://github.com/npm/node-semver/commit/7209b14ccd7ca35b9a1077a0b67d9ce884fe6d00) [#477](https://github.com/npm/node-semver/pull/477) update range.js comments to clarify the caret ranges examples (#477) (@amitse)
 
 
@@ -5362,8 +4706,8 @@
 * **deps:** bump @oclif/core from 1.16.3 to 1.16.4 ([1935e3a](https://github.com/jayree/sfdx-plugin-manifest/commit/1935e3a981ec8041d718a6f1750c09660a9304cb))
   * work with 4.8.3 ([#493](https://github.com/oclif/core/issues/493)) ([2f09a72](https://github.com/oclif/core/commit/2f09a725bb7ff7ef8b4f4d6d6f67d0d83a1ed1f8))
 * **deps:** bump @salesforce/command from 5.2.8 to 5.2.10 ([#309](https://github.com/jayree/sfdx-plugin-manifest/issues/309)) ([d955de5](https://github.com/jayree/sfdx-plugin-manifest/commit/d955de5c1334445b922d08a69b625e283eac596d))
-  * **deps:** bump @salesforce/kit from 1.6.0 to 1.6.1 ([63d6627](https://github.com/salesforcecli/command/commit/63d6627dd43475b3c0e5918f137ff3be75ab68ea))
   * **deps:** bump @salesforce/core from 3.30.2 to 3.30.8 ([b06f455](https://github.com/salesforcecli/command/commit/b06f4556d01a57a1058711eb56222cfee3f9d591))
+  * **deps:** bump @salesforce/kit from 1.6.0 to 1.6.1 ([63d6627](https://github.com/salesforcecli/command/commit/63d6627dd43475b3c0e5918f137ff3be75ab68ea))
 * **deps:** bump @salesforce/source-deploy-retrieve from 6.8.1 to 6.8.2 ([e0a449c](https://github.com/jayree/sfdx-plugin-manifest/commit/e0a449c250b0d35738f9f2a0f02ad5ad45049fc2))
   * **deps:** bump @salesforce/core from 3.26.3 to 3.30.8 ([#716](https://github.com/forcedotcom/source-deploy-retrieve/issues/716)) ([51d9a6d](https://github.com/forcedotcom/source-deploy-retrieve/commit/51d9a6d310f58db1ad03c42b9930d34458bab5f5))
 
@@ -5393,8 +4737,8 @@
 ### Bug Fixes
 
 * **deps:** bump @oclif/core from 1.13.10 to 1.16.0 ([c4b4bec](https://github.com/jayree/sfdx-plugin-manifest/commit/c4b4bec2c97d6857b2c1c8bbc3648fd15ac4aae9))
-  * add InferredFlags type ([#473](https://github.com/oclif/core/issues/473)) ([ee5ce65](https://github.com/oclif/core/commit/ee5ce651899c0ef586d425567ef3b78468dca627))
   * all oclif flag types support custom parsers ([ad86faf](https://github.com/oclif/core/commit/ad86faf08f7a6d7984afe356819df458aaf04674))
+  * add InferredFlags type ([#473](https://github.com/oclif/core/issues/473)) ([ee5ce65](https://github.com/oclif/core/commit/ee5ce651899c0ef586d425567ef3b78468dca627))
   * support complex flag relationships ([#468](https://github.com/oclif/core/issues/468)) ([222d1f6](https://github.com/oclif/core/commit/222d1f67012557ac0707077d6c8840966dbf00cb))
   * more custom flag type overloads ([#471](https://github.com/oclif/core/issues/471)) ([ac4baf2](https://github.com/oclif/core/commit/ac4baf260f8e87bb5618c7b790f35372d55096c7))
   * parser doesn't validate against options parameter if the value is provided through a env var ([#474](https://github.com/oclif/core/issues/474)) ([fe6dfea](https://github.com/oclif/core/commit/fe6dfea0bcc5cae69c91962430996670decf7887))
@@ -5402,7 +4746,6 @@
 * **deps:** bump @oclif/core from 1.16.0 to 1.16.1 ([e8c8488](https://github.com/jayree/sfdx-plugin-manifest/commit/e8c848876f1371d8ee36fdeaf6c738c7e009b0ac))
   * support environment variables for boolean flags ([#488](https://github.com/oclif/core/issues/488)) ([#490](https://github.com/oclif/core/issues/490)) ([506945c](https://github.com/oclif/core/commit/506945c6ea2f8b75f0d56ad1f6e62a3717384a42)), closes [#487](https://github.com/oclif/core/issues/487)
 * **deps:** bump @salesforce/kit from 1.5.45 to 1.6.0 ([712f64b](https://github.com/jayree/sfdx-plugin-manifest/commit/712f64ba1dc7f858419072ab0933428936e37856))
-  - ensureArray ([709703f](https://github.com/forcedotcom/kit/commit/709703f9dd7fec38831d14a4c2ef23d7b9e26bba))
 * **deps:** bump @salesforce/source-deploy-retrieve from 6.3.0 to 6.5.0 ([9c5ce03](https://github.com/jayree/sfdx-plugin-manifest/commit/9c5ce030017497b89e13301af86ce427d807dd21))
   * add 'MarketingAppExtension' to the registry ([a3ea5ab](https://github.com/forcedotcom/source-deploy-retrieve/commit/a3ea5ab9258691060ac6fe4019507f42a879fbcc))
   * fix pjson major version ([a7ccf7f](https://github.com/forcedotcom/source-deploy-retrieve/commit/a7ccf7fde1d55c5e10d5095c4c283b400481f07e))
@@ -5414,12 +4757,12 @@
 * **deps:** bump isomorphic-git from 1.19.1 to 1.21.0 ([9eae30d](https://github.com/jayree/sfdx-plugin-manifest/commit/9eae30d028bce8e3ea70ada4d9c4a1c7f9402a05))
   * **branch:** add force param to overwrite existing branch ([#1637](https://github.com/isomorphic-git/isomorphic-git/issues/1637)) ([e65ad37](https://github.com/isomorphic-git/isomorphic-git/commit/e65ad3753bb7d8b2c27ad710ac37f61c28e72c9d))
   * **branch:** add object param to specify start point for new branch ([#1635](https://github.com/isomorphic-git/isomorphic-git/issues/1635)) ([4687812](https://github.com/isomorphic-git/isomorphic-git/commit/4687812b9ab518e7eb41447e5a31b2316526f5ed))
-  * **push:** force push if no change (oids match) ([#1625](https://github.com/isomorphic-git/isomorphic-git/issues/1625)) ([e795ef6](https://github.com/isomorphic-git/isomorphic-git/commit/e795ef6a4258bef8b0e64d6d85f4d029d98a8050))
   * Use 127.0.0.1 instead of localhost in tests ([#1633](https://github.com/isomorphic-git/isomorphic-git/issues/1633)) ([1c95995](https://github.com/isomorphic-git/isomorphic-git/commit/1c95995d53a214b9f30c5b9d1c8728832d92fd41))
+  * **push:** force push if no change (oids match) ([#1625](https://github.com/isomorphic-git/isomorphic-git/issues/1625)) ([e795ef6](https://github.com/isomorphic-git/isomorphic-git/commit/e795ef6a4258bef8b0e64d6d85f4d029d98a8050))
 * **deps:** bump listr2 from 5.0.2 to 5.0.5 ([7462e79](https://github.com/jayree/sfdx-plugin-manifest/commit/7462e79356ea670a8848c89e7fc5e4bec34a0058))
+  * **listr-error:** changes the types for the listrerror ([306a304](https://github.com/cenk1cenk2/listr2/commit/306a3047b443a5b15336a1d5bce8d348c988a325)), closes [#653](https://github.com/cenk1cenk2/listr2/issues/653)
   * Use 'isObservable' utility instance of 'instanceof' ([197e373](https://github.com/cenk1cenk2/listr2/commit/197e3733a223cbb23ca45537324b14a003078977))
   * esm dynamic import of enquirer ([55bed0a](https://github.com/cenk1cenk2/listr2/commit/55bed0af68de2e1d6caf89100d4a2825150ef6bd)), closes [#631](https://github.com/cenk1cenk2/listr2/issues/631)
-  * **listr-error:** changes the types for the listrerror ([306a304](https://github.com/cenk1cenk2/listr2/commit/306a3047b443a5b15336a1d5bce8d348c988a325)), closes [#653](https://github.com/cenk1cenk2/listr2/issues/653)
 
 
 ### Features
@@ -5443,17 +4786,16 @@
 ### Bug Fixes
 
 * **deps:** bump @oclif/core from 1.13.0 to 1.13.10 ([22b579e](https://github.com/jayree/sfdx-plugin-manifest/commit/22b579e242ba6ee240f851dfb519ca6f7f71bd8f))
-  * flag types ([#454](https://github.com/oclif/core/issues/454)) ([2938ba4](https://github.com/oclif/core/commit/2938ba4082d1b0c603a55678fe47f5beed9acbb5))
-  * retain enable json flag get/set apply flag at parse ([#460](https://github.com/oclif/core/issues/460)) ([9812937](https://github.com/oclif/core/commit/9812937e43a573cf4a10d4b03fca47555de5a1d9))
-  * improve flag types ([6d0b4e1](https://github.com/oclif/core/commit/6d0b4e1f1761baba0e085ea8d342a7bc913e7e5d))
   * throw appropriate error in runCommand ([#455](https://github.com/oclif/core/issues/455)) ([66e9bbc](https://github.com/oclif/core/commit/66e9bbca08f9e1f4a08e1c8c144bf85c274b7f82))
-  * remove json flag if subclass overrides enableJsonFlag ([#467](https://github.com/oclif/core/issues/467)) ([05dd12a](https://github.com/oclif/core/commit/05dd12ad114f37d0512df2d89a8e51d0984fa3d4))
-  * flush not hitting drain condition ([#448](https://github.com/oclif/core/issues/448)) ([05dd5fe](https://github.com/oclif/core/commit/05dd5fe08b57aa716c07cc51e8ed407c9e7b6aa5))
+  * improve flag types ([6d0b4e1](https://github.com/oclif/core/commit/6d0b4e1f1761baba0e085ea8d342a7bc913e7e5d))
+  * retain enable json flag get/set apply flag at parse ([#460](https://github.com/oclif/core/issues/460)) ([9812937](https://github.com/oclif/core/commit/9812937e43a573cf4a10d4b03fca47555de5a1d9))
+  * flag types ([#454](https://github.com/oclif/core/issues/454)) ([2938ba4](https://github.com/oclif/core/commit/2938ba4082d1b0c603a55678fe47f5beed9acbb5))
   * skip loadDevPlugins ([#459](https://github.com/oclif/core/issues/459)) ([21c948c](https://github.com/oclif/core/commit/21c948cd41b08b3aad4df5c3439d33e235f6979e))
   * revert [#460](https://github.com/oclif/core/issues/460) ([#466](https://github.com/oclif/core/issues/466)) ([4c28acf](https://github.com/oclif/core/commit/4c28acfc2131eadbac423fa722b8cc0dc16a1b5b))
   * types on custom flags ([#463](https://github.com/oclif/core/issues/463)) ([2728e23](https://github.com/oclif/core/commit/2728e2310406137e0356d039a90d321daafd6578))
+  * remove json flag if subclass overrides enableJsonFlag ([#467](https://github.com/oclif/core/issues/467)) ([05dd12a](https://github.com/oclif/core/commit/05dd12ad114f37d0512df2d89a8e51d0984fa3d4))
+  * flush not hitting drain condition ([#448](https://github.com/oclif/core/issues/448)) ([05dd5fe](https://github.com/oclif/core/commit/05dd5fe08b57aa716c07cc51e8ed407c9e7b6aa5))
 * **deps:** bump @salesforce/source-deploy-retrieve from 6.2.6 to 6.2.9 ([8d0c93d](https://github.com/jayree/sfdx-plugin-manifest/commit/8d0c93daa2f177f51970f838e116d209f492826f))
-  - removing support for connect center [#671](https://github.com/forcedotcom/source-deploy-retrieve/issues/671) ([#682](https://github.com/forcedotcom/source-deploy-retrieve/issues/682)) ([7810733](https://github.com/forcedotcom/source-deploy-retrieve/commit/78107335d20c20bcf9a1ebfc4cefc2693267bac4))
 * **deps:** bump listr2 from 5.0.1 to 5.0.2 ([d00b56d](https://github.com/jayree/sfdx-plugin-manifest/commit/d00b56d7b3c49fa78589f83665a2a31197dc8230))
   * update build configuration because of seg fault ([54b54dd](https://github.com/cenk1cenk2/listr2/commit/54b54dd398049cadfae507b9c9ffd00f53f51681))
 * remove datamappingobjectdefinition ([95c1e02](https://github.com/jayree/sfdx-plugin-manifest/commit/95c1e026209b0eeb60b9ebd802f8a278f45a3139))
@@ -5479,20 +4821,14 @@
 ### Bug Fixes
 
 * **deps:** bump @oclif/core from 1.9.3 to 1.12.1 ([d319ac7](https://github.com/jayree/sfdx-plugin-manifest/commit/d319ac7a14695d5ab0fc843f5c1ade2089f95378))
-  * improve the instantiation of global flags ([#445](https://github.com/oclif/core/issues/445)) ([d264535](https://github.com/oclif/core/commit/d2645358ccf1cddd0bb65d236e73ecf4c5ac7c0c))
-  * print error info when module not found ([#427](https://github.com/oclif/core/issues/427)) ([223e79b](https://github.com/oclif/core/commit/223e79b363ad01da327e264244daf23810849d70))
   * add stderr method ([#441](https://github.com/oclif/core/issues/441)) ([d9490f7](https://github.com/oclif/core/commit/d9490f77ff4cac0ee9767f1386f18c7357e0666e))
+  * print error info when module not found ([#427](https://github.com/oclif/core/issues/427)) ([223e79b](https://github.com/oclif/core/commit/223e79b363ad01da327e264244daf23810849d70))
+  * improve the instantiation of global flags ([#445](https://github.com/oclif/core/issues/445)) ([d264535](https://github.com/oclif/core/commit/d2645358ccf1cddd0bb65d236e73ecf4c5ac7c0c))
   * can not find module 'cli-ux' ([#403](https://github.com/oclif/core/issues/403)) ([f16b67f](https://github.com/oclif/core/commit/f16b67f8b6cd3eaaf24c26d4e7c4d490c0937ff3))
   * help for single command CLIs ([#442](https://github.com/oclif/core/issues/442)) ([44aacc1](https://github.com/oclif/core/commit/44aacc12fbc68f9909796c4ad2a1c9d45f47e653))
   * flag setter order ([#450](https://github.com/oclif/core/issues/450)) ([a02f86c](https://github.com/oclif/core/commit/a02f86cb1094a86ba0cd8689fd82908ff3d46386))
 * **deps:** bump @salesforce/kit from 1.5.42 to 1.5.44 ([1cb9ce7](https://github.com/jayree/sfdx-plugin-manifest/commit/1cb9ce7755690ab62ac5983ab548d36c4a148d27))
 * **deps:** bump @salesforce/source-deploy-retrieve from 6.0.4 to 6.2.6 ([b1bc5b6](https://github.com/jayree/sfdx-plugin-manifest/commit/b1bc5b6db5457329336b35cef197ca3f660043a9))
-  - use StateAggregator ([#646](https://github.com/forcedotcom/source-deploy-retrieve/issues/646)) ([f1d8848](https://github.com/forcedotcom/source-deploy-retrieve/commit/f1d8848c747362594abd519c579f3aebfee48bec))
-  - SDR emits new lifecycle events ([d92b491](https://github.com/forcedotcom/source-deploy-retrieve/commit/d92b49163a02837da118f932dde394d78c3fbfa8))
-  - static resources without content due to ignore produce nice error ([#663](https://github.com/forcedotcom/source-deploy-retrieve/issues/663)) ([cf18e1b](https://github.com/forcedotcom/source-deploy-retrieve/commit/cf18e1b5bb0bacf398e69b247520c019a2b00498))
-  - handle namespaces on lwc markup ([#669](https://github.com/forcedotcom/source-deploy-retrieve/issues/669)) ([8817545](https://github.com/forcedotcom/source-deploy-retrieve/commit/8817545a43f78f7327745e4638c74f6f838fa6ea))
-  - only scan pkgDirs when merging non-decomposed MD ([#666](https://github.com/forcedotcom/source-deploy-retrieve/issues/666)) ([098875f](https://github.com/forcedotcom/source-deploy-retrieve/commit/098875f547ba7fcc8d35ccc8f2cce60ee04ece77))
-  - proxy support for coverage report ([#659](https://github.com/forcedotcom/source-deploy-retrieve/issues/659)) ([8121a94](https://github.com/forcedotcom/source-deploy-retrieve/commit/8121a94e0ca9d2d96e4c5711c2844eb88500dfac))
 * **deps:** bump fast-xml-parser from 4.0.8 to 4.0.9 ([e067348](https://github.com/jayree/sfdx-plugin-manifest/commit/e067348a74b54425a5c76a8a578865b6e8901e5d))
 * **deps:** bump isomorphic-git from 1.18.3 to 1.19.0 ([cdd7253](https://github.com/jayree/sfdx-plugin-manifest/commit/cdd725337544cd1b7697a30927410658a8c777d4))
   * Added prune & pruneTags parameter to pull command ([#1614](https://github.com/isomorphic-git/isomorphic-git/issues/1614)) ([fb6f6e9](https://github.com/isomorphic-git/isomorphic-git/commit/fb6f6e93886257aa4b7729d3691a7282ec917523))
@@ -5500,9 +4836,7 @@
   * **onProgress:** the "Resolving deltas" count was off by 1 ([#1615](https://github.com/isomorphic-git/isomorphic-git/issues/1615)) ([efde23b](https://github.com/isomorphic-git/isomorphic-git/commit/efde23be59efd801f6f481f347d977365ba49134))
 * **deps:** bump listr2 from 4.0.5 to 5.0.1 ([72b2adb](https://github.com/jayree/sfdx-plugin-manifest/commit/72b2adb71a01ce4e13d74dfed2faf01a417bc1c9))
   * update command for docs ([6e42d91](https://github.com/cenk1cenk2/listr2/commit/6e42d916fc28b5ab3a87a2b33619570171447d79))
-  ### Performance Improvements
   * drop node 12 support ([84fd3fc](https://github.com/cenk1cenk2/listr2/commit/84fd3fc810876a9118103f4f8d7816caf12e1f73))
-  ### BREAKING CHANGES
   * drops support for node12, migrate build to gitlab
   * badge ([b6d9bcd](https://github.com/cenk1cenk2/listr2/commit/b6d9bcda584520ecc8a732b946cb30f6f24c5c7a))
 * **deps:** bump marked from 4.0.17 to 4.0.18 ([70efd50](https://github.com/jayree/sfdx-plugin-manifest/commit/70efd506113d58a8df877c5860ace146eb5e8bc2))
@@ -5518,12 +4852,11 @@
 * **deps:** bump @oclif/core from 1.9.0 to 1.9.3 ([fa49218](https://github.com/jayree/sfdx-plugin-manifest/commit/fa4921879fde4fb9578450cea42c19f7f9af48aa))
   * support CLIs with single top level command ([#426](https://github.com/oclif/core/issues/426)) ([44adb4d](https://github.com/oclif/core/commit/44adb4d387695548a017b38249b0bc3453aedbdf))
 * **deps:** bump @salesforce/source-deploy-retrieve from 6.0.2 to 6.0.4 ([ac70433](https://github.com/jayree/sfdx-plugin-manifest/commit/ac704338ad193d5aec30fdc363baff7068825f83))
-  - allow larger directories to be compressed, test in plugin-source ([#649](https://github.com/forcedotcom/source-deploy-retrieve/issues/649)) ([ba713fb](https://github.com/forcedotcom/source-deploy-retrieve/commit/ba713fba64c255b3367f314d56d01ecd16f0846d))
 * **deps:** bump isomorphic-git from 1.17.3 to 1.18.3 ([dbd63dc](https://github.com/jayree/sfdx-plugin-manifest/commit/dbd63dc8e07954e1073f5df4b57e70a5cc297ba7))
   * **merge:** Added 'mergeDriver' parameter  ([#1588](https://github.com/isomorphic-git/isomorphic-git/issues/1588)) ([6663ba1](https://github.com/isomorphic-git/isomorphic-git/commit/6663ba1da437c1fa18d77d33953b9850adde1bdf))
-  * **docs:** add mergeDriver to version 1.x docs ([#1595](https://github.com/isomorphic-git/isomorphic-git/issues/1595)) ([8a210a4](https://github.com/isomorphic-git/isomorphic-git/commit/8a210a4bc357a3a98b36f10f1debb28ec686dab1))
   * **docs:** add id and original_id fields to mergeDriver documentation ([#1597](https://github.com/isomorphic-git/isomorphic-git/issues/1597)) ([22e383b](https://github.com/isomorphic-git/isomorphic-git/commit/22e383bc1baf81541e8a3844b738337d4987062d))
   * **merge:** ensure correct value of cleanMerge ([#1599](https://github.com/isomorphic-git/isomorphic-git/issues/1599)) ([1e35265](https://github.com/isomorphic-git/isomorphic-git/commit/1e352658598dec76dc6014a9970953372041e35b))
+  * **docs:** add mergeDriver to version 1.x docs ([#1595](https://github.com/isomorphic-git/isomorphic-git/issues/1595)) ([8a210a4](https://github.com/isomorphic-git/isomorphic-git/commit/8a210a4bc357a3a98b36f10f1debb28ec686dab1))
 * **deps:** bump marked from 4.0.16 to 4.0.17 ([8db1462](https://github.com/jayree/sfdx-plugin-manifest/commit/8db1462b1426b36d711c5eb7c0bed81aa87794eb))
   * Code and heading after list without blank line ([#2483](https://github.com/markedjs/marked/issues/2483)) ([15f3f15](https://github.com/markedjs/marked/commit/15f3f157de6ec4bce90707b848c7026034388a39))
 
@@ -5554,7 +4887,6 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/source-deploy-retrieve from 5.15.0 to 6.0.2 ([98a9f5c](https://github.com/jayree/sfdx-plugin-manifest/commit/98a9f5cec33250f4eda1dfda194f6a08acf8bd31))
-  - remove api version default ([6ea4ebd](https://github.com/forcedotcom/source-deploy-retrieve/commit/6ea4ebd867ab8246ea04035afc5ba93f57427827))
 * **deps:** bump marked from 4.0.15 to 4.0.16 ([cd081ed](https://github.com/jayree/sfdx-plugin-manifest/commit/cd081edd57a55d137977bd2d232927978e670f08))
   * fix ref links inside table ([#2471](https://github.com/markedjs/marked/issues/2471)) ([81daa2a](https://github.com/markedjs/marked/commit/81daa2ae47924f7da04289f7c43cbb2a1f58cfa7))
 * upgrade to oclif/core ([73adf80](https://github.com/jayree/sfdx-plugin-manifest/commit/73adf80f37fbd3f3ea09497bb2ee36f2acc57cfd))
@@ -5591,35 +4923,25 @@
 * **deps:** bump @salesforce/core from 2.33.1 to 2.35.3 ([1d0e655](https://github.com/jayree/sfdx-plugin-manifest/commit/1d0e65560e6fa8b15a4201181a1a71d42fe0c3d7))
 * **deps:** bump @salesforce/kit from 1.5.30 to 1.5.34 ([4c4822a](https://github.com/jayree/sfdx-plugin-manifest/commit/4c4822a9fe5a19e9ff9063950034ef48f54274cc))
 * **deps:** bump @salesforce/source-deploy-retrieve from 5.9.2 to 5.12.3 ([5b07ec3](https://github.com/jayree/sfdx-plugin-manifest/commit/5b07ec3b2fde338b6a519daed112e1e2102cdd75))
-  - new UiViewDefinition metadata type ([#572](https://github.com/forcedotcom/source-deploy-retrieve/issues/572)) ([9b3e0ea](https://github.com/forcedotcom/source-deploy-retrieve/commit/9b3e0ead89e87b17263b61b734a8edb1c900fc01))
-  - cache fileResponses on deployResult ([#573](https://github.com/forcedotcom/source-deploy-retrieve/issues/573)) ([b38185b](https://github.com/forcedotcom/source-deploy-retrieve/commit/b38185b7cd73b05ef1e1940b878b09eb2d198101))
-  - **metadata registry:** adding flowtest type to metadata registry ([#580](https://github.com/forcedotcom/source-deploy-retrieve/issues/580)) ([40431f6](https://github.com/forcedotcom/source-deploy-retrieve/commit/40431f60eb29d02e33b5fc4f5f2066271b06c630))
-  - convert CFT ([#558](https://github.com/forcedotcom/source-deploy-retrieve/issues/558)) ([4978247](https://github.com/forcedotcom/source-deploy-retrieve/commit/4978247f57b7db8e6b08c96d7a985dad67dc0dbc))
-  - stat will follow symlinks ([#559](https://github.com/forcedotcom/source-deploy-retrieve/issues/559)) ([f52e3cf](https://github.com/forcedotcom/source-deploy-retrieve/commit/f52e3cf49da3584bbe4a315ef2872eafe17134e2))
-  - warn and convert on windows seps in .forceignore ([#557](https://github.com/forcedotcom/source-deploy-retrieve/issues/557)) ([a9700d7](https://github.com/forcedotcom/source-deploy-retrieve/commit/a9700d7132b891525459ee98b4a70dcdc066716e))
-  - custom label merging ([2d5ded2](https://github.com/forcedotcom/source-deploy-retrieve/commit/2d5ded2f45242535061d545dc7de56d12630bce2))
-  - sort ComponentSet.getObject ([#570](https://github.com/forcedotcom/source-deploy-retrieve/issues/570)) ([ff3425c](https://github.com/forcedotcom/source-deploy-retrieve/commit/ff3425ca5e89e6e813a4fafe5f759c623c3f64fd))
-  - add ComponentSetBuilder from plugin-source ([#576](https://github.com/forcedotcom/source-deploy-retrieve/issues/576)) ([16c02d6](https://github.com/forcedotcom/source-deploy-retrieve/commit/16c02d611d442cc9efadc5fba51b8db8293ea7f5))
-  - **metadata registry:** update directory name for flowtest in registry ([#589](https://github.com/forcedotcom/source-deploy-retrieve/issues/589)) ([d6112a7](https://github.com/forcedotcom/source-deploy-retrieve/commit/d6112a7325289fb55d3aee343cf77bcd2f68eb7f))
 * **deps:** bump fast-xml-parser from 4.0.1 to 4.0.4 ([7048e7d](https://github.com/jayree/sfdx-plugin-manifest/commit/7048e7db139fb07b84cc1a7d54fdf718b9f0421e))
 * **deps:** bump fs-extra from 10.0.0 to 10.0.1 ([2fa0396](https://github.com/jayree/sfdx-plugin-manifest/commit/2fa0396e22b8f7e3f073184187dc71cada96ee0c))
 * **deps:** bump isomorphic-git from 1.10.4 to 1.13.0 ([2872b09](https://github.com/jayree/sfdx-plugin-manifest/commit/2872b09db46f376700b762c1bb371b2f82d419fb))
-  * add flag to turn off fast forward merges ([#1503](https://github.com/isomorphic-git/isomorphic-git/issues/1503)) ([173f6e8](https://github.com/isomorphic-git/isomorphic-git/commit/173f6e8b4dadc7a038603ec7b698fc39d01cac53))
-  * add `track` option to checkout ([#1463](https://github.com/isomorphic-git/isomorphic-git/issues/1463)) ([6450626](https://github.com/isomorphic-git/isomorphic-git/commit/64506265ff1cb7c0ebe56472705239fb8d636d2e))
   * **http:** add agent parameter to request function of http plugin for Node.js ([#1493](https://github.com/isomorphic-git/isomorphic-git/issues/1493)) ([af9a3e6](https://github.com/isomorphic-git/isomorphic-git/commit/af9a3e64b3c22b30098a2f2540b3c0f079689746)), closes [#1491](https://github.com/isomorphic-git/isomorphic-git/issues/1491)
-  * suggestion can be undefined in UnknownTransportError ([#1477](https://github.com/isomorphic-git/isomorphic-git/issues/1477)) ([956699b](https://github.com/isomorphic-git/isomorphic-git/commit/956699bd2f0f6162c4a5ad1c40236e1d09b23edc)), closes [/github.com/isomorphic-git/isomorphic-git/blob/82433d2c4866c14657444c3d18554ba2dd365aee/src/managers/GitRemoteManager.js#L61](https://github.com//github.com/isomorphic-git/isomorphic-git/blob/82433d2c4866c14657444c3d18554ba2dd365aee/src/managers/GitRemoteManager.js/issues/L61)
-  * **docs:** update android logo ([#1497](https://github.com/isomorphic-git/isomorphic-git/issues/1497)) ([6d434a3](https://github.com/isomorphic-git/isomorphic-git/commit/6d434a335fcfeefaa70e1d926726a7716c9b8776))
+  * add `track` option to checkout ([#1463](https://github.com/isomorphic-git/isomorphic-git/issues/1463)) ([6450626](https://github.com/isomorphic-git/isomorphic-git/commit/64506265ff1cb7c0ebe56472705239fb8d636d2e))
+  * add flag to turn off fast forward merges ([#1503](https://github.com/isomorphic-git/isomorphic-git/issues/1503)) ([173f6e8](https://github.com/isomorphic-git/isomorphic-git/commit/173f6e8b4dadc7a038603ec7b698fc39d01cac53))
   * update the config parser to handle dots in key name ([#1461](https://github.com/isomorphic-git/isomorphic-git/issues/1461)) ([4ef6fd6](https://github.com/isomorphic-git/isomorphic-git/commit/4ef6fd6a0c9676856f7423e8ad146cc0286dc657)), closes [#1460](https://github.com/isomorphic-git/isomorphic-git/issues/1460)
-  * set remote tracking branch on clone ([#1475](https://github.com/isomorphic-git/isomorphic-git/issues/1475)) ([82433d2](https://github.com/isomorphic-git/isomorphic-git/commit/82433d2c4866c14657444c3d18554ba2dd365aee))
   * **resetIndex:** allow resetting index on new empty repository ([#1489](https://github.com/isomorphic-git/isomorphic-git/issues/1489)) ([4716867](https://github.com/isomorphic-git/isomorphic-git/commit/471686769e137584f3a59e0194567212879f2bb3))
+  * suggestion can be undefined in UnknownTransportError ([#1477](https://github.com/isomorphic-git/isomorphic-git/issues/1477)) ([956699b](https://github.com/isomorphic-git/isomorphic-git/commit/956699bd2f0f6162c4a5ad1c40236e1d09b23edc)), closes [/github.com/isomorphic-git/isomorphic-git/blob/82433d2c4866c14657444c3d18554ba2dd365aee/src/managers/GitRemoteManager.js#L61](https://github.com//github.com/isomorphic-git/isomorphic-git/blob/82433d2c4866c14657444c3d18554ba2dd365aee/src/managers/GitRemoteManager.js/issues/L61)
+  * set remote tracking branch on clone ([#1475](https://github.com/isomorphic-git/isomorphic-git/issues/1475)) ([82433d2](https://github.com/isomorphic-git/isomorphic-git/commit/82433d2c4866c14657444c3d18554ba2dd365aee))
+  * **docs:** update android logo ([#1497](https://github.com/isomorphic-git/isomorphic-git/issues/1497)) ([6d434a3](https://github.com/isomorphic-git/isomorphic-git/commit/6d434a335fcfeefaa70e1d926726a7716c9b8776))
 * **deps:** bump listr2 from 4.0.1 to 4.0.4 ([ed1e01e](https://github.com/jayree/sfdx-plugin-manifest/commit/ed1e01e8ad9ed00ec3bbcd59949148d8d5fdad98))
   * update dependencies ([fe614d0](https://github.com/cenk1cenk2/listr2/commit/fe614d0e9d200d31a6cb555a9dca0d1bb28c52b4))
   * update linting rules and ts-up configuration ([80eaf67](https://github.com/cenk1cenk2/listr2/commit/80eaf676b428a29902f3250d185318afe86d1bb7))
   * **deps:** update dependency rxjs to ^7.5.4 ([52f8725](https://github.com/cenk1cenk2/listr2/commit/52f87253539bfd57cd6c49bcc8ce28152bfcd8e8))
   * **enquirer:** Add hint attr for array prompts ([5f49b34](https://github.com/cenk1cenk2/listr2/commit/5f49b340868f10abd4cdcf5b377de973e0a23a4a))
 * **deps:** bump marked from 4.0.10 to 4.0.12 ([d7314d0](https://github.com/jayree/sfdx-plugin-manifest/commit/d7314d053302fca98afb184d350a22b497073a33))
-  * fix blank line after table header ([#2332](https://github.com/markedjs/marked/issues/2332)) ([6e1f923](https://github.com/markedjs/marked/commit/6e1f9235dca5d8732046506c435b25e6788a1d4f))
   * fix nbsp after table ([#2372](https://github.com/markedjs/marked/pull/2372)) ([ed66bf8](https://github.com/markedjs/marked/commit/ed66bf8abdb2638cc3b9e20fdfd0afad061a2ee0))
+  * fix blank line after table header ([#2332](https://github.com/markedjs/marked/issues/2332)) ([6e1f923](https://github.com/markedjs/marked/commit/6e1f9235dca5d8732046506c435b25e6788a1d4f))
 * fix changelog hook ([2883fbd](https://github.com/jayree/sfdx-plugin-manifest/commit/2883fbd045fca98a65636d1d5b29f5fe81bb27a7))
 
 
@@ -5635,61 +4957,6 @@
 ### Bug Fixes
 
 * **deps:** bump @salesforce/kit from 1.5.26 to 1.5.28 ([de56726](https://github.com/jayree/sfdx-plugin-manifest/commit/de56726b58aace2e6d2ae7f63ba488e147a7b5cf))
-  - configurations ([b8a27ab](https://github.com/forcedotcom/kit/commit/b8a27abccb0b38e0fb9e63d6d174684106b397e7))
-  - initialize repository ([1cf9a37](https://github.com/forcedotcom/kit/commit/1cf9a37bbc9f34962498ad82d618689a7c6c6804))
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  - dont modify if already title case ([be2f816](https://github.com/forcedotcom/sfdx-dev-packages/commit/be2f816b7afaea8daf607180d7b549875162b494))
-  - new internal function ([627a15c](https://github.com/forcedotcom/sfdx-dev-packages/commit/627a15c851d357b7c431881cb8d157a815f858df))
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  - update typescript version ([#109](https://github.com/forcedotcom/sfdx-dev-packages/issues/109)) ([399a0b0](https://github.com/forcedotcom/sfdx-dev-packages/commit/399a0b03aa831f25511bb3391702c10dc5c4a488))
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  - add eslint and use it in all packages ([0165cc8](https://github.com/forcedotcom/sfdx-dev-packages/commit/0165cc8853079c7f987dddfb60ced3efb00deea0))
-  - add getNumber on env ([0c94a64](https://github.com/forcedotcom/sfdx-dev-packages/commit/0c94a64f7ac9af40198918cceda6e96facbc77ca))
-  - add javascipt eslint rules that typescript extends ([135ac73](https://github.com/forcedotcom/sfdx-dev-packages/commit/135ac73b8c513d8950ac69373349361d9f600a8c))
-  - add salesforce license linting ([3213135](https://github.com/forcedotcom/sfdx-dev-packages/commit/3213135f34956335ef2c123ec680c2de2bc7f10f))
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  - package updates ([69f3d02](https://github.com/forcedotcom/sfdx-dev-packages/commit/69f3d02))
-  **Note:** Version bump only for package @salesforce/kit
-  - add hour, day, week to duration ([ff97940](https://github.com/forcedotcom/sfdx-dev-packages/commit/ff97940))
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  - **kit:** bump to v1 ([578dfc2](https://github.com/forcedotcom/sfdx-dev-packages/commit/578dfc2))
-  ### BREAKING CHANGES
-  - **kit:** bump to v1.0.0
-  - bump version for release ([776c78d](https://github.com/forcedotcom/kit/commit/776c78d791ae4a9c55013b370deb4199932eec58))
-  - package.json dep change ([18a891a](https://github.com/forcedotcom/kit/commit/18a891a09401e8025aaf8704c7c7e6842ce76355))
-  - whoops ([cf6e184](https://github.com/forcedotcom/kit/commit/cf6e18418ce2d3c126ad8a604df3a6caa6eb8522))
-  - rollback ts-types dependency for kit ([925bb58](https://github.com/forcedotcom/sfdx-dev-packages/commit/925bb58727436fd13ddb9898d20110da7b29f0bb))
-  - pin typedoc at v0.18.0 due to breaking changes ([#164](https://github.com/forcedotcom/sfdx-dev-packages/issues/164)) ([dd7f90c](https://github.com/forcedotcom/sfdx-dev-packages/commit/dd7f90cb7b5c9a2508ac0f10ba4b6ec54d262165))
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  - use existing published version of ts-types ([f1ae94a](https://github.com/forcedotcom/sfdx-dev-packages/commit/f1ae94a3e59794c7df7530547542da8d5ef40bef))
-  **Note:** Version bump only for package @salesforce/kit
-  - allow periods in key names @W-9225317@ ([#129](https://github.com/forcedotcom/sfdx-dev-packages/issues/129)) ([e5817a0](https://github.com/forcedotcom/sfdx-dev-packages/commit/e5817a0624b15e6b353c610e92205426af773884))
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  - compile error with adding options on class ([65a49ed](https://github.com/forcedotcom/sfdx-dev-packages/commit/65a49ed66126bb7f36cf04d2db22da6668e7bc7d))
-  - npm security upgrades ([053d507](https://github.com/forcedotcom/sfdx-dev-packages/commit/053d507))
-  - add typedoc ([86b4eb3](https://github.com/forcedotcom/sfdx-dev-packages/commit/86b4eb3))
-  - allow json-compatible type assertions on json parsing fns ([e1d1b8c](https://github.com/forcedotcom/sfdx-dev-packages/commit/e1d1b8c))
-  - don't show [object Object] when cast to string ([4902bcc](https://github.com/forcedotcom/sfdx-dev-packages/commit/4902bcc))
-  - update yarn.lock ([6b4366c](https://github.com/forcedotcom/sfdx-dev-packages/commit/6b4366c))
 * **deps:** bump @salesforce/source-deploy-retrieve from 5.9.1 to 5.9.2 ([30004f9](https://github.com/jayree/sfdx-plugin-manifest/commit/30004f9e65e6b716e4d9aeb3671c780e62f4becc))
 * **deps:** bump fast-xml-parser from 4.0.0 to 4.0.1 ([debdbf0](https://github.com/jayree/sfdx-plugin-manifest/commit/debdbf0f87c8fa0658108de0d0d21ed4a2e40d3e))
 * **deps:** bump isomorphic-git from 1.10.3 to 1.10.4 ([735fef3](https://github.com/jayree/sfdx-plugin-manifest/commit/735fef33d244b487f3f13edc37c35f8ef5375efb))
@@ -5710,41 +4977,32 @@
 * **deps:** bump fast-xml-parser from 3.21.1 to 4.0.0 ([7feaf6f](https://github.com/jayree/sfdx-plugin-manifest/commit/7feaf6ffc410da4dd6a8f2e03370b3f507faf561))
   * Generating different combined, parser only, builder only, validator only browser bundles
   * Keeping cjs modules as they can be imported in cjs and esm modules both. Otherwise refer `esm` branch.
-  **4.0.0-beta.8 / 2021-12-13**
   * call tagValueProcessor for stop nodes
-  **4.0.0-beta.7 / 2021-12-09**
   * fix Validator bug when an attribute has no value but '=' only
   * XML Builder should suppress unpaired tags by default.
   * documents update for missing features
   * refactoring to use Object.assign
   * refactoring to remove repeated code
-  **4.0.0-beta.6 / 2021-12-05**
   * Support PI Tags processing
   * Support `suppressBooleanAttributes` by XML Builder for attributes with value `true`.
-  **4.0.0-beta.5 / 2021-12-04**
   * fix: when a tag with name "attributes"
-  **4.0.0-beta.4 / 2021-12-02**
   * Support HTML document parsing
   * skip stop nodes parsing when building the XML from JS object
   * Support external entites without DOCTYPE
   * update dev dependency: strnum v1.0.5 to fix long number issue
-  **4.0.0-beta.3 / 2021-11-30**
   * support global stopNodes expression like "*.stop"
   * support self-closing and paired unpaired tags
   * fix: CDATA should not be parsed.
   * Fix typings for XMLBuilder (#396)(By [Anders Emil Salvesen](https://github.com/andersem))
   * supports XML entities, HTML entities, DOCTYPE entities
-  **⚠️ 4.0.0-beta.2 / 2021-11-19**
   * rename `attrMap` to `attibutes` in parser output when `preserveOrder:true`
   * supports unpairedTags
-  **⚠️ 4.0.0-beta.1 / 2021-11-18**
   * Parser returns an array now
   * to make the structure common
   * and to return root level detail
   * renamed `cdataTagName` to `cdataPropName`
   * Added `commentPropName`
   * fix typings
-  **⚠️ 4.0.0-beta.0 / 2021-11-16**
   * Name change of many configuration properties.
   * `attrNodeName` to `attributesGroupName`
   * `attrValueProcessor` to `attributeValueProcessor`
@@ -5764,28 +5022,14 @@
 * **deps:** bump listr2 from 3.14.0 to 4.0.0 ([cee5f4e](https://github.com/jayree/sfdx-plugin-manifest/commit/cee5f4eac31c57b3f79a3197eb065623f25ca80b))
   * implement updating renderer with stdout-update ([4c371b9](https://github.com/cenk1cenk2/listr2/commit/4c371b96f1e65b091f5d6ac5170719660b80e08b)), closes [#310](https://github.com/cenk1cenk2/listr2/issues/310)
   * swap log-update out for stdout-update ([7fcfc0e](https://github.com/cenk1cenk2/listr2/commit/7fcfc0e269875c3060b09f08d911499cf9f0a72e))
-  ### BREAKING CHANGES
   * since log-update is swapped with stdout-update and how it handles line clears, it
-  might break tests utilizing snapshots of the stdout while using default renderer, eventhough that is
-  not  the advised method!
   * fix deleting something from the render if array is empty ([d5237ed](https://github.com/cenk1cenk2/listr2/commit/d5237ed12ae631fa11323828f98c30d0abbd65cf))
   * ditch node 10 support because of stdout-update ([9b6e934](https://github.com/cenk1cenk2/listr2/commit/9b6e93412d5a49b8d3f39222b6c81fb057ac92e8))
-  ### BREAKING CHANGES
   * drops node 10.x support, now starts from 12.x
-  ### Performance Improvements
   * change build system, support esm ([eec658b](https://github.com/cenk1cenk2/listr2/commit/eec658b29d9af84a242c349b33fabc7dc1ef4bdf)), closes [#616](https://github.com/cenk1cenk2/listr2/issues/616) [#615](https://github.com/cenk1cenk2/listr2/issues/615) [#600](https://github.com/cenk1cenk2/listr2/issues/600)
   * update error collection mechanism ([171b1c1](https://github.com/cenk1cenk2/listr2/commit/171b1c1f9c6dba4ed2010798ff4cde7e3739bd80))
-  ### BREAKING CHANGES
   * - This package now supports ESM. CommonJS is still supported.
-  - Everything is now exported from the index since the build methodology has been changed.
-  - Drops node 10 support.
   * This changes the default behavior of error collection mechanism.
-  Context and the task itself is not collected by the default option now.
-  This has been done because of circular object properties were causing memory leaks while collecting.
-  The default behavior is minimal from now on, where it only collects error messages and where error
-  was encountered.
-  The old behavior can be enable with setting full.
-  You can also now disable the error collection mechanism fully with [secure].
 
 
 
@@ -5831,96 +5075,41 @@
 ### Bug Fixes
 
 * **deps:** bump @oclif/command from 1.8.7 to 1.8.16 ([f0e7468](https://github.com/jayree/sfdx-plugin-manifest/commit/f0e746854ecbb5f3c6400c8eadc7ec6a40894c92))
-  * bump-deps ([#283](https://github.com/oclif/command/issues/283)) ([4c7aee6](https://github.com/oclif/command/commit/4c7aee6d03ba57371279a3044877c0ce996bf669))
-  * bump deps ([#298](https://github.com/oclif/command/issues/298)) ([938a11c](https://github.com/oclif/command/commit/938a11c4ddaa03e60c7682f5a90a1a8d62d96288))
-  * recursive installation failure due to dep cycle ([18af8a4](https://github.com/oclif/command/commit/18af8a4f042593189b50d4663771867a854da09c))
-  * bump deps ([#298](https://github.com/oclif/command/issues/298)) ([938a11c](https://github.com/oclif/command/commit/938a11c4ddaa03e60c7682f5a90a1a8d62d96288))
-  * recursive installation failure due to dep cycle ([18af8a4](https://github.com/oclif/command/commit/18af8a4f042593189b50d4663771867a854da09c))
-  * remove transient dep on lodash.template ([#295](https://github.com/oclif/command/issues/295)) ([77e135c](https://github.com/oclif/command/commit/77e135c0470f45f90c1b358c6542ebe7273553ec))
-  * bump @oclif/help ([#303](https://github.com/oclif/command/issues/303)) ([d088346](https://github.com/oclif/command/commit/d0883463de1de61fb77211713642f2198ace1c84))
-  * remove @oclif/plugin-help ([#302](https://github.com/oclif/command/issues/302)) ([3a00d2a](https://github.com/oclif/command/commit/3a00d2a212f2e5848634110efbbf10f97e39c1cb))
   * more dep bumps ([#289](https://github.com/oclif/command/issues/289)) ([468abae](https://github.com/oclif/command/commit/468abae0ca09d769e74be61b593022c46324d85a))
   * bump plugin-help versions ([#297](https://github.com/oclif/command/issues/297)) ([1af07cd](https://github.com/oclif/command/commit/1af07cd6c9df6a3a962cf5200c9470a63de7a815))
   * bump version to 1.8.12 ([32d9d93](https://github.com/oclif/command/commit/32d9d93395dcea80cbed959e72a31522750f015e))
   * bump plugin-help versions ([#297](https://github.com/oclif/command/issues/297)) ([1af07cd](https://github.com/oclif/command/commit/1af07cd6c9df6a3a962cf5200c9470a63de7a815))
   * bump version to 1.8.12 ([32d9d93](https://github.com/oclif/command/commit/32d9d93395dcea80cbed959e72a31522750f015e))
+  * bump-deps ([#283](https://github.com/oclif/command/issues/283)) ([4c7aee6](https://github.com/oclif/command/commit/4c7aee6d03ba57371279a3044877c0ce996bf669))
+  * remove transient dep on lodash.template ([#295](https://github.com/oclif/command/issues/295)) ([77e135c](https://github.com/oclif/command/commit/77e135c0470f45f90c1b358c6542ebe7273553ec))
   * bump deps ([#296](https://github.com/oclif/command/issues/296)) ([9daa780](https://github.com/oclif/command/commit/9daa780cd6b8cb0ecae757c0fd84b830a748572d))
+  * remove @oclif/plugin-help ([#302](https://github.com/oclif/command/issues/302)) ([3a00d2a](https://github.com/oclif/command/commit/3a00d2a212f2e5848634110efbbf10f97e39c1cb))
+  * bump @oclif/help ([#303](https://github.com/oclif/command/issues/303)) ([d088346](https://github.com/oclif/command/commit/d0883463de1de61fb77211713642f2198ace1c84))
+  * bump deps ([#298](https://github.com/oclif/command/issues/298)) ([938a11c](https://github.com/oclif/command/commit/938a11c4ddaa03e60c7682f5a90a1a8d62d96288))
+  * recursive installation failure due to dep cycle ([18af8a4](https://github.com/oclif/command/commit/18af8a4f042593189b50d4663771867a854da09c))
+  * bump deps ([#298](https://github.com/oclif/command/issues/298)) ([938a11c](https://github.com/oclif/command/commit/938a11c4ddaa03e60c7682f5a90a1a8d62d96288))
+  * recursive installation failure due to dep cycle ([18af8a4](https://github.com/oclif/command/commit/18af8a4f042593189b50d4663771867a854da09c))
 * **deps:** bump @salesforce/command from 4.2.0 to 4.2.1 ([613c442](https://github.com/jayree/sfdx-plugin-manifest/commit/613c442e7df858a9ed59a9156b67cb49e284973d))
   * restore before attempting stub ([79cffa8](https://github.com/salesforcecli/command/commit/79cffa8c1b3b4e0f138dceb522627a8dfe8933bc))
 * **deps:** bump @salesforce/core from 2.31.0 to 2.33.1 ([f716837](https://github.com/jayree/sfdx-plugin-manifest/commit/f71683729023733a1b0788860b2966510ccf875e))
 * **deps:** bump @salesforce/kit from 1.5.18 to 1.5.22 ([a9a9c31](https://github.com/jayree/sfdx-plugin-manifest/commit/a9a9c310039827ed3eec825c20821e5718be049f))
-  - configurations ([b8a27ab](https://github.com/forcedotcom/kit/commit/b8a27abccb0b38e0fb9e63d6d174684106b397e7))
-  - initialize repository ([1cf9a37](https://github.com/forcedotcom/kit/commit/1cf9a37bbc9f34962498ad82d618689a7c6c6804))
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  - dont modify if already title case ([be2f816](https://github.com/forcedotcom/sfdx-dev-packages/commit/be2f816b7afaea8daf607180d7b549875162b494))
-  - new internal function ([627a15c](https://github.com/forcedotcom/sfdx-dev-packages/commit/627a15c851d357b7c431881cb8d157a815f858df))
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  - update typescript version ([#109](https://github.com/forcedotcom/sfdx-dev-packages/issues/109)) ([399a0b0](https://github.com/forcedotcom/sfdx-dev-packages/commit/399a0b03aa831f25511bb3391702c10dc5c4a488))
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  - add eslint and use it in all packages ([0165cc8](https://github.com/forcedotcom/sfdx-dev-packages/commit/0165cc8853079c7f987dddfb60ced3efb00deea0))
-  - add getNumber on env ([0c94a64](https://github.com/forcedotcom/sfdx-dev-packages/commit/0c94a64f7ac9af40198918cceda6e96facbc77ca))
-  - add javascipt eslint rules that typescript extends ([135ac73](https://github.com/forcedotcom/sfdx-dev-packages/commit/135ac73b8c513d8950ac69373349361d9f600a8c))
-  - add salesforce license linting ([3213135](https://github.com/forcedotcom/sfdx-dev-packages/commit/3213135f34956335ef2c123ec680c2de2bc7f10f))
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  - package updates ([69f3d02](https://github.com/forcedotcom/sfdx-dev-packages/commit/69f3d02))
-  **Note:** Version bump only for package @salesforce/kit
-  - add hour, day, week to duration ([ff97940](https://github.com/forcedotcom/sfdx-dev-packages/commit/ff97940))
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  - **kit:** bump to v1 ([578dfc2](https://github.com/forcedotcom/sfdx-dev-packages/commit/578dfc2))
-  ### BREAKING CHANGES
-  - **kit:** bump to v1.0.0
-  - rollback ts-types dependency for kit ([925bb58](https://github.com/forcedotcom/sfdx-dev-packages/commit/925bb58727436fd13ddb9898d20110da7b29f0bb))
-  - pin typedoc at v0.18.0 due to breaking changes ([#164](https://github.com/forcedotcom/sfdx-dev-packages/issues/164)) ([dd7f90c](https://github.com/forcedotcom/sfdx-dev-packages/commit/dd7f90cb7b5c9a2508ac0f10ba4b6ec54d262165))
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  - use existing published version of ts-types ([f1ae94a](https://github.com/forcedotcom/sfdx-dev-packages/commit/f1ae94a3e59794c7df7530547542da8d5ef40bef))
-  **Note:** Version bump only for package @salesforce/kit
-  - allow periods in key names @W-9225317@ ([#129](https://github.com/forcedotcom/sfdx-dev-packages/issues/129)) ([e5817a0](https://github.com/forcedotcom/sfdx-dev-packages/commit/e5817a0624b15e6b353c610e92205426af773884))
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  **Note:** Version bump only for package @salesforce/kit
-  - compile error with adding options on class ([65a49ed](https://github.com/forcedotcom/sfdx-dev-packages/commit/65a49ed66126bb7f36cf04d2db22da6668e7bc7d))
-  - npm security upgrades ([053d507](https://github.com/forcedotcom/sfdx-dev-packages/commit/053d507))
-  - add typedoc ([86b4eb3](https://github.com/forcedotcom/sfdx-dev-packages/commit/86b4eb3))
-  - allow json-compatible type assertions on json parsing fns ([e1d1b8c](https://github.com/forcedotcom/sfdx-dev-packages/commit/e1d1b8c))
-  - don't show [object Object] when cast to string ([4902bcc](https://github.com/forcedotcom/sfdx-dev-packages/commit/4902bcc))
-  - update yarn.lock ([6b4366c](https://github.com/forcedotcom/sfdx-dev-packages/commit/6b4366c))
 * **deps:** bump @salesforce/source-deploy-retrieve from 5.8.0 to 5.8.2 ([709f36a](https://github.com/jayree/sfdx-plugin-manifest/commit/709f36ab3c5099abc86787a2197ae07a536c1004))
-  - network error tolerance ([#513](https://github.com/forcedotcom/source-deploy-retrieve/issues/513)) ([7042a79](https://github.com/forcedotcom/source-deploy-retrieve/commit/7042a79659ca1348118281a418eb559a3daf2305))
 * **deps:** bump cli-ux from 5.6.5 to 6.0.6 ([aac3fb2](https://github.com/jayree/sfdx-plugin-manifest/commit/aac3fb23750e4418b92981e4cf9de4266fa03752))
   * use oclif/core ([#416](https://github.com/oclif/cli-ux/issues/416)) ([d9c5619](https://github.com/oclif/cli-ux/commit/d9c56192741a121593217f81781fa2c7ab2f234e))
-  ### build
   * require node 12+ ([#413](https://github.com/oclif/cli-ux/issues/413)) ([19f01a9](https://github.com/oclif/cli-ux/commit/19f01a9ce9bb699eb97a49b420c811a66a8f71c2))
   * bump deps and correct/suppress lint errors ([#450](https://github.com/oclif/cli-ux/issues/450)) ([bc0935c](https://github.com/oclif/cli-ux/commit/bc0935ccfdf049f738be142bd3346ff34b7b1358))
-  * bump deps ([#462](https://github.com/oclif/cli-ux/issues/462)) ([2b8699d](https://github.com/oclif/cli-ux/commit/2b8699dd2a2227279e7ea12a64c528e24186ca19))
   * update oclif/core imports ([74fdab5](https://github.com/oclif/cli-ux/commit/74fdab55fed2767f920d7dca430e73ebed772a79))
-  * bump deps ([#459](https://github.com/oclif/cli-ux/issues/459)) ([d1cf5f5](https://github.com/oclif/cli-ux/commit/d1cf5f55d9089c52b80396bb782fbd806e42fb64))
-  * bump deps and fix tests ([#465](https://github.com/oclif/cli-ux/issues/465)) ([44eecd0](https://github.com/oclif/cli-ux/commit/44eecd0df4471f47f7ba8d4bf7e43ea4b9ead4a0))
+  * bump deps ([#462](https://github.com/oclif/cli-ux/issues/462)) ([2b8699d](https://github.com/oclif/cli-ux/commit/2b8699dd2a2227279e7ea12a64c528e24186ca19))
   * module load workaround ([#460](https://github.com/oclif/cli-ux/issues/460)) ([c8407c3](https://github.com/oclif/cli-ux/commit/c8407c350530cd9ff0592db8cb2661ff415ac8f1))
-  ### ⚠ BREAKING CHANGES
+  * bump deps and fix tests ([#465](https://github.com/oclif/cli-ux/issues/465)) ([44eecd0](https://github.com/oclif/cli-ux/commit/44eecd0df4471f47f7ba8d4bf7e43ea4b9ead4a0))
+  * bump deps ([#459](https://github.com/oclif/cli-ux/issues/459)) ([d1cf5f5](https://github.com/oclif/cli-ux/commit/d1cf5f55d9089c52b80396bb782fbd806e42fb64))
   * require node 12+ (#413)
 * **deps:** bump isomorphic-git from 1.10.1 to 1.10.3 ([ec74cc4](https://github.com/jayree/sfdx-plugin-manifest/commit/ec74cc4a31c751c12f27724e217f0fe6757b9f87))
-  * **tags:** do not peel tag when cloning ([#1442](https://github.com/isomorphic-git/isomorphic-git/issues/1442)) ([267b017](https://github.com/isomorphic-git/isomorphic-git/commit/267b0171ed027317aab7979339aeb3bee1585cb3))
   * **statusMatrix, walk:** don't remove the executable bit from file mode (Windows-only bug) ([#1444](https://github.com/isomorphic-git/isomorphic-git/issues/1444)) ([72b3987](https://github.com/isomorphic-git/isomorphic-git/commit/72b3987c29817392360cba80407f6d4625f5ba77))
+  * **tags:** do not peel tag when cloning ([#1442](https://github.com/isomorphic-git/isomorphic-git/issues/1442)) ([267b017](https://github.com/isomorphic-git/isomorphic-git/commit/267b0171ed027317aab7979339aeb3bee1585cb3))
 * **deps:** bump marked from 4.0.5 to 4.0.7 ([6dab24f](https://github.com/jayree/sfdx-plugin-manifest/commit/6dab24fcd5cb5e8407aadf93b5a2bdcd8993ea82))
-  * Fix every third list item broken ([#2318](https://github.com/markedjs/marked/issues/2318)) ([346b162](https://github.com/markedjs/marked/commit/346b162bb787d3b7fb1d4879c859f64155c6ca3c)), closes [#2314](https://github.com/markedjs/marked/issues/2314)
   * speed up parsing long lists ([#2302](https://github.com/markedjs/marked/issues/2302)) ([e0005d8](https://github.com/markedjs/marked/commit/e0005d8232a08827f5e99b8b35b09728b2b07503))
+  * Fix every third list item broken ([#2318](https://github.com/markedjs/marked/issues/2318)) ([346b162](https://github.com/markedjs/marked/commit/346b162bb787d3b7fb1d4879c859f64155c6ca3c)), closes [#2314](https://github.com/markedjs/marked/issues/2314)
 
 
 
@@ -5930,8 +5119,8 @@
 ### Bug Fixes
 
 * **deps:** bump @oclif/command from 1.8.4 to 1.8.7 ([51aa301](https://github.com/jayree/sfdx-plugin-manifest/commit/51aa30145b942c00669dababd4889d171ed4becf))
-  * remove lodash.template transitive dep ([#274](https://github.com/oclif/command/issues/274)) ([6211a83](https://github.com/oclif/command/commit/6211a834478620e20a388f90639b35052e612d24))
   * bump once more ([#277](https://github.com/oclif/command/issues/277)) ([23ffce7](https://github.com/oclif/command/commit/23ffce74ce02285f664b2bbc02748411dbf1c7f1))
+  * remove lodash.template transitive dep ([#274](https://github.com/oclif/command/issues/274)) ([6211a83](https://github.com/oclif/command/commit/6211a834478620e20a388f90639b35052e612d24))
   * bump deps ([#282](https://github.com/oclif/command/issues/282)) ([5504b70](https://github.com/oclif/command/commit/5504b700b7ac4b876fd966b647dd4143931d1a19))
 * **deps:** bump @salesforce/command from 4.1.5 to 4.2.0 ([dae11dd](https://github.com/jayree/sfdx-plugin-manifest/commit/dae11ddf4a1711c54361b7a2cfff14bc86dc7660))
   * bump core version ([d7c0bf2](https://github.com/salesforcecli/command/commit/d7c0bf2f6ba559638e5ce0917e553e1c4068769a))
@@ -6048,8 +5237,8 @@
 
 * **deps:** bump @salesforce/core from 2.28.2 to 2.28.3 ([da85585](https://github.com/jayree/sfdx-plugin-manifest/commit/da85585fbec455f20d6f785709e93f9167d8db92))
 * **deps:** bump @salesforce/source-deploy-retrieve from 5.1.2 to 5.4.1 ([45ab5ce](https://github.com/jayree/sfdx-plugin-manifest/commit/45ab5ce975692b9fbd41496e0cc3c922eb01fb6a))
-  * modify fileResponse for not found in org on Deletes ([#472](https://github.com/forcedotcom/source-deploy-retrieve/issues/472)) ([9d258fc](https://github.com/forcedotcom/source-deploy-retrieve/commit/9d258fc3f46989de2a89d429ca4994d5ed756eab))
   * registry support for fieldRestrictionRule ([#486](https://github.com/forcedotcom/source-deploy-retrieve/issues/486)) ([abf0cdd](https://github.com/forcedotcom/source-deploy-retrieve/commit/abf0cdd722507fcc8c8d66aa37a13b02b2f72776))
+  * modify fileResponse for not found in org on Deletes ([#472](https://github.com/forcedotcom/source-deploy-retrieve/issues/472)) ([9d258fc](https://github.com/forcedotcom/source-deploy-retrieve/commit/9d258fc3f46989de2a89d429ca4994d5ed756eab))
   * new types OmniUiCard, OmniDataTransform ([3460dde](https://github.com/forcedotcom/source-deploy-retrieve/commit/3460dde71a274c23031f33ae8d408f755198f65d))
   * unconfuse sitedotcom vs site ([#498](https://github.com/forcedotcom/source-deploy-retrieve/issues/498)) ([5a55d02](https://github.com/forcedotcom/source-deploy-retrieve/commit/5a55d0290a5aed128be061d249aa4b5245be1f5d))
 * **deps:** bump listr2 from 3.13.1 to 3.13.3 ([a20b53e](https://github.com/jayree/sfdx-plugin-manifest/commit/a20b53ee87376e53c9cdd185420e4cf4ee4010c4))
@@ -6057,7 +5246,6 @@
   * upgrade to rxjs7 ([f5fab40](https://github.com/cenk1cenk2/listr2/commit/f5fab401bb7e50023022abd7a0a77b6a02196ae7)), closes [#493](https://github.com/cenk1cenk2/listr2/issues/493) [#409](https://github.com/cenk1cenk2/listr2/issues/409)
 * **deps:** bump marked from 3.0.8 to 4.0.0 ([36f8f55](https://github.com/jayree/sfdx-plugin-manifest/commit/36f8f55b5968a794e9e00e4b795abd6b9e648723))
   * Convert to ESM ([#2227](https://github.com/markedjs/marked/issues/2227)) ([4afb228](https://github.com/markedjs/marked/commit/4afb228d956a415624c4e5554bb8f25d047676fe))
-  ### BREAKING CHANGES
   * Default export removed. Use `import { marked } from 'marked'` or `const { marked } = require('marked')` instead.
   * `/lib/marked.js` removed. Use `/marked.min.js` in script tag instead.
   * When using marked in a script tag use `marked.parse(...)` instead of `marked(...)`
@@ -6089,9 +5277,9 @@
 * **deps:** bump fast-xml-parser from 3.20.3 to 3.21.0 ([77cceff](https://github.com/jayree/sfdx-plugin-manifest/commit/77cceffd9546cf262cdb341a5cb8c0a27e2a587b))
 * **deps:** bump listr2 from 3.12.2 to 3.13.1 ([0afae6e](https://github.com/jayree/sfdx-plugin-manifest/commit/0afae6ea8729afeb069998d2fc5cb192e5e65440))
   * pass options to the custom logger, implement it with types ([4cecba8](https://github.com/cenk1cenk2/listr2/commit/4cecba8a0b1f3efae5d89d982c67edcc82969218))
-  * use v8 functions for error collection ([be37833](https://github.com/cenk1cenk2/listr2/commit/be37833807b2f915c53e58946543d257c723ac4b))
   * ditch api-extractor update colorrette ([7ae6752](https://github.com/cenk1cenk2/listr2/commit/7ae6752d7da59e54c28caeb7b3297f1792b0c7c8))
   * pass options to custom logger ([3004640](https://github.com/cenk1cenk2/listr2/commit/30046409eddba749b460d34cd9ef089bfcf300a4))
+  * use v8 functions for error collection ([be37833](https://github.com/cenk1cenk2/listr2/commit/be37833807b2f915c53e58946543d257c723ac4b))
 * **deps:** bump marked from 3.0.7 to 3.0.8 ([fb76d91](https://github.com/jayree/sfdx-plugin-manifest/commit/fb76d91ef590575bab75c0e12188b13aa4794b2b))
   * walkTokens uses marked as this ([#2251](https://github.com/markedjs/marked/issues/2251)) ([2da5885](https://github.com/markedjs/marked/commit/2da588598992065d7bf54a740d2011f8326d46cd))
 * **gitdiff:** optimize createVirtualTreeContainer method ([8a0579a](https://github.com/jayree/sfdx-plugin-manifest/commit/8a0579ae1fb4b7ce39f0c515344b1db05913af77))
@@ -6115,6 +5303,5 @@
 ### Features
 
 * add manifest:generate :cleanup :git:diff commands ([74cd719](https://github.com/jayree/sfdx-plugin-manifest/commit/74cd7194727665ae1f25b056780aeb4861f58137))
-
 
 

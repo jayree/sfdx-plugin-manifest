@@ -1,4 +1,4 @@
-import { preCommit } from './dist/update-changelog.cjs';
+import { preCommit } from './update-changelog.mjs';
 
 preCommit().catch((error) => {
   console.error(`❌ Unhandled error: ${error}`);

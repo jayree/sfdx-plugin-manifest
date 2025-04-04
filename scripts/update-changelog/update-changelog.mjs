@@ -8,6 +8,7 @@ import { Octokit } from '@octokit/rest';
 import { program } from 'commander';
 import chalk from 'chalk';
 import ora from 'ora';
+import TurndownService from 'turndown';
 
 // Set up commander to parse the --all flag.
 program.option('--all', 'Process all dependency bumps (not only in the latest release entry)').parse(process.argv);
@@ -113,6 +114,9 @@ function parseReleaseSections(text = '') {
       current = 'fixes';
       continue;
     }
+    if (!trimmed.startsWith('* ')) {
+      continue;
+    }
     if (trimmed) sections[current].push(trimmed);
   }
   return sections;
@@ -165,6 +169,42 @@ function formatGroupedAsMarkdown(grouped) {
     (grouped.fixes.length && grouped.other.length ? '\n' : '') +
     format('📄 Other Changes', grouped.other)
   );
+}
+
+// Extract changelog from a dependabot pull request
+async function getDependabotChangelogFromPR(owner, repo, prNumber, normalizedFrom, normalizedTo) {
+  const { data: pr } = await octokit.rest.pulls.get({
+    owner,
+    repo,
+    pull_number: prNumber,
+  });
+
+  const turndownService = new TurndownService();
+
+  const body = pr.body || '';
+
+  let lines = turndownService
+    .turndown(body)
+    .split('\n')
+    .filter((line) => line.startsWith('>'))
+    .map((line) => line.replace(/^> /, ''))
+    .join('\n');
+
+  if (lines.includes(normalizedFrom)) {
+    lines = lines.split('\n');
+
+    const startIndex = lines.findIndex((line) => line.includes(normalizedTo));
+    const endIndex = lines.findIndex((line) => line.includes(normalizedFrom));
+
+    if (startIndex !== -1 && endIndex !== -1 && endIndex > startIndex) {
+      lines = lines.slice(startIndex + 1, endIndex).join('\n');
+    } else {
+      return null;
+    }
+  }
+
+  const parsed = parseReleaseSections(lines);
+  return Object.values(parsed).some((arr) => arr.length > 0) ? parsed : null;
 }
 
 // Process a dependency bump line and extract package and version info.
@@ -243,6 +283,7 @@ export async function preCommit(props) {
     // If the --all flag is not set, process only dependency bumps within the latest release entry.
     if (!updateAll && (i < latestStart || i >= latestEnd)) continue;
 
+    if (!line.startsWith('* ')) continue;
     const bump = await processDependencyBump(line);
     if (!bump) continue;
     const { pkg, fromVersion, toVersion } = bump;
@@ -261,7 +302,23 @@ export async function preCommit(props) {
         newLines.push(markdown);
         depSpinner.succeed(chalk.green(`Inserted notes for ${pkg}: ${normalizedFrom} → ${normalizedTo}`));
       } else {
-        depSpinner.info(chalk.blue(`No notes found for ${pkg}: ${normalizedFrom} → ${normalizedTo}`));
+        console.warn(chalk.yellow(`🔍 Attempting to fetch changelog from Dependabot PR for ${pkg}`));
+        const { owner: prOwner, repo: prRepo } = CHANGELOG_REPO;
+        const prNumber = extractPRNumber(line);
+        const dependabotChangeLog = await getDependabotChangelogFromPR(
+          prOwner,
+          prRepo,
+          prNumber,
+          normalizedFrom,
+          normalizedTo,
+        );
+        if (dependabotChangeLog) {
+          const markdown = formatGroupedAsMarkdown(dependabotChangeLog);
+          newLines.push(markdown);
+          depSpinner.succeed(chalk.green(`Inserted notes for ${pkg}: ${normalizedFrom} → ${normalizedTo}`));
+        } else {
+          depSpinner.info(chalk.blue(`No notes found for ${pkg}: ${normalizedFrom} → ${normalizedTo}`));
+        }
       }
     } catch (err) {
       depSpinner.fail(chalk.red(`Skipped ${pkg}: ${err.message}`));
