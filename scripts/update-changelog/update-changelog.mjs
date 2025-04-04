@@ -16,7 +16,7 @@ const options = program.opts();
 const updateAll = options.all || false;
 
 const changelogPath = './CHANGELOG.md';
-const GITHUB_TOKEN = process.env.SVC_CLI_BOT_GITHUB_TOKEN || null;
+const GITHUB_TOKEN = process.env['INPUT_GITHUB-TOKEN'] || null;
 
 // Repository where the pull requests were created
 const CHANGELOG_REPO = { owner: 'jayree', repo: 'sfdx-plugin-manifest' };
@@ -230,10 +230,6 @@ export async function preCommit(props) {
   const rateSpinner = ora('Fetching API rate limits...').start();
   await logApiLimits();
   rateSpinner.succeed('API rate limits fetched.');
-
-  if (GITHUB_TOKEN) console.log(chalk.yellow('Using GitHub token for API requests'));
-  const { SVC_CLI_BOT_GITHUB_TOKEN } = process.env;
-  if (SVC_CLI_BOT_GITHUB_TOKEN) console.log(chalk.yellow('Using SVC_CLI_BOT_GITHUB_TOKEN token for API requests'));
 
   const content = fs.readFileSync(changelogPath, 'utf-8');
   const lines = content.split('\n');

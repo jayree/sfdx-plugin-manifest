@@ -14492,7 +14492,7 @@ program.option('--all', 'Process all dependency bumps (not only in the latest re
 var options = program.opts();
 var updateAll = options.all || false;
 var changelogPath = './CHANGELOG.md';
-var GITHUB_TOKEN = process.env.SVC_CLI_BOT_GITHUB_TOKEN || null;
+var GITHUB_TOKEN = process.env['INPUT_GITHUB-TOKEN'] || null;
 var CHANGELOG_REPO = { owner: 'jayree', repo: 'sfdx-plugin-manifest' };
 var octokit = new Octokit2({
   auth: GITHUB_TOKEN,
@@ -14672,10 +14672,6 @@ async function preCommit(props) {
   const rateSpinner = ora('Fetching API rate limits...').start();
   await logApiLimits();
   rateSpinner.succeed('API rate limits fetched.');
-  if (GITHUB_TOKEN) console.log(source_default.yellow('Using GitHub token for API requests'));
-  const { SVC_CLI_BOT_GITHUB_TOKEN } = process.env;
-  if (SVC_CLI_BOT_GITHUB_TOKEN)
-    console.log(source_default.yellow('Using SVC_CLI_BOT_GITHUB_TOKEN token for API requests'));
   const content = import_fs.default.readFileSync(changelogPath, 'utf-8');
   const lines = content.split('\n');
   const { start: latestStart, end: latestEnd } = getLatestEntryIndices(lines);
