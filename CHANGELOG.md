@@ -1,3 +1,14 @@
+## [3.7.7](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.6...3.7.7) (2025-04-05)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#1731](https://github.com/jayree/sfdx-plugin-manifest/issues/1731)) ([ac53d97](https://github.com/jayree/sfdx-plugin-manifest/commit/ac53d9788949d4363b4db4cfd3606cf83291ef17))
+  * suffix should be genAiPlannerBundle ([#1537](https://github.com/forcedotcom/source-deploy-retrieve/issues/1537)) ([62a889e](https://github.com/forcedotcom/source-deploy-retrieve/commit/62a889e4bf431400df4ed30f2e117bc1859d18f8))
+  * add support for GenAiPlannerBundle ([#1536](https://github.com/forcedotcom/source-deploy-retrieve/issues/1536)) ([580ada7](https://github.com/forcedotcom/source-deploy-retrieve/commit/580ada785c5de9540f351d29f51f9c2c04ccba2a))
+
+
+
 ## [3.7.6](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.5...3.7.6) (2025-04-04)
 
 
