@@ -1,3 +1,14 @@
+## [3.7.9](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.8...3.7.9) (2025-04-09)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#1737](https://github.com/jayree/sfdx-plugin-manifest/issues/1737)) ([2254fd8](https://github.com/jayree/sfdx-plugin-manifest/commit/2254fd83df0ebc495e4a632bfe98759b02ef01a1))
+  * .customPermissions vs .customPermission (the MD type) ([#1534](https://github.com/forcedotcom/source-deploy-retrieve/issues/1534)) ([5bc32c8](https://github.com/forcedotcom/source-deploy-retrieve/commit/5bc32c8de7a5709d309044dbec7c9c31e8f92884))
+  * exclude folder when folder content is excluded from org connection ([#1535](https://github.com/forcedotcom/source-deploy-retrieve/issues/1535)) ([5b44448](https://github.com/forcedotcom/source-deploy-retrieve/commit/5b444488e84b30c854e5b59710668b40c55ba477))
+
+
+
 ## [3.7.8](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.7...3.7.8) (2025-04-06)
 
 
