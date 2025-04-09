@@ -1,3 +1,13 @@
+## [3.7.11](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.10...3.7.11) (2025-04-09)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-tracking from 7.3.19 to 7.3.20 ([#1739](https://github.com/jayree/sfdx-plugin-manifest/issues/1739)) ([26760da](https://github.com/jayree/sfdx-plugin-manifest/commit/26760dae666e82155c6f4b51db01e2fcd4ecb8f1))
+  * bump libs ([7f531ba](https://github.com/forcedotcom/source-tracking/commit/7f531ba41d9c3a6c8b928b831a88d22448df7cd3))
+
+
+
 ## [3.7.10](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.9...3.7.10) (2025-04-09)
 
 
