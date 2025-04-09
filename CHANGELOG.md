@@ -1,3 +1,13 @@
+## [3.7.12](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.11...3.7.12) (2025-04-09)
+
+
+### Bug Fixes
+
+* **deps:** bump @jayree/changelog from 1.2.7 to 1.2.8 ([#1740](https://github.com/jayree/sfdx-plugin-manifest/issues/1740)) ([8b5bbff](https://github.com/jayree/sfdx-plugin-manifest/commit/8b5bbffcb509c6baabdfc252092a341736ed4219))
+  * use local marked-terminal ([117bc13](https://github.com/jayree/changelog/commit/117bc13dbb7ba2c695a5caa10a9c99f7c0e20524))
+
+
+
 ## [3.7.11](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.10...3.7.11) (2025-04-09)
 
 
