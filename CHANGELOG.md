@@ -1,3 +1,13 @@
+## [3.7.10](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.9...3.7.10) (2025-04-09)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.8.7 to 8.9.0 ([#1738](https://github.com/jayree/sfdx-plugin-manifest/issues/1738)) ([2dcf891](https://github.com/jayree/sfdx-plugin-manifest/commit/2dcf8914209378e9ba0056cc53ff9d4e49c76732))
+  * add polling for `scratchOrgResume`  ([#1177](https://github.com/forcedotcom/sfdx-core/issues/1177)) ([c3c0b80](https://github.com/forcedotcom/sfdx-core/commit/c3c0b80337e3a65c9d82cc729be38211893ed699))
+
+
+
 ## [3.7.9](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.8...3.7.9) (2025-04-09)
 
 
