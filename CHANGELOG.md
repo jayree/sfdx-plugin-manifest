@@ -1,3 +1,13 @@
+## [3.7.13](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.12...3.7.13) (2025-04-10)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#1741](https://github.com/jayree/sfdx-plugin-manifest/issues/1741)) ([e63d7f8](https://github.com/jayree/sfdx-plugin-manifest/commit/e63d7f8145709345fc61fc44b12c6bd40b357702))
+  * add support for rootTypesWithDependencies to RetrieveRequest ([#1541](https://github.com/forcedotcom/source-deploy-retrieve/issues/1541)) ([eceed3f](https://github.com/forcedotcom/source-deploy-retrieve/commit/eceed3fdde919723dc8bd1e83f414c3d3f7e7c4d))
+
+
+
 ## [3.7.12](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.11...3.7.12) (2025-04-09)
 
 
