@@ -1,3 +1,13 @@
+## [3.7.15](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.14...3.7.15) (2025-04-18)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.9.0 to 8.9.1 ([#1748](https://github.com/jayree/sfdx-plugin-manifest/issues/1748)) ([32b6713](https://github.com/jayree/sfdx-plugin-manifest/commit/32b67137b21f12b44a5acee70fc1656073b62d59))
+  * cache regex per debug level ([13c20a7](https://github.com/forcedotcom/sfdx-core/commit/13c20a7f82589c156af436dbd30e39a11b99bcb8))
+
+
+
 ## [3.7.14](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.13...3.7.14) (2025-04-12)
 
 
