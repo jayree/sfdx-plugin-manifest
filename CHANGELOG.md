@@ -1,3 +1,14 @@
+## [3.7.16](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.15...3.7.16) (2025-04-18)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#1747](https://github.com/jayree/sfdx-plugin-manifest/issues/1747)) ([66a5661](https://github.com/jayree/sfdx-plugin-manifest/commit/66a5661d352319a89d88003fe4f923002dc78d82))
+  * support GenAiPlanner and GenAiPlannerBundle for agent pseudotype ([#1542](https://github.com/forcedotcom/source-deploy-retrieve/issues/1542)) ([5319627](https://github.com/forcedotcom/source-deploy-retrieve/commit/53196270d3a9e05be204b7c1b7c8d30a07a5fdc2))
+  * add support for WorkflowFlowAutomation ([#1547](https://github.com/forcedotcom/source-deploy-retrieve/issues/1547)) ([e79be42](https://github.com/forcedotcom/source-deploy-retrieve/commit/e79be4220358e97551f4b3c956dda6ddd4717dc1))
+
+
+
 ## [3.7.15](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.14...3.7.15) (2025-04-18)
 
 
