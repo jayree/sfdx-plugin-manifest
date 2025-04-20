@@ -1654,13 +1654,13 @@
     ansis "^3.17.0"
     fast-levenshtein "^3.0.0"
 
-"@oclif/plugin-warn-if-update-available@^3.1.31":
-  version "3.1.35"
-  resolved "https://registry.yarnpkg.com/@oclif/plugin-warn-if-update-available/-/plugin-warn-if-update-available-3.1.35.tgz#49f9428594d91a59672ec7f6fed37dd3571f6787"
-  integrity sha512-gQfFW0UfT3msq/3O3idgBq4CA3cyXzFtrkoG7MK4FXVK0wxIdG0EVgJn4/o3jqjWO7t+93siCXyq56CGTGUZWQ==
+"@oclif/plugin-warn-if-update-available@^3.1.38":
+  version "3.1.38"
+  resolved "https://registry.yarnpkg.com/@oclif/plugin-warn-if-update-available/-/plugin-warn-if-update-available-3.1.38.tgz#331f9ed8d6e9e36919c0814b24c8c9adbfe2acc4"
+  integrity sha512-lwYtVXdQaBJV94DglPu140Bc6NmmysHhX5PZtdxeNcUG2BgSX/Sre7oCzMEgmuhe4Lu2jDviMxTX81a8wv6v1w==
   dependencies:
     "@oclif/core" "^4"
-    ansis "^3.10.0"
+    ansis "^3.17.0"
     debug "^4.4.0"
     http-call "^5.2.2"
     lodash "^4.17.21"
@@ -3224,7 +3224,7 @@ ansi-styles@^6.0.0, ansi-styles@^6.1.0, ansi-styles@^6.2.1:
   resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-6.2.1.tgz#0e62320cf99c21afff3b3012192546aacbfb05c5"
   integrity sha512-bN798gFfQX+viw3R7yrGWRqnrN2oRkEkUjjl4JNn4E8GxxbjtG3FbrEIIY3l8/hrwUwIeCZvi4QuOTP4MErVug==
 
-ansis@^3.10.0, ansis@^3.17.0, ansis@^3.3.2:
+ansis@^3.17.0, ansis@^3.3.2:
   version "3.17.0"
   resolved "https://registry.yarnpkg.com/ansis/-/ansis-3.17.0.tgz#fa8d9c2a93fe7d1177e0c17f9eeb562a58a832d7"
   integrity sha512-0qWUglt9JEqLFr3w1I1pbrChn1grhaiAR2ocX1PP/flRmxgtwTzPFFFnfIlD6aMOLQZgSuCRlidD70lvx8yhzg==
@@ -7451,10 +7451,10 @@ object.values@^1.2.0:
     define-properties "^1.2.1"
     es-object-atoms "^1.0.0"
 
-oclif@^4.17.44:
-  version "4.17.44"
-  resolved "https://registry.yarnpkg.com/oclif/-/oclif-4.17.44.tgz#13df89d893df41fd1d312d603091aaed68f770db"
-  integrity sha512-w05L5LKhPiKT5uAn1yzMV+5EpwNvUrJKIlgtzBm4QxMlQ+MsBVclnCXoji1s+Kr0kZd8aC3x8q6VYiuoCxRuZQ==
+oclif@^4.17.45:
+  version "4.17.45"
+  resolved "https://registry.yarnpkg.com/oclif/-/oclif-4.17.45.tgz#4778cd409a2a414f4e5affb5667c0f28a0a9f3f0"
+  integrity sha512-uy43gOt4+su9j1flXmp4RQmsuD7ACNlZqlqnTZXGydoZFn4UduZuTw2NkYzWv1a3K+cEcxJdwMbUay6WDlaCYA==
   dependencies:
     "@aws-sdk/client-cloudfront" "^3.787.0"
     "@aws-sdk/client-s3" "^3.782.0"
@@ -7464,7 +7464,7 @@ oclif@^4.17.44:
     "@oclif/core" "^4.2.10"
     "@oclif/plugin-help" "^6.2.27"
     "@oclif/plugin-not-found" "^3.2.48"
-    "@oclif/plugin-warn-if-update-available" "^3.1.31"
+    "@oclif/plugin-warn-if-update-available" "^3.1.38"
     async-retry "^1.3.3"
     chalk "^4"
     change-case "^4"
