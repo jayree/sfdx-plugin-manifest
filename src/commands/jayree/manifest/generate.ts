@@ -201,9 +201,7 @@ export default class GeneratePackageXML extends SfCommand<PackageManifestObject>
   protected async listMembers(query: ListMetadataQuery, apiVersion?: string): Promise<FileProperties[]> {
     let members: FileProperties[];
     try {
-      if (!apiVersion) {
-        apiVersion = this.conn.getApiVersion();
-      }
+      apiVersion ??= this.conn.getApiVersion();
       members = ensureArray((await this.conn.metadata.list(query, apiVersion)) as FileProperties[]);
     } catch (error) {
       members = [];
