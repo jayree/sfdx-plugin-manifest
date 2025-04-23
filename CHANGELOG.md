@@ -1,3 +1,14 @@
+## [3.7.17](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.16...3.7.17) (2025-04-23)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-xml-parser from 5.2.0 to 5.2.1 ([#1754](https://github.com/jayree/sfdx-plugin-manifest/issues/1754)) ([a85c342](https://github.com/jayree/sfdx-plugin-manifest/commit/a85c342620d0690883afd63169723cb78212649d))
+  *   fix: read DOCTYPE entity value correctly
+  *   read DOCTYPE NOTATION, ELEMENT exp but not using read values
+
+
+
 ## [3.7.16](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.15...3.7.16) (2025-04-18)
 
 
