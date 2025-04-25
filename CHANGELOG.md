@@ -1,3 +1,16 @@
+## [3.7.18](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.17...3.7.18) (2025-04-25)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-tracking from 7.3.22 to 7.3.23 ([#1755](https://github.com/jayree/sfdx-plugin-manifest/issues/1755)) ([9d8a0bd](https://github.com/jayree/sfdx-plugin-manifest/commit/9d8a0bdce7012d1b0a33e8f25830930f1877121b))
+  * add a unit test ([2b78c40](https://github.com/forcedotcom/source-tracking/commit/2b78c401594f175c05eea8b0aa02f8f02c286985))
+  * lint ([a6d9ae9](https://github.com/forcedotcom/source-tracking/commit/a6d9ae9eef3a06d9090f1e50f17c6acbce73942f))
+  * keep caches from growing unbounded in multitenant environments ([824f902](https://github.com/forcedotcom/source-tracking/commit/824f902beeadd75be1811e33d3911fdabbff4053))
+  * keep caches from growing unbounded in multitenant environments ([824f902](https://github.com/forcedotcom/source-tracking/commit/824f902beeadd75be1811e33d3911fdabbff4053))
+
+
+
 ## [3.7.17](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.16...3.7.17) (2025-04-23)
 
 
