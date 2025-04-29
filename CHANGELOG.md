@@ -1,3 +1,13 @@
+## [3.7.19](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.18...3.7.19) (2025-04-29)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 4.2.10 to 4.3.0 ([#1760](https://github.com/jayree/sfdx-plugin-manifest/issues/1760)) ([5b5cadc](https://github.com/jayree/sfdx-plugin-manifest/commit/5b5cadc9d4d900988c8c3d020f49cd5a0fdcdca7))
+  * add generic for extending `Hooks` on `config.runHook` ([#1359](https://github.com/oclif/core/issues/1359)) ([#1362](https://github.com/oclif/core/issues/1362)) ([667e396](https://github.com/oclif/core/commit/667e39644c01937de913c1888339a52df4164881))
+
+
+
 ## [3.7.18](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.17...3.7.18) (2025-04-25)
 
 
