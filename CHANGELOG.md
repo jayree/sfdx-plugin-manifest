@@ -1,3 +1,13 @@
+## [3.7.20](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.19...3.7.20) (2025-05-02)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.10.0 to 8.10.1 ([#1761](https://github.com/jayree/sfdx-plugin-manifest/issues/1761)) ([62b0b6d](https://github.com/jayree/sfdx-plugin-manifest/commit/62b0b6d6808df8d400f2d3aa492a5d655be8a710))
+  * add generateApiName method to utils ([d409f4c](https://github.com/forcedotcom/sfdx-core/commit/d409f4c179b529c95bc79afe0345d0465ee21488))
+
+
+
 ## [3.7.19](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.18...3.7.19) (2025-04-29)
 
 
