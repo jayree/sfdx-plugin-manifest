@@ -1041,10 +1041,10 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.57.1.tgz#de633db3ec2ef6a3c89e2f19038063e8a122e2c2"
   integrity sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==
 
-"@eslint/js@^9.25.0":
-  version "9.25.0"
-  resolved "https://registry.yarnpkg.com/@eslint/js/-/js-9.25.0.tgz#4656b39de7cbf12fd66e7d54d9a26d05855b2a5a"
-  integrity sha512-iWhsUS8Wgxz9AXNfvfOPFSW4VfMXdVhp1hjkZVhXCrpgh/aLcc45rX6MPu+tIVUWDw0HfNwth7O28M1xDxNf9w==
+"@eslint/js@^9.26.0":
+  version "9.26.0"
+  resolved "https://registry.yarnpkg.com/@eslint/js/-/js-9.26.0.tgz#1e13126b67a3db15111d2dcc61f69a2acff70bd5"
+  integrity sha512-I9XlJawFdSMvWjDt6wksMCrgns5ggLNfFwFvnShsleWruvXM514Qxk8V246efTw+eo9JABvVz+u3q2RiAowKxQ==
 
 "@humanwhocodes/config-array@^0.13.0":
   version "0.13.0"
@@ -4382,14 +4382,14 @@ eslint-config-oclif@^5.2.2:
     eslint-plugin-n "^15.1.0"
     eslint-plugin-unicorn "^48.0.1"
 
-eslint-config-oclif@^6.0.52:
-  version "6.0.52"
-  resolved "https://registry.yarnpkg.com/eslint-config-oclif/-/eslint-config-oclif-6.0.52.tgz#543030266065ddb626c04204bedaeba98966d0a5"
-  integrity sha512-/ZdRAcD4tCkihevEMC28RfkkX9NeAqcjiL7lredyXh6pXTtiJk3weqUe8U/Pvl/rajhWKzJ5vBlRNZRA1bJAcA==
+eslint-config-oclif@^6.0.54:
+  version "6.0.54"
+  resolved "https://registry.yarnpkg.com/eslint-config-oclif/-/eslint-config-oclif-6.0.54.tgz#7055d3fb91ff56d4c76e80cbd251520e5cdcc853"
+  integrity sha512-5BWFViu6bkpwltEbr+WmHj5UfYdZUc/tF7o0AOpeHJ4KD7e9yPFeizCRFBKxwtlZDaJaqDwr8JpuNZlg7ACWOA==
   dependencies:
     "@eslint/compat" "^1.2.9"
     "@eslint/eslintrc" "^3.3.1"
-    "@eslint/js" "^9.25.0"
+    "@eslint/js" "^9.26.0"
     "@stylistic/eslint-plugin" "^3.1.0"
     "@typescript-eslint/eslint-plugin" "^8"
     "@typescript-eslint/parser" "^8"
