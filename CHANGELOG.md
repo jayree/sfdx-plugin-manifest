@@ -1,3 +1,13 @@
+## [3.7.22](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.21...3.7.22) (2025-05-05)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-xml-parser from 5.2.1 to 5.2.2 ([#1771](https://github.com/jayree/sfdx-plugin-manifest/issues/1771)) ([45c8feb](https://github.com/jayree/sfdx-plugin-manifest/commit/45c8feb06457f14ba3e05c29a225225c8f65c5c0))
+  *   fix ([#746](https://redirect.github.com/NaturalIntelligence/fast-xml-parser/issues/746)): update strnum to fix parsing issues related to enotations
+
+
+
 ## [3.7.21](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.20...3.7.21) (2025-05-04)
 
 
