@@ -1,3 +1,13 @@
+## [3.7.23](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.22...3.7.23) (2025-05-05)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#1769](https://github.com/jayree/sfdx-plugin-manifest/issues/1769)) ([cdb2f88](https://github.com/jayree/sfdx-plugin-manifest/commit/cdb2f88a13417493a688cec64a6924973882899a))
+  * modify beta2 permset transformer and finalizer - W-18308093 ([#1554](https://github.com/forcedotcom/source-deploy-retrieve/issues/1554)) ([fe87d7e](https://github.com/forcedotcom/source-deploy-retrieve/commit/fe87d7eb69f222300d3c8abe749b857a71060387))
+
+
+
 ## [3.7.22](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.21...3.7.22) (2025-05-05)
 
 
