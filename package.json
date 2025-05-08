@@ -24,7 +24,7 @@
     "@oclif/plugin-command-snapshot": "^5.2.39",
     "@oclif/plugin-help": "^6.2.28",
     "@salesforce/cli-plugins-testkit": "^5.3.39",
-    "@salesforce/dev-scripts": "^10.2.12",
+    "@salesforce/dev-scripts": "^11.0.2",
     "@salesforce/ts-sinon": "^1.4.30",
     "@types/fs-extra": "^11.0.4",
     "@types/graceful-fs": "^4.1.9",
@@ -69,7 +69,7 @@
     "sfdx",
     "sfdx-plugin"
   ],
-  "license": "BSD-3-Clause",
+  "license": "Apache-2.0",
   "oclif": {
     "commands": "./lib/commands",
     "bin": "sf",
@@ -114,6 +114,7 @@
     "compare-hashes": "node scripts/compare-filehash/compare.mjs",
     "compile": "wireit",
     "docs": "sf-docs",
+    "fix-license": "eslint src test --fix --rule \"header/header: [2]\"",
     "format": "wireit",
     "generate-hashes": "node scripts/compare-filehash/generate.mjs",
     "lint": "wireit",
