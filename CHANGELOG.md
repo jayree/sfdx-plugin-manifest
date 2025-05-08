@@ -1,3 +1,13 @@
+## [3.7.24](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.23...3.7.24) (2025-05-08)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.10.2 to 8.10.3 ([#1773](https://github.com/jayree/sfdx-plugin-manifest/issues/1773)) ([146ec6a](https://github.com/jayree/sfdx-plugin-manifest/commit/146ec6a9b94bd308d4fa85a280080f7f63cd9a2f))
+  * examples/package.json & examples/yarn.lock to reduce vulnerabilities ([584b91a](https://github.com/forcedotcom/sfdx-core/commit/584b91a74216975e6a11d08151262ae596c17d3a))
+
+
+
 ## [3.7.23](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.22...3.7.23) (2025-05-05)
 
 
