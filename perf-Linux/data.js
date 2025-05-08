@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1746700359552,
+  "lastUpdate": 1746700627452,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -21427,6 +21427,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 235,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "135729990+updatefilesbot[bot]@users.noreply.github.com",
+            "name": "updatefilesbot[bot]",
+            "username": "updatefilesbot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ca3411c70a63a74c75ab1319fe95b42654ed5d85",
+          "message": "chore(patch): create patch for package eslint-config-salesforce-license",
+          "timestamp": "2025-05-08T10:32:04Z",
+          "tree_id": "5fd469f99bbd3ea7333497d1d035558e89d8ca3d",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/ca3411c70a63a74c75ab1319fe95b42654ed5d85"
+        },
+        "date": 1746700625730,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 2794,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 1939,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 400,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 310,
             "unit": "ms"
           }
         ]
