@@ -30,6 +30,7 @@
     "@types/graceful-fs": "^4.1.9",
     "c8": "^10.1.3",
     "eslint-config-oclif": "^6.0.54",
+    "eslint-config-salesforce-license": "^1.0.1",
     "eslint-plugin-prettier": "^5.4.0",
     "eslint-plugin-sf-plugin": "^1.20.22",
     "oclif": "^4.17.46",
@@ -106,12 +107,15 @@
   "repository": "jayree/sfdx-plugin-manifest",
   "scripts": {
     "build": "wireit",
+    "build-changelog-update": "esbuild scripts/update-changelog/update-changelog.mjs --bundle --platform=node --format=cjs --outfile=scripts/update-changelog/dist/update-changelog.cjs",
     "ci-docs": "sf-ci-docs",
     "clean": "sf-clean",
     "clean-all": "sf-clean all",
+    "compare-hashes": "node scripts/compare-filehash/compare.mjs",
     "compile": "wireit",
     "docs": "sf-docs",
     "format": "wireit",
+    "generate-hashes": "node scripts/compare-filehash/generate.mjs",
     "lint": "wireit",
     "postpack": "sf-clean --ignore-signing-artifacts",
     "prepack": "sf-prepack",
@@ -120,9 +124,6 @@
     "test:nuts": "c8 mocha \"**/*.nut.ts\" --slow 4500 --timeout 600000 --parallel",
     "test:nuts:local": "mocha \"**/local/*.nut.ts\" --slow 4500 --timeout 600000 --parallel",
     "test:only": "wireit",
-    "build-changelog-update": "esbuild scripts/update-changelog/update-changelog.mjs --bundle --platform=node --format=cjs --outfile=scripts/update-changelog/dist/update-changelog.cjs",
-    "compare-hashes": "node scripts/compare-filehash/compare.mjs",
-    "generate-hashes": "node scripts/compare-filehash/generate.mjs",
     "version": "oclif readme --no-aliases"
   },
   "publishConfig": {
