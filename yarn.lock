@@ -4400,6 +4400,11 @@ eslint-config-salesforce-license@^0.2.0:
   resolved "https://registry.yarnpkg.com/eslint-config-salesforce-license/-/eslint-config-salesforce-license-0.2.0.tgz#323193f1aa15dd33fbf108d25fc1210afc11065e"
   integrity sha512-DJdBvgj82Erum82YMe+YvG/o6ukna3UA++lRl0HSTldj0VlBl3Q8hzCp97nRXZHra6JH1I912yievZzklXDw6w==
 
+eslint-config-salesforce-license@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-salesforce-license/-/eslint-config-salesforce-license-1.0.1.tgz#405283d55da648e7f356271bc11a5d647b0ad4bf"
+  integrity sha512-se/AlatOmkSOXQUcdDT7dR1MQxqE5AdtSroaVoby4Y1uMPUr1WSrspcX1zPYkToioqCF6VGIgrBquS63VkH+OA==
+
 eslint-config-salesforce-typescript@^3.4.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/eslint-config-salesforce-typescript/-/eslint-config-salesforce-typescript-3.4.0.tgz#3542e96aa6054b3df3b7c636b3b7f5bf4238bfb3"
