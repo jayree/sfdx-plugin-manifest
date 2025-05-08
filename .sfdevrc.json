@@ -1,6 +1,5 @@
 {
   "exclude-scripts": ["test:command-reference", "link-check"],
-  "exclude-files": ["LICENSE.txt"],
   "devDepOverrides": [
     "prettier",
     "pretty-quick",
