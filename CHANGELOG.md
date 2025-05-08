@@ -1,3 +1,14 @@
+## [4.0.0](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.25...4.0.0) (2025-05-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove flag deprecations (#1775)
+
+### Features
+
+* remove flag deprecations ([#1775](https://github.com/jayree/sfdx-plugin-manifest/issues/1775)) ([c725b37](https://github.com/jayree/sfdx-plugin-manifest/commit/c725b3774537052c4b3855405a0abe374b6f7031))
+
 ## [3.7.25](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.24...3.7.25) (2025-05-08)
 
 
