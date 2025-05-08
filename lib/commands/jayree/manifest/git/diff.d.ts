@@ -19,8 +19,6 @@ export default class GitDiffCommand extends SfCommand<GitDiffCommandResult> {
         ref2: import("@oclif/core/interfaces").Arg<string | undefined, Record<string, unknown>>;
     };
     static readonly requiresProject = true;
-    static readonly deprecateAliases = true;
-    static readonly aliases: string[];
     static readonly flags: {
         'api-version': import("@oclif/core/interfaces").OptionFlag<string | undefined, import("@oclif/core/interfaces").CustomOptions>;
         'source-dir': import("@oclif/core/interfaces").OptionFlag<string[] | undefined, import("@oclif/core/interfaces").CustomOptions>;
