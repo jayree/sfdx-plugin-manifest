@@ -112,7 +112,7 @@ EXAMPLES
   $ sf jayree manifest cleanup --manifest=package.xml --file=packageignore.xml
 ```
 
-_See code: [src/commands/jayree/manifest/cleanup.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/3.7.25/src/commands/jayree/manifest/cleanup.ts)_
+_See code: [src/commands/jayree/manifest/cleanup.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/4.0.1/src/commands/jayree/manifest/cleanup.ts)_
 
 ### `sf jayree manifest generate`
 
@@ -150,7 +150,7 @@ EXAMPLES
   <Package xmlns='http://soap.sforce.com/2006/04/metadata'>...</Package>
 ```
 
-_See code: [src/commands/jayree/manifest/generate.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/3.7.25/src/commands/jayree/manifest/generate.ts)_
+_See code: [src/commands/jayree/manifest/generate.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/4.0.1/src/commands/jayree/manifest/generate.ts)_
 
 ### `sf jayree manifest git diff REF1 [REF2]`
 
@@ -183,9 +183,6 @@ DESCRIPTION
   git refs.
 
   You can use all ways to spell <commit> which are valid for 'git diff' (See https://git-scm.com/docs/git-diff).
-
-ALIASES
-  $ sf jayree manifest beta git diff
 
 EXAMPLES
   Uses the changes between two arbitrary <commit>.
@@ -233,7 +230,7 @@ FLAG DESCRIPTIONS
     Use this flag to create a 'destructiveChanges.xml' and a blank 'package.xml'.
 ```
 
-_See code: [src/commands/jayree/manifest/git/diff.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/3.7.25/src/commands/jayree/manifest/git/diff.ts)_
+_See code: [src/commands/jayree/manifest/git/diff.ts](https://github.com/jayree/sfdx-plugin-manifest/blob/4.0.1/src/commands/jayree/manifest/git/diff.ts)_
 <!-- commandsstop -->
 
 ## Performance Testing

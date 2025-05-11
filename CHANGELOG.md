@@ -1,3 +1,11 @@
+## [4.0.1](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.0...4.0.1) (2025-05-11)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-xml-parser from 5.2.2 to 5.2.3 ([#1779](https://github.com/jayree/sfdx-plugin-manifest/issues/1779)) ([cb5c441](https://github.com/jayree/sfdx-plugin-manifest/commit/cb5c441ae79182965392d5ee0e2c3c8daf6cbfd6))
+  *   fix ([#747](https://redirect.github.com/NaturalIntelligence/fast-xml-parser/issues/747)): support EMPTY and ANY with ELEMENT in DOCTYPE
+
 ## [4.0.0](https://github.com/jayree/sfdx-plugin-manifest/compare/3.7.25...4.0.0) (2025-05-08)
 
 
