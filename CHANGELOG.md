@@ -1,3 +1,11 @@
+## [4.0.3](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.2...4.0.3) (2025-05-13)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#1780](https://github.com/jayree/sfdx-plugin-manifest/issues/1780)) ([2ab6f91](https://github.com/jayree/sfdx-plugin-manifest/commit/2ab6f9163c3a4a5ef377bd9e4c2d6e2685372ff4))
+  * add DAM metadata types ([#1561](https://github.com/forcedotcom/source-deploy-retrieve/issues/1561)) ([015e5c3](https://github.com/forcedotcom/source-deploy-retrieve/commit/015e5c3e325f2cc70d5615c45d6daaf6f657a84d))
+
 ## [4.0.2](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.1...4.0.2) (2025-05-11)
 
 
