@@ -1,3 +1,11 @@
+## [4.0.5](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.4...4.0.5) (2025-05-16)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/sf-plugins-core from 12.2.1 to 12.2.2 ([#1782](https://github.com/jayree/sfdx-plugin-manifest/issues/1782)) ([8e84e79](https://github.com/jayree/sfdx-plugin-manifest/commit/8e84e796a63ce02866175e72777d93fb4eeb0437))
+  * pretty-print `MULTIPLE_API_ERROR` data ([#677](https://github.com/salesforcecli/sf-plugins-core/issues/677)) ([5d193cf](https://github.com/salesforcecli/sf-plugins-core/commit/5d193cf4a7aa59dac2506ea81f3d11dd9f93b6b4)), closes [#680](https://github.com/salesforcecli/sf-plugins-core/issues/680)
+
 ## [4.0.4](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.3...4.0.4) (2025-05-16)
 
 
