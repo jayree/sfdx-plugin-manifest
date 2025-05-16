@@ -1,3 +1,12 @@
+## [4.0.4](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.3...4.0.4) (2025-05-16)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.10.3 to 8.11.0 ([#1781](https://github.com/jayree/sfdx-plugin-manifest/issues/1781)) ([3e8f71d](https://github.com/jayree/sfdx-plugin-manifest/commit/3e8f71dd1f48924c2ea4dfff60b277360e7409bd))
+  * add test for multiple tokens ([dfa31fa](https://github.com/forcedotcom/sfdx-core/commit/dfa31fad697865ed9abbd82f714fa3e4a276cde3))
+  * actionTokens print twice ([d3db445](https://github.com/forcedotcom/sfdx-core/commit/d3db445402ea7fd1aaced5589deed1c889c33b9c))
+
 ## [4.0.3](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.2...4.0.3) (2025-05-13)
 
 
