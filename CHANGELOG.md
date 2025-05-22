@@ -1,3 +1,11 @@
+## [4.0.8](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.7...4.0.8) (2025-05-22)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#1788](https://github.com/jayree/sfdx-plugin-manifest/issues/1788)) ([f11a558](https://github.com/jayree/sfdx-plugin-manifest/commit/f11a558b975119b994038bdc9c41d425cc08c348))
+  * update directory for PricingRecipe definition - W-18560199 ([#1565](https://github.com/forcedotcom/source-deploy-retrieve/issues/1565)) ([3f2e83a](https://github.com/forcedotcom/source-deploy-retrieve/commit/3f2e83a5bbf84c17144e6b4b5423e8923dca12a9))
+
 ## [4.0.7](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.6...4.0.7) (2025-05-22)
 
 
