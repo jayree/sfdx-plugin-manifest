@@ -1,3 +1,11 @@
+## [4.0.9](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.8...4.0.9) (2025-05-23)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.11.0 to 8.11.1 ([#1789](https://github.com/jayree/sfdx-plugin-manifest/issues/1789)) ([8082b02](https://github.com/jayree/sfdx-plugin-manifest/commit/8082b02b886379066a9e819ca760de506bc889e0))
+  * bump jsforce ([#1191](https://github.com/forcedotcom/sfdx-core/issues/1191)) ([1cbf553](https://github.com/forcedotcom/sfdx-core/commit/1cbf5535406f5d60df89a4fb42c2d7921d86f530))
+
 ## [4.0.8](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.7...4.0.8) (2025-05-22)
 
 
