@@ -1,3 +1,11 @@
+## [4.0.10](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.9...4.0.10) (2025-05-23)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.30.1 to 1.30.2 ([#1790](https://github.com/jayree/sfdx-plugin-manifest/issues/1790)) ([46d51b3](https://github.com/jayree/sfdx-plugin-manifest/commit/46d51b3670d035e7210e350a26a61bb1ee49e0d3))
+  * mergeTree returns undefined when a directory in deleted in a branch and updated in the other ([#2062](https://github.com/isomorphic-git/isomorphic-git/issues/2062)) ([0f302a9](https://github.com/isomorphic-git/isomorphic-git/commit/0f302a9dd09b31b46fe98aa32acc667f15896da7)), closes [#1999](https://github.com/isomorphic-git/isomorphic-git/issues/1999)
+
 ## [4.0.9](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.8...4.0.9) (2025-05-23)
 
 
