@@ -32,7 +32,7 @@
     "eslint-config-oclif": "^6.0.58",
     "eslint-config-salesforce-license": "^1.0.1",
     "eslint-plugin-prettier": "^5.4.0",
-    "eslint-plugin-sf-plugin": "^1.20.23",
+    "eslint-plugin-sf-plugin": "^1.20.24",
     "oclif": "^4.17.46",
     "patch-package": "^8.0.0",
     "prettier": "^3.5.3",
