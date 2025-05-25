@@ -1,3 +1,12 @@
+## [4.0.11](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.10...4.0.11) (2025-05-25)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.11.1 to 8.11.3 ([#1792](https://github.com/jayree/sfdx-plugin-manifest/issues/1792)) ([6b29d7b](https://github.com/jayree/sfdx-plugin-manifest/commit/6b29d7b5e649a735145e2ebba3ae18a9a028a450))
+  * **deps:** bump pino from 9.4.0 to 9.7.0 ([4aa4887](https://github.com/forcedotcom/sfdx-core/commit/4aa48876ec94a1ecedeefa7eeb388b467548dda0))
+  * **deps:** bump pino-pretty from 11.2.2 to 11.3.0 ([18ef1a4](https://github.com/forcedotcom/sfdx-core/commit/18ef1a4467eb968283c80b729281145cd3abea35))
+
 ## [4.0.10](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.9...4.0.10) (2025-05-23)
 
 
