@@ -1,3 +1,11 @@
+## [4.0.12](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.11...4.0.12) (2025-05-29)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.11.3 to 8.11.4 ([#1794](https://github.com/jayree/sfdx-plugin-manifest/issues/1794)) ([3b582b4](https://github.com/jayree/sfdx-plugin-manifest/commit/3b582b4252e14cc33cc5541c84131f6888fbcafd))
+  * deploy org settings with REST API if set in config ([b1a089f](https://github.com/forcedotcom/sfdx-core/commit/b1a089febfaf050e1b65d1f4751e7b42fc087136))
+
 ## [4.0.11](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.10...4.0.11) (2025-05-25)
 
 
