@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1748857640483,
+  "lastUpdate": 1748862058699,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -22391,6 +22391,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 333,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "56a235109049ebf8df13d96304b52cba109ed8d2",
+          "message": "chore(deps): bump benchmark-action/github-action-benchmark\n\nBumps [benchmark-action/github-action-benchmark](https://github.com/benchmark-action/github-action-benchmark) from 1.16.2 to 1.20.4.\n- [Release notes](https://github.com/benchmark-action/github-action-benchmark/releases)\n- [Changelog](https://github.com/benchmark-action/github-action-benchmark/blob/master/CHANGELOG.md)\n- [Commits](https://github.com/benchmark-action/github-action-benchmark/compare/5bbce78ef18edf5b96cb2d23e8d240b485f9dc4a...d48d326b4ca9ba73ca0cd0d59f108f9e02a381c7)\n\n---\nupdated-dependencies:\n- dependency-name: benchmark-action/github-action-benchmark\n  dependency-version: 1.20.4\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2025-06-02T10:51:39Z",
+          "tree_id": "205af5f0c666f9174e324a681a6aa47e551180be",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/56a235109049ebf8df13d96304b52cba109ed8d2"
+        },
+        "date": 1748862047031,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 5851,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 3981,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 420,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 369,
             "unit": "ms"
           }
         ]
