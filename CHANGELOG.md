@@ -1,3 +1,10 @@
+## [4.0.13](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.12...4.0.13) (2025-06-02)
+
+
+### Reverts
+
+* Revert "chore: fix perfScaleNut (#1784)" ([0d0960a](https://github.com/jayree/sfdx-plugin-manifest/commit/0d0960a2f941102523177a6d7abc4ca5561c00c8)), closes [#1784](https://github.com/jayree/sfdx-plugin-manifest/issues/1784)
+
 ## [4.0.12](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.11...4.0.12) (2025-05-29)
 
 
