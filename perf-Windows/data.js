@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747578309089,
+  "lastUpdate": 1748852722061,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -22305,6 +22305,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 350,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "135729990+updatefilesbot[bot]@users.noreply.github.com",
+            "name": "updatefilesbot[bot]",
+            "username": "updatefilesbot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "475c5f5bbb746b728440fb63ea312574ab7c54d2",
+          "message": "chore(patch): update patch for package @salesforce/dev-scripts",
+          "timestamp": "2025-06-02T08:19:20Z",
+          "tree_id": "97aafdcffe88832d16b8b183f3e660bcfcfe9f28",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/475c5f5bbb746b728440fb63ea312574ab7c54d2"
+        },
+        "date": 1748852709333,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 5340,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 3609,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 377,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 338,
             "unit": "ms"
           }
         ]
