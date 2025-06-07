@@ -1,3 +1,13 @@
+## [4.0.14](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.13...4.0.14) (2025-06-07)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.11.4 to 8.12.0 ([#1809](https://github.com/jayree/sfdx-plugin-manifest/issues/1809)) ([64da31b](https://github.com/jayree/sfdx-plugin-manifest/commit/64da31b7f20fa80182d02a55d207a82ebbe35c8a))
+  * browser uses generic keychain ([19a4c04](https://github.com/forcedotcom/sfdx-core/commit/19a4c048227ac3d7fce14ee331af5edcf37a6e08))
+  * config locking and domain works for web ([0f03f71](https://github.com/forcedotcom/sfdx-core/commit/0f03f71e66badc3a35cc11650eab1852c0b26c0b))
+  * detect browsers ([f60917e](https://github.com/forcedotcom/sfdx-core/commit/f60917e8eefa1244ea291b4fcfb4e0c10032ca61))
+
 ## [4.0.13](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.12...4.0.13) (2025-06-02)
 
 
