@@ -1,3 +1,12 @@
+## [4.0.15](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.14...4.0.15) (2025-06-07)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#1802](https://github.com/jayree/sfdx-plugin-manifest/issues/1802)) ([f5c8fc6](https://github.com/jayree/sfdx-plugin-manifest/commit/f5c8fc691eb35378ec05f0211c44c5066737b24b))
+  * change map to use name#type for key  @W-18476014@ ([#1571](https://github.com/forcedotcom/source-deploy-retrieve/issues/1571)) ([eda47ea](https://github.com/forcedotcom/source-deploy-retrieve/commit/eda47ea00933fc659d0f220211998488341fa394))
+  * include parent in manifest when retrieving - W-18650723 ([#1568](https://github.com/forcedotcom/source-deploy-retrieve/issues/1568)) ([db8cb3e](https://github.com/forcedotcom/source-deploy-retrieve/commit/db8cb3e85c7a06b0d0ab5d54e05fdb900c907c75))
+
 ## [4.0.14](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.13...4.0.14) (2025-06-07)
 
 
