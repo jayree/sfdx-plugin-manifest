@@ -24,9 +24,10 @@ import {
 import { Logger, NamedPackageDir } from '@salesforce/core';
 import equal from 'fast-deep-equal';
 import { getString } from '@salesforce/ts-types';
-import { supportsPartialDelete, pathIsInFolder } from '@salesforce/source-tracking/lib/shared/functions.js';
+import { supportsPartialDelete } from '@salesforce/source-tracking/lib/shared/functions.js';
 import { isDefined } from '@salesforce/source-tracking/lib/shared/guards.js';
 import { parseMetadataXml } from '@salesforce/source-deploy-retrieve/lib/src/utils/index.js';
+import { pathIsInFolder } from '../shared/functions.js';
 import { VirtualTreeContainerExtra } from '../resolve/treeContainersExtra.js';
 
 type GroupedFileInput = {
@@ -47,13 +48,39 @@ export const getGroupedFiles = (input: GroupedFileInput, byPackageDir = false): 
     (group) => group.deletes.length || group.adds.length || group.modifies.length,
   );
 
-const getSequential = ({ packageDirs, adds, modifies, deletes }: GroupedFileInput): GroupedFile[] =>
-  packageDirs.map((pkgDir) => ({
-    path: pkgDir.name,
-    adds: adds.filter(pathIsInFolder(pkgDir.name)),
-    modifies: modifies.filter(pathIsInFolder(pkgDir.name)),
-    deletes: deletes.filter(pathIsInFolder(pkgDir.name)),
-  }));
+const getSequential = ({ packageDirs, adds, modifies, deletes }: GroupedFileInput): GroupedFile[] => {
+  const addssByPkgDir = groupByPkgDir(adds, packageDirs);
+  const modifiesByPkgDir = groupByPkgDir(modifies, packageDirs);
+  const deletesByPkgDir = groupByPkgDir(deletes, packageDirs);
+  return packageDirs.map((pkgDir) => {
+    const { name } = pkgDir;
+    return {
+      path: name,
+      adds: addssByPkgDir.get(name) ?? [],
+      modifies: modifiesByPkgDir.get(name) ?? [],
+      deletes: deletesByPkgDir.get(name) ?? [],
+    };
+  });
+};
+
+const groupByPkgDir = (filePaths: string[], pkgDirs: NamedPackageDir[]): Map<string, string[]> => {
+  const groups = new Map<string, string[]>();
+  pkgDirs.forEach((pkgDir) => {
+    groups.set(pkgDir.name, []);
+  });
+
+  filePaths.forEach((filePath) => {
+    pkgDirs.forEach((pkgDir) => {
+      const { name } = pkgDir;
+      if (pathIsInFolder(name)(filePath)) {
+        groups.get(name)?.push(filePath);
+        return;
+      }
+    });
+  });
+
+  return groups;
+};
 
 const getNonSequential = ({ packageDirs, adds, modifies, deletes }: GroupedFileInput): GroupedFile[] => [
   {
