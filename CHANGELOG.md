@@ -1,3 +1,12 @@
+## [4.0.17](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.16...4.0.17) (2025-06-07)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-tracking from 7.3.25 to 7.4.1 ([#1804](https://github.com/jayree/sfdx-plugin-manifest/issues/1804)) ([8941af1](https://github.com/jayree/sfdx-plugin-manifest/commit/8941af1c792184f1141481d14218bef832c16bb9))
+  * remove beta and add opt-out - W-18024242 ([#778](https://github.com/forcedotcom/source-tracking/issues/778)) ([e125198](https://github.com/forcedotcom/source-tracking/commit/e1251981688e0157196c97ad98eef86d09272e8a))
+  * **deps:** bump @oclif/core from 4.2.10 to 4.3.0 ([e368681](https://github.com/forcedotcom/source-tracking/commit/e3686811ad34504c149c68c43f5e210aed18d8f0))
+
 ## [4.0.16](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.15...4.0.16) (2025-06-07)
 
 
