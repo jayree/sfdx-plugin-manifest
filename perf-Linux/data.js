@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1749398101594,
+  "lastUpdate": 1749398661860,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -23359,6 +23359,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 237,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "88c0a4f28fb33330b53a265ace58b0ed172ff791",
+          "message": "chore(deps-dev): bump eslint-config-oclif from 6.0.66 to 6.0.68\n\nBumps [eslint-config-oclif](https://github.com/oclif/eslint-config-oclif) from 6.0.66 to 6.0.68.\n- [Release notes](https://github.com/oclif/eslint-config-oclif/releases)\n- [Changelog](https://github.com/oclif/eslint-config-oclif/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/oclif/eslint-config-oclif/compare/6.0.66...6.0.68)\n\n---\nupdated-dependencies:\n- dependency-name: eslint-config-oclif\n  dependency-version: 6.0.68\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2025-06-08T16:03:34Z",
+          "tree_id": "1cb13f7909d4a17b49c56a47576b4ad62d616136",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/88c0a4f28fb33330b53a265ace58b0ed172ff791"
+        },
+        "date": 1749398660229,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 2780,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 1847,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 362,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 241,
             "unit": "ms"
           }
         ]
