@@ -1,3 +1,12 @@
+## [4.0.18](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.17...4.0.18) (2025-06-08)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-xml-parser from 5.2.4 to 5.2.5 ([#1811](https://github.com/jayree/sfdx-plugin-manifest/issues/1811)) ([20c1ef9](https://github.com/jayree/sfdx-plugin-manifest/commit/20c1ef96dfcf63d0d0590d77bb5576326ab130dd))
+  *   Inform user to use [fxp-cli](https://github.com/NaturalIntelligence/fxp-cli) instead of in-built CLI feature
+  *   Export typings for direct use
+
 ## [4.0.17](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.16...4.0.17) (2025-06-07)
 
 
