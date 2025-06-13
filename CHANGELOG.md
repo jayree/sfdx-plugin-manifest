@@ -1,3 +1,11 @@
+## [4.0.19](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.18...4.0.19) (2025-06-13)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 4.3.2 to 4.3.3 ([#1814](https://github.com/jayree/sfdx-plugin-manifest/issues/1814)) ([b19591c](https://github.com/jayree/sfdx-plugin-manifest/commit/b19591c096d632995218dc7f777fdd6985fff356))
+  * **deps:** bump tinyglobby from 0.2.13 to 0.2.14 ([#1393](https://github.com/oclif/core/issues/1393)) ([53a7354](https://github.com/oclif/core/commit/53a7354cc571e112973332e97064bd55603b3a28))
+
 ## [4.0.18](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.17...4.0.18) (2025-06-08)
 
 
