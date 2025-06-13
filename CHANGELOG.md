@@ -1,3 +1,11 @@
+## [4.0.21](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.20...4.0.21) (2025-06-13)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.12.0 to 8.13.0 ([#1815](https://github.com/jayree/sfdx-plugin-manifest/issues/1815)) ([c0a6642](https://github.com/jayree/sfdx-plugin-manifest/commit/c0a6642ddb4c0367e96e72b29b92b30e3cadc261))
+  * **auth:** link connected apps to a user W-18394868 ([#1188](https://github.com/forcedotcom/sfdx-core/issues/1188)) ([9c369a4](https://github.com/forcedotcom/sfdx-core/commit/9c369a481d586b397f1e76ca467cc688586b2cc7))
+
 ## [4.0.20](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.19...4.0.20) (2025-06-13)
 
 
