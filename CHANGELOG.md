@@ -1,3 +1,13 @@
+## [4.0.22](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.21...4.0.22) (2025-06-15)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-tracking from 7.4.1 to 7.4.4 ([#1818](https://github.com/jayree/sfdx-plugin-manifest/issues/1818)) ([4e72a3a](https://github.com/jayree/sfdx-plugin-manifest/commit/4e72a3a45938d64695897b5c22574139b26635fc))
+  * **deps:** bump @salesforce/source-deploy-retrieve ([1d1c339](https://github.com/forcedotcom/source-tracking/commit/1d1c3399a6c95c910a3949442ba8ea905bd50d6f))
+  * **deps:** bump @oclif/core from 4.3.2 to 4.3.3 ([9dbfefb](https://github.com/forcedotcom/source-tracking/commit/9dbfefbf2f5cb4fd31f8ed1e46b8e83bc0d079ea))
+  * **deps:** bump @salesforce/core from 8.12.0 to 8.14.0 ([2a14479](https://github.com/forcedotcom/source-tracking/commit/2a144790f5b4845a30ed540c0ce9b1bb208d0b6c))
+
 ## [4.0.21](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.20...4.0.21) (2025-06-13)
 
 
