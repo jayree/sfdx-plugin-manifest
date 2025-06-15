@@ -1,3 +1,11 @@
+## [4.0.23](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.22...4.0.23) (2025-06-15)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.30.2 to 1.30.3 ([#1822](https://github.com/jayree/sfdx-plugin-manifest/issues/1822)) ([0733f6c](https://github.com/jayree/sfdx-plugin-manifest/commit/0733f6c7ec9ecac43548f782d3591eb97a378ead))
+  * merging when file is deleted from both branches ([#2111](https://github.com/isomorphic-git/isomorphic-git/issues/2111)) ([3d19f88](https://github.com/isomorphic-git/isomorphic-git/commit/3d19f88ba9dbe420dc00d6da799999b10444790c))
+
 ## [4.0.22](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.21...4.0.22) (2025-06-15)
 
 
