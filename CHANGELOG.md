@@ -1,3 +1,11 @@
+## [4.0.25](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.24...4.0.25) (2025-06-19)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 4.3.3 to 4.4.0 ([#1828](https://github.com/jayree/sfdx-plugin-manifest/issues/1828)) ([9020d27](https://github.com/jayree/sfdx-plugin-manifest/commit/9020d27496a1689f0b6869379aea71935879f3ba))
+  * add tar flags config ([#1400](https://github.com/oclif/core/issues/1400)) ([1923c0f](https://github.com/oclif/core/commit/1923c0f95de747a88c328dcbe28a313d7cf14431))
+
 ## [4.0.24](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.23...4.0.24) (2025-06-19)
 
 
