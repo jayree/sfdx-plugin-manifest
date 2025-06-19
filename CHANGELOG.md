@@ -1,3 +1,11 @@
+## [4.0.26](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.25...4.0.26) (2025-06-19)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.30.3 to 1.31.0 ([#1826](https://github.com/jayree/sfdx-plugin-manifest/issues/1826)) ([cf48364](https://github.com/jayree/sfdx-plugin-manifest/commit/cf483649f5ae753522d7df0475c7a3f7851ba482))
+  * Non-blocking checkout ([#2108](https://github.com/isomorphic-git/isomorphic-git/issues/2108)) ([a9a76e4](https://github.com/isomorphic-git/isomorphic-git/commit/a9a76e4f58aaef2dbe91b8cd285aa8c0a032e2b4))
+
 ## [4.0.25](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.24...4.0.25) (2025-06-19)
 
 
