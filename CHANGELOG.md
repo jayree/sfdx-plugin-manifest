@@ -1,3 +1,12 @@
+## [4.0.24](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.23...4.0.24) (2025-06-19)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#1825](https://github.com/jayree/sfdx-plugin-manifest/issues/1825)) ([6e409b7](https://github.com/jayree/sfdx-plugin-manifest/commit/6e409b76a76492bbea6aebd55bf4877d6c48d987))
+  * add data connector to metadata registry - W-18773468 ([#1578](https://github.com/forcedotcom/source-deploy-retrieve/issues/1578)) ([4fc8ff0](https://github.com/forcedotcom/source-deploy-retrieve/commit/4fc8ff026190aabe55e911cf0c2eb07bde87dc96))
+  * track string replacements W-18794860 ([#1577](https://github.com/forcedotcom/source-deploy-retrieve/issues/1577)) ([7a65b44](https://github.com/forcedotcom/source-deploy-retrieve/commit/7a65b4497637b0e9b3ebfae9aa50f894bb21a4e7))
+
 ## [4.0.23](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.22...4.0.23) (2025-06-15)
 
 
