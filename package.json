@@ -1,6 +1,6 @@
 {
   "name": "@jayree/sfdx-plugin-manifest",
-  "description": "A Salesforce CLI plugin containing commands for creating manifest files from Salesforce orgs or git commits of sfdx projects.",
+  "description": "A powerful Salesforce CLI plugin and Node.js library to effortlessly generate, clean up, and manage package.xml and destructiveChanges.xml manifests directly from your Salesforce orgs or from Git changes in your SF projects. Unlock faster, safer, and smarter Salesforce deployments.",
   "version": "4.0.27",
   "author": "jayree",
   "type": "module",
