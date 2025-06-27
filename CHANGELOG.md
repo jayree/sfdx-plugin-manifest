@@ -1,3 +1,12 @@
+## [4.0.29](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.28...4.0.29) (2025-06-27)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.31.0 to 1.32.0 ([#1837](https://github.com/jayree/sfdx-plugin-manifest/issues/1837)) ([20ff4c5](https://github.com/jayree/sfdx-plugin-manifest/commit/20ff4c514f177a9cf208ecfec379a699d8a48834))
+  * (merge --allow-unrelated-histories) adding parameter to merge unrelated branches ([#2121](https://github.com/isomorphic-git/isomorphic-git/issues/2121)) ([77715e1](https://github.com/isomorphic-git/isomorphic-git/commit/77715e192bb189cb6e0ec24755723b643289093c))
+  * Handling of deleted trees on checkout ([#2114](https://github.com/isomorphic-git/isomorphic-git/issues/2114)) ([c247e5b](https://github.com/isomorphic-git/isomorphic-git/commit/c247e5b1ce8b52964a3e2487ffeafc3376fee980))
+
 ## [4.0.28](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.27...4.0.28) (2025-06-27)
 
 
