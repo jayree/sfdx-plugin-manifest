@@ -1,3 +1,17 @@
+## [4.0.28](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.27...4.0.28) (2025-06-27)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.14.0 to 8.15.0 ([#1838](https://github.com/jayree/sfdx-plugin-manifest/issues/1838)) ([351dbea](https://github.com/jayree/sfdx-plugin-manifest/commit/351dbea9e81257988fc10682b114e0f900cad915))
+  * add features query ([52d7356](https://github.com/forcedotcom/sfdx-core/commit/52d7356d76f57f6d56cb31c3ffbb7041b48c8e5d))
+  * add query function ([b1b1f7e](https://github.com/forcedotcom/sfdx-core/commit/b1b1f7e426c4cb8002933e498d27d314f1ca869b))
+  * ensure that colored logs are on by default ([#1206](https://github.com/forcedotcom/sfdx-core/issues/1206)) ([c393593](https://github.com/forcedotcom/sfdx-core/commit/c393593bbf6ceef4dbeae1758c730b42bc0cea47))
+  * add feature to org test ([783854c](https://github.com/forcedotcom/sfdx-core/commit/783854cfd63ea8d480216c1a81230c23c04f55fb))
+  * add validation and XOR types ([7cf7b75](https://github.com/forcedotcom/sfdx-core/commit/7cf7b756ea932183bc1f2f45b3a01b0ad0e84642))
+  * array in test format ([4827231](https://github.com/forcedotcom/sfdx-core/commit/4827231fe71b60a9207cf2d383d210b141ae5132))
+  * remove query function and add sandboxinfo field ([a972c87](https://github.com/forcedotcom/sfdx-core/commit/a972c87583d95a3fbc2adf4a81a7f207b3601b45))
+
 ## [4.0.27](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.26...4.0.27) (2025-06-21)
 
 
