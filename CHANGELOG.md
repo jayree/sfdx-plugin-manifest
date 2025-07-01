@@ -1,3 +1,11 @@
+## [4.0.33](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.32...4.0.33) (2025-07-01)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#1842](https://github.com/jayree/sfdx-plugin-manifest/issues/1842)) ([3482aa5](https://github.com/jayree/sfdx-plugin-manifest/commit/3482aa57482b8c80a1c8e67a8f77cfc77ad2881b))
+  * add ApiNamedQuery to metadataRegistry ([#1580](https://github.com/forcedotcom/source-deploy-retrieve/issues/1580)) ([f9de27e](https://github.com/forcedotcom/source-deploy-retrieve/commit/f9de27e0143dd3c740441d20ce69c4ee6ce22ce9))
+
 ## [4.0.32](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.31...4.0.32) (2025-06-29)
 
 
