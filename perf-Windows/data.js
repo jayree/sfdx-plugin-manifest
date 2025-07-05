@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1751356653837,
+  "lastUpdate": 1751731105968,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -25515,6 +25515,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 336,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f6c497c5d36e33aa6a6da54470349b30308a6055",
+          "message": "chore(deps): bump ncipollo/release-action from 1.16.0 to 1.18.0\n\nBumps [ncipollo/release-action](https://github.com/ncipollo/release-action) from 1.16.0 to 1.18.0.\n- [Release notes](https://github.com/ncipollo/release-action/releases)\n- [Commits](https://github.com/ncipollo/release-action/compare/440c8c1cb0ed28b9f43e4d1d670870f059653174...bcfe5470707e8832e12347755757cec0eb3c22af)\n\n---\nupdated-dependencies:\n- dependency-name: ncipollo/release-action\n  dependency-version: 1.18.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2025-07-05T15:54:40Z",
+          "tree_id": "30ba4fc66fd07091b3663786019018b63bbdfc8c",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/f6c497c5d36e33aa6a6da54470349b30308a6055"
+        },
+        "date": 1751731094404,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 5649,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 3998,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 424,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 359,
             "unit": "ms"
           }
         ]
