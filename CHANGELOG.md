@@ -1,3 +1,11 @@
+## [4.0.34](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.33...4.0.34) (2025-07-06)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 4.4.0 to 4.4.1 ([#1849](https://github.com/jayree/sfdx-plugin-manifest/issues/1849)) ([e4dae1c](https://github.com/jayree/sfdx-plugin-manifest/commit/e4dae1ce18f98a6cc8f113fe45802726c398be1d))
+  * do not list hidden arguments in usage ([#1412](https://github.com/oclif/core/issues/1412)) ([#1413](https://github.com/oclif/core/issues/1413)) ([33d8dda](https://github.com/oclif/core/commit/33d8dda070c1c19275cf1118a8b5ae7c792a93a3))
+
 ## [4.0.33](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.32...4.0.33) (2025-07-01)
 
 
