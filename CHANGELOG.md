@@ -1,3 +1,11 @@
+## [4.0.36](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.35...4.0.36) (2025-07-12)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#1852](https://github.com/jayree/sfdx-plugin-manifest/issues/1852)) ([836980c](https://github.com/jayree/sfdx-plugin-manifest/commit/836980c409a93bb118271440f429eec13739e0e4))
+  * add externalstorageprvdconfig to metadata registry ([#1581](https://github.com/forcedotcom/source-deploy-retrieve/issues/1581)) ([ab25cf1](https://github.com/forcedotcom/source-deploy-retrieve/commit/ab25cf14bab0de27ce9659438bd23e28b6b803a8))
+
 ## [4.0.35](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.34...4.0.35) (2025-07-06)
 
 
