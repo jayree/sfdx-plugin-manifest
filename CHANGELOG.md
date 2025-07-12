@@ -1,3 +1,11 @@
+## [4.0.37](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.36...4.0.37) (2025-07-12)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 4.4.1 to 4.5.0 ([#1855](https://github.com/jayree/sfdx-plugin-manifest/issues/1855)) ([5e19d8c](https://github.com/jayree/sfdx-plugin-manifest/commit/5e19d8c488ee79fb62a5dfa1c8a8c2d79e6398d0))
+  * add error & Command to finally hook options ([#1422](https://github.com/oclif/core/issues/1422)) ([9dd3bca](https://github.com/oclif/core/commit/9dd3bcac43a3f40fb5cd07abc2d1b9415091d82a)), closes [#1417](https://github.com/oclif/core/issues/1417)
+
 ## [4.0.36](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.35...4.0.36) (2025-07-12)
 
 
