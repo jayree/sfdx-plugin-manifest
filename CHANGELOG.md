@@ -1,3 +1,12 @@
+## [4.0.38](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.37...4.0.38) (2025-07-12)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.17.0 to 8.18.1 ([#1854](https://github.com/jayree/sfdx-plugin-manifest/issues/1854)) ([241cc23](https://github.com/jayree/sfdx-plugin-manifest/commit/241cc239ab0bfc0b74d6962c53326cb4a1c00452))
+  * **org:** add `frontdoor` methods @W-18944112@ ([#1209](https://github.com/forcedotcom/sfdx-core/issues/1209)) ([7b3292b](https://github.com/forcedotcom/sfdx-core/commit/7b3292b78f226bdf61d3487a58002686ec148d83))
+  * trigger release for [#1209](https://github.com/forcedotcom/sfdx-core/issues/1209) ([7c69c9a](https://github.com/forcedotcom/sfdx-core/commit/7c69c9a20a13cfe490b61e53f89beb7cd55fa29e))
+
 ## [4.0.37](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.36...4.0.37) (2025-07-12)
 
 
