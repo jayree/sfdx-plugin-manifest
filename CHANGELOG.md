@@ -1,3 +1,15 @@
+## [4.0.41](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.40...4.0.41) (2025-07-24)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#1873](https://github.com/jayree/sfdx-plugin-manifest/issues/1873)) ([9671edc](https://github.com/jayree/sfdx-plugin-manifest/commit/9671edc80f1ef23945c9f91f7b43233d5f5bc47a))
+  * for W-19029417 - fix finalzing MDAPI state ([#1585](https://github.com/forcedotcom/source-deploy-retrieve/issues/1585)) ([66d6cf0](https://github.com/forcedotcom/source-deploy-retrieve/commit/66d6cf0ec2b9243d2be55acdac68e84198fc48b3))
+  * **deps:** bump form-data from 4.0.0 to 4.0.4 ([#1592](https://github.com/forcedotcom/source-deploy-retrieve/issues/1592)) ([461fcbf](https://github.com/forcedotcom/source-deploy-retrieve/commit/461fcbf63baf6c01b705da4bf8ef4fa98b4bd646))
+  * **deps:** bump tough-cookie from 4.1.2 to 5.1.2 ([#1586](https://github.com/forcedotcom/source-deploy-retrieve/issues/1586)) ([d603807](https://github.com/forcedotcom/source-deploy-retrieve/commit/d603807273b466b90f24da8e8eb33ca3c34c18c2))
+  * W-18991079 - filter out empty dirs when resolving components from path ([#1589](https://github.com/forcedotcom/source-deploy-retrieve/issues/1589)) ([25899bd](https://github.com/forcedotcom/source-deploy-retrieve/commit/25899bde11907509393030892ab83e68e38f18ca))
+  * **deps:** bump braces from 3.0.2 to 3.0.3 ([#1587](https://github.com/forcedotcom/source-deploy-retrieve/issues/1587)) ([3b5cf33](https://github.com/forcedotcom/source-deploy-retrieve/commit/3b5cf3303400259b494fcf45294d3921eb678761))
+
 ## [4.0.40](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.39...4.0.40) (2025-07-24)
 
 
