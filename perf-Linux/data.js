@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1753344899981,
+  "lastUpdate": 1753345854083,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -27099,6 +27099,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 274,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e6d005b1c7d3fe95ec55689c0e2e3c90991ac0bb",
+          "message": "chore(deps-dev): bump oclif from 4.20.6 to 4.22.1\n\n---\nupdated-dependencies:\n- dependency-name: oclif\n  dependency-version: 4.22.1\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2025-07-24T08:30:03Z",
+          "tree_id": "e4b591b04bd33474fe1aef9d5a873eb49394ace1",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/e6d005b1c7d3fe95ec55689c0e2e3c90991ac0bb"
+        },
+        "date": 1753345852202,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 2745,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 1780,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 331,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 249,
             "unit": "ms"
           }
         ]
