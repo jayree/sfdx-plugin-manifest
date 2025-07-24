@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1753344611905,
+  "lastUpdate": 1753344833194,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -26967,6 +26967,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 343,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6280660cc6e72b63ccb17bb24749c8b87d6a090a",
+          "message": "fix(deps): bump @salesforce/source-deploy-retrieve\n\n---\nupdated-dependencies:\n- dependency-name: \"@salesforce/source-deploy-retrieve\"\n  dependency-version: 12.21.6\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2025-07-24T08:08:04Z",
+          "tree_id": "d6cc1d02f9ede043ec04f53dc7dfccdcace83ca8",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/6280660cc6e72b63ccb17bb24749c8b87d6a090a"
+        },
+        "date": 1753344826673,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 5363,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 3704,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 386,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 330,
             "unit": "ms"
           }
         ]
