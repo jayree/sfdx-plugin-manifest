@@ -1,3 +1,14 @@
+## [4.0.42](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.41...4.0.42) (2025-07-24)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-tracking from 7.4.7 to 7.4.9 ([#1865](https://github.com/jayree/sfdx-plugin-manifest/issues/1865)) ([2217e66](https://github.com/jayree/sfdx-plugin-manifest/commit/2217e664f7f1eff59993baf5debb47f0cefc651c))
+  * handle case with leading seperator ([b749313](https://github.com/forcedotcom/source-tracking/commit/b7493137b84d56d2bfdc2c5405e2d6731a4348e1))
+  * exit early if the file path is definitely not in the folder path ([c6c916c](https://github.com/forcedotcom/source-tracking/commit/c6c916c19e63d9c01654130e0fd909f971b77bd1))
+  * getSequential avoid processing filePaths multiple times ([5d75b06](https://github.com/forcedotcom/source-tracking/commit/5d75b06716a91bad348d5948bf48f5662a043944))
+  * **deps:** bump @salesforce/source-deploy-retrieve ([42facf5](https://github.com/forcedotcom/source-tracking/commit/42facf5794e4d2f9857d313aad7089c8cbe20dee))
+
 ## [4.0.41](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.40...4.0.41) (2025-07-24)
 
 
