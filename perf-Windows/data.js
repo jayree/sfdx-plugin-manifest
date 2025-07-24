@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1753179024881,
+  "lastUpdate": 1753343187158,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -26835,6 +26835,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 370,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jayree.git@icloud.com",
+            "name": "jayree",
+            "username": "jayree"
+          },
+          "committer": {
+            "email": "jayree.git@icloud.com",
+            "name": "jayree",
+            "username": "jayree"
+          },
+          "distinct": true,
+          "id": "d29ad8aaf163edddbe4117aba92c0c8f392d32dc",
+          "message": "fix: align with module updates",
+          "timestamp": "2025-07-24T09:41:34+02:00",
+          "tree_id": "a15376fa4d8339b4d22405c36a8cd54433cfc30d",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/d29ad8aaf163edddbe4117aba92c0c8f392d32dc"
+        },
+        "date": 1753343176538,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 5923,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 3973,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 454,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 388,
             "unit": "ms"
           }
         ]
