@@ -1,3 +1,10 @@
+## [4.0.39](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.38...4.0.39) (2025-07-24)
+
+
+### Bug Fixes
+
+* align with module updates ([#1868](https://github.com/jayree/sfdx-plugin-manifest/issues/1868)) ([77ccf02](https://github.com/jayree/sfdx-plugin-manifest/commit/77ccf02836869222fd13f01f1d5f08b86a55ab43))
+
 ## [4.0.38](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.37...4.0.38) (2025-07-12)
 
 
