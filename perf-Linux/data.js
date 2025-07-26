@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1753522950102,
+  "lastUpdate": 1753523116524,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -27671,6 +27671,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 284,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0c73e765a60681008cfd28c867839a802cadfd47",
+          "message": "fix(deps): bump isomorphic-git from 1.32.1 to 1.32.2\n\nBumps [isomorphic-git](https://github.com/isomorphic-git/isomorphic-git) from 1.32.1 to 1.32.2.\n- [Release notes](https://github.com/isomorphic-git/isomorphic-git/releases)\n- [Changelog](https://github.com/isomorphic-git/isomorphic-git/blob/main/docs/in-the-news.md)\n- [Commits](https://github.com/isomorphic-git/isomorphic-git/compare/v1.32.1...v1.32.2)\n\n---\nupdated-dependencies:\n- dependency-name: isomorphic-git\n  dependency-version: 1.32.2\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2025-07-26T09:41:40Z",
+          "tree_id": "59e9f1083915551847d33879fb15e70860c67e95",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/0c73e765a60681008cfd28c867839a802cadfd47"
+        },
+        "date": 1753523114021,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 2813,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 1819,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 302,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 231,
             "unit": "ms"
           }
         ]
