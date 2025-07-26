@@ -1,3 +1,11 @@
+## [4.0.45](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.44...4.0.45) (2025-07-26)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.32.1 to 1.32.2 ([#1875](https://github.com/jayree/sfdx-plugin-manifest/issues/1875)) ([55a7d38](https://github.com/jayree/sfdx-plugin-manifest/commit/55a7d388e5eb2427fabda03439bf4ffbffa95b2a))
+  * add support for subpath exports ([#2116](https://github.com/isomorphic-git/isomorphic-git/issues/2116)) ([f72bdc2](https://github.com/isomorphic-git/isomorphic-git/commit/f72bdc295114c8a9134038220588a724acaf2834))
+
 ## [4.0.44](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.43...4.0.44) (2025-07-26)
 
 
