@@ -1,3 +1,12 @@
+## [4.0.43](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.42...4.0.43) (2025-07-26)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.18.3 to 8.18.5 ([#1876](https://github.com/jayree/sfdx-plugin-manifest/issues/1876)) ([442945c](https://github.com/jayree/sfdx-plugin-manifest/commit/442945cc275f5adaf2557b111cb4cab1c4cb2b04))
+  * include status of the scratch creation in timeout  error W-18895089 ([#1207](https://github.com/forcedotcom/sfdx-core/issues/1207)) ([ff15205](https://github.com/forcedotcom/sfdx-core/commit/ff152055a6ae6325693471e47bb80e4dde4024e1))
+  * update timeout error msg ([1590fda](https://github.com/forcedotcom/sfdx-core/commit/1590fda67ce79581d820c9b34a315eeec13b41e8))
+
 ## [4.0.42](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.41...4.0.42) (2025-07-24)
 
 
