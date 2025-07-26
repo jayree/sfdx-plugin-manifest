@@ -1,3 +1,11 @@
+## [4.0.44](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.43...4.0.44) (2025-07-26)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#1874](https://github.com/jayree/sfdx-plugin-manifest/issues/1874)) ([10f1a84](https://github.com/jayree/sfdx-plugin-manifest/commit/10f1a849f1898d8c198217cb47ac29897c7e2143))
+  * add `RuleLibraryDefinition` metadata type ([#1588](https://github.com/forcedotcom/source-deploy-retrieve/issues/1588)) ([d63a408](https://github.com/forcedotcom/source-deploy-retrieve/commit/d63a40880715c29af0cb8290a4d559c0a17d1a49))
+
 ## [4.0.43](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.42...4.0.43) (2025-07-26)
 
 
