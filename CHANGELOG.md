@@ -1,3 +1,12 @@
+## [4.0.48](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.47...4.0.48) (2025-08-03)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.18.5 to 8.18.7 ([#1886](https://github.com/jayree/sfdx-plugin-manifest/issues/1886)) ([8e7e70a](https://github.com/jayree/sfdx-plugin-manifest/commit/8e7e70a7ca2b32ba4ca3709bdb411c6cc174eeba))
+  * **deps:** bump @salesforce/schemas from 1.9.0 to 1.9.1 ([5577f15](https://github.com/forcedotcom/sfdx-core/commit/5577f151a0cedc4191ff85d2cf391ab1d4310b11))
+  * bump jsforce to drop old`form-data` version([#1220](https://github.com/forcedotcom/sfdx-core/issues/1220)) ([1ff4acd](https://github.com/forcedotcom/sfdx-core/commit/1ff4acdf67a49a117a1e05e1fe4e19b9bbaa30c4))
+
 ## [4.0.47](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.46...4.0.47) (2025-07-31)
 
 
