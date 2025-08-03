@@ -1,3 +1,11 @@
+## [4.0.49](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.48...4.0.49) (2025-08-03)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#1884](https://github.com/jayree/sfdx-plugin-manifest/issues/1884)) ([81a2d94](https://github.com/jayree/sfdx-plugin-manifest/commit/81a2d949810175d252c7df2aaeabddbd09d30be6))
+  * add logs to detect forceignored files W-18715150 ([#1596](https://github.com/forcedotcom/source-deploy-retrieve/issues/1596)) ([3006ca0](https://github.com/forcedotcom/source-deploy-retrieve/commit/3006ca00584d2c6fa635536d15a329f0cbccbdcf))
+
 ## [4.0.48](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.47...4.0.48) (2025-08-03)
 
 
