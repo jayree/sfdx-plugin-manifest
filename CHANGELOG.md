@@ -1,3 +1,12 @@
+## [4.0.53](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.52...4.0.53) (2025-08-08)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.18.7 to 8.19.1 ([#1891](https://github.com/jayree/sfdx-plugin-manifest/issues/1891)) ([f4f6f2c](https://github.com/jayree/sfdx-plugin-manifest/commit/f4f6f2c1682b515312994343e2548f1801a01f3c))
+  * virtualized-fs ([8be04a2](https://github.com/forcedotcom/sfdx-core/commit/8be04a25944eac1c5d31275405de69aa5018bcd8))
+  * bump jsforce ([#1223](https://github.com/forcedotcom/sfdx-core/issues/1223)) ([a7d0d1d](https://github.com/forcedotcom/sfdx-core/commit/a7d0d1dde4b9cc2be171777116e75e947382142b))
+
 ## [4.0.52](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.51...4.0.52) (2025-08-08)
 
 
