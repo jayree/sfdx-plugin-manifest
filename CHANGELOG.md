@@ -1,3 +1,11 @@
+## [4.0.52](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.51...4.0.52) (2025-08-08)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.32.2 to 1.32.3 ([#1892](https://github.com/jayree/sfdx-plugin-manifest/issues/1892)) ([5b557af](https://github.com/jayree/sfdx-plugin-manifest/commit/5b557afd5d07fb466b5781abe3d5eecec58e361e))
+  * improve hashblob performance up to 100% faster ([#2144](https://github.com/isomorphic-git/isomorphic-git/issues/2144)) ([a8551a8](https://github.com/isomorphic-git/isomorphic-git/commit/a8551a8cf21179814818a38599c52381ddb91023))
+
 ## [4.0.51](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.50...4.0.51) (2025-08-08)
 
 
