@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1754642691758,
+  "lastUpdate": 1754643410540,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -28903,6 +28903,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 365,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "66334ce73fd63ec0f6ee019d16792fec4bb0fc48",
+          "message": "fix(deps): bump @salesforce/core from 8.18.7 to 8.19.1\n\nBumps [@salesforce/core](https://github.com/forcedotcom/sfdx-core) from 8.18.7 to 8.19.1.\n- [Release notes](https://github.com/forcedotcom/sfdx-core/releases)\n- [Changelog](https://github.com/forcedotcom/sfdx-core/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/forcedotcom/sfdx-core/compare/8.18.7...8.19.1)\n\n---\nupdated-dependencies:\n- dependency-name: \"@salesforce/core\"\n  dependency-version: 8.19.1\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2025-08-08T08:53:13Z",
+          "tree_id": "ebdf7b24f85578e1f2acdf294ad4345e98d6a206",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/66334ce73fd63ec0f6ee019d16792fec4bb0fc48"
+        },
+        "date": 1754643404444,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 5547,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 3613,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 391,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 364,
             "unit": "ms"
           }
         ]
