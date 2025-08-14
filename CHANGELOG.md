@@ -1,3 +1,12 @@
+## [4.0.54](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.53...4.0.54) (2025-08-14)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#1896](https://github.com/jayree/sfdx-plugin-manifest/issues/1896)) ([018f18b](https://github.com/jayree/sfdx-plugin-manifest/commit/018f18b9900c44d8ad0405829f6291e5ca80c553))
+  * add support for UiPreviewMessageTabDef - W-19327351 ([#1603](https://github.com/forcedotcom/source-deploy-retrieve/issues/1603)) ([60bf412](https://github.com/forcedotcom/source-deploy-retrieve/commit/60bf412c984d06ce31d649f67e9caabbc5aa6ff0))
+  * **deps:** bump yaml from 2.7.1 to 2.8.1 ([#1602](https://github.com/forcedotcom/source-deploy-retrieve/issues/1602)) ([50444b3](https://github.com/forcedotcom/source-deploy-retrieve/commit/50444b3cd794db26c87e3a5c16c81330129b49e8))
+
 ## [4.0.53](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.52...4.0.53) (2025-08-08)
 
 
