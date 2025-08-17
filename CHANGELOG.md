@@ -1,3 +1,11 @@
+## [4.0.55](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.54...4.0.55) (2025-08-17)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.32.3 to 1.33.0 ([#1898](https://github.com/jayree/sfdx-plugin-manifest/issues/1898)) ([3de3483](https://github.com/jayree/sfdx-plugin-manifest/commit/3de3483087141fc0d293120786b282829c43ebd2))
+  * expose managers + some models ([#2139](https://github.com/isomorphic-git/isomorphic-git/issues/2139)) ([adfee07](https://github.com/isomorphic-git/isomorphic-git/commit/adfee074cf35c8face52ce0fdb9a455e048f8726))
+
 ## [4.0.54](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.53...4.0.54) (2025-08-14)
 
 
