@@ -1,3 +1,20 @@
+## [4.0.60](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.59...4.0.60) (2025-08-22)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.19.1 to 8.21.1 ([#1907](https://github.com/jayree/sfdx-plugin-manifest/issues/1907)) ([6279be1](https://github.com/jayree/sfdx-plugin-manifest/commit/6279be15fd6edc3b96aed84aab8727b307477a3d))
+  * support code builder web auth ([a24a42e](https://github.com/forcedotcom/sfdx-core/commit/a24a42e7189e950ac4c67c5174350141fb76b372))
+  * deprecate `DeviceOauthService` and types - W-19362390 ([#1227](https://github.com/forcedotcom/sfdx-core/issues/1227)) ([accb16c](https://github.com/forcedotcom/sfdx-core/commit/accb16c1e8fc6b7063e59eafcc9fc5a70b96831f))
+  * support code builder web auth ([a24a42e](https://github.com/forcedotcom/sfdx-core/commit/a24a42e7189e950ac4c67c5174350141fb76b372))
+  * add global to top-level exports ([1373c97](https://github.com/forcedotcom/sfdx-core/commit/1373c976500584eace12dad9613eb30d0ff8201d))
+  * update redirect uri ([baaf79f](https://github.com/forcedotcom/sfdx-core/commit/baaf79f7b7df4fc0c992cff242447eb6152617ac))
+  * **deps:** bump faye from 1.4.0 to 1.4.1 ([183ca70](https://github.com/forcedotcom/sfdx-core/commit/183ca70fc9420425096688fe703200e35418c217))
+  * correct redirect uri ([25cc593](https://github.com/forcedotcom/sfdx-core/commit/25cc5937d905be2f7737baf4218e2c2670a0447e))
+  * throw errors properly and fix logger ([33b0491](https://github.com/forcedotcom/sfdx-core/commit/33b0491bde35a8edff58befb509e0c32953c9b26))
+  * correct redirect uri ([25cc593](https://github.com/forcedotcom/sfdx-core/commit/25cc5937d905be2f7737baf4218e2c2670a0447e))
+  * update redirect uri ([baaf79f](https://github.com/forcedotcom/sfdx-core/commit/baaf79f7b7df4fc0c992cff242447eb6152617ac))
+
 ## [4.0.59](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.58...4.0.59) (2025-08-22)
 
 
