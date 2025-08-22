@@ -1,3 +1,10 @@
+## [4.0.57](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.56...4.0.57) (2025-08-22)
+
+
+### Bug Fixes
+
+* **deps:** bump sha.js from 2.4.11 to 2.4.12 ([#1903](https://github.com/jayree/sfdx-plugin-manifest/issues/1903)) ([915b00c](https://github.com/jayree/sfdx-plugin-manifest/commit/915b00c5ca0553d033cca7adfa2226d564782b3e))
+
 ## [4.0.56](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.55...4.0.56) (2025-08-17)
 
 
