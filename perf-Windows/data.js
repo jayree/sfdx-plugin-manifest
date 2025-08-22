@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1755447243375,
+  "lastUpdate": 1755832380032,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -21863,6 +21863,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 346,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "47e46f748eef72f632160dc9c2c46b3d4426e20b",
+          "message": "fix(deps): bump sha.js from 2.4.11 to 2.4.12\n\nBumps [sha.js](https://github.com/crypto-browserify/sha.js) from 2.4.11 to 2.4.12.\n- [Changelog](https://github.com/browserify/sha.js/blob/master/CHANGELOG.md)\n- [Commits](https://github.com/crypto-browserify/sha.js/compare/v2.4.11...v2.4.12)\n\n---\nupdated-dependencies:\n- dependency-name: sha.js\n  dependency-version: 2.4.12\n  dependency-type: indirect\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2025-08-22T03:10:10Z",
+          "tree_id": "1173b1822a59229c2fd8e0271cf413abf0b693c3",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/47e46f748eef72f632160dc9c2c46b3d4426e20b"
+        },
+        "date": 1755832373330,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 5319,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 3621,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 385,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 350,
             "unit": "ms"
           }
         ]
