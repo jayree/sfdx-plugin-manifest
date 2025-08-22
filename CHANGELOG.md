@@ -1,3 +1,12 @@
+## [4.0.59](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.58...4.0.59) (2025-08-22)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#1905](https://github.com/jayree/sfdx-plugin-manifest/issues/1905)) ([480663f](https://github.com/jayree/sfdx-plugin-manifest/commit/480663f6ec221b0a3c81c36f28fb9747cf88d3c1))
+  * replace deprecated node FS prop W-19160014 ([#1607](https://github.com/forcedotcom/source-deploy-retrieve/issues/1607)) ([25ad04e](https://github.com/forcedotcom/source-deploy-retrieve/commit/25ad04e01763a2b747efcfc19279b0951837ab22))
+  * add support for FieldMappingConfig and fieldMappingConfigItem ([#1608](https://github.com/forcedotcom/source-deploy-retrieve/issues/1608)) ([083f4c2](https://github.com/forcedotcom/source-deploy-retrieve/commit/083f4c27f8499e1aeaf32a6284f91d193b660a47))
+
 ## [4.0.58](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.57...4.0.58) (2025-08-22)
 
 
