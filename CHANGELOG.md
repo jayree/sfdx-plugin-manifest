@@ -1,3 +1,15 @@
+## [4.0.62](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.61...4.0.62) (2025-08-26)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.21.3 to 8.22.0 ([#1911](https://github.com/jayree/sfdx-plugin-manifest/issues/1911)) ([177a8f7](https://github.com/jayree/sfdx-plugin-manifest/commit/177a8f74f073e4ae3494c38b3cf8d8825071a5d7))
+  * support code builder web auth ([a24a42e](https://github.com/forcedotcom/sfdx-core/commit/a24a42e7189e950ac4c67c5174350141fb76b372))
+  * update messages and env vars ([086b9b3](https://github.com/forcedotcom/sfdx-core/commit/086b9b301c94aa0333212b607b00b8846e44aea1))
+  * throw errors properly and fix logger ([33b0491](https://github.com/forcedotcom/sfdx-core/commit/33b0491bde35a8edff58befb509e0c32953c9b26))
+  * correct redirect uri ([25cc593](https://github.com/forcedotcom/sfdx-core/commit/25cc5937d905be2f7737baf4218e2c2670a0447e))
+  * update redirect uri ([baaf79f](https://github.com/forcedotcom/sfdx-core/commit/baaf79f7b7df4fc0c992cff242447eb6152617ac))
+
 ## [4.0.61](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.60...4.0.61) (2025-08-24)
 
 
