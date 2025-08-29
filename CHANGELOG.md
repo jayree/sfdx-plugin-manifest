@@ -1,3 +1,11 @@
+## [4.0.64](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.63...4.0.64) (2025-08-29)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#1913](https://github.com/jayree/sfdx-plugin-manifest/issues/1913)) ([405b501](https://github.com/jayree/sfdx-plugin-manifest/commit/405b5010ad496e053d074b3dffb4e491d15ac3f1))
+  * @W-19405722 - Cataloged Artifact Version directory ([#1614](https://github.com/forcedotcom/source-deploy-retrieve/issues/1614)) ([1ecacbf](https://github.com/forcedotcom/source-deploy-retrieve/commit/1ecacbf3e85921bb5ae4854ac4663277619ca433))
+
 ## [4.0.63](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.62...4.0.63) (2025-08-29)
 
 
