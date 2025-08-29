@@ -1,3 +1,11 @@
+## [4.0.63](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.62...4.0.63) (2025-08-29)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.33.0 to 1.33.1 ([#1914](https://github.com/jayree/sfdx-plugin-manifest/issues/1914)) ([7a48b25](https://github.com/jayree/sfdx-plugin-manifest/commit/7a48b25170d18d3c947ad28a0e95ec4869bc968d))
+  * update sha.js ([#2190](https://github.com/isomorphic-git/isomorphic-git/issues/2190)) ([4ede00f](https://github.com/isomorphic-git/isomorphic-git/commit/4ede00f7a4cc0dc2235a2fbedeb2c09a3bec82ce))
+
 ## [4.0.62](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.61...4.0.62) (2025-08-26)
 
 
