@@ -1,3 +1,11 @@
+## [4.0.65](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.64...4.0.65) (2025-09-01)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#1915](https://github.com/jayree/sfdx-plugin-manifest/issues/1915)) ([303f1ea](https://github.com/jayree/sfdx-plugin-manifest/commit/303f1ea843d165f1cafdd810d1c82eec8f1e75e2))
+  * oss compliance ([#1615](https://github.com/forcedotcom/source-deploy-retrieve/issues/1615)) ([1da5df0](https://github.com/forcedotcom/source-deploy-retrieve/commit/1da5df0e637f26e02e0195ac8b7243cfbdc72534))
+
 ## [4.0.64](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.63...4.0.64) (2025-08-29)
 
 
