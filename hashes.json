@@ -5,15 +5,15 @@
   },
   {
     "url": "https://raw.githubusercontent.com/forcedotcom/source-tracking/main/src/shared/localComponentSetArray.ts",
-    "hash": "64d52999cc42355c167f76062b2353e92401f2ef7aa206d520b53a67e44dcb7e"
+    "hash": "e15d13b4a5558a8e0b52a5332604709ce8965b568cbc54f4f19d302f96a08f71"
   },
   {
     "url": "https://raw.githubusercontent.com/forcedotcom/source-tracking/main/src/shared/local/localShadowRepo.ts",
-    "hash": "b957a3eaa9c29a0a2cedeed32ff1c0d57093af1b90025b06f06cd453ca4f5930"
+    "hash": "1b6f79d6af50dea4af4729e014727a7875d92a760c283a5114b0e31c15f4324e"
   },
   {
     "url": "https://raw.githubusercontent.com/forcedotcom/source-tracking/main/src/shared/local/moveDetection.ts",
-    "hash": "3cf075bb2659d5cacd072b13a714e48f1d45718de6506552ca29f663c32238bd"
+    "hash": "13bcb8af27569ee65e41c8643a12e79a1459b85d9d1ce80bd352dad83509842c"
   },
   {
     "url": "https://raw.githubusercontent.com/isomorphic-git/isomorphic-git/main/src/api/statusMatrix.js",
