@@ -1,3 +1,11 @@
+## [4.0.66](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.65...4.0.66) (2025-09-05)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-tracking from 7.4.9 to 7.4.10 ([#1922](https://github.com/jayree/sfdx-plugin-manifest/issues/1922)) ([53ecf61](https://github.com/jayree/sfdx-plugin-manifest/commit/53ecf615b60c4af4e2b2b79ade16ed92efc44550))
+  * oss compliance ([286dc8d](https://github.com/forcedotcom/source-tracking/commit/286dc8d54aca1131dc60f47341bbe038b8559f57))
+
 ## [4.0.65](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.64...4.0.65) (2025-09-01)
 
 
