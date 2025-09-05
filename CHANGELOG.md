@@ -1,3 +1,11 @@
+## [4.0.69](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.68...4.0.69) (2025-09-05)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/kit from 3.2.3 to 3.2.4 ([#1923](https://github.com/jayree/sfdx-plugin-manifest/issues/1923)) ([ade9c34](https://github.com/jayree/sfdx-plugin-manifest/commit/ade9c34dfff2bcdb51badb489a33b33194a7d1c7))
+  * oss compliance ([1d7cda1](https://github.com/forcedotcom/kit/commit/1d7cda148eeb233de0c52e7b9304cca211b3eebc))
+
 ## [4.0.68](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.67...4.0.68) (2025-09-05)
 
 
