@@ -1,3 +1,11 @@
+## [4.0.67](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.66...4.0.67) (2025-09-05)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.22.0 to 8.23.0 ([#1921](https://github.com/jayree/sfdx-plugin-manifest/issues/1921)) ([ad43edf](https://github.com/jayree/sfdx-plugin-manifest/commit/ad43edf6b7670127b98d59735cb439c293ccdb68))
+  * added commands for bundles ([ab33004](https://github.com/forcedotcom/sfdx-core/commit/ab330042a724d098d983335e0d364ab1a45f1a85))
+
 ## [4.0.66](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.65...4.0.66) (2025-09-05)
 
 
