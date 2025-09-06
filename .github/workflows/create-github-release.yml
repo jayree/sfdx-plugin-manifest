@@ -32,7 +32,7 @@ jobs:
 
       - name: Validate prerelease
         if: github.ref_name == 'main' && inputs.prerelease
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             core.setFailed('Do not create a prerelease on "main". You can create a prerelease on a branch and when it is merged it will create a non-prerelease Release. For example: 1.0.1-beta.2 will release as 1.0.1 when merged into main.')
