@@ -1,3 +1,11 @@
+## [4.0.72](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.71...4.0.72) (2025-09-12)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 4.5.2 to 4.5.3 ([#1935](https://github.com/jayree/sfdx-plugin-manifest/issues/1935)) ([901dda9](https://github.com/jayree/sfdx-plugin-manifest/commit/901dda9edee2b528d21ca73eb0897c2a433249d4))
+  * **parser:** stdin compacting issue on multiline input ([#1459](https://github.com/oclif/core/issues/1459)) ([#1460](https://github.com/oclif/core/issues/1460)) ([cc15549](https://github.com/oclif/core/commit/cc1554911d14b85d7b8209a587f252732c3b78f1))
+
 ## [4.0.71](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.70...4.0.71) (2025-09-07)
 
 
