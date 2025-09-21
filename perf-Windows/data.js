@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1758467141693,
+  "lastUpdate": 1758467346890,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -24811,6 +24811,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 358,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9ebe69f4d29cd4e4493e36c7bfa3c168cbc85579",
+          "message": "fix(deps): bump fs-extra from 11.3.1 to 11.3.2\n\nBumps [fs-extra](https://github.com/jprichardson/node-fs-extra) from 11.3.1 to 11.3.2.\n- [Changelog](https://github.com/jprichardson/node-fs-extra/blob/master/CHANGELOG.md)\n- [Commits](https://github.com/jprichardson/node-fs-extra/compare/11.3.1...11.3.2)\n\n---\nupdated-dependencies:\n- dependency-name: fs-extra\n  dependency-version: 11.3.2\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2025-09-21T15:02:49Z",
+          "tree_id": "800d28e7721f1716b774a4f6e059c5ca1e94073b",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/9ebe69f4d29cd4e4493e36c7bfa3c168cbc85579"
+        },
+        "date": 1758467337907,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 5382,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 3661,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 406,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 352,
             "unit": "ms"
           }
         ]
