@@ -6881,6 +6881,11 @@ is-generator-function@^1.0.10:
     has-tostringtag "^1.0.2"
     safe-regex-test "^1.1.0"
 
+is-git-ref-name-valid@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/is-git-ref-name-valid/-/is-git-ref-name-valid-1.0.0.tgz#6e151779357dd4f7888e1a83a07db329e3de119d"
+  integrity sha512-2hLTg+7IqMSP9nNp/EVCxzvAOJGsAn0f/cKtF8JaBeivjH5UgE/XZo3iJ0AvibdE7KSF1f/7JbjBTB8Wqgbn/w==
+
 is-glob@^4.0.0, is-glob@^4.0.1, is-glob@^4.0.3, is-glob@~4.0.1:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/is-glob/-/is-glob-4.0.3.tgz#64f61e42cbbb2eec2071a9dac0b28ba1e65d5084"
@@ -7066,16 +7071,17 @@ isexe@^2.0.0:
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==
 
-isomorphic-git@1.33.1, isomorphic-git@^1.30.1:
-  version "1.33.1"
-  resolved "https://registry.yarnpkg.com/isomorphic-git/-/isomorphic-git-1.33.1.tgz#a3ded4cdd90a98d3822d0dc6254ded8736c51178"
-  integrity sha512-Fy5rPAncURJoqL9R+5nJXLl5rQH6YpcjJd7kdCoRJPhrBiLVkLm9b+esRqYQQlT1hKVtKtALbfNtpHjWWJgk6g==
+isomorphic-git@1.33.2, isomorphic-git@^1.30.1:
+  version "1.33.2"
+  resolved "https://registry.yarnpkg.com/isomorphic-git/-/isomorphic-git-1.33.2.tgz#8197f46d30d0c2148919dcfebba1a1b2f7e51660"
+  integrity sha512-xPCYL90rIwI/ngiOYGIMdvNlIbZ7++gJbnO2S/CPyIyKuKrYDJziLqfE4IL8yks931SXobwzwsVqVnuA4GZ4IA==
   dependencies:
     async-lock "^1.4.1"
     clean-git-ref "^2.0.1"
     crc-32 "^1.2.0"
     diff3 "0.0.3"
     ignore "^5.1.4"
+    is-git-ref-name-valid "^1.0.0"
     minimisted "^2.0.0"
     pako "^1.0.10"
     path-browserify "^1.0.1"
