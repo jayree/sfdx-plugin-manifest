@@ -1,3 +1,11 @@
+## [4.0.77](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.76...4.0.77) (2025-09-28)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.33.1 to 1.33.2 ([#1948](https://github.com/jayree/sfdx-plugin-manifest/issues/1948)) ([2e6d7c0](https://github.com/jayree/sfdx-plugin-manifest/commit/2e6d7c088dccd0280c1c21faecadb6d268dfe78b))
+  * do not incorrectly mark valid ref names as invalid ([#2206](https://github.com/isomorphic-git/isomorphic-git/issues/2206)) ([ea52fe1](https://github.com/isomorphic-git/isomorphic-git/commit/ea52fe1738cd959fe082fdc821a71b1c7cc4603d))
+
 ## [4.0.76](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.75...4.0.76) (2025-09-22)
 
 
