@@ -107,12 +107,10 @@ export class GitDiffResolver {
   }
 
   private async gitChangesAsComponentSet(byPackageDir?: boolean): Promise<ComponentSet[]> {
-    const [projectConfig] = await Promise.all([
-      this.project.resolveProjectConfig() as {
-        sourceApiVersion?: string;
-        pushPackageDirectoriesSequentially?: boolean;
-      },
-    ]);
+    const projectConfig = (await this.project.resolveProjectConfig()) as {
+      sourceApiVersion?: string;
+      pushPackageDirectoriesSequentially?: boolean;
+    };
 
     const sourceApiVersion = projectConfig.sourceApiVersion;
 
