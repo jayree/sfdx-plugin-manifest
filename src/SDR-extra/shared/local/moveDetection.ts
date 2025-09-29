@@ -157,8 +157,8 @@ const toFileInfo = async ({
 
   const headRef = (await localRepo.resolveRef('HEAD')) as string;
   const [addedInfo, deletedInfo] = await Promise.all([
-    await Promise.all(Array.from(added).map(getHashForAddedFile)),
-    await Promise.all(Array.from(deleted).map(getHashFromActualFileContents(headRef))),
+    Promise.all(Array.from(added).map(getHashForAddedFile)),
+    Promise.all(Array.from(deleted).map(getHashFromActualFileContents(headRef))),
   ]);
 
   getInfoMarker?.stop();
