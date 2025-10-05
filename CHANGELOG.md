@@ -1,3 +1,12 @@
+## [4.0.80](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.79...4.0.80) (2025-10-05)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.33.2 to 1.34.0 ([#1952](https://github.com/jayree/sfdx-plugin-manifest/issues/1952)) ([6ab511b](https://github.com/jayree/sfdx-plugin-manifest/commit/6ab511b4812c4267874324acbe9b287effa0a5b6))
+  * add 'create' operation to stash API ([#2211](https://github.com/isomorphic-git/isomorphic-git/issues/2211)) fix [#2207](https://github.com/isomorphic-git/isomorphic-git/issues/2207) ([c312c88](https://github.com/isomorphic-git/isomorphic-git/commit/c312c882113aed0c9ee09beee52ded9902383542))
+  * fixes [#2138](https://github.com/isomorphic-git/isomorphic-git/issues/2138) stash push/pop issue with correct stash drop and adds regression test ([#2150](https://github.com/isomorphic-git/isomorphic-git/issues/2150)) ([555d7db](https://github.com/isomorphic-git/isomorphic-git/commit/555d7db7de81bc3e40ab339ad4756adb02f6686b))
+
 ## [4.0.79](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.78...4.0.79) (2025-10-05)
 
 
