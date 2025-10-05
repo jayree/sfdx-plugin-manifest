@@ -1,3 +1,11 @@
+## [4.0.78](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.77...4.0.78) (2025-10-05)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-xml-parser from 5.2.5 to 5.3.0 ([#1951](https://github.com/jayree/sfdx-plugin-manifest/issues/1951)) ([dcdbbc2](https://github.com/jayree/sfdx-plugin-manifest/commit/dcdbbc280cde69bfe5ca8e3e6410c5d4a0ea1ea7))
+  *   Use `Uint8Array` in place of `Buffer` in Parser
+
 ## [4.0.77](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.76...4.0.77) (2025-09-28)
 
 
