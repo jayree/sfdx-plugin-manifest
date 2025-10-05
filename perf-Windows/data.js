@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1759681102701,
+  "lastUpdate": 1759681258743,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -25735,6 +25735,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 360,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b9e97396601c8b1ce02057f39f9dbd794c01eb8f",
+          "message": "chore(deps-dev): bump patch-package from 8.0.0 to 8.0.1\n\nBumps [patch-package](https://github.com/ds300/patch-package) from 8.0.0 to 8.0.1.\n- [Release notes](https://github.com/ds300/patch-package/releases)\n- [Changelog](https://github.com/ds300/patch-package/blob/master/CHANGELOG.md)\n- [Commits](https://github.com/ds300/patch-package/commits)\n\n---\nupdated-dependencies:\n- dependency-name: patch-package\n  dependency-version: 8.0.1\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2025-10-05T16:15:49Z",
+          "tree_id": "900554bc73159273608eda912fe918e5e4dec87c",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/b9e97396601c8b1ce02057f39f9dbd794c01eb8f"
+        },
+        "date": 1759681248393,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 5299,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 3773,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 435,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 373,
             "unit": "ms"
           }
         ]
