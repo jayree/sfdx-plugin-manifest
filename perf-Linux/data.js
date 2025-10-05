@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1759136258706,
+  "lastUpdate": 1759676593861,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -25295,6 +25295,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 246,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e4b4282d70984dd677566b6f70159e18393dc0bd",
+          "message": "chore(deps-dev): bump typescript from 5.9.2 to 5.9.3\n\nBumps [typescript](https://github.com/microsoft/TypeScript) from 5.9.2 to 5.9.3.\n- [Release notes](https://github.com/microsoft/TypeScript/releases)\n- [Changelog](https://github.com/microsoft/TypeScript/blob/main/azure-pipelines.release-publish.yml)\n- [Commits](https://github.com/microsoft/TypeScript/compare/v5.9.2...v5.9.3)\n\n---\nupdated-dependencies:\n- dependency-name: typescript\n  dependency-version: 5.9.3\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2025-10-05T15:02:14Z",
+          "tree_id": "71b0a0bca99a12ec7f613a6f34996a684275147e",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/e4b4282d70984dd677566b6f70159e18393dc0bd"
+        },
+        "date": 1759676590652,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 2786,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 1848,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 342,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 254,
             "unit": "ms"
           }
         ]
