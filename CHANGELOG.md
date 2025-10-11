@@ -1,3 +1,12 @@
+## [4.0.81](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.80...4.0.81) (2025-10-11)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#1957](https://github.com/jayree/sfdx-plugin-manifest/issues/1957)) ([d9241f4](https://github.com/jayree/sfdx-plugin-manifest/commit/d9241f4277987fd61fca89fc2524e35b01f284f5))
+  * add DataMapper to registry ([#1629](https://github.com/forcedotcom/source-deploy-retrieve/issues/1629)) ([ec6b48a](https://github.com/forcedotcom/source-deploy-retrieve/commit/ec6b48a62c4ec96bb49b66e926ec4b9db057f5a7))
+  * register IP entity [w-19860001] ([#1633](https://github.com/forcedotcom/source-deploy-retrieve/issues/1633)) ([06cf125](https://github.com/forcedotcom/source-deploy-retrieve/commit/06cf125e3e459c67d0a0dfe9508e19349aab15a9))  * Revert "@w-19860001: Registering Omnistudio Entities (#1630)" (#1631) ([a21f0de](https://github.com/forcedotcom/source-deploy-retrieve/commit/a21f0de1cd76c6ba45f6cffbcd51f575fcf9a876)), closes [#1630](https://github.com/forcedotcom/source-deploy-retrieve/issues/1630) [#1631](https://github.com/forcedotcom/source-deploy-retrieve/issues/1631)
+
 ## [4.0.80](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.79...4.0.80) (2025-10-05)
 
 
