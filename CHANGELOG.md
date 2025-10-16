@@ -1,3 +1,12 @@
+## [4.0.82](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.81...4.0.82) (2025-10-16)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 4.5.5 to 4.5.6 ([#1963](https://github.com/jayree/sfdx-plugin-manifest/issues/1963)) ([71a4058](https://github.com/jayree/sfdx-plugin-manifest/commit/71a4058003173493de1144e5ee59b2689faa4c73))
+  * first commit on custom autocomplete ([4bd2459](https://github.com/oclif/core/commit/4bd2459d0987b38a8334d024ba7630e7bb6861f2))
+  * indicate whether an argument is optional in the help command ([#1453](https://github.com/oclif/core/issues/1453)) ([#1482](https://github.com/oclif/core/issues/1482)) ([94e46f8](https://github.com/oclif/core/commit/94e46f8d0405a4e0f6c008c8dfad6d70a8276e38))
+
 ## [4.0.81](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.80...4.0.81) (2025-10-11)
 
 
