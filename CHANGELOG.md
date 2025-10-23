@@ -1,3 +1,16 @@
+## [4.0.84](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.83...4.0.84) (2025-10-23)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.23.2 to 8.23.3 ([#1966](https://github.com/jayree/sfdx-plugin-manifest/issues/1966)) ([a05865a](https://github.com/jayree/sfdx-plugin-manifest/commit/a05865a6d32224b0f36bf5e6783673ec9b33adb9))
+  * bump salesforce/schemas ([cf6aaf3](https://github.com/forcedotcom/sfdx-core/commit/cf6aaf3b5f4567326644c61dda70700f993b2f48))
+  * bump ts-types ([6ad56a9](https://github.com/forcedotcom/sfdx-core/commit/6ad56a9705989cd465e513cfd4c95fa6c2e774f7))
+  * bump versions ([9920c39](https://github.com/forcedotcom/sfdx-core/commit/9920c394a3d1eb3368979b40b6764c1263ecdc11))
+  * handle options object in readFile/readFileSync for isomorphic-git compatibility ([6239350](https://github.com/forcedotcom/sfdx-core/commit/623935073ffec748eb3e6472e374ebc0b673f130))
+  * writefile api consistency ([fc8a88d](https://github.com/forcedotcom/sfdx-core/commit/fc8a88d352eac3f1fc2f0524c8c48cf2a0a89649))
+  * only instantiate stateAggregator if no connection passed in ([6636048](https://github.com/forcedotcom/sfdx-core/commit/66360482aaf86101eb34361245a041216f616c71))
+
 ## [4.0.83](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.82...4.0.83) (2025-10-23)
 
 
