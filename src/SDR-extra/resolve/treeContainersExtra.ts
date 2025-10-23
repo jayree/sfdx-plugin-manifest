@@ -17,7 +17,6 @@
 import path from 'node:path';
 import { VirtualTreeContainer, VirtualDirectory } from '@salesforce/source-deploy-retrieve';
 import { parseMetadataXml } from '@salesforce/source-deploy-retrieve/lib/src/utils/index.js';
-import { Performance } from '@oclif/core/performance';
 import { GitRepo } from '../shared/local/localGitRepo.js';
 
 export class VirtualTreeContainerExtra extends VirtualTreeContainer {
@@ -35,8 +34,6 @@ export class VirtualTreeContainerExtra extends VirtualTreeContainer {
     dir: string,
     includeBufferForFiles: string[],
   ): Promise<VirtualTreeContainer> {
-    const marker = Performance.mark('@jayree/sfdx-plugin-manifest', 'VirtualTreeContainerExtra.fromGitRef');
-
     const localRepo = GitRepo.getInstance({ dir });
     const paths = await localRepo.listFiles(ref);
     const oid = await localRepo.resolveRef(ref);
@@ -67,8 +64,6 @@ export class VirtualTreeContainerExtra extends VirtualTreeContainer {
         });
       }
     }
-
-    marker?.stop();
 
     return new VirtualTreeContainer(Array.from(virtualDirectoryByFullPath.values()));
   }

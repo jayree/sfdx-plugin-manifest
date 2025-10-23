@@ -23,7 +23,6 @@ import {
   RegistryAccess,
   VirtualTreeContainer,
 } from '@salesforce/source-deploy-retrieve';
-import { Performance } from '@oclif/core/performance';
 import { isDefined } from '@salesforce/source-tracking/lib/shared/guards.js';
 import { uniqueArrayConcat } from '@salesforce/source-tracking/lib/shared/functions.js';
 import { IS_WINDOWS, ensureWindows } from '@salesforce/source-tracking/lib/shared/local/functions.js';
@@ -150,18 +149,11 @@ const toFileInfo = async ({
   added: Set<string>;
   deleted: Set<string>;
 }): Promise<AddAndDeleteFileInfos> => {
-  const getInfoMarker = Performance.mark('@jayree/sfdx-plugin-manifest', 'localGitRepo.detectMovedFiles#toFileInfo', {
-    addedFiles: added.size,
-    deletedFiles: deleted.size,
-  });
-
   const headRef = (await localRepo.resolveRef('HEAD')) as string;
   const [addedInfo, deletedInfo] = await Promise.all([
     Promise.all(Array.from(added).map(getHashForAddedFile)),
     Promise.all(Array.from(deleted).map(getHashFromActualFileContents(headRef))),
   ]);
-
-  getInfoMarker?.stop();
 
   return { addedInfo, deletedInfo };
 };

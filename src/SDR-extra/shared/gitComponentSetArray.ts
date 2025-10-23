@@ -93,7 +93,7 @@ const getNonSequential = ({ packageDirs, adds, modifies, deletes }: GroupedFileI
 export const getComponentSets = ({
   groupings,
   sourceApiVersion,
-  registry = new RegistryAccess(),
+  registry,
   resolverForNonDeletes,
   resolverForDeletes,
   virtualTreeContainer,
