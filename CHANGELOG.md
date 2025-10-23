@@ -1,3 +1,14 @@
+## [4.0.83](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.82...4.0.83) (2025-10-23)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 4.5.6 to 4.7.2 ([#1965](https://github.com/jayree/sfdx-plugin-manifest/issues/1965)) ([dea1603](https://github.com/jayree/sfdx-plugin-manifest/commit/dea16032d7c60603e0a58b0301ea3a7380781cbd))
+  * support the 'combinable' & 'only' flag relationships ([#1487](https://github.com/oclif/core/issues/1487)) ([#1488](https://github.com/oclif/core/issues/1488)) ([d13b448](https://github.com/oclif/core/commit/d13b448f229f182b065e0847cf4b761b8f2cbbd8))
+  * support allowNo with alias ([d6de26f](https://github.com/oclif/core/commit/d6de26fca79b63fac7b5f3d87f7d3a07bab7aa0a))
+  * warn about unparsed arguments ([#1490](https://github.com/oclif/core/issues/1490)) ([5ad6bf0](https://github.com/oclif/core/commit/5ad6bf0dacd29519d724ebe0c695ceab4e4cfe13))
+  * retain description when hiding summary in help ([#1493](https://github.com/oclif/core/issues/1493)) ([3647672](https://github.com/oclif/core/commit/36476723a934e6c1d4069a979da1ec4242f7e9eb))
+
 ## [4.0.82](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.81...4.0.82) (2025-10-16)
 
 
