@@ -1,3 +1,14 @@
+## [4.0.85](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.84...4.0.85) (2025-10-23)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#1968](https://github.com/jayree/sfdx-plugin-manifest/issues/1968)) ([177607a](https://github.com/jayree/sfdx-plugin-manifest/commit/177607a1a86b8ffcc959e20dddfd319d8ca6938a))
+  * add FlowValueMap type to metadata registry W-20006675 ([#1642](https://github.com/forcedotcom/source-deploy-retrieve/issues/1642)) ([ecb131d](https://github.com/forcedotcom/source-deploy-retrieve/commit/ecb131d1f78bf96fa9e74955c9a64b3c709ba43a))
+  * add ComputeExtension entity to metadata registry ([#1639](https://github.com/forcedotcom/source-deploy-retrieve/issues/1639)) ([26220de](https://github.com/forcedotcom/source-deploy-retrieve/commit/26220de087d76b9952f3950ba650968f0a9fb407))
+  * web-scale-bug W-19982293 ([#1641](https://github.com/forcedotcom/source-deploy-retrieve/issues/1641)) ([8843ed6](https://github.com/forcedotcom/source-deploy-retrieve/commit/8843ed69574bce15175d2c3ad90639cb7ccbcd7b))
+  * replace illegal chars in paths ([#1635](https://github.com/forcedotcom/source-deploy-retrieve/issues/1635)) ([2f3fb31](https://github.com/forcedotcom/source-deploy-retrieve/commit/2f3fb31f6e3089092fb561adee28f149a088e961))
+
 ## [4.0.84](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.83...4.0.84) (2025-10-23)
 
 
