@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1761241174464,
+  "lastUpdate": 1761404691249,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -26571,6 +26571,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 385,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8b79d7a3c4cac8bac4d621b6f5a22ca3635a1af2",
+          "message": "chore(deps): bump TriPSs/conventional-changelog-action\n\nBumps [TriPSs/conventional-changelog-action](https://github.com/tripss/conventional-changelog-action) from 6.1.0 to 6.2.0.\n- [Release notes](https://github.com/tripss/conventional-changelog-action/releases)\n- [Changelog](https://github.com/TriPSs/conventional-changelog-action/blob/releases/v6/CHANGELOG.md)\n- [Commits](https://github.com/tripss/conventional-changelog-action/compare/5f00b899ccbbcbc112bd6d715d5e76e7a9e4501d...84dadaf2c367cb52af02737cd9c7e888807219e7)\n\n---\nupdated-dependencies:\n- dependency-name: TriPSs/conventional-changelog-action\n  dependency-version: 6.2.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2025-10-25T15:01:43Z",
+          "tree_id": "8dd87c78a68f46a37b902a48f1d8af0ace1fb679",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/8b79d7a3c4cac8bac4d621b6f5a22ca3635a1af2"
+        },
+        "date": 1761404681913,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 5629,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 3959,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 435,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 346,
             "unit": "ms"
           }
         ]
