@@ -25,8 +25,7 @@ import {
 } from '@salesforce/source-deploy-retrieve';
 import { isDefined } from '@salesforce/source-tracking/lib/shared/guards.js';
 import { uniqueArrayConcat } from '@salesforce/source-tracking/lib/shared/functions.js';
-import { IS_WINDOWS, ensureWindows } from '@salesforce/source-tracking/lib/shared/local/functions.js';
-import { buildMap } from '@salesforce/source-tracking/lib/shared/local/moveDetection.js';
+import { IS_WINDOWS } from '@salesforce/source-tracking/lib/shared/local/functions.js';
 import {
   AddAndDeleteMaps,
   DetectionFileInfo,
@@ -35,6 +34,8 @@ import {
 } from '@salesforce/source-tracking/lib/shared/local/types.js';
 import { GitRepo } from './localGitRepo.js';
 
+const ensureWindows = (filepath: string): string => path.win32.normalize(filepath);
+
 const JOIN_CHAR = '#__#'; // the __ makes it unlikely to be used in metadata names
 type AddAndDeleteFileInfos = Readonly<{ addedInfo: DetectionFileInfo[]; deletedInfo: DetectionFileInfo[] }>;
 type AddAndDeleteFileInfosWithTypes = {
@@ -42,7 +43,7 @@ type AddAndDeleteFileInfosWithTypes = {
   deletedInfo: DetectionFileInfoWithType[];
 };
 type AddedAndDeletedFilenames = { added: Set<string>; deleted: Set<string> };
-export type StringMapsForMatches = {
+type StringMapsForMatches = {
   /** these matches filename=>basename, metadata type/name, and git object hash */
   fullMatches: StringMap;
   /** these did not match the hash.  They *probably* are matches where the "add" is also modified */
@@ -158,6 +159,26 @@ const toFileInfo = async ({
   return { addedInfo, deletedInfo };
 };
 
+/** returns a map of <hash+basename, filepath>.  If two items result in the same hash+basename, return that in the ignore bucket */
+const buildMap = (info: DetectionFileInfoWithType[]): StringMap[] => {
+  const map: StringMap = new Map();
+  const ignore: StringMap = new Map();
+
+  info.map((i) => {
+    const key = toKey(i);
+    // If we find a duplicate key, we need to remove it and ignore it in the future.
+    // Finding duplicate hash#basename means that we cannot accurately determine where it was moved to or from
+    if (map.has(key) || ignore.has(key)) {
+      map.delete(key);
+      ignore.set(key, i.filename);
+    } else {
+      map.set(key, i.filename);
+    }
+  });
+
+  return [map, ignore];
+};
+
 const getHashForAddedFile = async (filepath: string): Promise<DetectionFileInfo> => {
   const autocrlf = await localRepo.getConfig('core.autocrlf');
 
@@ -194,6 +215,11 @@ const getHashFromActualFileContents =
     basename: path.basename(filepath),
     hash: await localRepo.readOid(filepath, oid),
   });
+
+const toKey = (input: DetectionFileInfoWithType): string =>
+  [input.hash, input.basename, input.type, input.type, input.parentType ?? '', input.parentFullName ?? ''].join(
+    JOIN_CHAR,
+  );
 
 const removeHashFromEntry = ([k, v]: [string, string]): [string, string] => [removeHashFromKey(k), v];
 const removeHashFromKey = (hash: string): string => hash.split(JOIN_CHAR).splice(1).join(JOIN_CHAR);

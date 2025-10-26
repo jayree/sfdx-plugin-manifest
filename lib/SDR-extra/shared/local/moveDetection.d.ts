@@ -4,7 +4,7 @@ type AddedAndDeletedFilenames = {
     added: Set<string>;
     deleted: Set<string>;
 };
-export type StringMapsForMatches = {
+type StringMapsForMatches = {
     /** these matches filename=>basename, metadata type/name, and git object hash */
     fullMatches: StringMap;
     /** these did not match the hash.  They *probably* are matches where the "add" is also modified */
