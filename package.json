@@ -10,7 +10,7 @@
     "@oclif/core": "^4.7.2",
     "@salesforce/core": "^8.23.3",
     "@salesforce/kit": "^3.2.4",
-    "@salesforce/sf-plugins-core": "^12.2.4",
+    "@salesforce/sf-plugins-core": "^12.2.5",
     "@salesforce/source-deploy-retrieve": "12.25.0",
     "@salesforce/source-tracking": "7.4.10",
     "@salesforce/ts-types": "^2.0.12",
