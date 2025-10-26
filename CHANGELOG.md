@@ -1,3 +1,11 @@
+## [4.0.86](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.85...4.0.86) (2025-10-26)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/sf-plugins-core from 12.2.4 to 12.2.5 ([#1971](https://github.com/jayree/sfdx-plugin-manifest/issues/1971)) ([f279bc9](https://github.com/jayree/sfdx-plugin-manifest/commit/f279bc9366d71eec8331e29347f565d574f47e97))
+  * bump @oclif/table to 0.5.0 ([#690](https://github.com/salesforcecli/sf-plugins-core/issues/690)) ([e836c92](https://github.com/salesforcecli/sf-plugins-core/commit/e836c92edb24b682b0f0df7b5df60ec0ebcdda14))
+
 ## [4.0.85](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.84...4.0.85) (2025-10-23)
 
 
