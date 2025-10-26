@@ -27,7 +27,6 @@ import {
   HEAD,
   WORKDIR,
   IS_WINDOWS,
-  ensureWindows,
   ensurePosix,
   toFilenames,
 } from '@salesforce/source-tracking/lib/shared/local/functions.js';
@@ -35,6 +34,8 @@ import { getMatches } from '@salesforce/source-tracking/lib/shared/local/moveDet
 import { parseMetadataXml } from '@salesforce/source-deploy-retrieve/lib/src/utils/index.js';
 import { statusMatrix } from '../../api/statusMatrix.js';
 import { filenameMatchesToMap, getLogMessage } from './moveDetection.js';
+
+const ensureWindows = (filepath: string): string => path.win32.normalize(filepath);
 
 export const STAGE = 3;
 
