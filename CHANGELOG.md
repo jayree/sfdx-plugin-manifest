@@ -1,3 +1,12 @@
+## [4.0.90](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.89...4.0.90) (2025-10-30)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.23.3 to 8.23.4 ([#1976](https://github.com/jayree/sfdx-plugin-manifest/issues/1976)) ([3af69a8](https://github.com/jayree/sfdx-plugin-manifest/commit/3af69a8d238ff274c205fc144400df5de10e4a62))
+  * add OAuth server default timeout W-19549750 ([#1245](https://github.com/forcedotcom/sfdx-core/issues/1245)) ([7889fda](https://github.com/forcedotcom/sfdx-core/commit/7889fda9b134c17e33543794bdc47195b3bb4e8c))
+  * make oauth server timeout configurable ([#1246](https://github.com/forcedotcom/sfdx-core/issues/1246)) ([3a4658e](https://github.com/forcedotcom/sfdx-core/commit/3a4658e98fc81bf1db36864cba68a41d9aa16402))
+
 ## [4.0.89](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.88...4.0.89) (2025-10-30)
 
 
