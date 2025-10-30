@@ -1,3 +1,12 @@
+## [4.0.89](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.88...4.0.89) (2025-10-30)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.34.0 to 1.34.2 ([#1978](https://github.com/jayree/sfdx-plugin-manifest/issues/1978)) ([efd8427](https://github.com/jayree/sfdx-plugin-manifest/commit/efd8427f9d2907adfa6a49d10f2fd070c02a6a0a))
+  * fix header name in docs/onAuth.md ([#2225](https://github.com/isomorphic-git/isomorphic-git/issues/2225)) ([1e8e650](https://github.com/isomorphic-git/isomorphic-git/commit/1e8e65098878c15f817dc8f79f5159cf0df5a733))
+  * improve fatal error message ([#2220](https://github.com/isomorphic-git/isomorphic-git/issues/2220)) ([ee6c7f5](https://github.com/isomorphic-git/isomorphic-git/commit/ee6c7f5fb9ed65ce6daaf77ff6977a934a9bc1e8))
+
 ## [4.0.88](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.87...4.0.88) (2025-10-30)
 
 
