@@ -1,3 +1,11 @@
+## [4.0.91](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.90...4.0.91) (2025-10-30)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 4.7.2 to 4.8.0 ([#1977](https://github.com/jayree/sfdx-plugin-manifest/issues/1977)) ([39c4fdf](https://github.com/jayree/sfdx-plugin-manifest/commit/39c4fdf9f2acea57175899b4424facd6082b3fab))
+  * show env in flag help ([97c0bde](https://github.com/oclif/core/commit/97c0bded336293f90aacbcf8255316fa0a1efe21))
+
 ## [4.0.90](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.89...4.0.90) (2025-10-30)
 
 
