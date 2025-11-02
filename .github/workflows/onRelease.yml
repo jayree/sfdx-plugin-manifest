@@ -27,7 +27,7 @@ jobs:
       - uses: salesforcecli/github-workflows/.github/actions/getPreReleaseTag@main
         id: distTag
   npm:
-    uses: salesforcecli/github-workflows/.github/workflows/npmPublish.yml@main
+    uses: ./.github/workflows/npmPublish.yml
     needs: [getDistTag]
     with:
       tag: ${{ needs.getDistTag.outputs.tag || 'latest' }}
