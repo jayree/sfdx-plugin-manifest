@@ -1,3 +1,10 @@
+## [4.0.92](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.91...4.0.92) (2025-11-02)
+
+
+### Bug Fixes
+
+* npmPublish ([e57589d](https://github.com/jayree/sfdx-plugin-manifest/commit/e57589d471665505f838e0a17f456b96f0700837))
+
 ## [4.0.91](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.90...4.0.91) (2025-10-30)
 
 
