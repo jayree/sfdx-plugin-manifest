@@ -1,3 +1,11 @@
+## [4.0.93](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.92...4.0.93) (2025-11-02)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-tracking from 7.5.1 to 7.5.2 ([#1985](https://github.com/jayree/sfdx-plugin-manifest/issues/1985)) ([7dffe8b](https://github.com/jayree/sfdx-plugin-manifest/commit/7dffe8b2f101d8e12f4c3fbb4648927c368c46ab))
+  * **deps:** bump isomorphic-git from 1.34.0 to 1.34.2 ([714f524](https://github.com/forcedotcom/source-tracking/commit/714f5244ce8537f41f5f9a75c474efef11ab741e))
+
 ## [4.0.92](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.91...4.0.92) (2025-11-02)
 
 
