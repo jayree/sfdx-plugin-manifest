@@ -1,3 +1,11 @@
+## [4.0.95](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.94...4.0.95) (2025-11-03)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-xml-parser from 5.3.0 to 5.3.1 ([#1990](https://github.com/jayree/sfdx-plugin-manifest/issues/1990)) ([1d2d99f](https://github.com/jayree/sfdx-plugin-manifest/commit/1d2d99f78aaab42e3cae2d9f692f997a55647181))
+  *   Performance improvement for stopNodes (By [Maciek Lamberski](https://github.com/macieklamberski))
+
 ## [4.0.94](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.93...4.0.94) (2025-11-02)
 
 
