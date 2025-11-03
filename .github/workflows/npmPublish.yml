@@ -276,7 +276,7 @@ jobs:
             --githubtag "$INPUTS_GITHUB_TAG" \
             --npmtag "$INPUTS_TAG" \
             --no-install \
-            --oidc \
+            ${{ !secrets.NPM_TOKEN && '--oidc' || '' }} \
             ${{ inputs.dryrun && '--dryrun' || '' }} \
             ${{ inputs.prerelease && format('--prerelease {0}', github.ref_name) || '' }} \
             ${{ inputs.sign && '--sign' || '' }}
