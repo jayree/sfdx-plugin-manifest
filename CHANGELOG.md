@@ -1,3 +1,11 @@
+## [4.0.96](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.95...4.0.96) (2025-11-08)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#1991](https://github.com/jayree/sfdx-plugin-manifest/issues/1991)) ([92171de](https://github.com/jayree/sfdx-plugin-manifest/commit/92171de6decb3a49e0f3c0e0bf05f950f8e74108))
+  * add AccountPlanObjMeasCalcDef to metadata registry W-19623920 ([#1643](https://github.com/forcedotcom/source-deploy-retrieve/issues/1643)) ([f4e1d77](https://github.com/forcedotcom/source-deploy-retrieve/commit/f4e1d7777db91e9825da7c03355063e6cb98c8a9))
+
 ## [4.0.95](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.94...4.0.95) (2025-11-03)
 
 
