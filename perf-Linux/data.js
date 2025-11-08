@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1762562962509,
+  "lastUpdate": 1762614150469,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -28551,6 +28551,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 276,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "093492a884a36366dde32ab3d6dec0ef28684de6",
+          "message": "chore(deps): bump actions/setup-node from 4 to 6\n\nBumps [actions/setup-node](https://github.com/actions/setup-node) from 4 to 6.\n- [Release notes](https://github.com/actions/setup-node/releases)\n- [Commits](https://github.com/actions/setup-node/compare/v4...v6)\n\n---\nupdated-dependencies:\n- dependency-name: actions/setup-node\n  dependency-version: '6'\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2025-11-08T15:01:47Z",
+          "tree_id": "d9602fc331bc39c1ed646875f1702b9e62ceceef",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/093492a884a36366dde32ab3d6dec0ef28684de6"
+        },
+        "date": 1762614147891,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 2684,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 1936,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 365,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 248,
             "unit": "ms"
           }
         ]
