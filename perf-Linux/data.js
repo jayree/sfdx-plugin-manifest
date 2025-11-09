@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1762674796528,
+  "lastUpdate": 1762674927966,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -28683,6 +28683,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 233,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e9e8a7488eaeed6fa9cea981056cfe2d46420bea",
+          "message": "chore(deps-dev): bump oclif from 4.22.41 to 4.22.43\n\nBumps [oclif](https://github.com/oclif/oclif) from 4.22.41 to 4.22.43.\n- [Release notes](https://github.com/oclif/oclif/releases)\n- [Changelog](https://github.com/oclif/oclif/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/oclif/oclif/compare/4.22.41...4.22.43)\n\n---\nupdated-dependencies:\n- dependency-name: oclif\n  dependency-version: 4.22.43\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2025-11-09T07:52:33Z",
+          "tree_id": "70edde327c20c532c1d528a3686b632e861f5bf8",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/e9e8a7488eaeed6fa9cea981056cfe2d46420bea"
+        },
+        "date": 1762674925014,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 2597,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 1884,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 344,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 231,
             "unit": "ms"
           }
         ]
