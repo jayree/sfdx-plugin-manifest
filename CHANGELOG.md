@@ -1,3 +1,12 @@
+## [4.0.97](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.96...4.0.97) (2025-11-09)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.34.2 to 1.35.0 ([#1997](https://github.com/jayree/sfdx-plugin-manifest/issues/1997)) ([eedaae9](https://github.com/jayree/sfdx-plugin-manifest/commit/eedaae9125c11016d03622bfd4bdc8ffa42f3fa5))
+  * Migrate from BrowserFS to ZenFS ([#1996](https://github.com/isomorphic-git/isomorphic-git/issues/1996)) ([2e3274d](https://github.com/isomorphic-git/isomorphic-git/commit/2e3274ddf48686fc838775958428d08be77cb3c1))
+  * Have build.test run build.pack as well ([#2238](https://github.com/isomorphic-git/isomorphic-git/issues/2238)) ([f16dd49](https://github.com/isomorphic-git/isomorphic-git/commit/f16dd49198c4a76b65d67f033d8defa0ebf3b086))
+
 ## [4.0.96](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.95...4.0.96) (2025-11-08)
 
 
