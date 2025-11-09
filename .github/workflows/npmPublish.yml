@@ -79,7 +79,7 @@ jobs:
             echo "Error: packageManager must be 'yarn' or 'npm', got '$INPUTS_PACKAGE_MANAGER'"
             exit 1
           fi
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: ${{ inputs.nodeVersion }}
 
@@ -128,7 +128,7 @@ jobs:
       - uses: actions/checkout@v5
         with:
           ref: ${{ inputs.githubTag }}
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: ${{ inputs.nodeVersion }}
           cache: ${{ inputs.packageManager }}
