@@ -1676,7 +1676,7 @@
     strip-ansi "6.0.1"
     ts-retry-promise "^0.8.1"
 
-"@salesforce/core@^8.18.7", "@salesforce/core@^8.23.1", "@salesforce/core@^8.23.3", "@salesforce/core@^8.23.4", "@salesforce/core@^8.8.0":
+"@salesforce/core@^8.18.7", "@salesforce/core@^8.23.1", "@salesforce/core@^8.23.4", "@salesforce/core@^8.8.0":
   version "8.23.4"
   resolved "https://registry.yarnpkg.com/@salesforce/core/-/core-8.23.4.tgz#f1fa18eace08f685e72975a09d96e7f6958ca3b4"
   integrity sha512-+JZMFD76P7X8fLSrHJRi9+ygjTehqZqJRXxmNq51miqIHY1Xlb0qH/yr9u5QEGsFIOZ8H8oStl/Zj+ZbrFs0vw==
@@ -1771,7 +1771,7 @@
     cli-progress "^3.12.0"
     terminal-link "^3.0.0"
 
-"@salesforce/source-deploy-retrieve@12.26.1", "@salesforce/source-deploy-retrieve@^12.25.0":
+"@salesforce/source-deploy-retrieve@12.26.1", "@salesforce/source-deploy-retrieve@^12.26.1":
   version "12.26.1"
   resolved "https://registry.yarnpkg.com/@salesforce/source-deploy-retrieve/-/source-deploy-retrieve-12.26.1.tgz#161a37bf7f94273de49fbfb771e7f333937a00b2"
   integrity sha512-PQJoURhTBCVM2Q4Sgo6iKZnZfQ1x+fE3r4uUKQ2nzDhPxrICm8OsGRXOS82NVPo8M8jL68sZ6CxPrRYgxZyCfg==
@@ -1791,14 +1791,14 @@
     proxy-agent "^6.4.0"
     yaml "^2.8.1"
 
-"@salesforce/source-tracking@7.5.2":
-  version "7.5.2"
-  resolved "https://registry.yarnpkg.com/@salesforce/source-tracking/-/source-tracking-7.5.2.tgz#afb793549b26354b68150b6fff9b55a745300796"
-  integrity sha512-GWRCqj+hrKXTlolo6F9DBEUThbykMUk0dhvX+h5RMMnKhEOSMH98AkejPRBER0MfdSDoHJF/ksDmZPdjQOfQCg==
+"@salesforce/source-tracking@7.6.0":
+  version "7.6.0"
+  resolved "https://registry.yarnpkg.com/@salesforce/source-tracking/-/source-tracking-7.6.0.tgz#4b030c6f477b734215365355a8c77be90621d2eb"
+  integrity sha512-Rba6Vm5dN+PRzC1Ls5pMPOVkmd0jwJKbaXVl8SNS+2YaYIX8B9Z2j5x8KUxEHekQSIQsVCOt7nj8T5v2KYQQ6w==
   dependencies:
-    "@salesforce/core" "^8.23.3"
+    "@salesforce/core" "^8.23.4"
     "@salesforce/kit" "^3.2.4"
-    "@salesforce/source-deploy-retrieve" "^12.25.0"
+    "@salesforce/source-deploy-retrieve" "^12.26.1"
     "@salesforce/ts-types" "^2.0.12"
     fast-xml-parser "^4.5.3"
     graceful-fs "^4.2.11"
