@@ -1,3 +1,11 @@
+## [4.0.99](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.98...4.0.99) (2025-11-11)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-tracking from 7.5.2 to 7.6.0 ([#1999](https://github.com/jayree/sfdx-plugin-manifest/issues/1999)) ([632d320](https://github.com/jayree/sfdx-plugin-manifest/commit/632d3209aea900222f16d9c933fbaf4dabe37778))
+  * construct a tree container from the project path for cmp resolver W-20175875 ([#820](https://github.com/forcedotcom/source-tracking/issues/820)) ([b9597d2](https://github.com/forcedotcom/source-tracking/commit/b9597d275d1474aa195dc895a35253b2041e9525))
+
 ## [4.0.98](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.97...4.0.98) (2025-11-11)
 
 
