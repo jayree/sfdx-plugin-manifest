@@ -1,3 +1,13 @@
+## [4.0.100](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.99...4.0.100) (2025-11-13)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2001](https://github.com/jayree/sfdx-plugin-manifest/issues/2001)) ([0bced1e](https://github.com/jayree/sfdx-plugin-manifest/commit/0bced1eb062422aa68af6a83b547f0aa97b34385))
+  * added RunRelevantTests test-level @W-20152151@ ([#1644](https://github.com/forcedotcom/source-deploy-retrieve/issues/1644)) ([96a176f](https://github.com/forcedotcom/source-deploy-retrieve/commit/96a176f7bc28d3671a9f50a89079373ffe1fcea9))
+  * add support for `DataObjectSearchIndexConf` metadata ([#1649](https://github.com/forcedotcom/source-deploy-retrieve/issues/1649)) ([46a3b00](https://github.com/forcedotcom/source-deploy-retrieve/commit/46a3b00b45c833728ebba6d734e975fd73f610c1))
+  * add support for `LightningOutApp` metadata ([#1648](https://github.com/forcedotcom/source-deploy-retrieve/issues/1648)) ([bdc1fb0](https://github.com/forcedotcom/source-deploy-retrieve/commit/bdc1fb057c5ce5a325c296fb4a0999e3ced26b55))
+
 ## [4.0.99](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.98...4.0.99) (2025-11-11)
 
 
