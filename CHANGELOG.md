@@ -1,3 +1,11 @@
+## [4.0.104](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.103...4.0.104) (2025-11-20)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2009](https://github.com/jayree/sfdx-plugin-manifest/issues/2009)) ([84f80a0](https://github.com/jayree/sfdx-plugin-manifest/commit/84f80a0373cf49e0c2b36df0cb0c3acc7316d957))
+  * web compatibility W-20175875 ([#1650](https://github.com/forcedotcom/source-deploy-retrieve/issues/1650)) ([f350cd6](https://github.com/forcedotcom/source-deploy-retrieve/commit/f350cd6e719e0aa8c05335e34fd642a0226e6cd9))
+
 ## [4.0.103](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.102...4.0.103) (2025-11-16)
 
 
