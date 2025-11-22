@@ -1,7 +1,7 @@
 [
   {
     "url": "https://raw.githubusercontent.com/forcedotcom/source-deploy-retrieve/main/src/resolve/treeContainers.ts",
-    "hash": "036f1f17fbfdb6bbf1ee401f3468f82362d73cdbaf272bbb670abdac7b001dca"
+    "hash": "96cfdd471c59f7367ebf031a086c289b00373440c38049befaac76028d0fce32"
   },
   {
     "url": "https://raw.githubusercontent.com/forcedotcom/source-tracking/main/src/shared/localComponentSetArray.ts",
@@ -30,5 +30,9 @@
   {
     "url": "https://raw.githubusercontent.com/salesforcecli/github-workflows/refs/heads/main/.github/workflows/create-github-release.yml",
     "hash": "66230672a64669cdef3d4e938da647534b4c9f2848646c2dfe8066ac387d54c0"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/salesforcecli/github-workflows/refs/heads/main/.github/workflows/npmPublish.yml",
+    "hash": "7892d67ba94b3075ab9bfc152f2cb3f867013ed6ef8caea3b6765b8273c98da9"
   }
 ]
