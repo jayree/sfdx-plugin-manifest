@@ -1,3 +1,11 @@
+## [4.0.102](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.101...4.0.102) (2025-11-22)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.35.0 to 1.35.1 ([#2014](https://github.com/jayree/sfdx-plugin-manifest/issues/2014)) ([90fce3e](https://github.com/jayree/sfdx-plugin-manifest/commit/90fce3eb3f5d0805a182d1bdc4085ce1d183ba96))
+  * fix readTree error ([#2248](https://github.com/isomorphic-git/isomorphic-git/issues/2248)) ([24f7cc9](https://github.com/isomorphic-git/isomorphic-git/commit/24f7cc9c9ebc3908f70cd7e82a772c36d0d61f5d))
+
 ## [4.0.101](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.100...4.0.101) (2025-11-13)
 
 
