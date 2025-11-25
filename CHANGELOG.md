@@ -1,3 +1,11 @@
+## [4.0.106](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.105...4.0.106) (2025-11-25)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-tracking from 7.6.0 to 7.7.0 ([#2023](https://github.com/jayree/sfdx-plugin-manifest/issues/2023)) ([db33533](https://github.com/jayree/sfdx-plugin-manifest/commit/db33533b59310c16f603bba1128ea08f0fb81885))
+  * tree/path for all metadataResolver use W-20175875 ([#821](https://github.com/forcedotcom/source-tracking/issues/821)) ([21f06fe](https://github.com/forcedotcom/source-tracking/commit/21f06fe0658b4179a4f7e5d75fbfdb736fbe7848))
+
 ## [4.0.105](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.104...4.0.105) (2025-11-25)
 
 
