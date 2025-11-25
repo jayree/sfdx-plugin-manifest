@@ -76,7 +76,7 @@ jobs:
       INPUTS_GITHUB_TAG: ${{ inputs.githubTag }}
       INPUTS_PACKAGE_MANAGER: ${{ inputs.packageManager }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           ref: ${{ inputs.githubTag }}
       - name: Validate package manager
@@ -132,7 +132,7 @@ jobs:
       INPUTS_GITHUB_TAG: ${{ inputs.githubTag }}
       INPUTS_TAG: ${{ inputs.tag }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           ref: ${{ inputs.githubTag }}
       - uses: actions/setup-node@v6
