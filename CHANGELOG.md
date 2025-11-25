@@ -1,3 +1,11 @@
+## [4.0.105](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.104...4.0.105) (2025-11-25)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2022](https://github.com/jayree/sfdx-plugin-manifest/issues/2022)) ([0ce7604](https://github.com/jayree/sfdx-plugin-manifest/commit/0ce7604d444ca36291c796e45ff4e6378d4c6abe))
+  * renaming ExtlClntAppCanvasStngs to ExtlClntAppCanvasSettings ([#1652](https://github.com/forcedotcom/source-deploy-retrieve/issues/1652)) ([f5a3672](https://github.com/forcedotcom/source-deploy-retrieve/commit/f5a367219fbd0bf75b14bd7918dd6ed9ee921773))
+
 ## [4.0.104](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.103...4.0.104) (2025-11-22)
 
 
