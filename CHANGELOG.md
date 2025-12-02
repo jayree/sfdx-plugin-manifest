@@ -1,3 +1,13 @@
+## [4.0.109](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.108...4.0.109) (2025-12-02)
+
+
+### Bug Fixes
+
+* **deps:** bump mdast-util-to-hast from 13.2.0 to 13.2.1 ([#2029](https://github.com/jayree/sfdx-plugin-manifest/issues/2029)) ([c2c8b10](https://github.com/jayree/sfdx-plugin-manifest/commit/c2c8b1003e49ac4cc27ae32184694f63ea2d925e))
+  * ab3a795 Fix support for spaces in class names
+  * efb5312 Refactor to use `@import`s
+  * a5bc210 Add declaration maps
+
 ## [4.0.108](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.107...4.0.108) (2025-11-30)
 
 
