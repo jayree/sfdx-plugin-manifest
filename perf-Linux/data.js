@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1764518326637,
+  "lastUpdate": 1764646751307,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -30927,6 +30927,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 249,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "af57600b776431f10e8ccb4eb21c9f2c5a9c4c5f",
+          "message": "fix(deps): bump mdast-util-to-hast from 13.2.0 to 13.2.1\n\nBumps [mdast-util-to-hast](https://github.com/syntax-tree/mdast-util-to-hast) from 13.2.0 to 13.2.1.\n- [Release notes](https://github.com/syntax-tree/mdast-util-to-hast/releases)\n- [Commits](https://github.com/syntax-tree/mdast-util-to-hast/compare/13.2.0...13.2.1)\n\n---\nupdated-dependencies:\n- dependency-name: mdast-util-to-hast\n  dependency-version: 13.2.1\n  dependency-type: indirect\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2025-12-02T03:38:07Z",
+          "tree_id": "53ae1b1336eac15247a88287dc056fd609d79d62",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/af57600b776431f10e8ccb4eb21c9f2c5a9c4c5f"
+        },
+        "date": 1764646746994,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 2668,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 1922,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 356,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 251,
             "unit": "ms"
           }
         ]
