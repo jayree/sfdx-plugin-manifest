@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1764646751307,
+  "lastUpdate": 1764871036557,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -30971,6 +30971,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 251,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3ce065e1ec285fbfbdc1019ae9264266d12830b3",
+          "message": "fix(deps): bump jws from 3.2.2 to 3.2.3\n\nBumps [jws](https://github.com/brianloveswords/node-jws) from 3.2.2 to 3.2.3.\n- [Release notes](https://github.com/brianloveswords/node-jws/releases)\n- [Changelog](https://github.com/auth0/node-jws/blob/master/CHANGELOG.md)\n- [Commits](https://github.com/brianloveswords/node-jws/compare/v3.2.2...v3.2.3)\n\n---\nupdated-dependencies:\n- dependency-name: jws\n  dependency-version: 3.2.3\n  dependency-type: indirect\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2025-12-04T17:56:24Z",
+          "tree_id": "dce2238b5ccfd01f0012bf251d4531ce09bbe222",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/3ce065e1ec285fbfbdc1019ae9264266d12830b3"
+        },
+        "date": 1764871033586,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 2409,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 1691,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 352,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 279,
             "unit": "ms"
           }
         ]
