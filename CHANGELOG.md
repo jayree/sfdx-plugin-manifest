@@ -1,3 +1,18 @@
+## [4.0.110](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.109...4.0.110) (2025-12-04)
+
+
+### Bug Fixes
+
+* **deps:** bump jws from 3.2.2 to 3.2.3 ([#2030](https://github.com/jayree/sfdx-plugin-manifest/issues/2030)) ([0dea52b](https://github.com/jayree/sfdx-plugin-manifest/commit/0dea52b016c6e9e69b58cf254fb8f41885dc648d))
+  *   Fix advisory GHSA-869p-cjfg-cm3x: createSign and createVerify now require that a non empty secret is provided (via opts.secret, opts.privateKey or opts.key) when using HMAC algorithms.
+  *   Upgrading JWA version to 1.4.2, addressing a compatibility issue for Node >= 25.
+  *   Fix advisory GHSA-869p-cjfg-cm3x: createSign and createVerify now require that a non empty secret is provided (via opts.secret, opts.privateKey or opts.key) when using HMAC algorithms.
+  *   Upgrading JWA version to 1.4.2, adressing a compatibility issue for Node >= 25.
+  *   **BREAKING**: `jwt.verify` now requires an `algorithm` parameter, and `jws.createVerify` requires an `algorithm` option. The `"alg"` field signature headers is ignored. This mitigates a critical security flaw in the library which would allow an attacker to generate signatures with arbitrary contents that would be accepted by `jwt.verify`. See [https://auth0.com/blog/2015/03/31/critical-vulnerabilities-in-json-web-token-libraries/](https://auth0.com/blog/2015/03/31/critical-vulnerabilities-in-json-web-token-libraries/) for details.
+  *   **BREAKING**: Default payload encoding changed from `binary` to `utf8`. `utf8` is a is a more sensible default than `binary` because many payloads, as far as I can tell, will contain user-facing strings that could be in any language. ([6b6de48](https://github.com/brianloveswords/node-jws/commit/6b6de48))
+  *   Code reorganization, thanks [`@​fearphage`](https://github.com/fearphage)! ([7880050](https://github.com/brianloveswords/node-jws/commit/7880050))
+  *   Option in all relevant methods for `encoding`. For those few users that might be depending on a `binary` encoding of the messages, this is for them. ([6b6de48](https://github.com/brianloveswords/node-jws/commit/6b6de48))
+
 ## [4.0.109](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.108...4.0.109) (2025-12-02)
 
 
