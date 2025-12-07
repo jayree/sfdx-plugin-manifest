@@ -1,3 +1,19 @@
+## [4.0.111](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.110...4.0.111) (2025-12-07)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.23.4 to 8.24.0 ([#2031](https://github.com/jayree/sfdx-plugin-manifest/issues/2031)) ([68101d1](https://github.com/jayree/sfdx-plugin-manifest/commit/68101d1ca6dfcb201bbda591c2d9307a44d80fe7))
+  * add sfdx-project/scratch-def schemas W-20268457 ([#1249](https://github.com/forcedotcom/sfdx-core/issues/1249)) ([82a26a0](https://github.com/forcedotcom/sfdx-core/commit/82a26a0215e11809c6fd76ae6ee45d5407640c05)), closes [#1250](https://github.com/forcedotcom/sfdx-core/issues/1250)
+  * move schema for project/scratch-def into this repo ([55a6e54](https://github.com/forcedotcom/sfdx-core/commit/55a6e5473461825c9b1b71999fb935134948dd4a))
+  * script to update features ([38c0bc3](https://github.com/forcedotcom/sfdx-core/commit/38c0bc3f4a7ae0add4603f834f65f5f33ea43414))
+  * script to update settings with their documentation ([cd498fd](https://github.com/forcedotcom/sfdx-core/commit/cd498fd7209b932971fd7b2e63b14aefc78fb224))
+  * bump jsonwebtoken for security fix ([f049410](https://github.com/forcedotcom/sfdx-core/commit/f0494102b08cfc33695a09459c285c4f2882e5c0))
+  * **auth:** log scopes associated to the access token ([7ec3bea](https://github.com/forcedotcom/sfdx-core/commit/7ec3bea7dc8778aaef5925876244f03d8534c1b9))
+  * bump jwa ([65d1f7e](https://github.com/forcedotcom/sfdx-core/commit/65d1f7eaaac54d867993f39569f58c864e7c7eac))
+  * `refreshAuth` does a `GET` request W-19992404 ([#1248](https://github.com/forcedotcom/sfdx-core/issues/1248)) ([e245a66](https://github.com/forcedotcom/sfdx-core/commit/e245a66fca535d2c3e81a937063d540d5a879465)), closes [#1252](https://github.com/forcedotcom/sfdx-core/issues/1252)
+  * correctly classify even with space ([59f492e](https://github.com/forcedotcom/sfdx-core/commit/59f492e9b2a283f500992781c59022ec8e059dad))
+
 ## [4.0.110](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.109...4.0.110) (2025-12-04)
 
 
