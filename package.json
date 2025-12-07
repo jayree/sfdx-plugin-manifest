@@ -35,7 +35,7 @@
     "eslint-plugin-sf-plugin": "^1.20.33",
     "oclif": "^4.22.52",
     "patch-package": "^8.0.1",
-    "prettier": "^3.7.3",
+    "prettier": "^3.7.4",
     "pretty-quick": "^4.2.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
