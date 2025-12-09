@@ -1,3 +1,11 @@
+## [4.0.112](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.111...4.0.112) (2025-12-09)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.35.1 to 1.36.0 ([#2038](https://github.com/jayree/sfdx-plugin-manifest/issues/2038)) ([9fd4aa1](https://github.com/jayree/sfdx-plugin-manifest/commit/9fd4aa1dbb2b3fc008c109d0a09bf95dd1ba7bb5))
+  * Support git commands run in submodules ([#2090](https://github.com/isomorphic-git/isomorphic-git/issues/2090)) ([8e331cc](https://github.com/isomorphic-git/isomorphic-git/commit/8e331cccbfeb69dce2a9ea3ace26e3ea6d79a5fd))
+
 ## [4.0.111](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.110...4.0.111) (2025-12-07)
 
 
