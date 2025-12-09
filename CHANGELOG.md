@@ -1,3 +1,12 @@
+## [4.0.113](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.112...4.0.113) (2025-12-09)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2033](https://github.com/jayree/sfdx-plugin-manifest/issues/2033)) ([8879922](https://github.com/jayree/sfdx-plugin-manifest/commit/887992229b8a80909e34e9c077da3d2144cde6ee))
+  * **deps:** bump jws from 3.2.2 to 3.2.3 ([#1654](https://github.com/forcedotcom/source-deploy-retrieve/issues/1654)) ([eb1f904](https://github.com/forcedotcom/source-deploy-retrieve/commit/eb1f90427e4c61845fc9464fafeaeb8a8dd20313))
+  * forceIgnore issues debug logs when files are ignored @W-19470890@ ([#1656](https://github.com/forcedotcom/source-deploy-retrieve/issues/1656)) ([74774dc](https://github.com/forcedotcom/source-deploy-retrieve/commit/74774dc39dbcc668494633923fcb3f51deae5409))
+
 ## [4.0.112](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.111...4.0.112) (2025-12-09)
 
 
