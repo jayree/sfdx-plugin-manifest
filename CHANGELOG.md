@@ -1,3 +1,11 @@
+## [4.0.115](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.114...4.0.115) (2025-12-09)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-tracking from 7.7.0 to 7.8.0 ([#2037](https://github.com/jayree/sfdx-plugin-manifest/issues/2037)) ([b7b28a4](https://github.com/jayree/sfdx-plugin-manifest/commit/b7b28a406d35c8ee11a389da0b003837d6a8fb25))
+  * reread remote like you can local W-20175985 ([#825](https://github.com/forcedotcom/source-tracking/issues/825)) ([2b0e97e](https://github.com/forcedotcom/source-tracking/commit/2b0e97e3b591075247309f212b11ea94d718607d))
+
 ## [4.0.114](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.113...4.0.114) (2025-12-09)
 
 
