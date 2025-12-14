@@ -1,3 +1,11 @@
+## [4.0.118](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.117...4.0.118) (2025-12-14)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2040](https://github.com/jayree/sfdx-plugin-manifest/issues/2040)) ([672180c](https://github.com/jayree/sfdx-plugin-manifest/commit/672180cc6387a2952fe94932af654574768eabd8))
+  * @W-19995019 Adding support for integArtifactDef type ([#1658](https://github.com/forcedotcom/source-deploy-retrieve/issues/1658)) ([e997a49](https://github.com/forcedotcom/source-deploy-retrieve/commit/e997a4929d2d9c474f08d5103f495654eb7fcc9a))
+
 ## [4.0.117](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.116...4.0.117) (2025-12-14)
 
 
