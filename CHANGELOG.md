@@ -1,3 +1,11 @@
+## [4.0.117](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.116...4.0.117) (2025-12-14)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-xml-parser from 5.3.2 to 5.3.3 ([#2041](https://github.com/jayree/sfdx-plugin-manifest/issues/2041)) ([9275a06](https://github.com/jayree/sfdx-plugin-manifest/commit/9275a06321fa698cb1f373b07791f2bb2decddb2))
+  *   fix [#775](https://redirect.github.com/NaturalIntelligence/fast-xml-parser/issues/775): transformTagName with allowBooleanAttributes adds an unnecessary attribute
+
 ## [4.0.116](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.115...4.0.116) (2025-12-14)
 
 
