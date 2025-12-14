@@ -1,3 +1,11 @@
+## [4.0.116](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.115...4.0.116) (2025-12-14)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.36.0 to 1.36.1 ([#2039](https://github.com/jayree/sfdx-plugin-manifest/issues/2039)) ([ffb44c4](https://github.com/jayree/sfdx-plugin-manifest/commit/ffb44c41432918688998651e2ca28f06936cdd08))
+  * In FileSystem.js, special-case the cp command ([#2264](https://github.com/isomorphic-git/isomorphic-git/issues/2264)) ([dd54d92](https://github.com/isomorphic-git/isomorphic-git/commit/dd54d92a4f4db6f828ed85acf3cbc697b643e14c))
+
 ## [4.0.115](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.114...4.0.115) (2025-12-09)
 
 
