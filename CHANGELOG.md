@@ -1,3 +1,11 @@
+## [4.0.119](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.118...4.0.119) (2025-12-21)
+
+
+### Bug Fixes
+
+* **deps:** bump fs-extra from 11.3.2 to 11.3.3 ([#2045](https://github.com/jayree/sfdx-plugin-manifest/issues/2045)) ([dca285e](https://github.com/jayree/sfdx-plugin-manifest/commit/dca285e171d1032215781112785e831ed7db81ad))
+  *   Fix copying symlink when destination is a symlink to the same target ([#1019](https://redirect.github.com/jprichardson/node-fs-extra/issues/1019), [#1060](https://redirect.github.com/jprichardson/node-fs-extra/pull/1060))
+
 ## [4.0.118](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.117...4.0.118) (2025-12-14)
 
 
