@@ -1,3 +1,15 @@
+## [4.0.121](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.120...4.0.121) (2026-01-10)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2053](https://github.com/jayree/sfdx-plugin-manifest/issues/2053)) ([fec6f18](https://github.com/jayree/sfdx-plugin-manifest/commit/fec6f1856695fb5ab08f7b803e4a2e32e435b11e))
+  * **poll:** track consequent errors during polling W-18203875 ([#1663](https://github.com/forcedotcom/source-deploy-retrieve/issues/1663)) ([588ed78](https://github.com/forcedotcom/source-deploy-retrieve/commit/588ed78b28e2b486ee7ed2f5f8abd04dd1a13409))
+  * use prod endpoint for AAB compilation @W-20819985@ ([#1666](https://github.com/forcedotcom/source-deploy-retrieve/issues/1666)) ([a032b29](https://github.com/forcedotcom/source-deploy-retrieve/commit/a032b29a9a2e4a29aa85ad89a1fb34ec1617550e)), closes [#1667](https://github.com/forcedotcom/source-deploy-retrieve/issues/1667)
+  * add FlexcardDefinition to metadata registry ([#1669](https://github.com/forcedotcom/source-deploy-retrieve/issues/1669)) ([6c98cc9](https://github.com/forcedotcom/source-deploy-retrieve/commit/6c98cc91734434e81503542bc4fdf405731c8546))
+  * bump jsforce-node ([c1471c8](https://github.com/forcedotcom/source-deploy-retrieve/commit/c1471c894686a18faa3a0d5b4b949a8209ca60b9))
+  * revert PR 1667 ([#1668](https://github.com/forcedotcom/source-deploy-retrieve/issues/1668)) ([3387549](https://github.com/forcedotcom/source-deploy-retrieve/commit/33875498eddc4c24d825aec7458947537dd9366e))
+
 ## [4.0.120](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.119...4.0.120) (2026-01-05)
 
 
