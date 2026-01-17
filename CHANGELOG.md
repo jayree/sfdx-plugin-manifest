@@ -1,3 +1,14 @@
+## [4.0.122](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.121...4.0.122) (2026-01-17)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.24.0 to 8.24.3 ([#2060](https://github.com/jayree/sfdx-plugin-manifest/issues/2060)) ([b765541](https://github.com/jayree/sfdx-plugin-manifest/commit/b7655413431394b07ad11ccb7486ddef5171828e))
+  * avoid unnecessary config writes and add a test ([ab3ee5d](https://github.com/forcedotcom/sfdx-core/commit/ab3ee5d96dae63a211706fd0042bc5f0d568cdb5))
+  * bump jsforce-node ([3161d3b](https://github.com/forcedotcom/sfdx-core/commit/3161d3b5c6a04424bcf366e6f69455259716cfc5))
+  * bump jsforce-node ([#1256](https://github.com/forcedotcom/sfdx-core/issues/1256)) ([12f9396](https://github.com/forcedotcom/sfdx-core/commit/12f9396665a61342ba9d1875598cf6ccd185a27b))
+  * support sandbox features as array or string ([#1254](https://github.com/forcedotcom/sfdx-core/issues/1254)) ([0d62ff7](https://github.com/forcedotcom/sfdx-core/commit/0d62ff7645a445f55b1f1a0bbcb95a2143be22c3))
+
 ## [4.0.121](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.120...4.0.121) (2026-01-10)
 
 
