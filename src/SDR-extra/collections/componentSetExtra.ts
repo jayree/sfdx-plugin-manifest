@@ -74,6 +74,8 @@ export class ComponentSetExtra extends ComponentSet {
 
     const project = await SfProject.resolve();
 
+    fsPaths = fsPaths?.map((filepath) => path.resolve(filepath));
+
     const gitDiffResolver = new GitDiffResolver(project, registry);
     const gitDiffResult = await gitDiffResolver.resolve(ref1, ref2, fsPaths);
 
@@ -107,7 +109,7 @@ export class ComponentSetExtra extends ComponentSet {
     }
 
     fsPaths =
-      fsPaths?.map((filepath) => path.resolve(filepath)).filter((filepath) => fs.existsSync(filepath)) ??
+      fsPaths?.filter((filepath) => fs.existsSync(filepath)) ??
       project.getUniquePackageDirectories().map((pDir) => pDir.fullPath);
 
     logger.debug({ fsPaths });

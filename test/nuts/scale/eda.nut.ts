@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { join } from 'node:path';
+import { join, resolve } from 'node:path';
 import { performance } from 'node:perf_hooks';
 import fs from 'fs-extra';
 import { TestSession } from '@salesforce/cli-plugins-testkit';
@@ -63,7 +63,7 @@ describe('tests using EDA', () => {
     await gitDiffResolver.resolve(
       'a6a873288a3a9e8e061353d521ef0aa1dcc53789',
       'e593957756d629b4b0a8d8114889ac58f5943173',
-      ['force-app'],
+      [resolve('force-app')],
     );
 
     performance.measure('GitDiffResolver', 'GitDiffResolver');
