@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1768850882017,
+  "lastUpdate": 1769017220907,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -33215,6 +33215,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 373,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jayree.git@icloud.com",
+            "name": "jayree",
+            "username": "jayree"
+          },
+          "committer": {
+            "email": "jayree.git@icloud.com",
+            "name": "jayree",
+            "username": "jayree"
+          },
+          "distinct": true,
+          "id": "aa1fd56e3c267d5b800c832c990648ff1e2d5d08",
+          "message": "fix!: use fullPath to align with SDR",
+          "timestamp": "2026-01-21T18:37:51+01:00",
+          "tree_id": "0f7dda635c65679ff596f43c5d63eeaa56f7373f",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/aa1fd56e3c267d5b800c832c990648ff1e2d5d08"
+        },
+        "date": 1769017213087,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 4641,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 3150,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 527,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 383,
             "unit": "ms"
           }
         ]
