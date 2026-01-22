@@ -1,3 +1,10 @@
+## [4.0.123](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.122...4.0.123) (2026-01-22)
+
+
+### Bug Fixes
+
+* **deps:** bump lodash from 4.17.21 to 4.17.23 ([#2065](https://github.com/jayree/sfdx-plugin-manifest/issues/2065)) ([de09294](https://github.com/jayree/sfdx-plugin-manifest/commit/de09294e28352fd67933074328ca4b2e308fd5fe))
+
 ## [4.0.122](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.121...4.0.122) (2026-01-17)
 
 
