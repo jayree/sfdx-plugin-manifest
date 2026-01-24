@@ -81,14 +81,17 @@ const groupByPkgDir = (filePaths: string[], pkgDirs: NamedPackageDir[]): Map<str
   return groups;
 };
 
-const getNonSequential = ({ packageDirs, adds, modifies, deletes }: GroupedFileInput): GroupedFile[] => [
-  {
-    adds,
-    modifies,
-    deletes,
-    path: packageDirs.map((dir) => dir.name).join(';'),
-  },
-];
+const getNonSequential = ({ packageDirs, adds, modifies, deletes }: GroupedFileInput): GroupedFile[] => {
+  if (packageDirs.length === 0) return [];
+  return [
+    {
+      adds,
+      modifies,
+      deletes,
+      path: packageDirs.map((dir) => dir.name).join(';'),
+    },
+  ];
+};
 
 export const getComponentSets = ({
   groupings,
