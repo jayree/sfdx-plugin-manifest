@@ -1,3 +1,11 @@
+## [4.0.124](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.123...4.0.124) (2026-01-25)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.36.1 to 1.36.2 ([#2067](https://github.com/jayree/sfdx-plugin-manifest/issues/2067)) ([14419a2](https://github.com/jayree/sfdx-plugin-manifest/commit/14419a2b83f8a93de1b65488d3b5e3eb54366491))
+  * make `GitWalkerFs#content` handle symlinks correctly ([#2271](https://github.com/isomorphic-git/isomorphic-git/issues/2271)) ([667be27](https://github.com/isomorphic-git/isomorphic-git/commit/667be2725f2b33cf6da792be45b42ef9cddabec3))
+
 ## [4.0.123](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.122...4.0.123) (2026-01-22)
 
 
