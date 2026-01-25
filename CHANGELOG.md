@@ -1,3 +1,11 @@
+## [4.0.125](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.124...4.0.125) (2026-01-25)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.24.3 to 8.25.0 ([#2071](https://github.com/jayree/sfdx-plugin-manifest/issues/2071)) ([2511242](https://github.com/jayree/sfdx-plugin-manifest/commit/25112429c261bc9309fdcd4fb46e0007deebfbcc))
+  * add scratch feature to schema ([a1dc7ef](https://github.com/forcedotcom/sfdx-core/commit/a1dc7ef4029dc93c85caa65c9ed7fe17b0be2aad))
+
 ## [4.0.124](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.123...4.0.124) (2026-01-25)
 
 
