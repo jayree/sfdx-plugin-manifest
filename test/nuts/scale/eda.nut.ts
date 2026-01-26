@@ -63,7 +63,6 @@ describe('tests using EDA', () => {
     await gitDiffResolver.resolve(
       'a6a873288a3a9e8e061353d521ef0aa1dcc53789',
       'e593957756d629b4b0a8d8114889ac58f5943173',
-      ['force-app'],
     );
 
     performance.measure('GitDiffResolver', 'GitDiffResolver');
