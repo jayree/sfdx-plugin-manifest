@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1769442138470,
+  "lastUpdate": 1769444168071,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -33831,6 +33831,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 339,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jayree.git@icloud.com",
+            "name": "jayree",
+            "username": "jayree"
+          },
+          "committer": {
+            "email": "jayree.git@icloud.com",
+            "name": "jayree",
+            "username": "jayree"
+          },
+          "distinct": true,
+          "id": "c815efbf265e6c5a4f5873183b98703ae78493f7",
+          "message": "fix: throw fsPaths error early",
+          "timestamp": "2026-01-26T17:13:17+01:00",
+          "tree_id": "7f2844c1b98617d763f45566e710c957dfbd495c",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/c815efbf265e6c5a4f5873183b98703ae78493f7"
+        },
+        "date": 1769444154298,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 4580,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 3159,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 564,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 438,
             "unit": "ms"
           }
         ]
