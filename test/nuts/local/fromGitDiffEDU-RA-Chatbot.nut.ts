@@ -81,7 +81,7 @@ describe('result testing with EDU-RA-Chatbot', () => {
     try {
       await ComponentSetExtra.fromGitDiff({
         ref: ['123', '456'],
-        fsPaths: ['app'],
+        fsPaths: ['force-app'],
       });
       throw new Error('This test should have thrown');
     } catch (err) {

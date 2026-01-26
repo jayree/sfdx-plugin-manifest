@@ -13,9 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import path from 'node:path';
 import { ComponentSet, RegistryAccess, MetadataResolver } from '@salesforce/source-deploy-retrieve';
-import { SfProject, SfError, Lifecycle, Logger, NamedPackageDir } from '@salesforce/core';
+import { SfProject, Lifecycle, Logger, NamedPackageDir } from '@salesforce/core';
 import { GitRepo } from '../shared/local/localGitRepo.js';
 import { getComponentSets, getGroupedFiles } from '../shared/gitComponentSetArray.js';
 import { VirtualTreeContainerExtra } from '../resolve/treeContainersExtra.js';
@@ -52,7 +51,7 @@ export class GitDiffResolver {
     });
   }
 
-  public async resolve(ref1: string, ref2: string | undefined, fsPaths: string[] | undefined): Promise<ComponentSet> {
+  public async resolve(ref1: string, ref2: string | undefined): Promise<ComponentSet> {
     if (ref2 === undefined) {
       const { ref1: r1, ref2: r2 } = await this.localRepo.resolveMultiRefString(ref1);
       ref1 = r1;
@@ -74,15 +73,6 @@ export class GitDiffResolver {
       VirtualTreeContainerExtra.fromGitRef(ref1, this.dir, this.localRepo.getModifyFilenames()),
       VirtualTreeContainerExtra.fromGitRef(ref2, this.dir, this.localRepo.getModifyFilenames()),
     ]);
-
-    if (fsPaths) {
-      fsPaths.map((filepath) => {
-        filepath = filepath.endsWith(path.sep) && filepath.length > 1 ? filepath.slice(0, -1) : filepath;
-        if (!ref1VirtualTreeContainer.exists(filepath) && !ref2VirtualTreeContainer.exists(filepath)) {
-          throw new SfError(`The sourcepath "${filepath}" is not a valid source file path.`);
-        }
-      });
-    }
 
     this.ref2VirtualTreeContainer = ref2VirtualTreeContainer;
     this.ref1Resolver = new MetadataResolver(this.registry, ref1VirtualTreeContainer);
