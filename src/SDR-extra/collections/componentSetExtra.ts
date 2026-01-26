@@ -15,12 +15,18 @@
  */
 import path from 'node:path';
 import { ComponentSet, TreeContainer, RegistryAccess, SourceComponent } from '@salesforce/source-deploy-retrieve';
-import { SfProject, Lifecycle, Logger } from '@salesforce/core';
+import { SfProject, Lifecycle, Logger, SfError } from '@salesforce/core';
 import fs from 'graceful-fs';
 import { GitDiffResolver } from '../resolve/gitDiffResolver.js';
 import { FromGitDiffOptions } from './types.js';
 
-const logger = Logger.childFromRoot('gitDiff:ComponentSetExtra');
+let logger: Logger;
+const getLogger = (): Logger => {
+  if (!logger) {
+    logger = Logger.childFromRoot('gitDiff:ComponentSetExtra');
+  }
+  return logger;
+};
 
 export class ComponentSetExtra extends ComponentSet {
   /**
@@ -74,10 +80,20 @@ export class ComponentSetExtra extends ComponentSet {
 
     const project = await SfProject.resolve();
 
-    fsPaths = fsPaths?.map((filepath) => path.resolve(filepath));
+    fsPaths = fsPaths ?? project.getUniquePackageDirectories().map((pDir) => pDir.fullPath);
+
+    fsPaths = fsPaths?.map((filepath) => {
+      const resolved = path.resolve(filepath);
+      if (!fs.existsSync(resolved)) {
+        throw new SfError(`The sourcepath "${resolved}" is not a valid source file path.`);
+      }
+      return resolved;
+    });
+
+    getLogger().debug(`Building ComponentSet from sourcepath: ${fsPaths.join(', ')}`);
 
     const gitDiffResolver = new GitDiffResolver(project, registry);
-    const gitDiffResult = await gitDiffResolver.resolve(ref1, ref2, fsPaths);
+    const gitDiffResult = await gitDiffResolver.resolve(ref1, ref2);
 
     const include = new ComponentSet([], registry);
     const markedForDelete = new ComponentSet([], registry);
@@ -97,7 +113,7 @@ export class ComponentSetExtra extends ComponentSet {
     for (const component of gitDiffResult.getSourceComponents()) {
       if (!component.isMarkedForDelete()) {
         if (component.parent && childsTobeReplacedByParent.includes(component.type.id)) {
-          logger.debug(
+          getLogger().debug(
             `add parent ${component.parent.type.name}:${component.parent.fullName} of ${component.type.name}:${component.fullName} to manifest`,
           );
           include.add(component.parent);
@@ -107,12 +123,6 @@ export class ComponentSetExtra extends ComponentSet {
         markedForDelete.add(component, component.getDestructiveChangesType());
       }
     }
-
-    fsPaths =
-      fsPaths?.filter((filepath) => fs.existsSync(filepath)) ??
-      project.getUniquePackageDirectories().map((pDir) => pDir.fullPath);
-
-    logger.debug({ fsPaths });
 
     const components = ComponentSet.fromSource({
       fsPaths,
