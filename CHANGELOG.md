@@ -1,3 +1,11 @@
+## [4.0.127](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.126...4.0.127) (2026-01-29)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.36.2 to 1.36.3 ([#2075](https://github.com/jayree/sfdx-plugin-manifest/issues/2075)) ([63ee53d](https://github.com/jayree/sfdx-plugin-manifest/commit/63ee53d26111240c35717149d6e2bf08894f2339))
+  * make `commit` update detached `HEAD` ([#2276](https://github.com/isomorphic-git/isomorphic-git/issues/2276)) ([f87ef9a](https://github.com/isomorphic-git/isomorphic-git/commit/f87ef9a12651aee5f8a652570f8744e89423affb))
+
 ## [4.0.126](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.125...4.0.126) (2026-01-29)
 
 
