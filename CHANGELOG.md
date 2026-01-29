@@ -1,3 +1,15 @@
+## [4.0.126](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.125...4.0.126) (2026-01-29)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2073](https://github.com/jayree/sfdx-plugin-manifest/issues/2073)) ([b8d00dc](https://github.com/jayree/sfdx-plugin-manifest/commit/b8d00dcfb8a937c43fa0a2953d086f5cb662a4e9))
+  * handle non-cwd environments (web) W-20783625 ([#1665](https://github.com/forcedotcom/source-deploy-retrieve/issues/1665)) ([d56b5b0](https://github.com/forcedotcom/source-deploy-retrieve/commit/d56b5b0503fca5989f969663b2c1dcb66fbb69f4))
+  * removed WebApp support in DEB ([#1673](https://github.com/forcedotcom/source-deploy-retrieve/issues/1673)) ([5fbb781](https://github.com/forcedotcom/source-deploy-retrieve/commit/5fbb781cdf50578d433d8f1a206cf9e50680cd9b))
+  * add finally block to refresh access token ([#1671](https://github.com/forcedotcom/source-deploy-retrieve/issues/1671)) ([22ffb04](https://github.com/forcedotcom/source-deploy-retrieve/commit/22ffb045e75dab288d821430d9863a789e09fcb3))
+  * forceignore relative paths and 1 exception for extensions W-20965680 ([#1676](https://github.com/forcedotcom/source-deploy-retrieve/issues/1676)) ([d9655f0](https://github.com/forcedotcom/source-deploy-retrieve/commit/d9655f0983fcb1d8f4c234f680f701a9ea59b793))
+  * catch 404 error and print nicer message ([#1670](https://github.com/forcedotcom/source-deploy-retrieve/issues/1670)) ([b20dad3](https://github.com/forcedotcom/source-deploy-retrieve/commit/b20dad3ce1fce73ea49a36d6a5c5302b3e9f8dca))
+
 ## [4.0.125](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.124...4.0.125) (2026-01-25)
 
 
