@@ -1,3 +1,13 @@
+## [4.0.128](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.127...4.0.128) (2026-01-29)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-tracking from 7.8.0 to 7.8.2 ([#2069](https://github.com/jayree/sfdx-plugin-manifest/issues/2069)) ([9db10fa](https://github.com/jayree/sfdx-plugin-manifest/commit/9db10fa7b7e23f7df5b855f72da7167d28e11968))
+  * bump SDR to 12.31.5 ([12ed3c9](https://github.com/forcedotcom/source-tracking/commit/12ed3c98d715149ed12ea3608dc53ad82622fc12))
+  * cwd-less relative paths on web ([dc26cce](https://github.com/forcedotcom/source-tracking/commit/dc26cce4bc4a2bcb3b2fb3e0b4592f7a9ef94993))
+  * always clean up `pre` events W-20002028 ([#828](https://github.com/forcedotcom/source-tracking/issues/828)) ([1a83d93](https://github.com/forcedotcom/source-tracking/commit/1a83d93ad8ee0d1d67452448c9480bcd340977d9)), closes [#829](https://github.com/forcedotcom/source-tracking/issues/829)
+
 ## [4.0.127](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.126...4.0.127) (2026-01-29)
 
 
