@@ -1,3 +1,11 @@
+## [4.0.129](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.128...4.0.129) (2026-01-30)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-xml-parser from 5.3.3 to 5.3.4 ([#2076](https://github.com/jayree/sfdx-plugin-manifest/issues/2076)) ([722e65b](https://github.com/jayree/sfdx-plugin-manifest/commit/722e65b1454665139efe2bbf98193973f1af1c5a))
+  *   fix: handle HTML numeric and hex entities when out of range
+
 ## [4.0.128](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.127...4.0.128) (2026-01-29)
 
 
