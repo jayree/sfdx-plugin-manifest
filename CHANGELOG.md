@@ -1,3 +1,11 @@
+## [4.0.130](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.129...4.0.130) (2026-02-01)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2079](https://github.com/jayree/sfdx-plugin-manifest/issues/2079)) ([2c4f3ea](https://github.com/jayree/sfdx-plugin-manifest/commit/2c4f3eacc31887eb5946991ea8d1f7654b53c3a6))
+  * **deps:** bump fast-xml-parser from 4.5.3 to 5.3.4 ([#1678](https://github.com/forcedotcom/source-deploy-retrieve/issues/1678)) ([a392e59](https://github.com/forcedotcom/source-deploy-retrieve/commit/a392e59b355ee3fb367a91053c4e9e627be089f2))
+
 ## [4.0.129](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.128...4.0.129) (2026-01-30)
 
 
