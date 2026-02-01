@@ -113,7 +113,7 @@ export class GitRepo {
       : path.relative(this.dir, filepath);
     return oid
       ? Buffer.from((await _readBlob({ fs, dir: this.dir, oid, filepath: relativePath, cache: this.cache })).blob)
-      : fs.readFile(path.resolve(filepath));
+      : fs.readFile(filepath);
   }
 
   public async readOid(filepath: string, oid: string): Promise<string> {
