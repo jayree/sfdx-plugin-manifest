@@ -55,12 +55,12 @@ describe('result testing with EDA #5', () => {
     expect(emitWarningStub.calledTwice).to.equal(true);
     expect(
       emitWarningStub.calledWith(
-        `The unstaged file ${join('force-app', 'main', 'default', 'classes', 'AccountAutoDeletionSettingsVMapper.cls')} was processed.`,
+        `The unstaged file ${join(session.project.dir, 'force-app', 'main', 'default', 'classes', 'AccountAutoDeletionSettingsVMapper.cls')} was processed.`,
       ),
     ).to.equal(true);
     expect(
       emitWarningStub.calledWith(
-        `The forceignored file ${join('force-app', 'main', 'default', 'classes', 'AccountAutoDeletionSettingsVMapper.cls')} was ignored.`,
+        `The forceignored file ${join(session.project.dir, 'force-app', 'main', 'default', 'classes', 'AccountAutoDeletionSettingsVMapper.cls')} was ignored.`,
       ),
     ).to.equal(true);
     expect(comp.getTypesOfDestructiveChanges()).to.deep.equal([]);

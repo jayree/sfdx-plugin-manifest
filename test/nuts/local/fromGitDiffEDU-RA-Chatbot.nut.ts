@@ -81,7 +81,7 @@ describe('result testing with EDU-RA-Chatbot', () => {
     try {
       await ComponentSetExtra.fromGitDiff({
         ref: ['123', '456'],
-        fsPaths: ['app'],
+        fsPaths: ['force-app'],
       });
       throw new Error('This test should have thrown');
     } catch (err) {
@@ -116,7 +116,7 @@ describe('result testing with EDU-RA-Chatbot', () => {
     expect(emitWarningStub.calledOnce).to.equal(true);
     expect(
       emitWarningStub.calledWith(
-        `The unstaged file ${join('force-app', 'main', 'default', 'bots', 'Mascot', 'v1.botVersion-meta.xml')} was processed.`,
+        `The unstaged file ${join(session.project.dir, 'force-app', 'main', 'default', 'bots', 'Mascot', 'v1.botVersion-meta.xml')} was processed.`,
       ),
     ).to.equal(true);
     expect(comp.getTypesOfDestructiveChanges()).to.deep.equal([]);
@@ -129,7 +129,7 @@ describe('result testing with EDU-RA-Chatbot', () => {
     expect(emitWarningStub.calledOnce).to.equal(true);
     expect(
       emitWarningStub.calledWith(
-        `The unstaged file ${join('force-app', 'main', 'default', 'bots', 'Mascot', 'v1.botVersion-meta.xml')} was processed.`,
+        `The unstaged file ${join(session.project.dir, 'force-app', 'main', 'default', 'bots', 'Mascot', 'v1.botVersion-meta.xml')} was processed.`,
       ),
     ).to.equal(true);
     expect(comp.getTypesOfDestructiveChanges()).to.deep.equal(['post']);

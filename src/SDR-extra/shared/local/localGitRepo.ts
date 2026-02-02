@@ -99,39 +99,35 @@ export class GitRepo {
   }
 
   public async listFiles(ref: string): Promise<string[]> {
-    return ref
-      ? (await _listFiles({ fs, dir: this.dir, ref, cache: this.cache })).map((p) =>
-          path.join(IS_WINDOWS ? ensureWindows(p) : p),
-        )
-      : (await fs.readdir(this.dir, { recursive: true })).map((p) => path.join(IS_WINDOWS ? ensureWindows(p) : p));
+    const files = ref
+      ? await _listFiles({ fs, dir: this.dir, ref, cache: this.cache })
+      : await fs.readdir(this.dir, { recursive: true });
+
+    const normalize = IS_WINDOWS ? ensureWindows : (p: string): string => p;
+    return files.map((p) => normalize(path.join(this.dir, p)));
   }
 
   public async readBlob(filepath: string, oid?: string): Promise<Buffer> {
+    const relativePath = IS_WINDOWS
+      ? ensurePosix(path.relative(this.dir, filepath))
+      : path.relative(this.dir, filepath);
     return oid
-      ? Buffer.from(
-          (
-            await _readBlob({
-              fs,
-              dir: this.dir,
-              oid,
-              filepath: IS_WINDOWS ? ensurePosix(filepath) : filepath,
-              cache: this.cache,
-            })
-          ).blob,
-        )
-      : fs.readFile(path.resolve(filepath));
+      ? Buffer.from((await _readBlob({ fs, dir: this.dir, oid, filepath: relativePath, cache: this.cache })).blob)
+      : fs.readFile(filepath);
   }
 
   public async readOid(filepath: string, oid: string): Promise<string> {
-    return (
-      await _readBlob({
-        fs,
-        dir: this.dir,
-        oid,
-        filepath: IS_WINDOWS ? ensurePosix(filepath) : filepath,
-        cache: this.cache,
-      })
-    ).oid;
+    const relativePath = IS_WINDOWS
+      ? ensurePosix(path.relative(this.dir, filepath))
+      : path.relative(this.dir, filepath);
+    const { oid: blobOid } = await _readBlob({
+      fs,
+      dir: this.dir,
+      oid,
+      filepath: relativePath,
+      cache: this.cache,
+    });
+    return blobOid;
   }
 
   public async resolveMultiRefString(ref: string): Promise<{
@@ -247,9 +243,12 @@ export class GitRepo {
       });
 
       // isomorphic-git stores things in unix-style tree.  Convert to windows-style if necessary
-      if (IS_WINDOWS) {
-        this.status = this.status.map((row) => [path.normalize(row[0]), row[HEAD], row[WORKDIR], row[STAGE]]);
-      }
+      this.status = this.status.map((row) => [
+        IS_WINDOWS ? path.normalize(path.join(this.dir, row[0])) : path.join(this.dir, row[0]),
+        row[HEAD],
+        row[WORKDIR],
+        row[STAGE],
+      ]);
 
       await this.detectMovedFiles();
       await this.emitStatusWarnings();

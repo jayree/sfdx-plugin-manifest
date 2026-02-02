@@ -18,6 +18,6 @@ export declare class GitDiffResolver {
      * @param dir SFDX project directory
      */
     constructor(project: SfProject, registry?: RegistryAccess);
-    resolve(ref1: string, ref2: string | undefined, fsPaths: string[] | undefined): Promise<ComponentSet>;
+    resolve(ref1: string, ref2: string | undefined): Promise<ComponentSet>;
     private gitChangesAsComponentSet;
 }

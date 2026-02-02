@@ -58,12 +58,12 @@ describe('result testing with EDA #6', () => {
     expect(emitWarningStub.calledTwice).to.equal(true);
     expect(
       emitWarningStub.calledWith(
-        `The unstaged file ${join('force-app', 'main', 'default', 'objects', 'Account', 'fields', 'Billing_County__c.field-meta.xml')} was processed.`,
+        `The unstaged file ${join(session.project.dir, 'force-app', 'main', 'default', 'objects', 'Account', 'fields', 'Billing_County__c.field-meta.xml')} was processed.`,
       ),
     ).to.equal(true);
     expect(
       emitWarningStub.calledWith(
-        `The forceignored file ${join('force-app', 'main', 'default', 'objects', 'Account', 'fields', 'Billing_County__c.field-meta.xml')} was ignored.`,
+        `The forceignored file ${join(session.project.dir, 'force-app', 'main', 'default', 'objects', 'Account', 'fields', 'Billing_County__c.field-meta.xml')} was ignored.`,
       ),
     ).to.equal(true);
     expect(comp.getTypesOfDestructiveChanges()).to.deep.equal([]);
