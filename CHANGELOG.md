@@ -1,3 +1,14 @@
+## [5.0.0](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.130...5.0.0) (2026-02-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* use fullPath to align with SDR (#2064)
+
+### Bug Fixes
+
+* use fullPath to align with SDR ([#2064](https://github.com/jayree/sfdx-plugin-manifest/issues/2064)) ([ba1e0e0](https://github.com/jayree/sfdx-plugin-manifest/commit/ba1e0e0ad9b0d1f60a1d678bab9f581dc4da082f))
+
 ## [4.0.130](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.129...4.0.130) (2026-02-01)
 
 
