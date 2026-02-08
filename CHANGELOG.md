@@ -1,3 +1,13 @@
+## [5.0.3](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.2...5.0.3) (2026-02-08)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-tracking from 7.8.2 to 7.8.4 ([#2084](https://github.com/jayree/sfdx-plugin-manifest/issues/2084)) ([dfdfbaf](https://github.com/jayree/sfdx-plugin-manifest/commit/dfdfbaf4d40cafa1a010db564e06a0fd6d05f52f))
+  * bump fast-xml-parser ([725560e](https://github.com/forcedotcom/source-tracking/commit/725560e71c105113a8f52402c082bfc267cf4c97))
+  * remove unnecessary assertion ([aee4cab](https://github.com/forcedotcom/source-tracking/commit/aee4cab37c1c96a389006b6bd98b5e5a06212e11))
+  * **deps:** bump lodash from 4.17.21 to 4.17.23 ([fa26ff0](https://github.com/forcedotcom/source-tracking/commit/fa26ff0ae83a0eb1048454b1a154f7297e33cdab))
+
 ## [5.0.2](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.1...5.0.2) (2026-02-08)
 
 
