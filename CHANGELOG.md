@@ -1,3 +1,11 @@
+## [5.0.1](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.0...5.0.1) (2026-02-08)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.25.0 to 8.25.1 ([#2082](https://github.com/jayree/sfdx-plugin-manifest/issues/2082)) ([8b6a1ba](https://github.com/jayree/sfdx-plugin-manifest/commit/8b6a1ba882b82484e6cb8cd5946dd8f9e5cf9afd))
+  * correctly handles empty deploy-cache.json file @W-19727166@ ([#1260](https://github.com/forcedotcom/sfdx-core/issues/1260)) ([4f9768b](https://github.com/forcedotcom/sfdx-core/commit/4f9768b388651d14d5f4d66f65cb86d1f9bda1a8))
+
 ## [5.0.0](https://github.com/jayree/sfdx-plugin-manifest/compare/4.0.130...5.0.0) (2026-02-02)
 
 
