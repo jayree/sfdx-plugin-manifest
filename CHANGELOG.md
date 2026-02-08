@@ -1,3 +1,14 @@
+## [5.0.2](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.1...5.0.2) (2026-02-08)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-xml-parser from 5.3.4 to 5.3.5 ([#2083](https://github.com/jayree/sfdx-plugin-manifest/issues/2083)) ([148d3a3](https://github.com/jayree/sfdx-plugin-manifest/commit/148d3a36d2857498709d377d0f9b1929384359d8))
+  * Add missing exports to fxp commonjs types by @jeremymeng in https://github.com/NaturalIntelligence/fast-xml-parser/pull/782
+  * fix: Escape regex char in entity name
+  * update strnum to 2.1.2
+  * @jeremymeng made their first contribution in https://github.com/NaturalIntelligence/fast-xml-parser/pull/782
+
 ## [5.0.1](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.0...5.0.1) (2026-02-08)
 
 
