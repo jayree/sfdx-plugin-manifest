@@ -1,3 +1,12 @@
+## [5.0.6](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.5...5.0.6) (2026-02-15)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.36.3 to 1.37.1 ([#2091](https://github.com/jayree/sfdx-plugin-manifest/issues/2091)) ([5a06db0](https://github.com/jayree/sfdx-plugin-manifest/commit/5a06db07959f2e612bc5b53495a6cbaba0b4dbec))
+  * implement single commit cherry pick ([#2282](https://github.com/isomorphic-git/isomorphic-git/issues/2282)) ([ba6177f](https://github.com/isomorphic-git/isomorphic-git/commit/ba6177f052273ca850e95010d71c36cc748d11d2))
+  * update sha.js closes [#2180](https://github.com/isomorphic-git/isomorphic-git/issues/2180) ([#2283](https://github.com/isomorphic-git/isomorphic-git/issues/2283)) ([e96e940](https://github.com/isomorphic-git/isomorphic-git/commit/e96e940300085ed565cfc937d7680e0fa3c32dfe))
+
 ## [5.0.5](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.4...5.0.5) (2026-02-15)
 
 
