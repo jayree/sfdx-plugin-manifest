@@ -1,3 +1,13 @@
+## [5.0.7](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.6...5.0.7) (2026-02-15)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2090](https://github.com/jayree/sfdx-plugin-manifest/issues/2090)) ([138bb0b](https://github.com/jayree/sfdx-plugin-manifest/commit/138bb0bf1de604f2065f60077f7c7b9d95ade313))
+  * allow adding AABs to destructive manifests without compiling ([#1677](https://github.com/forcedotcom/source-deploy-retrieve/issues/1677)) ([7c4cf18](https://github.com/forcedotcom/source-deploy-retrieve/commit/7c4cf18f72e29f2fbab1a96a63c237c0b5735c93))
+  * digitalExperiences create files to right folders @W-20967044@ ([#1680](https://github.com/forcedotcom/source-deploy-retrieve/issues/1680)) ([9c0b900](https://github.com/forcedotcom/source-deploy-retrieve/commit/9c0b9008484423beac3bb2ddeaf1e5433fc246e8))
+  * remove validating AABs before deploying ([#1681](https://github.com/forcedotcom/source-deploy-retrieve/issues/1681)) ([cdfc9e1](https://github.com/forcedotcom/source-deploy-retrieve/commit/cdfc9e155b9621bb324223eac79a5ed18fc10819))
+
 ## [5.0.6](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.5...5.0.6) (2026-02-15)
 
 
