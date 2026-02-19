@@ -1,3 +1,12 @@
+## [5.0.9](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.8...5.0.9) (2026-02-19)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2092](https://github.com/jayree/sfdx-plugin-manifest/issues/2092)) ([76df844](https://github.com/jayree/sfdx-plugin-manifest/commit/76df8446c470c5430aeaf0ba178d594247e255e5))
+  * **deps:** bump fast-xml-parser from 5.3.4 to 5.3.6 ([#1686](https://github.com/forcedotcom/source-deploy-retrieve/issues/1686)) ([3adb0ea](https://github.com/forcedotcom/source-deploy-retrieve/commit/3adb0eaa0e1aa8ed8c2fcc16fb046aa19a2e559f))
+  * child types for getComponentFilenamesByNameAndType ([#1685](https://github.com/forcedotcom/source-deploy-retrieve/issues/1685)) ([cf97e86](https://github.com/forcedotcom/source-deploy-retrieve/commit/cf97e86f3d1a3dccf82817d1ee8603ec7bed99bd))
+
 ## [5.0.8](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.7...5.0.8) (2026-02-15)
 
 
