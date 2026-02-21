@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1771679893754,
+  "lastUpdate": 1771680173958,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -35767,6 +35767,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 250,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jayree.git@icloud.com",
+            "name": "jayree",
+            "username": "jayree"
+          },
+          "committer": {
+            "email": "jayree.git@icloud.com",
+            "name": "jayree",
+            "username": "jayree"
+          },
+          "distinct": true,
+          "id": "2c64e147f03502dcacdfabbb5c0836a215bf721f",
+          "message": "chore: upgrade",
+          "timestamp": "2026-02-21T14:21:54+01:00",
+          "tree_id": "6b1ec33fb670274dad7b517d9dd788e62dbfb253",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/2c64e147f03502dcacdfabbb5c0836a215bf721f"
+        },
+        "date": 1771680169275,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 2209,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 1536,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 384,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 223,
             "unit": "ms"
           }
         ]
