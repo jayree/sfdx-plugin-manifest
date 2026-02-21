@@ -1,3 +1,12 @@
+## [5.0.11](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.10...5.0.11) (2026-02-21)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-xml-parser from 5.3.6 to 5.3.7 ([#2095](https://github.com/jayree/sfdx-plugin-manifest/issues/2095)) ([ee9b4da](https://github.com/jayree/sfdx-plugin-manifest/commit/ee9b4da25e2ef32006ded0e7ed1efe8c76bc3e06))
+  * Unexport `X2jOptions` at declaration site by @Drarig29 in https://github.com/NaturalIntelligence/fast-xml-parser/pull/787
+  * @Drarig29 made their first contribution in https://github.com/NaturalIntelligence/fast-xml-parser/pull/787
+
 ## [5.0.10](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.9...5.0.10) (2026-02-19)
 
 
