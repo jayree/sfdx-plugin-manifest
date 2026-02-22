@@ -1,3 +1,11 @@
+## [5.0.13](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.12...5.0.13) (2026-02-22)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.37.1 to 1.37.2 ([#2100](https://github.com/jayree/sfdx-plugin-manifest/issues/2100)) ([2b5d941](https://github.com/jayree/sfdx-plugin-manifest/commit/2b5d9411510a69dcb6223e82bb8207a54961699b))
+  * add packfile integrity validation (fixes [#2288](https://github.com/isomorphic-git/isomorphic-git/issues/2288)) ([#2289](https://github.com/isomorphic-git/isomorphic-git/issues/2289)) ([556ba32](https://github.com/isomorphic-git/isomorphic-git/commit/556ba32cf1160244fad58df1a3ea9f6c89417cc4))
+
 ## [5.0.12](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.11...5.0.12) (2026-02-22)
 
 
