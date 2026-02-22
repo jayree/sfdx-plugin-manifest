@@ -78,7 +78,7 @@
     "@smithy/util-utf8" "^2.0.0"
     tslib "^2.6.2"
 
-"@aws-sdk/client-cloudfront@^3.990.0":
+"@aws-sdk/client-cloudfront@^3.995.0":
   version "3.995.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/client-cloudfront/-/client-cloudfront-3.995.0.tgz#23988798493a55ea9a01b5167e93b571eb3dc5ad"
   integrity sha512-hTyUaVs0hKPSlQyreyxmj6g9sPRs9XWNzDCozYfU5rbAcqS1E0AVTFAjbgNvKIOEbY5iL4UuiIFdFG7m5z9SAQ==
@@ -7608,12 +7608,12 @@ object.values@^1.2.1:
     define-properties "^1.2.1"
     es-object-atoms "^1.0.0"
 
-oclif@^4.22.80:
-  version "4.22.80"
-  resolved "https://registry.yarnpkg.com/oclif/-/oclif-4.22.80.tgz#bec03ae2a4fdaf80708f96e71cd0269d32984dff"
-  integrity sha512-IC83xA28dbSjsBPWPnXda0NL4W52/d57tjICUVtCLddI6a9OfPpBaJkgaQjvkp1fyu0/fzvLYwhUTfI9fFe7tg==
+oclif@^4.22.81:
+  version "4.22.81"
+  resolved "https://registry.yarnpkg.com/oclif/-/oclif-4.22.81.tgz#5466f3fcde0308094c9aa6e714608c8fb6ebdfd3"
+  integrity sha512-MO2bupt/3wWYqt05F8ZLwMYKN58YqDfRVdJxAvCdg/wZJg6/sDXVKoMSTSzwqsnIaJGjru2LBNvk8lH+p+1uMQ==
   dependencies:
-    "@aws-sdk/client-cloudfront" "^3.990.0"
+    "@aws-sdk/client-cloudfront" "^3.995.0"
     "@aws-sdk/client-s3" "^3.995.0"
     "@inquirer/confirm" "^3.1.22"
     "@inquirer/input" "^2.2.4"
