@@ -1,3 +1,11 @@
+## [5.0.12](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.11...5.0.12) (2026-02-22)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 4.8.0 to 4.8.1 ([#2097](https://github.com/jayree/sfdx-plugin-manifest/issues/2097)) ([cda02f8](https://github.com/jayree/sfdx-plugin-manifest/commit/cda02f80a04795572392726ec087631d25c7270d))
+  * **deps:** bump minimatch from 9.0.5 to 10.2.1 ([2815e37](https://github.com/oclif/core/commit/2815e37400a21c6fed2174bdac2e36a1188cfb4a))
+
 ## [5.0.11](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.10...5.0.11) (2026-02-21)
 
 
