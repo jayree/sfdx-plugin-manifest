@@ -3,12 +3,13 @@ name: generate-hashes
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   generate-hashes:
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: write
 
     steps:
       - name: Checkout Repository
@@ -19,13 +20,18 @@ jobs:
         with:
           node-version: lts/*
 
+      - name: Install Dependencies
+        run: yarn add node-fetch --ignore-scripts
+
       - name: Generate hashes
         run: yarn generate-hashes
 
-      - name: Commit hashes.json
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add hashes.json
-          git commit -m "chore: update hashes" || echo "No changes to commit"
-          git push
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          add-paths: hashes.json
+          commit-message: 'chore: update hashes'
+          title: 'chore: update hashes'
+          body: 'Automatically generated update of hashes.json'
+          branch: 'chore/update-hashes'
+          delete-branch: true
