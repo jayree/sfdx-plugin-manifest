@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1772061964023,
+  "lastUpdate": 1772103637205,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -36339,6 +36339,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 281,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4255a69c4d01a23fefaee6cb76b013c8853c34a1",
+          "message": "fix(deps): bump basic-ftp from 5.1.0 to 5.2.0\n\nBumps [basic-ftp](https://github.com/patrickjuchli/basic-ftp) from 5.1.0 to 5.2.0.\n- [Release notes](https://github.com/patrickjuchli/basic-ftp/releases)\n- [Changelog](https://github.com/patrickjuchli/basic-ftp/blob/master/CHANGELOG.md)\n- [Commits](https://github.com/patrickjuchli/basic-ftp/compare/v5.1.0...v5.2.0)\n\n---\nupdated-dependencies:\n- dependency-name: basic-ftp\n  dependency-version: 5.2.0\n  dependency-type: indirect\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-02-26T10:59:44Z",
+          "tree_id": "c961d24ea56961a2c10853a672b2d7562a206fa5",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/4255a69c4d01a23fefaee6cb76b013c8853c34a1"
+        },
+        "date": 1772103632557,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 2759,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 1883,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 404,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 251,
             "unit": "ms"
           }
         ]
