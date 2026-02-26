@@ -1,3 +1,12 @@
+## [5.0.14](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.13...5.0.14) (2026-02-26)
+
+
+### Bug Fixes
+
+* **deps:** bump basic-ftp from 5.1.0 to 5.2.0 ([#2102](https://github.com/jayree/sfdx-plugin-manifest/issues/2102)) ([d8f8911](https://github.com/jayree/sfdx-plugin-manifest/commit/d8f891107305652eed2866aab69034cf6ebcce0e))
+  *   Changed: Skip files with invalid name in downloadToDir.
+  *   Changed: Skip files with invalid name in downloadToDir.
+
 ## [5.0.13](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.12...5.0.13) (2026-02-22)
 
 

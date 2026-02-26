@@ -1,7 +1,7 @@
 {
   "name": "@jayree/sfdx-plugin-manifest",
   "description": "A powerful Salesforce CLI plugin and Node.js library to effortlessly generate, clean up, and manage package.xml and destructiveChanges.xml manifests directly from your Salesforce orgs or from Git changes in your SF projects. Unlock faster, safer, and smarter Salesforce deployments.",
-  "version": "5.0.13",
+  "version": "5.0.14",
   "author": "jayree",
   "type": "module",
   "bugs": "https://github.com/jayree/sfdx-plugin-manifest/issues",
