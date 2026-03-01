@@ -1,3 +1,13 @@
+## [5.0.17](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.16...5.0.17) (2026-03-01)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-xml-parser from 5.3.8 to 5.4.1 ([#2108](https://github.com/jayree/sfdx-plugin-manifest/issues/2108)) ([5c77934](https://github.com/jayree/sfdx-plugin-manifest/commit/5c77934a8e787298a8ab72ad4b61876e0865973e))
+  *   fix ([#785](https://redirect.github.com/NaturalIntelligence/fast-xml-parser/issues/785)) unpairedTag node should not have tag content
+  *   migrate to fast-xml-builder
+  *   support strictReservedNames
+
 ## [5.0.16](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.15...5.0.16) (2026-03-01)
 
 
