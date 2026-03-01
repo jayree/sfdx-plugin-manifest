@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1772380062522,
+  "lastUpdate": 1772380233726,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -36559,6 +36559,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 375,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fc62f761dc693bcc3aca4ac969580fcc8c2beaa5",
+          "message": "fix(deps): bump fast-xml-parser from 5.3.8 to 5.4.1\n\nBumps [fast-xml-parser](https://github.com/NaturalIntelligence/fast-xml-parser) from 5.3.8 to 5.4.1.\n- [Release notes](https://github.com/NaturalIntelligence/fast-xml-parser/releases)\n- [Changelog](https://github.com/NaturalIntelligence/fast-xml-parser/blob/master/CHANGELOG.md)\n- [Commits](https://github.com/NaturalIntelligence/fast-xml-parser/compare/v5.3.8...v5.4.1)\n\n---\nupdated-dependencies:\n- dependency-name: fast-xml-parser\n  dependency-version: 5.4.1\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-03-01T15:46:50Z",
+          "tree_id": "464f0417f1fa57716f9fa2b47e65f9ae932ddcf3",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/fc62f761dc693bcc3aca4ac969580fcc8c2beaa5"
+        },
+        "date": 1772380227773,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 7022,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 3764,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 647,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 488,
             "unit": "ms"
           }
         ]
