@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1772380151148,
+  "lastUpdate": 1772380786236,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -36647,6 +36647,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 246,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0953b03ed66a0073022651ec60fd71923c529aed",
+          "message": "chore(deps-dev): bump c8 from 10.1.3 to 11.0.0\n\nBumps [c8](https://github.com/bcoe/c8) from 10.1.3 to 11.0.0.\n- [Release notes](https://github.com/bcoe/c8/releases)\n- [Changelog](https://github.com/bcoe/c8/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/bcoe/c8/compare/v10.1.3...v11.0.0)\n\n---\nupdated-dependencies:\n- dependency-name: c8\n  dependency-version: 11.0.0\n  dependency-type: direct:development\n  update-type: version-update:semver-major\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-03-01T15:58:54Z",
+          "tree_id": "195a90d62a02bc8944f992ea1e8d20b959da26ce",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/0953b03ed66a0073022651ec60fd71923c529aed"
+        },
+        "date": 1772380781997,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 2674,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 2050,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 378,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 249,
             "unit": "ms"
           }
         ]
