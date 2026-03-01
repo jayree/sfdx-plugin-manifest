@@ -1,3 +1,10 @@
+## [5.0.15](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.14...5.0.15) (2026-03-01)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-xml-parser from 5.3.7 to 5.3.8 ([#2105](https://github.com/jayree/sfdx-plugin-manifest/issues/2105)) ([696e491](https://github.com/jayree/sfdx-plugin-manifest/commit/696e49104a1d4b21a18b3e1a8a6ce9fbce77ce22))
+
 ## [5.0.14](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.13...5.0.14) (2026-02-26)
 
 
