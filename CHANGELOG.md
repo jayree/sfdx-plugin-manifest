@@ -1,3 +1,11 @@
+## [5.0.16](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.15...5.0.16) (2026-03-01)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.26.2 to 8.26.3 ([#2106](https://github.com/jayree/sfdx-plugin-manifest/issues/2106)) ([a7e5c9e](https://github.com/jayree/sfdx-plugin-manifest/commit/a7e5c9ed7daba724b62913d66a4f0fb8c3114498))
+  * **auth:** add default oauth redirect uri for code builder ([685101b](https://github.com/forcedotcom/sfdx-core/commit/685101be13c2f7049397c3eb5ec969f7b3e50748))
+
 ## [5.0.15](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.14...5.0.15) (2026-03-01)
 
 
