@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1772380857742,
+  "lastUpdate": 1772380998918,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -36647,6 +36647,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 403,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "259f2a185614e14764f2a962100158f81498f5e2",
+          "message": "chore(deps-dev): bump c8 from 10.1.3 to 11.0.0\n\nBumps [c8](https://github.com/bcoe/c8) from 10.1.3 to 11.0.0.\n- [Release notes](https://github.com/bcoe/c8/releases)\n- [Changelog](https://github.com/bcoe/c8/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/bcoe/c8/compare/v10.1.3...v11.0.0)\n\n---\nupdated-dependencies:\n- dependency-name: c8\n  dependency-version: 11.0.0\n  dependency-type: direct:development\n  update-type: version-update:semver-major\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-03-01T16:00:19Z",
+          "tree_id": "d778e91937c752987b3d730d2497fdb8abc02af9",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/259f2a185614e14764f2a962100158f81498f5e2"
+        },
+        "date": 1772380992553,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 4660,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 3011,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 496,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 348,
             "unit": "ms"
           }
         ]
