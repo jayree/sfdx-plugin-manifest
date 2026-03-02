@@ -27,7 +27,7 @@ jobs:
         run: yarn generate-hashes
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           add-paths: hashes.json
           commit-message: 'chore: update hashes'
