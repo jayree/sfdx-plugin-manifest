@@ -1,3 +1,11 @@
+## [5.0.20](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.19...5.0.20) (2026-03-03)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-xml-parser from 5.4.1 to 5.4.2 ([#2112](https://github.com/jayree/sfdx-plugin-manifest/issues/2112)) ([6e14919](https://github.com/jayree/sfdx-plugin-manifest/commit/6e14919ddbeae8ac1525909d9d1e64af3afd1b57))
+  *   support maxEntityCount option
+
 ## [5.0.19](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.18...5.0.19) (2026-03-03)
 
 
