@@ -1,3 +1,11 @@
+## [5.0.19](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.18...5.0.19) (2026-03-03)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 4.8.2 to 4.8.3 ([#2113](https://github.com/jayree/sfdx-plugin-manifest/issues/2113)) ([a74ea43](https://github.com/jayree/sfdx-plugin-manifest/commit/a74ea430f1377d7968be98860b00970b4f5cfdd9))
+  * expanded process title checks for windows shell identification @W-21239801@ ([d2c1913](https://github.com/oclif/core/commit/d2c19134d8708b5e71a3ab0f6ce638a041aaf8e1))
+
 ## [5.0.18](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.17...5.0.18) (2026-03-01)
 
 
