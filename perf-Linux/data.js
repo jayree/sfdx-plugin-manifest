@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1772526821030,
+  "lastUpdate": 1772527482435,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -37043,6 +37043,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 281,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6b2d92186c856e98faa7fa219700a81f8fcf2fbd",
+          "message": "fix(deps): bump fast-xml-parser from 5.4.1 to 5.4.2\n\nBumps [fast-xml-parser](https://github.com/NaturalIntelligence/fast-xml-parser) from 5.4.1 to 5.4.2.\n- [Release notes](https://github.com/NaturalIntelligence/fast-xml-parser/releases)\n- [Changelog](https://github.com/NaturalIntelligence/fast-xml-parser/blob/master/CHANGELOG.md)\n- [Commits](https://github.com/NaturalIntelligence/fast-xml-parser/compare/v5.4.1...v5.4.2)\n\n---\nupdated-dependencies:\n- dependency-name: fast-xml-parser\n  dependency-version: 5.4.2\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-03-03T08:43:46Z",
+          "tree_id": "386c48d4414c760e876ae051329c366f37c59a5e",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/6b2d92186c856e98faa7fa219700a81f8fcf2fbd"
+        },
+        "date": 1772527478097,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 2728,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 1900,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 392,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 253,
             "unit": "ms"
           }
         ]
