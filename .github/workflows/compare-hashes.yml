@@ -5,6 +5,10 @@ on:
     - cron: '0 */8 * * *'
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   run-compare-hashes:
     runs-on: ubuntu-latest
@@ -22,4 +26,21 @@ jobs:
         run: yarn install
 
       - name: Run Compare Hashes
+        id: compare_hashes
         run: yarn compare-hashes
+        continue-on-error: true
+
+      - name: Generate hashes
+        if: steps.compare_hashes.outcome == 'failure'
+        run: yarn generate-hashes
+
+      - name: Create Pull Request
+        if: steps.compare_hashes.outcome == 'failure'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          add-paths: hashes.json
+          commit-message: 'chore: update hashes'
+          title: 'chore: update hashes'
+          body: 'Automatically generated update of hashes.json'
+          branch: 'chore/update-hashes'
+          delete-branch: true
