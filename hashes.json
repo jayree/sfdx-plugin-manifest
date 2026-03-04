@@ -29,7 +29,7 @@
   },
   {
     "url": "https://raw.githubusercontent.com/salesforcecli/github-workflows/refs/heads/main/.github/workflows/create-github-release.yml",
-    "hash": "ccb3505322e3674765541ebde47f81d24a3de335f641cca79fce67edb38b9112"
+    "hash": "bcc69ba09f10a8470aa15dd70e87d67bc4a46aed4ff34cef7a032c6498068f38"
   },
   {
     "url": "https://raw.githubusercontent.com/salesforcecli/github-workflows/refs/heads/main/.github/workflows/npmPublish.yml",
