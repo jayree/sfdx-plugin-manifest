@@ -1,3 +1,11 @@
+## [5.0.23](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.22...5.0.23) (2026-03-08)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2122](https://github.com/jayree/sfdx-plugin-manifest/issues/2122)) ([f91a1ae](https://github.com/jayree/sfdx-plugin-manifest/commit/f91a1ae62ff842b62768c88e293fb82d5c3b005e))
+  * add ProcedurePlanDefinition to metadata registry-W-21371522 ([#1692](https://github.com/forcedotcom/source-deploy-retrieve/issues/1692)) ([458b27c](https://github.com/forcedotcom/source-deploy-retrieve/commit/458b27c02f80e060029cc99691daca99b28393ff))
+
 ## [5.0.22](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.21...5.0.22) (2026-03-06)
 
 
