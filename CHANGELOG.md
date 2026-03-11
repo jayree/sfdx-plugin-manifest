@@ -1,3 +1,13 @@
+## [5.0.24](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.23...5.0.24) (2026-03-11)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2123](https://github.com/jayree/sfdx-plugin-manifest/issues/2123)) ([003a6a5](https://github.com/jayree/sfdx-plugin-manifest/commit/003a6a5d4f6d1d66d5c99727b6bcaab7c1edb6f0))
+  * update suffix of SO ([#1700](https://github.com/forcedotcom/source-deploy-retrieve/issues/1700)) ([257371e](https://github.com/forcedotcom/source-deploy-retrieve/commit/257371e1a7483cfccf8127f8587b217e15c60b1c))
+  * skip false warning for pre-destructive-W-21252087 ([#1690](https://github.com/forcedotcom/source-deploy-retrieve/issues/1690)) ([7b4a114](https://github.com/forcedotcom/source-deploy-retrieve/commit/7b4a1146422b2b5f56d8fdba0e95c7f2a26bb33c))
+  * keep BV fields after parsing ([#1704](https://github.com/forcedotcom/source-deploy-retrieve/issues/1704)) ([2bdcb5b](https://github.com/forcedotcom/source-deploy-retrieve/commit/2bdcb5b05704fbdcb6190381991cf4791508e8ab))
+
 ## [5.0.23](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.22...5.0.23) (2026-03-08)
 
 
