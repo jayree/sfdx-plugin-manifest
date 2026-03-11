@@ -1,3 +1,11 @@
+## [5.0.26](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.25...5.0.26) (2026-03-11)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-tracking from 7.8.4 to 7.8.5 ([#2127](https://github.com/jayree/sfdx-plugin-manifest/issues/2127)) ([55c6942](https://github.com/jayree/sfdx-plugin-manifest/commit/55c6942ae25a94bca537ba75a47feb062573f8a0))
+  * bump core and sdr lib to latest ([#836](https://github.com/forcedotcom/source-tracking/issues/836)) ([4ff9b97](https://github.com/forcedotcom/source-tracking/commit/4ff9b97cdaccf6701d5cd20eb54a62f8c98fb3d7))
+
 ## [5.0.25](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.24...5.0.25) (2026-03-11)
 
 
