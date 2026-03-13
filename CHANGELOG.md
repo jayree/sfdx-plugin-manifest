@@ -1,3 +1,11 @@
+## [5.0.28](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.27...5.0.28) (2026-03-13)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 4.8.4 to 4.9.0 ([#2128](https://github.com/jayree/sfdx-plugin-manifest/issues/2128)) ([9574231](https://github.com/jayree/sfdx-plugin-manifest/commit/95742315a3cf5d45647cacae575b1e5d4c568790))
+  * warn on hidden, deprecated aliases ([af47f67](https://github.com/oclif/core/commit/af47f6704496d8741316f5b24a1108ac71ec9262))
+
 ## [5.0.27](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.26...5.0.27) (2026-03-11)
 
 
