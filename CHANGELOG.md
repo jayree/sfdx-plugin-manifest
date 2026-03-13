@@ -1,3 +1,11 @@
+## [5.0.30](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.29...5.0.30) (2026-03-13)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.37.2 to 1.37.3 ([#2129](https://github.com/jayree/sfdx-plugin-manifest/issues/2129)) ([3292290](https://github.com/jayree/sfdx-plugin-manifest/commit/32922905ea1c1a9130b9b37fc2b8828e9ebea1c8))
+  * support git worktrees in discoverGitdir (absolute gitdir paths) ([#2293](https://github.com/isomorphic-git/isomorphic-git/issues/2293)) ([b55bd5f](https://github.com/isomorphic-git/isomorphic-git/commit/b55bd5fe69d899bcfd8681492b7d256573c598d8))
+
 ## [5.0.29](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.28...5.0.29) (2026-03-13)
 
 
