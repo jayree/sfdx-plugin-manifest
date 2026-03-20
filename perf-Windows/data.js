@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1774021258239,
+  "lastUpdate": 1774022181196,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -38759,6 +38759,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 383,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2f5d50793a2657ae786fcbb574f5aefd83baaac4",
+          "message": "fix(deps): bump flatted from 3.3.3 to 3.4.2\n\nBumps [flatted](https://github.com/WebReflection/flatted) from 3.3.3 to 3.4.2.\n- [Commits](https://github.com/WebReflection/flatted/compare/v3.3.3...v3.4.2)\n\n---\nupdated-dependencies:\n- dependency-name: flatted\n  dependency-version: 3.4.2\n  dependency-type: indirect\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-03-20T15:54:10Z",
+          "tree_id": "c891df356dcb0dfe6caaa2b93399865b1b4e259e",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/2f5d50793a2657ae786fcbb574f5aefd83baaac4"
+        },
+        "date": 1774022170886,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 5059,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 3558,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 568,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 425,
             "unit": "ms"
           }
         ]
