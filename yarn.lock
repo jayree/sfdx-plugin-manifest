@@ -1531,7 +1531,7 @@
     wordwrap "^1.0.0"
     wrap-ansi "^7.0.0"
 
-"@oclif/core@^4", "@oclif/core@^4.10.0", "@oclif/core@^4.5.2", "@oclif/core@^4.8.0":
+"@oclif/core@^4", "@oclif/core@^4.10.0", "@oclif/core@^4.5.2", "@oclif/core@^4.9.0":
   version "4.10.0"
   resolved "https://registry.yarnpkg.com/@oclif/core/-/core-4.10.0.tgz#1f144f5be59b5ab0d753571feadaaa4a989ce3d5"
   integrity sha512-T52mrztDvj7RXiURdA+6vd1B4yeYVpHF6DH/RshqEwIA6R63dhe4YoIBYWJi0H3LhCQTUTL84uWadrJAImu/vg==
@@ -1577,13 +1577,13 @@
   dependencies:
     "@oclif/core" "^4"
 
-"@oclif/plugin-not-found@^3.2.74":
-  version "3.2.74"
-  resolved "https://registry.yarnpkg.com/@oclif/plugin-not-found/-/plugin-not-found-3.2.74.tgz#04ba56f036b3b416d626b25f62d5d712331c652f"
-  integrity sha512-6RD/EuIUGxAYR45nMQg+nw+PqwCXUxkR6Eyn+1fvbVjtb9d+60OPwB77LCRUI4zKNI+n0LOFaMniEdSpb+A7kQ==
+"@oclif/plugin-not-found@^3.2.75":
+  version "3.2.75"
+  resolved "https://registry.yarnpkg.com/@oclif/plugin-not-found/-/plugin-not-found-3.2.75.tgz#823998c4ab78309319afbed04776e29d0822fed8"
+  integrity sha512-xBEf7fJoS/fIqzGBUe0i6yc7ozo23KTyusy50DHqh+oqay5gtMLPUfr1RbvJBGGwozzFAMMFXN9o+AvUDt/zTA==
   dependencies:
     "@inquirer/prompts" "^7.10.1"
-    "@oclif/core" "^4.8.0"
+    "@oclif/core" "^4.9.0"
     ansis "^3.17.0"
     fast-levenshtein "^3.0.0"
 
@@ -7551,10 +7551,10 @@ object.values@^1.2.1:
     define-properties "^1.2.1"
     es-object-atoms "^1.0.0"
 
-oclif@^4.22.91:
-  version "4.22.91"
-  resolved "https://registry.yarnpkg.com/oclif/-/oclif-4.22.91.tgz#8c1640ae8a46f4b63833e418ca81099d12c79f6c"
-  integrity sha512-eBkzZq6YNZoXGUUFt1tn1Zo+kGdGQiwSvDsHvEd6duR0i3tdd2Oa3rgOYCGiMiq4bIL4Uoo1iAomqS77/ww1rQ==
+oclif@^4.22.93:
+  version "4.22.93"
+  resolved "https://registry.yarnpkg.com/oclif/-/oclif-4.22.93.tgz#45a95adb76d4d0a29764b9affb5150c2b8df6cb1"
+  integrity sha512-x7FjnZOTuKl4p6KsWFZ2nCH3jQv0EU7+fG+udUHgV+CnXx6xGgCGPfkkDv3jYzjlcW7v1P62f3Ab8hudR0zrnA==
   dependencies:
     "@aws-sdk/client-cloudfront" "3.1009.0"
     "@aws-sdk/client-s3" "3.1009.0"
@@ -7563,7 +7563,7 @@ oclif@^4.22.91:
     "@inquirer/select" "^2.5.0"
     "@oclif/core" "4.9.0"
     "@oclif/plugin-help" "^6.2.38"
-    "@oclif/plugin-not-found" "^3.2.74"
+    "@oclif/plugin-not-found" "^3.2.75"
     "@oclif/plugin-warn-if-update-available" "^3.1.55"
     ansis "^3.16.0"
     async-retry "^1.3.3"
