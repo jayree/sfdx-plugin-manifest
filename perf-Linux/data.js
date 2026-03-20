@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1773970267754,
+  "lastUpdate": 1773971223833,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -38583,6 +38583,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 254,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b0fca9a04b7cab5c483462f96de47074f576b325",
+          "message": "fix(deps): bump flatted from 3.3.3 to 3.4.2\n\nBumps [flatted](https://github.com/WebReflection/flatted) from 3.3.3 to 3.4.2.\n- [Commits](https://github.com/WebReflection/flatted/compare/v3.3.3...v3.4.2)\n\n---\nupdated-dependencies:\n- dependency-name: flatted\n  dependency-version: 3.4.2\n  dependency-type: indirect\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-03-20T01:46:09Z",
+          "tree_id": "cfb3de7dab23fd641c5f674ab65d48552f0f0af5",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/b0fca9a04b7cab5c483462f96de47074f576b325"
+        },
+        "date": 1773971218738,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 2775,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 1967,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 417,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 300,
             "unit": "ms"
           }
         ]
