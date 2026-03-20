@@ -1,3 +1,12 @@
+## [5.0.34](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.33...5.0.34) (2026-03-20)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-xml-parser from 5.5.6 to 5.5.7 ([#2137](https://github.com/jayree/sfdx-plugin-manifest/issues/2137)) ([0325d3e](https://github.com/jayree/sfdx-plugin-manifest/commit/0325d3e831c373b09a5548df9e7ca7c9c6f050d5))
+  *   fix: entity expansion limits
+  *   update strnum package to 2.2.0
+
 ## [5.0.33](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.32...5.0.33) (2026-03-18)
 
 
