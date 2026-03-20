@@ -1,3 +1,12 @@
+## [5.0.40](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.39...5.0.40) (2026-03-20)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2141](https://github.com/jayree/sfdx-plugin-manifest/issues/2141)) ([c84e089](https://github.com/jayree/sfdx-plugin-manifest/commit/c84e08946eb548e8f4fece64f8d06c2631269b14))
+  * remove the prevention of the root-relative asset references ([#1708](https://github.com/forcedotcom/source-deploy-retrieve/issues/1708)) ([c196a8f](https://github.com/forcedotcom/source-deploy-retrieve/commit/c196a8f21161661255b6505090ef9558ffa9f357))
+  * **deps:** bump flatted from 3.2.7 to 3.4.2 ([#1712](https://github.com/forcedotcom/source-deploy-retrieve/issues/1712)) ([bd2e758](https://github.com/forcedotcom/source-deploy-retrieve/commit/bd2e7580e57339615e13aa40899e626f5b604330))
+
 ## [5.0.39](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.38...5.0.39) (2026-03-20)
 
 
