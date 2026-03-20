@@ -1,3 +1,10 @@
+## [5.0.37](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.36...5.0.37) (2026-03-20)
+
+
+### Bug Fixes
+
+* **deps:** bump flatted from 3.3.3 to 3.4.2 ([#2138](https://github.com/jayree/sfdx-plugin-manifest/issues/2138)) ([c216939](https://github.com/jayree/sfdx-plugin-manifest/commit/c21693994a722887f7ba989dc531f93fd06168c5))
+
 ## [5.0.36](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.35...5.0.36) (2026-03-20)
 
 
