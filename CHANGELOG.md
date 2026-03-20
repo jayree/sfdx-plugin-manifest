@@ -1,3 +1,11 @@
+## [5.0.39](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.38...5.0.39) (2026-03-20)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.27.0 to 8.27.1 ([#2142](https://github.com/jayree/sfdx-plugin-manifest/issues/2142)) ([8b7944c](https://github.com/jayree/sfdx-plugin-manifest/commit/8b7944c7bbe87d6ae75905b4119f47f7e6699b90))
+  * password complexity 4 behavior matches documentation @W-21055675@ ([#1268](https://github.com/forcedotcom/sfdx-core/issues/1268)) ([c90db97](https://github.com/forcedotcom/sfdx-core/commit/c90db9774f3eea56f73b68c7275e514ae5be76ff))
+
 ## [5.0.38](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.37...5.0.38) (2026-03-20)
 
 
