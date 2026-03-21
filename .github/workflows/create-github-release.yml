@@ -84,7 +84,7 @@ jobs:
           # ternary-ish: https://github.com/actions/runner/issues/409#issuecomment-752775072
           output-file: ${{ steps.prereleaseTag.outputs.tag && 'false' || 'CHANGELOG.md' }} # If prerelease, do not write the changelog file
       - name: Create Github Release
-        uses: ncipollo/release-action@b7eabc95ff50cbeeedec83973935c8f306dfcd0b
+        uses: ncipollo/release-action@339a81892b84b4eeb0f6e744e4574d79d0d9b8dd
         if: ${{ steps.changelog.outputs.skipped == 'false' }}
         with:
           name: ${{ steps.changelog.outputs.tag }}
