@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1774107348278,
+  "lastUpdate": 1774107942295,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -39287,6 +39287,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 250,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1d6663fc975365a181b0e533e350dd90e44a6454",
+          "message": "chore(deps): bump TriPSs/conventional-changelog-action\n\nBumps [TriPSs/conventional-changelog-action](https://github.com/tripss/conventional-changelog-action) from 6.2.0 to 6.3.0.\n- [Release notes](https://github.com/tripss/conventional-changelog-action/releases)\n- [Changelog](https://github.com/TriPSs/conventional-changelog-action/blob/releases/v6/CHANGELOG.md)\n- [Commits](https://github.com/tripss/conventional-changelog-action/compare/84dadaf2c367cb52af02737cd9c7e888807219e7...91be4f3188da74fe85de9caffcebc80b26d43b5b)\n\n---\nupdated-dependencies:\n- dependency-name: TriPSs/conventional-changelog-action\n  dependency-version: 6.3.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-03-21T15:44:58Z",
+          "tree_id": "730ba128402382e93da056ce70a0c6d3eb7c5600",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/1d6663fc975365a181b0e533e350dd90e44a6454"
+        },
+        "date": 1774107938242,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 2725,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 2031,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 396,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 264,
             "unit": "ms"
           }
         ]
