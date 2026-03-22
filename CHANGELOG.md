@@ -1,3 +1,12 @@
+## [5.0.41](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.40...5.0.41) (2026-03-22)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 4.10.0 to 4.10.2 ([#2147](https://github.com/jayree/sfdx-plugin-manifest/issues/2147)) ([ec8a522](https://github.com/jayree/sfdx-plugin-manifest/commit/ec8a522ae6514c4aebe1cf59255dbeb24d5c95d1))
+  * refresh yarn.lock ([745f56e](https://github.com/oclif/core/commit/745f56ebea25382c6006ba68a9846d0c44f57da8))
+  * **deps:** bump flatted from 3.3.2 to 3.4.2 ([64f4b92](https://github.com/oclif/core/commit/64f4b92a797041a2194c4e29d061e4a399e783f1))
+
 ## [5.0.40](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.39...5.0.40) (2026-03-20)
 
 
