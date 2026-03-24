@@ -16,6 +16,7 @@
 import { join } from 'node:path';
 import { performance } from 'node:perf_hooks';
 import fs from 'fs-extra';
+import { describe, it, before, after } from 'mocha';
 import { TestSession } from '@salesforce/cli-plugins-testkit';
 import { SfProject } from '@salesforce/core';
 import { RegistryAccess } from '@salesforce/source-deploy-retrieve';

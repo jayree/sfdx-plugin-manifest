@@ -16,6 +16,7 @@
 import { join } from 'node:path';
 import { TestSession } from '@salesforce/cli-plugins-testkit';
 import { expect } from 'chai';
+import { describe, it, before, after } from 'mocha';
 import fs from 'fs-extra';
 import { ComponentSetExtra } from '../../../src/SDR-extra/index.js';
 import { setAutocrlfOnWin32 } from '../../helper/git.js';

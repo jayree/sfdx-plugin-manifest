@@ -16,6 +16,7 @@
 import { join } from 'node:path';
 import { TestSession } from '@salesforce/cli-plugins-testkit';
 import { expect } from 'chai';
+import { describe, it, before, after } from 'mocha';
 import { SfError } from '@salesforce/core';
 import sinon from 'sinon';
 import fs from 'fs-extra';

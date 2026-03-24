@@ -15,6 +15,7 @@
  */
 import { TestSession } from '@salesforce/cli-plugins-testkit';
 import { expect } from 'chai';
+import { describe, it, before, after } from 'mocha';
 import { DestructiveChangesType } from '@salesforce/source-deploy-retrieve';
 import { ComponentSetExtra } from '../../../src/SDR-extra/index.js';
 import { setAutocrlfOnWin32 } from '../../helper/git.js';
