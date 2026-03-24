@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1774354310337,
+  "lastUpdate": 1774361312004,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -39903,6 +39903,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 428,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "135729990+updatefilesbot[bot]@users.noreply.github.com",
+            "name": "updatefilesbot[bot]",
+            "username": "updatefilesbot[bot]"
+          },
+          "committer": {
+            "email": "135729990+updatefilesbot[bot]@users.noreply.github.com",
+            "name": "updatefilesbot[bot]",
+            "username": "updatefilesbot[bot]"
+          },
+          "distinct": true,
+          "id": "3743a8be0b27b75e21b8b8161c9a412290307acc",
+          "message": "chore(patch): remove obsolete patch for package @salesforce/dev-scripts",
+          "timestamp": "2026-03-24T14:06:18Z",
+          "tree_id": "7d2f2962fe14c2d7173b078b077b93dec4b6c449",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/3743a8be0b27b75e21b8b8161c9a412290307acc"
+        },
+        "date": 1774361305954,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 4916,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 3303,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 594,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 447,
             "unit": "ms"
           }
         ]
