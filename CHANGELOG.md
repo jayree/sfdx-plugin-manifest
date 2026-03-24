@@ -1,3 +1,11 @@
+## [5.0.43](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.42...5.0.43) (2026-03-24)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/kit from 3.2.4 to 3.2.5 ([#2154](https://github.com/jayree/sfdx-plugin-manifest/issues/2154)) ([d35e40e](https://github.com/jayree/sfdx-plugin-manifest/commit/d35e40e9d2dc5f82f2840c1d7f6597d956a9c5fe))
+  * **deps:** bump cross-spawn from 7.0.3 to 7.0.6 ([0914d4f](https://github.com/forcedotcom/kit/commit/0914d4f1481ff94ccaaaef9615428b11d7ec85ae))
+
 ## [5.0.42](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.41...5.0.42) (2026-03-22)
 
 
