@@ -1,3 +1,12 @@
+## [5.0.45](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.44...5.0.45) (2026-03-27)
+
+
+### Bug Fixes
+
+* **deps:** bump yaml from 2.8.2 to 2.8.3 ([#2156](https://github.com/jayree/sfdx-plugin-manifest/issues/2156)) ([dbbc6d7](https://github.com/jayree/sfdx-plugin-manifest/commit/dbbc6d72314e8df70f8801b117b7f8e2a5f7b611))
+  *   Add `trailingComma` ToString option for multiline flow formatting ([#670](https://redirect.github.com/eemeli/yaml/issues/670))
+  *   Catch stack overflow during node composition (1e84ebb)
+
 ## [5.0.44](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.43...5.0.44) (2026-03-24)
 
 
