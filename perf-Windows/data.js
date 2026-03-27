@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1774362247831,
+  "lastUpdate": 1774578283665,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -40035,6 +40035,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 410,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1c8b2ad8964e7343765fc5e6df6d9bae801c8ee0",
+          "message": "fix(deps): bump yaml from 2.8.2 to 2.8.3\n\nBumps [yaml](https://github.com/eemeli/yaml) from 2.8.2 to 2.8.3.\n- [Release notes](https://github.com/eemeli/yaml/releases)\n- [Commits](https://github.com/eemeli/yaml/compare/v2.8.2...v2.8.3)\n\n---\nupdated-dependencies:\n- dependency-name: yaml\n  dependency-version: 2.8.3\n  dependency-type: indirect\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-03-27T02:22:09Z",
+          "tree_id": "5dee6f16e22854eaf08ea29b8d8abab6abb9cc29",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/1c8b2ad8964e7343765fc5e6df6d9bae801c8ee0"
+        },
+        "date": 1774578270779,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 5454,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 3449,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 572,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 418,
             "unit": "ms"
           }
         ]
