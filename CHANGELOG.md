@@ -1,3 +1,11 @@
+## [5.0.48](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.47...5.0.48) (2026-03-29)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 4.10.2 to 4.10.3 ([#2163](https://github.com/jayree/sfdx-plugin-manifest/issues/2163)) ([6c749a2](https://github.com/jayree/sfdx-plugin-manifest/commit/6c749a2f08c5f59c385bdc357e710df3fc12df58))
+  * proper WSL handling @W-18398048@ ([ce37266](https://github.com/oclif/core/commit/ce372668081fb242830c1b7a45f2a1727ec95158))
+
 ## [5.0.47](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.46...5.0.47) (2026-03-29)
 
 
