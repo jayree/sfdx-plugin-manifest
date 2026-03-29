@@ -1,3 +1,16 @@
+## [5.0.47](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.46...5.0.47) (2026-03-29)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2160](https://github.com/jayree/sfdx-plugin-manifest/issues/2160)) ([1ed0d5b](https://github.com/jayree/sfdx-plugin-manifest/commit/1ed0d5bf3b29f24036de06f46d216d2e7f7781e8))
+  * **deps:** bump minimatch from 9.0.5 to 9.0.7 ([#1694](https://github.com/forcedotcom/source-deploy-retrieve/issues/1694)) ([205699e](https://github.com/forcedotcom/source-deploy-retrieve/commit/205699eda79171edc0df33fd07736cf2831f4510))
+  * **deps:** bump proxy-agent from 6.4.0 to 6.5.0 ([#1465](https://github.com/forcedotcom/source-deploy-retrieve/issues/1465)) ([cd7f8ed](https://github.com/forcedotcom/source-deploy-retrieve/commit/cd7f8ed1583720e474852dc2062b92e5d8d3f38b))
+  * **deps:** bump lodash from 4.17.21 to 4.17.23 ([#1674](https://github.com/forcedotcom/source-deploy-retrieve/issues/1674)) ([da4b78f](https://github.com/forcedotcom/source-deploy-retrieve/commit/da4b78f7e0de2faa03ecef77026b7cc36f09c851))
+  * **deps:** bump fast-xml-parser from 5.5.7 to 5.5.9 ([#1723](https://github.com/forcedotcom/source-deploy-retrieve/issues/1723)) ([e273241](https://github.com/forcedotcom/source-deploy-retrieve/commit/e273241ae12b31f69fb19f01ebbc0d93a9d3dc79))
+  * **deps:** bump yaml from 2.8.1 to 2.8.3 ([#1718](https://github.com/forcedotcom/source-deploy-retrieve/issues/1718)) ([87295ae](https://github.com/forcedotcom/source-deploy-retrieve/commit/87295ae42fa2d0c974cc8d9a3f8f1d07587db07e))
+  * **deps:** bump basic-ftp from 5.0.3 to 5.2.0 ([#1691](https://github.com/forcedotcom/source-deploy-retrieve/issues/1691)) ([f514cb8](https://github.com/forcedotcom/source-deploy-retrieve/commit/f514cb8de55d30e28297f461097d997543f55ea3))
+
 ## [5.0.46](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.45...5.0.46) (2026-03-29)
 
 
