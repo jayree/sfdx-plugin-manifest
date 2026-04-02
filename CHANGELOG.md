@@ -1,3 +1,14 @@
+## [5.0.54](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.53...5.0.54) (2026-04-02)
+
+
+### Bug Fixes
+
+* **deps:** bump lodash from 4.17.23 to 4.18.1 ([#2169](https://github.com/jayree/sfdx-plugin-manifest/issues/2169)) ([fb335a7](https://github.com/jayree/sfdx-plugin-manifest/commit/fb335a70ffed3e6b01dc91c5e6ee8f8e74399b53))
+  *   `lodash`: [https://github.com/lodash/lodash/compare/4.18.0-npm...4.18.1-npm](https://github.com/lodash/lodash/compare/4.18.0-npm...4.18.1-npm)
+  *   `lodash-es`: [https://github.com/lodash/lodash/compare/4.18.0-es...4.18.1-es](https://github.com/lodash/lodash/compare/4.18.0-es...4.18.1-es)
+  *   `lodash-amd`: [https://github.com/lodash/lodash/compare/4.18.0-amd...4.18.1-amd](https://github.com/lodash/lodash/compare/4.18.0-amd...4.18.1-amd)
+  *   `lodash.template`[https://github.com/lodash/lodash/compare/4.18.0-npm-packages...4.18.1-npm-packages](https://github.com/lodash/lodash/compare/4.18.0-npm-packages...4.18.1-npm-packages)
+
 ## [5.0.53](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.52...5.0.53) (2026-04-02)
 
 
