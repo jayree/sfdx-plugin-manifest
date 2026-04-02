@@ -1,3 +1,13 @@
+## [5.0.52](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.51...5.0.52) (2026-04-02)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.27.1 to 8.28.1 ([#2167](https://github.com/jayree/sfdx-plugin-manifest/issues/2167)) ([adf6e1a](https://github.com/jayree/sfdx-plugin-manifest/commit/adf6e1a93f368b66046d84a093de45f12069fc57))
+  * **schema:** add defaultLWCLanguage property to sfdx-project.json schema ([39aecce](https://github.com/forcedotcom/sfdx-core/commit/39aeccebdacb92dd8719f38e2f1af01050ba6cbf)), closes [#758](https://github.com/forcedotcom/sfdx-core/issues/758)
+  * rename defaultLWCLanguage to defaultLwcLanguage @W-21523324@ ([cb1fede](https://github.com/forcedotcom/sfdx-core/commit/cb1fede2f0022cec98ec39ad1c18999812cd60b1)), closes [#758](https://github.com/forcedotcom/sfdx-core/issues/758)
+  * update edition schema-W-21773402 ([#1271](https://github.com/forcedotcom/sfdx-core/issues/1271)) ([3361202](https://github.com/forcedotcom/sfdx-core/commit/336120257db584ea87a601eb9cbf9b47ddc7fb50))
+
 ## [5.0.51](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.50...5.0.51) (2026-04-02)
 
 
