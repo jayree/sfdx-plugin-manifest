@@ -1,3 +1,12 @@
+## [5.0.51](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.50...5.0.51) (2026-04-02)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2166](https://github.com/jayree/sfdx-plugin-manifest/issues/2166)) ([d9620ce](https://github.com/jayree/sfdx-plugin-manifest/commit/d9620ce67f0a45416a9c4d470ffebdc64c4ccfb4))
+  * add ExtlClntAppOauthSecuritySettings metadata support ([#1726](https://github.com/forcedotcom/source-deploy-retrieve/issues/1726)) ([c2670ad](https://github.com/forcedotcom/source-deploy-retrieve/commit/c2670ad1f3313e342b7c749fc31aef8d471df3ac))
+  * @W-21674925: refactor: rename WebApplication on-disk directory from webapplications to uiBundles  ([#1728](https://github.com/forcedotcom/source-deploy-retrieve/issues/1728)) ([21fb55a](https://github.com/forcedotcom/source-deploy-retrieve/commit/21fb55ab6f67093e1179a7baca94256ccfbefb5b))
+
 ## [5.0.50](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.49...5.0.50) (2026-04-02)
 
 
