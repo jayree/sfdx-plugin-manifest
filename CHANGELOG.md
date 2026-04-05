@@ -1,3 +1,12 @@
+## [5.0.55](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.54...5.0.55) (2026-04-05)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 4.10.3 to 4.10.5 ([#2170](https://github.com/jayree/sfdx-plugin-manifest/issues/2170)) ([a0e6dce](https://github.com/jayree/sfdx-plugin-manifest/commit/a0e6dce0dbf8df04bbd70d11df2e72e0ba24efed))
+  * **deps:** bump lodash from 4.17.21 to 4.18.1 ([7db542d](https://github.com/oclif/core/commit/7db542db6998c5207f832f9119be152192dff110))
+  * **deps:** bump minimatch from 10.2.4 to 10.2.5 ([45ff39a](https://github.com/oclif/core/commit/45ff39afb97090296c2dbfb8f087ddcf0aed810f))
+
 ## [5.0.54](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.53...5.0.54) (2026-04-02)
 
 
