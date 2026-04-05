@@ -1,3 +1,11 @@
+## [5.0.56](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.55...5.0.56) (2026-04-05)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2172](https://github.com/jayree/sfdx-plugin-manifest/issues/2172)) ([3a3b76a](https://github.com/jayree/sfdx-plugin-manifest/commit/3a3b76a807651c9927af5cff5b316f0dc13482dd))
+  * **deps:** bump lodash from 4.17.23 to 4.18.1 ([#1732](https://github.com/forcedotcom/source-deploy-retrieve/issues/1732)) ([3f9bda2](https://github.com/forcedotcom/source-deploy-retrieve/commit/3f9bda2d860649789802bae682f83654c726fc2d))
+
 ## [5.0.55](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.54...5.0.55) (2026-04-05)
 
 
