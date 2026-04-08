@@ -1,3 +1,12 @@
+## [5.0.58](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.57...5.0.58) (2026-04-08)
+
+
+### Bug Fixes
+
+* **deps:** bump basic-ftp from 5.2.0 to 5.2.1 ([#2176](https://github.com/jayree/sfdx-plugin-manifest/issues/2176)) ([ac0ea2f](https://github.com/jayree/sfdx-plugin-manifest/commit/ac0ea2fb46be7e389aca185ae6e667dabcbbc3f6))
+  *   Fixed: Reject control character injection attempts using paths. See [https://github.com/patrickjuchli/basic-ftp/security/advisories/GHSA-chqc-8p9q-pq6q](https://github.com/patrickjuchli/basic-ftp/security/advisories/GHSA-chqc-8p9q-pq6q).
+  *   Fixed: Reject control character injection attempts using paths. See [https://github.com/patrickjuchli/basic-ftp/security/advisories/GHSA-chqc-8p9q-pq6q](https://github.com/patrickjuchli/basic-ftp/security/advisories/GHSA-chqc-8p9q-pq6q).
+
 ## [5.0.57](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.56...5.0.57) (2026-04-05)
 
 
