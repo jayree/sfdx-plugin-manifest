@@ -1,3 +1,12 @@
+## [5.0.59](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.58...5.0.59) (2026-04-10)
+
+
+### Bug Fixes
+
+* **deps:** bump basic-ftp from 5.2.1 to 5.2.2 ([#2177](https://github.com/jayree/sfdx-plugin-manifest/issues/2177)) ([a3b376b](https://github.com/jayree/sfdx-plugin-manifest/commit/a3b376b7c6a7776e900344f4d065efc5f1d7d860))
+  *   Fixed: Improve control character rejection, fixes [https://github.com/patrickjuchli/basic-ftp/security/advisories/GHSA-6v7q-wjvx-w8wg](https://github.com/patrickjuchli/basic-ftp/security/advisories/GHSA-6v7q-wjvx-w8wg).
+  *   Fixed: Improve control character rejection, fixes [https://github.com/patrickjuchli/basic-ftp/security/advisories/GHSA-6v7q-wjvx-w8wg](https://github.com/patrickjuchli/basic-ftp/security/advisories/GHSA-6v7q-wjvx-w8wg).
+
 ## [5.0.58](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.57...5.0.58) (2026-04-08)
 
 
