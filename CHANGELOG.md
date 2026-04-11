@@ -1,3 +1,11 @@
+## [5.0.63](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.62...5.0.63) (2026-04-11)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-tracking from 7.8.9 to 7.8.10 ([#2180](https://github.com/jayree/sfdx-plugin-manifest/issues/2180)) ([4a83a17](https://github.com/jayree/sfdx-plugin-manifest/commit/4a83a175dfa03ca04693a413c12d4a48f545b7ce))
+  * **perf:** stl remote indexing, no node_modules in local tracking W-21986538 ([#847](https://github.com/forcedotcom/source-tracking/issues/847)) ([7bf1d7a](https://github.com/forcedotcom/source-tracking/commit/7bf1d7a7ae414026ef5b460f9e0b5f9aa080e42d))
+
 ## [5.0.62](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.61...5.0.62) (2026-04-11)
 
 
