@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775921615441,
+  "lastUpdate": 1775921742976,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -42103,6 +42103,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 362,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6a8058ad85b1fa71e4f752ea14e74edb0d670b52",
+          "message": "chore(deps): bump dependabot/fetch-metadata from 2 to 3\n\nBumps [dependabot/fetch-metadata](https://github.com/dependabot/fetch-metadata) from 2 to 3.\n- [Release notes](https://github.com/dependabot/fetch-metadata/releases)\n- [Commits](https://github.com/dependabot/fetch-metadata/compare/v2...v3)\n\n---\nupdated-dependencies:\n- dependency-name: dependabot/fetch-metadata\n  dependency-version: '3'\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-04-11T15:32:20Z",
+          "tree_id": "914866db86a46a300c62d54ffb20bcedc150ed4d",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/6a8058ad85b1fa71e4f752ea14e74edb0d670b52"
+        },
+        "date": 1775921736552,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 4527,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 3012,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 475,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 359,
             "unit": "ms"
           }
         ]
