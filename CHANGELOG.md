@@ -1,3 +1,11 @@
+## [5.0.60](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.59...5.0.60) (2026-04-11)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.37.4 to 1.37.5 ([#2185](https://github.com/jayree/sfdx-plugin-manifest/issues/2185)) ([c2758de](https://github.com/jayree/sfdx-plugin-manifest/commit/c2758de7f4561222b038ee7cb4174112702e0884))
+  * reduce pack verification memory use on Node ([#2299](https://github.com/isomorphic-git/isomorphic-git/issues/2299)) ([846a9f9](https://github.com/isomorphic-git/isomorphic-git/commit/846a9f9e7e6ad5e54ee3c38f90c780db5bb178e3))
+
 ## [5.0.59](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.58...5.0.59) (2026-04-10)
 
 
