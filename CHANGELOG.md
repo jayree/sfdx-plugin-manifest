@@ -1,3 +1,12 @@
+## [5.0.61](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.60...5.0.61) (2026-04-11)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-xml-parser from 5.5.10 to 5.5.11 ([#2181](https://github.com/jayree/sfdx-plugin-manifest/issues/2181)) ([4038407](https://github.com/jayree/sfdx-plugin-manifest/commit/4038407129d952a8c1418b68b11c07a8c3d5e0a6))
+  *   Performance Improvement
+  *   integrate ExpressionSet for stopNodes
+
 ## [5.0.60](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.59...5.0.60) (2026-04-11)
 
 
