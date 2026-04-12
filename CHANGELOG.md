@@ -1,3 +1,10 @@
+## [5.0.64](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.63...5.0.64) (2026-04-12)
+
+
+### Bug Fixes
+
+* proper directory ignoring ([afd5846](https://github.com/jayree/sfdx-plugin-manifest/commit/afd584645eb1580230cd5251c2a3e5201f823759))
+
 ## [5.0.63](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.62...5.0.63) (2026-04-11)
 
 
