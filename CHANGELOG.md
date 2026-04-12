@@ -1,3 +1,12 @@
+## [5.0.66](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.65...5.0.66) (2026-04-12)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-tracking from 7.8.10 to 7.8.12 ([#2190](https://github.com/jayree/sfdx-plugin-manifest/issues/2190)) ([d7f1466](https://github.com/jayree/sfdx-plugin-manifest/commit/d7f146689396584120f0bff0476b67e882d519ea))
+  * **perf:** optimize populateTypesAndNames component deduplication W-21991374 ([#849](https://github.com/forcedotcom/source-tracking/issues/849)) ([e7b0ee4](https://github.com/forcedotcom/source-tracking/commit/e7b0ee402a939b30416ec6566efa13902b22ff2a))
+  * **deps:** bump lodash from 4.17.23 to 4.18.1 ([3d32926](https://github.com/forcedotcom/source-tracking/commit/3d3292659d71051b415a239f04e9484155e0e822))
+
 ## [5.0.65](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.64...5.0.65) (2026-04-12)
 
 
