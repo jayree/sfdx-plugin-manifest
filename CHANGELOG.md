@@ -1,3 +1,13 @@
+## [5.0.65](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.64...5.0.65) (2026-04-12)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2189](https://github.com/jayree/sfdx-plugin-manifest/issues/2189)) ([de02c15](https://github.com/jayree/sfdx-plugin-manifest/commit/de02c15d0c0284ce91b0891dc65f62e6151bf45c))
+  * proper directory ignoring W-21988477 ([#1737](https://github.com/forcedotcom/source-deploy-retrieve/issues/1737)) ([3ff0812](https://github.com/forcedotcom/source-deploy-retrieve/commit/3ff08122d4714a6ea259adb1f4e7e49f71682b8d)), closes [#1741](https://github.com/forcedotcom/source-deploy-retrieve/issues/1741)
+  * **deps:** bump fast-xml-parser from 5.5.9 to 5.5.11 ([#1739](https://github.com/forcedotcom/source-deploy-retrieve/issues/1739)) ([df5313d](https://github.com/forcedotcom/source-deploy-retrieve/commit/df5313d8d50fe12cc2fb2cb27dfaa83785dc17aa))
+  * **deps:** bump minimatch from 9.0.7 to 9.0.9 ([#1722](https://github.com/forcedotcom/source-deploy-retrieve/issues/1722)) ([8686f26](https://github.com/forcedotcom/source-deploy-retrieve/commit/8686f261d42d8f5b12e70249fc08c1e903ed927f))
+
 ## [5.0.64](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.63...5.0.64) (2026-04-12)
 
 
