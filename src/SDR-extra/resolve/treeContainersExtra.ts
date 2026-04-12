@@ -14,15 +14,61 @@
  * limitations under the License.
  */
 // https://github.com/forcedotcom/source-deploy-retrieve/blob/main/src/resolve/treeContainers.ts
-import path from 'node:path';
-import { VirtualTreeContainer, VirtualDirectory } from '@salesforce/source-deploy-retrieve';
-import { parseMetadataXml } from '@salesforce/source-deploy-retrieve/lib/src/utils/index.js';
+import { sep } from 'node:path';
+import { VirtualTreeContainer, VirtualDirectory, VirtualFile } from '@salesforce/source-deploy-retrieve';
+import { isString } from '@salesforce/ts-types';
 import { GitRepo } from '../shared/local/localGitRepo.js';
 
 export class VirtualTreeContainerExtra extends VirtualTreeContainer {
   /**
+   * Designed for recreating virtual files from file paths and their buffer content
+   * This was created to support use of MetadataResolver with git diff results where the modified files and their content can be provided but the files don't actually exist on the filesystem
+   *
+   * @param paths full paths to files
+   * @param fileBufferByPath map of file paths to their buffer content
+   * @returns VirtualTreeContainer
+   */
+  public static fromFilePathsWithBlobs(paths: string[], fileBufferByPath: Map<string, Buffer>): VirtualTreeContainer {
+    const childrenByDir = new Map<string, Set<string>>();
+    for (const filename of paths) {
+      if (!isString(filename)) {
+        continue;
+      }
+      const splits = filename.split(sep);
+      for (let i = 0; i < splits.length - 1; i++) {
+        // slice+join preserves the leading separator for absolute paths
+        // e.g. ['', 'home'].join('/') === '/home'
+        const dirPath = splits.slice(0, i + 1).join(sep);
+        let childSet = childrenByDir.get(dirPath);
+        if (!childSet) {
+          childSet = new Set<string>();
+          childrenByDir.set(dirPath, childSet);
+        }
+        childSet.add(splits[i + 1]);
+      }
+    }
+
+    const virtualFs: VirtualDirectory[] = Array.from(childrenByDir.entries()).map(([dirPath, set]) => ({
+      dirPath,
+      children: Array.from(set).map((childName): VirtualFile | string => {
+        const fullPath = [dirPath, childName].filter(Boolean).join(sep);
+        const buffer = fileBufferByPath.get(fullPath);
+
+        return buffer
+          ? {
+              name: childName,
+              data: buffer,
+            }
+          : childName;
+      }),
+    }));
+
+    return new VirtualTreeContainer(virtualFs);
+  }
+
+  /**
    * Designed for recreating virtual files from a git ref
-   * To support use of MetadataResolver to also resolve metadata xmls file names can be provided
+   * This was created to support use of MetadataResolver with git diff results where the modified files and their content can be provided but the files don't actually exist on the filesystem
    *
    * @param ref git ref
    * @param dir git dir
@@ -37,34 +83,13 @@ export class VirtualTreeContainerExtra extends VirtualTreeContainer {
     const localRepo = GitRepo.getInstance({ dir });
     const paths = await localRepo.listFiles(ref);
     const oid = await localRepo.resolveRef(ref);
-    const virtualDirectoryByFullPath = new Map<string, VirtualDirectory>();
-    // eslint-disable-next-line @typescript-eslint/await-thenable
-    for await (const filename of paths) {
-      const dirPath = path.dirname(filename);
-      virtualDirectoryByFullPath.set(dirPath, {
-        dirPath,
-        children: Array.from(
-          new Set(virtualDirectoryByFullPath.get(dirPath)?.children ?? []).add({
-            name: path.basename(filename),
-            data:
-              parseMetadataXml(filename) && includeBufferForFiles.includes(filename)
-                ? await localRepo.readBlob(filename, oid)
-                : Buffer.from(''),
-          }),
-        ),
-      });
-      const splits = filename.split(path.sep);
-      for (let i = 0; i < splits.length - 1; i++) {
-        const fullPathSoFar = splits.slice(0, i + 1).join(path.sep);
-        const existing = virtualDirectoryByFullPath.get(fullPathSoFar);
-        virtualDirectoryByFullPath.set(fullPathSoFar, {
-          dirPath: fullPathSoFar,
-          // only add to children if we don't already have it
-          children: Array.from(new Set(existing?.children ?? []).add(splits[i + 1])),
-        });
-      }
-    }
 
-    return new VirtualTreeContainer(Array.from(virtualDirectoryByFullPath.values()));
+    const fileBufferByPath = new Map(
+      await Promise.all(
+        includeBufferForFiles.map(async (filePath) => [filePath, await localRepo.readBlob(filePath, oid)] as const),
+      ),
+    );
+
+    return VirtualTreeContainerExtra.fromFilePathsWithBlobs(paths, fileBufferByPath);
   }
 }
