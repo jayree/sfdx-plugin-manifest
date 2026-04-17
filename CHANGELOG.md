@@ -1,3 +1,14 @@
+## [5.0.68](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.67...5.0.68) (2026-04-17)
+
+
+### Bug Fixes
+
+* **deps:** bump basic-ftp from 5.2.2 to 5.3.0 ([#2193](https://github.com/jayree/sfdx-plugin-manifest/issues/2193)) ([ddb4cee](https://github.com/jayree/sfdx-plugin-manifest/commit/ddb4ceec059b919b6725197c18607c4d7dc4dc7e))
+  *   Changed: Introduced an upper bound for total bytes of directory listing, fixes [https://github.com/patrickjuchli/basic-ftp/security/advisories/GHSA-rp42-5vxx-qpwr](https://github.com/patrickjuchli/basic-ftp/security/advisories/GHSA-rp42-5vxx-qpwr).
+  *   Added: Option to increase the upper bound for total bytes of directory listing in Client constructor.
+  *   Changed: Introduced an upper bound for total bytes of directory listing, fixes [https://github.com/patrickjuchli/basic-ftp/security/advisories/GHSA-rp42-5vxx-qpwr](https://github.com/patrickjuchli/basic-ftp/security/advisories/GHSA-rp42-5vxx-qpwr).
+  *   Added: Option to increase the upper bound for total bytes of directory listing in Client constructor.
+
 ## [5.0.67](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.66...5.0.67) (2026-04-13)
 
 
