@@ -1,3 +1,11 @@
+## [5.0.71](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.70...5.0.71) (2026-04-19)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2196](https://github.com/jayree/sfdx-plugin-manifest/issues/2196)) ([0d50cb0](https://github.com/jayree/sfdx-plugin-manifest/commit/0d50cb0b972175a764a3ce1163e94f38e2da61bc))
+  * **deps:** bump basic-ftp from 5.2.2 to 5.3.0 ([#1742](https://github.com/forcedotcom/source-deploy-retrieve/issues/1742)) ([891bc3f](https://github.com/forcedotcom/source-deploy-retrieve/commit/891bc3fc9f9308f0c3936d3fe1be93487bd3d657))
+
 ## [5.0.70](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.69...5.0.70) (2026-04-19)
 
 
