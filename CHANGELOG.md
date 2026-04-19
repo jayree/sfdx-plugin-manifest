@@ -1,3 +1,12 @@
+## [5.0.72](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.71...5.0.72) (2026-04-19)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-tracking from 7.8.12 to 7.8.14 ([#2194](https://github.com/jayree/sfdx-plugin-manifest/issues/2194)) ([2aaeb90](https://github.com/jayree/sfdx-plugin-manifest/commit/2aaeb90ee29b03828ff5c9129e670e3897b7dc0f))
+  * exclude UIBundle from source tracking polling ([ddbcb9c](https://github.com/forcedotcom/source-tracking/commit/ddbcb9ce96e4611d82ee50adbcfc955ba6349143))
+  * **deps:** bump basic-ftp from 5.0.5 to 5.3.0 ([4891294](https://github.com/forcedotcom/source-tracking/commit/489129409001d07c9d2947ccb5d9129cb9335069))
+
 ## [5.0.71](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.70...5.0.71) (2026-04-19)
 
 
