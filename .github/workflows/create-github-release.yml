@@ -67,7 +67,7 @@ jobs:
 
       - name: Conventional Changelog Action
         id: changelog
-        uses: TriPSs/conventional-changelog-action@91be4f3188da74fe85de9caffcebc80b26d43b5b
+        uses: TriPSs/conventional-changelog-action@952b14bbc4be87e8458a6ac5926fc655608b1b19
         with:
           preset: 'conventionalcommits'
           git-user-name: ${{ steps.github-user-info.outputs.username }}
