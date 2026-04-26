@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1777233758836,
+  "lastUpdate": 1777233943714,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -43511,6 +43511,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 401,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jayree.git@icloud.com",
+            "name": "jayree",
+            "username": "jayree"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d7eb6e1cc5873d4965d56ab324209ad4bc0d7edd",
+          "message": "Merge branch 'main' into dependabot-npm_and_yarn-oclif-core-4.10.6",
+          "timestamp": "2026-04-26T22:01:18+02:00",
+          "tree_id": "81d68109a0863602496abf0dbfb07f147b4e3477",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/d7eb6e1cc5873d4965d56ab324209ad4bc0d7edd"
+        },
+        "date": 1777233936667,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 4411,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 2515,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 434,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 502,
             "unit": "ms"
           }
         ]
