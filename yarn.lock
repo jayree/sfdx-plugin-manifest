@@ -1911,10 +1911,10 @@
     strip-ansi "6.0.1"
     ts-retry-promise "^0.8.1"
 
-"@salesforce/core@^8.18.7", "@salesforce/core@^8.23.1", "@salesforce/core@^8.27.1", "@salesforce/core@^8.28.1", "@salesforce/core@^8.28.3":
-  version "8.28.3"
-  resolved "https://registry.yarnpkg.com/@salesforce/core/-/core-8.28.3.tgz#1344dc408833fb2a6ac19e6c4c09f846b6593ce3"
-  integrity sha512-DDAeHVwDO8wUlqEGwfp8Vuu7Vp7K+hpubKu6baWkHAXiO1u7ZbQkvwCbpPz9JiYEXVUBvP11JtBQ7zOUIPShlQ==
+"@salesforce/core@^8.18.7", "@salesforce/core@^8.23.1", "@salesforce/core@^8.28.1", "@salesforce/core@^8.28.3", "@salesforce/core@^8.28.4":
+  version "8.28.4"
+  resolved "https://registry.yarnpkg.com/@salesforce/core/-/core-8.28.4.tgz#98920d62c2b2a7fa025af38c74bdf6687d91b0a8"
+  integrity sha512-XQ0BBSetdW9cu36pu8ig5ZBX3oAbDSSH4djHkSU3iAzjLdTygEPIBVtKNeyj1++GmCy0rRiLr/yqoFYr21+GuQ==
   dependencies:
     "@jsforce/jsforce-node" "^3.10.13"
     "@salesforce/kit" "^3.2.4"
@@ -2001,17 +2001,17 @@
     cli-progress "^3.12.0"
     terminal-link "^3.0.0"
 
-"@salesforce/source-deploy-retrieve@12.32.8", "@salesforce/source-deploy-retrieve@^12.32.7":
-  version "12.32.8"
-  resolved "https://registry.yarnpkg.com/@salesforce/source-deploy-retrieve/-/source-deploy-retrieve-12.32.8.tgz#8103036aee22f56275db64203ff4845eed0b4e1b"
-  integrity sha512-1vTWVGmrrDZSixJjDOb2NfrIsbio9xuUaVcGZpxCfTgcEnggekxMkzq0vSqebgbi9cibLn/3BUkSSuEhsDK8Rw==
+"@salesforce/source-deploy-retrieve@12.34.4", "@salesforce/source-deploy-retrieve@^12.32.7":
+  version "12.34.4"
+  resolved "https://registry.yarnpkg.com/@salesforce/source-deploy-retrieve/-/source-deploy-retrieve-12.34.4.tgz#f0b676b5142d6062ee01f081bfbfde3425b77daf"
+  integrity sha512-ssPs+9/Chz1/CHI2+nJVCsLtTwPNVW5MU9Qq2tEXpj4Dfj3nXNAdgrGcMI7gCW6zg7KijuHXDz0+jLAYsClAjQ==
   dependencies:
-    "@salesforce/core" "^8.27.1"
+    "@salesforce/core" "^8.28.4"
     "@salesforce/kit" "^3.2.4"
     "@salesforce/ts-types" "^2.0.12"
     "@salesforce/types" "^1.6.0"
     fast-levenshtein "^3.0.0"
-    fast-xml-parser "^5.5.11"
+    fast-xml-parser "^5.7.2"
     got "^11.8.6"
     graceful-fs "^4.2.11"
     ignore "^5.3.2"
@@ -5569,10 +5569,10 @@ fast-xml-parser@5.5.8:
     path-expression-matcher "^1.2.0"
     strnum "^2.2.0"
 
-fast-xml-parser@^5.5.11, fast-xml-parser@^5.5.7, fast-xml-parser@^5.7.1:
-  version "5.7.1"
-  resolved "https://registry.yarnpkg.com/fast-xml-parser/-/fast-xml-parser-5.7.1.tgz#17697550bdd2a0a0d47cdc4b456c009c4cbe8a06"
-  integrity sha512-8Cc3f8GUGUULg34pBch/KGyPLglS+OFs05deyOlY7fL2MTagYPKrVQNmR1fLF/yJ9PH5ZSTd3YDF6pnmeZU+zA==
+fast-xml-parser@^5.5.7, fast-xml-parser@^5.7.1, fast-xml-parser@^5.7.2:
+  version "5.7.2"
+  resolved "https://registry.yarnpkg.com/fast-xml-parser/-/fast-xml-parser-5.7.2.tgz#fecd0b054c6c132fc03dab994a413da781e0eb9f"
+  integrity sha512-P7oW7tLbYnhOLQk/Gv7cZgzgMPP/XN03K02/Jy6Y/NHzyIAIpxuZIM/YqAkfiXFPxA2CTm7NtCijK9EDu09u2w==
   dependencies:
     "@nodable/entities" "^2.1.0"
     fast-xml-builder "^1.1.5"
