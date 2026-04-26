@@ -1,3 +1,15 @@
+## [5.0.73](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.72...5.0.73) (2026-04-26)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2211](https://github.com/jayree/sfdx-plugin-manifest/issues/2211)) ([a26f79b](https://github.com/jayree/sfdx-plugin-manifest/commit/a26f79b2a771a8c60423a963813c1750d0b60dc2))
+  * add AiSurface and AiResponseFormat metadata types ([#1749](https://github.com/forcedotcom/source-deploy-retrieve/issues/1749)) ([32f2d79](https://github.com/forcedotcom/source-deploy-retrieve/commit/32f2d79a05a0b5bfe0027f5d9f3cde4711172b8b))
+  * @W-22168765: [CODA-MDAPI] Enable CLI for PolicyRuleDefinition and PolicyRuleDefinitionSet ([#1747](https://github.com/forcedotcom/source-deploy-retrieve/issues/1747)) ([95b7297](https://github.com/forcedotcom/source-deploy-retrieve/commit/95b72973f9af77bf45410b86198a095d10b282d2))
+  * **deps:** bump fast-xml-parser from 5.5.11 to 5.7.2 ([#1755](https://github.com/forcedotcom/source-deploy-retrieve/issues/1755)) ([f592fa5](https://github.com/forcedotcom/source-deploy-retrieve/commit/f592fa5d2aa76aeb6b48a3a57685328f3e6663e9))
+  * **deps:** bump @salesforce/core from 8.28.3 to 8.28.4 ([#1754](https://github.com/forcedotcom/source-deploy-retrieve/issues/1754)) ([2b47ae6](https://github.com/forcedotcom/source-deploy-retrieve/commit/2b47ae6e89872406e03ca386b51d1e71f7f282b9))
+  * singularly encode @W-22199494@ ([#1752](https://github.com/forcedotcom/source-deploy-retrieve/issues/1752)) ([c1a7f44](https://github.com/forcedotcom/source-deploy-retrieve/commit/c1a7f445d9e59270ed8d87d1d0601dc4ec807e3e))
+
 ## [5.0.72](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.71...5.0.72) (2026-04-19)
 
 
