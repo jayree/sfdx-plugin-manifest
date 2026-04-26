@@ -1,3 +1,11 @@
+## [5.0.75](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.74...5.0.75) (2026-04-26)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 4.10.5 to 4.10.6 ([#2205](https://github.com/jayree/sfdx-plugin-manifest/issues/2205)) ([c7310ca](https://github.com/jayree/sfdx-plugin-manifest/commit/c7310ca20384bc077656d9d9700bf2847e7a81f7))
+  * **deps:** bump postcss from 8.4.31 to 8.5.10 ([9b29ad4](https://github.com/oclif/core/commit/9b29ad4aa919ec483b47b3f7086c3ee5a75848b3))
+
 ## [5.0.74](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.73...5.0.74) (2026-04-26)
 
 
