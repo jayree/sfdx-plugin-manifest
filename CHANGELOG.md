@@ -1,3 +1,12 @@
+## [5.0.79](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.78...5.0.79) (2026-05-01)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2216](https://github.com/jayree/sfdx-plugin-manifest/issues/2216)) ([4c2d865](https://github.com/jayree/sfdx-plugin-manifest/commit/4c2d865da167ea65298561c1f1e80a95e23bc01d))
+  * @W-22143475 - Add AiTestingDefinition to metadata registry ([#1748](https://github.com/forcedotcom/source-deploy-retrieve/issues/1748)) ([73586e0](https://github.com/forcedotcom/source-deploy-retrieve/commit/73586e0f3df233be92c8e9373dc89339a41bc4e5))
+  * rename WebApplicationResource to UIBundleResource in deploy messages and tests ([#1751](https://github.com/forcedotcom/source-deploy-retrieve/issues/1751)) ([4a2f72c](https://github.com/forcedotcom/source-deploy-retrieve/commit/4a2f72c4796ac3c2476105e92abfb1b558a52dbe))
+
 ## [5.0.78](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.77...5.0.78) (2026-05-01)
 
 
