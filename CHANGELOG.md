@@ -1,3 +1,16 @@
+## [5.0.76](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.75...5.0.76) (2026-05-01)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/sf-plugins-core from 12.2.6 to 12.2.10 ([#2213](https://github.com/jayree/sfdx-plugin-manifest/issues/2213)) ([1360b7a](https://github.com/jayree/sfdx-plugin-manifest/commit/1360b7a2fea8268246813fb10948c30e89077b31))
+  * unblocked compilation failures for @W-22163225@ ([1a2a8a7](https://github.com/salesforcecli/sf-plugins-core/commit/1a2a8a75ad5f8cf0624a190d92b4866f2a340848))
+  * updated [@inquirer](https://github.com/inquirer) dependencies to resolve failing XNUTs @W-22163225@ ([9753fbe](https://github.com/salesforcecli/sf-plugins-core/commit/9753fbe338bfc6e2c2098f2e1d3e8a9eb34d6efc))
+  * updated internal deps @W-22163225@ ([40219de](https://github.com/salesforcecli/sf-plugins-core/commit/40219de40bcec73bb87ebd94e9a092b7f78a2ea7))
+  * **deps:** bump lodash from 4.17.21 to 4.18.1 ([b52543d](https://github.com/salesforcecli/sf-plugins-core/commit/b52543d7b0a1dd6eb3f342bd3d339e42bfe62403))
+  * **deps:** bump flatted from 3.2.7 to 3.4.2 ([29264cc](https://github.com/salesforcecli/sf-plugins-core/commit/29264cc42fa247974fb5c211fa38751ae8e34f14))
+  * updated to new @oclif/table @W-22163225@ ([f4facb5](https://github.com/salesforcecli/sf-plugins-core/commit/f4facb555369166312ca3f96da0305ba89cdcca5))
+
 ## [5.0.75](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.74...5.0.75) (2026-04-26)
 
 
