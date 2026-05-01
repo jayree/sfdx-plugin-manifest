@@ -1,3 +1,18 @@
+## [5.0.80](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.79...5.0.80) (2026-05-01)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 4.10.6 to 4.11.0 ([#2214](https://github.com/jayree/sfdx-plugin-manifest/issues/2214)) ([0b4e643](https://github.com/jayree/sfdx-plugin-manifest/commit/0b4e6437dc9dea3ffee41eaf9ebd4ee94f2867f3))
+  * added basic constraint logic @W-29534184@ ([80000b3](https://github.com/oclif/core/commit/80000b37a929c35079f135465dcd7778bf89ff77))
+  * added empty tests for command-level constraints @W-20534184@ ([45aaec7](https://github.com/oclif/core/commit/45aaec72a0f48f1683890c55dbecccbbb79a2743))
+  * added inline documentation @W-20534184@ ([3dc8757](https://github.com/oclif/core/commit/3dc8757eeb68f56fc0020fc1418c6dae550cb61f))
+  * defined tests and API for command-level constraints @W-20534184@ ([107531c](https://github.com/oclif/core/commit/107531c2f72aafa772746ca05475a7fbd3ae80b6))
+  * improved constraint docs @W-20534184@ ([40749c9](https://github.com/oclif/core/commit/40749c92d7571659d1d137ff2a185536b5c131d7))
+  * improved test coverage on constraints @W-20534184@ ([c7d570c](https://github.com/oclif/core/commit/c7d570c5b34ed2eba8011a68055cefb578e1f8ec))
+  * naive conditions implementation @W-29534184@ ([e4f4082](https://github.com/oclif/core/commit/e4f4082fb1bc836e6deb6b8d9bc49cf767e31429))
+  * integrated feedback from code review @W-20534184@ ([8d8a92d](https://github.com/oclif/core/commit/8d8a92d79022e63d24a5a214732198b7ad725221))
+
 ## [5.0.79](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.78...5.0.79) (2026-05-01)
 
 
