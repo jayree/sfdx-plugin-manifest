@@ -1,3 +1,11 @@
+## [5.0.77](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.76...5.0.77) (2026-05-01)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.28.4 to 8.29.0 ([#2215](https://github.com/jayree/sfdx-plugin-manifest/issues/2215)) ([c642df6](https://github.com/jayree/sfdx-plugin-manifest/commit/c642df6f4b1c05508889ad14459fff867af8aaa6))
+  * update settings live doc ([#1282](https://github.com/forcedotcom/sfdx-core/issues/1282)) ([be77e82](https://github.com/forcedotcom/sfdx-core/commit/be77e82070a69fcd251814f717b00515d017a45f))
+
 ## [5.0.76](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.75...5.0.76) (2026-05-01)
 
 
