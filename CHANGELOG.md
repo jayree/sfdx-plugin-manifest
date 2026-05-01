@@ -1,3 +1,11 @@
+## [5.0.78](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.77...5.0.78) (2026-05-01)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.37.5 to 1.37.6 ([#2217](https://github.com/jayree/sfdx-plugin-manifest/issues/2217)) ([c7c136b](https://github.com/jayree/sfdx-plugin-manifest/commit/c7c136b39b91492f2ad3cd4761ff436fd7bb3cd6))
+  * checkout surface silent rejections in batchAllSettled ([#2306](https://github.com/isomorphic-git/isomorphic-git/issues/2306)) ([acb2dcd](https://github.com/isomorphic-git/isomorphic-git/commit/acb2dcd0dfc3193992ad97f0b310f2b51570a8da))
+
 ## [5.0.77](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.76...5.0.77) (2026-05-01)
 
 
