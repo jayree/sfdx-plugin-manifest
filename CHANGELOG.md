@@ -1,3 +1,13 @@
+## [5.0.82](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.81...5.0.82) (2026-05-03)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/sf-plugins-core from 12.2.10 to 12.2.13 ([#2221](https://github.com/jayree/sfdx-plugin-manifest/issues/2221)) ([9078a70](https://github.com/jayree/sfdx-plugin-manifest/commit/9078a7079a9e54dc370392d9e4eafb3aba72d000))
+  * **deps:** bump @salesforce/core from 8.28.4 to 8.29.0 ([eaaa5cf](https://github.com/salesforcecli/sf-plugins-core/commit/eaaa5cfaf789c94d12ce21cc5c4953658ce00ed2))
+  * **deps:** bump @oclif/table from 0.5.5 to 0.5.6 ([b5ded0b](https://github.com/salesforcecli/sf-plugins-core/commit/b5ded0b6357381b44ddc2980f3842f7ff0d90c79))
+  * **deps:** bump @oclif/core from 4.10.6 to 4.11.0 ([a7d17db](https://github.com/salesforcecli/sf-plugins-core/commit/a7d17db0dfc98d902b01508a11ab16c0c0743d75))
+
 ## [5.0.81](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.80...5.0.81) (2026-05-03)
 
 
