@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1778119518890,
+  "lastUpdate": 1778120339530,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -44699,6 +44699,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 455,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "719d5a01c807aa9b150ee4eeb174768ee0470afb",
+          "message": "fix(deps): bump basic-ftp from 5.3.0 to 5.3.1\n\nBumps [basic-ftp](https://github.com/patrickjuchli/basic-ftp) from 5.3.0 to 5.3.1.\n- [Release notes](https://github.com/patrickjuchli/basic-ftp/releases)\n- [Changelog](https://github.com/patrickjuchli/basic-ftp/blob/master/CHANGELOG.md)\n- [Commits](https://github.com/patrickjuchli/basic-ftp/compare/v5.3.0...v5.3.1)\n\n---\nupdated-dependencies:\n- dependency-name: basic-ftp\n  dependency-version: 5.3.1\n  dependency-type: indirect\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-05-07T02:16:57Z",
+          "tree_id": "047c0b280af5935458f4fdec2fa9734c53aa8a8a",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/719d5a01c807aa9b150ee4eeb174768ee0470afb"
+        },
+        "date": 1778120332018,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 3687,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 2038,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 430,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 364,
             "unit": "ms"
           }
         ]
