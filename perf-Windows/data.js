@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1777827150646,
+  "lastUpdate": 1778119518890,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -44655,6 +44655,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 427,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3804c34303142ad16253ed16da4b4561681df597",
+          "message": "fix(deps): bump ip-address from 10.1.0 to 10.2.0\n\nBumps [ip-address](https://github.com/beaugunderson/ip-address) from 10.1.0 to 10.2.0.\n- [Commits](https://github.com/beaugunderson/ip-address/commits)\n\n---\nupdated-dependencies:\n- dependency-name: ip-address\n  dependency-version: 10.2.0\n  dependency-type: indirect\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-05-07T02:02:46Z",
+          "tree_id": "4ebec7670fd65f98c313127a2fae722688226d4c",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/3804c34303142ad16253ed16da4b4561681df597"
+        },
+        "date": 1778119511799,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 4014,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 2355,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 443,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 455,
             "unit": "ms"
           }
         ]
