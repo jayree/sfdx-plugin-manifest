@@ -1,3 +1,18 @@
+## [5.0.85](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.84...5.0.85) (2026-05-08)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-xml-builder from 1.1.5 to 1.2.0 ([#2226](https://github.com/jayree/sfdx-plugin-manifest/issues/2226)) ([3e6eb40](https://github.com/jayree/sfdx-plugin-manifest/commit/3e6eb4040569ddf10d1dc083af4fcf71e2313fe3))
+  *   Add support for `sanitizeName` option
+  *   Support xml-naming for validating and sanitizing tag and attribute names
+  *   fix: format output for preserve order when indent by is set to empty string
+  *   fix: skip text property for PI tags
+  *   improve typings
+  *   fix security issues when attribute value contains quotes
+  *   fix security issues related to comment
+  *   skip comment with null value
+
 ## [5.0.84](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.83...5.0.84) (2026-05-07)
 
 
