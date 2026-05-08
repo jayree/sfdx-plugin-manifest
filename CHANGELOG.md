@@ -1,3 +1,14 @@
+## [5.0.91](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.90...5.0.91) (2026-05-08)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-xml-parser from 5.7.2 to 5.7.3 ([#2231](https://github.com/jayree/sfdx-plugin-manifest/issues/2231)) ([f904332](https://github.com/jayree/sfdx-plugin-manifest/commit/f9043326ec08c75c63aa863aafbca78763465feb))
+  *   fix: alwaysCreateTextNode should create text node when attributes are present for self closing node
+  *   fix stop node expression when ns prefix is removed (found by [iruizsalinas](https://github.com/iruizsalinas))
+  *   update XML Builder to 1.1.7
+  *   mark addEntity deprecated
+
 ## [5.0.90](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.89...5.0.90) (2026-05-08)
 
 
