@@ -1,3 +1,30 @@
+## [5.0.87](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.86...5.0.87) (2026-05-08)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-uri from 3.1.0 to 3.1.2 ([#2227](https://github.com/jayree/sfdx-plugin-manifest/issues/2227)) ([91b72d2](https://github.com/jayree/sfdx-plugin-manifest/commit/91b72d2cdd355b77d579bf0037d7eaf192ea4842))
+  * Fix for https://github.com/fastify/fast-uri/security/advisories/GHSA-q3j6-qgpj-74h6
+  * build(deps-dev): bump tsd from 0.32.0 to 0.33.0 by @dependabot[bot] in https://github.com/fastify/fast-uri/pull/148
+  * build(deps): bump actions/checkout from 4 to 5 by @dependabot[bot] in https://github.com/fastify/fast-uri/pull/149
+  * chore(.npmrc): ignore scripts by @Fdawgs in https://github.com/fastify/fast-uri/pull/150
+  * build(deps-dev): remove @fastify/pre-commit by @Fdawgs in https://github.com/fastify/fast-uri/pull/151
+  * build(deps): bump actions/setup-node from 4 to 5 by @dependabot[bot] in https://github.com/fastify/fast-uri/pull/152
+  * ci(ci): add concurrency config by @Fdawgs in https://github.com/fastify/fast-uri/pull/153
+  * build(deps): bump actions/setup-node from 5 to 6 by @dependabot[bot] in https://github.com/fastify/fast-uri/pull/154
+  * build(deps): bump actions/checkout from 5 to 6 by @dependabot[bot] in https://github.com/fastify/fast-uri/pull/156
+  * chore(license): standardise license notice by @Fdawgs in https://github.com/fastify/fast-uri/pull/159
+  * style: remove trailing whitespace by @Fdawgs in https://github.com/fastify/fast-uri/pull/161
+  * ci: remove unused github files by @Tony133 in https://github.com/fastify/fast-uri/pull/162
+  * chore: update readme by @Tony133 in https://github.com/fastify/fast-uri/pull/164
+  * build(deps): bump fastify/workflows/.github/workflows/plugins-ci-package-manager.yml from 5 to 6 by @dependabot[bot] in https://github.com/fastify/fast-uri/pull/165
+  * build(deps): bump fastify/workflows/.github/workflows/plugins-ci.yml from 5 to 6 by @dependabot[bot] in https://github.com/fastify/fast-uri/pull/166
+  * build(deps-dev): bump neostandard from 0.12.2 to 0.13.0 by @dependabot[bot] in https://github.com/fastify/fast-uri/pull/167
+  * ci: add lock-threads workflow by @Fdawgs in https://github.com/fastify/fast-uri/pull/169
+  * @Tony133 made their first contribution in https://github.com/fastify/fast-uri/pull/162
+  * Fix for https://github.com/fastify/fast-uri/security/advisories/GHSA-v39h-62p7-jpjc
+  * Handle malformed fragment decoding as a parse error by @mcollina in https://github.com/fastify/fast-uri/pull/171
+
 ## [5.0.86](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.85...5.0.86) (2026-05-08)
 
 
