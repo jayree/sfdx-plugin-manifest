@@ -1,3 +1,13 @@
+## [5.0.88](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.87...5.0.88) (2026-05-08)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2228](https://github.com/jayree/sfdx-plugin-manifest/issues/2228)) ([2fa0734](https://github.com/jayree/sfdx-plugin-manifest/commit/2fa07343568ab0a52987af72a94a89aa65e35625))
+  * **deps:** bump ip-address from 10.1.0 to 10.2.0 ([#1761](https://github.com/forcedotcom/source-deploy-retrieve/issues/1761)) ([972082f](https://github.com/forcedotcom/source-deploy-retrieve/commit/972082ff7d4bc57d7d7771d3714f8f1f51c0bc07))
+  * remove fieldMappingConfigItem child per platform-cli team recommendation ([#1757](https://github.com/forcedotcom/source-deploy-retrieve/issues/1757)) ([aa34adb](https://github.com/forcedotcom/source-deploy-retrieve/commit/aa34adbcf1e38d201c90a7ac867f6fc105053d85))
+  * **deps:** bump basic-ftp from 5.3.0 to 5.3.1 ([#1762](https://github.com/forcedotcom/source-deploy-retrieve/issues/1762)) ([19ace28](https://github.com/forcedotcom/source-deploy-retrieve/commit/19ace2893e94aef3086bdb2bc98ce90d1be1325d))
+
 ## [5.0.87](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.86...5.0.87) (2026-05-08)
 
 
