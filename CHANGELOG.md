@@ -1,3 +1,12 @@
+## [5.0.90](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.89...5.0.90) (2026-05-08)
+
+
+### Bug Fixes
+
+* **deps:** bump @jayree/changelog from 1.2.31 to 1.2.32 ([#2229](https://github.com/jayree/sfdx-plugin-manifest/issues/2229)) ([af8c8d7](https://github.com/jayree/sfdx-plugin-manifest/commit/af8c8d7a4efac2cbcb147c3e106506a914c89e92))
+  * **deps:** bump fast-uri from 3.0.1 to 3.1.2 ([#978](https://github.com/jayree/changelog/issues/978)) ([57e02d7](https://github.com/jayree/changelog/commit/57e02d76f6d73733c1669fd5f9b2bdce0d206d84))
+  * **deps:** bump fs-extra from 11.3.4 to 11.3.5 ([#975](https://github.com/jayree/changelog/issues/975)) ([ecf4114](https://github.com/jayree/changelog/commit/ecf4114bd390f0d1c87e47298df19c05ce656a99))
+
 ## [5.0.89](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.88...5.0.89) (2026-05-08)
 
 
