@@ -1,3 +1,11 @@
+## [5.0.89](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.88...5.0.89) (2026-05-08)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 4.11.0 to 4.11.1 ([#2230](https://github.com/jayree/sfdx-plugin-manifest/issues/2230)) ([de59a34](https://github.com/jayree/sfdx-plugin-manifest/commit/de59a342f28a40ae2cbe3de3f778763439e44259))
+  * **deps:** bump ip-address from 10.1.0 to 10.2.0 ([e36a6d8](https://github.com/oclif/core/commit/e36a6d8a89f1ffba43610d8e27b7db21b9b5df64))
+
 ## [5.0.88](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.87...5.0.88) (2026-05-08)
 
 
