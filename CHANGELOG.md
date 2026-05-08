@@ -1,3 +1,12 @@
+## [5.0.86](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.85...5.0.86) (2026-05-08)
+
+
+### Bug Fixes
+
+* **deps:** bump basic-ftp from 5.3.0 to 5.3.1 ([#2225](https://github.com/jayree/sfdx-plugin-manifest/issues/2225)) ([a75d4fa](https://github.com/jayree/sfdx-plugin-manifest/commit/a75d4fabd8e9dd2a0908649a87a16bd96f020144))
+  *   Fixed: Protect against unbounded control response, fixes [https://github.com/patrickjuchli/basic-ftp/security/advisories/GHSA-rpmf-866q-6p89](https://github.com/patrickjuchli/basic-ftp/security/advisories/GHSA-rpmf-866q-6p89).
+  *   Fixed: Protect against unbounded control response, fixes [https://github.com/patrickjuchli/basic-ftp/security/advisories/GHSA-rpmf-866q-6p89](https://github.com/patrickjuchli/basic-ftp/security/advisories/GHSA-rpmf-866q-6p89).
+
 ## [5.0.85](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.84...5.0.85) (2026-05-08)
 
 
