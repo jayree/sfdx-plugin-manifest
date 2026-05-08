@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1778120282039,
+  "lastUpdate": 1778264105457,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -44787,6 +44787,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 325,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0beeebcf61afe011d4f4f04561bbe22262395abf",
+          "message": "fix(deps): bump fast-xml-builder from 1.1.5 to 1.2.0\n\nBumps [fast-xml-builder](https://github.com/NaturalIntelligence/fast-xml-builder) from 1.1.5 to 1.2.0.\n- [Changelog](https://github.com/NaturalIntelligence/fast-xml-builder/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/NaturalIntelligence/fast-xml-builder/compare/v1.1.5...v1.2.0)\n\n---\nupdated-dependencies:\n- dependency-name: fast-xml-builder\n  dependency-version: 1.2.0\n  dependency-type: indirect\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-05-08T18:13:58Z",
+          "tree_id": "31056f924db1266f91b6a943f4b22f272baaecb1",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/0beeebcf61afe011d4f4f04561bbe22262395abf"
+        },
+        "date": 1778264099942,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 2074,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 1265,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 281,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 271,
             "unit": "ms"
           }
         ]
