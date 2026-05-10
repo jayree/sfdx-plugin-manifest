@@ -1,3 +1,11 @@
+## [5.0.93](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.92...5.0.93) (2026-05-10)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.29.0 to 8.29.1 ([#2235](https://github.com/jayree/sfdx-plugin-manifest/issues/2235)) ([0987002](https://github.com/jayree/sfdx-plugin-manifest/commit/09870026b40616eaa8abf7fa5eb5fdedf7b54364))
+  * **deps:** bump fast-uri from 3.0.6 to 3.1.2 in /examples ([a5ae777](https://github.com/forcedotcom/sfdx-core/commit/a5ae777781e72dedfc37f33a523ba7b73da15eed))
+
 ## [5.0.92](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.91...5.0.92) (2026-05-10)
 
 
