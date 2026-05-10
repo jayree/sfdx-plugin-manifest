@@ -1,3 +1,13 @@
+## [5.0.92](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.91...5.0.92) (2026-05-10)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/sf-plugins-core from 12.2.13 to 12.2.16 ([#2236](https://github.com/jayree/sfdx-plugin-manifest/issues/2236)) ([8014033](https://github.com/jayree/sfdx-plugin-manifest/commit/80140338ef6245afeb7d052596ab0894bffaa592))
+  * **deps:** bump fast-uri from 3.1.0 to 3.1.2 ([e82c187](https://github.com/salesforcecli/sf-plugins-core/commit/e82c1872c3b9ddd02cc1372840d3cd51609ee800))
+  * **deps:** bump @oclif/core from 4.11.0 to 4.11.2 ([a9882fd](https://github.com/salesforcecli/sf-plugins-core/commit/a9882fdf48e0f747adf9956e1eafe80d1a4ab89e))
+  * **deps:** bump @oclif/table from 0.5.6 to 0.5.7 ([86f772a](https://github.com/salesforcecli/sf-plugins-core/commit/86f772a3ef134a63c3beba47282ed906da6e0d72))
+
 ## [5.0.91](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.90...5.0.91) (2026-05-08)
 
 
