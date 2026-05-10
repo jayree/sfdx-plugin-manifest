@@ -1,3 +1,13 @@
+## [5.0.94](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.93...5.0.94) (2026-05-10)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2237](https://github.com/jayree/sfdx-plugin-manifest/issues/2237)) ([aec96e1](https://github.com/jayree/sfdx-plugin-manifest/commit/aec96e146b7ac963990d86c6e14571b6527bf1eb))
+  * **deps:** bump fast-xml-builder from 1.1.5 to 1.2.0 ([#1764](https://github.com/forcedotcom/source-deploy-retrieve/issues/1764)) ([44bd6b9](https://github.com/forcedotcom/source-deploy-retrieve/commit/44bd6b9c763f7d151979be24630ecc42cd53ed5f))
+  * **deps:** bump fast-xml-parser from 5.7.2 to 5.7.3 ([#1767](https://github.com/forcedotcom/source-deploy-retrieve/issues/1767)) ([4b3ee26](https://github.com/forcedotcom/source-deploy-retrieve/commit/4b3ee2640c58b7e90331e8422a9b8b81729c8684))
+  * **deps:** bump fast-uri from 3.0.1 to 3.1.2 ([#1765](https://github.com/forcedotcom/source-deploy-retrieve/issues/1765)) ([34fa851](https://github.com/forcedotcom/source-deploy-retrieve/commit/34fa8515dcb5beda4b79801f5ff3ff8426ff15fe))
+
 ## [5.0.93](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.92...5.0.93) (2026-05-10)
 
 
