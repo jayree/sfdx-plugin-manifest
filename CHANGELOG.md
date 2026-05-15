@@ -1,3 +1,15 @@
+## [5.0.95](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.94...5.0.95) (2026-05-15)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.37.6 to 1.38.0 ([#2246](https://github.com/jayree/sfdx-plugin-manifest/issues/2246)) ([d78d222](https://github.com/jayree/sfdx-plugin-manifest/commit/d78d22295157ed2190c19f651a5cb73b18264c3b))
+  * add refresh option to status and statusMatrix ([#2313](https://github.com/isomorphic-git/isomorphic-git/issues/2313)) ([a7420b7](https://github.com/isomorphic-git/isomorphic-git/commit/a7420b7d2c66cc15238db41a711ce8c8cd3b1b9e))
+  * browser entrypoint not being used in some non-node build contexts ([#2309](https://github.com/isomorphic-git/isomorphic-git/issues/2309)) ([199714a](https://github.com/isomorphic-git/isomorphic-git/commit/199714a91c8fc3546d4abcb0591310acabcf08af))
+  * remove duplicated contriobutors ([#2311](https://github.com/isomorphic-git/isomorphic-git/issues/2311)) ([6972b1e](https://github.com/isomorphic-git/isomorphic-git/commit/6972b1ee4186199427be9230e6c49d99e8967433))
+  * Fix images in README ([#2315](https://github.com/isomorphic-git/isomorphic-git/issues/2315)) ([007951f](https://github.com/isomorphic-git/isomorphic-git/commit/007951fe698f6176a2730da82e342e82d86310c7))
+  * point "jsdelivr" field to minified browser build ([#2312](https://github.com/isomorphic-git/isomorphic-git/issues/2312)) ([6e99054](https://github.com/isomorphic-git/isomorphic-git/commit/6e99054362a6ace80bbd3e78fe7eae10fbe86dcc))
+
 ## [5.0.94](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.93...5.0.94) (2026-05-10)
 
 
