@@ -162,6 +162,11 @@ import { worthWalking } from '../utils/worthWalking.js';
  * @param {function(string): boolean} [args.filter] - Filter the results to only those whose filepath matches a function.
  * @param {object} [args.cache] - a [cache](cache.md) object
  * @param {boolean} [args.ignored = false] - include ignored files in the result
+ * @param {boolean} [args.refresh = true] - when false, do not refresh the
+ * `.git/index` stat cache for files whose contents still match the staged
+ * blob. The call becomes read-only with respect to the index, at the cost
+ * of recomputing the SHA1 on subsequent calls for files whose stat info
+ * has drifted.
  *
  * @returns {Promise<Array<StatusRow>>} Resolves with a status matrix, described below.
  * @see StatusRow
@@ -175,6 +180,7 @@ export async function statusMatrix({
   filter,
   cache = {},
   ignored: shouldIgnore = false,
+  refresh = true,
 }: {
   dir: string;
   gitdir?: string;
@@ -184,13 +190,18 @@ export async function statusMatrix({
   filter?: ((arg0: string) => boolean) | undefined;
   cache: object;
   ignored?: boolean;
+  refresh?: boolean;
 }): Promise<StatusRow[]> {
   return _walk({
     fs,
     cache,
     dir,
     gitdir,
-    trees: [TREE({ ref: ref1 }), ref2 ? TREE({ ref: ref2 }) : WORKDIR(), ref2 ? TREE({ ref: ref2 }) : STAGE()],
+    trees: [
+      TREE({ ref: ref1 }),
+      ref2 ? TREE({ ref: ref2 }) : WORKDIR({ refresh }),
+      ref2 ? TREE({ ref: ref2 }) : STAGE(),
+    ],
     // eslint-disable-next-line complexity
     async map(filepath, [head, workdir, stage]) {
       // Ignore ignored files, but only if they are not already tracked.

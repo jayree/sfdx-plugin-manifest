@@ -36,6 +36,10 @@ import { statusMatrix } from '../../api/statusMatrix.js';
 import { filenameMatchesToMap, getLogMessage } from './moveDetection.js';
 
 const ensureWindows = (filepath: string): string => path.win32.normalize(filepath);
+const parseGitConfigOriginFile = (origin: string): string => {
+  const file = origin.startsWith('file:') ? origin.slice('file:'.length) : origin.split(':').slice(1).join(':');
+  return file.startsWith('"') && file.endsWith('"') ? file.slice(1, -1).replaceAll('\\\\', '\\') : file;
+};
 
 export const STAGE = 3;
 
@@ -359,8 +363,7 @@ export class GitRepo {
 
       if (stdout) {
         const [origin, value] = stdout.split('\t');
-        const [, ...rest] = origin.split(':');
-        const file = rest.join(':') || '';
+        const file = parseGitConfigOriginFile(origin);
         if (file !== '.git/config') {
           await this.lifecycle.emitWarning(
             `You have currently set core.autocrlf to ${value} in ${file}. To optimize performance, please execute 'git config --local core.autocrlf ${value}'.`,
@@ -382,14 +385,19 @@ const packageDirToRelativePosixPath =
 
 const fileFilter =
   (packageDirs: string[]) =>
-  (f: string): boolean =>
-    // no hidden files
-    !f.includes(`${path.sep}.`) &&
-    // no node_modules (e.g. uiBundle packages inside force-app)
-    !f.split(path.sep).includes('node_modules') &&
-    // no lwc tests
-    excludeLwcLocalOnlyTest(f) &&
-    // no gitignore files
-    !f.endsWith('.gitignore') &&
-    // isogit uses `startsWith` for filepaths so it's possible to get a false positive
-    packageDirs.some(folderContainsPath(f));
+  (f: string): boolean => {
+    const normalizedPath = ensurePosix(f);
+    const pathSegments = normalizedPath.split(path.posix.sep);
+    return (
+      // no hidden files
+      !pathSegments.some((segment) => segment.startsWith('.')) &&
+      // no node_modules (e.g. uiBundle packages inside force-app)
+      !pathSegments.includes('node_modules') &&
+      // no lwc tests
+      excludeLwcLocalOnlyTest(f) &&
+      // no gitignore files
+      !f.endsWith('.gitignore') &&
+      // isogit uses `startsWith` for filepaths so it's possible to get a false positive
+      packageDirs.some(folderContainsPath(f))
+    );
+  };
