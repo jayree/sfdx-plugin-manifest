@@ -1,3 +1,11 @@
+## [5.0.98](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.97...5.0.98) (2026-05-16)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 4.11.2 to 4.11.3 ([#2242](https://github.com/jayree/sfdx-plugin-manifest/issues/2242)) ([071c4b1](https://github.com/jayree/sfdx-plugin-manifest/commit/071c4b1f006fc797a6cf8468fb540686eecbb966))
+  * updating tinyglobby dependency [skip-validate-pr] ([1dc29ff](https://github.com/oclif/core/commit/1dc29ffa97964467f9fc2f554081ad0684d0fe47))
+
 ## [5.0.97](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.96...5.0.97) (2026-05-16)
 
 
