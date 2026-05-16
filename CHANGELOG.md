@@ -1,3 +1,17 @@
+## [5.0.100](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.99...5.0.100) (2026-05-16)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-xml-parser from 5.7.3 to 5.8.0 ([#2243](https://github.com/jayree/sfdx-plugin-manifest/issues/2243)) ([aa4069d](https://github.com/jayree/sfdx-plugin-manifest/commit/aa4069d1a4a5ff0dda50f7f352751dddba9317ea))
+  *   integrate xml-naming to validate DOCTYPE entity name and notation name (using qname becaue of backward compatibility)
+  *   This will consider xml-version as well. '1.0' is default
+  *   update strnum to 2.3.0
+  *   You can set octal and binary parsing which is bydeault off
+  *   update fast-xml-builder to 1.2.0
+  *   can sanitize tag names if found invalid
+  *   fix format output
+
 ## [5.0.99](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.98...5.0.99) (2026-05-16)
 
 
