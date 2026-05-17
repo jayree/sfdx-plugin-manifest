@@ -94,7 +94,7 @@
     "@smithy/types" "^4.14.1"
     tslib "^2.6.2"
 
-"@aws-sdk/client-s3@^3.1047.0":
+"@aws-sdk/client-s3@^3.1048.0":
   version "3.1048.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/client-s3/-/client-s3-3.1048.0.tgz#c353277839f54100390b9c7bdf041131a3c7530e"
   integrity sha512-SrJn5FteqqtcDBgQIvqLKk3Qn/2vSsi5XR03I53EDDR4CbCdLysVSNgUnjVncEECMua9Pz+nxO0/lEx3TP+6mA==
@@ -1361,10 +1361,10 @@
     semver "^7.8.0"
     ts-json-schema-generator "^1.5.1"
 
-"@oclif/plugin-help@^6.2.48":
-  version "6.2.48"
-  resolved "https://registry.yarnpkg.com/@oclif/plugin-help/-/plugin-help-6.2.48.tgz#e0c6ceb0a5d387dcdb16f6fc72f1e70fe4c5509f"
-  integrity sha512-nvGLBtUZUWrHfoAEDRsRZUHKVwptyZ6F+MErdVRLQBo3dja0GCZH8DE33dA7mBux2KOmbxGqop15gyud9HZYhQ==
+"@oclif/plugin-help@^6.2.49":
+  version "6.2.49"
+  resolved "https://registry.yarnpkg.com/@oclif/plugin-help/-/plugin-help-6.2.49.tgz#863f5ccb36b0453a463232e564a381ff3923fd07"
+  integrity sha512-fEsO0YU7ThtzHE1RGuoHxFu/OGlqxm7PCfFp+U1PS8sde4E0cDqjVDuv78+VKrr45LpC5lWOApj7pm3FNfHrVA==
   dependencies:
     "@oclif/core" "^4"
 
@@ -6934,18 +6934,18 @@ object.values@^1.2.1:
     define-properties "^1.2.1"
     es-object-atoms "^1.0.0"
 
-oclif@^4.23.4:
-  version "4.23.4"
-  resolved "https://registry.yarnpkg.com/oclif/-/oclif-4.23.4.tgz#57e88b277a914db2ed2e6ac201972642bd6d41a3"
-  integrity sha512-dMjgrCgsGlUygCl9rKHw4mCeSGgS8QLyUwrThBkQ3oHrfusVEH61ijp0Y3CTyTbZuWiRvO/50ns1CtePI8T4Gw==
+oclif@^4.23.7:
+  version "4.23.7"
+  resolved "https://registry.yarnpkg.com/oclif/-/oclif-4.23.7.tgz#d20625e79fa4904664580ee2f25600b0fa7c40dc"
+  integrity sha512-rog7/P6l6PXe7O3zWMcKB4prQm35z6NyDfpED6B3UwnPr1Fy+KWdcBHSr6Er3AjmvYsP5wsJwwPEsxUfvMNsyg==
   dependencies:
     "@aws-sdk/client-cloudfront" "^3.1009.0"
-    "@aws-sdk/client-s3" "^3.1047.0"
+    "@aws-sdk/client-s3" "^3.1048.0"
     "@inquirer/confirm" "^3.1.22"
     "@inquirer/input" "^2.2.4"
     "@inquirer/select" "^2.5.0"
     "@oclif/core" "^4.11.2"
-    "@oclif/plugin-help" "^6.2.48"
+    "@oclif/plugin-help" "^6.2.49"
     "@oclif/plugin-not-found" "^3.2.85"
     "@oclif/plugin-warn-if-update-available" "^3.1.57"
     ansis "^3.16.0"
