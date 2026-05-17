@@ -1,3 +1,11 @@
+## [5.0.101](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.100...5.0.101) (2026-05-17)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2256](https://github.com/jayree/sfdx-plugin-manifest/issues/2256)) ([6715d08](https://github.com/jayree/sfdx-plugin-manifest/commit/6715d0828a4292a57910728630ffbb281792bf29))
+  * **deps:** bump @salesforce/core from 8.29.0 to 8.30.3 ([#1772](https://github.com/forcedotcom/source-deploy-retrieve/issues/1772)) ([a5ea289](https://github.com/forcedotcom/source-deploy-retrieve/commit/a5ea2897a84c234bc3238d3819684a63d1553f6f))
+
 ## [5.0.100](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.99...5.0.100) (2026-05-16)
 
 
