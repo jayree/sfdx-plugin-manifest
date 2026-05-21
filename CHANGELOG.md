@@ -1,3 +1,11 @@
+## [5.0.103](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.102...5.0.103) (2026-05-21)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.38.0 to 1.38.1 ([#2258](https://github.com/jayree/sfdx-plugin-manifest/issues/2258)) ([a872d8c](https://github.com/jayree/sfdx-plugin-manifest/commit/a872d8cc70cb3dc0b02b29a452d48b786b7b97a4))
+  * add cloudflare logo ([#2316](https://github.com/isomorphic-git/isomorphic-git/issues/2316)) ([a71a835](https://github.com/isomorphic-git/isomorphic-git/commit/a71a835fc12eb5d42bb22f2c3afaa35ed03aaf74))
+
 ## [5.0.102](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.101...5.0.102) (2026-05-21)
 
 
