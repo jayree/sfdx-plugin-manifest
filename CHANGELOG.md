@@ -1,3 +1,12 @@
+## [5.0.104](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.103...5.0.104) (2026-05-21)
+
+
+### Bug Fixes
+
+* **deps:** bump ws from 8.19.0 to 8.20.1 ([#2259](https://github.com/jayree/sfdx-plugin-manifest/issues/2259)) ([6a02f73](https://github.com/jayree/sfdx-plugin-manifest/commit/6a02f73a7b063bd653b5a3e2a0feb81ce1e0d902))
+  *   Fixed an uninitialized memory disclosure issue in `websocket.close()` (c0327ec1).
+  *   Added exports for the `PerMessageDeflate` class and utilities for the `Sec-WebSocket-Extensions` and `Sec-WebSocket-Protocol` headers (d3503c1f).
+
 ## [5.0.103](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.102...5.0.103) (2026-05-21)
 
 
