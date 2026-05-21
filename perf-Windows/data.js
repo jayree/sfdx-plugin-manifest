@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779377321191,
+  "lastUpdate": 1779389281789,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -47075,6 +47075,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 446,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "75acf2fb2fa696052ac8fbf7d11034058cd5db5a",
+          "message": "fix(deps): bump ws from 8.19.0 to 8.20.1\n\nBumps [ws](https://github.com/websockets/ws) from 8.19.0 to 8.20.1.\n- [Release notes](https://github.com/websockets/ws/releases)\n- [Commits](https://github.com/websockets/ws/compare/8.19.0...8.20.1)\n\n---\nupdated-dependencies:\n- dependency-name: ws\n  dependency-version: 8.20.1\n  dependency-type: indirect\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-05-21T18:45:45Z",
+          "tree_id": "703886e7c704414a95af16168f847e4d49eb9013",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/75acf2fb2fa696052ac8fbf7d11034058cd5db5a"
+        },
+        "date": 1779389274309,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 3922,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 2185,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 409,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 413,
             "unit": "ms"
           }
         ]
