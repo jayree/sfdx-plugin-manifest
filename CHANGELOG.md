@@ -1,3 +1,11 @@
+## [5.0.105](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.104...5.0.105) (2026-05-24)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 4.11.3 to 4.11.4 ([#2262](https://github.com/jayree/sfdx-plugin-manifest/issues/2262)) ([e052a5c](https://github.com/jayree/sfdx-plugin-manifest/commit/e052a5cbddeee55ebd28edfac233cb8fb9bb1410))
+  * **deps:** bump semver from 7.8.0 to 7.8.1 ([65e054c](https://github.com/oclif/core/commit/65e054c5036c7fa8d6e5934902a024cf6c260630))
+
 ## [5.0.104](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.103...5.0.104) (2026-05-21)
 
 
