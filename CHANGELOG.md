@@ -1,3 +1,11 @@
+## [5.0.106](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.105...5.0.106) (2026-05-24)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.30.4 to 8.31.0 ([#2265](https://github.com/jayree/sfdx-plugin-manifest/issues/2265)) ([16ad65b](https://github.com/jayree/sfdx-plugin-manifest/commit/16ad65bd9f708cb72c569f4ce8b8344fffd02198))
+  * persist orgEdition during Org.create for all org types - W-22583951 ([#1290](https://github.com/forcedotcom/sfdx-core/issues/1290)) ([1684b60](https://github.com/forcedotcom/sfdx-core/commit/1684b606d3510d44511e602336beac6fd9290eab))
+
 ## [5.0.105](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.104...5.0.105) (2026-05-24)
 
 
