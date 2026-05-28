@@ -1,3 +1,10 @@
+## [5.0.108](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.107...5.0.108) (2026-05-28)
+
+
+### Bug Fixes
+
+* **deps:** bump tmp from 0.2.5 to 0.2.7 ([#2266](https://github.com/jayree/sfdx-plugin-manifest/issues/2266)) ([f4b4186](https://github.com/jayree/sfdx-plugin-manifest/commit/f4b4186ddc9261d458bd9a019820fc583a080f00))
+
 ## [5.0.107](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.106...5.0.107) (2026-05-24)
 
 
