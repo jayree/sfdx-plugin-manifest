@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779641225716,
+  "lastUpdate": 1779937520970,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -47647,6 +47647,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 357,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5d490a45cd083c8a82f05984cb661a6fc146a5d7",
+          "message": "fix(deps): bump tmp from 0.2.5 to 0.2.7\n\nBumps [tmp](https://github.com/raszi/node-tmp) from 0.2.5 to 0.2.7.\n- [Changelog](https://github.com/raszi/node-tmp/blob/master/CHANGELOG.md)\n- [Commits](https://github.com/raszi/node-tmp/compare/v0.2.5...v0.2.7)\n\n---\nupdated-dependencies:\n- dependency-name: tmp\n  dependency-version: 0.2.7\n  dependency-type: indirect\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-05-28T03:04:25Z",
+          "tree_id": "6c82fe1623ed2d729a35343adefc1f54849d7de4",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/5d490a45cd083c8a82f05984cb661a6fc146a5d7"
+        },
+        "date": 1779937515217,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 1880,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 1082,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 217,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 262,
             "unit": "ms"
           }
         ]
