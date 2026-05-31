@@ -1,3 +1,13 @@
+## [5.0.111](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.110...5.0.111) (2026-05-31)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/sf-plugins-core from 12.2.21 to 12.2.24 ([#2268](https://github.com/jayree/sfdx-plugin-manifest/issues/2268)) ([2d91ae3](https://github.com/jayree/sfdx-plugin-manifest/commit/2d91ae3936f6565120d0f86c9738238e1afe3600))
+  * **deps:** bump @oclif/core from 4.11.2 to 4.11.4 ([d4e8f8d](https://github.com/salesforcecli/sf-plugins-core/commit/d4e8f8d3cd02c5032e694088d4cbdbfd8fc0947c))
+  * **deps:** bump @inquirer/confirm from 6.0.12 to 6.1.1 ([79a033c](https://github.com/salesforcecli/sf-plugins-core/commit/79a033cb003a202358e252b7e3fbae063d6e101e))
+  * **deps:** bump @inquirer/password from 5.0.13 to 5.1.1 ([7af0d4a](https://github.com/salesforcecli/sf-plugins-core/commit/7af0d4a1acbfc5d7b88d7f4d2db2155ba1c4f6d4))
+
 ## [5.0.110](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.109...5.0.110) (2026-05-31)
 
 
