@@ -1,3 +1,13 @@
+## [5.0.109](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.108...5.0.109) (2026-05-31)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.38.1 to 1.38.3 ([#2267](https://github.com/jayree/sfdx-plugin-manifest/issues/2267)) ([e591119](https://github.com/jayree/sfdx-plugin-manifest/commit/e59111937422b66c68ba4180d5c6add17befc7db))
+  * Improve internal error reporting guidance ([#2345](https://github.com/isomorphic-git/isomorphic-git/issues/2345)) ([955acf3](https://github.com/isomorphic-git/isomorphic-git/commit/955acf37adb69e50b98e92addb468f241cfb62e7))
+  * add bot authoring to release commit ([#2329](https://github.com/isomorphic-git/isomorphic-git/issues/2329)) ([328b1ba](https://github.com/isomorphic-git/isomorphic-git/commit/328b1baba0e24c91143c6a26cf947c3e34d3752b))
+  * add Clever Cloud logo to Acknowledgments in README ([#2334](https://github.com/isomorphic-git/isomorphic-git/issues/2334)) ([89f441d](https://github.com/isomorphic-git/isomorphic-git/commit/89f441dce81190037c919e5885db192b88b3072a))
+
 ## [5.0.108](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.107...5.0.108) (2026-05-28)
 
 
