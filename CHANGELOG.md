@@ -1,3 +1,12 @@
+## [5.0.110](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.109...5.0.110) (2026-05-31)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2270](https://github.com/jayree/sfdx-plugin-manifest/issues/2270)) ([a908207](https://github.com/jayree/sfdx-plugin-manifest/commit/a90820719460087829f88c9242e39bd82e6f22d1))
+  * add CnfgItemTypeIdentFieldMap and CnfgItemTypeIdentRule to metadata registry ([#1775](https://github.com/forcedotcom/source-deploy-retrieve/issues/1775)) ([d0839e3](https://github.com/forcedotcom/source-deploy-retrieve/commit/d0839e3d8beaea329d4db2c128337b6ff3e7fde5))
+  * **deps:** bump yaml from 2.8.3 to 2.9.0 ([#1770](https://github.com/forcedotcom/source-deploy-retrieve/issues/1770)) ([8d74361](https://github.com/forcedotcom/source-deploy-retrieve/commit/8d74361d44dd561d22451cebe5de4298dc820dbd))
+
 ## [5.0.109](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.108...5.0.109) (2026-05-31)
 
 
