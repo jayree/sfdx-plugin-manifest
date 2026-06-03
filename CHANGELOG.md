@@ -1,3 +1,11 @@
+## [5.0.112](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.111...5.0.112) (2026-06-03)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.38.3 to 1.38.4 ([#2274](https://github.com/jayree/sfdx-plugin-manifest/issues/2274)) ([2f8d755](https://github.com/jayree/sfdx-plugin-manifest/commit/2f8d755951f4a93807d97657868f249ecf8ddda1))
+  * pass credential config username to auth callbacks ([#2346](https://github.com/isomorphic-git/isomorphic-git/issues/2346)) ([d9920c5](https://github.com/isomorphic-git/isomorphic-git/commit/d9920c57b254fc7de846c9b939cb5eb31242f1a2))
+
 ## [5.0.111](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.110...5.0.111) (2026-05-31)
 
 
