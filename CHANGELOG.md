@@ -1,3 +1,11 @@
+## [5.0.114](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.113...5.0.114) (2026-06-07)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2277](https://github.com/jayree/sfdx-plugin-manifest/issues/2277)) ([ab7926b](https://github.com/jayree/sfdx-plugin-manifest/commit/ab7926b419b457012c2bc3813a55139c5345c01a))
+  * Add HouseholdNamingConfig (264) to the registry ([#1780](https://github.com/forcedotcom/source-deploy-retrieve/issues/1780)) ([4d7f3cb](https://github.com/forcedotcom/source-deploy-retrieve/commit/4d7f3cb98e93420cdbd430323fd3114067e715bf))
+
 ## [5.0.113](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.112...5.0.113) (2026-06-03)
 
 
