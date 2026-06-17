@@ -1,3 +1,18 @@
+## [5.0.116](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.115...5.0.116) (2026-06-17)
+
+
+### Bug Fixes
+
+* **deps:** bump markdown-it from 14.1.1 to 14.2.0 ([#2287](https://github.com/jayree/sfdx-plugin-manifest/issues/2287)) ([a8f8642](https://github.com/jayree/sfdx-plugin-manifest/commit/a8f86427dbe0bea53da9b8d99f3a5d4b7aa699c5))
+  *   Don't end HTML comment blocks on a blank line, [#1155](https://redirect.github.com/markdown-it/markdown-it/issues/1155).
+  *   Properly recognize astral chars (surrogates) in delimiter scans for emphasis-like markers, [#1072](https://redirect.github.com/markdown-it/markdown-it/issues/1072). Big thanks to [`@​tats-u`](https://github.com/tats-u) for his global efforts with improving CJK support.
+  *   Preserve unicode whitespaces when trimm headings/paragraphs, [#1074](https://redirect.github.com/markdown-it/markdown-it/issues/1074).
+  *   More strict entities decode to avoid false positives `;`, [#1096](https://redirect.github.com/markdown-it/markdown-it/issues/1096).
+  *   Restore block parser state on fail in `lheading` rule, [#1131](https://redirect.github.com/markdown-it/markdown-it/issues/1131).
+  *   Fixed poor smartquotes perfomance on > 70k quotes in single block
+  *   Bumped linkify-it to 5.0.1 with fixed potential perfomance issues.
+  *   `isPunctCharCode` to utilities.
+
 ## [5.0.115](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.114...5.0.115) (2026-06-14)
 
 
