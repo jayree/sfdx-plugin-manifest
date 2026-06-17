@@ -1,3 +1,10 @@
+## [5.0.119](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.118...5.0.119) (2026-06-17)
+
+
+### Bug Fixes
+
+* **deps:** bump form-data from 4.0.5 to 4.0.6 ([#2290](https://github.com/jayree/sfdx-plugin-manifest/issues/2290)) ([08120ce](https://github.com/jayree/sfdx-plugin-manifest/commit/08120ce452d83028d45c525b71f8bb16e56c97d5))
+
 ## [5.0.118](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.117...5.0.118) (2026-06-17)
 
 
