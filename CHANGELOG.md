@@ -1,3 +1,44 @@
+## [5.0.118](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.117...5.0.118) (2026-06-17)
+
+
+### Bug Fixes
+
+* **deps:** bump @babel/core from 7.29.0 to 7.29.7 ([#2288](https://github.com/jayree/sfdx-plugin-manifest/issues/2288)) ([9d0e776](https://github.com/jayree/sfdx-plugin-manifest/commit/9d0e7762426a97a996fc2d22c64b50335ff14e8f))
+  * `babel-standalone`
+  * [#17771](https://github.com/babel/babel/pull/17771) [7.x backport] fix: ensure `targets.esmodules` is validated ([@JLHwung](https://github.com/JLHwung))
+  * `babel-generator`
+  * [#17776](https://github.com/babel/babel/pull/17776) [7.x backport] Fix undefined when 64 indents ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
+  * `babel-parser`
+  * [#17840](https://github.com/babel/babel/pull/17840) [7.x backport] async x => {} must be in leading pos ([@JLHwung](https://github.com/JLHwung))
+  * `babel-helpers`, `babel-plugin-transform-async-generator-functions`, `babel-preset-env`, `babel-runtime-corejs3`
+  * [#17805](https://github.com/babel/babel/pull/17805) [7.x backport] fix: Properly handle await in finally ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
+  * `babel-preset-env`
+  * [#17789](https://github.com/babel/babel/pull/17789) [7.x backport] preset-env include/exclude should accept bugfix plugins ([@JLHwung](https://github.com/JLHwung))
+  * [#17813](https://github.com/babel/babel/pull/17813) chore: update eslint peer deps ([@JLHwung](https://github.com/JLHwung))
+  * `babel-plugin-transform-modules-systemjs`
+  * [#17974](https://github.com/babel/babel/pull/17974) [7.x backport]fix(systemjs): improve module string name support ([@JLHwung](https://github.com/JLHwung))
+  * `babel-parser`
+  * [#17923](https://github.com/babel/babel/pull/17923) Support flow extends bound ([@JLHwung](https://github.com/JLHwung))
+  * `babel-helper-create-class-features-plugin`, `babel-plugin-proposal-decorators`
+  * [#17931](https://github.com/babel/babel/pull/17931) fix(decorators): replace super within all removed static elements ([@JLHwung](https://github.com/JLHwung))
+  * `babel-register`
+  * [#17915](https://github.com/babel/babel/pull/17915) Fix thread synchronization issues in `@babel/register` ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
+  * `babel-compat-data`, `babel-plugin-bugfix-safari-rest-destructuring-rhs-array`, `babel-preset-env`
+  * [#17788](https://github.com/babel/babel/pull/17788) Add bugfix plugin for Safari array rest destructuring bug ([@JLHwung](https://github.com/JLHwung))
+  * `babel-parser`
+  * [#17782](https://github.com/babel/babel/pull/17782) Improve trailing comma comment handling ([@JLHwung](https://github.com/JLHwung))
+  * [#17847](https://github.com/babel/babel/pull/17847) Replace npmjs.com links with npmx.dev ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
+  * `babel-helper-import-to-platform-api`, `babel-plugin-proposal-import-wasm-source`, `babel-plugin-transform-json-modules`
+  * [#17818](https://github.com/babel/babel/pull/17818) Load async Wasm and JSON imports in parallel ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
+  * `babel-generator`
+  * [#18014](https://github.com/babel/babel/pull/18014) Catchup source map position in preserveFormat ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
+  * `babel-core`
+  * [#18001](https://github.com/babel/babel/pull/18001) [7.x packport]Improve input source map handling ([@JLHwung](https://github.com/JLHwung))
+  * `babel-core`, `babel-generator`
+  * [#17998](https://github.com/babel/babel/pull/17998) Preserve original identifier names from input sourcemaps (#17992) ([@Andarist](https://github.com/Andarist))
+  * `babel-preset-env`
+  * Update `@babel/*` dependencies
+
 ## [5.0.117](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.116...5.0.117) (2026-06-17)
 
 
