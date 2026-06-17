@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781455466234,
+  "lastUpdate": 1781728594726,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -49187,6 +49187,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 300,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "dd9d5663936a71f5d3fa589803db1b4f0d4d3154",
+          "message": "fix(deps): bump markdown-it from 14.1.1 to 14.2.0\n\nBumps [markdown-it](https://github.com/markdown-it/markdown-it) from 14.1.1 to 14.2.0.\n- [Changelog](https://github.com/markdown-it/markdown-it/blob/master/CHANGELOG.md)\n- [Commits](https://github.com/markdown-it/markdown-it/compare/14.1.1...14.2.0)\n\n---\nupdated-dependencies:\n- dependency-name: markdown-it\n  dependency-version: 14.2.0\n  dependency-type: indirect\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-06-17T20:35:33Z",
+          "tree_id": "e04e6a354eea9e33e62cb29394d80a589231a011",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/dd9d5663936a71f5d3fa589803db1b4f0d4d3154"
+        },
+        "date": 1781728583141,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 1957,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 1296,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 261,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 316,
             "unit": "ms"
           }
         ]
