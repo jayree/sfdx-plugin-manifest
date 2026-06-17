@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781729789641,
+  "lastUpdate": 1781729983547,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -49275,6 +49275,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 536,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d4c4d36d324e8d92e67a80cbe8ca788193ecb3c9",
+          "message": "fix(deps): bump form-data from 4.0.5 to 4.0.6\n\nBumps [form-data](https://github.com/form-data/form-data) from 4.0.5 to 4.0.6.\n- [Release notes](https://github.com/form-data/form-data/releases)\n- [Changelog](https://github.com/form-data/form-data/blob/master/CHANGELOG.md)\n- [Commits](https://github.com/form-data/form-data/compare/v4.0.5...v4.0.6)\n\n---\nupdated-dependencies:\n- dependency-name: form-data\n  dependency-version: 4.0.6\n  dependency-type: indirect\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-06-17T20:56:08Z",
+          "tree_id": "425e2de0e4bfb2349c948a640369fe6f8227bab3",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/d4c4d36d324e8d92e67a80cbe8ca788193ecb3c9"
+        },
+        "date": 1781729972628,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 4295,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 2522,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 403,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 444,
             "unit": "ms"
           }
         ]
