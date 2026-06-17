@@ -1,3 +1,12 @@
+## [5.0.117](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.116...5.0.117) (2026-06-17)
+
+
+### Bug Fixes
+
+* **deps:** bump ws from 8.20.1 to 8.21.0 ([#2289](https://github.com/jayree/sfdx-plugin-manifest/issues/2289)) ([c574f6f](https://github.com/jayree/sfdx-plugin-manifest/commit/c574f6f1429f65770052647536e660ee5ce989e2))
+  *   Introduced the `maxBufferedChunks` and `maxFragments` options (2b2abd45).
+  *   Fixed a remote memory exhaustion DoS vulnerability (2b2abd45).
+
 ## [5.0.116](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.115...5.0.116) (2026-06-17)
 
 
