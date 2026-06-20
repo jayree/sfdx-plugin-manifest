@@ -1,3 +1,13 @@
+## [5.0.122](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.121...5.0.122) (2026-06-20)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-xml-parser from 5.8.0 to 5.9.3 ([#2298](https://github.com/jayree/sfdx-plugin-manifest/issues/2298)) ([2aeef47](https://github.com/jayree/sfdx-plugin-manifest/commit/2aeef47467bc599132bbdfd46003689d8ee3de48))
+  * Harden GitHub Actions workflows by @martincostello in https://github.com/NaturalIntelligence/fast-xml-parser/pull/841
+  * GitHub Actions workflow fixes by @martincostello in https://github.com/NaturalIntelligence/fast-xml-parser/pull/844
+  * @martincostello made their first contribution in https://github.com/NaturalIntelligence/fast-xml-parser/pull/841
+
 ## [5.0.121](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.120...5.0.121) (2026-06-20)
 
 
