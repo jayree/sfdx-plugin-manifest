@@ -1,3 +1,13 @@
+## [5.0.123](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.122...5.0.123) (2026-06-20)
+
+
+### Bug Fixes
+
+* **deps:** bump @jayree/changelog from 1.2.35 to 1.2.36 ([#2292](https://github.com/jayree/sfdx-plugin-manifest/issues/2292)) ([87c6901](https://github.com/jayree/sfdx-plugin-manifest/commit/87c6901cb917f70f9a1c6a76082ac00cec57c829))
+  * **deps:** bump form-data from 4.0.5 to 4.0.6 ([#1014](https://github.com/jayree/changelog/issues/1014)) ([cc8b794](https://github.com/jayree/changelog/commit/cc8b79480cabc715b8691fa60e9981e16b3798a4))
+  * **deps:** bump js-yaml from 4.1.1 to 4.2.0 ([#1013](https://github.com/jayree/changelog/issues/1013)) ([b006f92](https://github.com/jayree/changelog/commit/b006f929af87ca95d259b4c80d7e2006731b6613))
+  * **deps:** bump markdown-it from 14.1.1 to 14.2.0 ([#1011](https://github.com/jayree/changelog/issues/1011)) ([29a1f59](https://github.com/jayree/changelog/commit/29a1f59e1b682c4cd2788605c425599af91ea308))
+
 ## [5.0.122](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.121...5.0.122) (2026-06-20)
 
 
