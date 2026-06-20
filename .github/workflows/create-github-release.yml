@@ -23,7 +23,7 @@ jobs:
         with:
           SVC_CLI_BOT_GITHUB_TOKEN: ${{ secrets.SVC_CLI_BOT_GITHUB_TOKEN }}
 
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           token: ${{ secrets.SVC_CLI_BOT_GITHUB_TOKEN }}
 
