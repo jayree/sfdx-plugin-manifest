@@ -1,3 +1,11 @@
+## [5.0.124](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.123...5.0.124) (2026-06-20)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.31.1 to 8.31.2 ([#2296](https://github.com/jayree/sfdx-plugin-manifest/issues/2296)) ([84ec7b5](https://github.com/jayree/sfdx-plugin-manifest/commit/84ec7b5d40dbad7ae0aebcaf120fbfde634c01cc))
+  * handling postcopyconfig sandboxinfo field for lower orgs too ([#1299](https://github.com/forcedotcom/sfdx-core/issues/1299)) ([521f256](https://github.com/forcedotcom/sfdx-core/commit/521f256b509a60fcc0fb8ef4cf7d6c7f7eed27a2))
+
 ## [5.0.123](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.122...5.0.123) (2026-06-20)
 
 
