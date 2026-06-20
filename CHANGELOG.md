@@ -1,3 +1,11 @@
+## [5.0.120](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.119...5.0.120) (2026-06-20)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2293](https://github.com/jayree/sfdx-plugin-manifest/issues/2293)) ([56f9830](https://github.com/jayree/sfdx-plugin-manifest/commit/56f9830158da7394cf29c438a64aaedc41188f2d))
+  * **registry:** correct lightningOutApp directoryName to plural ([#1785](https://github.com/forcedotcom/source-deploy-retrieve/issues/1785)) ([7cc546a](https://github.com/forcedotcom/source-deploy-retrieve/commit/7cc546a5727728d8363d993a02f3dc5b4d1d5707))
+
 ## [5.0.119](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.118...5.0.119) (2026-06-17)
 
 
