@@ -1,3 +1,10 @@
+## [5.0.126](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.125...5.0.126) (2026-06-20)
+
+
+### Bug Fixes
+
+* **deps:** bump actions/checkout from 6 to 7 ([#2300](https://github.com/jayree/sfdx-plugin-manifest/issues/2300)) ([f90dc4a](https://github.com/jayree/sfdx-plugin-manifest/commit/f90dc4a7a3b008a00ed395d6da0766628cc4ad9d))
+
 ## [5.0.125](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.124...5.0.125) (2026-06-20)
 
 
