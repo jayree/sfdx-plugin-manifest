@@ -1,3 +1,16 @@
+## [5.0.125](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.124...5.0.125) (2026-06-20)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 4.11.4 to 4.11.7 ([#2297](https://github.com/jayree/sfdx-plugin-manifest/issues/2297)) ([6eef8fd](https://github.com/jayree/sfdx-plugin-manifest/commit/6eef8fda5bb18152b9756e8f5044d9c81b629c5f))
+  * include error message in --json output ([2cb3a76](https://github.com/oclif/core/commit/2cb3a7620eb2e11d11a155bb51d6bf91cca9384f)), closes [#1608](https://github.com/oclif/core/issues/1608)
+  * refactored shell identification code ([a33c256](https://github.com/oclif/core/commit/a33c25607551960ce0ea6351f89260b7863adacd))
+  * test failure ([a6ebe3e](https://github.com/oclif/core/commit/a6ebe3e1171919360256e01f55f48011dd1e6104))
+  * typo in powershell command ([e8b6efa](https://github.com/oclif/core/commit/e8b6efa4f87222e2d4e83cee23cd98c3b758b555))
+  * windows shell identification is more reliable @W-22969497@ ([ee8376d](https://github.com/oclif/core/commit/ee8376d6136d606ecc5500d1404928231b2ebe64))
+  * causative errors are now also pretty-printed. @W-22797799@ ([e4dd03c](https://github.com/oclif/core/commit/e4dd03c70d212bf0d1736358b2bca073d5e49f12))
+
 ## [5.0.124](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.123...5.0.124) (2026-06-20)
 
 
