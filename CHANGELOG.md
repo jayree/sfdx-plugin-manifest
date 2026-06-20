@@ -1,3 +1,11 @@
+## [5.0.121](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.120...5.0.121) (2026-06-20)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.38.4 to 1.38.5 ([#2294](https://github.com/jayree/sfdx-plugin-manifest/issues/2294)) ([c7f9fc1](https://github.com/jayree/sfdx-plugin-manifest/commit/c7f9fc11891590d2e5338ee04b2cdeb43371639c))
+  * Support windows file paths in utils/join.js ([#2302](https://github.com/isomorphic-git/isomorphic-git/issues/2302)) ([1395431](https://github.com/isomorphic-git/isomorphic-git/commit/1395431bc1ee8770e6936eeb26da3ec34ca0ae7b))
+
 ## [5.0.120](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.119...5.0.120) (2026-06-20)
 
 
