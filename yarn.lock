@@ -1309,10 +1309,10 @@
   resolved "https://registry.yarnpkg.com/@nolyfill/is-core-module/-/is-core-module-1.0.39.tgz#3dc35ba0f1e66b403c00b39344f870298ebb1c8e"
   integrity sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==
 
-"@oclif/core@^4", "@oclif/core@^4.11.4", "@oclif/core@^4.11.7":
-  version "4.11.7"
-  resolved "https://registry.yarnpkg.com/@oclif/core/-/core-4.11.7.tgz#40dbe261aca1eb9e7ac8bc8f1bbb837017c4db96"
-  integrity sha512-LHii7kSaLvv5bpbS09I7BlI1AQa3Kak/QDyyZOik79ET8tQyt1U5O38al+sYkMxi139105w5gS+aWe+5BlJ0yQ==
+"@oclif/core@^4", "@oclif/core@^4.11.4", "@oclif/core@^4.11.9":
+  version "4.11.9"
+  resolved "https://registry.yarnpkg.com/@oclif/core/-/core-4.11.9.tgz#7dd438f3e48834b2bb219e71d34d397aacebccab"
+  integrity sha512-w8uupjkdEQQcTFp1BUzWZCRNRW4BwXaSnFldHuziqx79F8q4NRCFwgGoMHV48HpJ6Xn9zeN0l3BiuppnPh6bWA==
   dependencies:
     ansi-escapes "^4.3.2"
     ansis "^3.17.0"
