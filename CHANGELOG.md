@@ -1,3 +1,12 @@
+## [5.0.127](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.126...5.0.127) (2026-06-21)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 4.11.7 to 4.11.9 ([#2304](https://github.com/jayree/sfdx-plugin-manifest/issues/2304)) ([eac6295](https://github.com/jayree/sfdx-plugin-manifest/commit/eac6295f7d506ee2055f5d6ad21b5e2db7f8ff32))
+  * **deps:** bump @babel/core from 7.23.0 to 7.29.7 ([3e552ea](https://github.com/oclif/core/commit/3e552eaf2a3f3acadfe2cc1c5ea9d554ef6cdc48))
+  * **deps:** bump tar from 7.5.12 to 7.5.16 ([153400e](https://github.com/oclif/core/commit/153400ebb3690f40621961c69c95a90ebd1994a2))
+
 ## [5.0.126](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.125...5.0.126) (2026-06-20)
 
 
