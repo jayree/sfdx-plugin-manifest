@@ -1,3 +1,16 @@
+## [5.0.130](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.129...5.0.130) (2026-06-28)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.31.2 to 8.31.4 ([#2311](https://github.com/jayree/sfdx-plugin-manifest/issues/2311)) ([de47511](https://github.com/jayree/sfdx-plugin-manifest/commit/de4751146003f508d3746e76ce1a3b551490a0bc))
+  * no edition warning when scratch org uses snapshot @W-22694430@ ([#1304](https://github.com/forcedotcom/sfdx-core/issues/1304)) ([2e0501d](https://github.com/forcedotcom/sfdx-core/commit/2e0501d3489797b45698c2c86c5edf85c7eef710))
+  * updating to jsforce prerelease ([2329fa6](https://github.com/forcedotcom/sfdx-core/commit/2329fa62fdf2b23988c2618912b34fcb3e7397eb))
+  * updating jsforce dependency ([79a1fa5](https://github.com/forcedotcom/sfdx-core/commit/79a1fa5f02c6767350803bb4b9f20233aa29e470))
+  * bumped jsforce to fixed version @W-23121570@ ([09dfab0](https://github.com/forcedotcom/sfdx-core/commit/09dfab076f90e3a507a8e8c12a275dc1cbe8ff64))
+  * temporarily using different workflows @W-23121570@ ([240e162](https://github.com/forcedotcom/sfdx-core/commit/240e162ff9e9c5ce52248f72b8c3c7afe2eb3a9e))
+  * undoing custom workflow ([bd7d018](https://github.com/forcedotcom/sfdx-core/commit/bd7d018dc1c8e03ea3a4f369278d3f768fa7d899))
+
 ## [5.0.129](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.128...5.0.129) (2026-06-28)
 
 
