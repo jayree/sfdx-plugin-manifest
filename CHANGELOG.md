@@ -1,3 +1,12 @@
+## [5.0.129](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.128...5.0.129) (2026-06-28)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 4.11.9 to 4.11.11 ([#2313](https://github.com/jayree/sfdx-plugin-manifest/issues/2313)) ([bb9806a](https://github.com/jayree/sfdx-plugin-manifest/commit/bb9806a6b3d054bad24b2520a8b9d3d40960d84f))
+  * **deps:** bump tinyglobby from 0.2.16 to 0.2.17 ([f941872](https://github.com/oclif/core/commit/f941872a716ec34ad53782e280b8facf0bf41a6e))
+  * **deps:** bump undici from 6.25.0 to 6.27.0 ([319945a](https://github.com/oclif/core/commit/319945a3df0ea99e96053b170c455baa0f4812a6))
+
 ## [5.0.128](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.127...5.0.128) (2026-06-28)
 
 
