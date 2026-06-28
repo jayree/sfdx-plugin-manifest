@@ -1,3 +1,15 @@
+## [5.0.132](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.131...5.0.132) (2026-06-28)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2308](https://github.com/jayree/sfdx-plugin-manifest/issues/2308)) ([3719669](https://github.com/jayree/sfdx-plugin-manifest/commit/3719669a4e7b88e526e8da90f159f6efeadbb712))
+  * **deps:** bump form-data from 4.0.5 to 4.0.6 ([#1791](https://github.com/forcedotcom/source-deploy-retrieve/issues/1791)) ([08a5c70](https://github.com/forcedotcom/source-deploy-retrieve/commit/08a5c70c1c01c2b27eca341b739a4eb55eaa8ace))
+  * **deps:** bump @babel/core from 7.25.2 to 7.29.7 ([#1792](https://github.com/forcedotcom/source-deploy-retrieve/issues/1792)) ([af1fea8](https://github.com/forcedotcom/source-deploy-retrieve/commit/af1fea865968eef07a1bfb003540f67cd8a2ae35))
+  * **deps:** bump @salesforce/core from 8.31.2 to 8.31.4 ([#1797](https://github.com/forcedotcom/source-deploy-retrieve/issues/1797)) ([1234f21](https://github.com/forcedotcom/source-deploy-retrieve/commit/1234f21d384443d9ad90d2ac79a0f7607e0b0db8))
+  * restrict yaml suffix resolution to externalServiceRegistrations directory @W-20424423@ ([#1790](https://github.com/forcedotcom/source-deploy-retrieve/issues/1790)) ([ee5feb3](https://github.com/forcedotcom/source-deploy-retrieve/commit/ee5feb327ab4805298c1cb631b386bb0ea48aecd))
+  * replacements splitted between chunks W-20635868 ([#1699](https://github.com/forcedotcom/source-deploy-retrieve/issues/1699)) ([9b91dd0](https://github.com/forcedotcom/source-deploy-retrieve/commit/9b91dd0265302144e72ba70b6701437c42c74ec8))
+
 ## [5.0.131](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.130...5.0.131) (2026-06-28)
 
 
