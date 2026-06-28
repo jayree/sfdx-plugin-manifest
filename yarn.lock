@@ -1453,7 +1453,7 @@
     strip-ansi "6.0.1"
     ts-retry-promise "^0.8.1"
 
-"@salesforce/core@^8.23.1", "@salesforce/core@^8.30.0", "@salesforce/core@^8.31.2", "@salesforce/core@^8.31.4":
+"@salesforce/core@^8.23.1", "@salesforce/core@^8.31.2", "@salesforce/core@^8.31.4":
   version "8.31.4"
   resolved "https://registry.yarnpkg.com/@salesforce/core/-/core-8.31.4.tgz#481f0330347da5ef4d23ebf6a8bd628a54106103"
   integrity sha512-G/zgo9ygO+0l2x9gCOnp6BR7q2Rlt8MHDoj4DIpu2utsZznIcH7iNTEoKjul1BMKDPARuBGUp0Tyr0c8dLf32g==
@@ -1543,7 +1543,7 @@
     cli-progress "^3.12.0"
     terminal-link "^3.0.0"
 
-"@salesforce/source-deploy-retrieve@12.36.8", "@salesforce/source-deploy-retrieve@^12.35.9":
+"@salesforce/source-deploy-retrieve@12.36.8", "@salesforce/source-deploy-retrieve@^12.36.6":
   version "12.36.8"
   resolved "https://registry.yarnpkg.com/@salesforce/source-deploy-retrieve/-/source-deploy-retrieve-12.36.8.tgz#5404a7d9e626d107080e56c94bd285463422356a"
   integrity sha512-LFd+6Ow0MR7RtQLDckrB2dw1GVkYbSoSFxs01yvxeG8ivdKFip3RcxW1lLCgA15DBHrIA01O6h1Je/K2VhILWw==
@@ -1563,14 +1563,14 @@
     proxy-agent "^6.5.0"
     yaml "^2.9.0"
 
-"@salesforce/source-tracking@7.8.16":
-  version "7.8.16"
-  resolved "https://registry.yarnpkg.com/@salesforce/source-tracking/-/source-tracking-7.8.16.tgz#b9b28c3d9ec1a18e2775862d5b6fd760009e1fed"
-  integrity sha512-l6nUZpueLqApzIlwQWS72oU+NOnLRGOvhMjPxGUdII+vFBdFxniHOXd0vFEx3LZFJ3ksk95x5pQgV0nEKW9TRw==
+"@salesforce/source-tracking@7.8.19":
+  version "7.8.19"
+  resolved "https://registry.yarnpkg.com/@salesforce/source-tracking/-/source-tracking-7.8.19.tgz#3be1cbbc8b0852feda3e891560d0cb727dc0333e"
+  integrity sha512-Bn+gg1FQ0btg2EJ6yTg0iLw1Z7GLFPifRLm2IzjWqPWbGAJWhflqrWJ7JrYSW8ckTQ4YW1RczkuiJ8yhwVmjkQ==
   dependencies:
-    "@salesforce/core" "^8.30.0"
+    "@salesforce/core" "^8.31.2"
     "@salesforce/kit" "^3.2.6"
-    "@salesforce/source-deploy-retrieve" "^12.35.9"
+    "@salesforce/source-deploy-retrieve" "^12.36.6"
     "@salesforce/ts-types" "^2.0.12"
     fast-xml-parser "^5.5.7"
     graceful-fs "^4.2.11"
