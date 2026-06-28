@@ -1,3 +1,11 @@
+## [5.0.131](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.130...5.0.131) (2026-06-28)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/sf-plugins-core from 12.2.24 to 12.2.25 ([#2312](https://github.com/jayree/sfdx-plugin-manifest/issues/2312)) ([399d5c7](https://github.com/jayree/sfdx-plugin-manifest/commit/399d5c7cba9b2d62a6bff72e354902184fd35874))
+  * bumping sfdx-core version @W-23121570@ ([#723](https://github.com/salesforcecli/sf-plugins-core/issues/723)) ([c93d0c9](https://github.com/salesforcecli/sf-plugins-core/commit/c93d0c9ce69725933ba555a8dfbffe95fe0a5bba))
+
 ## [5.0.130](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.129...5.0.130) (2026-06-28)
 
 
