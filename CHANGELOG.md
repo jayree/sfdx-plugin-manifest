@@ -1,3 +1,12 @@
+## [5.0.133](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.132...5.0.133) (2026-06-28)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-tracking from 7.8.16 to 7.8.19 ([#2314](https://github.com/jayree/sfdx-plugin-manifest/issues/2314)) ([b5121a7](https://github.com/jayree/sfdx-plugin-manifest/commit/b5121a78c2299c44776a68472f4159571b9d30aa))
+  * metadata with ampersand (%26) never syncs in source tracking @W-21360609@ ([#862](https://github.com/forcedotcom/source-tracking/issues/862)) ([6436a18](https://github.com/forcedotcom/source-tracking/commit/6436a1852c484122fc1aac76156d049543b2f5ca))
+  * **deps:** bump form-data from 4.0.4 to 4.0.6 ([1eb28ca](https://github.com/forcedotcom/source-tracking/commit/1eb28caa1f41b68f10d1414f8dc37dc182259175))
+
 ## [5.0.132](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.131...5.0.132) (2026-06-28)
 
 
