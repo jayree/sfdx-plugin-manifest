@@ -1,3 +1,11 @@
+## [5.0.135](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.134...5.0.135) (2026-07-06)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.38.5 to 1.38.6 ([#2323](https://github.com/jayree/sfdx-plugin-manifest/issues/2323)) ([3c52555](https://github.com/jayree/sfdx-plugin-manifest/commit/3c525554cb95c71da6162bd3274922be8a6df4b9))
+  * fixing git internals ([#2370](https://github.com/isomorphic-git/isomorphic-git/issues/2370)) ([823843d](https://github.com/isomorphic-git/isomorphic-git/commit/823843d1cd19182df79bc907c767f5bcecb39a0b))
+
 ## [5.0.134](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.133...5.0.134) (2026-07-06)
 
 
