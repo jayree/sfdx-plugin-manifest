@@ -1,3 +1,13 @@
+## [5.0.137](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.136...5.0.137) (2026-07-06)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2319](https://github.com/jayree/sfdx-plugin-manifest/issues/2319)) ([8a7cbbe](https://github.com/jayree/sfdx-plugin-manifest/commit/8a7cbbedfda20c3c7327b8f5453dfe15f68a1c32))
+  * @W-23020460@ - add support for UiWidgetBundle metadata ([#1799](https://github.com/forcedotcom/source-deploy-retrieve/issues/1799)) ([99297ab](https://github.com/forcedotcom/source-deploy-retrieve/commit/99297abba9c33bd8ddf186e754408a6a38d3840a))
+  * improve polling frequency calculation @W-21321719@ @W-20866522@ ([#1794](https://github.com/forcedotcom/source-deploy-retrieve/issues/1794)) ([9cc09ea](https://github.com/forcedotcom/source-deploy-retrieve/commit/9cc09ea1d84918edc3cb002d24229e0a641e59ab))
+  * **deps:** bump @salesforce/core from 8.31.4 to 8.31.5 ([#1800](https://github.com/forcedotcom/source-deploy-retrieve/issues/1800)) ([6f170ed](https://github.com/forcedotcom/source-deploy-retrieve/commit/6f170ed765e7d640598e8d88bbc9e677b13e9a9d))
+
 ## [5.0.136](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.135...5.0.136) (2026-07-06)
 
 
