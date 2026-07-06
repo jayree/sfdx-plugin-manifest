@@ -1,3 +1,13 @@
+## [5.0.136](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.135...5.0.136) (2026-07-06)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 4.11.11 to 4.11.14 ([#2316](https://github.com/jayree/sfdx-plugin-manifest/issues/2316)) ([2c38f48](https://github.com/jayree/sfdx-plugin-manifest/commit/2c38f48d3669d1b277a1b01589a5149caa8158ab))
+  * **deps:** bump @sigstore/verify from 3.1.0 to 3.1.1 ([e00068f](https://github.com/oclif/core/commit/e00068f19a0a4a1ae6cb8ab7c2cb39cf504f0f36))
+  * **deps:** bump sigstore from 4.1.0 to 4.1.1 ([5d7fe54](https://github.com/oclif/core/commit/5d7fe5425b666451ad6573859d34a4d55b830850))
+  * **deps:** bump @sigstore/core from 3.2.0 to 3.2.1 ([b45271f](https://github.com/oclif/core/commit/b45271f2816313df69b292778b46c317a7c629a1))
+
 ## [5.0.135](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.134...5.0.135) (2026-07-06)
 
 
