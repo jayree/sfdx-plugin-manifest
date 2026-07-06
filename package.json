@@ -21,7 +21,7 @@
     "isomorphic-git": "1.38.6"
   },
   "devDependencies": {
-    "@oclif/plugin-command-snapshot": "^5.3.29",
+    "@oclif/plugin-command-snapshot": "^5.3.30",
     "@salesforce/cli-plugins-testkit": "^5.3.62",
     "@salesforce/dev-scripts": "^11.0.4",
     "@salesforce/ts-sinon": "^1.4.36",
