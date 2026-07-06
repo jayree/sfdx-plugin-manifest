@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783345039257,
+  "lastUpdate": 1783345192614,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -51343,6 +51343,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 486,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8ed409545d03fce66a400a317ad69e378407543a",
+          "message": "chore(deps-dev): bump prettier from 3.9.1 to 3.9.4\n\nBumps [prettier](https://github.com/prettier/prettier) from 3.9.1 to 3.9.4.\n- [Release notes](https://github.com/prettier/prettier/releases)\n- [Changelog](https://github.com/prettier/prettier/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/prettier/prettier/compare/3.9.1...3.9.4)\n\n---\nupdated-dependencies:\n- dependency-name: prettier\n  dependency-version: 3.9.4\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-07-06T13:35:40Z",
+          "tree_id": "d7935b038e364e0536c6b7977fce006f321a5e3b",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/8ed409545d03fce66a400a317ad69e378407543a"
+        },
+        "date": 1783345183936,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 3774,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 2196,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 381,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 478,
             "unit": "ms"
           }
         ]
