@@ -1,3 +1,11 @@
+## [5.0.134](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.133...5.0.134) (2026-07-06)
+
+
+### Bug Fixes
+
+* **deps:** bump @jayree/changelog from 1.2.37 to 1.2.38 ([#2324](https://github.com/jayree/sfdx-plugin-manifest/issues/2324)) ([87930af](https://github.com/jayree/sfdx-plugin-manifest/commit/87930afa1f044f153748219fb19cb903e3fe3ea5))
+  * **deps:** bump fs-extra from 11.3.5 to 11.3.6 ([#1028](https://github.com/jayree/changelog/issues/1028)) ([1e343d4](https://github.com/jayree/changelog/commit/1e343d4e183762ead619ff72cb4b419705c27b15))
+
 ## [5.0.133](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.132...5.0.133) (2026-06-28)
 
 
