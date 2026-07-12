@@ -1,3 +1,11 @@
+## [5.0.138](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.137...5.0.138) (2026-07-12)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/sf-plugins-core from 12.2.25 to 12.2.26 ([#2332](https://github.com/jayree/sfdx-plugin-manifest/issues/2332)) ([836895c](https://github.com/jayree/sfdx-plugin-manifest/commit/836895cb815bf4b6b4e4da51a2af0da2261caef1))
+  * use SF env var in loglevel msg ([15de11b](https://github.com/salesforcecli/sf-plugins-core/commit/15de11bf4ff6d3c9f33ec48900e6e9024680b52d))
+
 ## [5.0.137](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.136...5.0.137) (2026-07-06)
 
 
