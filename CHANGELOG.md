@@ -1,3 +1,12 @@
+## [5.0.140](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.139...5.0.140) (2026-07-12)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-xml-parser from 5.9.3 to 5.10.0 ([#2330](https://github.com/jayree/sfdx-plugin-manifest/issues/2330)) ([1173973](https://github.com/jayree/sfdx-plugin-manifest/commit/1173973e8d92f36ae4bf63089683439450cd49c0))
+  * Bump actions/checkout from 6.0.3 to 7.0.0 by @dependabot[bot] in https://github.com/NaturalIntelligence/fast-xml-parser/pull/849
+  * Bump zizmorcore/zizmor-action from 0.5.6 to 0.5.7 by @dependabot[bot] in https://github.com/NaturalIntelligence/fast-xml-parser/pull/848
+
 ## [5.0.139](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.138...5.0.139) (2026-07-12)
 
 
