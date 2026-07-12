@@ -1,3 +1,12 @@
+## [5.0.141](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.140...5.0.141) (2026-07-12)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.32.0 to 8.32.2 ([#2328](https://github.com/jayree/sfdx-plugin-manifest/issues/2328)) ([b652f8e](https://github.com/jayree/sfdx-plugin-manifest/commit/b652f8ef0be168a56b2d75934a521e2c81b8112b))
+  * validate cached instanceApiVersion before use @W-23157155@ ([#1307](https://github.com/forcedotcom/sfdx-core/issues/1307)) ([27bd8ef](https://github.com/forcedotcom/sfdx-core/commit/27bd8ef35702a60bb42616cb75310dee1f70853a))
+  * remove double slash in determineIfDevHub request URL @W-23299190@ ([#1310](https://github.com/forcedotcom/sfdx-core/issues/1310)) ([a62de2f](https://github.com/forcedotcom/sfdx-core/commit/a62de2f16a10375c1bb3eb7e111585afdd5a3833))
+
 ## [5.0.140](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.139...5.0.140) (2026-07-12)
 
 
