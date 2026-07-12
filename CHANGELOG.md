@@ -1,3 +1,11 @@
+## [5.0.139](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.138...5.0.139) (2026-07-12)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.38.6 to 1.38.7 ([#2329](https://github.com/jayree/sfdx-plugin-manifest/issues/2329)) ([9bb30a9](https://github.com/jayree/sfdx-plugin-manifest/commit/9bb30a94918c99d2c7dba266ccf19e5fa6d8183f))
+  * NTFS Alternate Data Streams handling ([#2376](https://github.com/isomorphic-git/isomorphic-git/issues/2376)) ([e5dbec6](https://github.com/isomorphic-git/isomorphic-git/commit/e5dbec689fab148fd5b518f3d4958c9d728886f9))
+
 ## [5.0.138](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.137...5.0.138) (2026-07-12)
 
 
