@@ -1,3 +1,12 @@
+## [5.0.142](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.141...5.0.142) (2026-07-16)
+
+
+### Bug Fixes
+
+* **deps:** bump websocket-driver from 0.7.4 to 0.7.5 ([#2333](https://github.com/jayree/sfdx-plugin-manifest/issues/2333)) ([661c308](https://github.com/jayree/sfdx-plugin-manifest/commit/661c30844139d13bb4f39e9aee1ed2442c362118))
+  *   Close a draft-75/76 connection if a length header grows to exceed the configured max length
+  *   Fail the connection if a message is larger than the configured max length after extension processing
+
 ## [5.0.141](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.140...5.0.141) (2026-07-12)
 
 
