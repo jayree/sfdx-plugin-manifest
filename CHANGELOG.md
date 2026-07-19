@@ -1,3 +1,11 @@
+## [5.0.144](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.143...5.0.144) (2026-07-19)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2337](https://github.com/jayree/sfdx-plugin-manifest/issues/2337)) ([ca6c9fa](https://github.com/jayree/sfdx-plugin-manifest/commit/ca6c9fa5fc35e0ebef6f4d398bc6fc8f35ac824e))
+  * validate UIBundle ui-bundle.json at deploy time, not resolution @W-23232523@ ([#1796](https://github.com/forcedotcom/source-deploy-retrieve/issues/1796)) ([b53af06](https://github.com/forcedotcom/source-deploy-retrieve/commit/b53af06cab85add2eaefb7d8ee03c7fa4413071a)), closes [forcedotcom/cli#3576](https://github.com/forcedotcom/cli/issues/3576)
+
 ## [5.0.143](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.142...5.0.143) (2026-07-19)
 
 
