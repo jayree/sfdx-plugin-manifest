@@ -1,3 +1,12 @@
+## [5.0.143](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.142...5.0.143) (2026-07-19)
+
+
+### Bug Fixes
+
+* **deps:** bump @jayree/changelog from 1.2.38 to 1.2.39 ([#2335](https://github.com/jayree/sfdx-plugin-manifest/issues/2335)) ([1f82324](https://github.com/jayree/sfdx-plugin-manifest/commit/1f82324d7429eb0449f1269009dc76164d159a4a))
+  * **deps:** bump marked from 18.0.5 to 18.0.6 ([#1050](https://github.com/jayree/changelog/issues/1050)) ([895f917](https://github.com/jayree/changelog/commit/895f917db37af006a86eacd2e04395379d49c36f))
+  * **deps:** bump websocket-driver from 0.7.4 to 0.7.5 ([#1044](https://github.com/jayree/changelog/issues/1044)) ([27bf1e4](https://github.com/jayree/changelog/commit/27bf1e4b80cdcbec6a312aedd2dfe90821651963))
+
 ## [5.0.142](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.141...5.0.142) (2026-07-16)
 
 
