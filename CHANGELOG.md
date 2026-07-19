@@ -1,3 +1,11 @@
+## [5.0.147](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.146...5.0.147) (2026-07-19)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.38.7 to 1.38.8 ([#2341](https://github.com/jayree/sfdx-plugin-manifest/issues/2341)) ([a2e8b23](https://github.com/jayree/sfdx-plugin-manifest/commit/a2e8b23b38735dcf0759b773b70b444cb72bc876))
+  * unsafe symlink from cherry pick ([#2377](https://github.com/isomorphic-git/isomorphic-git/issues/2377)) ([4664c8e](https://github.com/isomorphic-git/isomorphic-git/commit/4664c8e1147c3c7ba87c027e92093d28607ef4c0))
+
 ## [5.0.146](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.145...5.0.146) (2026-07-19)
 
 
