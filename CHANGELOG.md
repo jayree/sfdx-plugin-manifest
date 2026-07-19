@@ -1,3 +1,12 @@
+## [5.0.146](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.145...5.0.146) (2026-07-19)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.32.2 to 8.32.4 ([#2340](https://github.com/jayree/sfdx-plugin-manifest/issues/2340)) ([f238dd9](https://github.com/jayree/sfdx-plugin-manifest/commit/f238dd950cd7a2592497b7b8e09bc7f085d7cdae))
+  * validate sfdcLoginUrl domain before use as OAuth endpoint @W-22835124@ ([652a692](https://github.com/forcedotcom/sfdx-core/commit/652a6920f5f2bd7d57d63321aebdf5bb48eea5a7))
+  * **deps:** bump websocket-driver from 0.7.4 to 0.7.5 ([9fd28dd](https://github.com/forcedotcom/sfdx-core/commit/9fd28dd2046da06c54340868e34dc8cf589e7557))
+
 ## [5.0.145](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.144...5.0.145) (2026-07-19)
 
 
