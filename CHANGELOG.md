@@ -1,3 +1,10 @@
+## [5.0.148](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.147...5.0.148) (2026-07-20)
+
+
+### Bug Fixes
+
+* **deps:** bump actions/setup-node from 6 to 7 ([#2334](https://github.com/jayree/sfdx-plugin-manifest/issues/2334)) ([c388266](https://github.com/jayree/sfdx-plugin-manifest/commit/c388266b7d36c9d0545a2604b6546e6a52521f7b))
+
 ## [5.0.147](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.146...5.0.147) (2026-07-19)
 
 
