@@ -1,3 +1,11 @@
+## [5.0.149](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.148...5.0.149) (2026-07-20)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.38.8 to 1.38.9 ([#2343](https://github.com/jayree/sfdx-plugin-manifest/issues/2343)) ([69c210e](https://github.com/jayree/sfdx-plugin-manifest/commit/69c210eb906b87cd319f3a1a22ec8a66a9167679))
+  * Preserve binary files when writing conflicted working tree ([#2380](https://github.com/isomorphic-git/isomorphic-git/issues/2380)) ([b41b1ab](https://github.com/isomorphic-git/isomorphic-git/commit/b41b1abc3df87326e639b49d0694915540d6dfb5))
+
 ## [5.0.148](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.147...5.0.148) (2026-07-20)
 
 
