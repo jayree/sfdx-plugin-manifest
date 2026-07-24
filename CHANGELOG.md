@@ -1,3 +1,11 @@
+## [5.0.156](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.155...5.0.156) (2026-07-24)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-uri from 3.1.2 to 3.1.4 ([#2351](https://github.com/jayree/sfdx-plugin-manifest/issues/2351)) ([446c8d3](https://github.com/jayree/sfdx-plugin-manifest/commit/446c8d3d569f69dbdecb77fd02e323999222b3e9))
+  * Fixes: https://github.com/fastify/fast-uri/security/advisories/GHSA-4c8g-83qw-93j6
+
 ## [5.0.155](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.154...5.0.155) (2026-07-24)
 
 
