@@ -1,3 +1,12 @@
+## [5.0.153](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.152...5.0.153) (2026-07-24)
+
+
+### Bug Fixes
+
+* **deps:** bump linkify-it from 5.0.1 to 5.0.2 ([#2352](https://github.com/jayree/sfdx-plugin-manifest/issues/2352)) ([0d234a0](https://github.com/jayree/sfdx-plugin-manifest/commit/0d234a03f33b17fff5228cc09ff2354bf8084ca2))
+  *   Fixed DoS in `mailto:` links (restrict user name to 64 chars).
+  *   Restricted user/pass part length in links.
+
 ## [5.0.152](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.151...5.0.152) (2026-07-24)
 
 
