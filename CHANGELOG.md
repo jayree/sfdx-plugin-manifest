@@ -1,3 +1,11 @@
+## [5.0.150](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.149...5.0.150) (2026-07-24)
+
+
+### Bug Fixes
+
+* **deps:** bump fs-extra from 11.3.6 to 11.4.0 ([#2344](https://github.com/jayree/sfdx-plugin-manifest/issues/2344)) ([81acfe4](https://github.com/jayree/sfdx-plugin-manifest/commit/81acfe4510ba1a3442c6662adb414868ab13aba0))
+  *   Proper `EEXIST` error when trying to create a symlink and the dest already exists as a broken symlink ([#925](https://redirect.github.com/jprichardson/node-fs-extra/issues/925), [#1076](https://redirect.github.com/jprichardson/node-fs-extra/pull/1076))
+
 ## [5.0.149](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.148...5.0.149) (2026-07-20)
 
 
