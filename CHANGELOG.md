@@ -1,3 +1,16 @@
+## [5.0.151](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.150...5.0.151) (2026-07-24)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 8.32.4 to 8.32.6 ([#2349](https://github.com/jayree/sfdx-plugin-manifest/issues/2349)) ([2b114f8](https://github.com/jayree/sfdx-plugin-manifest/commit/2b114f802a6e67de426890d03a487e6f2fe6de01))
+  * add env vars to override scratch org signup Connected App ([168a718](https://github.com/forcedotcom/sfdx-core/commit/168a7186aebbae93aec335f1c0af67ab594028a8))
+  * fall back to 1d for unrecognized SF_LOG_ROTATION_PERIOD values @W-23050508@ ([#1314](https://github.com/forcedotcom/sfdx-core/issues/1314)) ([26cfc6a](https://github.com/forcedotcom/sfdx-core/commit/26cfc6ae0046ee17d3e6e122cc9fbfec7c243419))
+  * prevent parent ECA credentials from overriding auth code exchange ([7d237b6](https://github.com/forcedotcom/sfdx-core/commit/7d237b60b089234f9bac62376020bbadd45a1f57))
+  * use auth code exchange when signup app is overridden via env var ([deffe8d](https://github.com/forcedotcom/sfdx-core/commit/deffe8dee52e7f9f2a858361d0dff4bc7ee11503))
+  * **deps:** bump fast-uri from 3.0.1 to 3.1.4 ([e0d01fb](https://github.com/forcedotcom/sfdx-core/commit/e0d01fb76b39b6003f88fc77fe080b6c7b4930a0))
+  * skip parent auth lookup when SF_SCRATCH_SIGNUP_CONNECTED_APP is set ([4ee5085](https://github.com/forcedotcom/sfdx-core/commit/4ee5085be0f9671f82b3a41600948188576a5b47))
+
 ## [5.0.150](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.149...5.0.150) (2026-07-24)
 
 
