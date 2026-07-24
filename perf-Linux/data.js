@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784881094999,
+  "lastUpdate": 1784881797386,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -53323,6 +53323,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 385,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "91795a65cc46fe3ce3fe9731c3313cd0d30b7844",
+          "message": "fix(deps): bump fast-uri from 3.1.2 to 3.1.4\n\nBumps [fast-uri](https://github.com/fastify/fast-uri) from 3.1.2 to 3.1.4.\n- [Release notes](https://github.com/fastify/fast-uri/releases)\n- [Commits](https://github.com/fastify/fast-uri/compare/v3.1.2...v3.1.4)\n\n---\nupdated-dependencies:\n- dependency-name: fast-uri\n  dependency-version: 3.1.4\n  dependency-type: indirect\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-07-24T08:29:03Z",
+          "tree_id": "e61c10fe57397ef02f1a6153c713483178786649",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/91795a65cc46fe3ce3fe9731c3313cd0d30b7844"
+        },
+        "date": 1784881790604,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 2100,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 1347,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 292,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 344,
             "unit": "ms"
           }
         ]
