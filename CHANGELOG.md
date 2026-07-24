@@ -1,3 +1,13 @@
+## [5.0.155](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.154...5.0.155) (2026-07-24)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.38.9 to 1.40.0 ([#2347](https://github.com/jayree/sfdx-plugin-manifest/issues/2347)) ([04555eb](https://github.com/jayree/sfdx-plugin-manifest/commit/04555ebab0fddeeaeabd59c24a468979e4f37486))
+  * **commit:** add disallowEmpty option ([#2384](https://github.com/isomorphic-git/isomorphic-git/issues/2384)) ([bb1c7c2](https://github.com/isomorphic-git/isomorphic-git/commit/bb1c7c2190394f475c2d29489511f51351a992b5))
+  * **log:** include changed file object ids ([#2385](https://github.com/isomorphic-git/isomorphic-git/issues/2385)) ([5aff8af](https://github.com/isomorphic-git/isomorphic-git/commit/5aff8afa3135eb15b8507619ea3cd30526ebbe69))
+  * **statusMatrix:** do not traverse symlinks in GitWalkerFs ([#1215](https://github.com/isomorphic-git/isomorphic-git/issues/1215)) ([#2382](https://github.com/isomorphic-git/isomorphic-git/issues/2382)) ([90ea101](https://github.com/isomorphic-git/isomorphic-git/commit/90ea101d329daa84b99cc0140a6275896ebbaf68))
+
 ## [5.0.154](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.153...5.0.154) (2026-07-24)
 
 
