@@ -1,3 +1,12 @@
+## [5.0.154](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.153...5.0.154) (2026-07-24)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 4.11.14 to 4.13.0 ([#2345](https://github.com/jayree/sfdx-plugin-manifest/issues/2345)) ([2f2a109](https://github.com/jayree/sfdx-plugin-manifest/commit/2f2a1093fa5a0f682cf254a290c30ae0321e5445))
+  * add `Args.option()` for typed arg options ([93139f7](https://github.com/oclif/core/commit/93139f70d058a4f7dc6725a8fadfd5391001ff27))
+  * expose root help formatter ([644c4aa](https://github.com/oclif/core/commit/644c4aaf82d82315e0db7d4bfd3422ad8a80dbff))
+
 ## [5.0.153](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.152...5.0.153) (2026-07-24)
 
 
