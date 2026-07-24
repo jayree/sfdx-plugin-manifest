@@ -1,3 +1,11 @@
+## [5.0.152](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.151...5.0.152) (2026-07-24)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/sf-plugins-core from 12.2.26 to 12.2.27 ([#2348](https://github.com/jayree/sfdx-plugin-manifest/issues/2348)) ([0a5fb8a](https://github.com/jayree/sfdx-plugin-manifest/commit/0a5fb8a63bfefb714ad3a0fac9bd84e54ab154c1))
+  * **deps:** bump linkify-it from 5.0.0 to 5.0.2 ([b7464d2](https://github.com/salesforcecli/sf-plugins-core/commit/b7464d20d76d9d7f7ae0eb6670d4a47e7e953ef9))
+
 ## [5.0.151](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.150...5.0.151) (2026-07-24)
 
 
