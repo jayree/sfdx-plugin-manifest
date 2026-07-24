@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784884235863,
+  "lastUpdate": 1784884803775,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -53543,6 +53543,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 459,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b03d17148c25d741ad3da923ab748aaa2a335d55",
+          "message": "fix(deps): bump linkify-it from 5.0.1 to 5.0.2\n\nBumps [linkify-it](https://github.com/markdown-it/linkify-it) from 5.0.1 to 5.0.2.\n- [Changelog](https://github.com/markdown-it/linkify-it/blob/master/CHANGELOG.md)\n- [Commits](https://github.com/markdown-it/linkify-it/compare/5.0.1...5.0.2)\n\n---\nupdated-dependencies:\n- dependency-name: linkify-it\n  dependency-version: 5.0.2\n  dependency-type: indirect\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-07-24T09:18:08Z",
+          "tree_id": "2c320c731cedb7c02db8d88854c9a084100ce54d",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/b03d17148c25d741ad3da923ab748aaa2a335d55"
+        },
+        "date": 1784884795847,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 3791,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 2293,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 428,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 456,
             "unit": "ms"
           }
         ]
