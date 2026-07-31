@@ -1,3 +1,14 @@
+## [6.0.0](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.158...6.0.0) (2026-07-31)
+
+
+### ⚠ BREAKING CHANGES
+
+* raises minimum Node to >=22.0.0
+
+### Features
+
+* require Node >=22.0.0, drop EOL Node versions ([#2360](https://github.com/jayree/sfdx-plugin-manifest/issues/2360)) ([7a95cb8](https://github.com/jayree/sfdx-plugin-manifest/commit/7a95cb8df889c8ecd22d0341e0ae640e3db3ce16))
+
 ## [5.0.158](https://github.com/jayree/sfdx-plugin-manifest/compare/5.0.157...5.0.158) (2026-07-31)
 
 
