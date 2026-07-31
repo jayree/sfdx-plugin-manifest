@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785480476180,
+  "lastUpdate": 1785481848322,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -54467,6 +54467,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 385,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jayree.git@icloud.com",
+            "name": "jayree",
+            "username": "jayree"
+          },
+          "committer": {
+            "email": "jayree.git@icloud.com",
+            "name": "jayree",
+            "username": "jayree"
+          },
+          "distinct": true,
+          "id": "b6fc7a723ba217e7e2f6e7dff63b157191bb7847",
+          "message": "feat!: require Node >=22.0.0, drop EOL Node versions\n\nBREAKING CHANGE: raises minimum Node to >=22.0.0",
+          "timestamp": "2026-07-31T09:08:43+02:00",
+          "tree_id": "39003987f1b082a26575b5a6e2caca9e82859cf9",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/b6fc7a723ba217e7e2f6e7dff63b157191bb7847"
+        },
+        "date": 1785481841301,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 2154,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 1387,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 385,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 396,
             "unit": "ms"
           }
         ]
