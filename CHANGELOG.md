@@ -1,3 +1,10 @@
+## [6.0.2](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.1...6.0.2) (2026-08-05)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-uri from 3.1.4 to 3.1.5 ([#2362](https://github.com/jayree/sfdx-plugin-manifest/issues/2362)) ([7ce7c41](https://github.com/jayree/sfdx-plugin-manifest/commit/7ce7c417716e2b32d47a7049aa6d1602146311a8))
+
 ## [6.0.1](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.0...6.0.1) (2026-08-01)
 
 
