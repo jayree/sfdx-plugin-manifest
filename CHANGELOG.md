@@ -1,3 +1,11 @@
+## [6.0.4](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.3...6.0.4) (2026-08-07)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 9.0.0 to 9.1.0 ([#2363](https://github.com/jayree/sfdx-plugin-manifest/issues/2363)) ([951d97f](https://github.com/jayree/sfdx-plugin-manifest/commit/951d97fe8507765b573587b2ffe17a6f821390b9))
+  * env vars to override scratch org signup Connected App @W-23543471@ ([#1315](https://github.com/forcedotcom/sfdx-core/issues/1315)) ([78321c7](https://github.com/forcedotcom/sfdx-core/commit/78321c700c5a419da391f0596ed7337f7a5ec765))
+
 ## [6.0.3](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.2...6.0.3) (2026-08-07)
 
 
