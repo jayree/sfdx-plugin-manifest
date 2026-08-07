@@ -1,3 +1,11 @@
+## [6.0.3](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.2...6.0.3) (2026-08-07)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve from 13.0.0 to 13.0.1 ([#2366](https://github.com/jayree/sfdx-plugin-manifest/issues/2366)) ([b8db61a](https://github.com/jayree/sfdx-plugin-manifest/commit/b8db61a2eda6cbfef28e844bc2f8ba793f21d5ce))
+  * resolved zip-slip vulnerability (W-23558165) ([#1812](https://github.com/forcedotcom/source-deploy-retrieve/issues/1812)) ([0264f5a](https://github.com/forcedotcom/source-deploy-retrieve/commit/0264f5acdf46001cb126a929aabe7965b7259f7d))
+
 ## [6.0.2](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.1...6.0.2) (2026-08-05)
 
 
