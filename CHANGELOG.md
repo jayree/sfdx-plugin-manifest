@@ -1,3 +1,11 @@
+## [6.0.9](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.8...6.0.9) (2026-08-14)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.41.3 to 1.41.4 ([#2377](https://github.com/jayree/sfdx-plugin-manifest/issues/2377)) ([f3056b7](https://github.com/jayree/sfdx-plugin-manifest/commit/f3056b720f48adef6d5ad5a71fc192d1de644794))
+  * restore checkout filepaths from the index ([#2409](https://github.com/isomorphic-git/isomorphic-git/issues/2409)) ([25dc739](https://github.com/isomorphic-git/isomorphic-git/commit/25dc739c32277992506a594114b20fb112db3b90))
+
 ## [6.0.8](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.7...6.0.8) (2026-08-14)
 
 
