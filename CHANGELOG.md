@@ -1,3 +1,11 @@
+## [6.0.7](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.6...6.0.7) (2026-08-14)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 9.1.0 to 9.1.1 ([#2373](https://github.com/jayree/sfdx-plugin-manifest/issues/2373)) ([986ce51](https://github.com/jayree/sfdx-plugin-manifest/commit/986ce51668378d7afc6be76d4d03af969d325cd1))
+  * resolve TS2694 pino.TransportSingleOptions type error in emitted .d.ts @W-23751214@ ([#1324](https://github.com/forcedotcom/sfdx-core/issues/1324)) ([19b05bc](https://github.com/forcedotcom/sfdx-core/commit/19b05bc6d485b63aca6d232fc2b724edcd4d3e8b))
+
 ## [6.0.6](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.5...6.0.6) (2026-08-08)
 
 
