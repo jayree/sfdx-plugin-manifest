@@ -5,7 +5,14 @@ updates:
     schedule:
       interval: 'weekly'
       day: 'sunday'
+      time: '22:00'
+      timezone: 'Europe/Berlin'
     versioning-strategy: 'increase'
+    cooldown:
+      exclude:
+        - '@salesforce/source-deploy-retrieve'
+        - '@salesforce/source-tracking'
+        - 'isomorphic-git'
     labels:
       - 'dependencies'
     open-pull-requests-limit: 50
@@ -20,3 +27,5 @@ updates:
     schedule:
       interval: 'weekly'
       day: 'saturday'
+      time: '22:00'
+      timezone: 'Europe/Berlin'
