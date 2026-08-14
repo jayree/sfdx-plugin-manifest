@@ -1,3 +1,22 @@
+## [6.0.8](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.7...6.0.8) (2026-08-14)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.40.0 to 1.41.3 ([#2372](https://github.com/jayree/sfdx-plugin-manifest/issues/2372)) ([084f5c5](https://github.com/jayree/sfdx-plugin-manifest/commit/084f5c5ec1ef52b808ccda08a4d5840f9f27de21))
+  * **http:** support custom fetchOptions in built-in HTTP clients ([#2369](https://github.com/isomorphic-git/isomorphic-git/issues/2369)) ([4492cf9](https://github.com/isomorphic-git/isomorphic-git/commit/4492cf96ea4dd531518ef1f61ed66dd40bad008a)), closes [#1246](https://github.com/isomorphic-git/isomorphic-git/issues/1246)
+  * exclude git system files when expanding a ref ([#2393](https://github.com/isomorphic-git/isomorphic-git/issues/2393)) ([268d9e9](https://github.com/isomorphic-git/isomorphic-git/commit/268d9e94a352816d7dc21c0ab071d2f5309204f4)), closes [#767](https://github.com/isomorphic-git/isomorphic-git/issues/767) [#709](https://github.com/isomorphic-git/isomorphic-git/issues/709) [#767](https://github.com/isomorphic-git/isomorphic-git/issues/767)
+  * global acquire lock ([#2401](https://github.com/isomorphic-git/isomorphic-git/issues/2401)) ([5767a6f](https://github.com/isomorphic-git/isomorphic-git/commit/5767a6f8a36a15e54c6301da85b907a183e698fa))
+  * don't split a CRLF that straddles two chunks in splitLines ([#2397](https://github.com/isomorphic-git/isomorphic-git/issues/2397)) ([aa6812c](https://github.com/isomorphic-git/isomorphic-git/commit/aa6812cd674bf2f9d4cd3c9ad7bcaf608ce80b90))
+  * apply .gitignore only to files that are not tracked ([#2394](https://github.com/isomorphic-git/isomorphic-git/issues/2394)) ([f8bf9db](https://github.com/isomorphic-git/isomorphic-git/commit/f8bf9dba3a0c9528238c32dc606752306608649b)), closes [#765](https://github.com/isomorphic-git/isomorphic-git/issues/765) [#765](https://github.com/isomorphic-git/isomorphic-git/issues/765)
+  * don't crash on a peeled tag whose tag the prefix filtered out ([#2398](https://github.com/isomorphic-git/isomorphic-git/issues/2398)) ([7276b1c](https://github.com/isomorphic-git/isomorphic-git/commit/7276b1c0bd483fd7fa4a80c067ae4d48b38a4de9))
+  * **ci:** stop passing the string 'undefined' to bundlewatch ([#2396](https://github.com/isomorphic-git/isomorphic-git/issues/2396)) ([da73fff](https://github.com/isomorphic-git/isomorphic-git/commit/da73fffb1b2cc6b8a883097f503317a3b13e7809)), closes [#2208](https://github.com/isomorphic-git/isomorphic-git/issues/2208)
+  * read url credentials with the WHATWG parser ([#2399](https://github.com/isomorphic-git/isomorphic-git/issues/2399)) ([435278f](https://github.com/isomorphic-git/isomorphic-git/commit/435278f5d70965b78544a876ae53e3e867b01b9f))
+  * recognize the scp-like syntax with a user other than git ([#2400](https://github.com/isomorphic-git/isomorphic-git/issues/2400)) ([332c66d](https://github.com/isomorphic-git/isomorphic-git/commit/332c66dbc28d31982b45ea8479e16763d8ae24a5))
+  * expose internal git lock for tests ([#2404](https://github.com/isomorphic-git/isomorphic-git/issues/2404)) ([0d7c8e0](https://github.com/isomorphic-git/isomorphic-git/commit/0d7c8e0d9b4ef1cc69ca1784c67acf50bd4a2672))
+  * recursive mkdir ([#2402](https://github.com/isomorphic-git/isomorphic-git/issues/2402)) ([d27f143](https://github.com/isomorphic-git/isomorphic-git/commit/d27f143ca17ebdbba346a80ceba5701c7ee8b5f2))
+  * honour core.autocrlf when status hashes the working copy ([#2395](https://github.com/isomorphic-git/isomorphic-git/issues/2395)) ([b31efe2](https://github.com/isomorphic-git/isomorphic-git/commit/b31efe2cd254513b79cac6415e7f0e2afa64c1fc)), closes [#1275](https://github.com/isomorphic-git/isomorphic-git/issues/1275) [#1275](https://github.com/isomorphic-git/isomorphic-git/issues/1275)
+
 ## [6.0.7](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.6...6.0.7) (2026-08-14)
 
 
