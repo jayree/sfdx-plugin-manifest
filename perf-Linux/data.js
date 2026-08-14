@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786708410417,
+  "lastUpdate": 1786712988643,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -55259,6 +55259,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 458,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jayree.git@icloud.com",
+            "name": "jayree",
+            "username": "jayree"
+          },
+          "committer": {
+            "email": "jayree.git@icloud.com",
+            "name": "jayree",
+            "username": "jayree"
+          },
+          "distinct": true,
+          "id": "ae247462ba14229d9a35e637704d018b040e7188",
+          "message": "chore: support TypeScript 7 test execution",
+          "timestamp": "2026-08-14T15:07:39+02:00",
+          "tree_id": "89a9ff8dae0dc9f647f877936b190312c2e0d05b",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/ae247462ba14229d9a35e637704d018b040e7188"
+        },
+        "date": 1786712981845,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 1937,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 1160,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 249,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 316,
             "unit": "ms"
           }
         ]
