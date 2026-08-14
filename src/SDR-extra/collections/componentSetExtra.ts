@@ -18,7 +18,7 @@ import { ComponentSet, TreeContainer, RegistryAccess, SourceComponent } from '@s
 import { SfProject, Lifecycle, Logger, SfError } from '@salesforce/core';
 import fs from 'graceful-fs';
 import { GitDiffResolver } from '../resolve/gitDiffResolver.js';
-import { FromGitDiffOptions } from './types.js';
+import type { FromGitDiffOptions } from './types.js';
 
 let logger: Logger;
 const getLogger = (): Logger => {
@@ -86,7 +86,6 @@ export class ComponentSetExtra extends ComponentSet {
     fsPaths = fsPaths?.map((filepath) => {
       const resolved = path.resolve(filepath);
       if (!fs.existsSync(resolved)) {
-         
         throw new SfError(`The sourcepath "${resolved}" is not a valid source file path.`);
       }
       return resolved;

@@ -1,5 +1,5 @@
 import { ComponentSet } from '@salesforce/source-deploy-retrieve';
-import { FromGitDiffOptions } from './types.js';
+import type { FromGitDiffOptions } from './types.js';
 export declare class ComponentSetExtra extends ComponentSet {
     /**
      * Resolve metadata components from git diff <ref> HEAD.

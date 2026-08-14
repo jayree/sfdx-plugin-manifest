@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { OptionalTreeRegistryOptions } from '@salesforce/source-deploy-retrieve';
+import type { OptionalTreeRegistryOptions } from '@salesforce/source-deploy-retrieve';
 
 export type FromGitDiffOptions = {
   /**
