@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786707248704,
+  "lastUpdate": 1786708501405,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -55215,6 +55215,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 511,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jayree.git@icloud.com",
+            "name": "jayree",
+            "username": "jayree"
+          },
+          "committer": {
+            "email": "jayree.git@icloud.com",
+            "name": "jayree",
+            "username": "jayree"
+          },
+          "distinct": true,
+          "id": "43b0a0d1188910f1c403611724423db41bb93c33",
+          "message": "chore: update to dev-scripts 13.0.2 and eslint-config-salesforce-typescript 6.0.0",
+          "timestamp": "2026-08-14T13:52:38+02:00",
+          "tree_id": "7690a4641e9a64045c0f8d08fc50e138936002c3",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/43b0a0d1188910f1c403611724423db41bb93c33"
+        },
+        "date": 1786708492862,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 3757,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 2224,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 419,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 489,
             "unit": "ms"
           }
         ]
