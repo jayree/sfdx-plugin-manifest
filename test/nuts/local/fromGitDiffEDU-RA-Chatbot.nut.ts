@@ -43,11 +43,11 @@ describe('result testing with EDU-RA-Chatbot', () => {
 
   let emitWarningStub: sinon.SinonStub;
 
-  beforeEach(function () {
+  beforeEach(() => {
     emitWarningStub = sinon.stub(process, 'emitWarning');
   });
 
-  afterEach(function () {
+  afterEach(() => {
     emitWarningStub.restore();
   });
 
@@ -71,6 +71,7 @@ describe('result testing with EDU-RA-Chatbot', () => {
         ref: ['c0e0918a5e3effb1d2774759d4798618b83251a2', 'd68f23aa8c39e61e861454ade8f88b0715df2409'],
         fsPaths: ['app'],
       });
+       
       throw new Error('This test should have thrown');
     } catch (err) {
       const error = err as SfError;
@@ -84,6 +85,7 @@ describe('result testing with EDU-RA-Chatbot', () => {
         ref: ['123', '456'],
         fsPaths: ['force-app'],
       });
+       
       throw new Error('This test should have thrown');
     } catch (err) {
       const error = err as SfError;
@@ -94,6 +96,7 @@ describe('result testing with EDU-RA-Chatbot', () => {
   it('should fail returning "updated dialog" with wrong single ref', async () => {
     try {
       await ComponentSetExtra.fromGitDiff('HEAD~111');
+       
       throw new Error('This test should have thrown');
     } catch (err) {
       const error = err as SfError;
@@ -104,6 +107,7 @@ describe('result testing with EDU-RA-Chatbot', () => {
   it('should fail returning "updated dialog" with wrong multi string ref', async () => {
     try {
       await ComponentSetExtra.fromGitDiff('HEAD~1....HEAD~2');
+       
       throw new Error('This test should have thrown');
     } catch (err) {
       const error = err as SfError;

@@ -21,17 +21,19 @@
     "isomorphic-git": "1.40.0"
   },
   "devDependencies": {
-    "@oclif/plugin-command-snapshot": "^5.3.34",
-    "@salesforce/cli-plugins-testkit": "^5.3.65",
-    "@salesforce/dev-scripts": "^11.0.4",
+    "@oclif/plugin-command-snapshot": "^5.3.35",
+    "@salesforce/cli-plugins-testkit": "^5.3.66",
+    "@salesforce/dev-scripts": "^13.0.2",
     "@salesforce/ts-sinon": "^1.4.36",
+    "@types/chai": "^5.2.3",
     "@types/fs-extra": "^11.0.4",
     "@types/graceful-fs": "^4.1.9",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^26",
+    "@types/sinon": "^22.0.0",
     "c8": "^12.0.0",
-    "eslint-config-oclif": "^6.0.179",
-    "eslint-config-salesforce-license": "^1.0.2",
-    "eslint-plugin-prettier": "^5.5.6",
-    "eslint-plugin-sf-plugin": "^1.20.33",
+    "eslint": "^10.8.1",
+    "eslint-config-salesforce-typescript": "^6.0.0",
     "oclif": "^4.23.30",
     "patch-package": "^8.0.1",
     "prettier": "^3.9.6",
@@ -143,7 +145,7 @@
       ]
     },
     "compile": {
-      "command": "tsc --build --pretty",
+      "command": "tsc -p . --pretty --incremental",
       "files": [
         "src/**/*.ts",
         "**/tsconfig.json",
@@ -167,11 +169,12 @@
       "output": []
     },
     "lint": {
-      "command": "eslint --color --cache --cache-location .eslintcache .",
+      "command": "eslint src test --color --cache --cache-location .eslintcache",
       "files": [
         "src/**/*.ts",
         "test/**/*.ts",
         "messages/**",
+        "**/eslint.config.*",
         "**/.eslint*",
         "**/tsconfig.json"
       ],

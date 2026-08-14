@@ -1,11 +1,5 @@
 {
   "exclude-scripts": ["test:command-reference", "link-check"],
-  "devDepOverrides": [
-    "prettier",
-    "pretty-quick",
-    "typedoc",
-    "typedoc-plugin-missing-exports",
-    "eslint-config-salesforce-license"
-  ],
+  "devDepOverrides": ["prettier", "pretty-quick", "typedoc", "typedoc-plugin-missing-exports"],
   "strict": true
 }

@@ -57,6 +57,7 @@ const redirectToCliRepoError = (e: unknown): never => {
       `An internal error caused this command to fail. isomorphic-git error:${os.EOL}${e.data.message}`,
       e.name,
     );
+     
     throw error;
   }
   throw e;
@@ -89,6 +90,7 @@ export class GitRepo {
     return GitRepo.instanceMap.get(options.dir) as GitRepo;
   }
 
+   
   public async resolveRef(ref: string): Promise<string | undefined> {
     return ref ? git.resolveRef({ fs, dir: this.dir, ref }) : undefined;
   }
@@ -148,6 +150,7 @@ export class GitRepo {
     } else if (a.length === 1) {
       ref1 = a[0];
     } else {
+       
       throw new Error(`Ambiguous ${util.format('argument%s', ref.length === 1 ? '' : 's')}: ${ref}
   See more help with --help`);
     }
@@ -203,6 +206,7 @@ export class GitRepo {
       }
     }
     if (resolvedRef === undefined) {
+       
       throw new Error(`ambiguous argument '${ref}': unknown revision or path not in the working tree.`);
     }
     return resolvedRef;
@@ -350,6 +354,7 @@ export class GitRepo {
       });
       return { oid: log.oid, parents: log.commit.parent };
     } catch {
+       
       throw new Error(
         `ambiguous argument '${ref}': unknown revision or path not in the working tree.
   See more help with --help`,
