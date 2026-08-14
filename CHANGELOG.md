@@ -1,3 +1,11 @@
+## [6.0.11](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.10...6.0.11) (2026-08-14)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-tracking from 8.0.0 to 8.1.0 ([#2374](https://github.com/jayree/sfdx-plugin-manifest/issues/2374)) ([45f59c5](https://github.com/jayree/sfdx-plugin-manifest/commit/45f59c59af43145199609efd2cd90b581a9595b8))
+  * add SF_SOURCE_TRACKING_ASSUME_SYNCED env var to skip local status scan ([#865](https://github.com/forcedotcom/source-tracking/issues/865)) ([b412120](https://github.com/forcedotcom/source-tracking/commit/b412120805e3f87800814f395dccae4abc9bd10b))
+
 ## [6.0.10](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.9...6.0.10) (2026-08-14)
 
 
