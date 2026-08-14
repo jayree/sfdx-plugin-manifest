@@ -102,6 +102,7 @@ export default class CleanupManifest extends SfCommand<void> {
       this.log(`Cleanup manifest file template '${file}' was created`);
     } else {
       if (!flags['manifest'] || !(await fs.pathExists(flags['manifest']))) {
+         
         throw new CLIError(`The following error occurred:\n  ${StandardColors.info('Missing required flag manifest')}`);
       }
       await this.cleanupManifestFile(flags['manifest'], file);

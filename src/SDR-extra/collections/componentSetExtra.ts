@@ -54,6 +54,7 @@ export class ComponentSetExtra extends ComponentSet {
    */
   // eslint-disable-next-line @typescript-eslint/unified-signatures
   public static async fromGitDiff(options: FromGitDiffOptions): Promise<ComponentSet>;
+  // eslint-disable-next-line complexity
   public static async fromGitDiff(input: string | string[] | FromGitDiffOptions): Promise<ComponentSet> {
     let fsPaths: string[] | undefined;
     let registry = new RegistryAccess();
@@ -85,6 +86,7 @@ export class ComponentSetExtra extends ComponentSet {
     fsPaths = fsPaths?.map((filepath) => {
       const resolved = path.resolve(filepath);
       if (!fs.existsSync(resolved)) {
+         
         throw new SfError(`The sourcepath "${resolved}" is not a valid source file path.`);
       }
       return resolved;

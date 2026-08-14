@@ -75,13 +75,13 @@ export default class GitDiffCommand extends SfCommand<GitDiffCommandResult> {
   private componentSet!: ComponentSetExtra;
   private destructiveChangesOnly!: boolean;
 
-  // eslint-disable-next-line sf-plugin/should-parse-flags
   public async run(): Promise<GitDiffCommandResult> {
     await this.createManifest();
     return this.formatResult();
   }
 
   protected async getSourceApiVersion(): Promise<Optional<string>> {
+     
     const projectConfig = await this.project?.resolveProjectConfig();
     return getString(projectConfig, 'sourceApiVersion') ?? undefined;
   }
