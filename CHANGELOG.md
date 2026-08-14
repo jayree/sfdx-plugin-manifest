@@ -1,3 +1,12 @@
+## [6.0.10](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.9...6.0.10) (2026-08-14)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve from 13.0.1 to 13.1.1 ([#2376](https://github.com/jayree/sfdx-plugin-manifest/issues/2376)) ([4cc5238](https://github.com/jayree/sfdx-plugin-manifest/commit/4cc5238aa718dd66f6db7ec0f6e6eeb8e5bb727c))
+  * add AiAgentDefinition and AiAgentDefinitionVersion metadata types @W-23818734@ ([#1819](https://github.com/forcedotcom/source-deploy-retrieve/issues/1819)) ([24f738c](https://github.com/forcedotcom/source-deploy-retrieve/commit/24f738cd721b26b28fdb03ff63379741349fb64d))
+  * resolved TOCTOU attack (W-23808206) ([#1820](https://github.com/forcedotcom/source-deploy-retrieve/issues/1820)) ([ce7e89a](https://github.com/forcedotcom/source-deploy-retrieve/commit/ce7e89a31a72a718513912559b64c6224c82b684))
+
 ## [6.0.9](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.8...6.0.9) (2026-08-14)
 
 
