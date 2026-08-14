@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786713454661,
+  "lastUpdate": 1786715499042,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -55347,6 +55347,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 424,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2eda5a213b2d4e18014e7e6335c279d38df5ad4b",
+          "message": "fix(deps): bump isomorphic-git from 1.40.0 to 1.41.3\n\nBumps [isomorphic-git](https://github.com/isomorphic-git/isomorphic-git) from 1.40.0 to 1.41.3.\n- [Release notes](https://github.com/isomorphic-git/isomorphic-git/releases)\n- [Commits](https://github.com/isomorphic-git/isomorphic-git/compare/v1.40.0...v1.41.3)\n\n---\nupdated-dependencies:\n- dependency-name: isomorphic-git\n  dependency-version: 1.41.3\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-08-14T13:48:27Z",
+          "tree_id": "687e2cc95b116b597cecc12307adaf1e4806d48e",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/2eda5a213b2d4e18014e7e6335c279d38df5ad4b"
+        },
+        "date": 1786715475337,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 2743,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 1634,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 267,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 336,
             "unit": "ms"
           }
         ]
