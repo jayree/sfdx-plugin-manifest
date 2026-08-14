@@ -1,2 +1,2 @@
 export { ComponentSetExtra } from './componentSetExtra.js';
-export { FromGitDiffOptions } from './types.js';
+export type { FromGitDiffOptions } from './types.js';

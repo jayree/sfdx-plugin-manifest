@@ -1,4 +1,4 @@
-import { OptionalTreeRegistryOptions } from '@salesforce/source-deploy-retrieve';
+import type { OptionalTreeRegistryOptions } from '@salesforce/source-deploy-retrieve';
 export type FromGitDiffOptions = {
     /**
      * Git ref to resolve components against
