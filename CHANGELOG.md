@@ -1,3 +1,14 @@
+## [6.0.13](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.12...6.0.13) (2026-08-16)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-xml-parser from 5.10.1 to 5.11.0 ([#2379](https://github.com/jayree/sfdx-plugin-manifest/issues/2379)) ([3ba3201](https://github.com/jayree/sfdx-plugin-manifest/commit/3ba32015a0dc8cceb7d2d2168ccc07d0acdcbe8f))
+  * add support for endIndex in node metadata (5.x edition) by @Wain-PC in https://github.com/NaturalIntelligence/fast-xml-parser/pull/850
+  * fix: don't crash on a closing tag with no matching opening tag by @hdimer in https://github.com/NaturalIntelligence/fast-xml-parser/pull/861
+  * @Wain-PC made their first contribution in https://github.com/NaturalIntelligence/fast-xml-parser/pull/850
+  * @hdimer made their first contribution in https://github.com/NaturalIntelligence/fast-xml-parser/pull/861
+
 ## [6.0.12](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.11...6.0.12) (2026-08-16)
 
 
