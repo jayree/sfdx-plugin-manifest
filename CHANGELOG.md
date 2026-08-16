@@ -1,3 +1,12 @@
+## [6.0.12](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.11...6.0.12) (2026-08-16)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 4.13.3 to 4.13.5 ([#2378](https://github.com/jayree/sfdx-plugin-manifest/issues/2378)) ([8cb57c9](https://github.com/jayree/sfdx-plugin-manifest/commit/8cb57c90b62bb77d70de7e5de30c182c749337f6))
+  * resolved security vulnerability in powershell path (W-23807278) ([911e9d2](https://github.com/oclif/core/commit/911e9d257d4862dd4935f05e944fa5ab3bf948e9))
+  * replaced require with dynamic import (W-23807278) ([d35e325](https://github.com/oclif/core/commit/d35e325edc943bfa54e1f120c835cf6f37cd954e))
+
 ## [6.0.11](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.10...6.0.11) (2026-08-14)
 
 
