@@ -1,3 +1,11 @@
+## [6.0.15](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.14...6.0.15) (2026-08-20)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 4.13.5 to 4.14.0 ([#2383](https://github.com/jayree/sfdx-plugin-manifest/issues/2383)) ([ecbaa2c](https://github.com/jayree/sfdx-plugin-manifest/commit/ecbaa2c53f6252a3b3ac1612221230561de7b9ea))
+  * bumping to eslint v10 (W-23473845) ([248de04](https://github.com/oclif/core/commit/248de042ece58a10c6af4708490fcfd36e881ab8))
+
 ## [6.0.14](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.13...6.0.14) (2026-08-20)
 
 
