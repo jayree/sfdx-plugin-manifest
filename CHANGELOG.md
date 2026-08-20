@@ -1,3 +1,12 @@
+## [6.0.16](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.15...6.0.16) (2026-08-20)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.41.4 to 1.41.7 ([#2382](https://github.com/jayree/sfdx-plugin-manifest/issues/2382)) ([adc0b7b](https://github.com/jayree/sfdx-plugin-manifest/commit/adc0b7bd07d8c405a68168c89dcc6779031b50a9))
+  * include file mode changes in filepath log ([#2413](https://github.com/isomorphic-git/isomorphic-git/issues/2413)) ([07c6fe7](https://github.com/isomorphic-git/isomorphic-git/commit/07c6fe725b6e23b7069013e2b10e0d8e085cf9a2))
+  * return best merge bases for DAG histories ([#2412](https://github.com/isomorphic-git/isomorphic-git/issues/2412)) ([a7f747f](https://github.com/isomorphic-git/isomorphic-git/commit/a7f747fd31afedd062f27610bd43f4363bb6d9cf))
+
 ## [6.0.15](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.14...6.0.15) (2026-08-20)
 
 
