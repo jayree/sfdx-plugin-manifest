@@ -1,3 +1,11 @@
+## [6.0.17](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.16...6.0.17) (2026-08-20)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve from 13.1.1 to 13.2.0 ([#2381](https://github.com/jayree/sfdx-plugin-manifest/issues/2381)) ([1ac4923](https://github.com/jayree/sfdx-plugin-manifest/commit/1ac49231b18939e09a7a1549580083cce8afa517))
+  * export stdValueSetRegistry.json from main index.ts to be called properly outside this repo - W-23802414 ([#1822](https://github.com/forcedotcom/source-deploy-retrieve/issues/1822)) ([54dda96](https://github.com/forcedotcom/source-deploy-retrieve/commit/54dda96adbf7001ab201a4cd63232afdc89441d4))
+
 ## [6.0.16](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.15...6.0.16) (2026-08-20)
 
 
