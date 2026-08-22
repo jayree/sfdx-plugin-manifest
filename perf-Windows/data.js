@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787257164694,
+  "lastUpdate": 1787424397407,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -56315,6 +56315,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 429,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "15fed9ec8ea68a9be3a13bab56463d49f35e25a6",
+          "message": "chore(deps-dev): bump eslint from 10.8.1 to 10.9.0\n\nBumps [eslint](https://github.com/eslint/eslint) from 10.8.1 to 10.9.0.\n- [Release notes](https://github.com/eslint/eslint/releases)\n- [Commits](https://github.com/eslint/eslint/compare/v10.8.1...v10.9.0)\n\n---\nupdated-dependencies:\n- dependency-name: eslint\n  dependency-version: 10.9.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-08-22T18:44:31Z",
+          "tree_id": "6cc7641a118f819ad6be90f0ea376c29bda39c78",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/15fed9ec8ea68a9be3a13bab56463d49f35e25a6"
+        },
+        "date": 1787424387930,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 3815,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 2301,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 364,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 450,
             "unit": "ms"
           }
         ]
