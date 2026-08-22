@@ -1,3 +1,11 @@
+## [6.0.20](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.19...6.0.20) (2026-08-22)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.41.7 to 1.41.8 ([5f56f42](https://github.com/jayree/sfdx-plugin-manifest/commit/5f56f42931f217c7f33c797c556c4095c575e72e))
+  * throw when TREE is given a ref that cannot be resolved ([#2407](https://github.com/isomorphic-git/isomorphic-git/issues/2407)) ([fe987eb](https://github.com/isomorphic-git/isomorphic-git/commit/fe987ebb2451d9495fd87c46e694336e7be5db95))
+
 ## [6.0.19](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.18...6.0.19) (2026-08-22)
 
 
