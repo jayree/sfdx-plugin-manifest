@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787429222339,
+  "lastUpdate": 1787430009789,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -56667,6 +56667,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 436,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7f35dc5bca5e4cd9572a09537ee347e44ba45e2a",
+          "message": "fix(deps): bump pnpm/action-setup from 4 to 6\n\nBumps [pnpm/action-setup](https://github.com/pnpm/action-setup) from 4 to 6.\n- [Release notes](https://github.com/pnpm/action-setup/releases)\n- [Commits](https://github.com/pnpm/action-setup/compare/v4...v6)\n\n---\nupdated-dependencies:\n- dependency-name: pnpm/action-setup\n  dependency-version: '6'\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-08-22T20:17:59Z",
+          "tree_id": "dc934056db8cc1c1a96933784b837315b25db624",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/7f35dc5bca5e4cd9572a09537ee347e44ba45e2a"
+        },
+        "date": 1787430000960,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 3644,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 2257,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 372,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 452,
             "unit": "ms"
           }
         ]
