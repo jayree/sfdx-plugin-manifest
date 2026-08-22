@@ -1,3 +1,11 @@
+## [6.0.19](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.18...6.0.19) (2026-08-22)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-tracking from 8.1.0 to 8.1.1 ([#2387](https://github.com/jayree/sfdx-plugin-manifest/issues/2387)) ([f1f93fe](https://github.com/jayree/sfdx-plugin-manifest/commit/f1f93fe9f0893ffba2c7d78a57d71210ff179387))
+  * rejiggered eslint.config.mjs (W-23928423) ([cbaa635](https://github.com/forcedotcom/source-tracking/commit/cbaa635c4c96188164ba2cf6260d9130646bf93f))
+
 ## [6.0.18](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.17...6.0.18) (2026-08-22)
 
 
