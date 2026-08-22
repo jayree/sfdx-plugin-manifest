@@ -1,3 +1,12 @@
+## [6.0.18](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.17...6.0.18) (2026-08-22)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 9.1.4 to 9.1.5 ([#2388](https://github.com/jayree/sfdx-plugin-manifest/issues/2388)) ([e6190e7](https://github.com/jayree/sfdx-plugin-manifest/commit/e6190e7531421d6174cd988bb633db0d7b91c2af))
+  * mitigated SAST findings ([15dc4f8](https://github.com/forcedotcom/sfdx-core/commit/15dc4f822f00b49794a85d6e127513c81be403ce))
+  * rejiggered eslint.config.mjs (W-23928423) ([b88b99f](https://github.com/forcedotcom/sfdx-core/commit/b88b99f534264b01b272652bb6da9b93d791f607))
+
 ## [6.0.17](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.16...6.0.17) (2026-08-20)
 
 
