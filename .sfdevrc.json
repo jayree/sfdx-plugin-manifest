@@ -1,5 +1,16 @@
 {
   "exclude-scripts": ["test:command-reference", "link-check"],
-  "devDepOverrides": ["prettier", "pretty-quick", "typedoc", "typedoc-plugin-missing-exports"],
+  "devDepOverrides": [
+    "prettier",
+    "pretty-quick",
+    "typedoc",
+    "typedoc-plugin-missing-exports",
+    "husky",
+    "@commitlint/cli",
+    "@commitlint/config-conventional",
+    "mocha",
+    "chai",
+    "sinon"
+  ],
   "strict": true
 }

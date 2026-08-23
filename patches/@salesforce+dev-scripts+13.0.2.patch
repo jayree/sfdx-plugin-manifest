@@ -42,6 +42,31 @@ index eabaa3b..e770b29 100755
      require('../utils/husky-init')();
    }
  }
+diff --git a/node_modules/@salesforce/dev-scripts/utils/husky-init.js b/node_modules/@salesforce/dev-scripts/utils/husky-init.js
+index 5c72c5c..a14f94e 100644
+--- a/node_modules/@salesforce/dev-scripts/utils/husky-init.js
++++ b/node_modules/@salesforce/dev-scripts/utils/husky-init.js
+@@ -23 +23,2 @@
+-shell.exec('yarn husky install');
++// `husky install` is deprecated in Husky 9; the command without arguments installs hooks.
++shell.exec('yarn husky');
+@@ -33,3 +34,10 @@
+-      shell.exec("yarn husky add .husky/commit-msg 'yarn commitlint --edit'");
+-      shell.exec("yarn husky add .husky/pre-commit 'yarn lint && yarn pretty-quick --staged'");
+-      shell.exec("yarn husky add .husky/pre-push 'yarn build && yarn run test:only -- --forbid-only'");
++      const defaultHooks = {
++        'commit-msg': 'commitlint --edit "$1"\n',
++        'pre-commit': 'yarn lint && yarn pretty-quick --staged\n',
++        'pre-push': 'yarn build && yarn run test:only -- --forbid-only\n',
++      };
++      for (const [name, contents] of Object.entries(defaultHooks)) {
++        const hookPath = path.join(packagePath, '.husky', name);
++        fs.writeFileSync(hookPath, contents, { mode: 0o755 });
++        fs.chmodSync(hookPath, 0o755);
++      }
+@@ -40 +48 @@
+-      const errorMsg = ".husky folder wasn't found, try running `yarn husky install` to finish the install";
++      const errorMsg = ".husky folder wasn't found, try running `yarn husky` to finish the install";
 diff --git a/node_modules/@salesforce/dev-scripts/files/LICENSE.txt b/node_modules/@salesforce/dev-scripts/files/LICENSE.txt
 index 83a7ac4..da7200c 100644
 --- a/node_modules/@salesforce/dev-scripts/files/LICENSE.txt
