@@ -1,3 +1,12 @@
+## [6.0.22](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.21...6.0.22) (2026-08-23)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.41.8 to 1.41.9 ([#2391](https://github.com/jayree/sfdx-plugin-manifest/issues/2391)) ([6a515dc](https://github.com/jayree/sfdx-plugin-manifest/commit/6a515dcc2ce380d8c0738e69b21e4771ccae828f))
+  * match filepaths on path component boundaries ([#2416](https://github.com/isomorphic-git/isomorphic-git/issues/2416)) ([89d641a](https://github.com/isomorphic-git/isomorphic-git/commit/89d641a761b56a492270933608df78edd7c9ee33))
+* **deps:** bump pnpm/action-setup from 4 to 6 ([edca3a8](https://github.com/jayree/sfdx-plugin-manifest/commit/edca3a8f88596e1d83246a656f364eaf4ac416e8))
+
 ## [6.0.21](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.20...6.0.21) (2026-08-22)
 
 
