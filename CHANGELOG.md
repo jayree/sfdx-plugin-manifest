@@ -1,3 +1,11 @@
+## [6.0.24](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.23...6.0.24) (2026-08-26)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 9.1.5 to 9.1.7 ([#2393](https://github.com/jayree/sfdx-plugin-manifest/issues/2393)) ([c6d91b3](https://github.com/jayree/sfdx-plugin-manifest/commit/c6d91b3ad491f81d810c825e8e0a48ec0a99989a))
+  * add mocha types to testSetup.ts ([b109e6e](https://github.com/forcedotcom/sfdx-core/commit/b109e6e9296af8e278a7c5d89cb37ed2de677ba2))
+
 ## [6.0.23](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.22...6.0.23) (2026-08-26)
 
 
