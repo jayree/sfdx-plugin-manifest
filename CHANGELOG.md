@@ -1,3 +1,14 @@
+## [6.0.25](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.24...6.0.25) (2026-08-26)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve from 13.2.0 to 13.3.0 ([#2395](https://github.com/jayree/sfdx-plugin-manifest/issues/2395)) ([50ed130](https://github.com/jayree/sfdx-plugin-manifest/commit/50ed1304b6deb63b8e853aeb9a370de98f23e478))
+  * add DeployNotification type for deploy-level notifications @W-23939851@ ([#1825](https://github.com/forcedotcom/source-deploy-retrieve/issues/1825)) ([b7a2887](https://github.com/forcedotcom/source-deploy-retrieve/commit/b7a2887dffaa5e3bf5932908bbe90ea302d31727))
+  * resolve decomposed Permission Set parents by suffix ([#1817](https://github.com/forcedotcom/source-deploy-retrieve/issues/1817)) ([e1efcbc](https://github.com/forcedotcom/source-deploy-retrieve/commit/e1efcbc947a1c23dd7394bc8c20e95801bd4174c))
+  * prevent ENOTDIR crash for non-component files in bundle directories @W-23924917@ ([#1823](https://github.com/forcedotcom/source-deploy-retrieve/issues/1823)) ([e5b6a28](https://github.com/forcedotcom/source-deploy-retrieve/commit/e5b6a28146d6caaeba99a4dbf246a8291cc3abd4))
+  * linting post-fork-merge ([#1824](https://github.com/forcedotcom/source-deploy-retrieve/issues/1824)) ([d5e0be4](https://github.com/forcedotcom/source-deploy-retrieve/commit/d5e0be4428846d7e7f6931aca51785981772895f))
+
 ## [6.0.24](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.23...6.0.24) (2026-08-26)
 
 
