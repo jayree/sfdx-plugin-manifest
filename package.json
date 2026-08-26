@@ -133,7 +133,7 @@
     "prepack": "sf-prepack",
     "prepare": "patch-package && sf-install && yarn compare-hashes",
     "test": "wireit",
-    "test:nuts": "c8 mocha \"**/*.nut.ts\" --slow 4500 --timeout 600000 --parallel",
+    "test:nuts": "c8 --exclude-after-remap mocha \"**/*.nut.ts\" --slow 4500 --timeout 600000 --parallel",
     "test:nuts:local": "mocha \"**/local/*.nut.ts\" --slow 4500 --timeout 600000 --parallel",
     "test:only": "wireit",
     "version": "oclif readme --no-aliases"
