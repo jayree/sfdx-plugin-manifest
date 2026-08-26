@@ -1,3 +1,14 @@
+## [6.0.23](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.22...6.0.23) (2026-08-26)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/ts-types from 3.0.1 to 3.1.0 ([#2394](https://github.com/jayree/sfdx-plugin-manifest/issues/2394)) ([b95202e](https://github.com/jayree/sfdx-plugin-manifest/commit/b95202e94e4fadb4161da93123c7d261e8aecd71))
+  * rejiggered eslint.config.mjs (W-23928423) ([7d3c313](https://github.com/forcedotcom/ts-types/commit/7d3c313635de897cefaf94ef03807fd5c01e8e00))
+  * disabling scripts in workflow (W-23928423) ([f9024e5](https://github.com/forcedotcom/ts-types/commit/f9024e5ad384d2563241effc356982102ca74f79))
+  * resolving test failures (W-23928423) ([a042a9b](https://github.com/forcedotcom/ts-types/commit/a042a9b7407056d579be4801899628b5cf221575))
+  * resolving test failures (W-23928423) ([5a03df2](https://github.com/forcedotcom/ts-types/commit/5a03df2ef2f4c26ea8967909891730b53ef95d50))
+
 ## [6.0.22](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.21...6.0.22) (2026-08-23)
 
 
