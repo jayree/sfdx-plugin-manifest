@@ -1,3 +1,12 @@
+## [6.0.28](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.27...6.0.28) (2026-08-30)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-tracking from 8.1.1 to 8.1.3 ([#2399](https://github.com/jayree/sfdx-plugin-manifest/issues/2399)) ([5e3fecc](https://github.com/jayree/sfdx-plugin-manifest/commit/5e3fecc833a69f4fea5679e054c3804596ccca65))
+  * prevent cross-process stale writes to maxRevision.json ([037921d](https://github.com/forcedotcom/source-tracking/commit/037921d411197856e1e58020cb20d361e67fb85e)), closes [forcedotcom/cli#3612](https://github.com/forcedotcom/cli/issues/3612)
+  * prevent cross-process stale writes to maxRevision.json ([037921d](https://github.com/forcedotcom/source-tracking/commit/037921d411197856e1e58020cb20d361e67fb85e)), closes [forcedotcom/cli#3612](https://github.com/forcedotcom/cli/issues/3612)
+
 ## [6.0.27](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.26...6.0.27) (2026-08-30)
 
 
