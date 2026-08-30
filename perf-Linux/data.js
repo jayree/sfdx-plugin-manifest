@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1788123819554,
+  "lastUpdate": 1788123966240,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -57723,6 +57723,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 284,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "14f472e8747e80d6bf1fdbead7273a5df4a5cf61",
+          "message": "chore(deps-dev): bump tsx from 4.23.12 to 4.23.13\n\nBumps [tsx](https://github.com/privatenumber/tsx) from 4.23.12 to 4.23.13.\n- [Release notes](https://github.com/privatenumber/tsx/releases)\n- [Changelog](https://github.com/privatenumber/tsx/blob/master/release.config.cjs)\n- [Commits](https://github.com/privatenumber/tsx/compare/v4.23.12...v4.23.13)\n\n---\nupdated-dependencies:\n- dependency-name: tsx\n  dependency-version: 4.23.13\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-08-30T21:03:11Z",
+          "tree_id": "f6410f8b73002420bfc3a1b6bb369c5c0638b29b",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/14f472e8747e80d6bf1fdbead7273a5df4a5cf61"
+        },
+        "date": 1788123958114,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 1894,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 1082,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 210,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 267,
             "unit": "ms"
           }
         ]
