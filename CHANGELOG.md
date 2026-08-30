@@ -1,3 +1,11 @@
+## [6.0.29](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.28...6.0.29) (2026-08-30)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/ts-types from 3.1.0 to 3.2.0 ([#2400](https://github.com/jayree/sfdx-plugin-manifest/issues/2400)) ([38c3b4c](https://github.com/jayree/sfdx-plugin-manifest/commit/38c3b4cfdd932e9f1c83b6b74969a38ac49aa470))
+  * bumping to ts6 (W-22515355) ([ae35ac5](https://github.com/forcedotcom/ts-types/commit/ae35ac551fc041aa81f8dcf0c46a454f7f4d4ce1))
+
 ## [6.0.28](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.27...6.0.28) (2026-08-30)
 
 
