@@ -1,3 +1,11 @@
+## [6.0.31](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.30...6.0.31) (2026-09-02)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 9.1.8 to 9.1.9 ([#2406](https://github.com/jayree/sfdx-plugin-manifest/issues/2406)) ([3db01d2](https://github.com/jayree/sfdx-plugin-manifest/commit/3db01d2430d769296c29e01d3a74ba19bc04e681))
+  * add salesforce.mil to allowlisted Salesforce domains ([1cab4b9](https://github.com/forcedotcom/sfdx-core/commit/1cab4b98a91fb13c5fce0206a04e07d3e170bf3f))
+
 ## [6.0.30](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.29...6.0.30) (2026-08-30)
 
 
