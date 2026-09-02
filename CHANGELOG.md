@@ -1,3 +1,16 @@
+## [6.0.32](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.31...6.0.32) (2026-09-02)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-uri from 3.1.5 to 3.1.7 ([#2411](https://github.com/jayree/sfdx-plugin-manifest/issues/2411)) ([2f35fa2](https://github.com/jayree/sfdx-plugin-manifest/commit/2f35fa23a7ade3da057ae893af77e6cb5de3078c))
+  *   [GHSA-qw65-cvwx-89v3](https://github.com/fastify/fast-uri/security/advisories/GHSA-qw65-cvwx-89v3) — authority injection via an unvalidated port in `serialize()`
+  *   [GHSA-58mr-gqgx-xq4g](https://github.com/fastify/fast-uri/security/advisories/GHSA-58mr-gqgx-xq4g) — host confusion via unbalanced or misplaced IP-literal brackets
+  *   [GHSA-5jgf-p345-68v8](https://github.com/fastify/fast-uri/security/advisories/GHSA-5jgf-p345-68v8) — host confusion via skipped IDN canonicalization on scheme-relative references
+  *   [GHSA-fph4-wmhf-6fwf](https://github.com/fastify/fast-uri/security/advisories/GHSA-fph4-wmhf-6fwf) — server-side request forgery via repeated hostname percent-decoding
+  *   [GHSA-f65p-4m7j-42xc](https://github.com/fastify/fast-uri/security/advisories/GHSA-f65p-4m7j-42xc) — server-side request forgery via malformed IPv6 normalization
+  *   [GHSA-jqff-g426-hqxp](https://github.com/fastify/fast-uri/security/advisories/GHSA-jqff-g426-hqxp) — host confusion via percent-encoded scheme normalization
+
 ## [6.0.31](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.30...6.0.31) (2026-09-02)
 
 
