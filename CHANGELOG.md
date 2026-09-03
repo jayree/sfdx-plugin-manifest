@@ -1,3 +1,16 @@
+## [6.0.33](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.32...6.0.33) (2026-09-03)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 4.14.0 to 5.0.0 ([3fd2021](https://github.com/jayree/sfdx-plugin-manifest/commit/3fd202115b08bdbf0ba4d2bd351b3d742c6d4d75))
+  * feat!: require Node >=22 ([940ad2d](https://github.com/oclif/core/commit/940ad2dacc6315e0aae2fbdac243dc1f5b0462e0))
+  * feat!: upgrade core to V5 ([01d00b9](https://github.com/oclif/core/commit/01d00b9affc7f5dc76b35b89b6818839c1d6b0b6))
+  * drop EOL Node versions
+  * require Node >=22, drop EOL Node versions
+* **deps:** bump @salesforce/sf-plugins-core from 13.0.3 to 13.0.4 ([#2408](https://github.com/jayree/sfdx-plugin-manifest/issues/2408)) ([a469095](https://github.com/jayree/sfdx-plugin-manifest/commit/a46909582c034e58a3e05fac5d944cd836fcb635))
+  * upgrade @oclif/core to v5 @W-23512455@ ([9543d10](https://github.com/salesforcecli/sf-plugins-core/commit/9543d100bed21919ae7eab2b81c75167d30874b8))
+
 ## [6.0.32](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.31...6.0.32) (2026-09-02)
 
 
