@@ -1,3 +1,10 @@
+## [6.0.34](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.33...6.0.34) (2026-09-05)
+
+
+### Bug Fixes
+
+* **deps:** bump TriPSs/conventional-changelog-action from 6.4.0 to 6.5.0 ([#2412](https://github.com/jayree/sfdx-plugin-manifest/issues/2412)) ([affaaa5](https://github.com/jayree/sfdx-plugin-manifest/commit/affaaa53f4be13474c77533d82c85f8b3fc76483))
+
 ## [6.0.33](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.32...6.0.33) (2026-09-03)
 
 
