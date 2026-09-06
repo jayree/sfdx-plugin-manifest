@@ -1,3 +1,14 @@
+## [6.0.35](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.34...6.0.35) (2026-09-06)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve from 13.3.0 to 13.3.1 ([#2413](https://github.com/jayree/sfdx-plugin-manifest/issues/2413)) ([24c92ff](https://github.com/jayree/sfdx-plugin-manifest/commit/24c92ff49a00d3a4f0bfa1d9a91e2e92faadc5da))
+  * support '#' version separator in AiAgentDefinitionVersion @W-23939860@ ([#1826](https://github.com/forcedotcom/source-deploy-retrieve/issues/1826)) ([0bdc29b](https://github.com/forcedotcom/source-deploy-retrieve/commit/0bdc29b8a953cab506b7809b644ede65e1d75c87)), closes [ASA1#1](https://github.com/ASA1/issues/1)
+  * remove suffix from AiAgentDefinitionVersion registry entry @W-23939860@ ([8fca395](https://github.com/forcedotcom/source-deploy-retrieve/commit/8fca395d7e2a10aaf18d435b3ad3e33c27e5d5ec))
+  * resolve bare AiAgentDefinitionVersion name to highest version @W-23939860@ ([04b5b4f](https://github.com/forcedotcom/source-deploy-retrieve/commit/04b5b4fc675a59cbaccd04a9e5926cba9fe046d1))
+  * support '#' version separator in AiAgentDefinitionVersion fullNames @W-23939860@ ([cb9bd70](https://github.com/forcedotcom/source-deploy-retrieve/commit/cb9bd709ed3626b7868e61a419b51fe952ee35f9)), closes [ASA1#1](https://github.com/ASA1/issues/1)
+
 ## [6.0.34](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.33...6.0.34) (2026-09-05)
 
 
