@@ -6291,10 +6291,10 @@ object-keys@^1.1.1:
   resolved "https://registry.yarnpkg.com/object-keys/-/object-keys-1.1.1.tgz#1c47f272df277f3b1daf061677d9c82e2322c60e"
   integrity sha512-NuAESUOUMrlIXOfHKzD6bpPu3tYt3xvjNdRIQ+FeT0lNb4K8WR70CaDxhuNguS2XG+GjkyMwOzsN5ZktImfhLA==
 
-oclif@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/oclif/-/oclif-5.0.1.tgz#64a1d447206760c3fa7b72f535aec853cdbb093f"
-  integrity sha512-dhahAJMJN5W7yX9pcHxV5UkciBBbA9g40iaVDLqq/RZGY9gBqKB8X8oxyluohzWB/IWfqjjhkGOX0m3Xq6Khfg==
+oclif@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/oclif/-/oclif-6.0.0.tgz#c2c6a638b0eb422a399670ecf75e11459c520c72"
+  integrity sha512-q5JA5uPG/z5DPQ7KF5LiptueiCwjiMRdtUiAteWh8qIawYLumftYwWIDHHognhe54Z4FNdDoxNJoinJuod71NA==
   dependencies:
     "@aws-sdk/client-cloudfront" "^3.1079.0"
     "@aws-sdk/client-s3" "^3.1079.0"
