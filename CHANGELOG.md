@@ -1,3 +1,15 @@
+## [6.0.36](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.35...6.0.36) (2026-09-13)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.41.9 to 1.42.2 ([#2418](https://github.com/jayree/sfdx-plugin-manifest/issues/2418)) ([aba7c3b](https://github.com/jayree/sfdx-plugin-manifest/commit/aba7c3be3d133e0b51ca9ed7590012298718c28d))
+  * abort signal ([#2428](https://github.com/isomorphic-git/isomorphic-git/issues/2428)) ([f6746a6](https://github.com/isomorphic-git/isomorphic-git/commit/f6746a642a964d45b003fe695ac37712d494350f))
+  * sanitize remote refs ([#2431](https://github.com/isomorphic-git/isomorphic-git/issues/2431)) ([243d924](https://github.com/isomorphic-git/isomorphic-git/commit/243d924737e7fb23b70b05b7aea7f2760d80db8e))
+  * wrong ref ([#2432](https://github.com/isomorphic-git/isomorphic-git/issues/2432)) ([66ae89c](https://github.com/isomorphic-git/isomorphic-git/commit/66ae89c3ae33ab4932d75c0e19fd2c45c8ee2630))
+  * fix prototype pollution ([#2426](https://github.com/isomorphic-git/isomorphic-git/pull/2426])) ([b3db111](https://github.com/isomorphic-git/isomorphic-git/commit/b3db111885230bac9a648e0a2312c65ca66f76eb))
+  * restore PushRejectedError when pushing against advanced remote ([#2429](https://github.com/isomorphic-git/isomorphic-git/issues/2429)) ([14764ae](https://github.com/isomorphic-git/isomorphic-git/commit/14764ae0df5120e8c81c5cfe28b8d7f42cd7617a)), closes [#2421](https://github.com/isomorphic-git/isomorphic-git/issues/2421)
+
 ## [6.0.35](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.34...6.0.35) (2026-09-06)
 
 
