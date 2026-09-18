@@ -1,3 +1,19 @@
+## [6.0.39](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.38...6.0.39) (2026-09-18)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 9.1.11 to 9.2.0 ([#2426](https://github.com/jayree/sfdx-plugin-manifest/issues/2426)) ([4f47385](https://github.com/jayree/sfdx-plugin-manifest/commit/4f4738583e08354f32a4fa4f2aa034c96743c536))
+  * store new refresh token from server ([d0e7e30](https://github.com/forcedotcom/sfdx-core/commit/d0e7e302afb19fb2d87fd30adaf6327cd0efb3e1))
+  * store new refresh token from server ([d0e7e30](https://github.com/forcedotcom/sfdx-core/commit/d0e7e302afb19fb2d87fd30adaf6327cd0efb3e1))
+  * save fast before org enrichment ([e006ad8](https://github.com/forcedotcom/sfdx-core/commit/e006ad81ad0ea3631436b1c713e7dba82953a497))
+  * create force-app dir in RTR NUT and fix lint errors in webOauthServer test ([e11923e](https://github.com/forcedotcom/sfdx-core/commit/e11923e280386b43a959903066480a787e087912))
+  * save fast before org enrichment ([e006ad8](https://github.com/forcedotcom/sfdx-core/commit/e006ad81ad0ea3631436b1c713e7dba82953a497))
+  * refresh routing and web auth hygiene ([f64faaa](https://github.com/forcedotcom/sfdx-core/commit/f64faaa27a0e28748e108e6ba3e56e1023489cbf))
+  * rtr race condition handling ([21e7866](https://github.com/forcedotcom/sfdx-core/commit/21e7866b8ac52490148425a14f2d05ea0c6683ed))
+  * refresh routing and web auth hygiene ([f64faaa](https://github.com/forcedotcom/sfdx-core/commit/f64faaa27a0e28748e108e6ba3e56e1023489cbf))
+  * rtr race condition handling ([21e7866](https://github.com/forcedotcom/sfdx-core/commit/21e7866b8ac52490148425a14f2d05ea0c6683ed))
+
 ## [6.0.38](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.37...6.0.38) (2026-09-18)
 
 
