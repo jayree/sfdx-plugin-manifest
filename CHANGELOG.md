@@ -1,3 +1,13 @@
+## [6.0.38](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.37...6.0.38) (2026-09-18)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve from 13.3.2 to 13.4.0 ([#2428](https://github.com/jayree/sfdx-plugin-manifest/issues/2428)) ([09b91d2](https://github.com/jayree/sfdx-plugin-manifest/commit/09b91d2d9fd706664a261963304bce25bc6d3de8))
+  * add ReferralIntakeConfiguration to metadata registry ([#1837](https://github.com/forcedotcom/source-deploy-retrieve/issues/1837)) ([7c7719d](https://github.com/forcedotcom/source-deploy-retrieve/commit/7c7719d888ce73d7e3e44a009f5ed3affb8d9d8b))
+  * prevent symlink traversal during retrieve (partial-delete and writes) @W-24124120@ @W-24138711@ ([#1833](https://github.com/forcedotcom/source-deploy-retrieve/issues/1833)) ([5637e35](https://github.com/forcedotcom/source-deploy-retrieve/commit/5637e356fb4aeab30d80aa52dfc083da9e27fe96))
+  * warn when JWT access token and API version < 68 cause empty metadata results @W-24046915@ ([#1835](https://github.com/forcedotcom/source-deploy-retrieve/issues/1835)) ([524165c](https://github.com/forcedotcom/source-deploy-retrieve/commit/524165c53c8fe3ee6833960f8f71a5d0126e48a6))
+
 ## [6.0.37](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.36...6.0.37) (2026-09-13)
 
 
