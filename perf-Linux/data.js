@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1789763659151,
+  "lastUpdate": 1789763793596,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -59439,6 +59439,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 223,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4eb7601bd43bb51781deca3c885500fca2010e2d",
+          "message": "chore(deps-dev): bump mocha from 12.0.0 to 12.0.2\n\nBumps [mocha](https://github.com/mochajs/mocha) from 12.0.0 to 12.0.2.\n- [Release notes](https://github.com/mochajs/mocha/releases)\n- [Changelog](https://github.com/mochajs/mocha/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/mochajs/mocha/compare/v12.0.0...v12.0.2)\n\n---\nupdated-dependencies:\n- dependency-name: mocha\n  dependency-version: 12.0.2\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-09-18T20:33:30Z",
+          "tree_id": "d78a4bc9a574eb8735091ca583cef7f3cc8e3e4a",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/4eb7601bd43bb51781deca3c885500fca2010e2d"
+        },
+        "date": 1789763788714,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 1189,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 648,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 113,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 158,
             "unit": "ms"
           }
         ]
