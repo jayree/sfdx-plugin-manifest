@@ -1,3 +1,14 @@
+## [6.0.40](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.39...6.0.40) (2026-09-24)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 5.0.0 to 5.1.0 ([#2435](https://github.com/jayree/sfdx-plugin-manifest/issues/2435)) ([284a93d](https://github.com/jayree/sfdx-plugin-manifest/commit/284a93de24a96d80f138b4c5561c64a253b5a67e))
+  * support OCLIF_STDIN_TIMEOUT_MS env var for stdin read timeout @W-24151668@ ([effcb65](https://github.com/oclif/core/commit/effcb654e607dcf57c1bf4236178f11f7bfe0594))
+  * support OCLIF_STDIN_TIMEOUT_MS env var for stdin read timeout @W-24151668@ ([a869149](https://github.com/oclif/core/commit/a86914909ce2bd061be50cbc94f5fd711a8bbafe))
+  * getting CI/CD green again (W-24099831) ([3c01350](https://github.com/oclif/core/commit/3c01350b90cc200aff667df6f0e4442673084fb4))
+  * rename boolean var to satisfy unicorn/consistent-boolean-name ([a1316cc](https://github.com/oclif/core/commit/a1316ccb7bdb5175887f1b3d4cfd0b78c9c81cfe))
+
 ## [6.0.39](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.38...6.0.39) (2026-09-18)
 
 
