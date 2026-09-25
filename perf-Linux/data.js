@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1790315083170,
+  "lastUpdate": 1790315744277,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -60407,6 +60407,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 146,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e3e85dd70be0c94fa596900d28342dcb8d231abb",
+          "message": "fix(deps): bump fs-extra from 11.4.0 to 11.4.1\n\nBumps [fs-extra](https://github.com/jprichardson/node-fs-extra) from 11.4.0 to 11.4.1.\n- [Changelog](https://github.com/jprichardson/node-fs-extra/blob/master/CHANGELOG.md)\n- [Commits](https://github.com/jprichardson/node-fs-extra/compare/11.4.0...11.4.1)\n\n---\nupdated-dependencies:\n- dependency-name: fs-extra\n  dependency-version: 11.4.1\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-09-25T05:54:46Z",
+          "tree_id": "d7e15c5275a91cc49c0d4f60f6be08b966f8c1af",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/e3e85dd70be0c94fa596900d28342dcb8d231abb"
+        },
+        "date": 1790315737340,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 1966,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 1130,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 226,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 273,
             "unit": "ms"
           }
         ]
