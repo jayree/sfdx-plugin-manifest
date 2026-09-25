@@ -1,3 +1,12 @@
+## [6.0.40](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.39...6.0.40) (2026-09-25)
+
+
+### Bug Fixes
+
+* **deps:** bump fs-extra from 11.4.0 to 11.4.1 ([#2450](https://github.com/jayree/sfdx-plugin-manifest/issues/2450)) ([f87950f](https://github.com/jayree/sfdx-plugin-manifest/commit/f87950f5606d15c01581778486b6e5556864d8f1))
+  *   Properly handle read errors (e.g. due to permissions) in `emptyDir*()` ([#1080](https://redirect.github.com/jprichardson/node-fs-extra/pull/1080))
+  *   Allow renaming with only Unicode normalization difference in the filename (APFS-specific) ([#859](https://redirect.github.com/jprichardson/node-fs-extra/issues/859), [#1079](https://redirect.github.com/jprichardson/node-fs-extra/pull/1079))
+
 ## [6.0.39](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.38...6.0.39) (2026-09-18)
 
 
