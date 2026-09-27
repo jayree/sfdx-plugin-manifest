@@ -1,3 +1,11 @@
+## [6.0.44](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.43...6.0.44) (2026-09-27)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.42.2 to 1.42.3 ([#2456](https://github.com/jayree/sfdx-plugin-manifest/issues/2456)) ([47128f3](https://github.com/jayree/sfdx-plugin-manifest/commit/47128f3b00b39e19bb19d01fe7e1d7219f315dd3))
+  * perf(commit): avoid reading packed parent ([#2437](https://github.com/isomorphic-git/isomorphic-git/issues/2437)) ([a62d52c](https://github.com/isomorphic-git/isomorphic-git/commit/a62d52cde68d19ca9c5914f79b8f83d3e96a6477))
+
 ## [6.0.43](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.42...6.0.43) (2026-09-27)
 
 
