@@ -1,3 +1,19 @@
+## [6.0.42](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.41...6.0.42) (2026-09-27)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 5.0.0 to 5.1.2 ([#2458](https://github.com/jayree/sfdx-plugin-manifest/issues/2458)) ([349d04f](https://github.com/jayree/sfdx-plugin-manifest/commit/349d04f923af6531e1df88367cf60cb8fb95d19b))
+  * support OCLIF_STDIN_TIMEOUT_MS env var for stdin read timeout @W-24151668@ ([effcb65](https://github.com/oclif/core/commit/effcb654e607dcf57c1bf4236178f11f7bfe0594))
+  * support OCLIF_STDIN_TIMEOUT_MS env var for stdin read timeout @W-24151668@ ([a869149](https://github.com/oclif/core/commit/a86914909ce2bd061be50cbc94f5fd711a8bbafe))
+  * getting CI/CD green again (W-24099831) ([3c01350](https://github.com/oclif/core/commit/3c01350b90cc200aff667df6f0e4442673084fb4))
+  * **deps:** bump browserslist from 4.28.2 to 4.28.9 ([1ba8dfd](https://github.com/oclif/core/commit/1ba8dfd292436b95fc1ccba374b384722b24fcb2))
+  * feedback from code review (W-24099831) ([b36c51b](https://github.com/oclif/core/commit/b36c51be4737e31c55b2a8f79f43be273e7413bd))
+  * resolved autofixable eslint violations (W-24099831) ([b9eabd3](https://github.com/oclif/core/commit/b9eabd3cd28a0a906ea3f9b3177b13f8128735c8))
+  * resolved busted interoperability tests (W-24099831) ([b6866f0](https://github.com/oclif/core/commit/b6866f021584f9effb46ed860cc67f7ef661cd0e))
+  * resolved circular eslint fixes (W-24099831) ([d0935c1](https://github.com/oclif/core/commit/d0935c1ef55e310d55857be01dbe16fe3c43ac43))
+  * rename boolean var to satisfy unicorn/consistent-boolean-name ([a1316cc](https://github.com/oclif/core/commit/a1316ccb7bdb5175887f1b3d4cfd0b78c9c81cfe))
+
 ## [6.0.41](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.40...6.0.41) (2026-09-26)
 
 
