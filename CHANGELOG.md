@@ -1,3 +1,14 @@
+## [6.0.43](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.42...6.0.43) (2026-09-27)
+
+
+### Bug Fixes
+
+* **deps:** bump @jayree/changelog from 1.2.39 to 1.2.41 ([#2455](https://github.com/jayree/sfdx-plugin-manifest/issues/2455)) ([bf91bb2](https://github.com/jayree/sfdx-plugin-manifest/commit/bf91bb2ba3c5a8ade612f6d05b5e1ce02f18c3e4))
+  * **deps:** bump actions/setup-node from 6 to 7 ([#1127](https://github.com/jayree/changelog/issues/1127)) ([8aa8dbf](https://github.com/jayree/changelog/commit/8aa8dbf7c4543ff649e44083acab7485c4df8c98))
+  * **deps:** bump browserslist from 4.28.2 to 4.29.1 ([#1119](https://github.com/jayree/changelog/issues/1119)) ([c178212](https://github.com/jayree/changelog/commit/c1782127f892ac73f44e8d74f3aee7d2cdec5c83))
+  * **deps:** bump fast-uri from 3.1.2 to 3.1.8 ([#1120](https://github.com/jayree/changelog/issues/1120)) ([2991ecd](https://github.com/jayree/changelog/commit/2991ecd748ae302d35e77de11af06b56aaa867a1))
+  * **deps:** bump fs-extra from 11.3.6 to 11.4.1 ([#1122](https://github.com/jayree/changelog/issues/1122)) ([13e81ef](https://github.com/jayree/changelog/commit/13e81eff1b2a1b12239d7623d2d5cdbccbd8dde3))
+
 ## [6.0.42](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.41...6.0.42) (2026-09-27)
 
 
