@@ -1,3 +1,12 @@
+## [6.0.45](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.44...6.0.45) (2026-09-28)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 9.2.0 to 9.2.2 ([#2459](https://github.com/jayree/sfdx-plugin-manifest/issues/2459)) ([e88aeea](https://github.com/jayree/sfdx-plugin-manifest/commit/e88aeea118e1e0dbd9b38ed59947d5fe22d1e663))
+  * remove stale TS/eslint suppressions ([#1341](https://github.com/forcedotcom/sfdx-core/issues/1341)) ([e11f56e](https://github.com/forcedotcom/sfdx-core/commit/e11f56ee5d3c8df8938ba7531cb6d6c5f9924db5))
+  * **deps:** bump fast-uri from 3.1.4 to 3.1.7 ([df419d4](https://github.com/forcedotcom/sfdx-core/commit/df419d481876eb6393a6175b1959b814405795b3))
+
 ## [6.0.44](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.43...6.0.44) (2026-09-27)
 
 
