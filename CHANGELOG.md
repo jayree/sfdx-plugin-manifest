@@ -1,3 +1,11 @@
+## [6.0.46](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.45...6.0.46) (2026-09-28)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/ts-types from 3.2.0 to 3.2.1 ([#2463](https://github.com/jayree/sfdx-plugin-manifest/issues/2463)) ([83f3e54](https://github.com/jayree/sfdx-plugin-manifest/commit/83f3e54a2874005ca450918fe7f11f5fe209c7f6))
+  * **deps:** bump linkify-it from 5.0.0 to 5.0.2 ([31145b7](https://github.com/forcedotcom/ts-types/commit/31145b775588164b2653212ec47384d5b07c057a))
+
 ## [6.0.45](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.44...6.0.45) (2026-09-28)
 
 
