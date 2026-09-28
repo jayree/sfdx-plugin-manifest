@@ -1,3 +1,11 @@
+## [6.0.47](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.46...6.0.47) (2026-09-28)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/kit from 4.0.0 to 4.0.1 ([#2460](https://github.com/jayree/sfdx-plugin-manifest/issues/2460)) ([fa6c869](https://github.com/jayree/sfdx-plugin-manifest/commit/fa6c869968db4aa3e368db8ef8ae94440f12de5c))
+  * **deps:** bump browserslist from 4.23.3 to 4.28.9 ([b2e942a](https://github.com/forcedotcom/kit/commit/b2e942a52518d4019168c2934735ddacd9f18481))
+
 ## [6.0.46](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.45...6.0.46) (2026-09-28)
 
 
