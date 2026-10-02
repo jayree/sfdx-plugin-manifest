@@ -1,3 +1,11 @@
+## [6.0.52](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.51...6.0.52) (2026-10-02)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-tracking from 8.1.3 to 8.1.4 ([#2476](https://github.com/jayree/sfdx-plugin-manifest/issues/2476)) ([be3c058](https://github.com/jayree/sfdx-plugin-manifest/commit/be3c05880de48b211463ffecc6d09812638a24fb))
+  * **deps:** bump @babel/core from 7.27.4 to 7.29.7 ([395f531](https://github.com/forcedotcom/source-tracking/commit/395f531bee5de54152c939a1df38aa11d66600b9))
+
 ## [6.0.51](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.50...6.0.51) (2026-10-02)
 
 
