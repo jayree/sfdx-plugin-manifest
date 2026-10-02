@@ -1,3 +1,15 @@
+## [6.0.50](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.49...6.0.50) (2026-10-02)
+
+
+### Bug Fixes
+
+* **deps:** bump ip-address from 10.5.0 to 10.7.3 ([#2465](https://github.com/jayree/sfdx-plugin-manifest/issues/2465)) ([fc62340](https://github.com/jayree/sfdx-plugin-manifest/commit/fc623404810bd14f3ca7882f1662ee461c9c8433))
+  * Accept an arpa suffix in any case and without the root dot in fromArpa by @beaugunderson in https://github.com/beaugunderson/ip-address/pull/227
+  * Add offset() and nextNetwork(), accept prefix-length ip6.arpa names, correct the IPv6 end-address docs by @beaugunderson in https://github.com/beaugunderson/ip-address/pull/225
+  * Add isGlobal() and pin the classifiers to the IANA special-purpose registries by @beaugunderson in https://github.com/beaugunderson/ip-address/pull/224
+  * Reject an in-addr.arpa name longer than 32 characters before splitting it by @beaugunderson in https://github.com/beaugunderson/ip-address/pull/228
+  * Bump js-yaml and brace-expansion in the lockfile by @beaugunderson in https://github.com/beaugunderson/ip-address/pull/226
+
 ## [6.0.49](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.48...6.0.49) (2026-09-29)
 
 
