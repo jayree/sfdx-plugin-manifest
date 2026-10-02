@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1790956441244,
+  "lastUpdate": 1790957191098,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -62959,6 +62959,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 356,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a1a0d6e6383f666bb1c95e3f495c151acff9aca6",
+          "message": "fix(deps): bump @salesforce/source-deploy-retrieve from 13.4.0 to 13.4.3\n\nBumps [@salesforce/source-deploy-retrieve](https://github.com/forcedotcom/source-deploy-retrieve) from 13.4.0 to 13.4.3.\n- [Release notes](https://github.com/forcedotcom/source-deploy-retrieve/releases)\n- [Changelog](https://github.com/forcedotcom/source-deploy-retrieve/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/forcedotcom/source-deploy-retrieve/compare/13.4.0...13.4.3)\n\n---\nupdated-dependencies:\n- dependency-name: \"@salesforce/source-deploy-retrieve\"\n  dependency-version: 13.4.3\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-10-02T16:04:13Z",
+          "tree_id": "414eb7bc8ce0c8e0202c5032e64816efe828cc12",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/a1a0d6e6383f666bb1c95e3f495c151acff9aca6"
+        },
+        "date": 1790957180187,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 3341,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 2080,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 375,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 418,
             "unit": "ms"
           }
         ]
