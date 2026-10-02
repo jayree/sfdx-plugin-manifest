@@ -1,3 +1,13 @@
+## [6.0.51](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.50...6.0.51) (2026-10-02)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve from 13.4.0 to 13.4.3 ([#2468](https://github.com/jayree/sfdx-plugin-manifest/issues/2468)) ([5148bfc](https://github.com/jayree/sfdx-plugin-manifest/commit/5148bfc3044cac2a50b984beb2aaa33de1d4c51e))
+  * **deps:** bump fast-uri from 3.0.1 to 3.1.8 ([#1830](https://github.com/forcedotcom/source-deploy-retrieve/issues/1830)) ([82cb7ec](https://github.com/forcedotcom/source-deploy-retrieve/commit/82cb7ecffc60afa1028f8066f81d633fa6be4ac6))
+  * include folder entries in deploy zip count to match server limit @W-24345651@ ([#1844](https://github.com/forcedotcom/source-deploy-retrieve/issues/1844)) ([399687d](https://github.com/forcedotcom/source-deploy-retrieve/commit/399687d65711940ee6b561289b8ae6e01f1c50ee))
+  * deploy and retrieve flow efficiency improvements @W-24222996@ ([#1836](https://github.com/forcedotcom/source-deploy-retrieve/issues/1836)) ([c086d40](https://github.com/forcedotcom/source-deploy-retrieve/commit/c086d40e264b12905ef2aecc5726336105e73d2c))
+
 ## [6.0.50](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.49...6.0.50) (2026-10-02)
 
 
