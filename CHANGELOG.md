@@ -1,3 +1,13 @@
+## [6.0.54](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.53...6.0.54) (2026-10-02)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.42.3 to 1.42.6 ([#2475](https://github.com/jayree/sfdx-plugin-manifest/issues/2475)) ([d5b7afc](https://github.com/jayree/sfdx-plugin-manifest/commit/d5b7afcb43025c90914cb8ca5b954d8b5ed02500))
+  * anchor .git/info/exclude patterns to the working directory ([#2438](https://github.com/isomorphic-git/isomorphic-git/issues/2438)) ([8eea17f](https://github.com/isomorphic-git/isomorphic-git/commit/8eea17f53cf6e928a3c85161bd33a4e6b3cae45d))
+  * refuse to cherry-pick over local changes ([#2444](https://github.com/isomorphic-git/isomorphic-git/issues/2444)) ([431453f](https://github.com/isomorphic-git/isomorphic-git/commit/431453fbe9350537b404769204b92f479e427c27)), closes [#2436](https://github.com/isomorphic-git/isomorphic-git/issues/2436)
+  * sort paths by UTF-8 bytes like git does ([#2439](https://github.com/isomorphic-git/isomorphic-git/issues/2439)) ([afd8a5e](https://github.com/isomorphic-git/isomorphic-git/commit/afd8a5ecefd0b03c6647bc662077c3122aa92dcd))
+
 ## [6.0.53](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.52...6.0.53) (2026-10-02)
 
 
