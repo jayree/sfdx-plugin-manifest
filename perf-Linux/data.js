@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1790953408116,
+  "lastUpdate": 1790954555368,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -62695,6 +62695,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 287,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d7a185f39b5d2fac5091a00c99b50b3116a60a53",
+          "message": "fix(deps): bump ip-address from 10.5.0 to 10.7.3\n\nBumps [ip-address](https://github.com/beaugunderson/ip-address) from 10.5.0 to 10.7.3.\n- [Release notes](https://github.com/beaugunderson/ip-address/releases)\n- [Commits](https://github.com/beaugunderson/ip-address/compare/v10.5.0...v10.7.3)\n\n---\nupdated-dependencies:\n- dependency-name: ip-address\n  dependency-version: 10.7.2\n  dependency-type: indirect\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-10-02T15:21:37Z",
+          "tree_id": "8103f7fb112a71f8116365e9476ef8b961f31346",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/d7a185f39b5d2fac5091a00c99b50b3116a60a53"
+        },
+        "date": 1790954548210,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 2011,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 1114,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 231,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 288,
             "unit": "ms"
           }
         ]
