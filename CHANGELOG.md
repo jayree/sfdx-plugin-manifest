@@ -1,3 +1,14 @@
+## [6.0.53](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.52...6.0.53) (2026-10-02)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-xml-parser from 5.11.1 to 5.11.2 ([#2469](https://github.com/jayree/sfdx-plugin-manifest/issues/2469)) ([b9384f4](https://github.com/jayree/sfdx-plugin-manifest/commit/b9384f4081a1cf96a904ddfe6a94531e8fa5facb))
+  * fix: decode Uint8Array XML input as UTF-8 by @emme1t in https://github.com/NaturalIntelligence/fast-xml-parser/pull/875
+  * fix: type EntityDecoderOptions.setXmlVersion's version as a number by @YevheniiKotyrlo in https://github.com/NaturalIntelligence/fast-xml-parser/pull/880
+  * @emme1t made their first contribution in https://github.com/NaturalIntelligence/fast-xml-parser/pull/875
+  * @YevheniiKotyrlo made their first contribution in https://github.com/NaturalIntelligence/fast-xml-parser/pull/880
+
 ## [6.0.52](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.51...6.0.52) (2026-10-02)
 
 
