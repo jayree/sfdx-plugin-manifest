@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1790960082820,
+  "lastUpdate": 1790960291719,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -63267,6 +63267,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 314,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "66cccf41f58e65cf954d88c0aa2de3c22e0e6ee7",
+          "message": "chore(deps-dev): bump mocha from 12.0.2 to 12.0.3\n\nBumps [mocha](https://github.com/mochajs/mocha) from 12.0.2 to 12.0.3.\n- [Release notes](https://github.com/mochajs/mocha/releases)\n- [Changelog](https://github.com/mochajs/mocha/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/mochajs/mocha/compare/v12.0.2...v12.0.3)\n\n---\nupdated-dependencies:\n- dependency-name: mocha\n  dependency-version: 12.0.3\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-10-02T16:52:54Z",
+          "tree_id": "e00aa8bae024b18a46ca181c9952a15822d6892e",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/66cccf41f58e65cf954d88c0aa2de3c22e0e6ee7"
+        },
+        "date": 1790960282527,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 2627,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 1592,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 269,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 324,
             "unit": "ms"
           }
         ]
