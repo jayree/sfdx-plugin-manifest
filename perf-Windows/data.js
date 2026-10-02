@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1790954631733,
+  "lastUpdate": 1790954818919,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -62739,6 +62739,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 418,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "bb016cec632de034bc0783c558268b78d2c3e862",
+          "message": "chore(deps-dev): bump chai from 6.2.2 to 6.3.0\n\nBumps [chai](https://github.com/chaijs/chai) from 6.2.2 to 6.3.0.\n- [Release notes](https://github.com/chaijs/chai/releases)\n- [Changelog](https://github.com/chaijs/chai/blob/main/History.md)\n- [Commits](https://github.com/chaijs/chai/compare/v6.2.2...v6.3.0)\n\n---\nupdated-dependencies:\n- dependency-name: chai\n  dependency-version: 6.3.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-10-02T15:22:04Z",
+          "tree_id": "aa01f10769f9f6e3e6a725a879a586bf19a19610",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/bb016cec632de034bc0783c558268b78d2c3e862"
+        },
+        "date": 1790954808589,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 3434,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 2124,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 332,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 403,
             "unit": "ms"
           }
         ]
