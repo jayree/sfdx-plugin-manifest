@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1791057956378,
+  "lastUpdate": 1791144315675,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -63663,6 +63663,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 297,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e0b27f03ee1020a8365d608461eda52dc7396c6e",
+          "message": "chore(deps-dev): bump @salesforce/dev-scripts from 14.0.0 to 15.0.0\n\nBumps [@salesforce/dev-scripts](https://github.com/forcedotcom/dev-scripts) from 14.0.0 to 15.0.0.\n- [Release notes](https://github.com/forcedotcom/dev-scripts/releases)\n- [Changelog](https://github.com/forcedotcom/dev-scripts/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/forcedotcom/dev-scripts/compare/14.0.0...15.0.0)\n\n---\nupdated-dependencies:\n- dependency-name: \"@salesforce/dev-scripts\"\n  dependency-version: 15.0.0\n  dependency-type: direct:development\n  update-type: version-update:semver-major\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-10-04T20:03:00Z",
+          "tree_id": "15da4f4a45a0be8a9cf34d26c07936a855f0fe02",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/e0b27f03ee1020a8365d608461eda52dc7396c6e"
+        },
+        "date": 1791144305403,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 3684,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 2245,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 360,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 484,
             "unit": "ms"
           }
         ]
