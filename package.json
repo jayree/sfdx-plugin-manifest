@@ -18,7 +18,7 @@
     "fast-xml-parser": "^5.11.2",
     "fs-extra": "^11.4.1",
     "graceful-fs": "^4.2.11",
-    "isomorphic-git": "1.42.6"
+    "isomorphic-git": "1.43.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.2.3",
