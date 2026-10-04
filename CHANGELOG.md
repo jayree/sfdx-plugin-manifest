@@ -1,3 +1,12 @@
+## [6.0.55](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.54...6.0.55) (2026-10-04)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.42.6 to 1.43.0 ([#2482](https://github.com/jayree/sfdx-plugin-manifest/issues/2482)) ([991751c](https://github.com/jayree/sfdx-plugin-manifest/commit/991751cf8ed2784896c6b6c98d6055ba50f1c5fe))
+  * **remove:** accept an array of filepaths ([#2449](https://github.com/isomorphic-git/isomorphic-git/issues/2449)) ([563848e](https://github.com/isomorphic-git/isomorphic-git/commit/563848ee2f8da8c64c51e6d32b76180d870075f2))
+  * write the index once per walk instead of once per file ([#2448](https://github.com/isomorphic-git/isomorphic-git/issues/2448)) ([149de87](https://github.com/isomorphic-git/isomorphic-git/commit/149de87fc42de1987b8c7767d6352548249e4000))
+
 ## [6.0.54](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.53...6.0.54) (2026-10-02)
 
 
