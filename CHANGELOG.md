@@ -1,3 +1,11 @@
+## [6.0.56](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.55...6.0.56) (2026-10-04)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/sf-plugins-core from 13.0.4 to 13.0.5 ([#2481](https://github.com/jayree/sfdx-plugin-manifest/issues/2481)) ([1c0a5f6](https://github.com/jayree/sfdx-plugin-manifest/commit/1c0a5f63bd29682d8ac115c78b3c7c16a73f4e09))
+  * **deps:** bump undici from 8.5.0 to 8.11.2 ([cc9e31c](https://github.com/salesforcecli/sf-plugins-core/commit/cc9e31cd0721762a6a28b6b8f990bcc22f6ed627))
+
 ## [6.0.55](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.54...6.0.55) (2026-10-04)
 
 
