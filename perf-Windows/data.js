@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1791751189108,
+  "lastUpdate": 1791751396064,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -64323,6 +64323,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 472,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d912cab05d4d04030d2453658c0a96105640bd8d",
+          "message": "fix(deps): bump fast-copy from 3.0.2 to 3.1.0\n\nBumps [fast-copy](https://github.com/planttheidea/fast-copy) from 3.0.2 to 3.1.0.\n- [Release notes](https://github.com/planttheidea/fast-copy/releases)\n- [Changelog](https://github.com/planttheidea/fast-copy/blob/v3.1.0/CHANGELOG.md)\n- [Commits](https://github.com/planttheidea/fast-copy/compare/v3.0.2...v3.1.0)\n\n---\nupdated-dependencies:\n- dependency-name: fast-copy\n  dependency-version: 3.1.0\n  dependency-type: indirect\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-10-11T20:37:48Z",
+          "tree_id": "fdbef7ad90222b1322da5b108bef3c5b01e26a09",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/d912cab05d4d04030d2453658c0a96105640bd8d"
+        },
+        "date": 1791751385204,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 2748,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 1743,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 272,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 336,
             "unit": "ms"
           }
         ]
