@@ -1,3 +1,12 @@
+## [6.0.59](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.58...6.0.59) (2026-10-11)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve from 13.4.3 to 13.4.5 ([#2489](https://github.com/jayree/sfdx-plugin-manifest/issues/2489)) ([a71f59d](https://github.com/jayree/sfdx-plugin-manifest/commit/a71f59de04bf589c73abc3ef55ce9569279c8d0b))
+  * expose covered deploy test locations - W-16286380 ([#1847](https://github.com/forcedotcom/source-deploy-retrieve/issues/1847)) ([eec91ac](https://github.com/forcedotcom/source-deploy-retrieve/commit/eec91ac8295198fec839e40a9c47d1b91a323201))
+  * **deps:** bump ip-address from 10.2.0 to 10.7.2 ([#1842](https://github.com/forcedotcom/source-deploy-retrieve/issues/1842)) ([5bde79d](https://github.com/forcedotcom/source-deploy-retrieve/commit/5bde79d71780acf660cf8ff21c699375f29640f2))
+
 ## [6.0.58](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.57...6.0.58) (2026-10-11)
 
 
