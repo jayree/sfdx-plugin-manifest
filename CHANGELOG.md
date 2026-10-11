@@ -1,3 +1,13 @@
+## [6.0.58](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.57...6.0.58) (2026-10-11)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-copy from 3.0.2 to 3.1.0 ([#2496](https://github.com/jayree/sfdx-plugin-manifest/issues/2496)) ([c46ba7e](https://github.com/jayree/sfdx-plugin-manifest/commit/c46ba7e2c1172db354d696639670c5e1109f3448))
+  * [Security] Apply port of #137 to v3 (#138) (359c008)
+  * [Maintenance] Upgrade to Yarn 4 (#101) (0078ed5)
+  * update CHANGELOG (f1cc924)
+
 ## [6.0.57](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.56...6.0.57) (2026-10-11)
 
 
