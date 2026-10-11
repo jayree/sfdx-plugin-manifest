@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1791753469153,
+  "lastUpdate": 1791753909244,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -64587,6 +64587,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 281,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "71f35888987e1bffcdfd362ec800b138272bd643",
+          "message": "fix(deps): bump fast-copy from 3.0.2 to 3.1.0\n\nBumps [fast-copy](https://github.com/planttheidea/fast-copy) from 3.0.2 to 3.1.0.\n- [Release notes](https://github.com/planttheidea/fast-copy/releases)\n- [Changelog](https://github.com/planttheidea/fast-copy/blob/v3.1.0/CHANGELOG.md)\n- [Commits](https://github.com/planttheidea/fast-copy/compare/v3.0.2...v3.1.0)\n\n---\nupdated-dependencies:\n- dependency-name: fast-copy\n  dependency-version: 3.1.0\n  dependency-type: indirect\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-10-11T21:24:10Z",
+          "tree_id": "75eaa7d0ba2176eea96aa589b573c4ff372f3851",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/71f35888987e1bffcdfd362ec800b138272bd643"
+        },
+        "date": 1791753901471,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 1452,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 816,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 154,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 185,
             "unit": "ms"
           }
         ]
