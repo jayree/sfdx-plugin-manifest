@@ -1,3 +1,13 @@
+## [6.0.63](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.62...6.0.63) (2026-10-11)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.43.0 to 1.43.3 ([#2486](https://github.com/jayree/sfdx-plugin-manifest/issues/2486)) ([bfe67ad](https://github.com/jayree/sfdx-plugin-manifest/commit/bfe67ad130e992e1d36f6c7ab38d34a5d6c72d76))
+  * peel annotated tags to commits in checkout, branch, merge and commit ([#2450](https://github.com/isomorphic-git/isomorphic-git/issues/2450)) ([ed2af40](https://github.com/isomorphic-git/isomorphic-git/commit/ed2af40190762e1d49725425ce07fbe6776c74e3))
+  * parse config variable names with digits and tabs around the equal sign ([#2452](https://github.com/isomorphic-git/isomorphic-git/issues/2452)) ([90c5773](https://github.com/isomorphic-git/isomorphic-git/commit/90c5773fa7881d868b829a73a2ecaef05213258c))
+  * verify each packfile checksum once under concurrent reads ([#2453](https://github.com/isomorphic-git/isomorphic-git/issues/2453)) ([909b97b](https://github.com/isomorphic-git/isomorphic-git/commit/909b97b1617be7d5c1b550759a35f5a8068dc058))
+
 ## [6.0.62](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.61...6.0.62) (2026-10-11)
 
 
