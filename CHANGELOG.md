@@ -1,3 +1,12 @@
+## [6.0.57](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.56...6.0.57) (2026-10-11)
+
+
+### Bug Fixes
+
+* **deps:** bump source-map-js from 1.2.1 to 1.2.2 ([#2495](https://github.com/jayree/sfdx-plugin-manifest/issues/2495)) ([8739063](https://github.com/jayree/sfdx-plugin-manifest/commit/87390637f464833daf6590b0931348cfba8b18bd))
+  * Fix crash when executing in browser with CSP script-src that don't permit unsafe-eval ([#29](https://github.com/7rulnik/source-map-js/pull/29)) [@xfournet](https://github.com/xfournet)
+  * Fix denial of service from malicious indexed source maps (CVE-2026-93749) ([#79](https://github.com/7rulnik/source-map-js/pull/79))
+
 ## [6.0.56](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.55...6.0.56) (2026-10-04)
 
 
