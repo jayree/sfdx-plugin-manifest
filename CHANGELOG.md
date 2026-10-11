@@ -1,3 +1,12 @@
+## [6.0.62](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.61...6.0.62) (2026-10-11)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/sf-plugins-core from 13.0.5 to 13.0.7 ([#2492](https://github.com/jayree/sfdx-plugin-manifest/issues/2492)) ([6ded5c8](https://github.com/jayree/sfdx-plugin-manifest/commit/6ded5c8904ee3bd36b30c5968cb756b0c264bc5a))
+  * **deps:** bump fast-copy from 3.0.2 to 3.1.0 ([d83ac98](https://github.com/salesforcecli/sf-plugins-core/commit/d83ac98f0b9958e4300f897cd184014d28583cb6))
+  * **deps:** bump fast-uri from 3.1.4 to 3.1.8 ([985d5f9](https://github.com/salesforcecli/sf-plugins-core/commit/985d5f9657a149ddc12a0e8309cbd35b6904eb7f))
+
 ## [6.0.61](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.60...6.0.61) (2026-10-11)
 
 
