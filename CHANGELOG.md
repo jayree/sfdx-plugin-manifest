@@ -1,3 +1,15 @@
+## [6.0.60](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.59...6.0.60) (2026-10-11)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 5.1.2 to 5.1.7 ([#2488](https://github.com/jayree/sfdx-plugin-manifest/issues/2488)) ([6ca454f](https://github.com/jayree/sfdx-plugin-manifest/commit/6ca454fb1b71ad33ee93bb4ac8e5c18db15d92c2))
+  * **deps:** bump ip-address from 10.5.0 to 10.7.2 ([9c89025](https://github.com/oclif/core/commit/9c890255bb39e16f1eec368e5a0ab49047b00032))
+  * **deps:** bump @humanfs/node from 0.16.6 to 0.16.8 ([d4abfc2](https://github.com/oclif/core/commit/d4abfc28e13421074b40ac3ed621c0056e9b8a5a))
+  * **deps:** bump source-map-js from 1.2.1 to 1.2.2 ([df72fa4](https://github.com/oclif/core/commit/df72fa4643b12fdd3483edbea7a579e3c1efb320))
+  * **deps:** bump undici from 6.28.0 to 6.29.0 ([506e039](https://github.com/oclif/core/commit/506e039c83fc6b4da4399f5e8b33126d8903a664))
+  * **deps:** bump postcss-selector-parser from 7.1.5 to 7.1.6 ([1321fb6](https://github.com/oclif/core/commit/1321fb6a7a07dca5726fedff85e12f25a83de3c9))
+
 ## [6.0.59](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.58...6.0.59) (2026-10-11)
 
 
