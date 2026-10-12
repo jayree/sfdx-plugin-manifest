@@ -1463,10 +1463,10 @@
   resolved "https://registry.yarnpkg.com/@istanbuljs/schema/-/schema-0.1.6.tgz#8dc9afa2ac1506cb1a58f89940f1c124446c8df3"
   integrity sha512-+Sg6GCR/wy1oSmQDFq4LQDAhm3ETKnorxN+y5nbLULOR3P0c14f2Wurzj3/xqPXtasLFfHd5iRFQ7AJt4KH2cw==
 
-"@jayree/changelog@^1.2.42":
-  version "1.2.42"
-  resolved "https://registry.yarnpkg.com/@jayree/changelog/-/changelog-1.2.42.tgz#d8680ca41cf56fcd6d735e2210f4a754a045dde2"
-  integrity sha512-fEr0yyZTXE0Pb4abNIqhO8++sjwQFvQAHYirxNkQo2B1BdqKS1ipmYtJySiTySK9QIhiAN5Zig1rXYYYEY+c8Q==
+"@jayree/changelog@^1.2.43":
+  version "1.2.43"
+  resolved "https://registry.yarnpkg.com/@jayree/changelog/-/changelog-1.2.43.tgz#adfa0810baedb5b09bf35f7feec3ce67b97029a2"
+  integrity sha512-nCsppT6wcbuRk/pk4PCVNFe4lGN2rHq+Xglr7Ky/NR9NB1fHNXA+P5pBMBpiezft28qzVB2bHQ8//fNyy2xowA==
   dependencies:
     debug "^4.4.1"
     fs-extra "^11.4.1"
