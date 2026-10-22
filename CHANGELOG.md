@@ -1,3 +1,13 @@
+## [6.0.67](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.66...6.0.67) (2026-10-22)
+
+
+### Bug Fixes
+
+* **deps:** bump markdown-it from 14.3.0 to 14.3.3 ([#2511](https://github.com/jayree/sfdx-plugin-manifest/issues/2511)) ([ae885d9](https://github.com/jayree/sfdx-plugin-manifest/commit/ae885d9f4ebe50fa531e3fc57ccbfab7806ba090))
+  *   Backported 15.0.3 fixes.
+  *   Backported 15.0.2 fixes.
+  *   Backported 15.0.1 fixes.
+
 ## [6.0.66](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.65...6.0.66) (2026-10-22)
 
 
