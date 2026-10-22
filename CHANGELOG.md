@@ -1,3 +1,10 @@
+## [6.0.66](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.65...6.0.66) (2026-10-22)
+
+
+### Bug Fixes
+
+* **deps:** bump ip-address from 10.7.3 to 10.7.4 ([#2512](https://github.com/jayree/sfdx-plugin-manifest/issues/2512)) ([5d3a918](https://github.com/jayree/sfdx-plugin-manifest/commit/5d3a918b91255dca1b6ee07405ffe2de621f44b8))
+
 ## [6.0.65](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.64...6.0.65) (2026-10-17)
 
 
