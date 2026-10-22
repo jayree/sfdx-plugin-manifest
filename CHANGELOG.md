@@ -1,3 +1,15 @@
+## [6.0.69](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.68...6.0.69) (2026-10-22)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 5.1.7 to 5.1.9 ([#2502](https://github.com/jayree/sfdx-plugin-manifest/issues/2502)) ([381e7b8](https://github.com/jayree/sfdx-plugin-manifest/commit/381e7b8b8c41c5035b8d3a0cf2de084f970fa508))
+  * use the error's oclif exit code when --json is enabled ([bf35f78](https://github.com/oclif/core/commit/bf35f7889003417e3dd8f06979b336cebcf89a85))
+  * constrain execute load options @W-22895681@ ([ee321d4](https://github.com/oclif/core/commit/ee321d462bb80866c2fc69ca13ab310b25f394fe))
+  * preserve execute test resolution @W-22895681@ ([ebee0ec](https://github.com/oclif/core/commit/ebee0ec4b4bf6634fbc56597e9052de98589dcf7))
+  * propagate ignore manifest option @W-22895681@ ([408d7e7](https://github.com/oclif/core/commit/408d7e7d4ca12c167952bad378535620eaf9efe0))
+  * respect execute load options @W-22895681@ ([865dcdb](https://github.com/oclif/core/commit/865dcdbebaffcbc3fa0409a47cad28edc8b3b475))
+
 ## [6.0.68](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.67...6.0.68) (2026-10-22)
 
 
