@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1792711884058,
+  "lastUpdate": 1792712601684,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -66039,6 +66039,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 320,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3a2e96ff614b856608b0108149da557102b2960d",
+          "message": "chore(deps-dev): bump @commitlint/cli from 21.2.3 to 21.2.4\n\nBumps [@commitlint/cli](https://github.com/conventional-changelog/commitlint/tree/HEAD/@commitlint/cli) from 21.2.3 to 21.2.4.\n- [Release notes](https://github.com/conventional-changelog/commitlint/releases)\n- [Changelog](https://github.com/conventional-changelog/commitlint/blob/master/@commitlint/cli/CHANGELOG.md)\n- [Commits](https://github.com/conventional-changelog/commitlint/commits/v21.2.4/@commitlint/cli)\n\n---\nupdated-dependencies:\n- dependency-name: \"@commitlint/cli\"\n  dependency-version: 21.2.4\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-10-22T23:41:01Z",
+          "tree_id": "4b2e0f66a0eea0501399723a6f599ed32678609b",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/3a2e96ff614b856608b0108149da557102b2960d"
+        },
+        "date": 1792712590742,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 3607,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 2245,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 364,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 460,
             "unit": "ms"
           }
         ]
