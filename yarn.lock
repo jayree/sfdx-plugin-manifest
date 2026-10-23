@@ -1785,7 +1785,7 @@
     ts-retry-promise "^0.8.1"
     zod "^4.1.12"
 
-"@salesforce/core@^9.1.10", "@salesforce/core@^9.3.0", "@salesforce/core@^9.3.7", "@salesforce/core@^9.4.1":
+"@salesforce/core@^9.1.10", "@salesforce/core@^9.3.0", "@salesforce/core@^9.3.6", "@salesforce/core@^9.3.7", "@salesforce/core@^9.4.1":
   version "9.4.1"
   resolved "https://registry.yarnpkg.com/@salesforce/core/-/core-9.4.1.tgz#297591e86038a1050a8bfa91e37a00618aba7cf7"
   integrity sha512-aE8llAP+uMyWGNB8+FCpkSOql4D9BA9RtrbdG/ha9luqHpWZugiUwNYx50R/GawJW5UGTsHUKHYrCF75muRodg==
@@ -1886,7 +1886,7 @@
     cli-progress "^3.12.0"
     terminal-link "^3.0.0"
 
-"@salesforce/source-deploy-retrieve@13.7.0", "@salesforce/source-deploy-retrieve@^13.3.1":
+"@salesforce/source-deploy-retrieve@13.7.0", "@salesforce/source-deploy-retrieve@^13.4.6":
   version "13.7.0"
   resolved "https://registry.yarnpkg.com/@salesforce/source-deploy-retrieve/-/source-deploy-retrieve-13.7.0.tgz#b50cc0bba1370fb9a88ed99d5fc448b9aa603109"
   integrity sha512-cANPedW09Hzt8MMoUJUKJrg14/SV25QtcIsTcjyBxARIhlg5uQIZfqL21p6xtxkzINBrRDj6t/yM/XRY2aeGsA==
@@ -1906,18 +1906,18 @@
     proxy-agent "^6.5.0"
     yaml "^2.9.0"
 
-"@salesforce/source-tracking@8.1.4":
-  version "8.1.4"
-  resolved "https://registry.yarnpkg.com/@salesforce/source-tracking/-/source-tracking-8.1.4.tgz#5d3186942abaf83a29a7dbcaecc17b735522d81b"
-  integrity sha512-x32hsRdIhfflUQKh8x17PnTJk+6cbi4c+30H9wvj189wWeAyfbzTlI9S17RjXefFeD8thHQAzbF7MVcShnYsyw==
+"@salesforce/source-tracking@8.1.7":
+  version "8.1.7"
+  resolved "https://registry.yarnpkg.com/@salesforce/source-tracking/-/source-tracking-8.1.7.tgz#32e9624e8958da57e259d260840cfa4a7902b27a"
+  integrity sha512-Fp9KjXtPe30XCxCQ23jMu5ZyWnXEvEv+rEwbNu6VFi+QypHQeBexG+xRnwFYNc6iky5p3X/hah43nYgZtnIjfQ==
   dependencies:
-    "@salesforce/core" "^9.1.10"
+    "@salesforce/core" "^9.3.6"
     "@salesforce/kit" "^4.0.0"
-    "@salesforce/source-deploy-retrieve" "^13.3.1"
+    "@salesforce/source-deploy-retrieve" "^13.4.6"
     "@salesforce/ts-types" "^3.2.0"
-    fast-xml-parser "^5.5.7"
+    fast-xml-parser "^5.11.2"
     graceful-fs "^4.2.11"
-    isomorphic-git "^1.34.2"
+    isomorphic-git "^1.44.2"
     ts-retry-promise "^0.8.1"
 
 "@salesforce/ts-sinon@^1.4.39":
@@ -4480,7 +4480,7 @@ fast-xml-builder@^1.2.0:
     path-expression-matcher "^1.6.2"
     xml-naming "^0.3.0"
 
-fast-xml-parser@^5.11.2, fast-xml-parser@^5.5.7, fast-xml-parser@^5.7.3:
+fast-xml-parser@^5.11.2, fast-xml-parser@^5.7.3:
   version "5.11.2"
   resolved "https://registry.yarnpkg.com/fast-xml-parser/-/fast-xml-parser-5.11.2.tgz#0d4987adf4e7934af11d82a73b2841eca9928a42"
   integrity sha512-R9iDuNrQYeQut46cn2r2wHKn4HYzVDvDm5J1wW+koZewykv0yuO2HChTYeZtrULyHIDM9cj9TUXloCsueCQUog==
@@ -5466,7 +5466,7 @@ isexe@^2.0.0:
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==
 
-isomorphic-git@1.44.3, isomorphic-git@^1.34.2:
+isomorphic-git@1.44.3, isomorphic-git@^1.44.2:
   version "1.44.3"
   resolved "https://registry.yarnpkg.com/isomorphic-git/-/isomorphic-git-1.44.3.tgz#c4db1464a1abf40af5051786b23ce075c877c598"
   integrity sha512-xlEIMsVUrMfOR25F4jWB9He9s/rUHWsgfJJJ3zpdwFssv9X2QfoIUyYH9CEFok9yk2tx2UDipj2gJ+KVvV/qGA==
