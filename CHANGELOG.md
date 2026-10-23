@@ -1,3 +1,14 @@
+## [6.0.70](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.69...6.0.70) (2026-10-23)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve from 13.4.5 to 13.7.0 ([#2499](https://github.com/jayree/sfdx-plugin-manifest/issues/2499)) ([5382f8b](https://github.com/jayree/sfdx-plugin-manifest/commit/5382f8bc3b4f54261887e3bfce8e6dc524833dea))
+  * add AttestSettings and AttestPolicy to MD registry ([#1851](https://github.com/forcedotcom/source-deploy-retrieve/issues/1851)) ([73a818b](https://github.com/forcedotcom/source-deploy-retrieve/commit/73a818b408bdf5e5fa83163a1eae8a878a766c83))
+  * @W-24139919 Add missing type from source ([#1853](https://github.com/forcedotcom/source-deploy-retrieve/issues/1853)) ([1b2f603](https://github.com/forcedotcom/source-deploy-retrieve/commit/1b2f603d14215d94ae67b917fc0ab0a420bd8ff1))
+  * support mcpResources in ui-bundle.json @W-24473443@ ([#1850](https://github.com/forcedotcom/source-deploy-retrieve/issues/1850)) ([b0fbd42](https://github.com/forcedotcom/source-deploy-retrieve/commit/b0fbd4245119a9db6c65cfb98b0781917d0f1ccd))
+  * **W-24411539:**  match nested inFolder deletes with truncated fullName ([#1846](https://github.com/forcedotcom/source-deploy-retrieve/issues/1846)) ([2d91506](https://github.com/forcedotcom/source-deploy-retrieve/commit/2d91506587a710ea96b224cca0bb298f6dcca6a5))
+
 ## [6.0.69](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.68...6.0.69) (2026-10-22)
 
 
