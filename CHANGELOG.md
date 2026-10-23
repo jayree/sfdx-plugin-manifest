@@ -1,3 +1,14 @@
+## [6.0.71](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.70...6.0.71) (2026-10-23)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.43.3 to 1.44.3 ([#2510](https://github.com/jayree/sfdx-plugin-manifest/issues/2510)) ([3e703f3](https://github.com/jayree/sfdx-plugin-manifest/commit/3e703f3905474bac5f19b6b3d69dedc5931f8aea))
+  * **log:** add author filter ([#2456](https://github.com/isomorphic-git/isomorphic-git/issues/2456)) ([c5916f4](https://github.com/isomorphic-git/isomorphic-git/commit/c5916f4ce474c4305ec51c3cd9237f04e1027cd9))
+  * preserve Pako decompression errors when reading objects ([#2451](https://github.com/isomorphic-git/isomorphic-git/issues/2451)) ([b75230a](https://github.com/isomorphic-git/isomorphic-git/commit/b75230ae87bcee1977b02288067b5c5bf40c1ecf))
+  * return absent from status for case-mismatched paths on case-insensitive filesystems ([#2454](https://github.com/isomorphic-git/isomorphic-git/issues/2454)) ([c8f4687](https://github.com/isomorphic-git/isomorphic-git/commit/c8f468743f4ecf6fc15caa471239b609ab053e79))
+  * rethrow read and readdir errors other than file-not-found ([#2461](https://github.com/isomorphic-git/isomorphic-git/issues/2461)) ([2e87526](https://github.com/isomorphic-git/isomorphic-git/commit/2e87526b3634387c9c5a4cf356fc49da36a7b85c))
+
 ## [6.0.70](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.69...6.0.70) (2026-10-23)
 
 
