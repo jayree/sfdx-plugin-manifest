@@ -1,3 +1,19 @@
+## [6.0.72](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.71...6.0.72) (2026-10-23)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-tracking from 8.1.4 to 8.1.7 ([#2505](https://github.com/jayree/sfdx-plugin-manifest/issues/2505)) ([6e91090](https://github.com/jayree/sfdx-plugin-manifest/commit/6e91090852c7facc6c3a99e2364be9d265d25f0c))
+  * add test non-navigationMenu ([839ab0d](https://github.com/forcedotcom/source-tracking/commit/839ab0d16249d73c60218af772c1701d26db6458))
+  * bump core ([fc0dd79](https://github.com/forcedotcom/source-tracking/commit/fc0dd7910a3846af02f0525d3651cdb7106ad8d8))
+  * correct SourceMember name mismatch ([b522199](https://github.com/forcedotcom/source-tracking/commit/b522199733f9efb1546a4b89d6403b2536584423))
+  * remove single-candidate ([63cc5f6](https://github.com/forcedotcom/source-tracking/commit/63cc5f6134f4007f0766d510c8ce4f8e55478456))
+  * update changes to allowlist ([5cf4366](https://github.com/forcedotcom/source-tracking/commit/5cf43662535f0053c9a9ec19bb643549a6e4cd23))
+  * update suggestions ([5bc293d](https://github.com/forcedotcom/source-tracking/commit/5bc293d9804ed85ce1b3ccfec279cd8632300c4b))
+  * use filter() to reverse sync fallback ([5f26561](https://github.com/forcedotcom/source-tracking/commit/5f265619f009fbac0d67fa60906b7bb370d06c68))
+  * **deps:** bump source-map-js from 1.2.1 to 1.2.2 ([1cfea98](https://github.com/forcedotcom/source-tracking/commit/1cfea98c416e76af1cf47cf5c2413bfa447e16d6))
+  * **deps:** bump markdown-it from 14.1.0 to 14.2.0 ([c4950c2](https://github.com/forcedotcom/source-tracking/commit/c4950c2c8b61f26bed26d45f1fa452355198a0c1))
+
 ## [6.0.71](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.70...6.0.71) (2026-10-23)
 
 
