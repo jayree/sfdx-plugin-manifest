@@ -1,3 +1,11 @@
+## [6.0.82](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.81...6.0.82) (2026-10-25)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.44.3 to 1.44.4 ([#2528](https://github.com/jayree/sfdx-plugin-manifest/issues/2528)) ([2bc7745](https://github.com/jayree/sfdx-plugin-manifest/commit/2bc7745d829c0bb26c303dd845da90a9aa7afa6f))
+  * escape and unescape config values like canonical git ([#2462](https://github.com/isomorphic-git/isomorphic-git/issues/2462)) ([815284f](https://github.com/isomorphic-git/isomorphic-git/commit/815284f99574b7b303c3bd2d4da1aec03f6b375d))
+
 ## [6.0.81](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.80...6.0.81) (2026-10-25)
 
 
