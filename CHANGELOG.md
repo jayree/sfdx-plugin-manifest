@@ -1,3 +1,11 @@
+## [6.0.80](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.79...6.0.80) (2026-10-25)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/ts-types from 3.2.2 to 3.2.3 ([#2525](https://github.com/jayree/sfdx-plugin-manifest/issues/2525)) ([788a83a](https://github.com/jayree/sfdx-plugin-manifest/commit/788a83a0f8d8038d36dca704058c5e483f53fd68))
+  * **deps:** bump markdown-it from 14.3.2 to 14.3.3 ([f2ead46](https://github.com/forcedotcom/ts-types/commit/f2ead464e92c2a106e34cd037454c32fec3a94c3))
+
 ## [6.0.79](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.78...6.0.79) (2026-10-25)
 
 
