@@ -1,3 +1,96 @@
+## [6.0.75](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.74...6.0.75) (2026-10-25)
+
+
+### Bug Fixes
+
+* **deps:** bump undici from 8.11.2 to 8.12.3 ([#2515](https://github.com/jayree/sfdx-plugin-manifest/issues/2515)) ([a03ced5](https://github.com/jayree/sfdx-plugin-manifest/commit/a03ced5cb3ab77ff5d76a44c55e2cd1fae7286c8))
+  * fix(cookies): ignore a numeric expires outside the Date range by @xia-chao in https://github.com/nodejs/undici/pull/5832
+  * fix(http2): pause bodyTimeout while applying backpressure by @jasnell in https://github.com/nodejs/undici/pull/5884
+  * fix(cache): track cached response abort state by @mcollina in https://github.com/nodejs/undici/pull/5820
+  * fix(deduplicate): make terminal callbacks exception-safe by @mcollina in https://github.com/nodejs/undici/pull/5838
+  * fix(decompress): stop inflating compress and x-compress by @luantaraschi in https://github.com/nodejs/undici/pull/5665
+  * fix(cache): evict least recently used entries in MemoryCacheStore by @jasnell in https://github.com/nodejs/undici/pull/5869
+  * fix(eventsource): fix redirect targets in eventsource by @jasnell in https://github.com/nodejs/undici/pull/5878
+  * fix(redirect): fix throwOnMaxRedirect edge by @jasnell in https://github.com/nodejs/undici/pull/5879
+  * fix: normalize HTTP/2 headers for legacy dispatch handlers by @Knowzzz in https://github.com/nodejs/undici/pull/5867
+  * fix(session cache): fix bug in tls session caching by @jasnell in https://github.com/nodejs/undici/pull/5882
+  * docs: fix relative links broken by the README move by @v1teka in https://github.com/nodejs/undici/pull/5843
+  * fix(redirect): add error code to max redirects error by @mcollina in https://github.com/nodejs/undici/pull/5895
+  * fix(eventsource): fix retry wrap bug by @jasnell in https://github.com/nodejs/undici/pull/5875
+  * fix(retry): keep request headers when resuming a download by @jasnell in https://github.com/nodejs/undici/pull/5870
+  * fix(proxyagent): correct handling of the host header by @jasnell in https://github.com/nodejs/undici/pull/5868
+  * fix(http1): fix handling of 204/304 responses by @jasnell in https://github.com/nodejs/undici/pull/5864
+  * test: add unexpected disconnect guards to two more h2 tests by @zeexzeex in https://github.com/nodejs/undici/pull/5825
+  * fix(cache): preserve 304 response event order with async stores by @marcopiraccini in https://github.com/nodejs/undici/pull/5797
+  * fix(dns): handle a null pick, and stop failing over to an expired record by @datrixlab in https://github.com/nodejs/undici/pull/5791
+  * fix: keep a header named __proto__ across features by @luantaraschi in https://github.com/nodejs/undici/pull/5688
+  * ci: exclude tests from CodeQL analysis by @mcollina in https://github.com/nodejs/undici/pull/5905
+  * fix(pool): ensure that removed clients don't pick up requests by @jasnell in https://github.com/nodejs/undici/pull/5881
+  * feat: Added @perseveranza-pets/milo as alternative experimental HTTP parser by @ShogunPanda in https://github.com/nodejs/undici/pull/5492
+  * extractBody fixes 2 by @KhafraDev in https://github.com/nodejs/undici/pull/5926
+  * reenable cachestorage wpts by @KhafraDev in https://github.com/nodejs/undici/pull/5907
+  * fix(fetch): parse language tag in filename* parameters by @fallintoplace in https://github.com/nodejs/undici/pull/5908
+  * fix(client): preserve tracked response header field boundaries by @ronag in https://github.com/nodejs/undici/pull/5940
+  * fix(http1): fixup strictContentLength handling by @jasnell in https://github.com/nodejs/undici/pull/5897
+  * feat(cache): compress big sqlite cache entries with zstd by @mcollina in https://github.com/nodejs/undici/pull/5744
+  * fix(eventsource): enforce maxEventSize on unterminated lines by @mcollina in https://github.com/nodejs/undici/pull/5814
+  * limit zstd window size to 8 MB by @KhafraDev in https://github.com/nodejs/undici/pull/5955
+  * test: add unexpected disconnect guards to http2-body.js by @GhostCoder6969 in https://github.com/nodejs/undici/pull/5914
+  * test: fix "specifiy" typo in cache interceptor test by @ump45nose in https://github.com/nodejs/undici/pull/5922
+  * Wpt/wpt runner fixes by @KhafraDev in https://github.com/nodejs/undici/pull/5959
+  * fix(h2): unref a session detached by GOAWAY with no open streams by @kjsik11 in https://github.com/nodejs/undici/pull/5960
+  * feat: Throw an error when WebAssembly is not available. by @ShogunPanda in https://github.com/nodejs/undici/pull/5966
+  * chore: Vendor milo 0.9.0. by @ShogunPanda in https://github.com/nodejs/undici/pull/5954
+  * build(deps-dev): bump ws from 8.21.3 to 8.22.0 by @dependabot[bot] in https://github.com/nodejs/undici/pull/5968
+  * build(deps-dev): bump undici from 6.28.0 to 6.29.0 by @dependabot[bot] in https://github.com/nodejs/undici/pull/5933
+  * fix(typemap): `.md` -> `.html` by @avivkeller in https://github.com/nodejs/undici/pull/5602
+  * build(deps): bump js-yaml from 4.1.1 to 4.3.2 by @dependabot[bot] in https://github.com/nodejs/undici/pull/5810
+  * build(deps): bump brace-expansion by @dependabot[bot] in https://github.com/nodejs/undici/pull/5934
+  * build(deps-dev): bump fast-check from 4.10.1 to 4.10.2 by @dependabot[bot] in https://github.com/nodejs/undici/pull/5921
+  * test(fetch): settle h2 internal stream errors by @Yahiro025 in https://github.com/nodejs/undici/pull/5927
+  * docs(errors): clarify timeout error codes and related options by @theamodhshetty in https://github.com/nodejs/undici/pull/4856
+  * fix(interceptor): limit response error body size by @mcollina in https://github.com/nodejs/undici/pull/5942
+  * build(deps): bump codecov/codecov-action from 7.0.0 to 7.1.1 by @dependabot[bot] in https://github.com/nodejs/undici/pull/5946
+  * build(deps): bump hendrikmuhs/ccache-action from 1.2.23 to 1.2.24 by @dependabot[bot] in https://github.com/nodejs/undici/pull/5951
+  * build(deps): bump github/codeql-action/analyze from 4.37.9 to 4.38.2 by @dependabot[bot] in https://github.com/nodejs/undici/pull/5952
+  * build(deps): bump github/codeql-action/autobuild from 4.37.9 to 4.38.2 by @dependabot[bot] in https://github.com/nodejs/undici/pull/5950
+  * build(deps): bump github/codeql-action/init from 4.37.9 to 4.38.2 by @dependabot[bot] in https://github.com/nodejs/undici/pull/5948
+  * build(deps): bump github/codeql-action/upload-sarif from 4.37.9 to 4.38.2 by @dependabot[bot] in https://github.com/nodejs/undici/pull/5947
+  * build(deps): bump actions/checkout from 7.0.0 to 7.0.1 by @dependabot[bot] in https://github.com/nodejs/undici/pull/5630
+  * fix(http1): reset connections for no-body transfer encoding by @mcollina in https://github.com/nodejs/undici/pull/5941
+  * fix: exclude experimental milo from node.js core bundle by @mcollina in https://github.com/nodejs/undici/pull/5935
+  * test: re-enable HTTP/2 churn test on Node.js 26 by @mcollina in https://github.com/nodejs/undici/pull/5961
+  * test: keep the h2c unix socket path within sun_path limits by @mcollina in https://github.com/nodejs/undici/pull/5978
+  * fix(cache): preserve abort reasons after completion by @domenic in https://github.com/nodejs/undici/pull/5958
+  * test: update milo paths in bundle-parser test by @mcollina in https://github.com/nodejs/undici/pull/5979
+  * fix(cache): always treat zero-lifetime entries as stale by @mcollina in https://github.com/nodejs/undici/pull/5980
+  * build(deps): bump step-security/harden-runner from 2.21.0 to 2.21.1 by @dependabot[bot] in https://github.com/nodejs/undici/pull/5949
+  * fix(websocket,eventsource): keep receive limits behind dispatcher wrappers by @jasnell in https://github.com/nodejs/undici/pull/5896
+  * fix(http2): enforce max concurrent streams by @jasnell in https://github.com/nodejs/undici/pull/5885
+  * docs: sync WG collaborators with nodejs/undici team by @mcollina in https://github.com/nodejs/undici/pull/5991
+  * build(deps-dev): bump @fastify/busboy from 3.2.2 to 3.2.3 by @dependabot[bot] in https://github.com/nodejs/undici/pull/6005
+  * fix: ignore missing release ref during cleanup by @mcollina in https://github.com/nodejs/undici/pull/5891
+  * fix: reject unsupported FormData request bodies by @mcollina in https://github.com/nodejs/undici/pull/5913
+  * split wpt out of npm test by @mcollina in https://github.com/nodejs/undici/pull/5588
+  * @xia-chao made their first contribution in https://github.com/nodejs/undici/pull/5832
+  * @jasnell made their first contribution in https://github.com/nodejs/undici/pull/5884
+  * @Knowzzz made their first contribution in https://github.com/nodejs/undici/pull/5867
+  * @v1teka made their first contribution in https://github.com/nodejs/undici/pull/5843
+  * @datrixlab made their first contribution in https://github.com/nodejs/undici/pull/5791
+  * @fallintoplace made their first contribution in https://github.com/nodejs/undici/pull/5908
+  * @GhostCoder6969 made their first contribution in https://github.com/nodejs/undici/pull/5914
+  * @ump45nose made their first contribution in https://github.com/nodejs/undici/pull/5922
+  * fix: restore build:wasm npm script by @mcollina in https://github.com/nodejs/undici/pull/6009
+  * test: add unexpected disconnect guards to http2-body-delete.js by @Kesavamoorthig06 in https://github.com/nodejs/undici/pull/5970
+  * @Kesavamoorthig06 made their first contribution in https://github.com/nodejs/undici/pull/5970
+  * ci: use Python 3.14 for the WPT server on macOS by @mrityunjay-pandey in https://github.com/nodejs/undici/pull/6029
+  * build(deps-dev): bump neostandard from 0.13.0 to 0.14.0 by @dependabot[bot] in https://github.com/nodejs/undici/pull/6006
+  * build(deps-dev): bump eslint from 9.39.4 to 10.12.0 by @dependabot[bot] in https://github.com/nodejs/undici/pull/5967
+  * docs: document the options of interceptors.cache() by @qodelicious in https://github.com/nodejs/undici/pull/6050
+  * fix(h2): replace a connection that stops responding after a stream timeout by @mcollina in https://github.com/nodejs/undici/pull/6052
+  * fix(pool): keep caller async context for queued requests by @mcollina in https://github.com/nodejs/undici/pull/5982
+  * @qodelicious made their first contribution in https://github.com/nodejs/undici/pull/6050
+
 ## [6.0.74](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.73...6.0.74) (2026-10-25)
 
 
