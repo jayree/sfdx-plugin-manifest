@@ -1,3 +1,17 @@
+## [6.0.79](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.78...6.0.79) (2026-10-25)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/kit from 4.0.1 to 4.0.8 ([#2518](https://github.com/jayree/sfdx-plugin-manifest/issues/2518)) ([a5cdb5a](https://github.com/jayree/sfdx-plugin-manifest/commit/a5cdb5a4cf3b99f4a243627f3b67517038b778b6))
+  * **deps:** bump markdown-it from 14.3.0 to 14.3.3 ([24b9494](https://github.com/forcedotcom/kit/commit/24b94941a8f4e68489e6b50d59dfcda2e8c69d81))
+  * **deps:** bump js-yaml from 3.14.1 to 3.15.2 ([80e4dea](https://github.com/forcedotcom/kit/commit/80e4dea84dd33060b43ffcc79c96de59ba5e08cb))
+  * **deps:** bump source-map-js from 1.2.1 to 1.2.2 ([b33186e](https://github.com/forcedotcom/kit/commit/b33186ee0af520f56ba4f33b9e4581478aa0f3eb))
+  * **deps:** bump minimatch from 3.1.2 to 3.1.5 ([b21565a](https://github.com/forcedotcom/kit/commit/b21565a8b9508403c6c0d074416bb93b2b13e77e))
+  * **deps:** bump brace-expansion from 1.1.11 to 1.1.21 ([1e305a8](https://github.com/forcedotcom/kit/commit/1e305a88142ccf841bc0d6ede3c5f6b7165ce205))
+  * **deps:** bump @salesforce/ts-types from 3.2.0 to 3.2.2 ([5e5d2ef](https://github.com/forcedotcom/kit/commit/5e5d2eff55a2b8c5951cfa2c9bcd3e1c7a64ea2d))
+  * **deps:** bump picomatch from 2.3.1 to 2.3.2 ([f764479](https://github.com/forcedotcom/kit/commit/f764479c07aa972e3a2c3c854edbd30425a5f457))
+
 ## [6.0.78](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.77...6.0.78) (2026-10-25)
 
 
