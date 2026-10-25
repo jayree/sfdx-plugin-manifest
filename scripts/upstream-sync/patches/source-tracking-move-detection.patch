@@ -1,0 +1,298 @@
+--- a/src/SDR-extra/shared/local/moveDetection.ts
++++ b/src/SDR-extra/shared/local/moveDetection.ts
+@@ -1,5 +1,5 @@
+ /*
+- * Copyright 2026, Salesforce, Inc.
++ * Copyright 2026, jayree
+  *
+  * Licensed under the Apache License, Version 2.0 (the "License");
+  * you may not use this file except in compliance with the License.
+@@ -13,22 +13,29 @@
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
++// https://github.com/forcedotcom/source-tracking/blob/main/src/shared/local/moveDetection.ts
+ import path from 'node:path';
+-import { EOL } from 'node:os';
+-import * as fs from 'graceful-fs';
+-import { Logger, Lifecycle } from '@salesforce/core';
++import { isUtf8 } from 'node:buffer';
++import { Lifecycle, Logger } from '@salesforce/core';
+ import {
+   MetadataResolver,
+   SourceComponent,
+   RegistryAccess,
+   VirtualTreeContainer,
+ } from '@salesforce/source-deploy-retrieve';
+-import git from 'isomorphic-git';
+-import { isDefined } from '../guards';
+-import { uniqueArrayConcat } from '../functions';
+-import { isDeleted, isAdded, toFilenames, IS_WINDOWS, ensurePosix } from './functions';
+-import { AddAndDeleteMaps, DetectionFileInfo, DetectionFileInfoWithType, StatusRow, StringMap } from './types';
++import { isDefined } from '@salesforce/source-tracking/lib/shared/guards.js';
++import { uniqueArrayConcat } from '@salesforce/source-tracking/lib/shared/functions.js';
++import { IS_WINDOWS } from '@salesforce/source-tracking/lib/shared/local/functions.js';
++import {
++  AddAndDeleteMaps,
++  DetectionFileInfo,
++  DetectionFileInfoWithType,
++  StringMap,
++} from '@salesforce/source-tracking/lib/shared/local/types.js';
++import { GitRepo } from './localGitRepo.js';
+ 
++const ensureWindows = (filepath: string): string => path.win32.normalize(filepath);
++
+ const JOIN_CHAR = '#__#'; // the __ makes it unlikely to be used in metadata names
+ type AddAndDeleteFileInfos = Readonly<{ addedInfo: DetectionFileInfo[]; deletedInfo: DetectionFileInfo[] }>;
+ type AddAndDeleteFileInfosWithTypes = {
+@@ -47,84 +54,61 @@
+ export const filenameMatchesToMap =
+   (registry: RegistryAccess) =>
+   (projectPath: string) =>
+-  (gitDir: string) =>
+   async ({ added, deleted }: AddedAndDeletedFilenames): Promise<StringMapsForMatches> => {
++    if (added.size === 0 || deleted.size === 0) {
++      return { fullMatches: new Map(), deleteOnly: new Map() };
++    }
++
+     const resolver = new MetadataResolver(
+       registry,
+-      VirtualTreeContainer.fromFilePaths(uniqueArrayConcat(added, deleted))
++      VirtualTreeContainer.fromFilePaths(uniqueArrayConcat(added, deleted)),
+     );
+ 
++    const localRepo = GitRepo.getInstance({
++      dir: projectPath,
++      registry,
++    });
++
+     return compareHashes(
+       await buildMaps(
+         addTypes(resolver)(
+           await toFileInfo({
+-            projectPath,
+-            gitDir,
+             added,
+             deleted,
+-          })
+-        )
+-      )
++            localRepo,
++          }),
++        ),
++      ),
+     );
+   };
+ 
+-/** compare delete and adds from git.status, matching basenames of the files.  returns early when there's nothing to match */
+-export const getMatches = (status: StatusRow[]): AddedAndDeletedFilenames => {
+-  // We check for moved files in incremental steps and exit as early as we can to avoid any performance degradation
+-  // Deleted files will be more rare than added files, so we'll check them first and exit early if there are none
+-  const emptyResult = { added: new Set<string>(), deleted: new Set<string>() };
+-  const deletedFiles = status.filter(isDeleted);
+-  if (!deletedFiles.length) return emptyResult;
+-
+-  const addedFiles = status.filter(isAdded);
+-  if (!addedFiles.length) return emptyResult;
+-
+-  // Both arrays have contents, look for matching basenames
+-  const addedFilenames = toFilenames(addedFiles);
+-  const deletedFilenames = toFilenames(deletedFiles);
+-
+-  // Build Sets of basenames for added and deleted files for quick lookups
+-  const addedBasenames = new Set(addedFilenames.map((filename) => path.basename(filename)));
+-  const deletedBasenames = new Set(deletedFilenames.map((filename) => path.basename(filename)));
+-
+-  // TODO: when node 22 is everywhere, we can use Set.prototype.intersection
+-  // Again, we filter over the deleted files first and exit early if there are no filename matches
+-  const deletedFilenamesWithMatches = new Set(deletedFilenames.filter((f) => addedBasenames.has(path.basename(f))));
+-  if (!deletedFilenamesWithMatches.size) return emptyResult;
+-
+-  const addedFilenamesWithMatches = new Set(addedFilenames.filter((f) => deletedBasenames.has(path.basename(f))));
+-  if (!addedFilenamesWithMatches.size) return emptyResult;
+-
+-  return { added: addedFilenamesWithMatches, deleted: deletedFilenamesWithMatches };
+-};
+-
+-export const getLogMessage = (matches: StringMapsForMatches): string =>
+-  [
+-    'Files have moved. Committing moved files:',
+-    ...[...matches.fullMatches.entries()].map(([add, del]) => `- File ${del} was moved to ${add}`),
+-    ...[...matches.deleteOnly.entries()].map(([add, del]) => `- File ${del} was moved to ${add} and modified`),
+-  ].join(EOL);
++export const getLogMessage = (matches: StringMapsForMatches): string[] => [
++  ...[...matches.fullMatches.entries()].map(
++    ([add, del]) =>
++      `The file ${IS_WINDOWS ? ensureWindows(del) : del} moved to ${IS_WINDOWS ? ensureWindows(add) : add} was ignored.`,
++  ),
++  ...[...matches.deleteOnly.entries()].map(
++    ([add, del]) =>
++      `The file ${IS_WINDOWS ? ensureWindows(del) : del} moved to ${IS_WINDOWS ? ensureWindows(add) : add} and modified was processed.`,
++  ),
++];
+ 
+ /** build maps of the add/deletes with filenames, returning the matches  Logs if we can't make a match because buildMap puts them in the ignored bucket */
+ const buildMaps = async ({ addedInfo, deletedInfo }: AddAndDeleteFileInfosWithTypes): Promise<AddAndDeleteMaps> => {
+   const [addedMap, addedIgnoredMap] = buildMap(addedInfo);
+   const [deletedMap, deletedIgnoredMap] = buildMap(deletedInfo);
+ 
+-  // If we detected any files that have the same basename and hash, emit a warning and send telemetry
++  // If we detected any files that have the same basename and hash, emit a warning
+   // These files will still show up as expected in the `sf project deploy preview` output
+   // We could add more logic to determine and display filepaths that we ignored...
+   // but this is likely rare enough to not warrant the added complexity
+-  // Telemetry will help us determine how often this occurs
+   if (addedIgnoredMap.size || deletedIgnoredMap.size) {
+     const message =
+       'Files were found that have the same basename, hash, metadata type, and parent. Skipping the commit of these files';
+-    const logger = Logger.childFromRoot('ShadowRepo.compareHashes');
++    const logger = Logger.childFromRoot('@jayree/sfdx-plugin-manifest:SDR-extra:moveDetection:compareHashes');
+     logger.warn(message);
+     const lifecycle = Lifecycle.getInstance();
+-    await Promise.all([
+-      lifecycle.emitWarning(message),
+-      lifecycle.emitTelemetry({ eventName: 'moveFileHashBasenameCollisionsDetected' }),
+-    ]);
++    await lifecycle.emitWarning(message);
+   }
+   return { addedMap, deletedMap };
+ };
+@@ -145,7 +129,7 @@
+           return [addedValue, deletedValue] as const;
+         }
+       })
+-      .filter(isDefined)
++      .filter(isDefined),
+   );
+ 
+   if (addedMap.size && deletedMap.size) {
+@@ -156,7 +140,7 @@
+     const deleteOnly = new Map<string, string>(
+       Array.from(deletedMapNoHash.entries())
+         .filter(([k]) => addedMapNoHash.has(k))
+-        .map(([k, v]) => [addedMapNoHash.get(k) as string, v])
++        .map(([k, v]) => [addedMapNoHash.get(k) as string, v]),
+     );
+     return { fullMatches: matches, deleteOnly };
+   }
+@@ -165,22 +149,24 @@
+ 
+ /** enrich the filenames with basename and oid (hash)  */
+ const toFileInfo = async ({
+-  projectPath,
+-  gitDir,
+   added,
+   deleted,
++  localRepo,
+ }: {
+-  projectPath: string;
+-  gitDir: string;
+   added: Set<string>;
+   deleted: Set<string>;
++  localRepo: GitRepo;
+ }): Promise<AddAndDeleteFileInfos> => {
+-  // Track how long it takes to gather the oid information from the git trees
+-
+-  const headRef = await git.resolveRef({ fs, dir: projectPath, gitdir: gitDir, ref: 'HEAD' });
++  const [headRef, autocrlf] = await Promise.all([
++    localRepo.resolveRef('HEAD'),
++    localRepo.getConfig('core.autocrlf'),
++  ]);
++  if (!headRef) {
++    throw new Error(`Could not resolve HEAD for repository at ${localRepo.dir}`);
++  }
+   const [addedInfo, deletedInfo] = await Promise.all([
+-    await Promise.all(Array.from(added).map(getHashForAddedFile(projectPath))),
+-    await Promise.all(Array.from(deleted).map(getHashFromActualFileContents(gitDir)(projectPath)(headRef))),
++    Promise.all(Array.from(added).map(getHashForAddedFile(localRepo, autocrlf))),
++    Promise.all(Array.from(deleted).map(getHashFromActualFileContents(localRepo)(headRef))),
+   ]);
+ 
+   return { addedInfo, deletedInfo };
+@@ -191,7 +177,7 @@
+   const map: StringMap = new Map();
+   const ignore: StringMap = new Map();
+ 
+-  info.map((i) => {
++  for (const i of info) {
+     const key = toKey(i);
+     // If we find a duplicate key, we need to remove it and ignore it in the future.
+     // Finding duplicate hash#basename means that we cannot accurately determine where it was moved to or from
+@@ -201,55 +187,54 @@
+     } else {
+       map.set(key, i.filename);
+     }
+-  });
++  }
+ 
+   return [map, ignore];
+ };
+ 
+ const getHashForAddedFile =
+-  (projectPath: string) =>
+-  async (filepath: string): Promise<DetectionFileInfo> => ({
+-    filename: filepath,
+-    basename: path.basename(filepath),
+-    hash: (
+-      await git.hashBlob({
+-        object: await fs.promises.readFile(path.join(projectPath, filepath)),
+-      })
+-    ).oid,
+-  });
++  (localRepo: GitRepo, autocrlf: string) =>
++  async (filepath: string): Promise<DetectionFileInfo> => {
++    let object = await localRepo.readBlob(filepath);
+ 
++    if (autocrlf === 'true' && isUtf8(object)) {
++      object = Buffer.from(object.toString('utf8').replace(/\r\n/g, '\n'));
++    }
++    return {
++      filename: filepath,
++      basename: path.basename(filepath),
++      hash: await localRepo.hashBlob(object),
++    };
++  };
++
+ const resolveType =
+   (resolver: MetadataResolver) =>
+-  (filenames: string[]): SourceComponent[] =>
+-    filenames
++  (filenames: string[]): SourceComponent[] => {
++    const logger = Logger.childFromRoot('@jayree/sfdx-plugin-manifest:SDR-extra:moveDetection:compareTypes');
++    return filenames
+       .flatMap((filename) => {
+         try {
+           return resolver.getComponentsFromPath(filename);
+-        } catch (e) {
+-          const logger = Logger.childFromRoot('ShadowRepo.compareTypes');
++        } catch {
+           logger.warn(`unable to resolve ${filename}`);
+           return undefined;
+         }
+       })
+       .filter(isDefined);
++  };
+ 
+ /** where we don't have git objects to use, read the file contents to generate the hash */
+ const getHashFromActualFileContents =
+-  (gitdir: string) =>
+-  (projectPath: string) =>
++  (localRepo: GitRepo) =>
+   (oid: string) =>
+   async (filepath: string): Promise<DetectionFileInfo> => ({
+     filename: filepath,
+     basename: path.basename(filepath),
+-    hash: (
+-      await git.readBlob({ fs, dir: projectPath, gitdir, filepath: IS_WINDOWS ? ensurePosix(filepath) : filepath, oid })
+-    ).oid,
++    hash: await localRepo.readOid(filepath, oid),
+   });
+ 
+ const toKey = (input: DetectionFileInfoWithType): string =>
+-  [input.hash, input.basename, input.type, input.type, input.parentType ?? '', input.parentFullName ?? ''].join(
+-    JOIN_CHAR
+-  );
++  [input.hash, input.basename, input.type, input.parentType ?? '', input.parentFullName ?? ''].join(JOIN_CHAR);
+ 
+ const removeHashFromEntry = ([k, v]: [string, string]): [string, string] => [removeHashFromKey(k), v];
+ const removeHashFromKey = (hash: string): string => hash.split(JOIN_CHAR).splice(1).join(JOIN_CHAR);

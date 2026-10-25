@@ -107,6 +107,33 @@ describe('getGroupedFiles', () => {
 
     assert.deepEqual(groups, []);
   });
+
+  it('retains deploy-only and delete-only package groups while ignoring files outside packages', () => {
+    const groups = getGroupedFiles(
+      {
+        packageDirs,
+        adds: ['force-app/main/default/classes/Added.cls', 'outside/Added.cls'],
+        modifies: [],
+        deletes: ['pkg/main/default/classes/Removed.cls'],
+      },
+      true,
+    );
+
+    assert.deepEqual(groups, [
+      {
+        path: 'force-app',
+        adds: ['force-app/main/default/classes/Added.cls'],
+        modifies: [],
+        deletes: [],
+      },
+      {
+        path: 'pkg',
+        adds: [],
+        modifies: [],
+        deletes: ['pkg/main/default/classes/Removed.cls'],
+      },
+    ]);
+  });
 });
 
 describe('getComponentSets', () => {
@@ -212,6 +239,51 @@ describe('getComponentSets', () => {
     });
   });
 
+  it('deploys the remaining content of a partially deleted component', () => {
+    const bundlePath = 'force-app/main/default/lwc/Bundle';
+    const deletedFile = `${bundlePath}/removed.js`;
+    const bundle = new SourceComponent({
+      name: 'Bundle',
+      type: registry.getTypeByName('lightningcomponentbundle'),
+    });
+    Object.assign(bundle, { content: bundlePath });
+    const componentSets = getComponentSets({
+      groupings: [{ path: 'force-app', adds: [], modifies: [], deletes: [deletedFile] }],
+      registry,
+      resolverForDeletes: resolver(new Map([[deletedFile, [bundle]]])),
+      resolverForNonDeletes: resolver(new Map([[bundlePath, [bundle]]])),
+      virtualTreeContainer: { exists: (path: string) => path === bundlePath } as unknown as VirtualTreeContainerExtra,
+    });
+
+    assert.equal(componentSets.length, 1);
+    assert.equal(componentSets[0].size, 1);
+    assert.deepEqual(componentSets[0].getTypesOfDestructiveChanges(), []);
+  });
+
+  it('continues when remaining partial-delete content cannot be resolved', () => {
+    const bundlePath = 'force-app/main/default/lwc/Bundle';
+    const deletedFile = `${bundlePath}/removed.js`;
+    const bundle = new SourceComponent({
+      name: 'Bundle',
+      type: registry.getTypeByName('lightningcomponentbundle'),
+    });
+    Object.assign(bundle, { content: bundlePath });
+    const componentSets = getComponentSets({
+      groupings: [{ path: 'force-app', adds: [], modifies: [], deletes: [deletedFile] }],
+      registry,
+      resolverForDeletes: resolver(new Map([[deletedFile, [bundle]]])),
+      resolverForNonDeletes: {
+        forceIgnoredPaths: new Set<string>(),
+        getComponentsFromPath: () => {
+          throw new Error('unresolvable');
+        },
+      } as unknown as MetadataResolver,
+      virtualTreeContainer: { exists: (path: string) => path === bundlePath } as unknown as VirtualTreeContainerExtra,
+    });
+
+    assert.deepEqual(componentSets, []);
+  });
+
   it('copies force-ignored paths from both resolvers', () => {
     const componentSets = getComponentSets({
       groupings: [
@@ -269,6 +341,45 @@ describe('getComponentSets', () => {
     assert.equal(componentSets.length, 1);
     assert.equal(componentSets[0].size, 0);
     assert.deepEqual(componentSets[0].forceIgnoredPaths, new Set([filename]));
+  });
+
+  it('skips force-ignored metadata xml files that cannot be resolved in either ref', () => {
+    const filename = 'force-app/main/default/classes/Ignored.cls-meta.xml';
+    const createIgnoredResolver = (): MetadataResolver => {
+      const forceIgnoredPaths = new Set<string>();
+      return {
+        forceIgnoredPaths,
+        getComponentsFromPath: (path: string) => {
+          forceIgnoredPaths.add(path);
+          return [];
+        },
+      } as unknown as MetadataResolver;
+    };
+
+    const componentSets = getComponentSets({
+      groupings: [{ path: 'force-app', adds: [], modifies: [filename], deletes: [] }],
+      registry,
+      resolverForDeletes: createIgnoredResolver(),
+      resolverForNonDeletes: createIgnoredResolver(),
+      virtualTreeContainer,
+    });
+
+    assert.equal(componentSets.length, 1);
+    assert.equal(componentSets[0].size, 0);
+    assert.deepEqual(componentSets[0].forceIgnoredPaths, new Set([filename]));
+  });
+
+  it('skips metadata comparisons when either ref has no resolved component', () => {
+    const filename = 'force-app/main/default/classes/Unresolved.cls-meta.xml';
+    const componentSets = getComponentSets({
+      groupings: [{ path: 'force-app', adds: [], modifies: [filename], deletes: [] }],
+      registry,
+      resolverForDeletes: resolver(new Map()),
+      resolverForNonDeletes: resolver(new Map()),
+      virtualTreeContainer,
+    });
+
+    assert.deepEqual(componentSets, []);
   });
 
   it('ignores modified metadata xml files when parsed contents are unchanged', () => {

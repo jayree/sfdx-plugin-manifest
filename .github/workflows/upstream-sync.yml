@@ -1,0 +1,88 @@
+name: upstream-customizations
+
+on:
+  schedule:
+    - cron: '37 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync-upstream:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Sync upstream customizations
+        id: sync
+        run: |
+          yarn upstream-sync
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+        continue-on-error: true
+
+      - name: Install dependencies
+        id: install
+        if: steps.sync.outcome == 'success' && steps.sync.outputs.changed == 'true'
+        run: yarn install --frozen-lockfile
+        continue-on-error: true
+
+      - name: Test synced changes
+        id: tests
+        if: steps.sync.outcome == 'success' && steps.sync.outputs.changed == 'true' && steps.install.outcome == 'success'
+        run: yarn test
+        continue-on-error: true
+
+      - name: Reset checkout for review-only fallback
+        if: ${{ always() && (steps.sync.outcome == 'failure' || steps.install.outcome == 'failure' || steps.tests.outcome == 'failure') }}
+        uses: actions/checkout@v7
+
+      - name: Capture upstream snapshots for manual review
+        id: fallback
+        if: ${{ always() && (steps.sync.outcome == 'failure' || steps.install.outcome == 'failure' || steps.tests.outcome == 'failure') }}
+        run: yarn upstream-sync:review
+
+      - name: Create pull request
+        if: ${{ always() && ((steps.sync.outcome == 'success' && (steps.sync.outputs.changed == 'false' || (steps.install.outcome == 'success' && steps.tests.outcome == 'success'))) || steps.fallback.outcome == 'success') }}
+        uses: peter-evans/create-pull-request@v8
+        with:
+          add-paths: |
+            scripts/upstream-sync/manifest.json
+            scripts/upstream-sync/patches/
+            scripts/upstream-sync/snapshots/
+            lib/SDR-extra/
+            src/SDR-extra/shared/gitComponentSetArray.ts
+            src/SDR-extra/shared/local/moveDetection.ts
+            src/SDR-extra/api/statusMatrix.ts
+            src/SDR-extra/utils/worthWalking.ts
+            test/nuts/scale/perfUtils.ts
+            test/SDR-extra/
+            .github/workflows/create-github-release.yml
+          commit-message: 'chore: sync upstream customizations'
+          title: 'chore: sync upstream customizations'
+          body: |
+            The upstream sync workflow detected updates.
+            When patch integration and tests passed, this PR contains the updated customized copies.
+            If integration or tests failed, it contains review snapshots only; local implementations and patches were reset before fallback.
+            Workflow outcomes: sync=${{ steps.sync.outcome }}, install=${{ steps.install.outcome }}, tests=${{ steps.tests.outcome }}.
+            Review snapshots are stored under `scripts/upstream-sync/snapshots/`.
+          branch: 'chore/sync-upstream-customizations'
+          delete-branch: true
+
+      - name: Report sync or test failure
+        if: ${{ always() && (steps.sync.outcome == 'failure' || steps.install.outcome == 'failure' || steps.tests.outcome == 'failure') }}
+        run: |
+          echo "Upstream sync or tests failed. A review-only PR was attempted."
+          exit 1

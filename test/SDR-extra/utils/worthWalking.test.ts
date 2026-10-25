@@ -22,6 +22,7 @@ describe('worthWalking', () => {
     assert.equal(worthWalking('.', 'force-app'), true);
     assert.equal(worthWalking('force-app/main/default/classes/MyClass.cls', '.'), true);
     assert.equal(worthWalking('force-app/main/default/classes/MyClass.cls', ''), true);
+    assert.equal(worthWalking('force-app/main/default/classes/MyClass.cls', './'), true);
   });
 
   it('walks when the current filepath is a parent of the requested root', () => {
@@ -32,11 +33,12 @@ describe('worthWalking', () => {
   it('walks when the current filepath is inside the requested root', () => {
     assert.equal(worthWalking('force-app/main/default/classes/MyClass.cls', 'force-app'), true);
     assert.equal(worthWalking('force-app/main/default/classes/MyClass.cls', 'force-app/main/default'), true);
+    assert.equal(worthWalking('force-app/main/default/classes/MyClass.cls', 'force-app/'), true);
   });
 
-  // it('does not match paths that only share a string prefix', () => {
-  //   assert.equal(worthWalking('force-apper/main/default/classes/MyClass.cls', 'force-app'), false);
-  //   assert.equal(worthWalking('force-app-extra', 'force-app'), false);
-  //   assert.equal(worthWalking('force-app', 'force-app-extra'), false);
-  // });
+  it('does not match paths that only share a string prefix', () => {
+    assert.equal(worthWalking('force-apper/main/default/classes/MyClass.cls', 'force-app'), false);
+    assert.equal(worthWalking('force-app-extra', 'force-app'), false);
+    assert.equal(worthWalking('force-app', 'force-app-extra'), false);
+  });
 });

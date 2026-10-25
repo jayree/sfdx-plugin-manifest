@@ -1,0 +1,270 @@
+--- a/src/SDR-extra/shared/gitComponentSetArray.ts
++++ b/src/SDR-extra/shared/gitComponentSetArray.ts
+@@ -1,5 +1,5 @@
+ /*
+- * Copyright 2026, Salesforce, Inc.
++ * Copyright 2026, jayree
+  *
+  * Licensed under the Apache License, Version 2.0 (the "License");
+  * you may not use this file except in compliance with the License.
+@@ -13,43 +13,50 @@
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
+-import fs from 'node:fs';
+-import { resolve } from 'node:path';
+-import { NamedPackageDir, Logger } from '@salesforce/core';
++// https://github.com/forcedotcom/source-tracking/blob/main/src/shared/localComponentSetArray.ts
+ import {
+   ComponentSet,
++  RegistryAccess,
+   MetadataResolver,
+-  VirtualTreeContainer,
++  SourceComponent,
+   DestructiveChangesType,
+-  RegistryAccess,
+ } from '@salesforce/source-deploy-retrieve';
+-import { isDefined } from './guards';
+-import { supportsPartialDelete, pathIsInFolder, maybeGetTreeContainer } from './functions';
++import { Logger, NamedPackageDir } from '@salesforce/core';
++import equal from 'fast-deep-equal';
++import { getString } from '@salesforce/ts-types';
++import { supportsPartialDelete, pathIsInFolder } from '@salesforce/source-tracking/lib/shared/functions.js';
++import { isDefined } from '@salesforce/source-tracking/lib/shared/guards.js';
++import { parseMetadataXml } from '@salesforce/source-deploy-retrieve/lib/src/utils/index.js';
++import { VirtualTreeContainerExtra } from '../resolve/treeContainersExtra.js';
+ 
+ type GroupedFileInput = {
+   packageDirs: NamedPackageDir[];
+-  nonDeletes: string[];
++  adds: string[];
++  modifies: string[];
+   deletes: string[];
+ };
+ type GroupedFile = {
+   path: string;
+-  nonDeletes: string[];
++  adds: string[];
++  modifies: string[];
+   deletes: string[];
+ };
+ 
+ export const getGroupedFiles = (input: GroupedFileInput, byPackageDir = false): GroupedFile[] =>
+   (byPackageDir ? getSequential(input) : getNonSequential(input)).filter(
+-    (group) => group.deletes.length || group.nonDeletes.length
++    (group) => group.deletes.length || group.adds.length || group.modifies.length,
+   );
+ 
+-const getSequential = ({ packageDirs, nonDeletes, deletes }: GroupedFileInput): GroupedFile[] => {
+-  const nonDeletesByPkgDir = groupByPkgDir(nonDeletes, packageDirs);
++const getSequential = ({ packageDirs, adds, modifies, deletes }: GroupedFileInput): GroupedFile[] => {
++  const addsByPkgDir = groupByPkgDir(adds, packageDirs);
++  const modifiesByPkgDir = groupByPkgDir(modifies, packageDirs);
+   const deletesByPkgDir = groupByPkgDir(deletes, packageDirs);
+   return packageDirs.map((pkgDir) => {
+     const { name } = pkgDir;
+     return {
+       path: name,
+-      nonDeletes: nonDeletesByPkgDir.get(name) ?? [],
++      adds: addsByPkgDir.get(name) ?? [],
++      modifies: modifiesByPkgDir.get(name) ?? [],
+       deletes: deletesByPkgDir.get(name) ?? [],
+     };
+   });
+@@ -74,15 +81,12 @@
+   return groups;
+ };
+ 
+-const getNonSequential = ({
+-  packageDirs,
+-  nonDeletes: nonDeletes,
+-  deletes: deletes,
+-}: GroupedFileInput): GroupedFile[] => {
++const getNonSequential = ({ packageDirs, adds, modifies, deletes }: GroupedFileInput): GroupedFile[] => {
+   if (packageDirs.length === 0) return [];
+   return [
+     {
+-      nonDeletes,
++      adds,
++      modifies,
+       deletes,
+       path: packageDirs.map((dir) => dir.name).join(';'),
+     },
+@@ -93,23 +97,23 @@
+   groupings,
+   sourceApiVersion,
+   registry,
+-  projectPath,
++  resolverForNonDeletes,
++  resolverForDeletes,
++  virtualTreeContainer,
+ }: {
+   groupings: GroupedFile[];
+   sourceApiVersion?: string;
+   registry: RegistryAccess;
+-  /** absolute path to the project root */
+-  projectPath: string;
++  resolverForNonDeletes: MetadataResolver;
++  resolverForDeletes: MetadataResolver;
++  virtualTreeContainer: VirtualTreeContainerExtra;
+ }): ComponentSet[] => {
+-  const logger = Logger.childFromRoot('localComponentSetArray');
++  const logger = Logger.childFromRoot('gitDiff:gitComponentSetArray');
+ 
+-  // optimistic resolution...some files may not be possible to resolve
+-  const resolverForNonDeletes = new MetadataResolver(registry, maybeGetTreeContainer(projectPath));
+-
+   return groupings
+     .map((grouping) => {
+       logger.debug(
+-        `building componentSet for ${grouping.path} (deletes: ${grouping.deletes.length} nonDeletes: ${grouping.nonDeletes.length})`
++        `building componentSet for ${grouping.path} (deletes: ${grouping.deletes.length} adds: ${grouping.adds.length} modifies: ${grouping.modifies.length})`,
+       );
+ 
+       const componentSet = new ComponentSet(undefined, registry);
+@@ -117,26 +121,32 @@
+         componentSet.sourceApiVersion = sourceApiVersion;
+       }
+ 
+-      // we need virtual components for the deletes.
+-      // TODO: could we use the same for the non-deletes?
+-      const resolverForDeletes = new MetadataResolver(registry, VirtualTreeContainer.fromFilePaths(grouping.deletes));
++      const filterSourceBehaviorOptionsBetaDeletions = (component: SourceComponent): boolean => {
++        const customLabelsType = registry.getTypeByName('customlabels');
++        if (component.type === customLabelsType) {
++          logger.debug(`remove '${component.xml as string}' from deletes due to sourceBehaviourOptionsBeta.`);
++          return customLabelsType.strategies?.transformer !== 'decomposedLabels';
++        }
++        return true;
++      };
+ 
+       grouping.deletes
+         .flatMap((filename) => resolverForDeletes.getComponentsFromPath(filename))
+         .filter(isDefined)
+-        .map((component) => {
++        .filter(filterSourceBehaviorOptionsBetaDeletions)
++        .forEach((component) => {
+           // if the component supports partial delete AND there are files that are not deleted,
+           // set the component for deploy, not for delete.
+-          if (supportsPartialDelete(component) && component.content && fs.existsSync(component.content)) {
++          if (supportsPartialDelete(component) && component.content && virtualTreeContainer.exists(component.content)) {
+             // all bundle types have a directory name
+             try {
+               resolverForNonDeletes
+-                .getComponentsFromPath(resolve(projectPath, component.content))
++                .getComponentsFromPath(component.content)
+                 .filter(isDefined)
+                 .map((nonDeletedComponent) => componentSet.add(nonDeletedComponent));
+-            } catch (e) {
++            } catch {
+               logger.warn(
+-                `unable to find component at ${component.content}.  That's ok if it was supposed to be deleted`
++                `unable to find component at ${component.content}.  That's ok if it was supposed to be deleted`,
+               );
+             }
+           } else {
+@@ -144,23 +154,93 @@
+           }
+         });
+ 
+-      grouping.nonDeletes
+-        .flatMap((filename) => {
+-          try {
+-            return resolverForNonDeletes.getComponentsFromPath(resolve(projectPath, filename));
+-          } catch (e) {
+-            logger.warn(`unable to resolve ${filename}`);
+-            return undefined;
++      grouping.adds
++        .flatMap((filename) => resolverForNonDeletes.getComponentsFromPath(filename))
++        .filter(isDefined)
++        .forEach((component) => componentSet.add(component));
++
++      grouping.modifies
++        .filter((filename) => {
++          if (!parseMetadataXml(filename)) {
++            resolverForNonDeletes
++              .getComponentsFromPath(filename)
++              .filter(isDefined)
++              .forEach((component) => componentSet.add(component));
++            return false;
+           }
++          return true;
+         })
+-        .filter(isDefined)
+-        .map((component) => componentSet.add(component));
++        .map((filename) => {
++          const [ref2Component] = resolverForNonDeletes.getComponentsFromPath(filename).filter(isDefined); // git path only conaints files
++          const [ref1Component] = resolverForDeletes.getComponentsFromPath(filename).filter(isDefined); // git path only conaints files
++          return { ref1Component, ref2Component, filename };
++        })
++        .filter((comp) => {
++          if (
++            resolverForDeletes.forceIgnoredPaths.has(comp.filename) ||
++            resolverForNonDeletes.forceIgnoredPaths.has(comp.filename)
++          ) {
++            return false;
++          }
++          return true;
++        })
++        .filter((comp) => {
++          if (!comp.ref1Component || !comp.ref2Component) {
++            logger.warn(`unable to resolve ${comp.filename} in both git refs; skipping metadata comparison`);
++            return false;
++          }
++          return true;
++        })
++        .filter((comp) => {
++          if (equal(comp.ref1Component.parseXmlSync(comp.filename), comp.ref2Component.parseXmlSync(comp.filename))) {
++            return false;
++          }
++          return true;
++        })
++        .filter((comp) => {
++          if (comp.ref1Component.type.strictDirectoryName === true || !comp.ref1Component.type.children) {
++            resolverForNonDeletes
++              .getComponentsFromPath(comp.filename)
++              .filter(isDefined)
++              .forEach((component) => componentSet.add(component));
++            return false;
++          }
++          return true;
++        })
++        .forEach((comp) => {
++          const getUniqueIdentifier = (component: SourceComponent): string =>
++            `${component.type.name}#${getString(component, component.type.uniqueIdElement as string) as string}`;
++
++          const ref1Children = comp.ref1Component.getChildren();
++          const ref2Children = comp.ref2Component.getChildren();
++          const ref1ChildrenById = new Map(ref1Children.map((child) => [getUniqueIdentifier(child), child]));
++          const ref2ChildrenById = new Map(ref2Children.map((child) => [getUniqueIdentifier(child), child]));
++
++          for (const child of ref1Children) {
++            if (!ref2ChildrenById.has(getUniqueIdentifier(child))) {
++              componentSet.add(child, DestructiveChangesType.POST);
++            }
++          }
++          for (const child of ref2Children) {
++            const previousChild = ref1ChildrenById.get(getUniqueIdentifier(child));
++            if (!previousChild) {
++              componentSet.add(child);
++              continue;
++            }
++            if (!equal(previousChild.parseXmlSync(), child.parseXmlSync())) {
++              componentSet.add(child);
++            }
++          }
++        });
++
+       // there may have been ignored files, but componentSet.add doesn't automatically track them.
+       // We'll manually set the ignored paths from what the resolver has been tracking
+       componentSet.forceIgnoredPaths = new Set(
+-        [...(componentSet.forceIgnoredPaths ?? [])].concat(Array.from(resolverForNonDeletes.forceIgnoredPaths))
++        [...(componentSet.forceIgnoredPaths ?? [])]
++          .concat(Array.from(resolverForDeletes.forceIgnoredPaths))
++          .concat(Array.from(resolverForNonDeletes.forceIgnoredPaths)),
+       );
+-      componentSet.projectDirectory = projectPath;
++
+       return componentSet;
+     })
+     .filter((componentSet) => componentSet.size > 0 || componentSet.forceIgnoredPaths?.size);

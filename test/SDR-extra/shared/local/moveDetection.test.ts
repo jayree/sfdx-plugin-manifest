@@ -19,11 +19,12 @@ import { mkdtemp } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { Lifecycle } from '@salesforce/core';
-import { RegistryAccess } from '@salesforce/source-deploy-retrieve';
+import { MetadataResolver, RegistryAccess } from '@salesforce/source-deploy-retrieve';
 import git from 'isomorphic-git';
 import { describe, it } from 'mocha';
 import sinon from 'sinon';
 import { filenameMatchesToMap, getLogMessage } from '../../../../src/SDR-extra/shared/local/moveDetection.js';
+import { GitRepo } from '../../../../src/SDR-extra/shared/local/localGitRepo.js';
 
 describe('getLogMessage', () => {
   it('formats full and modified move matches', () => {
@@ -98,6 +99,33 @@ describe('filenameMatchesToMap', () => {
     assert.deepEqual(matches.deleteOnly, new Map([[newPath, oldPath]]));
   });
 
+  it('keeps repository context isolated across concurrent move detection calls', async () => {
+    const [{ dir: firstDir, oldPath: firstOldPath }, { dir: secondDir, oldPath: secondOldPath }] = await Promise.all([
+      initRepoWithClass('public class MyClass {}'),
+      initRepoWithClass('public class MyClass {}'),
+    ]);
+    const firstNewPath = join(firstDir, 'force-app', 'other', 'default', 'classes', 'MyClass.cls');
+    const secondNewPath = join(secondDir, 'force-app', 'other', 'default', 'classes', 'MyClass.cls');
+    await Promise.all([
+      fs.rm(firstOldPath).then(() => writeApexClass(firstNewPath, 'public class MyClass {}')),
+      fs.rm(secondOldPath).then(() => writeApexClass(secondNewPath, 'public class MyClass {}')),
+    ]);
+
+    const [firstMatches, secondMatches] = await Promise.all([
+      filenameMatchesToMap(new RegistryAccess())(firstDir)({
+        added: new Set([firstNewPath]),
+        deleted: new Set([firstOldPath]),
+      }),
+      filenameMatchesToMap(new RegistryAccess())(secondDir)({
+        added: new Set([secondNewPath]),
+        deleted: new Set([secondOldPath]),
+      }),
+    ]);
+
+    assert.deepEqual(firstMatches.fullMatches, new Map([[firstNewPath, firstOldPath]]));
+    assert.deepEqual(secondMatches.fullMatches, new Map([[secondNewPath, secondOldPath]]));
+  });
+
   it('returns no matches when either side of the move set is empty', async () => {
     const { dir, oldPath } = await initRepoWithClass('public class MyClass {}');
 
@@ -110,6 +138,49 @@ describe('filenameMatchesToMap', () => {
     assert.deepEqual(matches.deleteOnly, new Map());
   });
 
+  it('ignores files whose metadata type cannot be resolved', async () => {
+    const classBody = 'public class MyClass {}';
+    const { dir, oldPath } = await initRepoWithClass(classBody);
+    const newPath = join(dir, 'force-app', 'other', 'default', 'classes', 'MyClass.cls');
+    const sandbox = sinon.createSandbox();
+    await fs.rm(oldPath);
+    await writeApexClass(newPath, classBody);
+    sandbox.stub(MetadataResolver.prototype, 'getComponentsFromPath').throws(new Error('unresolvable'));
+
+    try {
+      const matches = await filenameMatchesToMap(new RegistryAccess())(dir)({
+        added: new Set([newPath]),
+        deleted: new Set([oldPath]),
+      });
+
+      assert.deepEqual(matches.fullMatches, new Map());
+      assert.deepEqual(matches.deleteOnly, new Map());
+    } finally {
+      sandbox.restore();
+    }
+  });
+
+  it('reports an explicit error when HEAD cannot be resolved', async () => {
+    const { dir, oldPath } = await initRepoWithClass('public class MyClass {}');
+    const newPath = join(dir, 'force-app', 'other', 'default', 'classes', 'MyClass.cls');
+    const sandbox = sinon.createSandbox();
+    await fs.rm(oldPath);
+    await writeApexClass(newPath, 'public class MyClass {}');
+    sandbox.stub(GitRepo.prototype, 'resolveRef').resolves(undefined);
+
+    try {
+      await assert.rejects(
+        filenameMatchesToMap(new RegistryAccess())(dir)({
+          added: new Set([newPath]),
+          deleted: new Set([oldPath]),
+        }),
+        /Could not resolve HEAD for repository/,
+      );
+    } finally {
+      sandbox.restore();
+    }
+  });
+
   it('warns and ignores ambiguous duplicate move matches', async () => {
     const classBody = 'public class MyClass {}';
     const { dir, oldPath } = await initRepoWithClass(classBody);
@@ -119,7 +190,9 @@ describe('filenameMatchesToMap', () => {
     await fs.rm(oldPath);
     await writeApexClass(newPath, classBody);
     await writeApexClass(duplicatePath, classBody);
-    const warningStub = sandbox.stub(Lifecycle.getInstance(), 'emitWarning').resolves();
+    const lifecycle = Lifecycle.getInstance();
+    const warningStub = sandbox.stub(lifecycle, 'emitWarning').resolves();
+    const telemetryStub = sandbox.stub(lifecycle, 'emitTelemetry').resolves();
 
     try {
       const matches = await filenameMatchesToMap(new RegistryAccess())(dir)({
@@ -130,9 +203,12 @@ describe('filenameMatchesToMap', () => {
       assert.deepEqual(matches.fullMatches, new Map());
       assert.deepEqual(matches.deleteOnly, new Map());
       assert.equal(
-        warningStub.calledWith('Files were found that have the same basename, hash, metadata type, and parent.'),
+        warningStub.calledWith(
+          'Files were found that have the same basename, hash, metadata type, and parent. Skipping the commit of these files',
+        ),
         true,
       );
+      assert.equal(telemetryStub.called, false);
     } finally {
       sandbox.restore();
     }

@@ -150,11 +150,11 @@ import { StatusRow } from 'isomorphic-git';
 export declare function statusMatrix({ dir, gitdir, ref1, ref2, filepaths, filter, cache, ignored: shouldIgnore, refresh, }: {
     dir: string;
     gitdir?: string;
-    ref1: string;
+    ref1?: string;
     ref2?: string;
     filepaths?: string[];
     filter?: ((arg0: string) => boolean) | undefined;
-    cache: object;
+    cache?: object;
     ignored?: boolean;
     refresh?: boolean;
 }): Promise<StatusRow[]>;

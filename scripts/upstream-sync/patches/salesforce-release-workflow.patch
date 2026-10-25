@@ -1,0 +1,169 @@
+--- a/.github/workflows/create-github-release.yml
++++ b/.github/workflows/create-github-release.yml
+@@ -1,29 +1,17 @@
+ name: create-github-release
++
+ on:
+-  workflow_call:
+-    secrets:
+-      SVC_CLI_BOT_GITHUB_TOKEN:
+-        description: A Github PAT with repo write access.
+-        required: true
+-      CLI_ALERTS_SLACK_WEBHOOK:
+-        description: Slack webhook for alerts.
+-        required: false
++  push:
++    branches:
++      - main
++      - prerelease/**
++    tags-ignore:
++      - '*'
++  workflow_dispatch:
+     inputs:
+       prerelease:
+         type: string
+-        description: "Name to use for the prerelease: beta, dev, etc."
+-      skip-on-empty:
+-        type: boolean
+-        default: true
+-        description: "Should release be skipped if there are no semantic commits?"
+-      generate-readme:
+-        type: boolean
+-        default: true
+-        description: "Generate oclif readme"
+-      readme-multi:
+-        type: boolean
+-        description: "Create a different markdown page for each topic."
+-        default: false
++        description: 'Name to use for the prerelease: beta, dev, etc.'
+ 
+ jobs:
+   release:
+@@ -35,7 +23,7 @@
+         with:
+           SVC_CLI_BOT_GITHUB_TOKEN: ${{ secrets.SVC_CLI_BOT_GITHUB_TOKEN }}
+ 
+-      - uses: actions/checkout@v4
++      - uses: actions/checkout@v7
+         with:
+           token: ${{ secrets.SVC_CLI_BOT_GITHUB_TOKEN }}
+ 
+@@ -44,7 +32,7 @@
+ 
+       - name: Validate prerelease
+         if: github.ref_name == 'main' && inputs.prerelease
+-        uses: actions/github-script@v7
++        uses: actions/github-script@v9
+         with:
+           script: |
+             core.setFailed('Do not create a prerelease on "main". You can create a prerelease on a branch and when it is merged it will create a non-prerelease Release. For example: 1.0.1-beta.2 will release as 1.0.1 when merged into main.')
+@@ -70,32 +58,33 @@
+           STEPS_DISTTAG_TAG: ${{ steps.distTag.outputs.tag }}
+ 
+       - name: Generate oclif readme
+-        if: ${{ inputs.generate-readme }}
+         uses: salesforcecli/github-workflows/.github/actions/generateOclifReadme@main
+         with:
+-          skip-on-empty: ${{ inputs.skip-on-empty }}
++          skip-on-empty: ${{ github.event_name == 'push' }}
+           pre-release: ${{ steps.prereleaseTag.outputs.tag && 'true' || 'false' }}
+           pre-release-identifier: ${{ steps.prereleaseTag.outputs.tag }}
+-          multi: ${{ inputs.readme-multi }}
++          multi: false
+ 
+       - name: Conventional Changelog Action
+         id: changelog
+-        uses: TriPSs/conventional-changelog-action@3a392e9aa44a72686b0fc13259a90d287dd0877c
++        uses: TriPSs/conventional-changelog-action@469f0e5e35831fbd1962706f29f65daf0a5723f2
+         with:
++          preset: 'conventionalcommits'
+           git-user-name: ${{ steps.github-user-info.outputs.username }}
+           git-user-email: ${{ steps.github-user-info.outputs.email }}
+           github-token: ${{ secrets.SVC_CLI_BOT_GITHUB_TOKEN }}
+-          tag-prefix: ""
++          tag-prefix: ''
+           # Setting 'release-count' to 0 will keep ALL releases in the change log file (no pruning)
+-          release-count: "0"
+-          skip-on-empty: ${{ inputs.skip-on-empty }}
++          release-count: '0'
++          skip-on-empty: ${{ github.event_name == 'push' }}
+           pre-release: ${{ steps.prereleaseTag.outputs.tag && 'true' || 'false' }}
+           pre-release-identifier: ${{ steps.prereleaseTag.outputs.tag }}
++          pre-commit: scripts/update-changelog/dist/update-changelog.cjs
++          input-file: CHANGELOG.md
+           # ternary-ish: https://github.com/actions/runner/issues/409#issuecomment-752775072
+           output-file: ${{ steps.prereleaseTag.outputs.tag && 'false' || 'CHANGELOG.md' }} # If prerelease, do not write the changelog file
+-
+       - name: Create Github Release
+-        uses: ncipollo/release-action@2c591bcc8ecdcd2db72b97d6147f871fcd833ba5
++        uses: ncipollo/release-action@339a81892b84b4eeb0f6e744e4574d79d0d9b8dd
+         if: ${{ steps.changelog.outputs.skipped == 'false' }}
+         with:
+           name: ${{ steps.changelog.outputs.tag }}
+@@ -105,58 +94,11 @@
+           prerelease: ${{ steps.prereleaseTag.outputs.tag && 'true' || 'false' }}
+           token: ${{ secrets.SVC_CLI_BOT_GITHUB_TOKEN }}
+           skipIfReleaseExists: true
+-
+-      # Determine if we should alert Slack that the release was skipped.
+-      # Skip the alert if: no webhook is configured, or the commit is from a Dependabot merge.
+-      - name: Should we post to Slack that release was skipped
+-        id: should-post-slack
+-        if: steps.changelog.outputs.skipped == 'true'
+-        run: |
+-          if [ -z "$SLACK_WEBHOOK" ]; then
+-            echo "[INFO] No Slack webhook configured, skipping alert"
+-            exit 0
+-          fi
+-
+-          PR_AUTHOR=$(gh api "repos/$GITHUB_REPOSITORY/commits/$GITHUB_SHA/pulls" --jq '.[0].user.login // empty')
+-          echo "[INFO] PR author: $PR_AUTHOR"
+-
+-          if [ "$PR_AUTHOR" = "dependabot[bot]" ]; then
+-            echo "[INFO] Dependabot merge, skipping alert"
+-            exit 0
+-          fi
+-
+-          echo "post_skipped_release_to_slack=true" >> "$GITHUB_OUTPUT"
+-        env:
+-          SLACK_WEBHOOK: ${{ secrets.CLI_ALERTS_SLACK_WEBHOOK }}
+-          GH_TOKEN: ${{ secrets.SVC_CLI_BOT_GITHUB_TOKEN }}
+-
+-      - name: Announce if Github Release was skipped
+-        id: slack
+-        if: steps.should-post-slack.outputs.post_skipped_release_to_slack == 'true'
+-        uses: slackapi/slack-github-action@v1.26.0
+-        env:
+-          # for non-CLI-team-owned plugins, you can send this anywhere you like
+-          SLACK_WEBHOOK_URL: ${{ secrets.CLI_ALERTS_SLACK_WEBHOOK }}
+-          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+-        with:
+-          # Payload can be visually tested here: https://app.slack.com/block-kit-builder/T01GST6QY0G#%7B%22blocks%22:%5B%5D%7D
+-          # Only copy over the "blocks" array to the Block Kit Builder
+-          payload: |
+-            {
+-              "blocks": [
+-                {
+-                  "type": "header",
+-                  "text": {
+-                    "type": "plain_text",
+-                    "text": ":uno-skip-red: Github Release was skipped in ${{ github.repository }}! :uno-skip-red:"
+-                  }
+-                },
+-                {
+-                  "type": "section",
+-                  "text": {
+-                    "type": "mrkdwn",
+-                    "text": "*Repo:* ${{ github.server_url }}/${{ github.repository }}\n*Workflow name:* `${{ github.workflow }}`\n*Run url:* ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+-                  }
+-                }
+-              ]
+-            }
++  docs:
++    # Most repos won't use this
++    # Depends on the 'release' job to avoid git collisions, not for any functionality reason
++    needs: release
++    secrets:
++      SVC_CLI_BOT_GITHUB_TOKEN: ${{ secrets.SVC_CLI_BOT_GITHUB_TOKEN }}
++    if: ${{ github.ref_name == 'main' }}
++    uses: salesforcecli/github-workflows/.github/workflows/publishTypedoc.yml@main

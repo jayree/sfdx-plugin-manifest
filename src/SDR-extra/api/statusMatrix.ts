@@ -171,7 +171,7 @@ import { worthWalking } from '../utils/worthWalking.js';
  * @returns {Promise<Array<StatusRow>>} Resolves with a status matrix, described below.
  * @see StatusRow
  */
- 
+
 export async function statusMatrix({
   dir,
   gitdir = join(dir, '.git'),
@@ -185,11 +185,11 @@ export async function statusMatrix({
 }: {
   dir: string;
   gitdir?: string;
-  ref1: string;
+  ref1?: string;
   ref2?: string;
   filepaths?: string[];
   filter?: ((arg0: string) => boolean) | undefined;
-  cache: object;
+  cache?: object;
   ignored?: boolean;
   refresh?: boolean;
 }): Promise<StatusRow[]> {
@@ -242,9 +242,9 @@ export async function statusMatrix({
       if ((stageType === 'tree' || stageType === 'special') && !isBlob) return;
 
       // Figure out the oids for files, using the staged oid for the working dir oid if the stats match.
-       
+
       const headOid = headType === 'blob' ? await head?.oid() : undefined;
-       
+
       const stageOid = stageType === 'blob' ? await stage?.oid() : undefined;
       let workdirOid;
       if (headType !== 'blob' && workdirType === 'blob' && stageType !== 'blob') {
@@ -252,7 +252,6 @@ export async function statusMatrix({
         // TODO: update this logic to handle N trees instead of just 3.
         workdirOid = '42';
       } else if (workdirType === 'blob') {
-         
         workdirOid = await workdir?.oid();
       }
       const entry = [undefined, headOid, workdirOid, stageOid];

@@ -16,7 +16,7 @@
 // https://github.com/forcedotcom/source-tracking/blob/main/src/shared/local/moveDetection.ts
 import path from 'node:path';
 import { isUtf8 } from 'node:buffer';
-import { Lifecycle } from '@salesforce/core';
+import { Lifecycle, Logger } from '@salesforce/core';
 import {
   MetadataResolver,
   SourceComponent,
@@ -50,19 +50,21 @@ type StringMapsForMatches = {
   deleteOnly: StringMap;
 };
 
-let localRepo: GitRepo;
-
 /** composed functions to simplified use by the shadowRepo class */
 export const filenameMatchesToMap =
   (registry: RegistryAccess) =>
   (projectPath: string) =>
   async ({ added, deleted }: AddedAndDeletedFilenames): Promise<StringMapsForMatches> => {
+    if (added.size === 0 || deleted.size === 0) {
+      return { fullMatches: new Map(), deleteOnly: new Map() };
+    }
+
     const resolver = new MetadataResolver(
       registry,
       VirtualTreeContainer.fromFilePaths(uniqueArrayConcat(added, deleted)),
     );
 
-    localRepo = GitRepo.getInstance({
+    const localRepo = GitRepo.getInstance({
       dir: projectPath,
       registry,
     });
@@ -73,6 +75,7 @@ export const filenameMatchesToMap =
           await toFileInfo({
             added,
             deleted,
+            localRepo,
           }),
         ),
       ),
@@ -95,15 +98,17 @@ const buildMaps = async ({ addedInfo, deletedInfo }: AddAndDeleteFileInfosWithTy
   const [addedMap, addedIgnoredMap] = buildMap(addedInfo);
   const [deletedMap, deletedIgnoredMap] = buildMap(deletedInfo);
 
-  // If we detected any files that have the same basename and hash, emit a warning and send telemetry
+  // If we detected any files that have the same basename and hash, emit a warning
   // These files will still show up as expected in the `sf project deploy preview` output
   // We could add more logic to determine and display filepaths that we ignored...
   // but this is likely rare enough to not warrant the added complexity
-  // Telemetry will help us determine how often this occurs
   if (addedIgnoredMap.size || deletedIgnoredMap.size) {
-    const message = 'Files were found that have the same basename, hash, metadata type, and parent.';
+    const message =
+      'Files were found that have the same basename, hash, metadata type, and parent. Skipping the commit of these files';
+    const logger = Logger.childFromRoot('@jayree/sfdx-plugin-manifest:SDR-extra:moveDetection:compareHashes');
+    logger.warn(message);
     const lifecycle = Lifecycle.getInstance();
-    await Promise.all([lifecycle.emitWarning(message)]);
+    await lifecycle.emitWarning(message);
   }
   return { addedMap, deletedMap };
 };
@@ -146,14 +151,19 @@ const compareHashes = ({ addedMap, deletedMap }: AddAndDeleteMaps): StringMapsFo
 const toFileInfo = async ({
   added,
   deleted,
+  localRepo,
 }: {
   added: Set<string>;
   deleted: Set<string>;
+  localRepo: GitRepo;
 }): Promise<AddAndDeleteFileInfos> => {
-  const headRef = (await localRepo.resolveRef('HEAD')) as string;
+  const [headRef, autocrlf] = await Promise.all([localRepo.resolveRef('HEAD'), localRepo.getConfig('core.autocrlf')]);
+  if (!headRef) {
+    throw new Error(`Could not resolve HEAD for repository at ${localRepo.dir}`);
+  }
   const [addedInfo, deletedInfo] = await Promise.all([
-    Promise.all(Array.from(added).map(getHashForAddedFile)),
-    Promise.all(Array.from(deleted).map(getHashFromActualFileContents(headRef))),
+    Promise.all(Array.from(added).map(getHashForAddedFile(localRepo, autocrlf))),
+    Promise.all(Array.from(deleted).map(getHashFromActualFileContents(localRepo)(headRef))),
   ]);
 
   return { addedInfo, deletedInfo };
@@ -164,7 +174,7 @@ const buildMap = (info: DetectionFileInfoWithType[]): StringMap[] => {
   const map: StringMap = new Map();
   const ignore: StringMap = new Map();
 
-  info.map((i) => {
+  for (const i of info) {
     const key = toKey(i);
     // If we find a duplicate key, we need to remove it and ignore it in the future.
     // Finding duplicate hash#basename means that we cannot accurately determine where it was moved to or from
@@ -174,41 +184,45 @@ const buildMap = (info: DetectionFileInfoWithType[]): StringMap[] => {
     } else {
       map.set(key, i.filename);
     }
-  });
+  }
 
   return [map, ignore];
 };
 
-const getHashForAddedFile = async (filepath: string): Promise<DetectionFileInfo> => {
-  const autocrlf = await localRepo.getConfig('core.autocrlf');
+const getHashForAddedFile =
+  (localRepo: GitRepo, autocrlf: string) =>
+  async (filepath: string): Promise<DetectionFileInfo> => {
+    let object = await localRepo.readBlob(filepath);
 
-  let object = await localRepo.readBlob(filepath);
-
-  if (autocrlf === 'true' && isUtf8(object)) {
-    object = Buffer.from(object.toString('utf8').replace(/\r\n/g, '\n'));
-  }
-  return {
-    filename: filepath,
-    basename: path.basename(filepath),
-    hash: await localRepo.hashBlob(object),
+    if (autocrlf === 'true' && isUtf8(object)) {
+      object = Buffer.from(object.toString('utf8').replace(/\r\n/g, '\n'));
+    }
+    return {
+      filename: filepath,
+      basename: path.basename(filepath),
+      hash: await localRepo.hashBlob(object),
+    };
   };
-};
 
 const resolveType =
   (resolver: MetadataResolver) =>
-  (filenames: string[]): SourceComponent[] =>
-    filenames
+  (filenames: string[]): SourceComponent[] => {
+    const logger = Logger.childFromRoot('@jayree/sfdx-plugin-manifest:SDR-extra:moveDetection:compareTypes');
+    return filenames
       .flatMap((filename) => {
         try {
           return resolver.getComponentsFromPath(filename);
         } catch {
+          logger.warn(`unable to resolve ${filename}`);
           return undefined;
         }
       })
       .filter(isDefined);
+  };
 
 /** where we don't have git objects to use, read the file contents to generate the hash */
 const getHashFromActualFileContents =
+  (localRepo: GitRepo) =>
   (oid: string) =>
   async (filepath: string): Promise<DetectionFileInfo> => ({
     filename: filepath,
@@ -217,9 +231,7 @@ const getHashFromActualFileContents =
   });
 
 const toKey = (input: DetectionFileInfoWithType): string =>
-  [input.hash, input.basename, input.type, input.type, input.parentType ?? '', input.parentFullName ?? ''].join(
-    JOIN_CHAR,
-  );
+  [input.hash, input.basename, input.type, input.parentType ?? '', input.parentFullName ?? ''].join(JOIN_CHAR);
 
 const removeHashFromEntry = ([k, v]: [string, string]): [string, string] => [removeHashFromKey(k), v];
 const removeHashFromKey = (hash: string): string => hash.split(JOIN_CHAR).splice(1).join(JOIN_CHAR);
