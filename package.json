@@ -24,7 +24,7 @@
     "@commitlint/cli": "^21.2.4",
     "@commitlint/config-conventional": "^21.2.2",
     "@oclif/plugin-command-snapshot": "^6.0.6",
-    "@salesforce/cli-plugins-testkit": "^5.3.78",
+    "@salesforce/cli-plugins-testkit": "^5.3.81",
     "@salesforce/dev-scripts": "^15.0.0",
     "@salesforce/ts-sinon": "^1.4.39",
     "@types/chai": "^5.2.3",
