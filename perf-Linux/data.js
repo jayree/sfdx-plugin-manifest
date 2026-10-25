@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1792968371067,
+  "lastUpdate": 1792968529136,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -67711,6 +67711,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 261,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f5aa729771935cee5de3357e67add51f78f8a85e",
+          "message": "chore(deps-dev): bump @types/sinon from 22.0.0 to 22.0.2\n\nBumps [@types/sinon](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/HEAD/types/sinon) from 22.0.0 to 22.0.2.\n- [Release notes](https://github.com/DefinitelyTyped/DefinitelyTyped/releases)\n- [Commits](https://github.com/DefinitelyTyped/DefinitelyTyped/commits/HEAD/types/sinon)\n\n---\nupdated-dependencies:\n- dependency-name: \"@types/sinon\"\n  dependency-version: 22.0.2\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-10-25T22:45:10Z",
+          "tree_id": "aad160fce26a26989b35266fe9720963e826a4a2",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/f5aa729771935cee5de3357e67add51f78f8a85e"
+        },
+        "date": 1792968520861,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 2018,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 1130,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 220,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 274,
             "unit": "ms"
           }
         ]
