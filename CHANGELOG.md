@@ -1,3 +1,11 @@
+## [6.0.78](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.77...6.0.78) (2026-10-25)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/sf-plugins-core from 13.0.7 to 13.0.8 ([#2526](https://github.com/jayree/sfdx-plugin-manifest/issues/2526)) ([34bcbde](https://github.com/jayree/sfdx-plugin-manifest/commit/34bcbdee3aceed717787e2e6a6bd0c6630f65d61))
+  * **deps:** bump markdown-it from 14.3.1 to 14.3.3 ([99e691b](https://github.com/salesforcecli/sf-plugins-core/commit/99e691b861360bf2184f9a87fad0367964abac49))
+
 ## [6.0.77](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.76...6.0.77) (2026-10-25)
 
 
