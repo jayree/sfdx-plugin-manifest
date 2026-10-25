@@ -1,3 +1,13 @@
+## [6.0.81](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.80...6.0.81) (2026-10-25)
+
+
+### Bug Fixes
+
+* **deps:** bump @jayree/changelog from 1.2.43 to 1.2.44 ([#2527](https://github.com/jayree/sfdx-plugin-manifest/issues/2527)) ([b60f409](https://github.com/jayree/sfdx-plugin-manifest/commit/b60f40984a0bfb11cc33aeeea0f7d2cf23e2a9f4))
+  * **deps:** bump markdown-it from 14.3.2 to 14.3.3 ([#1156](https://github.com/jayree/changelog/issues/1156)) ([5b589e1](https://github.com/jayree/changelog/commit/5b589e13f061f660ce39b718f7825ce4b53203a9))
+  * **deps:** bump marked from 18.0.14 to 18.1.0 ([#1154](https://github.com/jayree/changelog/issues/1154)) ([6e43182](https://github.com/jayree/changelog/commit/6e43182ec27476b054a50658a7609efb6e02e363))
+  * **deps:** bump marked from 18.1.0 to 18.1.1 ([#1159](https://github.com/jayree/changelog/issues/1159)) ([410617b](https://github.com/jayree/changelog/commit/410617b9a71eb9654f58c9a0355a7e8f99e8bf22))
+
 ## [6.0.80](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.79...6.0.80) (2026-10-25)
 
 
