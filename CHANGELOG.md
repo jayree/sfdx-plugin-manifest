@@ -1,3 +1,11 @@
+## [6.0.74](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.73...6.0.74) (2026-10-25)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-uri from 3.1.7 to 3.1.9 ([#2514](https://github.com/jayree/sfdx-plugin-manifest/issues/2514)) ([6da18d5](https://github.com/jayree/sfdx-plugin-manifest/commit/6da18d560ae39f5a22d0d747f308135306366cee))
+  * ci: enable trusted publishing releases (v3.x) by @mcollina in https://github.com/fastify/fast-uri/pull/229
+
 ## [6.0.73](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.72...6.0.73) (2026-10-24)
 
 
