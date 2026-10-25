@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1792887074095,
+  "lastUpdate": 1792887213573,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -66699,6 +66699,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 260,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f2da5e80c5e269c8406febfe81fb54b3a7b34e1c",
+          "message": "fix(deps): bump zod from 4.4.3 to 4.6.7\n\nBumps [zod](https://github.com/colinhacks/zod) from 4.4.3 to 4.6.7.\n- [Release notes](https://github.com/colinhacks/zod/releases)\n- [Commits](https://github.com/colinhacks/zod/compare/v4.4.3...v4.6.7)\n\n---\nupdated-dependencies:\n- dependency-name: zod\n  dependency-version: 4.6.7\n  dependency-type: indirect\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-10-25T00:10:23Z",
+          "tree_id": "a03dcffc819d5964adbe4f5b2ecc9ffceebb0235",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/f2da5e80c5e269c8406febfe81fb54b3a7b34e1c"
+        },
+        "date": 1792887205602,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 1985,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 1127,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 236,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 278,
             "unit": "ms"
           }
         ]
