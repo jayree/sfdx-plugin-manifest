@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1792887958901,
+  "lastUpdate": 1792888120697,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -66787,6 +66787,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 186,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "aac872b73ef6aeae644c2c5e8f1d0afea4023171",
+          "message": "fix(deps): bump undici from 8.11.2 to 8.12.3\n\nBumps [undici](https://github.com/nodejs/undici) from 8.11.2 to 8.12.3.\n- [Release notes](https://github.com/nodejs/undici/releases)\n- [Commits](https://github.com/nodejs/undici/compare/v8.11.2...v8.12.3)\n\n---\nupdated-dependencies:\n- dependency-name: undici\n  dependency-version: 8.12.3\n  dependency-type: indirect\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-10-25T00:25:03Z",
+          "tree_id": "bb21624dc89d22ec1e7643d3045d4c887143c679",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/aac872b73ef6aeae644c2c5e8f1d0afea4023171"
+        },
+        "date": 1792888112433,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 1962,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 1093,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 217,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 275,
             "unit": "ms"
           }
         ]
