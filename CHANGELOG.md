@@ -1,3 +1,38 @@
+## [6.0.76](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.75...6.0.76) (2026-10-25)
+
+
+### Bug Fixes
+
+* **deps:** bump zod from 4.4.3 to 4.6.7 ([#2516](https://github.com/jayree/sfdx-plugin-manifest/issues/2516)) ([ecaaebc](https://github.com/jayree/sfdx-plugin-manifest/commit/ecaaebca43e869d39eabfa21949867fdeafd4eb4))
+  *   b500a2ee95134f81d74da7911d7378dd2853d042 4.6.7
+  *   0cd3af5e9f50ad11bbcd4407a46a21b8848ba574 docs: load the en locale directly in Zod Mini
+  *   9d5e60f162997b764b40d45aa02481888db50dea docs: import locales from zod/locales, not z.locales
+  *   34a626f307871ecbb0123947559328dc52ed5e3e docs: tighten the z.locales tree-shaking note
+  *   74304ce5b5796b5edb9a88ceb8e170b6ea3e82df release: stage npm versions instead of publishing them ([#6622](https://redirect.github.com/colinhacks/zod/issues/6622))
+  *   b2ef983e0711ff6517d6020b021071e2e5653efa docs: add Code for Japan to bronze sponsors
+  *   8fb2faf0584828a6a027d8279db36f6f52784462 docs: crop the Code for Japan logo and list it first in bronze
+  *   bacad518c41610d654658172d325874bf0ee6290 docs: square the Code for Japan logo to match the other bronze tiles
+  *   c42596bd1c87e941d7241d10e012c5c196adcc10 release: hold the run on the release-approval environment until the staged versions are approved ([#6638](https://redirect.github.com/colinhacks/zod/issues/6638))
+  *   a2ba4a67986a3e6b2b131be30084a2f460d9ea67 fix(types): declare record output and input as members, not base type arguments ([#6645](https://redirect.github.com/colinhacks/zod/issues/6645))
+  *   a0ebf970f2d752e5f58527cd2942ff48be4f46bd fix(v4): check array, set and map size bounds before parsing elements ([#6652](https://redirect.github.com/colinhacks/zod/issues/6652))
+  *   529f78dd9431b07f49647fee3aa0819b3f8b66b7 4.6.6
+  *   9c219833c3a3764fa1f1ea9c5ecec8254a63c0b1 ci: stage at verbose so a failed OIDC token exchange says why
+  *   d2b135cfb7a3582b9eb515756b9166bcb9521f4a docs: add the 4.6.x patch highlights to the 4.6 post
+  *   f1448f7cee00df9fe1e9ad84a000aa1828cc8bc1 docs: fold the 4.6.x patch highlights into the 4.6 post's own sections
+  *   de65a5cb39ed22a507fac935788f718fa88d104f docs: lead the properties section with the check and add a Zod Mini tab ([#6598](https://redirect.github.com/colinhacks/zod/issues/6598))
+  *   56222cd1532c07bcb91b67df529cab4c0a215330 feat(instanceof): key the .properties() shape off the instance type ([#6600](https://redirect.github.com/colinhacks/zod/issues/6600))
+  *   ca0229a404818290e6cdcfefcd7eb2d04bcbb543 Revert "feat: add z.currencyCode() over a vendored ISO 4217 list, refreshed weekly by CI ([#6595](https://redirect.github.com/colinhacks/zod/issues/6595))"
+  *   cc4cd4ee9c52fcaa10964e48cc144541e41a5ed9 Revert "Revert "feat: add z.currencyCode() over a vendored ISO 4217 list, refreshed weekly by CI ([#6595](https://redirect.github.com/colinhacks/zod/issues/6595))""
+  *   0f3f5ee3ca56c7574bf849e54f79e9a6e02562ee 4.6.5
+  *   59bbc03e10c636b9eb3c393dfeb552819774ec21 chore: re-pin the integration peers to the workspace zod after the 4.6.5 bump
+  *   [`d6bc1e30`](https://github.com/colinhacks/zod/commit/d6bc1e30) feat: add `z.currencyCode()` over a vendored ISO 4217 list, refreshed weekly by CI ([#6595](https://redirect.github.com/colinhacks/zod/pull/6595))
+  *   [`ad32d751`](https://github.com/colinhacks/zod/commit/ad32d751) perf: `z.url()` rejects an invalid URL with `URL.canParse()` instead of a throwing constructor, about 50x faster; fewer allocations on the validation path ([#6588](https://redirect.github.com/colinhacks/zod/pull/6588))
+  *   [`2bb08717`](https://github.com/colinhacks/zod/commit/2bb08717) chore: re-pin the integration peers to the workspace zod after the 4.6.4 bump
+  *   [`f6e1701a`](https://github.com/colinhacks/zod/commit/f6e1701a) chore(deps): bump next to 15.5.25 and vite to 7.3.6 ([#6153](https://redirect.github.com/colinhacks/zod/pull/6153))
+  *   [`413cce9a`](https://github.com/colinhacks/zod/commit/413cce9a) fix(v4): make z.properties() a check again ([#6594](https://redirect.github.com/colinhacks/zod/pull/6594)) — removes the standalone `z.properties()` schema from 4.6.0; `z.instanceof().properties()` and `.check(...z.properties())` are unchanged
+  *   [`75d63ee1`](https://github.com/colinhacks/zod/commit/75d63ee1) docs: show only the `.properties()` method form in the 4.6 post
+  *   [`46da9572`](https://github.com/colinhacks/zod/commit/46da9572) docs: match the error-message examples to what the parsers emit
+
 ## [6.0.75](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.74...6.0.75) (2026-10-25)
 
 
