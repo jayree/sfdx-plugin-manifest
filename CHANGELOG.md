@@ -1,3 +1,24 @@
+## [6.0.77](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.76...6.0.77) (2026-10-25)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve from 13.7.0 to 13.7.1 ([#2517](https://github.com/jayree/sfdx-plugin-manifest/issues/2517)) ([9c66b37](https://github.com/jayree/sfdx-plugin-manifest/commit/9c66b3736c94caeea58425070c5ba7873a0d69b7))
+  * report transport operations ([b874424](https://github.com/forcedotcom/source-deploy-retrieve/commit/b874424fcd609e40d3a266dbf215e69059c95568))
+  * add ConnectApiTransport for Heroku Compute (PlatformComputeApp) ([b7eae9f](https://github.com/forcedotcom/source-deploy-retrieve/commit/b7eae9f3fdb96d728d4fffa21557ea3dde02cfe3))
+  * add TransportProvider abstraction and DeployPipeline scaffolding ([b4ef525](https://github.com/forcedotcom/source-deploy-retrieve/commit/b4ef5254d7995fe1e128dadbb7c4adf8861062b2))
+  * add TransportProvider abstraction and DeployPipeline scaffolding ([5114116](https://github.com/forcedotcom/source-deploy-retrieve/commit/51141162f8e3f7fdb56bf31dfd5e10ef908d251d))
+  * transport lifecycle events, retrieve flow fix, and improved error messages ([bd880f3](https://github.com/forcedotcom/source-deploy-retrieve/commit/bd880f38962cda13af1a00f82045f3ee436ff572))
+  * wire transport pipeline into retrieve path and add skipTransports option ([f73d931](https://github.com/forcedotcom/source-deploy-retrieve/commit/f73d931a4dd1cd7c91cff2e91d0cb8bc218f044d))
+  * wire transport pipeline into retrieve path and add skipTransports option ([7b11514](https://github.com/forcedotcom/source-deploy-retrieve/commit/7b1151471ffdb229cea359a6ca4a4efdbf5d556e))
+  * retrieve namespace-qualified metadata @W-18220202@ ([#1852](https://github.com/forcedotcom/source-deploy-retrieve/issues/1852)) ([0d23153](https://github.com/forcedotcom/source-deploy-retrieve/commit/0d23153a4c7fc12c1110f5b713d6a9a1ab4a635a))
+  * bound transport resources ([3f1b741](https://github.com/forcedotcom/source-deploy-retrieve/commit/3f1b7415aa5f6b4401ce48caa4e1af214e7d3171))
+  * harden transport execution ([19ca950](https://github.com/forcedotcom/source-deploy-retrieve/commit/19ca9500cd3c8e048215471850598a306874c996))
+  * invalidate transport pipeline cache when transport-eligible component added ([5df5fec](https://github.com/forcedotcom/source-deploy-retrieve/commit/5df5fec511cedd234a89f2c048a3de4a78dfebed))
+  * preserve Compute build inputs ([61d47b3](https://github.com/forcedotcom/source-deploy-retrieve/commit/61d47b34739f12014b414377d816eb26ab78175a))
+  * export transport result types ([46b6328](https://github.com/forcedotcom/source-deploy-retrieve/commit/46b63280c5d29cdeec3c0608bb8e7e132de41565))
+  * export transport types from root ([85f15f0](https://github.com/forcedotcom/source-deploy-retrieve/commit/85f15f083a996410b930055d4c42ace27d16276c))
+
 ## [6.0.76](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.75...6.0.76) (2026-10-25)
 
 
