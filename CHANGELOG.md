@@ -1,3 +1,13 @@
+## [6.0.88](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.87...6.0.88) (2026-11-01)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 9.4.1 to 9.4.4 ([#2533](https://github.com/jayree/sfdx-plugin-manifest/issues/2533)) ([dbf1da0](https://github.com/jayree/sfdx-plugin-manifest/commit/dbf1da01b66d8d0dea6f0206da841036e7433be5))
+  * **deps:** bump markdown-it from 14.3.1 to 14.3.3 ([bd5dc6f](https://github.com/forcedotcom/sfdx-core/commit/bd5dc6f5f95ec4da8db2a25eb1cf7ed562ec10a0))
+  * api version access date cached as ISO string @W-24685191@ ([05ce0fd](https://github.com/forcedotcom/sfdx-core/commit/05ce0fdee993963f6af7fd8d37359f0065976cc2))
+  * **deps:** bump undici from 8.11.2 to 8.12.3 ([f811046](https://github.com/forcedotcom/sfdx-core/commit/f8110461f3ef444c744582a49d0dd715e6577a75))
+
 ## [6.0.87](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.86...6.0.87) (2026-11-01)
 
 
