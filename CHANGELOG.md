@@ -1,3 +1,12 @@
+## [6.0.87](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.86...6.0.87) (2026-11-01)
+
+
+### Bug Fixes
+
+* **deps:** bump js-yaml from 3.15.1 to 3.15.2 ([#2541](https://github.com/jayree/sfdx-plugin-manifest/issues/2541)) ([b13eca2](https://github.com/jayree/sfdx-plugin-manifest/commit/b13eca2b45c91b34d192e5a4128613c5b1b6bc51))
+  *   \[backport\] Hard-limit merge sequence size to 100.
+  *   \[backport\] Count empty mappings in merge sequences toward `maxTotalMergeKeys` to limit CPU usage, [#797](https://redirect.github.com/nodeca/js-yaml/issues/797).
+
 ## [6.0.86](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.85...6.0.86) (2026-11-01)
 
 
