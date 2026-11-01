@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1793567920302,
+  "lastUpdate": 1793568094428,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -68019,6 +68019,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-linux",
             "value": 280,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9fe5cc18746cf12c3e4d9aedfd78a94f69e20684",
+          "message": "chore(deps-dev): bump eslint from 10.13.0 to 10.14.0\n\nBumps [eslint](https://github.com/eslint/eslint) from 10.13.0 to 10.14.0.\n- [Release notes](https://github.com/eslint/eslint/releases)\n- [Commits](https://github.com/eslint/eslint/compare/v10.13.0...v10.14.0)\n\n---\nupdated-dependencies:\n- dependency-name: eslint\n  dependency-version: 10.14.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-11-01T21:20:10Z",
+          "tree_id": "505d35ebf7af30e78c689896c5cb19e1420c217b",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/9fe5cc18746cf12c3e4d9aedfd78a94f69e20684"
+        },
+        "date": 1793568086065,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-linux",
+            "value": 1980,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-linux",
+            "value": 1065,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-linux",
+            "value": 218,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-linux",
+            "value": 261,
             "unit": "ms"
           }
         ]
