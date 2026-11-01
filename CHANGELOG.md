@@ -1,3 +1,12 @@
+## [6.0.83](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.82...6.0.83) (2026-11-01)
+
+
+### Bug Fixes
+
+* **deps:** bump @oclif/core from 5.1.9 to 5.1.11 ([#2529](https://github.com/jayree/sfdx-plugin-manifest/issues/2529)) ([8bf58b1](https://github.com/jayree/sfdx-plugin-manifest/commit/8bf58b1af5132cd490ca189e1e95cda9e3eccd11))
+  * measure flag summary by display width ([dbe89ff](https://github.com/oclif/core/commit/dbe89ff67efc1979f7167f6f1f1861663a659f32))
+  * **deps:** bump fast-uri from 3.1.8 to 3.1.9 ([abbc1f1](https://github.com/oclif/core/commit/abbc1f10db35ed5a46d1f2e426285ab3f53355d0))
+
 ## [6.0.82](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.81...6.0.82) (2026-10-25)
 
 
