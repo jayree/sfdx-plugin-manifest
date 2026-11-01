@@ -1,3 +1,15 @@
+## [6.0.86](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.85...6.0.86) (2026-11-01)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.44.4 to 1.44.9 ([#2536](https://github.com/jayree/sfdx-plugin-manifest/issues/2536)) ([e69b379](https://github.com/jayree/sfdx-plugin-manifest/commit/e69b379bcc773b1d48779e9bd547ea27aaa0fd50))
+  * parse config section headers with comments, tabs and escaped subsections ([#2466](https://github.com/isomorphic-git/isomorphic-git/issues/2466)) ([dea0848](https://github.com/isomorphic-git/isomorphic-git/commit/dea0848b332e60945e3b588adbb368fe7daca110))
+  * reject malformed pkt-line lengths ([#2457](https://github.com/isomorphic-git/isomorphic-git/issues/2457)) ([6801888](https://github.com/isomorphic-git/isomorphic-git/commit/680188827054d785b32e6b533573f8db163520bb))
+  * compare subsecond file timestamps ([#2455](https://github.com/isomorphic-git/isomorphic-git/issues/2455)) ([86df2db](https://github.com/isomorphic-git/isomorphic-git/commit/86df2db391962c8690a7550c6887ca0e87798542))
+  * read and write version 3 index files ([#2465](https://github.com/isomorphic-git/isomorphic-git/issues/2465)) ([7ac1608](https://github.com/isomorphic-git/isomorphic-git/commit/7ac16086137ce7b0362e1d4073dcc2e3def47824)), closes [#1430](https://github.com/isomorphic-git/isomorphic-git/issues/1430)
+  * inflate each object once in GitPackIndex.fromPack ([#2443](https://github.com/isomorphic-git/isomorphic-git/issues/2443)) ([cea14b8](https://github.com/isomorphic-git/isomorphic-git/commit/cea14b8dbfdc2b962f2953552bb9043e34c17b96))
+
 ## [6.0.85](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.84...6.0.85) (2026-11-01)
 
 
