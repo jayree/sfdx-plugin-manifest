@@ -1,3 +1,10 @@
+## [6.0.85](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.84...6.0.85) (2026-11-01)
+
+
+### Bug Fixes
+
+* **deps:** bump brace-expansion from 1.1.18 to 1.1.21 ([#2540](https://github.com/jayree/sfdx-plugin-manifest/issues/2540)) ([b7bd529](https://github.com/jayree/sfdx-plugin-manifest/commit/b7bd529c9f4f6883bab87e5a5f87f4a874c718fe))
+
 ## [6.0.84](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.83...6.0.84) (2026-11-01)
 
 
