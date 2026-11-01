@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1793572808026,
+  "lastUpdate": 1793573520738,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -68503,6 +68503,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 478,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5979e05c316270e0be7466df8a83bf5048613e94",
+          "message": "fix(deps): bump js-yaml from 3.15.1 to 3.15.2\n\nBumps [js-yaml](https://github.com/nodeca/js-yaml) from 3.15.1 to 3.15.2.\n- [Changelog](https://github.com/nodeca/js-yaml/blob/3.15.2/CHANGELOG.md)\n- [Commits](https://github.com/nodeca/js-yaml/compare/3.15.1...3.15.2)\n\n---\nupdated-dependencies:\n- dependency-name: js-yaml\n  dependency-version: 3.15.2\n  dependency-type: indirect\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-11-01T22:49:35Z",
+          "tree_id": "80d98d0b1abb74537a2327d9a1c371666d2ac6a6",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/5979e05c316270e0be7466df8a83bf5048613e94"
+        },
+        "date": 1793573509529,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 3017,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 1821,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 296,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 364,
             "unit": "ms"
           }
         ]
