@@ -17,7 +17,7 @@
     "mode": "watch",
     "url": "https://raw.githubusercontent.com/forcedotcom/source-tracking/main/src/shared/local/localShadowRepo.ts",
     "target": "scripts/upstream-sync/snapshots/source-tracking-local-shadow-repo-watch.source",
-    "sha256": "9103b63f9a3e25cdfa57b894c22a9c58d59697481520a05eae6b6826b9542ccf"
+    "sha256": "b26b4cd1d2bc41a4935420f9353be466faec7e5bbe2a23e1a76e51775d26a2ba"
   },
   {
     "name": "source-tracking-move-detection",
