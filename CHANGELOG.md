@@ -1,3 +1,19 @@
+## [6.0.90](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.89...6.0.90) (2026-11-02)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-tracking from 8.1.7 to 8.1.16 ([#2532](https://github.com/jayree/sfdx-plugin-manifest/issues/2532)) ([1182775](https://github.com/jayree/sfdx-plugin-manifest/commit/11827752b1078a99af72a6fb214cc400bc5e4723))
+  * **deps:** bump @salesforce/ts-types from 3.2.0 to 3.2.3 ([f2808d8](https://github.com/forcedotcom/source-tracking/commit/f2808d890c716074857f03b1d785377b4e659795))
+  * **deps:** bump @salesforce/kit from 4.0.0 to 4.0.7 ([fdb1246](https://github.com/forcedotcom/source-tracking/commit/fdb12461a1c384bbae732f9b5904be4586470d8f))
+  * **deps:** bump ip-address from 10.7.2 to 10.7.5 ([12fccc3](https://github.com/forcedotcom/source-tracking/commit/12fccc3e752a218b2f0211b4d4bb1cf867fe439f))
+  * **deps:** bump undici from 8.11.2 to 8.12.3 ([a8e0693](https://github.com/forcedotcom/source-tracking/commit/a8e0693bf2d73968fcba0d533440e8fa8393d818))
+  * **deps:** bump brace-expansion from 1.1.11 to 1.1.21 ([d6d4910](https://github.com/forcedotcom/source-tracking/commit/d6d4910aa74ef04ae429fd0e153ceb175e5d2e97))
+  * follow symlinks in packageDirectory paths during local source tracking ([d4e64e5](https://github.com/forcedotcom/source-tracking/commit/d4e64e560354c2fd190ed6d207c1ac3931a9df18))
+  * scope symlink-following to packageDir path segments ([e0affb9](https://github.com/forcedotcom/source-tracking/commit/e0affb92ab914164f1d1ddb07c273d3552d7b807))
+  * **deps:** bump fast-uri from 3.1.8 to 3.1.9 ([3dfc34c](https://github.com/forcedotcom/source-tracking/commit/3dfc34cb07c60d96a581bc713ac69351236d64b0))
+  * **deps:** bump zod from 4.6.5 to 4.6.7 ([be72e9f](https://github.com/forcedotcom/source-tracking/commit/be72e9f0883c6b00f2fed319d7fd117e1bef0a89))
+
 ## [6.0.89](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.88...6.0.89) (2026-11-02)
 
 
