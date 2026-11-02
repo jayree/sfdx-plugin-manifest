@@ -1,3 +1,16 @@
+## [6.0.89](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.88...6.0.89) (2026-11-02)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2539](https://github.com/jayree/sfdx-plugin-manifest/issues/2539)) ([66b0689](https://github.com/jayree/sfdx-plugin-manifest/commit/66b0689a8c8dc0538261e9f6d5885bcb8c91cbdb))
+  * validate mcpResources in mcp-resources.json @W-24592777@ ([#1859](https://github.com/forcedotcom/source-deploy-retrieve/issues/1859)) ([9acd74d](https://github.com/forcedotcom/source-deploy-retrieve/commit/9acd74de20fa90ef3802eae0d53ad2d41ca89680))
+  * add deploy extension types and bump jsforce-node ([#1862](https://github.com/forcedotcom/source-deploy-retrieve/issues/1862)) ([3aff0a3](https://github.com/forcedotcom/source-deploy-retrieve/commit/3aff0a32d4ed39887e519e7d64ae3f392d1dd42b))
+  * **registry:** add DebugLevel metadata type ([#1863](https://github.com/forcedotcom/source-deploy-retrieve/issues/1863)) ([d014006](https://github.com/forcedotcom/source-deploy-retrieve/commit/d0140060cd0237df9c443e4abf4a8d9c5e4a6904))
+  * **deps:** bump undici from 8.7.0 to 8.12.3 ([#1861](https://github.com/forcedotcom/source-deploy-retrieve/issues/1861)) ([8ab2e07](https://github.com/forcedotcom/source-deploy-retrieve/commit/8ab2e0732dafe0db01dd78f898f2095bdddb53e0))
+  * **deps:** bump fast-uri from 3.1.8 to 3.1.9 ([#1860](https://github.com/forcedotcom/source-deploy-retrieve/issues/1860)) ([5d70b88](https://github.com/forcedotcom/source-deploy-retrieve/commit/5d70b88649f6d6ae6805c08911f7fba71f1d9a79))
+  * merge split profile metadata @W-17719068@ ([#1854](https://github.com/forcedotcom/source-deploy-retrieve/issues/1854)) ([6e9258b](https://github.com/forcedotcom/source-deploy-retrieve/commit/6e9258b6fb9c9609926c1f7ca6c0b401e8a3e3f0))
+
 ## [6.0.88](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.87...6.0.88) (2026-11-01)
 
 
