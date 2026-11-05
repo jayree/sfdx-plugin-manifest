@@ -1,3 +1,10 @@
+## [6.0.91](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.90...6.0.91) (2026-11-05)
+
+
+### Bug Fixes
+
+* handle symlinked package directories ([1d641af](https://github.com/jayree/sfdx-plugin-manifest/commit/1d641af2592a76d5189db89cc7c539214836fb2f))
+
 ## [6.0.90](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.89...6.0.90) (2026-11-02)
 
 
