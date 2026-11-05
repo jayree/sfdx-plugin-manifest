@@ -20,7 +20,7 @@ import { STAGE } from 'isomorphic-git';
 import { TREE } from 'isomorphic-git';
 import { WORKDIR } from 'isomorphic-git';
 import { walk as _walk } from 'isomorphic-git';
-import { isIgnored as _isIgnored, StatusRow } from 'isomorphic-git';
+import { type FsClient, isIgnored as _isIgnored, StatusRow } from 'isomorphic-git';
 import { worthWalking } from '../utils/worthWalking.js';
 
 /**
@@ -173,6 +173,7 @@ import { worthWalking } from '../utils/worthWalking.js';
  */
 
 export async function statusMatrix({
+  fs: fileSystem = fs,
   dir,
   gitdir = join(dir, '.git'),
   ref1 = 'HEAD',
@@ -183,6 +184,7 @@ export async function statusMatrix({
   ignored: shouldIgnore = false,
   refresh = true,
 }: {
+  fs?: FsClient;
   dir: string;
   gitdir?: string;
   ref1?: string;
@@ -195,7 +197,7 @@ export async function statusMatrix({
 }): Promise<StatusRow[]> {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   return _walk({
-    fs,
+    fs: fileSystem,
     cache,
     dir,
     gitdir,
@@ -210,7 +212,7 @@ export async function statusMatrix({
       if (!head && !stage && workdir) {
         if (!shouldIgnore) {
           const isIgnored = await _isIgnored({
-            fs,
+            fs: fileSystem,
             dir,
             filepath,
           });

@@ -175,7 +175,7 @@
      );
      return { fullMatches: matches, deleteOnly };
    }
-@@ -165,22 +149,24 @@
+@@ -165,22 +149,21 @@
  
  /** enrich the filenames with basename and oid (hash)  */
  const toFileInfo = async ({
@@ -194,10 +194,7 @@
 -  // Track how long it takes to gather the oid information from the git trees
 -
 -  const headRef = await git.resolveRef({ fs, dir: projectPath, gitdir: gitDir, ref: 'HEAD' });
-+  const [headRef, autocrlf] = await Promise.all([
-+    localRepo.resolveRef('HEAD'),
-+    localRepo.getConfig('core.autocrlf'),
-+  ]);
++  const [headRef, autocrlf] = await Promise.all([localRepo.resolveRef('HEAD'), localRepo.getConfig('core.autocrlf')]);
 +  if (!headRef) {
 +    throw new Error(`Could not resolve HEAD for repository at ${localRepo.dir}`);
 +  }
@@ -209,7 +206,7 @@
    ]);
  
    return { addedInfo, deletedInfo };
-@@ -191,7 +177,7 @@
+@@ -191,7 +174,7 @@
    const map: StringMap = new Map();
    const ignore: StringMap = new Map();
  
@@ -218,7 +215,7 @@
      const key = toKey(i);
      // If we find a duplicate key, we need to remove it and ignore it in the future.
      // Finding duplicate hash#basename means that we cannot accurately determine where it was moved to or from
-@@ -201,55 +187,54 @@
+@@ -201,55 +184,54 @@
      } else {
        map.set(key, i.filename);
      }

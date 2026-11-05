@@ -1,4 +1,4 @@
-import { StatusRow } from 'isomorphic-git';
+import { type StatusRow } from 'isomorphic-git';
 import { NamedPackageDir } from '@salesforce/core';
 import { RegistryAccess } from '@salesforce/source-deploy-retrieve';
 export declare const STAGE = 3;
@@ -11,6 +11,7 @@ export declare class GitRepo {
     private static instanceMap;
     dir: string;
     private packageDirs;
+    private gitFs;
     private status;
     private cache;
     private lifecycle;
@@ -38,5 +39,6 @@ export declare class GitRepo {
     emitStatusWarnings(): Promise<void>;
     private detectMovedFiles;
     private getCommitLog;
+    private setPackageDirs;
     private checkLocalGitAutocrlfConfig;
 }

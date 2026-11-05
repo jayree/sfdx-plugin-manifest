@@ -19,7 +19,7 @@ import path from 'node:path';
 import os from 'node:os';
 import fs from 'node:fs/promises';
 import { execSync } from 'node:child_process';
-import git, { StatusRow, readBlob as _readBlob, listFiles as _listFiles } from 'isomorphic-git';
+import git, { type FsClient, type StatusRow, readBlob as _readBlob, listFiles as _listFiles } from 'isomorphic-git';
 import { Lifecycle, NamedPackageDir, SfError } from '@salesforce/core';
 import { RegistryAccess } from '@salesforce/source-deploy-retrieve';
 import { excludeLwcLocalOnlyTest, folderContainsPath } from '@salesforce/source-tracking/lib/shared/functions.js';
@@ -36,6 +36,38 @@ import { statusMatrix } from '../../api/statusMatrix.js';
 import { filenameMatchesToMap, getLogMessage } from './moveDetection.js';
 
 const ensureWindows = (filepath: string): string => path.win32.normalize(filepath);
+const createSymlinkAwareFs = (projectPath: string, packageDirs: string[]): FsClient => {
+  const resolvedProjectPath = path.resolve(projectPath);
+
+  return {
+    ...fs,
+    lstat: async (filepath: string): Promise<Awaited<ReturnType<typeof fs.lstat>>> => {
+      const lstats = await fs.lstat(filepath);
+      if (!lstats.isSymbolicLink()) return lstats;
+
+      const relativePath = path.relative(resolvedProjectPath, path.resolve(filepath));
+      const packageRelativePath = IS_WINDOWS ? ensurePosix(relativePath) : relativePath;
+      if (
+        !packageDirs.some(
+          (packageDir) => packageDir === packageRelativePath || packageDir.startsWith(`${packageRelativePath}/`),
+        )
+      ) {
+        return lstats;
+      }
+
+      try {
+        const stats = await fs.stat(filepath);
+        return stats.isDirectory() ? stats : lstats;
+      } catch (error) {
+        if (error instanceof Error && 'code' in error && (error.code === 'ENOENT' || error.code === 'ELOOP')) {
+          return lstats;
+        }
+        throw error;
+      }
+    },
+  };
+};
+
 const parseGitConfigOriginFile = (origin: string): string => {
   const file = origin.startsWith('file:') ? origin.slice('file:'.length) : origin.split(':').slice(1).join(':');
   return file.startsWith('"') && file.endsWith('"') ? file.slice(1, -1).replaceAll('\\\\', '\\') : file;
@@ -57,7 +89,7 @@ const redirectToCliRepoError = (e: unknown): never => {
       `An internal error caused this command to fail. isomorphic-git error:${os.EOL}${e.data.message}`,
       e.name,
     );
-     
+
     throw error;
   }
   throw e;
@@ -68,6 +100,7 @@ export class GitRepo {
   public dir: string;
 
   private packageDirs: string[];
+  private gitFs: FsClient;
   private status!: StatusRow[];
   private cache!: object;
 
@@ -78,6 +111,7 @@ export class GitRepo {
   private constructor(options: GitRepoOptions) {
     this.dir = options.dir;
     this.packageDirs = options.packageDirs?.map(packageDirToRelativePosixPath(options.dir)) ?? [];
+    this.gitFs = createSymlinkAwareFs(this.dir, this.packageDirs);
     this.registry = options.registry ?? new RegistryAccess();
     this.cache = {};
   }
@@ -86,11 +120,12 @@ export class GitRepo {
     if (!GitRepo.instanceMap.has(options.dir)) {
       const newInstance = new GitRepo(options);
       GitRepo.instanceMap.set(options.dir, newInstance);
+    } else if (options.packageDirs) {
+      GitRepo.instanceMap.get(options.dir)?.setPackageDirs(options.packageDirs);
     }
     return GitRepo.instanceMap.get(options.dir) as GitRepo;
   }
 
-   
   public async resolveRef(ref: string): Promise<string | undefined> {
     return ref ? git.resolveRef({ fs, dir: this.dir, ref }) : undefined;
   }
@@ -150,7 +185,6 @@ export class GitRepo {
     } else if (a.length === 1) {
       ref1 = a[0];
     } else {
-       
       throw new Error(`Ambiguous ${util.format('argument%s', ref.length === 1 ? '' : 's')}: ${ref}
   See more help with --help`);
     }
@@ -206,7 +240,6 @@ export class GitRepo {
       }
     }
     if (resolvedRef === undefined) {
-       
       throw new Error(`ambiguous argument '${ref}': unknown revision or path not in the working tree.`);
     }
     return resolvedRef;
@@ -241,6 +274,7 @@ export class GitRepo {
 
     try {
       this.status = await statusMatrix({
+        fs: this.gitFs,
         dir: this.dir,
         cache: this.cache,
         ref1,
@@ -354,12 +388,16 @@ export class GitRepo {
       });
       return { oid: log.oid, parents: log.commit.parent };
     } catch {
-       
       throw new Error(
         `ambiguous argument '${ref}': unknown revision or path not in the working tree.
   See more help with --help`,
       );
     }
+  }
+
+  private setPackageDirs(packageDirs: NamedPackageDir[]): void {
+    this.packageDirs = packageDirs.map(packageDirToRelativePosixPath(this.dir));
+    this.gitFs = createSymlinkAwareFs(this.dir, this.packageDirs);
   }
 
   private async checkLocalGitAutocrlfConfig(): Promise<void> {

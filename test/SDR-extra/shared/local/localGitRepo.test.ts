@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 import assert from 'node:assert/strict';
-import fs, { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import fs, { mkdir, mkdtemp, readFile, rm, symlink, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import git, { StatusRow } from 'isomorphic-git';
-import { describe, it } from 'mocha';
+import { afterEach, describe, it } from 'mocha';
 import { GitRepo } from '../../../../src/SDR-extra/shared/local/localGitRepo.js';
 
 const rows: StatusRow[] = [
@@ -38,6 +38,9 @@ const initGitRepo = async (): Promise<string> => {
   await git.init({ fs, dir });
   return dir;
 };
+
+const symlinkDirectory = (target: string, linkPath: string): Promise<void> =>
+  symlink(target, linkPath, process.platform === 'win32' ? 'junction' : 'dir');
 
 const commitFile = async (dir: string, filepath: string, body: string, message: string): Promise<string> => {
   await writeApexClass(join(dir, filepath), body);
@@ -239,6 +242,81 @@ describe('GitRepo', () => {
     const status = await repo.getStatus('HEAD');
 
     assert.deepEqual(status, [[join(dir, 'force-app', 'main', 'default', 'classes', 'Tracked.cls'), 1, 2, 1]]);
+  });
+
+  describe('symlinked packageDirectory', () => {
+    let projectDir: string | undefined;
+
+    afterEach(async () => {
+      if (projectDir) await rm(projectDir, { recursive: true, force: true });
+      projectDir = undefined;
+    });
+
+    it('detects files inside a symlinked packageDirectory root', async () => {
+      projectDir = await initGitRepo();
+      const realDir = join(projectDir, 'actual');
+      await mkdir(join(realDir, 'main', 'default', 'classes'), { recursive: true });
+      await writeFile(join(realDir, 'main', 'default', 'classes', 'Foo.cls'), 'public class Foo {}');
+      await symlinkDirectory(realDir, join(projectDir, 'force-app'));
+      const repo = GitRepo.getInstance({
+        dir: projectDir,
+        packageDirs: [{ name: 'force-app', path: 'force-app', fullPath: join(projectDir, 'force-app') }],
+      });
+
+      const status = await repo.getStatus('HEAD');
+
+      assert.ok(status.some(([filepath]) => filepath.includes('Foo.cls')));
+    });
+
+    it('survives a symlink cycle inside a packageDirectory', async () => {
+      projectDir = await initGitRepo();
+      const classesDir = join(projectDir, 'force-app', 'main', 'default', 'classes');
+      await mkdir(classesDir, { recursive: true });
+      await writeFile(join(classesDir, 'Real.cls'), 'public class Real {}');
+      await symlinkDirectory(join(projectDir, 'force-app'), join(projectDir, 'force-app', 'cycle'));
+      const repo = GitRepo.getInstance({
+        dir: projectDir,
+        packageDirs: [{ name: 'force-app', path: 'force-app', fullPath: join(projectDir, 'force-app') }],
+      });
+
+      const status = await repo.getStatus('HEAD');
+
+      assert.ok(status.some(([filepath]) => filepath.includes('Real.cls')));
+    });
+
+    it('survives a dangling symlink inside a packageDirectory', async () => {
+      projectDir = await initGitRepo();
+      const classesDir = join(projectDir, 'force-app', 'main', 'default', 'classes');
+      await mkdir(classesDir, { recursive: true });
+      await writeFile(join(classesDir, 'Real.cls'), 'public class Real {}');
+      await symlink('non-existent-target', join(projectDir, 'force-app', 'dangling'), 'file');
+      const repo = GitRepo.getInstance({
+        dir: projectDir,
+        packageDirs: [{ name: 'force-app', path: 'force-app', fullPath: join(projectDir, 'force-app') }],
+      });
+
+      const status = await repo.getStatus('HEAD');
+
+      assert.ok(status.some(([filepath]) => filepath.includes('Real.cls')));
+    });
+
+    it('detects files with a symlink in the packageDirectory path', async () => {
+      projectDir = await initGitRepo();
+      const targetDir = join(projectDir, 'shared-lib', 'force-app', 'main', 'default', 'classes');
+      await mkdir(targetDir, { recursive: true });
+      await writeFile(join(targetDir, 'Linked.cls'), 'public class Linked {}');
+      await mkdir(join(projectDir, 'links'));
+      await symlinkDirectory(join('..', 'shared-lib'), join(projectDir, 'links', 'shared-lib'));
+      const packagePath = join('links', 'shared-lib', 'force-app');
+      const repo = GitRepo.getInstance({
+        dir: projectDir,
+        packageDirs: [{ name: packagePath, path: packagePath, fullPath: join(projectDir, packagePath) }],
+      });
+
+      const status = await repo.getStatus('HEAD');
+
+      assert.ok(status.some(([filepath]) => filepath.includes('Linked.cls')));
+    });
   });
 
   it('removes files detected as moved and emits the move warning', async () => {
