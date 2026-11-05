@@ -1,4 +1,4 @@
-import { StatusRow } from 'isomorphic-git';
+import { type FsClient, StatusRow } from 'isomorphic-git';
 /**
  * Efficiently get the status of multiple files at once.
  *
@@ -147,7 +147,8 @@ import { StatusRow } from 'isomorphic-git';
  * @returns {Promise<Array<StatusRow>>} Resolves with a status matrix, described below.
  * @see StatusRow
  */
-export declare function statusMatrix({ dir, gitdir, ref1, ref2, filepaths, filter, cache, ignored: shouldIgnore, refresh, }: {
+export declare function statusMatrix({ fs: fileSystem, dir, gitdir, ref1, ref2, filepaths, filter, cache, ignored: shouldIgnore, refresh, }: {
+    fs?: FsClient;
     dir: string;
     gitdir?: string;
     ref1?: string;
