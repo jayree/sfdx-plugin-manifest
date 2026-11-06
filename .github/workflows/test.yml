@@ -5,6 +5,19 @@ on:
   workflow_dispatch:
 
 jobs:
+  release-hooks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+      - name: Install release-hook build dependencies
+        run: yarn --cwd scripts/update-changelog install --frozen-lockfile
+      - name: Check committed bundles
+        run: yarn --cwd scripts/update-changelog build:check
+      - name: Test release hooks and upstream patch
+        run: yarn --cwd scripts/update-changelog test
   yarn-lockfile-check:
     uses: salesforcecli/github-workflows/.github/workflows/lockFileCheck.yml@main
   # Since the Windows unit tests take much longer, we run the linux unit tests first and then run the windows unit tests in parallel with NUTs

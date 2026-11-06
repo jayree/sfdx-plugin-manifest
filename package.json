@@ -118,7 +118,7 @@
   "repository": "jayree/sfdx-plugin-manifest",
   "scripts": {
     "build": "wireit",
-    "build-changelog-update": "esbuild scripts/update-changelog/update-changelog.mjs --bundle --platform=node --format=cjs --outfile=scripts/update-changelog/dist/update-changelog.cjs",
+    "build-changelog-update": "yarn --cwd scripts/update-changelog build",
     "ci-docs": "sf-ci-docs",
     "clean": "sf-clean",
     "clean-all": "sf-clean all",
@@ -137,7 +137,9 @@
     "upstream-sync": "node scripts/upstream-sync/sync.mjs",
     "upstream-sync:init": "node scripts/upstream-sync/sync.mjs --initialize",
     "upstream-sync:review": "node scripts/upstream-sync/sync.mjs --review-only",
-    "version": "oclif readme --no-aliases"
+    "version": "oclif readme --no-aliases",
+    "check-changelog-build": "yarn --cwd scripts/update-changelog build:check",
+    "test:release-hooks": "wireit"
   },
   "publishConfig": {
     "access": "public"
@@ -197,7 +199,8 @@
         "test:only",
         "test:deprecation-policy",
         "lint",
-        "test:json-schema"
+        "test:json-schema",
+        "test:release-hooks"
       ]
     },
     "test:compile": {
@@ -238,6 +241,19 @@
         ".mocha*",
         "!*.nut.ts",
         ".nycrc"
+      ],
+      "output": []
+    },
+    "test:release-hooks": {
+      "command": "node --test scripts/update-changelog/tests/*.test.mjs",
+      "files": [
+        "scripts/update-changelog/**/*.mjs",
+        "scripts/update-changelog/dist/*.cjs",
+        "scripts/update-changelog/package.json",
+        "scripts/update-changelog/yarn.lock",
+        ".github/workflows/create-github-release.yml",
+        "scripts/upstream-sync/patches/salesforce-release-workflow.patch",
+        "scripts/upstream-sync/snapshots/salesforce-release-workflow.source"
       ],
       "output": []
     }
