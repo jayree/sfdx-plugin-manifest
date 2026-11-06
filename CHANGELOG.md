@@ -1,3 +1,12 @@
+## [6.0.92](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.91...6.0.92) (2026-11-06)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.44.9 to 1.44.11 ([#2548](https://github.com/jayree/sfdx-plugin-manifest/issues/2548)) ([07e0ec6](https://github.com/jayree/sfdx-plugin-manifest/commit/07e0ec60430b21357a060efaaa3a2d6306874b02))
+  * read commit tree and parent headers positionally like git ([#2477](https://github.com/isomorphic-git/isomorphic-git/issues/2477)) ([22a57b7](https://github.com/isomorphic-git/isomorphic-git/commit/22a57b79483ed529045f4595bad96b4e45a2ffed))
+  * use Node's stream module in the Node HTTP client ([#2474](https://github.com/isomorphic-git/isomorphic-git/issues/2474)) ([838aee1](https://github.com/isomorphic-git/isomorphic-git/commit/838aee1202c9be19838240bb58b2ce2664d9f615))
+
 ## [6.0.91](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.90...6.0.91) (2026-11-05)
 
 
