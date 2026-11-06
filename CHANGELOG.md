@@ -1,3 +1,13 @@
+## [6.1.0](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.92...6.1.0) (2026-11-06)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2544](https://github.com/jayree/sfdx-plugin-manifest/issues/2544)) ([f1d6bb5](https://github.com/jayree/sfdx-plugin-manifest/commit/f1d6bb54251920fdecd77b34ab4c094afe4f9c0c))
+  * add NtfcnDefinition metadata type to registry ([#1864](https://github.com/forcedotcom/source-deploy-retrieve/issues/1864)) ([726e504](https://github.com/forcedotcom/source-deploy-retrieve/commit/726e5042f559979426b0ae608fa11602a6286f89))
+  * keep Profile root namespace attributes when merging @W-24745383@ ([#1865](https://github.com/forcedotcom/source-deploy-retrieve/issues/1865)) ([2b63a51](https://github.com/forcedotcom/source-deploy-retrieve/commit/2b63a5125a0599bb8345e21dd36656d54c527d00)), closes [forcedotcom/cli#3677](https://github.com/forcedotcom/cli/issues/3677)
+  * **deps:** bump minimatch from 9.0.9 to 11.0.1 ([#1871](https://github.com/forcedotcom/source-deploy-retrieve/issues/1871)) ([b0744b9](https://github.com/forcedotcom/source-deploy-retrieve/commit/b0744b90a7434f00f26189fc9401ca300d1f68dc))
+
 ## [6.0.92](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.91...6.0.92) (2026-11-06)
 
 
