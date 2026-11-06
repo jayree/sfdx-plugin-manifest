@@ -1,5 +1,17 @@
 {
   "exclude-scripts": ["test:command-reference", "link-check"],
+  "wireit": {
+    "test": {
+      "dependencies": [
+        "test:compile",
+        "test:only",
+        "test:deprecation-policy",
+        "lint",
+        "test:json-schema",
+        "test:release-hooks"
+      ]
+    }
+  },
   "devDepOverrides": [
     "prettier",
     "pretty-quick",

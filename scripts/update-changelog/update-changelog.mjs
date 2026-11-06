@@ -5,16 +5,9 @@ import { URL } from 'url';
 import semver from 'semver';
 import packageJson from 'package-json';
 import { Octokit } from '@octokit/rest';
-import { program } from 'commander';
 import chalk from 'chalk';
 import ora from 'ora';
 import TurndownService from 'turndown';
-
-// Set up commander to parse the --all flag.
-program.option('--all', 'Process all dependency bumps (not only in the latest release entry)').parse(process.argv);
-
-const options = program.opts();
-const updateAll = options.all || false;
 
 const changelogPath = './CHANGELOG.md';
 const GITHUB_TOKEN = process.env['INPUT_GITHUB-TOKEN'] || null;
@@ -265,7 +258,7 @@ function getLatestEntryIndices(lines) {
   return { start: start === -1 ? 0 : start, end };
 }
 
-export async function preCommit(props) {
+export async function updateChangelog({ all = false } = {}) {
   // Use ora spinner for fetching API rate limits.
   const rateSpinner = ora('Fetching API rate limits...').start();
   await logApiLimits();
@@ -281,7 +274,7 @@ export async function preCommit(props) {
     newLines.push(line);
 
     // If the --all flag is not set, process only dependency bumps within the latest release entry.
-    if (!updateAll && (i < latestStart || i >= latestEnd)) continue;
+    if (!all && (i < latestStart || i >= latestEnd)) continue;
 
     if (!line.startsWith('* ')) continue;
     const bump = await processDependencyBump(line);

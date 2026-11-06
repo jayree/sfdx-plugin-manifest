@@ -57,7 +57,7 @@
          with:
            script: |
              core.setFailed('Do not create a prerelease on "main". You can create a prerelease on a branch and when it is merged it will create a non-prerelease Release. For example: 1.0.1-beta.2 will release as 1.0.1 when merged into main.')
-@@ -70,32 +58,33 @@
+@@ -70,32 +58,34 @@
            STEPS_DISTTAG_TAG: ${{ steps.distTag.outputs.tag }}
  
        - name: Generate oclif readme
@@ -89,7 +89,8 @@
 +          skip-on-empty: ${{ github.event_name == 'push' }}
            pre-release: ${{ steps.prereleaseTag.outputs.tag && 'true' || 'false' }}
            pre-release-identifier: ${{ steps.prereleaseTag.outputs.tag }}
-+          pre-commit: scripts/update-changelog/dist/update-changelog.cjs
++          pre-commit: scripts/update-changelog/dist/release-changelog.cjs
++          pre-changelog-generation: scripts/update-changelog/dist/release-version.cjs
 +          input-file: CHANGELOG.md
            # ternary-ish: https://github.com/actions/runner/issues/409#issuecomment-752775072
            output-file: ${{ steps.prereleaseTag.outputs.tag && 'false' || 'CHANGELOG.md' }} # If prerelease, do not write the changelog file
@@ -100,7 +101,7 @@
          if: ${{ steps.changelog.outputs.skipped == 'false' }}
          with:
            name: ${{ steps.changelog.outputs.tag }}
-@@ -105,58 +94,11 @@
+@@ -105,58 +95,11 @@
            prerelease: ${{ steps.prereleaseTag.outputs.tag && 'true' || 'false' }}
            token: ${{ secrets.SVC_CLI_BOT_GITHUB_TOKEN }}
            skipIfReleaseExists: true
