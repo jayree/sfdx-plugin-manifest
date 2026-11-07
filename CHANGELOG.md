@@ -1,3 +1,11 @@
+## [6.2.0](https://github.com/jayree/sfdx-plugin-manifest/compare/6.1.3...6.2.0) (2026-11-07)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2549](https://github.com/jayree/sfdx-plugin-manifest/issues/2549)) ([750a5b1](https://github.com/jayree/sfdx-plugin-manifest/commit/750a5b1fe8f3b2d2df58e1eea438bf3adb845756))
+  * **registry:** add ExperienceContainer metadata type @W-24799147@ ([#1868](https://github.com/forcedotcom/source-deploy-retrieve/issues/1868)) ([d096bbe](https://github.com/forcedotcom/source-deploy-retrieve/commit/d096bbec9589955631b02df56f10b03b8f757480))
+
 ## [6.1.3](https://github.com/jayree/sfdx-plugin-manifest/compare/6.1.2...6.1.3) (2026-11-07)
 
 
