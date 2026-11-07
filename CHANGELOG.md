@@ -1,3 +1,11 @@
+## [6.1.1](https://github.com/jayree/sfdx-plugin-manifest/compare/6.1.0...6.1.1) (2026-11-07)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/sf-plugins-core from 13.0.8 to 13.0.9 ([#2554](https://github.com/jayree/sfdx-plugin-manifest/issues/2554)) ([02dd39c](https://github.com/jayree/sfdx-plugin-manifest/commit/02dd39cc97ab3e785dfae2d0004719e1bf57e403))
+  * **deps:** bump form-data from 4.0.5 to 4.0.6 ([6cf008d](https://github.com/salesforcecli/sf-plugins-core/commit/6cf008df3a95fa977478563f2b47bcda8bf3edca))
+
 ## [6.1.0](https://github.com/jayree/sfdx-plugin-manifest/compare/6.0.92...6.1.0) (2026-11-06)
 
 
