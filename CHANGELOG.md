@@ -1,3 +1,18 @@
+## [6.1.3](https://github.com/jayree/sfdx-plugin-manifest/compare/6.1.2...6.1.3) (2026-11-07)
+
+
+### Bug Fixes
+
+* **deps:** bump @jayree/changelog from 1.2.44 to 1.2.45 ([#2553](https://github.com/jayree/sfdx-plugin-manifest/issues/2553)) ([9c885c3](https://github.com/jayree/sfdx-plugin-manifest/commit/9c885c354ba6ca8bc36cc85d744542bf38ced5ff))
+  * **deps:** bump brace-expansion from 1.1.11 to 1.1.21 ([#1180](https://github.com/jayree/changelog/issues/1180)) ([6ebb891](https://github.com/jayree/changelog/commit/6ebb8919871f99180e93c29bcb8d671dd4b4d53f))
+  * **deps:** bump fast-uri from 3.1.8 to 3.1.9 ([#1176](https://github.com/jayree/changelog/issues/1176)) ([4bbddb9](https://github.com/jayree/changelog/commit/4bbddb93fb3613a490024aec5d60d9a0476388e2))
+  * **deps:** bump marked from 18.1.1 to 18.1.2 ([#1187](https://github.com/jayree/changelog/issues/1187)) ([5cd79cd](https://github.com/jayree/changelog/commit/5cd79cd7f81cc881dda0d63f66522790a392f820))
+  * **deps:** bump marked-terminal from 7.3.0 to 8.0.0 ([#1184](https://github.com/jayree/changelog/issues/1184)) ([717e36c](https://github.com/jayree/changelog/commit/717e36c5f02e2a7a46469e78549f23a4a86277b3))
+  * **deps:** bump minimatch from 3.1.2 to 3.1.5 ([#1181](https://github.com/jayree/changelog/issues/1181)) ([cd98032](https://github.com/jayree/changelog/commit/cd980323134bf9d4c5bdf55ea67fd6a82d8ed716))
+  * **deps:** bump picomatch from 2.3.1 to 2.3.2 ([#1182](https://github.com/jayree/changelog/issues/1182)) ([1de26c6](https://github.com/jayree/changelog/commit/1de26c63775ed1b97e5be17b200503ed5ec495f9))
+  * **deps:** bump serialize-javascript from 7.1.2 to 7.1.4 ([#1178](https://github.com/jayree/changelog/issues/1178)) ([64b372f](https://github.com/jayree/changelog/commit/64b372fb775826cc8c512014ea997a804bf53003))
+  * **deps:** bump undici from 8.12.1 to 8.12.3 ([#1177](https://github.com/jayree/changelog/issues/1177)) ([acaf6a4](https://github.com/jayree/changelog/commit/acaf6a41e2f1b10a6e5ce46159808c24e639255b))
+
 ## [6.1.2](https://github.com/jayree/sfdx-plugin-manifest/compare/6.1.1...6.1.2) (2026-11-07)
 
 
