@@ -1,3 +1,11 @@
+## [6.2.2](https://github.com/jayree/sfdx-plugin-manifest/compare/6.2.1...6.2.2) (2026-11-08)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/kit from 4.0.9 to 4.0.10 ([#2558](https://github.com/jayree/sfdx-plugin-manifest/issues/2558)) ([25e9fa7](https://github.com/jayree/sfdx-plugin-manifest/commit/25e9fa7cfe9b05a2cfb5051c44b74aeb6950e194))
+  * **deps:** bump @salesforce/ts-types from 3.2.3 to 3.2.4 ([23b158e](https://github.com/forcedotcom/kit/commit/23b158ecfaf42090b24db1b0c7078c14af308d97))
+
 ## [6.2.1](https://github.com/jayree/sfdx-plugin-manifest/compare/6.2.0...6.2.1) (2026-11-07)
 
 
