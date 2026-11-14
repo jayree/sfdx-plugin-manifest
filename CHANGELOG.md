@@ -1,3 +1,10 @@
+## [6.2.8](https://github.com/jayree/sfdx-plugin-manifest/compare/6.2.7...6.2.8) (2026-11-14)
+
+
+### Bug Fixes
+
+* **deps:** bump graceful-fs from 4.2.11 to 4.2.12 ([#2566](https://github.com/jayree/sfdx-plugin-manifest/issues/2566)) ([bce3f21](https://github.com/jayree/sfdx-plugin-manifest/commit/bce3f215f032c540cec7600bf14bf0f95f167713))
+
 ## [6.2.7](https://github.com/jayree/sfdx-plugin-manifest/compare/6.2.6...6.2.7) (2026-11-14)
 
 
