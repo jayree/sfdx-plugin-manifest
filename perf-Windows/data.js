@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1794622891631,
+  "lastUpdate": 1794623528511,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -70791,6 +70791,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 329,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c3dbb1d54b2f97a6ed050dc34b5262e74c5bf701",
+          "message": "fix(deps): bump graceful-fs from 4.2.11 to 4.2.12\n\nBumps [graceful-fs](https://github.com/isaacs/node-graceful-fs) from 4.2.11 to 4.2.12.\n- [Commits](https://github.com/isaacs/node-graceful-fs/compare/v4.2.11...v4.2.12)\n\n---\nupdated-dependencies:\n- dependency-name: graceful-fs\n  dependency-version: 4.2.12\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-11-14T02:30:00Z",
+          "tree_id": "00e21fe1f8b72a3066e62fff7c010498ab665145",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/c3dbb1d54b2f97a6ed050dc34b5262e74c5bf701"
+        },
+        "date": 1794623520024,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 1640,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 964,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 144,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 218,
             "unit": "ms"
           }
         ]
