@@ -1,3 +1,16 @@
+## [6.2.6](https://github.com/jayree/sfdx-plugin-manifest/compare/6.2.5...6.2.6) (2026-11-14)
+
+
+### Bug Fixes
+
+* **deps:** bump fast-xml-parser from 5.12.0 to 5.12.1 ([#2562](https://github.com/jayree/sfdx-plugin-manifest/issues/2562)) ([b45f94b](https://github.com/jayree/sfdx-plugin-manifest/commit/b45f94b0391f6e42332fe3c4f0c5eb0f8813e5cd))
+  * fix: correct demo parser and builder options by @arba-octo in https://github.com/NaturalIntelligence/fast-xml-parser/pull/897
+  * Bump github/codeql-action/init from 4.36.2 to 4.39.1 by @dependabot[bot] in https://github.com/NaturalIntelligence/fast-xml-parser/pull/907
+  * Bump github/codeql-action/analyze from 4.36.2 to 4.39.1 by @dependabot[bot] in https://github.com/NaturalIntelligence/fast-xml-parser/pull/905
+  * perf: skip quoted attribute values in one step (long SVG path data 4-5x faster) by @deadstrobe5 in https://github.com/NaturalIntelligence/fast-xml-parser/pull/919
+  * @arba-octo made their first contribution in https://github.com/NaturalIntelligence/fast-xml-parser/pull/897
+  * @deadstrobe5 made their first contribution in https://github.com/NaturalIntelligence/fast-xml-parser/pull/919
+
 ## [6.2.5](https://github.com/jayree/sfdx-plugin-manifest/compare/6.2.4...6.2.5) (2026-11-14)
 
 
