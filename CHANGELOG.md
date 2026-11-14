@@ -1,3 +1,14 @@
+## [6.2.7](https://github.com/jayree/sfdx-plugin-manifest/compare/6.2.6...6.2.7) (2026-11-14)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.44.11 to 1.44.13 ([#2563](https://github.com/jayree/sfdx-plugin-manifest/issues/2563)) ([b66ad06](https://github.com/jayree/sfdx-plugin-manifest/commit/b66ad0698d61da7c717b79f413f655964b08ae07))
+  * include the UMD bundle's license file in the npm package ([#2475](https://github.com/isomorphic-git/isomorphic-git/issues/2475)) ([92ca66f](https://github.com/isomorphic-git/isomorphic-git/commit/92ca66f67a01bc2c74d49d67410e7fb5bc2e5ddf))
+  * separate conflict markers from unterminated lines ([#2492](https://github.com/isomorphic-git/isomorphic-git/issues/2492)) ([350251a](https://github.com/isomorphic-git/isomorphic-git/commit/350251a00ba74b5206e65f5bf1f00736c495e01c))
+  * hash SHA-1 with node:crypto in the Node build ([#2476](https://github.com/isomorphic-git/isomorphic-git/issues/2476)) ([7cdcbe6](https://github.com/isomorphic-git/isomorphic-git/commit/7cdcbe61477b1279d06e970e18fd80cca19d4308))
+  * strip credentials from the remote URL in the fetch head description ([#2478](https://github.com/isomorphic-git/isomorphic-git/issues/2478)) ([f9f6544](https://github.com/isomorphic-git/isomorphic-git/commit/f9f6544c12ed318fe5f41cbd54060d32beb95672)), closes [#2247](https://github.com/isomorphic-git/isomorphic-git/issues/2247)
+
 ## [6.2.6](https://github.com/jayree/sfdx-plugin-manifest/compare/6.2.5...6.2.6) (2026-11-14)
 
 
