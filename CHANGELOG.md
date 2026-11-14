@@ -1,3 +1,11 @@
+## [6.2.3](https://github.com/jayree/sfdx-plugin-manifest/compare/6.2.2...6.2.3) (2026-11-14)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 9.4.5 to 9.4.6 ([#2560](https://github.com/jayree/sfdx-plugin-manifest/issues/2560)) ([9efcf51](https://github.com/jayree/sfdx-plugin-manifest/commit/9efcf51ecc667f52b6d5065fac8e765d3bb7c39a))
+  * **deps:** bump zod from 4.1.13 to 4.6.6 ([1ab35f5](https://github.com/forcedotcom/sfdx-core/commit/1ab35f56f655e84223613d648a6557786cb6d11b))
+
 ## [6.2.2](https://github.com/jayree/sfdx-plugin-manifest/compare/6.2.1...6.2.2) (2026-11-08)
 
 
