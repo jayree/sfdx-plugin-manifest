@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1794778513743,
+  "lastUpdate": 1794779061091,
   "repoUrl": "https://github.com/jayree/sfdx-plugin-manifest",
   "entries": {
     "Benchmark": [
@@ -71451,6 +71451,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "eda-GitRepo-win32",
             "value": 239,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a7240dfee58a579c4d4f9aba59159eec78bf012b",
+          "message": "fix(deps): bump @jayree/changelog from 1.2.45 to 1.2.46\n\nBumps [@jayree/changelog](https://github.com/jayree/changelog) from 1.2.45 to 1.2.46.\n- [Release notes](https://github.com/jayree/changelog/releases)\n- [Changelog](https://github.com/jayree/changelog/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/jayree/changelog/compare/v1.2.45...v1.2.46)\n\n---\nupdated-dependencies:\n- dependency-name: \"@jayree/changelog\"\n  dependency-version: 1.2.46\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-11-15T21:41:54Z",
+          "tree_id": "de5e6e7c9f5aa6902b48cbea8cfb860e7f199ccb",
+          "url": "https://github.com/jayree/sfdx-plugin-manifest/commit/a7240dfee58a579c4d4f9aba59159eec78bf012b"
+        },
+        "date": 1794779047687,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "eda-ComponentSetExtra-win32",
+            "value": 3298,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitDiffResolver-win32",
+            "value": 2040,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-VirtualTreeContainerExtra-win32",
+            "value": 329,
+            "unit": "ms"
+          },
+          {
+            "name": "eda-GitRepo-win32",
+            "value": 393,
             "unit": "ms"
           }
         ]
