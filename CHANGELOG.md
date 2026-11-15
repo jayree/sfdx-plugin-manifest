@@ -1,3 +1,11 @@
+## [6.2.9](https://github.com/jayree/sfdx-plugin-manifest/compare/6.2.8...6.2.9) (2026-11-15)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.44.13 to 1.44.14 ([#2570](https://github.com/jayree/sfdx-plugin-manifest/issues/2570)) ([827c422](https://github.com/jayree/sfdx-plugin-manifest/commit/827c422d560387e40de1d54fdea8c3294a9f7b09))
+  * symlinks on merge and cherry-pick ([#2508](https://github.com/isomorphic-git/isomorphic-git/issues/2508)) ([ec00efa](https://github.com/isomorphic-git/isomorphic-git/commit/ec00efa1413a344faac1085383ff9a7ee5d96fde))
+
 ## [6.2.8](https://github.com/jayree/sfdx-plugin-manifest/compare/6.2.7...6.2.8) (2026-11-14)
 
 
