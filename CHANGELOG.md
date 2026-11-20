@@ -1,3 +1,13 @@
+## [6.3.1](https://github.com/jayree/sfdx-plugin-manifest/compare/6.3.0...6.3.1) (2026-11-20)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.44.14 to 1.44.17 ([#2576](https://github.com/jayree/sfdx-plugin-manifest/issues/2576)) ([694be0c](https://github.com/jayree/sfdx-plugin-manifest/commit/694be0c72aa09e4529f27e3b75947fd3ba133442))
+  * support negative refspecs and refspecs without a destination ([#2467](https://github.com/isomorphic-git/isomorphic-git/issues/2467)) ([eff2dd8](https://github.com/isomorphic-git/isomorphic-git/commit/eff2dd8b1c3b030c44e1d41494c6721f734867ee))
+  * remove LGPL code from the codebase [#2512](https://github.com/isomorphic-git/isomorphic-git/issues/2512) ([#2514](https://github.com/isomorphic-git/isomorphic-git/issues/2514)) ([9feca9d](https://github.com/isomorphic-git/isomorphic-git/commit/9feca9d02b914fce3c415a8a508f0fc655366bc8))
+  * drop credentials when a redirect changes the origin ([#2446](https://github.com/isomorphic-git/isomorphic-git/issues/2446)) ([514544e](https://github.com/isomorphic-git/isomorphic-git/commit/514544e88230197e101c07f082cf26902503f4f0)), closes [#2433](https://github.com/isomorphic-git/isomorphic-git/issues/2433)
+
 ## [6.3.0](https://github.com/jayree/sfdx-plugin-manifest/compare/6.2.11...6.3.0) (2026-11-20)
 
 
