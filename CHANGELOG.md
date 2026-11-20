@@ -1,3 +1,11 @@
+## [6.2.11](https://github.com/jayree/sfdx-plugin-manifest/compare/6.2.10...6.2.11) (2026-11-20)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 9.4.6 to 9.5.0 ([#2575](https://github.com/jayree/sfdx-plugin-manifest/issues/2575)) ([9fde634](https://github.com/jayree/sfdx-plugin-manifest/commit/9fde634d03280d7d6a8b82942e696f3a96588cfe))
+  * add ExtensionConfig to sandbox create and refresh @W-23860697@ ([910ed6f](https://github.com/forcedotcom/sfdx-core/commit/910ed6f58f8158f7b37e250820e14aa747ad899d))
+
 ## [6.2.10](https://github.com/jayree/sfdx-plugin-manifest/compare/6.2.9...6.2.10) (2026-11-15)
 
 
