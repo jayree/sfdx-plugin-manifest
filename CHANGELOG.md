@@ -1,3 +1,11 @@
+## [6.3.0](https://github.com/jayree/sfdx-plugin-manifest/compare/6.2.11...6.3.0) (2026-11-20)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2577](https://github.com/jayree/sfdx-plugin-manifest/issues/2577)) ([bc0cd29](https://github.com/jayree/sfdx-plugin-manifest/commit/bc0cd29c334af7a9e2a5c767a8d438623cf8ed16))
+  * @W-24923093: add DocProcDefinition metadata type to registry ([#1872](https://github.com/forcedotcom/source-deploy-retrieve/issues/1872)) ([b13e11a](https://github.com/forcedotcom/source-deploy-retrieve/commit/b13e11a389cf3d29f2647d498c830321333a8f82))
+
 ## [6.2.11](https://github.com/jayree/sfdx-plugin-manifest/compare/6.2.10...6.2.11) (2026-11-20)
 
 
