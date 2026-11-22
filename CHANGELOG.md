@@ -1,3 +1,11 @@
+## [6.3.4](https://github.com/jayree/sfdx-plugin-manifest/compare/6.3.3...6.3.4) (2026-11-22)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/core from 9.5.0 to 9.6.0 ([#2580](https://github.com/jayree/sfdx-plugin-manifest/issues/2580)) ([aa245c0](https://github.com/jayree/sfdx-plugin-manifest/commit/aa245c03bf2192112048217e3d48376d4e5906f1))
+  * add scratch org error code C-1038 for External Client App trust failure ([99dd425](https://github.com/forcedotcom/sfdx-core/commit/99dd42556598cb9f45fd5fd11a1844a862ce2bad))
+
 ## [6.3.3](https://github.com/jayree/sfdx-plugin-manifest/compare/6.3.2...6.3.3) (2026-11-22)
 
 
