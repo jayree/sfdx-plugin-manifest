@@ -1,3 +1,11 @@
+## [6.3.2](https://github.com/jayree/sfdx-plugin-manifest/compare/6.3.1...6.3.2) (2026-11-22)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.44.17 to 1.44.18 ([#2581](https://github.com/jayree/sfdx-plugin-manifest/issues/2581)) ([3ca018e](https://github.com/jayree/sfdx-plugin-manifest/commit/3ca018efe34d3bd4cd6cb810cc8983b8887aef16))
+  * fix parsing tree entry ([#2521](https://github.com/isomorphic-git/isomorphic-git/issues/2521)) ([4f66eb2](https://github.com/isomorphic-git/isomorphic-git/commit/4f66eb2c111511a1a081fe88b8506d0bcc830a0c))
+
 ## [6.3.1](https://github.com/jayree/sfdx-plugin-manifest/compare/6.3.0...6.3.1) (2026-11-20)
 
 
