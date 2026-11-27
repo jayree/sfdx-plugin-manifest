@@ -1,3 +1,12 @@
+## [6.4.0](https://github.com/jayree/sfdx-plugin-manifest/compare/6.3.6...6.4.0) (2026-11-27)
+
+
+### Bug Fixes
+
+* **deps:** bump @salesforce/source-deploy-retrieve ([#2582](https://github.com/jayree/sfdx-plugin-manifest/issues/2582)) ([989faf7](https://github.com/jayree/sfdx-plugin-manifest/commit/989faf72bb2dca5ec05c4e4125e9a523efbfa044))
+  * TransportProvider abstraction and DeployPipeline scaffolding @W-24222968@ ([#1840](https://github.com/forcedotcom/source-deploy-retrieve/issues/1840)) ([e10b656](https://github.com/forcedotcom/source-deploy-retrieve/commit/e10b6564d5946243ce2e90376a61b1f655fe6157)), closes [#1866](https://github.com/forcedotcom/source-deploy-retrieve/issues/1866) [#1873](https://github.com/forcedotcom/source-deploy-retrieve/issues/1873)
+  * **deps:** bump proxy-agent to v8 to drop vulnerable basic-ftp @W-25010511@ ([#1874](https://github.com/forcedotcom/source-deploy-retrieve/issues/1874)) ([c1fd74e](https://github.com/forcedotcom/source-deploy-retrieve/commit/c1fd74e2654117b9be7842f281a06a121ceadf8a))
+
 ## [6.3.6](https://github.com/jayree/sfdx-plugin-manifest/compare/6.3.5...6.3.6) (2026-11-27)
 
 
