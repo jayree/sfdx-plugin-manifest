@@ -1,3 +1,11 @@
+## [6.3.6](https://github.com/jayree/sfdx-plugin-manifest/compare/6.3.5...6.3.6) (2026-11-27)
+
+
+### Bug Fixes
+
+* **deps:** bump isomorphic-git from 1.44.18 to 1.44.19 ([#2584](https://github.com/jayree/sfdx-plugin-manifest/issues/2584)) ([df32128](https://github.com/jayree/sfdx-plugin-manifest/commit/df32128b22cc5f763dd30f7512f937b35ef50e46))
+  * stop push from re-sending history after a merge ([#2458](https://github.com/isomorphic-git/isomorphic-git/issues/2458)) ([37cabc7](https://github.com/isomorphic-git/isomorphic-git/commit/37cabc75d2c09aa4140db321fc889ceaec180eed)), closes [#1162](https://github.com/isomorphic-git/isomorphic-git/issues/1162)
+
 ## [6.3.5](https://github.com/jayree/sfdx-plugin-manifest/compare/6.3.4...6.3.5) (2026-11-27)
 
 
